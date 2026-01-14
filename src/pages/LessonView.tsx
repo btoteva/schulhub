@@ -1,77 +1,110 @@
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
-
-interface DictionaryWord {
-  word: string;
-  translation: string;
-  example: string;
-  example_translation: string;
-}
-
-interface DictionarySection {
-  id: string;
-  headingId: string;
-  title: string;
-  words: DictionaryWord[];
-}
+import React, { useState, useRef, useEffect } from 'react';
+import { useParams, Link, Navigate } from 'react-router-dom';
+import { FaArrowLeft, FaPlay, FaPause, FaVolumeUp } from 'react-icons/fa';
+import { getLessonById } from '../data/lessons';
 
 const LessonView: React.FC = () => {
   const { courseId, lessonId } = useParams<{ courseId: string; lessonId: string }>();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'content' | 'dictionary'>('content');
+  const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
+  const [isPlayingAll, setIsPlayingAll] = useState(false);
+  const [currentPlayAllIndex, setCurrentPlayAllIndex] = useState(0);
+  const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const isPlayingAllRef = useRef(false);
+  const currentPlayAllIndexRef = useRef(0);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Dictionary data for lesson 5.3
-  const dictionaryData: DictionarySection[] = [
-    {
-      id: "nomen",
-      headingId: "nomen-heading",
-      title: "🟩 Съществителни (Nomen)",
-      words: [
-        { word: "die Pumpe, -n", translation: "помпа", example: "Das Herz erfüllt die Funktion einer 'Pumpe'...", example_translation: "Сърцето изпълнява функцията на 'помпа'..." },
-        { word: "das Leben, -", translation: "живот", example: "...während des ganzen Lebens des Menschen...", example_translation: "...през целия живот на човека..." },
-        { word: "der Mensch, -en", translation: "човек", example: "...des ganzen Lebens des Menschen...", example_translation: "...на целия живот на човека..." },
-        { word: "das Herz-Kreislauf-System, -e", translation: "сърдечно-съдова система", example: "Das Herz-Kreislauf-System ist eine Verbindung von Organen...", example_translation: "Сърдечно-съдовата система е съвкупност от органи..." },
-        { word: "das Organ, -e", translation: "орган", example: "...eine Verbindung von Organen...", example_translation: "...съвкупност от органи..." },
-        { word: "der Fluss, Flüsse", translation: "поток", example: "...die den Fluss des Bluts gewährleisten.", example_translation: "...които осигуряват потока на кръв." },
-        { word: "die Lymphe", translation: "лимфа", example: "...den Fluss des Bluts und der Lymphe...", example_translation: "...потока на кръв и лимфа..." },
-        { word: "der Organismus, -men", translation: "организъм", example: "...im Organismus gewährleisten.", example_translation: "...осигуряват в организма." },
-        { word: "das Blutgefäß, -e", translation: "кръвоносен съд", example: "...aus Blut- und Lymphgefäßen...", example_translation: "...от кръвоносни и лимфни съдове..." },
-        { word: "die Arterie, -n", translation: "артерия", example: "Das Blutkreislaufsystem besteht aus Herz, Arterien...", example_translation: "Кръвоносната система се състои от сърце, артерии..." },
-        { word: "die Kapillare, -n", translation: "капиляр", example: "...besteht aus Herz, Arterien, Kapillaren und Venen.", example_translation: "...състои се от сърце, артерии, капиляри и вени." },
-        { word: "die Vene, -n", translation: "вена", example: "...besteht aus Herz, Arterien, Kapillaren und Venen.", example_translation: "...състои се от сърце, артерии, капиляри и вени." },
-        { word: "das Herz, -en", translation: "сърце", example: "Das Herz ist ein muskuläres Hohlorgan...", example_translation: "Сърцето е мускулест кух орган..." },
-        { word: "der Vorhof, Vorhöfe", translation: "предсърдие", example: "...zwei Vorhöfen und zwei Kammern.", example_translation: "...две предсърдия и две камери." },
-        { word: "die Kammer, -n", translation: "камера (на сърцето)", example: "...zwei Vorhöfen und zwei Kammern.", example_translation: "...две предсърдия и две камери." },
-        { word: "die Aorta", translation: "аорта", example: "...das größte Blutgefäß ab die Aorta.", example_translation: "...най-големият кръвоносен съд - аортата." }
-      ]
-    },
-    {
-      id: "verben",
-      headingId: "verben-heading",
-      title: "🟦 Глаголи (Verben)",
-      words: [
-        { word: "arbeiten", translation: "работя", example: "...die während des ganzen Lebens... arbeitet?", example_translation: "...която работи през целия живот...?" },
-        { word: "aufhören", translation: "спирам, преставам", example: "...ohne aufzuhören arbeitet?", example_translation: "...работи без да спира?" },
-        { word: "pumpen", translation: "помпам", example: "...die das Blut... hinein-pumpt...", example_translation: "...която изпомпва кръвта..." },
-        { word: "fließen", translation: "тека", example: "Durch die linke Herzhälfte fließt Arterienblut...", example_translation: "През лявата половина на сърцето тече артериална кръв..." },
-        { word: "verhindern", translation: "предотвратявам", example: "...und den Rückfluss zu den Kammern verhindern.", example_translation: "...и предотвратяват връщането в камерите." }
-      ]
-    },
-    {
-      id: "adj",
-      headingId: "adj-heading",
-      title: "🟨 Прилагателни / наречия (Adjektive & Adverbien)",
-      words: [
-        { word: "muskulär", translation: "мускулен", example: "Das Herz ist ein muskuläres Hohlorgan...", example_translation: "Сърцето е мускулест кух орган..." },
-        { word: "rhythmisch", translation: "ритмичен", example: "...das rhythmisch kontrahiert...", example_translation: "...който се съкращава ритмично..." },
-        { word: "menschlich", translation: "човешки", example: "Das menschliche Herz besteht aus vier Teilen...", example_translation: "Човешкото сърце се състои от четири части..." }
-      ]
+  // Stop speech when component unmounts
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+    };
+  }, []);
+
+  // Load lesson data dynamically
+  const lessonData = getLessonById(Number(courseId), lessonId || '');
+
+  // If lesson not found, redirect back
+  if (!lessonData) {
+    return <Navigate to={`/lessons/${courseId}`} replace />;
+  }
+
+  const dictionaryData = lessonData.dictionary;
+
+  // Split content into sentences
+  const sentences = lessonData.content
+    ? lessonData.content
+        .split('\n\n')
+        .filter(s => s.trim().length > 0)
+    : [];
+
+  // Function to speak a single sentence
+  const speakSentence = (text: string, index: number, autoPlay: boolean = false) => {
+    // If already speaking this sentence and not auto-playing, stop it
+    if (currentSpeaking === index && !autoPlay) {
+      window.speechSynthesis.cancel();
+      setCurrentSpeaking(null);
+      isPlayingAllRef.current = false;
+      setIsPlayingAll(false);
+      return;
     }
-  ];
+
+    // Stop any current speech
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'de-DE'; // German language
+    utterance.rate = 0.9; // Slightly slower for better comprehension
+
+    utterance.onend = () => {
+      setCurrentSpeaking(null);
+
+      // If playing all, move to next sentence
+      if (isPlayingAllRef.current) {
+        const nextIndex = currentPlayAllIndexRef.current + 1;
+        if (nextIndex < sentences.length) {
+          currentPlayAllIndexRef.current = nextIndex;
+          setCurrentPlayAllIndex(nextIndex);
+          setTimeout(() => {
+            speakSentence(sentences[nextIndex], nextIndex, true);
+          }, 500); // Small pause between sentences
+        } else {
+          isPlayingAllRef.current = false;
+          setIsPlayingAll(false);
+          currentPlayAllIndexRef.current = 0;
+          setCurrentPlayAllIndex(0);
+        }
+      }
+    };
+
+    speechSynthRef.current = utterance;
+    setCurrentSpeaking(index);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Function to play all sentences sequentially
+  const togglePlayAll = () => {
+    if (isPlayingAll) {
+      // Pause
+      window.speechSynthesis.cancel();
+      isPlayingAllRef.current = false;
+      setIsPlayingAll(false);
+      setCurrentSpeaking(null);
+    } else {
+      // Start playing from the beginning or resume
+      isPlayingAllRef.current = true;
+      setIsPlayingAll(true);
+      const startIndex = currentPlayAllIndex;
+      currentPlayAllIndexRef.current = startIndex;
+      if (sentences.length > 0) {
+        speakSentence(sentences[startIndex], startIndex, true);
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
@@ -137,49 +170,141 @@ const LessonView: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           {/* Lesson Title */}
           <h1 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-            5.3 BLUTKREISLAUF
+            {lessonData.title}
           </h1>
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-300">
-            HERZ-KREISLAUF-SYSTEM. HERZTÄTIGKEIT.
+            {lessonData.subtitle}
           </h2>
 
-          {/* Dictionary Sections */}
-          {dictionaryData.map((section) => (
-            <div key={section.id} className="mb-16">
-              <h3 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">
-                {section.title}
-              </h3>
+          {/* Tab Navigation */}
+          <div className="flex gap-4 mb-8 border-b border-gray-700">
+            <button
+              onClick={() => setActiveTab('content')}
+              className={`px-6 py-3 font-semibold transition-all ${
+                activeTab === 'content'
+                  ? 'text-green-400 border-b-2 border-green-400'
+                  : 'text-gray-400 hover:text-gray-300'
+              }`}
+            >
+              Съдържание на урока
+            </button>
+            <button
+              onClick={() => setActiveTab('dictionary')}
+              className={`px-6 py-3 font-semibold transition-all ${
+                activeTab === 'dictionary'
+                  ? 'text-green-400 border-b-2 border-green-400'
+                  : 'text-gray-400 hover:text-gray-300'
+              }`}
+            >
+              Речник
+            </button>
+          </div>
 
-              <div className="space-y-6">
-                {section.words.map((wordData, index) => (
-                  <div
-                    key={index}
-                    className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <div className="mb-3">
-                          <span className="text-2xl font-bold text-green-400">{wordData.word}</span>
-                          <span className="text-xl text-gray-400 ml-3">→ {wordData.translation}</span>
-                        </div>
-                        <div className="space-y-2">
-                          <p className="text-gray-300 italic">
-                            <span className="text-blue-400 font-semibold">DE:</span> {wordData.example}
-                          </p>
-                          <p className="text-gray-400">
-                            <span className="text-green-400 font-semibold">BG:</span> {wordData.example_translation}
-                          </p>
-                        </div>
-                      </div>
+          {/* Content Tab */}
+          {activeTab === 'content' && lessonData.content && (
+            <div>
+              {/* Play All Button */}
+              <div className="mb-6 flex justify-end">
+                <button
+                  onClick={togglePlayAll}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 ${
+                    isPlayingAll
+                      ? 'bg-red-600 hover:bg-red-700'
+                      : 'bg-gradient-to-r from-green-500 to-emerald-600 hover:shadow-lg'
+                  }`}
+                >
+                  {isPlayingAll ? (
+                    <>
+                      <FaPause />
+                      <span>Пауза</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaPlay />
+                      <span>Пусни всички</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Content with individual sentence buttons */}
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
+                <div className="prose prose-invert prose-lg max-w-none space-y-4">
+                  {sentences.map((sentence, index) => (
+                    <div
+                      key={index}
+                      className={`flex items-start gap-3 p-4 rounded-lg transition-all ${
+                        currentSpeaking === index
+                          ? 'bg-green-900/30 border-l-4 border-green-500'
+                          : 'hover:bg-gray-800/50'
+                      }`}
+                    >
+                      <button
+                        onClick={() => speakSentence(sentence, index)}
+                        className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110 ${
+                          currentSpeaking === index
+                            ? 'bg-red-600 hover:bg-red-700 animate-pulse'
+                            : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg'
+                        }`}
+                        title={currentSpeaking === index ? 'Спри' : 'Слушай'}
+                      >
+                        {currentSpeaking === index ? (
+                          <FaPause className="text-white text-sm" />
+                        ) : (
+                          <FaVolumeUp className="text-white text-sm" />
+                        )}
+                      </button>
+                      <p className="text-gray-300 leading-relaxed flex-1">
+                        {sentence}
+                      </p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
+          )}
+
+          {/* Dictionary Tab */}
+          {activeTab === 'dictionary' && (
+            <div>
+              {dictionaryData.map((section) => (
+                <div key={section.id} className="mb-16">
+                  <h3 className="text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">
+                    {section.title}
+                  </h3>
+
+                  <div className="space-y-6">
+                    {section.words.map((wordData, index) => (
+                      <div
+                        key={index}
+                        className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
+                            {index + 1}
+                          </div>
+                          <div className="flex-1">
+                            <div className="mb-3">
+                              <span className="text-2xl font-bold text-green-400">{wordData.word}</span>
+                              <span className="text-xl text-gray-400 ml-3">→ {wordData.translation}</span>
+                            </div>
+                            <div className="space-y-2">
+                              <p className="text-gray-300 italic">
+                                <span className="text-blue-400 font-semibold">DE:</span> {wordData.example}
+                              </p>
+                              <p className="text-gray-400">
+                                <span className="text-green-400 font-semibold">BG:</span> {wordData.example_translation}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
 

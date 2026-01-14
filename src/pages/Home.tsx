@@ -120,13 +120,6 @@ const Home: React.FC = () => {
             <HeroIllustration subject={subjects[currentSubject]} />
           </div>
 
-          <div className="text-center mt-12">
-            <button className="group relative bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white px-12 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/50 transition-all transform hover:scale-105">
-              <span className="relative z-10">Започнете сега</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </button>
-          </div>
-
           {/* Dots indicator */}
           <div className="flex justify-center gap-3 mt-8">
             {subjects.map((_, index) => (
