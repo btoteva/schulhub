@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(taskkill //F //PID 3628)",
+      "Bash(git add:*)",
+      "Bash(if exist nul del /F nul)"
+    ]
+  }
+}
