@@ -109,7 +109,7 @@ const Home: React.FC = () => {
               <FaBook className="text-5xl text-blue-400" />
             </div>
             <p className="text-2xl font-semibold mb-2 text-white">
-              Вашата платформа за интерактивно учене
+              Платформа за интерактивно учене
             </p>
             <p className="text-lg text-gray-400">
               Немски • Биология • География
