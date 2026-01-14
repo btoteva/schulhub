@@ -101,12 +101,7 @@ const Lessons: React.FC = () => {
               <FaArrowLeft />
               <span>Назад</span>
             </Link>
-            <Link
-              to="/"
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105"
-            >
-              Начало
-            </Link>
+            
           </div>
 
           <div className="flex items-center gap-8 mb-6">
