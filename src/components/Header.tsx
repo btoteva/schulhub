@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaGraduationCap, FaBook } from "react-icons/fa";
+import FontSettings from "./FontSettings";
 
 const Header: React.FC = () => {
   return (
-    <header className="bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 border-b border-slate-700/50 shadow-2xl backdrop-blur-sm">
+    <header className="bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 border-b border-slate-700/50 shadow-2xl backdrop-blur-sm relative z-[200]">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group cursor-pointer">
@@ -19,7 +20,7 @@ const Header: React.FC = () => {
             <FaBook className="text-3xl text-blue-400 drop-shadow-lg group-hover:scale-110 transition-transform" />
           </Link>
 
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 items-center">
             <Link
               to="/"
               className="text-gray-300 hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
@@ -44,6 +45,9 @@ const Header: React.FC = () => {
             >
               Контакти
             </a>
+            <div className="border-l border-gray-700 pl-8">
+              <FontSettings />
+            </div>
           </nav>
 
           <button className="md:hidden text-white hover:text-yellow-400 transition-colors">
