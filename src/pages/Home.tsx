@@ -1,12 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FaBook, FaGlobeAmericas, FaMicroscope, FaGraduationCap, FaClock, FaUserTie } from 'react-icons/fa';
-import { MdScience, MdLanguage, MdPublic } from 'react-icons/md';
-import coursesData from '../data/courses.json';
-import { Course } from '../types/Course';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {
+  FaBook,
+  FaGlobeAmericas,
+  FaMicroscope,
+  FaGraduationCap,
+  FaClock,
+  FaUserTie,
+} from "react-icons/fa";
+import { MdScience, MdLanguage, MdPublic } from "react-icons/md";
+import coursesData from "../data/courses.json";
+import { Course } from "../types/Course";
 
 const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
-  if (subject === 'german') {
+  if (subject === "german") {
     return (
       <div className="relative w-full h-64 flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-red-500/20 to-gray-900/20 rounded-3xl blur-2xl"></div>
@@ -23,7 +30,7 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
     );
   }
 
-  if (subject === 'biology') {
+  if (subject === "biology") {
     return (
       <div className="relative w-full h-64 flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-emerald-500/20 to-teal-600/20 rounded-3xl blur-2xl"></div>
@@ -59,7 +66,7 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
 
 const Home: React.FC = () => {
   const courses: Course[] = coursesData;
-  const subjects = ['german', 'biology', 'geography'];
+  const subjects = ["german", "biology", "geography"];
   const [currentSubject, setCurrentSubject] = useState(0);
 
   useEffect(() => {
@@ -70,23 +77,23 @@ const Home: React.FC = () => {
   }, []);
 
   const getSubjectIcon = (title: string) => {
-    if (title.includes('Немски')) {
+    if (title.includes("Немски")) {
       return <MdLanguage className="text-6xl text-yellow-400 mx-auto mb-4" />;
     }
-    if (title.includes('Биология')) {
+    if (title.includes("Биология")) {
       return <MdScience className="text-6xl text-green-400 mx-auto mb-4" />;
     }
     return <MdPublic className="text-6xl text-blue-400 mx-auto mb-4" />;
   };
 
   const getSubjectGradient = (title: string) => {
-    if (title.includes('Немски')) {
-      return 'from-yellow-500 to-orange-600';
+    if (title.includes("Немски")) {
+      return "from-yellow-500 to-orange-600";
     }
-    if (title.includes('Биология')) {
-      return 'from-green-500 to-emerald-600';
+    if (title.includes("Биология")) {
+      return "from-green-500 to-emerald-600";
     }
-    return 'from-blue-500 to-indigo-600';
+    return "from-blue-500 to-indigo-600";
   };
 
   return (
@@ -100,38 +107,15 @@ const Home: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <FaGraduationCap className="text-5xl text-yellow-400" />
-              <h2 className="text-6xl font-bold bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400 bg-clip-text text-transparent">
-                SchulHub
-              </h2>
-              <FaBook className="text-5xl text-blue-400" />
-            </div>
-            <p className="text-2xl font-semibold mb-2 text-white">
+          <div className="text-center">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
               Платформа за интерактивно учене
+            </h2>
+            <p className="text-lg text-gray-300 mt-4">
+              <span className="text-yellow-400 font-semibold">Немски</span> •{" "}
+              <span className="text-green-400 font-semibold">Биология</span> •{" "}
+              <span className="text-blue-400 font-semibold">География</span>
             </p>
-            <p className="text-lg text-gray-400">
-              Немски • Биология • География
-            </p>
-          </div>
-
-          <div className="transition-all duration-1000 ease-in-out">
-            <HeroIllustration subject={subjects[currentSubject]} />
-          </div>
-
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-3 mt-8">
-            {subjects.map((_, index) => (
-              <div
-                key={index}
-                className={`h-2 rounded-full transition-all ${
-                  index === currentSubject
-                    ? 'bg-gradient-to-r from-yellow-400 to-orange-500 w-12'
-                    : 'bg-gray-600 w-2'
-                }`}
-              />
-            ))}
           </div>
         </div>
       </section>
@@ -151,12 +135,14 @@ const Home: React.FC = () => {
               key={course.id}
               className="group relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-700 hover:border-transparent transform hover:scale-105"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient(course.title)} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient(
+                  course.title
+                )} opacity-0 group-hover:opacity-10 transition-opacity`}
+              ></div>
 
               <div className="relative p-8">
-                <div className="mb-6">
-                  {getSubjectIcon(course.title)}
-                </div>
+                <div className="mb-6">{getSubjectIcon(course.title)}</div>
 
                 <div className="flex items-center justify-end mb-4">
                   <span className="text-gray-400 text-sm flex items-center gap-1">
@@ -179,7 +165,11 @@ const Home: React.FC = () => {
                     {course.duration}
                   </span>
                   <Link to={`/lessons/${course.id}`}>
-                    <button className={`bg-gradient-to-r ${getSubjectGradient(course.title)} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}>
+                    <button
+                      className={`bg-gradient-to-r ${getSubjectGradient(
+                        course.title
+                      )} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
+                    >
                       Виж повече
                     </button>
                   </Link>
@@ -194,7 +184,6 @@ const Home: React.FC = () => {
           ))}
         </div>
       </section>
-
 
       {/* Footer */}
       <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50">
