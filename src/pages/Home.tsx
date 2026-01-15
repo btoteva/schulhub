@@ -4,13 +4,19 @@ import {
   FaBook,
   FaGlobeAmericas,
   FaMicroscope,
-  FaGraduationCap,
   FaClock,
-  FaUserTie,
 } from "react-icons/fa";
 import { MdScience, MdLanguage, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
 import { Course } from "../types/Course";
+import { useLanguage } from "../contexts/LanguageContext";
+
+// Lesson counts based on actual data in Lessons.tsx
+const actualLessonCounts: { [key: number]: number } = {
+  1: 5, // German - 5 lessons in Grundlagen section
+  2: 5, // Biology - 5 lessons in HERZ-KREISLAUF-SYSTEM section
+  3: 5, // Geography - 5 lessons in География - Основи section
+};
 
 const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
   if (subject === "german") {
@@ -65,6 +71,7 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
 };
 
 const Home: React.FC = () => {
+  const { t } = useLanguage();
   const courses: Course[] = coursesData;
   const subjects = ["german", "biology", "geography"];
   const [currentSubject, setCurrentSubject] = useState(0);
@@ -76,24 +83,36 @@ const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const getSubjectIcon = (title: string) => {
-    if (title.includes("Немски")) {
+  const getSubjectIcon = (id: number) => {
+    if (id === 1) {
       return <MdLanguage className="text-6xl text-yellow-400 mx-auto mb-4" />;
     }
-    if (title.includes("Биология")) {
+    if (id === 2) {
       return <MdScience className="text-6xl text-green-400 mx-auto mb-4" />;
     }
     return <MdPublic className="text-6xl text-blue-400 mx-auto mb-4" />;
   };
 
-  const getSubjectGradient = (title: string) => {
-    if (title.includes("Немски")) {
+  const getSubjectGradient = (id: number) => {
+    if (id === 1) {
       return "from-yellow-500 to-orange-600";
     }
-    if (title.includes("Биология")) {
+    if (id === 2) {
       return "from-green-500 to-emerald-600";
     }
     return "from-blue-500 to-indigo-600";
+  };
+
+  const getCourseTitle = (id: number) => {
+    if (id === 1) return t.germanCourseTitle;
+    if (id === 2) return t.biologyCourseTitle;
+    return t.geographyCourseTitle;
+  };
+
+  const getCourseDesc = (id: number) => {
+    if (id === 1) return t.germanCourseDesc;
+    if (id === 2) return t.biologyCourseDesc;
+    return t.geographyCourseDesc;
   };
 
   return (
@@ -109,12 +128,12 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
-              Платформа за интерактивно учене
+              {t.platformTitle}
             </h2>
             <p className="text-lg text-gray-300 mt-4">
-              <span className="text-yellow-400 font-semibold">Немски</span> •{" "}
-              <span className="text-green-400 font-semibold">Биология</span> •{" "}
-              <span className="text-blue-400 font-semibold">География</span>
+              <span className="text-yellow-400 font-semibold">{t.germanSubject}</span> •{" "}
+              <span className="text-green-400 font-semibold">{t.biologySubject}</span> •{" "}
+              <span className="text-blue-400 font-semibold">{t.geographySubject}</span>
             </p>
           </div>
         </div>
@@ -123,10 +142,10 @@ const Home: React.FC = () => {
       {/* Courses Section */}
       <section className="container mx-auto px-4 py-20">
         <h3 className="text-5xl font-bold text-white mb-4 text-center">
-          Изберете предмет и тема за преглед
+          {t.selectSubject}
         </h3>
         <p className="text-gray-400 text-center mb-16 text-lg">
-          Открийте своя път към знанието
+          {t.discoverPath}
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -137,26 +156,26 @@ const Home: React.FC = () => {
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient(
-                  course.title
+                  course.id
                 )} opacity-0 group-hover:opacity-10 transition-opacity`}
               ></div>
 
               <div className="relative p-8">
-                <div className="mb-6">{getSubjectIcon(course.title)}</div>
+                <div className="mb-6">{getSubjectIcon(course.id)}</div>
 
                 <div className="flex items-center justify-end mb-4">
                   <span className="text-gray-400 text-sm flex items-center gap-1">
                     <FaBook className="text-sm" />
-                    {course.lessons} урока
+                    {actualLessonCounts[course.id] || course.lessons} {t.lessonsCount}
                   </span>
                 </div>
 
                 <h4 className="text-3xl font-bold text-white mb-4">
-                  {course.title}
+                  {getCourseTitle(course.id)}
                 </h4>
 
                 <p className="text-gray-400 mb-6 leading-relaxed">
-                  {course.description}
+                  {getCourseDesc(course.id)}
                 </p>
 
                 <div className="flex items-center justify-between">
@@ -167,10 +186,10 @@ const Home: React.FC = () => {
                   <Link to={`/lessons/${course.id}`}>
                     <button
                       className={`bg-gradient-to-r ${getSubjectGradient(
-                        course.title
+                        course.id
                       )} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
                     >
-                      Виж повече
+                      {t.seeMore}
                     </button>
                   </Link>
                 </div>
@@ -188,7 +207,7 @@ const Home: React.FC = () => {
       {/* Footer */}
       <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2026 SchulHub. Всички права запазени.</p>
+          <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>
       </footer>
     </div>

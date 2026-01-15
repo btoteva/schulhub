@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useFont, FontFamily, FontSize } from "../contexts/FontContext";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const FontSettings: React.FC = () => {
   const {
@@ -10,6 +11,7 @@ const FontSettings: React.FC = () => {
     setGermanFontFamily,
     setGermanFontSize,
   } = useFont();
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [activeLanguage, setActiveLanguage] = useState<"bg" | "de">("bg");
 
@@ -27,10 +29,10 @@ const FontSettings: React.FC = () => {
   ];
 
   const fontSizes: { value: FontSize; label: string }[] = [
-    { value: "small", label: "Малък" },
-    { value: "normal", label: "Нормален" },
-    { value: "large", label: "Голям" },
-    { value: "xlarge", label: "Много голям" },
+    { value: "small", label: t.small },
+    { value: "normal", label: t.normal },
+    { value: "large", label: t.large },
+    { value: "xlarge", label: t.veryLarge },
   ];
 
   return (
@@ -41,7 +43,7 @@ const FontSettings: React.FC = () => {
         title="Настройки на шрифта"
       >
         <span className="text-lg">⚙️</span>
-        <span className="text-sm font-semibold">Шрифт</span>
+        <span className="text-sm font-semibold">{t.font}</span>
       </button>
 
       {isOpen && (
@@ -55,7 +57,7 @@ const FontSettings: React.FC = () => {
           </button>
 
           <h3 className="text-lg font-bold text-green-400 mb-4">
-            Настройки на шрифта
+            {t.fontSettings}
           </h3>
 
           {/* Language Tabs */}
@@ -68,7 +70,7 @@ const FontSettings: React.FC = () => {
                   : "text-gray-400 hover:text-gray-300"
               }`}
             >
-              🇧🇬 Български
+              🇧🇬 {t.bulgarian}
             </button>
             <button
               onClick={() => setActiveLanguage("de")}
@@ -78,7 +80,7 @@ const FontSettings: React.FC = () => {
                   : "text-gray-400 hover:text-gray-300"
               }`}
             >
-              🇩🇪 Немски
+              🇩🇪 {t.german}
             </button>
           </div>
 
@@ -88,7 +90,7 @@ const FontSettings: React.FC = () => {
               {/* Font Family Selection */}
               <div className="mb-6">
                 <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                  Тип на шрифта:
+                  {t.fontType}
                 </h4>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
                   {fontFamilies.map((font) => (
@@ -111,7 +113,7 @@ const FontSettings: React.FC = () => {
               {/* Font Size Selection */}
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                  Размер на шрифта:
+                  {t.fontSize}
                 </h4>
                 <div className="grid grid-cols-2 gap-2">
                   {fontSizes.map((size) => (
@@ -132,7 +134,7 @@ const FontSettings: React.FC = () => {
 
               {/* Preview */}
               <div className="mt-4 pt-4 border-t border-gray-700">
-                <p className="text-sm text-gray-400 mb-2">Преглед:</p>
+                <p className="text-sm text-gray-400 mb-2">{t.preview}</p>
                 <p
                   className={`font-${settings.family} ${
                     settings.size === "small"
@@ -156,7 +158,7 @@ const FontSettings: React.FC = () => {
               {/* Font Family Selection */}
               <div className="mb-6">
                 <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                  Тип на шрифта:
+                  {t.fontType}
                 </h4>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
                   {fontFamilies.map((font) => (
@@ -179,7 +181,7 @@ const FontSettings: React.FC = () => {
               {/* Font Size Selection */}
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-gray-300 mb-2">
-                  Размер на шрифта:
+                  {t.fontSize}
                 </h4>
                 <div className="grid grid-cols-2 gap-2">
                   {fontSizes.map((size) => (
@@ -200,7 +202,7 @@ const FontSettings: React.FC = () => {
 
               {/* Preview */}
               <div className="mt-4 pt-4 border-t border-gray-700">
-                <p className="text-sm text-gray-400 mb-2">Преглед:</p>
+                <p className="text-sm text-gray-400 mb-2">{t.preview}</p>
                 <p
                   className={`font-${germanSettings.family} ${
                     germanSettings.size === "small"

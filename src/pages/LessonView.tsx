@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { getLessonById } from "../data/lessons";
 import { useFont } from "../contexts/FontContext";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const LessonView: React.FC = () => {
   const { courseId, lessonId } = useParams<{
@@ -21,6 +22,7 @@ const LessonView: React.FC = () => {
     getGermanFontSizeValue,
     getGermanFontFamilyClass,
   } = useFont();
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards"
@@ -258,14 +260,14 @@ const LessonView: React.FC = () => {
               className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
             >
               <FaArrowLeft />
-              <span>Назад</span>
+              <span>{t.back}</span>
             </Link>
 
             <button
               onClick={toggleMenu}
               className="md:hidden bg-green-600 text-white px-4 py-2 rounded-lg"
             >
-              Меню
+              {t.menu}
             </button>
           </div>
         </div>
@@ -285,17 +287,17 @@ const LessonView: React.FC = () => {
               >
                 ×
               </button>
-              <h3 className="text-xl font-bold text-green-400 mb-4">MENÜ</h3>
+              <h3 className="text-xl font-bold text-green-400 mb-4">{t.menu.toUpperCase()}</h3>
               <ul className="space-y-2">
                 <li>
                   <Link
                     to="/"
                     className="block text-gray-300 hover:text-white py-2"
                   >
-                    HOME
+                    {t.home.toUpperCase()}
                   </Link>
                 </li>
-                <li className="text-green-400 italic">Biologie</li>
+                <li className="text-green-400 italic">{t.biologyCourseTitle}</li>
                 <li>
                   <a
                     href="#"
@@ -339,7 +341,7 @@ const LessonView: React.FC = () => {
                   : "text-gray-400 hover:text-gray-300"
               }`}
             >
-              Съдържание на урока
+              {t.lessonContent}
             </button>
             <button
               onClick={() => setActiveTab("dictionary")}
@@ -349,7 +351,7 @@ const LessonView: React.FC = () => {
                   : "text-gray-400 hover:text-gray-300"
               }`}
             >
-              Речник
+              {t.dictionary}
             </button>
             <button
               onClick={() => setActiveTab("flashcards")}
@@ -359,7 +361,7 @@ const LessonView: React.FC = () => {
                   : "text-gray-400 hover:text-gray-300"
               }`}
             >
-              Флаш-карти
+              {t.flashcards}
             </button>
           </div>
 
@@ -379,12 +381,12 @@ const LessonView: React.FC = () => {
                   {isPlayingAll ? (
                     <>
                       <FaPause />
-                      <span>Пауза</span>
+                      <span>{t.pause}</span>
                     </>
                   ) : (
                     <>
                       <FaPlay />
-                      <span>Пусни всички</span>
+                      <span>{t.playAll}</span>
                     </>
                   )}
                 </button>
@@ -413,7 +415,7 @@ const LessonView: React.FC = () => {
                               ? "bg-red-600 hover:bg-red-700 animate-pulse"
                               : "bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg"
                           }`}
-                          title={currentSpeaking === index ? "Спри" : "Слушай"}
+                          title={currentSpeaking === index ? t.stop : t.listen}
                         >
                           {currentSpeaking === index ? (
                             <FaPause className="text-white text-sm" />
@@ -518,7 +520,7 @@ const LessonView: React.FC = () => {
                               <button
                                 onClick={() => speakWord(wordData.word)}
                                 className="flex-shrink-0 w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all"
-                                title="Прочитай думата"
+                                title={t.readWord}
                               >
                                 <FaVolumeUp className="text-white text-sm" />
                               </button>
@@ -536,7 +538,7 @@ const LessonView: React.FC = () => {
                                 <button
                                   onClick={() => speakWord(wordData.example)}
                                   className="flex-shrink-0 w-8 h-8 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all"
-                                  title="Прочитай примера"
+                                  title={t.readExample}
                                 >
                                   <FaVolumeUp className="text-white text-xs" />
                                 </button>
@@ -564,7 +566,7 @@ const LessonView: React.FC = () => {
           {activeTab === "flashcards" && (
             <div className="min-h-[500px] flex flex-col items-center justify-center">
               {allWords.length === 0 ? (
-                <p className="text-gray-400 text-xl">Няма думи в речника</p>
+                <p className="text-gray-400 text-xl">{t.noWordsInDictionary}</p>
               ) : (
                 <>
                   <div className="perspective w-full max-w-2xl mb-8">
@@ -589,14 +591,14 @@ const LessonView: React.FC = () => {
                           } as React.CSSProperties
                         }
                       >
-                        <p className="text-gray-300 text-sm mb-4">Немски</p>
+                        <p className="text-gray-300 text-sm mb-4">{t.german}</p>
                         <p
                           className={`text-4xl font-bold text-white text-center ${getGermanFontFamilyClass()}`}
                         >
                           {allWords[currentFlashcardIndex]?.word}
                         </p>
                         <p className="text-gray-200 text-sm mt-8">
-                          Кликни за превод
+                          {t.clickForTranslation}
                         </p>
                       </div>
 
@@ -611,7 +613,7 @@ const LessonView: React.FC = () => {
                         }
                       >
                         <p className="text-gray-300 text-sm mb-4">
-                          Превод на Български
+                          {t.translationToBulgarian}
                         </p>
                         <p
                           className={`text-4xl font-bold text-white text-center ${getFontFamilyClass()}`}
@@ -640,7 +642,7 @@ const LessonView: React.FC = () => {
                       }}
                       className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
                     >
-                      ← Назад
+                      ← {t.back}
                     </button>
 
                     <div className="text-gray-400 font-semibold">
@@ -658,7 +660,7 @@ const LessonView: React.FC = () => {
                       }}
                       className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
                     >
-                      Напред →
+                      {t.forward} →
                     </button>
                   </div>
 
@@ -669,7 +671,7 @@ const LessonView: React.FC = () => {
                     }
                     className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
                   >
-                    <FaVolumeUp /> Прочитай думата
+                    <FaVolumeUp /> {t.readWord}
                   </button>
 
                   {/* Progress bar */}
@@ -720,7 +722,7 @@ const LessonView: React.FC = () => {
       {/* Footer */}
       <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2026 SchulHub. Всички права запазени.</p>
+          <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>
       </footer>
     </div>

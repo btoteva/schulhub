@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { FaArrowLeft, FaBook, FaClock, FaCheckCircle } from 'react-icons/fa';
 import { MdLanguage, MdScience, MdPublic } from 'react-icons/md';
 import coursesData from '../data/courses.json';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Lesson section interface
 interface LessonSection {
@@ -51,6 +52,7 @@ const lessonsData: { [key: number]: LessonSection[] } = {
 };
 
 const Lessons: React.FC = () => {
+  const { t } = useLanguage();
   const { courseId } = useParams<{ courseId: string }>();
   const course = coursesData.find(c => c.id === Number(courseId));
   const sections = lessonsData[Number(courseId)] || [];
@@ -59,9 +61,9 @@ const Lessons: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Курсът не е намерен</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">{t.courseNotFound}</h2>
           <Link to="/" className="text-blue-400 hover:text-blue-300">
-            Върнете се към началната страница
+            {t.returnToHome}
           </Link>
         </div>
       </div>
@@ -69,24 +71,39 @@ const Lessons: React.FC = () => {
   }
 
   const getSubjectIcon = () => {
-    if (course.title.includes('Немски')) {
+    if (course.id === 1) {
       return <MdLanguage className="text-7xl text-yellow-400" />;
     }
-    if (course.title.includes('Биология')) {
+    if (course.id === 2) {
       return <MdScience className="text-7xl text-green-400" />;
     }
     return <MdPublic className="text-7xl text-blue-400" />;
   };
 
   const getSubjectGradient = () => {
-    if (course.title.includes('Немски')) {
+    if (course.id === 1) {
       return 'from-yellow-500 to-orange-600';
     }
-    if (course.title.includes('Биология')) {
+    if (course.id === 2) {
       return 'from-green-500 to-emerald-600';
     }
     return 'from-blue-500 to-indigo-600';
   };
+
+  const getCourseTitle = () => {
+    if (course.id === 1) return t.germanCourseTitle;
+    if (course.id === 2) return t.biologyCourseTitle;
+    return t.geographyCourseTitle;
+  };
+
+  const getCourseDesc = () => {
+    if (course.id === 1) return t.germanCourseDesc;
+    if (course.id === 2) return t.biologyCourseDesc;
+    return t.geographyCourseDesc;
+  };
+
+  // Calculate actual lesson count
+  const actualLessonCount = sections.reduce((total, section) => total + section.lessons.length, 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
@@ -99,7 +116,7 @@ const Lessons: React.FC = () => {
               className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
             >
               <FaArrowLeft />
-              <span>Назад</span>
+              <span>{t.back}</span>
             </Link>
             
           </div>
@@ -109,12 +126,12 @@ const Lessons: React.FC = () => {
               {getSubjectIcon()}
             </div>
             <div>
-              <h1 className="text-5xl font-bold text-white mb-3">{course.title}</h1>
-              <p className="text-xl text-gray-300 mb-4">{course.description}</p>
+              <h1 className="text-5xl font-bold text-white mb-3">{getCourseTitle()}</h1>
+              <p className="text-xl text-gray-300 mb-4">{getCourseDesc()}</p>
               <div className="flex items-center gap-6 text-gray-400">
                 <span className="flex items-center gap-2">
                   <FaBook />
-                  {course.lessons} урока
+                  {actualLessonCount} {t.lessonsCount}
                 </span>
                 <span className="flex items-center gap-2">
                   <FaClock />
@@ -128,7 +145,7 @@ const Lessons: React.FC = () => {
 
       {/* Lessons List Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-4xl font-bold text-white mb-8">Изберете урок</h2>
+        <h2 className="text-4xl font-bold text-white mb-8">{t.selectLesson}</h2>
 
         <div className="max-w-4xl space-y-12">
           {sections.map((section, sectionIndex) => (
@@ -163,7 +180,7 @@ const Lessons: React.FC = () => {
                             {lesson.completed && (
                               <span className="flex items-center gap-1 text-green-400">
                                 <FaCheckCircle className="text-sm" />
-                                Завършен
+                                {t.completed}
                               </span>
                             )}
                           </div>
@@ -172,7 +189,7 @@ const Lessons: React.FC = () => {
 
                       <Link to={`/lessons/${courseId}/${lesson.id}`}>
                         <button className={`bg-gradient-to-r ${getSubjectGradient()} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}>
-                          Започни
+                          {t.start}
                         </button>
                       </Link>
                     </div>
@@ -192,7 +209,7 @@ const Lessons: React.FC = () => {
       {/* Footer */}
       <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2026 SchulHub. Всички права запазени.</p>
+          <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>
       </footer>
     </div>
