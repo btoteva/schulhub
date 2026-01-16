@@ -25,7 +25,7 @@ const LessonView: React.FC = () => {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
-    "content" | "dictionary" | "flashcards"
+    "content" | "dictionary" | "flashcards" | "resources"
   >("content");
   const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
   const [isPlayingAll, setIsPlayingAll] = useState(false);
@@ -363,6 +363,16 @@ const LessonView: React.FC = () => {
             >
               {t.flashcards}
             </button>
+            <button
+              onClick={() => setActiveTab("resources")}
+              className={`px-6 py-3 font-semibold transition-all ${
+                activeTab === "resources"
+                  ? "text-green-400 border-b-2 border-green-400"
+                  : "text-gray-400 hover:text-gray-300"
+              }`}
+            >
+              {t.resources}
+            </button>
           </div>
 
           {/* Content Tab */}
@@ -687,6 +697,50 @@ const LessonView: React.FC = () => {
                   </div>
                 </>
               )}
+            </div>
+          )}
+
+          {/* Resources Tab */}
+          {activeTab === "resources" && (
+            <div className="space-y-8">
+              {/* Audio Resources Section */}
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
+                <h3 className="text-2xl font-bold text-green-400 mb-6">
+                  {t.audioResources}
+                </h3>
+
+                {/* Spotify Player */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-white mb-2">
+                    {t.relaxationAudioTitle}
+                  </h4>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {t.relaxationAudioDesc}
+                  </p>
+                  <div className="w-full">
+                    <iframe
+                      style={{ borderRadius: "12px" }}
+                      src="https://open.spotify.com/embed/track/1uxAXqIoQkFzQ1ftKNjUNk?utm_source=generator"
+                      width="100%"
+                      height="352"
+                      frameBorder={0}
+                      allowFullScreen
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Resources Section - Coming Soon */}
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 border-dashed">
+                <h3 className="text-2xl font-bold text-gray-500 mb-4">
+                  {t.additionalResources}
+                </h3>
+                <p className="text-gray-500 italic">
+                  {t.comingSoon}
+                </p>
+              </div>
             </div>
           )}
         </div>

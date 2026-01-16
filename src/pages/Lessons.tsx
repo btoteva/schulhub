@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FaArrowLeft, FaBook, FaClock, FaCheckCircle } from 'react-icons/fa';
+import { FaArrowLeft, FaBook, FaGraduationCap, FaCheckCircle, FaClock } from 'react-icons/fa';
 import { MdLanguage, MdScience, MdPublic } from 'react-icons/md';
 import coursesData from '../data/courses.json';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -102,6 +102,12 @@ const Lessons: React.FC = () => {
     return t.geographyCourseDesc;
   };
 
+  const getCourseLevel = () => {
+    if (course.level === "beginner") return t.beginnerLevel;
+    if (course.level === "grade8") return t.grade8;
+    return course.level;
+  };
+
   // Calculate actual lesson count
   const actualLessonCount = sections.reduce((total, section) => total + section.lessons.length, 0);
 
@@ -134,8 +140,8 @@ const Lessons: React.FC = () => {
                   {actualLessonCount} {t.lessonsCount}
                 </span>
                 <span className="flex items-center gap-2">
-                  <FaClock />
-                  {course.duration}
+                  <FaGraduationCap />
+                  {getCourseLevel()}
                 </span>
               </div>
             </div>

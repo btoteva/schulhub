@@ -57,6 +57,12 @@ interface Translations {
   noWordsInDictionary: string;
   forward: string;
   menu: string;
+  resources: string;
+  audioResources: string;
+  relaxationAudioDesc: string;
+  relaxationAudioTitle: string;
+  additionalResources: string;
+  comingSoon: string;
 
   // Hero descriptions
   biologyDesc: string;
@@ -70,6 +76,10 @@ interface Translations {
   biologyCourseDesc: string;
   geographyCourseTitle: string;
   geographyCourseDesc: string;
+
+  // Course levels/grades
+  grade8: string;
+  beginnerLevel: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -127,6 +137,12 @@ const translations: Record<Language, Translations> = {
     noWordsInDictionary: "Няма думи в речника",
     forward: "Напред",
     menu: "Меню",
+    resources: "Ресурси",
+    audioResources: "Аудио материали",
+    relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
+    relaxationAudioDesc: "Медитативна аудиозапис на немски език за релаксация и подготовка преди учене. Помага за концентрация и спокойствие.",
+    additionalResources: "Допълнителни ресурси",
+    comingSoon: "Очаквайте скоро още полезни материали!",
 
     // Hero descriptions
     biologyDesc: "Изучаване на живота",
@@ -140,6 +156,10 @@ const translations: Record<Language, Translations> = {
     biologyCourseDesc: "Изследвайте света на живите организми и научете повече за човешкото тяло.",
     geographyCourseTitle: "География",
     geographyCourseDesc: "Опознайте света, континентите, климатите и географските особености.",
+
+    // Course levels/grades
+    grade8: "8 клас",
+    beginnerLevel: "Начинаещи",
   },
   en: {
     // Header
@@ -195,6 +215,12 @@ const translations: Record<Language, Translations> = {
     noWordsInDictionary: "No words in dictionary",
     forward: "Forward",
     menu: "Menu",
+    resources: "Resources",
+    audioResources: "Audio Materials",
+    relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
+    relaxationAudioDesc: "A meditative audio recording in German for relaxation and preparation before learning. Helps with concentration and calmness.",
+    additionalResources: "Additional Resources",
+    comingSoon: "More useful materials coming soon!",
 
     // Hero descriptions
     biologyDesc: "Study of life",
@@ -208,6 +234,10 @@ const translations: Record<Language, Translations> = {
     biologyCourseDesc: "Explore the world of living organisms and learn more about the human body.",
     geographyCourseTitle: "Geography",
     geographyCourseDesc: "Discover the world, continents, climates, and geographical features.",
+
+    // Course levels/grades
+    grade8: "Grade 8",
+    beginnerLevel: "Beginner",
   },
   de: {
     // Header
@@ -263,6 +293,12 @@ const translations: Record<Language, Translations> = {
     noWordsInDictionary: "Keine Wörter im Wörterbuch",
     forward: "Weiter",
     menu: "Menü",
+    resources: "Ressourcen",
+    audioResources: "Audiomaterialien",
+    relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
+    relaxationAudioDesc: "Eine meditative Audioaufnahme auf Deutsch zur Entspannung und Vorbereitung vor dem Lernen. Hilft bei Konzentration und Ruhe.",
+    additionalResources: "Zusätzliche Ressourcen",
+    comingSoon: "Weitere nützliche Materialien folgen bald!",
 
     // Hero descriptions
     biologyDesc: "Das Studium des Lebens",
@@ -276,6 +312,10 @@ const translations: Record<Language, Translations> = {
     biologyCourseDesc: "Entdecken Sie die Welt der lebenden Organismen und erfahren Sie mehr über den menschlichen Körper.",
     geographyCourseTitle: "Geographie",
     geographyCourseDesc: "Entdecken Sie die Welt, Kontinente, Klimazonen und geografische Besonderheiten.",
+
+    // Course levels/grades
+    grade8: "Klasse 8",
+    beginnerLevel: "Anfänger",
   },
 };
 

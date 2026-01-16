@@ -4,7 +4,7 @@ import {
   FaBook,
   FaGlobeAmericas,
   FaMicroscope,
-  FaClock,
+  FaGraduationCap,
 } from "react-icons/fa";
 import { MdScience, MdLanguage, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
@@ -115,6 +115,12 @@ const Home: React.FC = () => {
     return t.geographyCourseDesc;
   };
 
+  const getCourseLevel = (level: string) => {
+    if (level === "beginner") return t.beginnerLevel;
+    if (level === "grade8") return t.grade8;
+    return level;
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
       {/* Hero Section with Animated Illustrations */}
@@ -180,8 +186,8 @@ const Home: React.FC = () => {
 
                 <div className="flex items-center justify-between">
                   <span className="text-orange-400 font-semibold flex items-center gap-2">
-                    <FaClock className="text-sm" />
-                    {course.duration}
+                    <FaGraduationCap className="text-sm" />
+                    {getCourseLevel(course.level)}
                   </span>
                   <Link to={`/lessons/${course.id}`}>
                     <button
