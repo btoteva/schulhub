@@ -1,67 +1,177 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { FaArrowLeft, FaBook, FaGraduationCap, FaCheckCircle, FaClock } from 'react-icons/fa';
-import { MdLanguage, MdScience, MdPublic } from 'react-icons/md';
-import coursesData from '../data/courses.json';
-import { useLanguage } from '../contexts/LanguageContext';
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import {
+  FaArrowLeft,
+  FaBook,
+  FaGraduationCap,
+  FaCheckCircle,
+  FaClock,
+} from "react-icons/fa";
+import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
+import coursesData from "../data/courses.json";
+import { useLanguage } from "../contexts/LanguageContext";
 
 // Lesson section interface
 interface LessonSection {
   sectionTitle: string;
-  lessons: Array<{ id: number; title: string; duration: string; completed: boolean }>;
+  lessons: Array<{
+    id: number;
+    title: string;
+    duration: string;
+    completed: boolean;
+  }>;
 }
 
-// Sample lessons data organized by sections
-const lessonsData: { [key: number]: LessonSection[] } = {
-  1: [ // German
+// Band (volume) interface
+interface Band {
+  bandTitle: string;
+  sections: LessonSection[];
+}
+
+// Sample lessons data organized by bands and sections
+const lessonsData: { [key: number]: Band[] } = {
+  1: [
+    // German
     {
-      sectionTitle: 'Grundlagen',
-      lessons: [
-        { id: 1, title: 'Урок 1: Азбука и произношение', duration: '15 мин', completed: false },
-        { id: 2, title: 'Урок 2: Приветствия и представяне', duration: '20 мин', completed: false },
-        { id: 3, title: 'Урок 3: Числа и цифри', duration: '18 мин', completed: false },
-        { id: 4, title: 'Урок 4: Основни глаголи', duration: '25 мин', completed: false },
-        { id: 5, title: 'Урок 5: Съществителни имена и членове', duration: '22 мин', completed: false },
-      ]
-    }
+      bandTitle: "Band 1",
+      sections: [
+        {
+          sectionTitle: "Grundlagen",
+          lessons: [
+            {
+              id: 1,
+              title: "Урок 1: Азбука и произношение",
+              duration: "15 мин",
+              completed: false,
+            },
+            {
+              id: 2,
+              title: "Урок 2: Приветствия и представяне",
+              duration: "20 мин",
+              completed: false,
+            },
+            {
+              id: 3,
+              title: "Урок 3: Числа и цифри",
+              duration: "18 мин",
+              completed: false,
+            },
+            {
+              id: 4,
+              title: "Урок 4: Основни глаголи",
+              duration: "25 мин",
+              completed: false,
+            },
+            {
+              id: 5,
+              title: "Урок 5: Съществителни имена и членове",
+              duration: "22 мин",
+              completed: false,
+            },
+          ],
+        },
+      ],
+    },
   ],
-  2: [ // Biology
+  2: [
+    // Biology
     {
-      sectionTitle: 'HERZ-KREISLAUF-SYSTEM.',
-      lessons: [
-        { id: 1, title: '5.3 HERZTÄTIGKEIT. BLUTKREISLAUF', duration: '25 мин', completed: false },
-        { id: 2, title: 'Урок 2: Тъкани и органи', duration: '22 мин', completed: false },
-        { id: 3, title: 'Урок 3: Храносмилателна система', duration: '25 мин', completed: false },
-        { id: 4, title: 'Урок 4: Дихателна система', duration: '20 мин', completed: false },
-        { id: 5, title: 'Урок 5: Кръвоносна система', duration: '24 мин', completed: false },
-      ]
-    }
+      bandTitle: "Band 1",
+      sections: [
+        {
+          sectionTitle: "HERZ-KREISLAUF-SYSTEM",
+          lessons: [
+            {
+              id: 1,
+              title: "5.3 HERZTÄTIGKEIT. BLUTKREISLAUF",
+              duration: "25 мин",
+              completed: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      bandTitle: "Band 2",
+      sections: [
+        {
+          sectionTitle: "BEWEGUNG UND STÜTZE DES KÖRPERS",
+          lessons: [
+            {
+              id: 2,
+              title: "III-1 AUFBAU DER KNOCHEN UND GELENKE. DER SCHÄDEL",
+              duration: "22 мин",
+              completed: false,
+            },
+            {
+              id: 3,
+              title: "III-2 WIRBELSÄULE, BRUSTKORB UND GLIEDMABEN",
+              duration: "22 мин",
+              completed: false,
+            },
+          ],
+        },
+      ],
+    },
   ],
-  3: [ // Geography
+  3: [
+    // Geography
     {
-      sectionTitle: 'География - Основи',
-      lessons: [
-        { id: 1, title: 'Урок 1: Континенти и океани', duration: '18 мин', completed: false },
-        { id: 2, title: 'Урок 2: Климатични зони', duration: '22 мин', completed: false },
-        { id: 3, title: 'Урок 3: Релеф и форми на земята', duration: '20 мин', completed: false },
-        { id: 4, title: 'Урок 4: Реки и езера', duration: '19 мин', completed: false },
-        { id: 5, title: 'Урок 5: Население и градове', duration: '21 мин', completed: false },
-      ]
-    }
+      bandTitle: "Band 1",
+      sections: [
+        {
+          sectionTitle: "География - Основи",
+          lessons: [
+            {
+              id: 1,
+              title: "Урок 1: Континенти и океани",
+              duration: "18 мин",
+              completed: false,
+            },
+            {
+              id: 2,
+              title: "Урок 2: Климатични зони",
+              duration: "22 мин",
+              completed: false,
+            },
+            {
+              id: 3,
+              title: "Урок 3: Релеф и форми на земята",
+              duration: "20 мин",
+              completed: false,
+            },
+            {
+              id: 4,
+              title: "Урок 4: Реки и езера",
+              duration: "19 мин",
+              completed: false,
+            },
+            {
+              id: 5,
+              title: "Урок 5: Население и градове",
+              duration: "21 мин",
+              completed: false,
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
 const Lessons: React.FC = () => {
   const { t } = useLanguage();
   const { courseId } = useParams<{ courseId: string }>();
-  const course = coursesData.find(c => c.id === Number(courseId));
-  const sections = lessonsData[Number(courseId)] || [];
+  const course = coursesData.find((c) => c.id === Number(courseId));
+  const bands = lessonsData[Number(courseId)] || [];
 
   if (!course) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">{t.courseNotFound}</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">
+            {t.courseNotFound}
+          </h2>
           <Link to="/" className="text-blue-400 hover:text-blue-300">
             {t.returnToHome}
           </Link>
@@ -82,12 +192,12 @@ const Lessons: React.FC = () => {
 
   const getSubjectGradient = () => {
     if (course.id === 1) {
-      return 'from-yellow-500 to-orange-600';
+      return "from-yellow-500 to-orange-600";
     }
     if (course.id === 2) {
-      return 'from-green-500 to-emerald-600';
+      return "from-green-500 to-emerald-600";
     }
-    return 'from-blue-500 to-indigo-600';
+    return "from-blue-500 to-indigo-600";
   };
 
   const getCourseTitle = () => {
@@ -108,8 +218,16 @@ const Lessons: React.FC = () => {
     return course.level;
   };
 
-  // Calculate actual lesson count
-  const actualLessonCount = sections.reduce((total, section) => total + section.lessons.length, 0);
+  // Calculate actual lesson count from all bands and sections
+  const actualLessonCount = bands.reduce(
+    (total, band) =>
+      total +
+      band.sections.reduce(
+        (sectionTotal, section) => sectionTotal + section.lessons.length,
+        0,
+      ),
+    0,
+  );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
@@ -124,15 +242,14 @@ const Lessons: React.FC = () => {
               <FaArrowLeft />
               <span>{t.back}</span>
             </Link>
-            
           </div>
 
           <div className="flex items-center gap-8 mb-6">
-            <div className="flex-shrink-0">
-              {getSubjectIcon()}
-            </div>
+            <div className="flex-shrink-0">{getSubjectIcon()}</div>
             <div>
-              <h1 className="text-5xl font-bold text-white mb-3">{getCourseTitle()}</h1>
+              <h1 className="text-5xl font-bold text-white mb-3">
+                {getCourseTitle()}
+              </h1>
               <p className="text-xl text-gray-300 mb-4">{getCourseDesc()}</p>
               <div className="flex items-center gap-6 text-gray-400">
                 <span className="flex items-center gap-2">
@@ -153,56 +270,78 @@ const Lessons: React.FC = () => {
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-4xl font-bold text-white mb-8">{t.selectLesson}</h2>
 
-        <div className="max-w-4xl space-y-12">
-          {sections.map((section, sectionIndex) => (
-            <div key={sectionIndex}>
-              {/* Section Title */}
-              <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-6 uppercase">
-                {section.sectionTitle}
-              </h3>
+        <div className="max-w-4xl space-y-16">
+          {bands.map((band, bandIndex) => (
+            <div key={bandIndex}>
+              {/* Band Title */}
+              <div className="mb-8">
+                <h2 className="text-4xl font-bold text-white border-b-2 border-yellow-500 pb-3 inline-block">
+                  {band.bandTitle}
+                </h2>
+              </div>
 
-              {/* Lessons in this section */}
-              <div className="grid gap-4">
-                {section.lessons.map((lesson) => (
-                  <div
-                    key={lesson.id}
-                    className="group relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-transparent transform hover:scale-[1.02] cursor-pointer"
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient()} opacity-0 group-hover:opacity-10 transition-opacity rounded-xl`}></div>
+              {/* Sections in this band */}
+              <div className="space-y-12">
+                {band.sections.map((section, sectionIndex) => (
+                  <div key={sectionIndex}>
+                    {/* Section Title */}
+                    <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-6 uppercase">
+                      {section.sectionTitle}
+                    </h3>
 
-                    <div className="relative p-6 flex items-center justify-between">
-                      <div className="flex items-center gap-6 flex-1">
-                        <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}>
-                          {lesson.id}
-                        </div>
+                    {/* Lessons in this section */}
+                    <div className="grid gap-4">
+                      {section.lessons.map((lesson) => (
+                        <div
+                          key={lesson.id}
+                          className="group relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-transparent transform hover:scale-[1.02] cursor-pointer"
+                        >
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient()} opacity-0 group-hover:opacity-10 transition-opacity rounded-xl`}
+                          ></div>
 
-                        <div className="flex-1">
-                          <h4 className="text-2xl font-bold text-white mb-2">{lesson.title}</h4>
-                          <div className="flex items-center gap-4 text-gray-400">
-                            <span className="flex items-center gap-1">
-                              <FaClock className="text-sm" />
-                              {lesson.duration}
-                            </span>
-                            {lesson.completed && (
-                              <span className="flex items-center gap-1 text-green-400">
-                                <FaCheckCircle className="text-sm" />
-                                {t.completed}
-                              </span>
-                            )}
+                          <div className="relative p-6 flex items-center justify-between">
+                            <div className="flex items-center gap-6 flex-1">
+                              <div
+                                className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}
+                              >
+                                {lesson.id}
+                              </div>
+
+                              <div className="flex-1">
+                                <h4 className="text-2xl font-bold text-white mb-2">
+                                  {lesson.title}
+                                </h4>
+                                <div className="flex items-center gap-4 text-gray-400">
+                                  <span className="flex items-center gap-1">
+                                    <FaClock className="text-sm" />
+                                    {lesson.duration}
+                                  </span>
+                                  {lesson.completed && (
+                                    <span className="flex items-center gap-1 text-green-400">
+                                      <FaCheckCircle className="text-sm" />
+                                      {t.completed}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+
+                            <Link to={`/lessons/${courseId}/${lesson.id}`}>
+                              <button
+                                className={`bg-gradient-to-r ${getSubjectGradient()} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
+                              >
+                                {t.start}
+                              </button>
+                            </Link>
+                          </div>
+
+                          {/* Shine effect */}
+                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl">
+                            <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
                           </div>
                         </div>
-                      </div>
-
-                      <Link to={`/lessons/${courseId}/${lesson.id}`}>
-                        <button className={`bg-gradient-to-r ${getSubjectGradient()} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}>
-                          {t.start}
-                        </button>
-                      </Link>
-                    </div>
-
-                    {/* Shine effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl">
-                      <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
+                      ))}
                     </div>
                   </div>
                 ))}
