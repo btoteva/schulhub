@@ -685,6 +685,264 @@
           "translation": "скелетен мускул",
           "example": "Der aktive Teil des Bewegungs- und Stützsystems besteht aus Skelettmuskeln.",
           "example_translation": "Активната част на опорно-двигателната система се състои от скелетни мускули."
+        },
+        {
+          "word": "die Lage, -n",
+          "translation": "положение, разположение",
+          "example": "In Abhängigkeit ihrer Lage im Körper.",
+          "example_translation": "В зависимост от тяхното разположение в тялото."
+        },
+        {
+          "word": "der Kopfmuskel, -n",
+          "translation": "мускул на главата",
+          "example": "Kopfmuskeln unterteilen sich in zwei Gruppen.",
+          "example_translation": "Мускулите на главата се разделят на две групи."
+        },
+        {
+          "word": "der Halsmuskel, -n",
+          "translation": "шийни мускул",
+          "example": "Die Halsmuskeln bewegen den Kopf.",
+          "example_translation": "Шийните мускули движат главата."
+        },
+        {
+          "word": "der Rumpfmuskel, -n",
+          "translation": "мускул на туловището",
+          "example": "Es gibt Rumpfmuskeln.",
+          "example_translation": "Има мускули на туловището."
+        },
+        {
+          "word": "die Mimik",
+          "translation": "мимика",
+          "example": "Sie verändern die Mimik.",
+          "example_translation": "Те променят мимиката."
+        },
+        {
+          "word": "der Gesichtsausdruck, -drücke",
+          "translation": "изражение на лицето",
+          "example": "Der Gesichtsausdruck zeigt Gefühle.",
+          "example_translation": "Изражението на лицето показва чувства."
+        },
+        {
+          "word": "der Kaumuskel, -n",
+          "translation": "дъвкателен мускул",
+          "example": "Kaumuskeln bewegen den Unterkiefer.",
+          "example_translation": "Дъвкателните мускули движат долната челюст."
+        },
+        {
+          "word": "die Nahrung",
+          "translation": "храна",
+          "example": "Die Nahrung wird zermahlt.",
+          "example_translation": "Храната се раздробява."
+        },
+        {
+          "word": "der Deltamuskel, -n",
+          "translation": "делтовиден мускул",
+          "example": "Der Deltamuskel formt die Schulter.",
+          "example_translation": "Делтовидният мускул оформя рамото."
+        },
+        {
+          "word": "das Schultergelenk, -e",
+          "translation": "раменна става",
+          "example": "Der Deltamuskel bewegt das Schultergelenk.",
+          "example_translation": "Делтовидният мускул движи раменната става."
+        },
+        {
+          "word": "der Oberarmmuskel, -n",
+          "translation": "мускул на мишницата",
+          "example": "Der zweiköpfige Oberarmmuskel.",
+          "example_translation": "Двуглавият мускул на мишницата."
+        },
+        {
+          "word": "das Ellenbogengelenk, -e",
+          "translation": "лакътна става",
+          "example": "Sie bewegen das Ellenbogengelenk.",
+          "example_translation": "Те движат лакътната става."
+        },
+        {
+          "word": "der Unterarm, -e",
+          "translation": "предмишница",
+          "example": "Im Unterarm gibt es viele Muskeln.",
+          "example_translation": "В предмишницата има много мускули."
+        },
+        {
+          "word": "die Phalange, -n",
+          "translation": "фаланга",
+          "example": "Sehnen sind mit den Phalangen verbunden.",
+          "example_translation": "Сухожилията са свързани с фалангите."
+        },
+        {
+          "word": "der Finger, -",
+          "translation": "пръст",
+          "example": "Bewegungen der Finger.",
+          "example_translation": "Движения на пръстите."
+        },
+        {
+          "word": "der Gesäßmuskel, -n",
+          "translation": "седалищен мускул",
+          "example": "Der große Gesäßmuskel.",
+          "example_translation": "Големият седалищен мускул."
+        },
+        {
+          "word": "das Hüftgelenk, -e",
+          "translation": "тазобедрена става",
+          "example": "Er spreizt das Bein im Hüftgelenk.",
+          "example_translation": "Той разгъва крака в тазобедрената става."
+        },
+        {
+          "word": "der Oberschenkelmuskel, -n",
+          "translation": "бедрен мускул",
+          "example": "Der vierköpfige Oberschenkelmuskel.",
+          "example_translation": "Четириглавият бедрен мускул."
+        },
+        {
+          "word": "das Kniegelenk, -e",
+          "translation": "колянна става",
+          "example": "Er wirkt auf das Kniegelenk.",
+          "example_translation": "Той действа на колянната става."
+        },
+        {
+          "word": "der Wadenmuskel, -n",
+          "translation": "подбедрен мускул (прасец)",
+          "example": "Der dreiköpfige Wadenmuskel.",
+          "example_translation": "Триглавият подбедрен мускул."
+        },
+        {
+          "word": "die Achillessehne",
+          "translation": "ахилесово сухожилие",
+          "example": "Die Achillessehne ist sehr fest.",
+          "example_translation": "Ахилесовото сухожилие е много здраво."
+        },
+        {
+          "word": "die Ferse, -n",
+          "translation": "пета",
+          "example": "Die Sehne setzt an der Ferse an.",
+          "example_translation": "Сухожилието се захваща за петата."
+        },
+        {
+          "word": "der Fußmuskel, -n",
+          "translation": "мускул на стъпалото",
+          "example": "Fußmuskeln unterstützen das Gewölbe.",
+          "example_translation": "Мускулите на стъпалото поддържат свода."
+        },
+        {
+          "word": "die Zehe, -n",
+          "translation": "пръст на крака",
+          "example": "Bewegungen der Zehen.",
+          "example_translation": "Движения на пръстите на краката."
+        },
+        {
+          "word": "das Fußgewölbe",
+          "translation": "свод на стъпалото",
+          "example": "Das Fußgewölbe wird unterstützt.",
+          "example_translation": "Сводът на стъпалото се поддържа."
+        },
+        {
+          "word": "der Bewegungsablauf, -abläufe",
+          "translation": "движение (процес)",
+          "example": "Entgegengesetzte Bewegungsabläufe.",
+          "example_translation": "Противоположни движения."
+        },
+        {
+          "word": "die Funktion, -en",
+          "translation": "функция",
+          "example": "Die Hauptfunktion ist die Kontraktion.",
+          "example_translation": "Основната функция е съкращението."
+        },
+        {
+          "word": "die Kontrolle",
+          "translation": "контрол",
+          "example": "Willentliche Kontrolle.",
+          "example_translation": "Волеви контрол."
+        },
+        {
+          "word": "das Gefühl, -e",
+          "translation": "чувство",
+          "example": "Gefühle werden ausgedrückt.",
+          "example_translation": "Чувствата се изразяват."
+        },
+        {
+          "word": "der Ruhezustand",
+          "translation": "състояние на покой",
+          "example": "Selbst im Ruhezustand.",
+          "example_translation": "Дори в състояние на покой."
+        },
+        {
+          "word": "die Anspannung",
+          "translation": "напрежение",
+          "example": "Eine schnelle Anspannung ausführen.",
+          "example_translation": "Извършване на бързо напрежение."
+        },
+        {
+          "word": "der Prozess, -e",
+          "translation": "процес",
+          "example": "Für diesen Prozess ist Energie nötig.",
+          "example_translation": "За този процес е необходима енергия."
+        },
+        {
+          "word": "die Reizwirkung",
+          "translation": "дразнещо въздействие",
+          "example": "Wenn die Reizwirkung aufhört.",
+          "example_translation": "Когато дразнещото въздействие спре."
+        },
+        {
+          "word": "die Bauchwand",
+          "translation": "коремна стена",
+          "example": "Muskeln der Bauchwand.",
+          "example_translation": "Мускули на коремната стена."
+        },
+        {
+          "word": "die Aufrechterhaltung",
+          "translation": "поддържане",
+          "example": "Aufrechterhaltung der Lage.",
+          "example_translation": "Поддържане на положението."
+        },
+        {
+          "word": "das Bauchorgan, -e",
+          "translation": "коремен орган",
+          "example": "Lage der Bauchorgane.",
+          "example_translation": "Положение на коремните органи."
+        },
+        {
+          "word": "die Entleerung",
+          "translation": "изпразване",
+          "example": "Entleerung der hohlen Organe.",
+          "example_translation": "Изпразване на кухите органи."
+        },
+        {
+          "word": "der Rückenmuskel, -n",
+          "translation": "гръбен мускул",
+          "example": "Rückenmuskeln neigen den Rumpf.",
+          "example_translation": "Гръбните мускули накланят туловището."
+        },
+        {
+          "word": "die Seite, -n",
+          "translation": "страна",
+          "example": "Zur Seite neigen.",
+          "example_translation": "Накланяне настрани."
+        },
+        {
+          "word": "der Brustmuskel, -n",
+          "translation": "гръден мускул",
+          "example": "Brustmuskeln bewegen die Arme.",
+          "example_translation": "Гръдните мускули движат ръцете."
+        },
+        {
+          "word": "die Atembewegung, -en",
+          "translation": "дихателно движение",
+          "example": "Beteiligt an Atembewegungen.",
+          "example_translation": "Участват в дихателните движения."
+        },
+        {
+          "word": "der Stand",
+          "translation": "стоеж",
+          "example": "Der aufrechte Stand.",
+          "example_translation": "Изправеният стоеж."
+        },
+        {
+          "word": "die Grundeigenschaft, -en",
+          "translation": "основно свойство",
+          "example": "Die Grundeigenschaften der Muskeln.",
+          "example_translation": "Основните свойства на мускулите."
         }
       ]
     },
@@ -938,6 +1196,84 @@
           "translation": "настъпвам, появявам се",
           "example": "Bei Arbeit tritt Muskelermüdung auf.",
           "example_translation": "При работа настъпва мускулна умора."
+        },
+        {
+          "word": "dehnen",
+          "translation": "разтягам",
+          "example": "Sehnen dehnen sich nicht.",
+          "example_translation": "Сухожилията не се разтягат."
+        },
+        {
+          "word": "haften",
+          "translation": "закрепвам се, прилепвам",
+          "example": "Der Muskel haftet an den Knochen.",
+          "example_translation": "Мускулът се закрепва за костите."
+        },
+        {
+          "word": "unterteilen",
+          "translation": "разделям, подразделям",
+          "example": "Sie unterteilen sich in Gruppen.",
+          "example_translation": "Те се разделят на групи."
+        },
+        {
+          "word": "ziehen",
+          "translation": "дърпам",
+          "example": "Sie ziehen die Haut.",
+          "example_translation": "Те дърпат кожата."
+        },
+        {
+          "word": "ausdrücken",
+          "translation": "изразявам",
+          "example": "Gefühle ausdrücken.",
+          "example_translation": "Изразяване на чувства."
+        },
+        {
+          "word": "aufmachen",
+          "translation": "отварям",
+          "example": "Den Mund aufmachen.",
+          "example_translation": "Отваряне на устата."
+        },
+        {
+          "word": "zumachen",
+          "translation": "затварям",
+          "example": "Den Mund zumachen.",
+          "example_translation": "Затваряне на устата."
+        },
+        {
+          "word": "zermahlen",
+          "translation": "раздробявам, смилам",
+          "example": "Nahrung wird zermahlt.",
+          "example_translation": "Храната се раздробява."
+        },
+        {
+          "word": "ausformen",
+          "translation": "оформям",
+          "example": "Der Muskel formt die Schulter aus.",
+          "example_translation": "Мускулът оформя рамото."
+        },
+        {
+          "word": "ausführen",
+          "translation": "изпълнявам",
+          "example": "Bewegungen ausführen.",
+          "example_translation": "Изпълнение на движения."
+        },
+        {
+          "word": "unterstützen",
+          "translation": "поддържам, подпомагам",
+          "example": "Sie unterstützen das Gewölbe.",
+          "example_translation": "Те поддържат свода."
+        },
+        {
+          "word": "zusammenführen",
+          "translation": "събирам, приближавам",
+          "example": "Gliedmaßen zusammenführen.",
+          "example_translation": "Приближаване на крайниците."
+        },
+        {
+          "word": "neigen",
+          "translation": "накланям",
+          "example": "Den Rumpf neigen.",
+          "example_translation": "Накланяне на туловището."
         }
       ]
     },
@@ -1083,6 +1419,72 @@
           "translation": "болезнен",
           "example": "Es treten schmerzhafte Muskelkrämpfe auf.",
           "example_translation": "Настъпват болезнени мускулни крампи."
+        },
+        {
+          "word": "fest",
+          "translation": "здрав, твърд",
+          "example": "Sehnen sind sehr fest.",
+          "example_translation": "Сухожилията са много здрави."
+        },
+        {
+          "word": "unterschiedlich",
+          "translation": "различен",
+          "example": "Unterschiedliche Form.",
+          "example_translation": "Различна форма."
+        },
+        {
+          "word": "mimisch",
+          "translation": "мимически",
+          "example": "Mimische Muskeln.",
+          "example_translation": "Мимически мускули."
+        },
+        {
+          "word": "zweiköpfig",
+          "translation": "двуглав",
+          "example": "Zweiköpfiger Muskel.",
+          "example_translation": "Двуглав мускул."
+        },
+        {
+          "word": "dreiköpfig",
+          "translation": "триглав",
+          "example": "Dreiköpfiger Muskel.",
+          "example_translation": "Триглав мускул."
+        },
+        {
+          "word": "entsprechend",
+          "translation": "съответен, съответно",
+          "example": "Die entsprechend das Gelenk bewegen.",
+          "example_translation": "Които съответно движат ставата."
+        },
+        {
+          "word": "kompliziert",
+          "translation": "сложен",
+          "example": "Komplizierte Bewegungen.",
+          "example_translation": "Сложни движения."
+        },
+        {
+          "word": "aufrecht",
+          "translation": "изправен",
+          "example": "Aufrechter Gang.",
+          "example_translation": "Изправен вървеж."
+        },
+        {
+          "word": "vierköpfig",
+          "translation": "четириглав",
+          "example": "Vierköpfiger Muskel.",
+          "example_translation": "Четириглав мускул."
+        },
+        {
+          "word": "zuständig",
+          "translation": "отговорен, компетентен",
+          "example": "Zuständig für das Gehen.",
+          "example_translation": "Отговорен за ходенето."
+        },
+        {
+          "word": "hohl",
+          "translation": "кух",
+          "example": "Hohle Organe.",
+          "example_translation": "Кухи органи."
         }
       ]
     }
