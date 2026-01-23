@@ -33,12 +33,14 @@ export interface LessonContent {
 import lesson2_1 from "./lessons/2-1.json";
 import lesson2_2 from "./lessons/2-2.json";
 import lesson2_3 from "./lessons/2-3.json";
+import lesson2_4 from "./lessons/2-4.json";
 
 // Combine all lessons into a single array
 export const lessonsData: LessonContent[] = [
   lesson2_1 as LessonContent,
   lesson2_2 as LessonContent,
   lesson2_3 as LessonContent,
+  lesson2_4 as LessonContent,
 ];
 
 // Helper function to get a lesson by course ID and lesson ID

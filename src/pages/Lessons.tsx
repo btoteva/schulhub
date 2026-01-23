@@ -109,6 +109,12 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "22 мин",
               completed: false,
             },
+            {
+              id: 4,
+              title: "III-3 BEWEGUNGS- UND STÜTZSYSTEM. MUSKELN",
+              duration: "25 мин",
+              completed: false,
+            },
           ],
         },
       ],
