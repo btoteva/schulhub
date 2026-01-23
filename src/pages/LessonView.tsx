@@ -406,8 +406,8 @@ const LessonView: React.FC = () => {
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
                 <div className="prose prose-invert max-w-none space-y-1">
                   {sentences.map((sentenceObj, index) => {
-                    // Check if this sentence contains a figure reference like "(Abb. 1)"
-                    const figureMatch = sentenceObj.text.match(/\(Abb\.\s*(\d+)\)/);
+                    // Check if this sentence contains a figure reference like "(Abb. 1)", "(Abb. 1a und b)", "(Abb. 1c)"
+                    const figureMatch = sentenceObj.text.match(/\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/i);
                     const figureKey = figureMatch ? `Abb. ${figureMatch[1]}` : null;
                     const figureImages = figureKey && lessonData.images ? lessonData.images[figureKey] : null;
 

@@ -72,7 +72,7 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
-  const courses: Course[] = coursesData;
+  const courses = coursesData as Course[];
   const subjects = ["german", "biology", "geography"];
   const [currentSubject, setCurrentSubject] = useState(0);
 
