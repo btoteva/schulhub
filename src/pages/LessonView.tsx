@@ -405,127 +405,194 @@ const LessonView: React.FC = () => {
               {/* Content with individual sentence buttons */}
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
                 <div className="prose prose-invert max-w-none space-y-1">
-                  {sentences.map((sentenceObj, index) => {
-                    // Check if this sentence contains a figure reference like "(Abb. 1)", "(Abb. 1a und b)", "(Abb. 1c)"
-                    const figureMatch = sentenceObj.text.match(/\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/i);
-                    const figureKey = figureMatch ? `Abb. ${figureMatch[1]}` : null;
-                    const figureImages = figureKey && lessonData.images ? lessonData.images[figureKey] : null;
+                  {(() => {
+                    const wichtigsteIndex = sentences.findIndex((s) =>
+                      s.text.includes("📘 Das Wichtigste.")
+                    );
+                    const regularSentences =
+                      wichtigsteIndex === -1
+                        ? sentences
+                        : sentences.slice(0, wichtigsteIndex);
+                    const wichtigsteSentences =
+                      wichtigsteIndex === -1 ? [] : sentences.slice(wichtigsteIndex);
 
-                    // Check if this is a section heading (starts with 📘 or 💡)
-                    const isSectionHeading = /^[📘💡]/.test(sentenceObj.text.trim());
+                    const renderSentence = (
+                      sentenceObj: { text: string; translation: string },
+                      index: number
+                    ) => {
+                      const figureMatch = sentenceObj.text.match(
+                        /\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/i
+                      );
+                      const figureKey = figureMatch
+                        ? `Abb. ${figureMatch[1]}`
+                        : null;
+                      const figureImages =
+                        figureKey && lessonData.images
+                          ? lessonData.images[figureKey]
+                          : null;
 
-                    // Check if this is a key question (ends with ?) or a definition (contains "heißt", "wird...genannt", "bezeichnet man als")
-                    const isKeyQuestion = sentenceObj.text.trim().endsWith("?");
-                    const isDefinition = /heißt\s+\w+\.|wird.*genannt|bezeichnet\s+man\s+als/i.test(sentenceObj.text);
-                    const isImportant = isKeyQuestion || isDefinition;
+                      const isSectionHeading = /^[📘💡]/.test(
+                        sentenceObj.text.trim()
+                      );
+                      const isKeyQuestion = sentenceObj.text.trim().endsWith("?");
+                      const isDefinition =
+                        /heißt\s+\w+\.|wird.*genannt|bezeichnet\s+man\s+als/i.test(
+                          sentenceObj.text
+                        );
+                      const isImportant = isKeyQuestion || isDefinition;
 
-                    return (
-                      <div key={index} className="space-y-1">
-                        <div
-                          className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
-                            currentSpeaking === index
-                              ? "bg-green-900/30 border-l-4 border-green-500"
-                              : isSectionHeading
-                              ? "bg-gradient-to-r from-emerald-900/50 to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
-                              : isImportant
-                              ? "bg-gradient-to-r from-amber-900/40 to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
-                              : "hover:bg-gray-800/50"
-                          }`}
-                          onClick={() => toggleExpandedSentence(index)}
-                        >
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              speakSentence(sentenceObj, index);
-                            }}
-                            className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110 ${
+                      return (
+                        <div key={index} className="space-y-1">
+                          <div
+                            className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
                               currentSpeaking === index
-                                ? "bg-red-600 hover:bg-red-700 animate-pulse"
-                                : "bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg"
+                                ? "bg-green-900/30 border-l-4 border-green-500"
+                                : isSectionHeading
+                                ? "bg-gradient-to-r from-emerald-900/50 to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
+                                : isImportant
+                                ? "bg-gradient-to-r from-amber-900/40 to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
+                                : "hover:bg-gray-800/50"
                             }`}
-                            title={currentSpeaking === index ? t.stop : t.listen}
+                            onClick={() => toggleExpandedSentence(index)}
                           >
-                            {currentSpeaking === index ? (
-                              <FaPause className="text-white text-sm" />
-                            ) : (
-                              <FaVolumeUp className="text-white text-sm" />
-                            )}
-                          </button>
-                          <div className="flex-1">
-                            <p
-                              className={`leading-relaxed ${getGermanFontFamilyClass()} ${isSectionHeading ? "text-2xl text-emerald-400 font-bold" : getGermanFontSizeValue()} ${isImportant && !isSectionHeading ? "text-amber-200 font-semibold" : !isSectionHeading ? "text-gray-300" : ""}`}
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                speakSentence(sentenceObj, index);
+                              }}
+                              className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110 ${
+                                currentSpeaking === index
+                                  ? "bg-red-600 hover:bg-red-700 animate-pulse"
+                                  : "bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg"
+                              }`}
+                              title={
+                                currentSpeaking === index ? t.stop : t.listen
+                              }
                             >
-                              {currentSpeaking === index && highlightedWord
-                                ? sentenceObj.text
-                                    .split(/(\s+)/)
-                                    .map((word, i) => (
-                                      <span
-                                        key={i}
-                                        className={
-                                          word.trim() === highlightedWord.trim()
-                                            ? "bg-yellow-400 text-black font-bold px-1 rounded"
-                                            : ""
-                                        }
-                                      >
-                                        {word}
-                                      </span>
-                                    ))
-                                : sentenceObj.text.split(/(\s+)/).map((word, i) =>
-                                    word.trim() ? (
-                                      <span
-                                        key={i}
-                                        onMouseEnter={(e) =>
-                                          handleWordHover(e, word)
-                                        }
-                                        onMouseLeave={handleWordLeave}
-                                        className={`relative cursor-help transition-colors ${
-                                          findWordTranslation(word)
-                                            ? "text-cyan-300 hover:text-cyan-100 hover:underline"
-                                            : ""
-                                        }`}
-                                      >
-                                        {word}
-                                      </span>
-                                    ) : (
-                                      <span key={i}>{word}</span>
-                                    )
-                                  )}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Expanded Translation */}
-                        {expandedSentences.has(index) &&
-                          sentenceObj.translation && (
-                            <div className="ml-14 pl-4 border-l-2 border-green-500 bg-green-900/20 p-4 rounded-lg animate-in">
+                              {currentSpeaking === index ? (
+                                <FaPause className="text-white text-sm" />
+                              ) : (
+                                <FaVolumeUp className="text-white text-sm" />
+                              )}
+                            </button>
+                            <div className="flex-1">
                               <p
-                                className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()}`}
+                                className={`leading-relaxed ${getGermanFontFamilyClass()} ${
+                                  isSectionHeading
+                                    ? "text-2xl text-emerald-400 font-bold"
+                                    : getGermanFontSizeValue()
+                                } ${
+                                  isImportant && !isSectionHeading
+                                    ? "text-amber-200 font-semibold"
+                                    : !isSectionHeading
+                                    ? "text-gray-300"
+                                    : ""
+                                }`}
                               >
-                                {sentenceObj.translation}
+                                {currentSpeaking === index && highlightedWord
+                                  ? sentenceObj.text
+                                      .split(/(\s+)/)
+                                      .map((word, i) => (
+                                        <span
+                                          key={i}
+                                          className={
+                                            word.trim() ===
+                                            highlightedWord.trim()
+                                              ? "bg-yellow-400 text-black font-bold px-1 rounded"
+                                              : ""
+                                          }
+                                        >
+                                          {word}
+                                        </span>
+                                      ))
+                                  : sentenceObj.text
+                                      .split(/(\s+)/)
+                                      .map((word, i) =>
+                                        word.trim() ? (
+                                          <span
+                                            key={i}
+                                            onMouseEnter={(e) =>
+                                              handleWordHover(e, word)
+                                            }
+                                            onMouseLeave={handleWordLeave}
+                                            className={`relative cursor-help transition-colors ${
+                                              findWordTranslation(word)
+                                                ? "text-cyan-300 hover:text-cyan-100 hover:underline"
+                                                : ""
+                                            }`}
+                                          >
+                                            {word}
+                                          </span>
+                                        ) : (
+                                          <span key={i}>{word}</span>
+                                        )
+                                      )}
                               </p>
                             </div>
-                          )}
+                          </div>
 
-                        {/* Figure Images */}
-                        {figureImages && figureImages.length > 0 && (
-                          <div className="ml-14 mt-4 mb-6">
-                            <p className="text-green-400 font-semibold mb-3">{figureKey}:</p>
-                            <div className="flex gap-4 flex-wrap">
-                              {figureImages.map((imgUrl, imgIndex) => (
-                                <img
-                                  key={imgIndex}
-                                  src={imgUrl}
-                                  alt={`${figureKey} - Схема ${imgIndex + 1}`}
-                                  className="max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
-                                  onClick={() => window.open(imgUrl, '_blank')}
-                                />
-                              ))}
+                          {expandedSentences.has(index) &&
+                            sentenceObj.translation && (
+                              <div className="ml-14 pl-4 border-l-2 border-green-500 bg-green-900/20 p-4 rounded-lg animate-in">
+                                <p
+                                  className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()}`}
+                                >
+                                  {sentenceObj.translation}
+                                </p>
+                              </div>
+                            )}
+
+                          {figureImages && figureImages.length > 0 && (
+                            <div className="ml-14 mt-4 mb-6">
+                              <p className="text-green-400 font-semibold mb-3">
+                                {figureKey}:
+                              </p>
+                              <div className="flex gap-4 flex-wrap">
+                                {figureImages.map((imgUrl, imgIndex) => (
+                                  <img
+                                    key={imgIndex}
+                                    src={imgUrl}
+                                    alt={`${figureKey} - Схема ${
+                                      imgIndex + 1
+                                    }`}
+                                    className="max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
+                                    onClick={() => window.open(imgUrl, "_blank")}
+                                  />
+                                ))}
+                              </div>
                             </div>
+                          )}
+                        </div>
+                      );
+                    };
+
+                    return (
+                      <>
+                        {regularSentences.map((sentence, index) =>
+                          renderSentence(sentence, index)
+                        )}
+
+                        {wichtigsteSentences.length > 0 && (
+                          <div className="mt-8 p-6 bg-sky-900/30 border-2 border-sky-700 rounded-xl shadow-lg">
+                            {wichtigsteSentences.map((sentence, i) => {
+                              const index = i + wichtigsteIndex;
+                              if (i === 0) {
+                                return (
+                                  <h3
+                                    key={index}
+                                    className="text-2xl font-bold text-sky-300 mb-4"
+                                  >
+                                    {sentence.text}
+                                  </h3>
+                                );
+                              }
+                              return renderSentence(sentence, index);
+                            })}
                           </div>
                         )}
-                      </div>
+                      </>
                     );
-                  })}
+                  })()}
                 </div>
               </div>
             </div>
