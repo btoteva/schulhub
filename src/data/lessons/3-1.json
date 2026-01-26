@@ -1,0 +1,325 @@
+{
+    "id": "3-1",
+    "courseId": 3,
+    "title": "LITHOSPHÄRE. ZUSAMMENSETZUNG DER ERDKRUSTE. TEKTONIK DER PLATTEN",
+    "subtitle": "",
+    "images": {
+        "Abb. 1": [
+            "https://i.imgur.com/fu63xZZ.png"
+        ]
+    },
+    "content": "📘 1. Der innere Aufbau des Erdkörpers\n\nDer Erdkern befindet sich 2900 km tief und zeichnet sich durch sehr hohe Temperaturen und hohen Druck aus.\n\nDer Kern besteht aus zwei Teilen: dem inneren Kern (in festem Zustand) und dem äußeren Kern (im geschmolzenen Zustand).\n\nDer Erdmantel ist die voluminöseste der drei Schalen.\n\nSeine gesamte Mächtigkeit beträgt ca. 2900 km.\n\nDer untere Erdmantel befindet sich unter 660 km Tiefe.\n\nIm unteren Erdmantel herrschen hohe Temperaturen (über 4000°C), doch wegen des enorm hohen Drucks bleibt das Gestein im festen Zustand.\n\nDer obere Mantel ist nicht homogen.\n\nDen inneren Teil nennt man Astenosphäre (Fließschicht).\n\nDas Gestein in der Astenosphäre ist partiell eingeschmolzen und ist außerdem plastisch.\n\nDie obere Grenze der Astenosphäre, wo die Temperaturen 1300°C erreichen, befindet sich in einer Tiefe von 80-200 km unter der Erdoberfläche.\n\nDie oberste Schicht des Mantels besteht nur aus festem Gestein.",
+    "sentences": [
+        {
+            "text": "📘 1. Der innere Aufbau des Erdkörpers",
+            "translation": "📘 1. Вътрешен строеж на Земята"
+        },
+        {
+            "text": "Der Erdkern befindet sich 2900 km tief und zeichnet sich durch sehr hohe Temperaturen und hohen Druck aus.",
+            "translation": "Земното ядро се намира на 2900 км дълбочина и се характеризира с много високи температури и високо налягане."
+        },
+        {
+            "text": "Der Kern besteht aus zwei Teilen: dem inneren Kern (in festem Zustand) und dem äußeren Kern (im geschmolzenen Zustand).",
+            "translation": "Ядрото се състои от две части: вътрешното ядро (в твърдо състояние) и външното ядро (в разтопено състояние)."
+        },
+        {
+            "text": "<strong style=\"color: #10b981;\">Der Erdmantel</strong> ist die voluminöseste der drei Schalen.",
+            "translation": "Земната мантия е най-обемната от трите обвивки."
+        },
+        {
+            "text": "Seine gesamte Mächtigkeit beträgt ca. 2900 km.",
+            "translation": "Общата ѝ дебелина е около 2900 км."
+        },
+        {
+            "text": "Der untere Erdmantel befindet sich unter 660 km Tiefe.",
+            "translation": "Долната мантия се намира на дълбочина под 660 км."
+        },
+        {
+            "text": "Im unteren Erdmantel herrschen hohe Temperaturen (über 4000°C), doch wegen des enorm hohen Drucks bleibt das Gestein im festen Zustand.",
+            "translation": "В долната мантия температурите са високи (над 4000°C), но поради огромното налягане веществото ѝ остава в твърдо състояние."
+        },
+        {
+            "text": "Der obere Mantel ist nicht homogen.",
+            "translation": "Горната мантия не е хомогенна."
+        },
+        {
+            "text": "Den inneren Teil nennt man Astenosphäre (Fließschicht).",
+            "translation": "Вътрешната ѝ част се нарича астеносфера (пластичен слой)."
+        },
+        {
+            "text": "Das Gestein in der Astenosphäre ist partiell eingeschmolzen und ist außerdem plastisch.",
+            "translation": "Веществото в астеносферата е частично разтопено и пластично."
+        },
+        {
+            "text": "Die obere Grenze der Astenosphäre, wo die Temperaturen 1300°C erreichen, befindet sich in einer Tiefe von 80-200 km unter der Erdoberfläche.",
+            "translation": "Горната граница на астеносферата, където температурите достигат 1300°C, се намира на дълбочина от 80-200 км под земната повърхност."
+        },
+        {
+            "text": "Die oberste Schicht des Mantels besteht nur aus festem Gestein.",
+            "translation": "Най-горният слой на мантията се състои само от твърди скали."
+        },
+        {
+            "text": "<strong style=\"color: #10b981;\">Die Erdkruste</strong> ist die äußerste und die dünnste Schale.",
+            "translation": "Земната кора е най-външната и най-тънката обвивка."
+        },
+        {
+            "text": "Man unterscheidet zwei Erdkrustentypen: Die ozeanische Erdkruste ist dünner und zeichnet sich durch eine einheitliche Zusammensetzung aus.",
+            "translation": "Различават се два типа земна кора: океанската е по-тънка и се отличава с еднороден състав."
+        },
+        {
+            "text": "Ihre Mächtigkeit ist zwischen 5 und 8 km.",
+            "translation": "Дебелината й е между 5 и 8 км."
+        },
+        {
+            "text": "Sie besteht hauptsächlich aus riesigen festen Platten (Basalt), auf denen eine Sedimentdecke liegt.",
+            "translation": "Състои се главно от огромни твърди плочи (базалт), върху които лежи седиментна покривка."
+        },
+        {
+            "text": "Die kontinentale Erdkruste ist wesentlich mächtiger: zwischen 30 und 50 km.",
+            "translation": "Континенталната земна кора е значително по-дебела: между 30 и 50 км."
+        },
+        {
+            "text": "Der Aufbau ist komplizierter, er besteht aus drei Schichten.",
+            "translation": "Строежът ѝ е по-сложен и се състои от три слоя."
+        },
+        {
+            "text": "Auf der Basaltschicht liegt die Granitschicht, in der das Gestein nicht so dicht und verhältnismäßig leicht ist.",
+            "translation": "Върху базалтовия слой лежи гранитен слой, чието вещество е с по-малка плътност и сравнително леко."
+        },
+        {
+            "text": "Die oberste Sedimentschicht ist nicht überall verbreitet.",
+            "translation": "Най-горният седиментен слой не е разпространен навсякъде."
+        },
+        {
+            "text": "<strong style=\"color: #10b981;\">Die Lithosphäre</strong> umfasst die Erdkruste und den obersten, festen Teil des Erdmantels.",
+            "translation": "Литосферата обхваща земната кора и най-горната, твърда част на земната мантия."
+        },
+        {
+            "text": "📘 2. Plattentektonik",
+            "translation": "📘 2. Тектоника на плочите"
+        },
+        {
+            "text": "Nach der Theorie der Plattentektonik stellt die Lithosphäre nicht eine ganzheitliche Hülle, sondern ein puzzleähnliches Mosaik aus sieben großen und einigen kleineren Teilen, genannt Lithosphärenplatten, dar.",
+            "translation": "Според теорията за тектониката на плочите, литосферата не представлява цялостна обвивка, а мозайка, подобна на пъзел, съставена от седем големи и няколко по-малки части, наречени литосферни плочи."
+        },
+        {
+            "text": "Sie sind ständig in langsamer Bewegung und gleiten auf der plastischen Astenosphäre.",
+            "translation": "Те са в постоянно бавно движение, плъзгайки се по пластичната астеносфера."
+        },
+        {
+            "text": "Die Lithosphärenplatten befinden sich in ständigem Kontakt miteinander.",
+            "translation": "Литосферните плочи са в постоянен контакт помежду си."
+        },
+        {
+            "text": "Man unterscheidet drei Typen von Plattengrenzen: divergente (Öffnungsgrenzen), konvergente (Schließungsgrenzen) und Transformstörung (Seitenverschiebung). ",
+            "translation": "Различават се три типа граници между плочите: дивергентни (разделителни), конвергентни (сходящи) и трансформни (със странично приплъзване). "
+        },
+        {
+            "text": "📘 Öffnungsgrenzen (divergente Plattengrenzen)",
+            "translation": "📘 Разделителни граници (дивергентни)"
+        },
+        {
+            "text": "An divergenten Plattengrenzen entstehen die neuesten Teile der Lithosphärenplatten.",
+            "translation": "При дивергентните граници се образува нова земна кора."
+        },
+        {
+            "text": "Sie stellen einen länglichen Rift (Grabenbruch) dar, in dessen Zentrum sich eine Spalte öffnet.",
+            "translation": "Те представляват удължен рифт (грабен), в чийто център се отваря пукнатина."
+        },
+        {
+            "text": "Aus der Spalte fließt Basaltlava.",
+            "translation": "От пукнатината изтича базалтова лава."
+        },
+        {
+            "text": "Allmählich erstarrt die Lava, das aufsteigende Magma drängt sie zur Seite und der Rift öffnet sich.",
+            "translation": "Постепенно лавата се втвърдява, а издигащата се магма я избутва встрани и така рифтът се разширява."
+        },
+        {
+            "text": "Die Verschiebung erfolgt sehr langsam - durchschnittlich mit 3-4 cm pro Jahr, doch nach 100 Millionen Jahren sind es schon 3000-4000 km.",
+            "translation": "Придвижването е много бавно – средно с 3-4 см на година, но след 100 милиона години то достига 3000-4000 км."
+        },
+        {
+            "text": "Die meisten Rifts befinden sich auf dem Ozeanboden und sind als mittelozeanische Rücken bekannt.",
+            "translation": "Повечето рифтове се намират на океанското дно и са известни като средноокеански гребени."
+        },
+        {
+            "text": "Ihre Gesamtlänge beträgt rund 80 000 km.",
+            "translation": "Общата им дължина е около 80 000 км."
+        },
+        {
+            "text": "📘 Schließungsgrenzen (konvergente Plattengrenzen)",
+            "translation": "📘 Сходящи граници (конвергентни)"
+        },
+        {
+            "text": "An den konvergenten Plattengrenzen wird die alte Erdkruste absorbiert und aufgeschmolzen.",
+            "translation": "При конвергентните граници старата земна кора се поглъща (субдуцира) и разтопява."
+        },
+        {
+            "text": "Dabei taucht eine Lithosphärenplatte unter eine andere ab.",
+            "translation": "При този процес една литосферна плоча се подпъхва под друга."
+        },
+        {
+            "text": "Wenn die Lithosphärenplatten aus verschiedenen Erdkrustentypen aufgebaut sind, taucht die schwere ozeanische Platte unter die leichtere kontinentale Platte ab.",
+            "translation": "Когато литосферните плочи са от различен тип, по-тежката океанска плоча се подпъхва под по-леката континентална."
+        },
+        {
+            "text": "Sie dringt in tiefere Schichten ein und schmilzt unter den dort herrschenden hohen Temperaturen.",
+            "translation": "Тя навлиза в по-дълбоки слоеве и се разтопява поради високите температури там."
+        },
+        {
+            "text": "Das entstehende Magma hat eine andere Zusammensetzung im Vergleich zum Magma in den Riftzonen, deshalb bildet sich bei seinem Heraustreten an die Oberfläche unterschiedliches Magmagestein - Andesit.",
+            "translation": "Образувалата се магма е с различен състав от тази в рифтовите зони, затова при изригването ѝ на повърхността се образува различна магмена скала – андезит."
+        },
+        {
+            "text": "Parallel zu den Tauchzonen erfolgt eine beträchtliche Absenkung des Ozeanbodens: dort entstehen Tiefseerinnen.",
+            "translation": "Успоредно на зоните на подпъхване се образуват значителни понижения на океанското дъно – дълбокоокеански падини."
+        },
+        {
+            "text": "Beim Abtauchen wird die kontinentale Platte mächtiger, was zur Herausbildung von Gebirgszügen führt (so entstanden z.B. die Anden in Südamerika).",
+            "translation": "При подпъхването континенталната плоча се удебелява, което води до образуването на планински вериги (така са се образували например Андите в Южна Америка)."
+        },
+        {
+            "text": "Das Abtauchen zweier Platten mit gleicher Zusammensetzung ist nur möglich, wenn beide aus ozeanischer Erdkruste bestehen.",
+            "translation": "Подпъхване на една плоча под друга е възможно и когато и двете са от океански тип."
+        },
+        {
+            "text": "Bei diesem Prozess, genannt Subduktion, entstehen Inselbögen.",
+            "translation": "По време на този процес, наречен субдукция, възникват островни дъги."
+        },
+        {
+            "text": "Auf der ozeanischen Seite des Inselbogens, dort wo die eine Platte unter die aufliegende abtaucht, befindet sich eine Tiefseerinne.",
+            "translation": "От океанската страна на островната дъга, където едната плоча се подпъхва под другата, се образува дълбокоокеанска падина."
+        },
+        {
+            "text": "Auf diese Weise sind die Marianen-Inselgruppe und der Marianengraben entstanden.",
+            "translation": "По този начин са се образували Марианските острови и Марианската падина."
+        },
+        {
+            "text": "Wenn zwei kontinentale Platten aufeinandertreffen, taucht keine ab, sondern sie kollidieren.",
+            "translation": "Когато две континентални плочи се срещнат, никоя не се подпъхва, а те се сблъскват."
+        },
+        {
+            "text": "Dabei wird die Erdkruste erheblich verdickt und auf der Erdoberfläche entstehen Hochgebirge.",
+            "translation": "При този сблъсък земната кора значително се удебелява и на повърхността се издигат високи планини."
+        },
+        {
+            "text": "Ein solcher Prozess läuft im Himalaya und im Hochland von Tibet, wo die Indische und die Eurasische Platte zusammenstoßen.",
+            "translation": "Такъв процес протича в Хималаите и Тибетското плато, където се сблъскват Индийската и Евразийската плоча."
+        },
+        {
+            "text": "Die Mächtigkeit der Erdkruste in dieser Region übersteigt 70 km. (Abb. 1)",
+            "translation": "Дебелината на земната кора в този регион надхвърля 70 км. (фиг. 1)"
+        },
+        {
+            "text": "An allen Schließungsgrenzen beobachtet man intensiven Vulkanismus und Erdbeben.",
+            "translation": "Всички сходящи граници се характеризират с интензивна вулканична и сеизмична дейност."
+        },
+        {
+            "text": "📘 Transformstörung",
+            "translation": "📘 Трансформни граници"
+        },
+        {
+            "text": "Bei den Transformstörungen gleiten Platten horizontal aneinander vorbei.",
+            "translation": "При трансформните граници плочите се приплъзват хоризонтално една спрямо друга."
+        },
+        {
+            "text": "Außerordentlich tiefe Spalten in der Lithosphäre ermöglichen horizontale Verschiebungen von riesengroßen Gesteinsblöcken, ohne dass dabei Erdkruste neu entsteht oder vernichtet wird.",
+            "translation": "Изключително дълбоки разломи в литосферата позволяват хоризонталното придвижване на огромни скални блокове, без да се образува или унищожава земна кора."
+        },
+        {
+            "text": "Ein typisches Beispiel der Seitenverschiebung ist die San-Andreas-Verwerfung in Kalifornien, die über 1000 km lang ist.",
+            "translation": "Типичен пример за странично отместване е разломът Сан-Андреас в Калифорния, който е дълъг над 1000 км."
+        },
+        {
+            "text": "Die Transformstörungen sind, wie alle Plattengrenzen, Erdbebenschwerpunkte.",
+            "translation": "Трансформните граници, както всички граници между плочите, са сеизмично активни зони."
+        }
+    ],
+    "dictionary": [],
+    "exercises": [
+        {
+            "id": 1,
+            "title": "Verbinden Sie die jeweilige Plattengrenze mit den Prozessen, die dort verlaufen.",
+            "titleBg": "Свържете всеки тип граница между плочите със съответстващите процеси.",
+            "type": "matching",
+            "leftItems": [
+                {
+                    "id": "opening",
+                    "text": "ÖFFNUNGSGRENZEN",
+                    "textBg": "Дивергентни граници"
+                },
+                {
+                    "id": "closing",
+                    "text": "SCHLIEBUNGSGRENZEN",
+                    "textBg": "Конвергентни граници"
+                },
+                {
+                    "id": "transform",
+                    "text": "TRANSFORMSTÖRUNG",
+                    "textBg": "Трансформни граници"
+                }
+            ],
+            "rightItems": [
+                {
+                    "id": 1,
+                    "text": "Es entstehen die neuesten Teile der Lithosphärenplatten.",
+                    "textBg": "Образува се нова земна кора."
+                },
+                {
+                    "id": 2,
+                    "text": "Keine neue Erdkruste wird gebildet oder vernichtet.",
+                    "textBg": "Земната кора нито се образува, нито се унищожава."
+                },
+                {
+                    "id": 3,
+                    "text": "Alte Erdkruste wird absorbiert und schmilzt.",
+                    "textBg": "Старата земна кора се поглъща и разтопява."
+                },
+                {
+                    "id": 4,
+                    "text": "Herausbildung von Tiefserinnen.",
+                    "textBg": "Образуване на дълбокоокеански падини."
+                },
+                {
+                    "id": 5,
+                    "text": "Aktive Erdbeben- und Vulkantätigkeit.",
+                    "textBg": "Интензивна сеизмична и вулканична дейност."
+                },
+                {
+                    "id": 6,
+                    "text": "Herausbildung von mittelozeanischen Rücken.",
+                    "textBg": "Образуване на средноокеански хребети."
+                },
+                {
+                    "id": 7,
+                    "text": "Herausbildung von Inselbögen.",
+                    "textBg": "Образуване на островни дъги."
+                }
+            ],
+            "correctPairs": [
+                {
+                    "leftId": "opening",
+                    "rightIds": [
+                        1,
+                        6
+                    ]
+                },
+                {
+                    "leftId": "closing",
+                    "rightIds": [
+                        3,
+                        4,
+                        5,
+                        7
+                    ]
+                },
+                {
+                    "leftId": "transform",
+                    "rightIds": [
+                        2
+                    ]
+                }
+            ]
+        }
+    ]
+}

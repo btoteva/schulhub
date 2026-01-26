@@ -130,7 +130,8 @@ const lessonsData: { [key: number]: Band[] } = {
           lessons: [
             {
               id: 1,
-              title: "Урок 1: Континенти и океани",
+              title:
+                "LITHOSPHÄRE. ZUSAMMENSETZUNG DER ERDKRUSTE. TEKTONIK DER PLATTEN",
               duration: "18 мин",
               completed: false,
             },

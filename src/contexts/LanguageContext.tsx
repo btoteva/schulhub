@@ -46,6 +46,7 @@ interface Translations {
   lessonContent: string;
   dictionary: string;
   flashcards: string;
+  exercises: string;
   playAll: string;
   pause: string;
   listen: string;
@@ -126,6 +127,7 @@ const translations: Record<Language, Translations> = {
     lessonContent: "Съдържание на урока",
     dictionary: "Речник",
     flashcards: "Флаш-карти",
+    exercises: "Упражнения",
     playAll: "Пусни всички",
     pause: "Пауза",
     listen: "Слушай",
@@ -140,7 +142,8 @@ const translations: Record<Language, Translations> = {
     resources: "Ресурси",
     audioResources: "Аудио материали",
     relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
-    relaxationAudioDesc: "Медитативна аудиозапис на немски език за релаксация и подготовка преди учене. Помага за концентрация и спокойствие.",
+    relaxationAudioDesc:
+      "Медитативна аудиозапис на немски език за релаксация и подготовка преди учене. Помага за концентрация и спокойствие.",
     additionalResources: "Допълнителни ресурси",
     comingSoon: "Очаквайте скоро още полезни материали!",
 
@@ -151,11 +154,14 @@ const translations: Record<Language, Translations> = {
 
     // Course titles and descriptions
     germanCourseTitle: "Немски език",
-    germanCourseDesc: "Научете основите на немския език с интерактивни уроци и упражнения.",
+    germanCourseDesc:
+      "Научете основите на немския език с интерактивни уроци и упражнения.",
     biologyCourseTitle: "Биология",
-    biologyCourseDesc: "Изследвайте света на живите организми и научете повече за човешкото тяло.",
+    biologyCourseDesc:
+      "Изследвайте света на живите организми и научете повече за човешкото тяло.",
     geographyCourseTitle: "География",
-    geographyCourseDesc: "Опознайте света, континентите, климатите и географските особености.",
+    geographyCourseDesc:
+      "Опознайте света, континентите, климатите и географските особености.",
 
     // Course levels/grades
     grade8: "8 клас",
@@ -204,6 +210,7 @@ const translations: Record<Language, Translations> = {
     lessonContent: "Lesson Content",
     dictionary: "Dictionary",
     flashcards: "Flashcards",
+    exercises: "Exercises",
     playAll: "Play All",
     pause: "Pause",
     listen: "Listen",
@@ -218,7 +225,8 @@ const translations: Record<Language, Translations> = {
     resources: "Resources",
     audioResources: "Audio Materials",
     relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
-    relaxationAudioDesc: "A meditative audio recording in German for relaxation and preparation before learning. Helps with concentration and calmness.",
+    relaxationAudioDesc:
+      "A meditative audio recording in German for relaxation and preparation before learning. Helps with concentration and calmness.",
     additionalResources: "Additional Resources",
     comingSoon: "More useful materials coming soon!",
 
@@ -229,11 +237,14 @@ const translations: Record<Language, Translations> = {
 
     // Course titles and descriptions
     germanCourseTitle: "German Language",
-    germanCourseDesc: "Learn the basics of German with interactive lessons and exercises.",
+    germanCourseDesc:
+      "Learn the basics of German with interactive lessons and exercises.",
     biologyCourseTitle: "Biology",
-    biologyCourseDesc: "Explore the world of living organisms and learn more about the human body.",
+    biologyCourseDesc:
+      "Explore the world of living organisms and learn more about the human body.",
     geographyCourseTitle: "Geography",
-    geographyCourseDesc: "Discover the world, continents, climates, and geographical features.",
+    geographyCourseDesc:
+      "Discover the world, continents, climates, and geographical features.",
 
     // Course levels/grades
     grade8: "Grade 8",
@@ -282,6 +293,7 @@ const translations: Record<Language, Translations> = {
     lessonContent: "Lektionsinhalt",
     dictionary: "Wörterbuch",
     flashcards: "Lernkarten",
+    exercises: "Übungen",
     playAll: "Alle abspielen",
     pause: "Pause",
     listen: "Anhören",
@@ -296,7 +308,8 @@ const translations: Record<Language, Translations> = {
     resources: "Ressourcen",
     audioResources: "Audiomaterialien",
     relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
-    relaxationAudioDesc: "Eine meditative Audioaufnahme auf Deutsch zur Entspannung und Vorbereitung vor dem Lernen. Hilft bei Konzentration und Ruhe.",
+    relaxationAudioDesc:
+      "Eine meditative Audioaufnahme auf Deutsch zur Entspannung und Vorbereitung vor dem Lernen. Hilft bei Konzentration und Ruhe.",
     additionalResources: "Zusätzliche Ressourcen",
     comingSoon: "Weitere nützliche Materialien folgen bald!",
 
@@ -307,11 +320,14 @@ const translations: Record<Language, Translations> = {
 
     // Course titles and descriptions
     germanCourseTitle: "Deutsche Sprache",
-    germanCourseDesc: "Lernen Sie die Grundlagen der deutschen Sprache mit interaktiven Lektionen und Übungen.",
+    germanCourseDesc:
+      "Lernen Sie die Grundlagen der deutschen Sprache mit interaktiven Lektionen und Übungen.",
     biologyCourseTitle: "Biologie",
-    biologyCourseDesc: "Entdecken Sie die Welt der lebenden Organismen und erfahren Sie mehr über den menschlichen Körper.",
+    biologyCourseDesc:
+      "Entdecken Sie die Welt der lebenden Organismen und erfahren Sie mehr über den menschlichen Körper.",
     geographyCourseTitle: "Geographie",
-    geographyCourseDesc: "Entdecken Sie die Welt, Kontinente, Klimazonen und geografische Besonderheiten.",
+    geographyCourseDesc:
+      "Entdecken Sie die Welt, Kontinente, Klimazonen und geografische Besonderheiten.",
 
     // Course levels/grades
     grade8: "Klasse 8",
@@ -326,7 +342,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({

@@ -25,16 +25,21 @@ const LessonView: React.FC = () => {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
-    "content" | "dictionary" | "flashcards" | "resources"
+    "content" | "dictionary" | "flashcards" | "resources" | "exercises"
   >("content");
   const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
   const [isPlayingAll, setIsPlayingAll] = useState(false);
   const [currentPlayAllIndex, setCurrentPlayAllIndex] = useState(0);
   const [expandedSentences, setExpandedSentences] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
   const [highlightedWord, setHighlightedWord] = useState<string | null>(null);
   const [currentFlashcardIndex, setCurrentFlashcardIndex] = useState(0);
+  const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
+  const [selectedRights, setSelectedRights] = useState<Set<number>>(new Set());
+  const [matchingFeedback, setMatchingFeedback] = useState<
+    "correct" | "incorrect" | null
+  >(null);
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingAllRef = useRef(false);
   const currentPlayAllIndexRef = useRef(0);
@@ -118,7 +123,7 @@ const LessonView: React.FC = () => {
   // Handle word hover
   const handleWordHover = (
     e: React.MouseEvent<HTMLSpanElement>,
-    word: string
+    word: string,
   ) => {
     const translation = findWordTranslation(word);
     if (translation) {
@@ -151,9 +156,25 @@ const LessonView: React.FC = () => {
   // Speak individual word or example
   const speakWord = (text: string) => {
     window.speechSynthesis.cancel();
+    setCurrentSpeaking(null); // Disables sentence highlighting
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
     utterance.rate = 0.9;
+
+    utterance.onboundary = (event: SpeechSynthesisEvent) => {
+      if (event.name === "word") {
+        const word = text.substring(
+          event.charIndex,
+          event.charIndex + (event.charLength || 0),
+        );
+        setHighlightedWord(word.trim());
+      }
+    };
+
+    utterance.onend = () => {
+      setHighlightedWord(null);
+    };
+
     window.speechSynthesis.speak(utterance);
   };
 
@@ -172,7 +193,7 @@ const LessonView: React.FC = () => {
   const speakSentence = (
     sentenceObj: { text: string; translation: string },
     index: number,
-    autoPlay: boolean = false
+    autoPlay: boolean = false,
   ) => {
     // If already speaking this sentence and not auto-playing, stop it
     if (currentSpeaking === index && !autoPlay) {
@@ -187,16 +208,19 @@ const LessonView: React.FC = () => {
     // Stop any current speech
     window.speechSynthesis.cancel();
 
-    const text = sentenceObj.text;
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Strip HTML tags for speech synthesis
+    const plainText =
+      new DOMParser().parseFromString(sentenceObj.text, "text/html").body
+        .textContent || "";
+    const utterance = new SpeechSynthesisUtterance(plainText);
     utterance.lang = "de-DE"; // German language
     utterance.rate = 0.9; // Slightly slower for better comprehension
 
     utterance.onboundary = (event: SpeechSynthesisEvent) => {
       if (event.name === "word") {
-        const word = text.substring(
+        const word = plainText.substring(
           event.charIndex,
-          event.charIndex + (event.charLength || 0)
+          event.charIndex + (event.charLength || 0),
         );
         setHighlightedWord(word.trim());
       }
@@ -287,7 +311,9 @@ const LessonView: React.FC = () => {
               >
                 ×
               </button>
-              <h3 className="text-xl font-bold text-green-400 mb-4">{t.menu.toUpperCase()}</h3>
+              <h3 className="text-xl font-bold text-green-400 mb-4">
+                {t.menu.toUpperCase()}
+              </h3>
               <ul className="space-y-2">
                 <li>
                   <Link
@@ -297,7 +323,9 @@ const LessonView: React.FC = () => {
                     {t.home.toUpperCase()}
                   </Link>
                 </li>
-                <li className="text-green-400 italic">{t.biologyCourseTitle}</li>
+                <li className="text-green-400 italic">
+                  {t.biologyCourseTitle}
+                </li>
                 <li>
                   <a
                     href="#"
@@ -373,6 +401,16 @@ const LessonView: React.FC = () => {
             >
               {t.resources}
             </button>
+            <button
+              onClick={() => setActiveTab("exercises")}
+              className={`px-6 py-3 font-semibold transition-all ${
+                activeTab === "exercises"
+                  ? "text-green-400 border-b-2 border-green-400"
+                  : "text-gray-400 hover:text-gray-300"
+              }`}
+            >
+              {t.exercises}
+            </button>
           </div>
 
           {/* Content Tab */}
@@ -407,21 +445,23 @@ const LessonView: React.FC = () => {
                 <div className="prose prose-invert max-w-none space-y-1">
                   {(() => {
                     const wichtigsteIndex = sentences.findIndex((s) =>
-                      s.text.includes("📘 Das Wichtigste.")
+                      s.text.includes("📘 Das Wichtigste."),
                     );
                     const regularSentences =
                       wichtigsteIndex === -1
                         ? sentences
                         : sentences.slice(0, wichtigsteIndex);
                     const wichtigsteSentences =
-                      wichtigsteIndex === -1 ? [] : sentences.slice(wichtigsteIndex);
+                      wichtigsteIndex === -1
+                        ? []
+                        : sentences.slice(wichtigsteIndex);
 
                     const renderSentence = (
                       sentenceObj: { text: string; translation: string },
-                      index: number
+                      index: number,
                     ) => {
                       const figureMatch = sentenceObj.text.match(
-                        /\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/i
+                        /\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/i,
                       );
                       const figureKey = figureMatch
                         ? `Abb. ${figureMatch[1]}`
@@ -432,12 +472,14 @@ const LessonView: React.FC = () => {
                           : null;
 
                       const isSectionHeading = /^[📘💡]/.test(
-                        sentenceObj.text.trim()
+                        sentenceObj.text.trim(),
                       );
-                      const isKeyQuestion = sentenceObj.text.trim().endsWith("?");
+                      const isKeyQuestion = sentenceObj.text
+                        .trim()
+                        .endsWith("?");
                       const isDefinition =
                         /heißt\s+\w+\.|wird.*genannt|bezeichnet\s+man\s+als/i.test(
-                          sentenceObj.text
+                          sentenceObj.text,
                         );
                       const isImportant = isKeyQuestion || isDefinition;
 
@@ -448,10 +490,10 @@ const LessonView: React.FC = () => {
                               currentSpeaking === index
                                 ? "bg-green-900/30 border-l-4 border-green-500"
                                 : isSectionHeading
-                                ? "bg-gradient-to-r from-emerald-900/50 to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
-                                : isImportant
-                                ? "bg-gradient-to-r from-amber-900/40 to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
-                                : "hover:bg-gray-800/50"
+                                  ? "bg-gradient-to-r from-emerald-900/50 to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
+                                  : isImportant
+                                    ? "bg-gradient-to-r from-amber-900/40 to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
+                                    : "hover:bg-gray-800/50"
                             }`}
                             onClick={() => toggleExpandedSentence(index)}
                           >
@@ -485,49 +527,33 @@ const LessonView: React.FC = () => {
                                   isImportant && !isSectionHeading
                                     ? "text-amber-200 font-semibold"
                                     : !isSectionHeading
-                                    ? "text-gray-300"
-                                    : ""
+                                      ? "text-gray-300"
+                                      : ""
                                 }`}
-                              >
-                                {currentSpeaking === index && highlightedWord
-                                  ? sentenceObj.text
-                                      .split(/(\s+)/)
-                                      .map((word, i) => (
-                                        <span
-                                          key={i}
-                                          className={
-                                            word.trim() ===
-                                            highlightedWord.trim()
-                                              ? "bg-yellow-400 text-black font-bold px-1 rounded"
-                                              : ""
-                                          }
-                                        >
-                                          {word}
-                                        </span>
-                                      ))
-                                  : sentenceObj.text
-                                      .split(/(\s+)/)
-                                      .map((word, i) =>
-                                        word.trim() ? (
-                                          <span
-                                            key={i}
-                                            onMouseEnter={(e) =>
-                                              handleWordHover(e, word)
-                                            }
-                                            onMouseLeave={handleWordLeave}
-                                            className={`relative cursor-help transition-colors ${
-                                              findWordTranslation(word)
-                                                ? "text-cyan-300 hover:text-cyan-100 hover:underline"
-                                                : ""
-                                            }`}
-                                          >
-                                            {word}
-                                          </span>
-                                        ) : (
-                                          <span key={i}>{word}</span>
-                                        )
-                                      )}
-                              </p>
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    if (
+                                      currentSpeaking === index &&
+                                      highlightedWord
+                                    ) {
+                                      const cleanHighlightedWord =
+                                        highlightedWord.replace(
+                                          /[.*+?^${}()|[\]\\]/g,
+                                          "\\$&",
+                                        );
+                                      const regex = new RegExp(
+                                        `\\b(${cleanHighlightedWord})\\b`,
+                                        "i",
+                                      );
+                                      return sentenceObj.text.replace(
+                                        regex,
+                                        `<span style="background-color: #facc15; color: black; border-radius: 3px; padding: 0 2px;">$1</span>`,
+                                      );
+                                    }
+                                    return sentenceObj.text;
+                                  })(),
+                                }}
+                              ></p>
                             </div>
                           </div>
 
@@ -552,11 +578,11 @@ const LessonView: React.FC = () => {
                                   <img
                                     key={imgIndex}
                                     src={imgUrl}
-                                    alt={`${figureKey} - Схема ${
-                                      imgIndex + 1
-                                    }`}
+                                    alt={`${figureKey} - Схема ${imgIndex + 1}`}
                                     className="max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
-                                    onClick={() => window.open(imgUrl, "_blank")}
+                                    onClick={() =>
+                                      window.open(imgUrl, "_blank")
+                                    }
                                   />
                                 ))}
                               </div>
@@ -569,7 +595,7 @@ const LessonView: React.FC = () => {
                     return (
                       <>
                         {regularSentences.map((sentence, index) =>
-                          renderSentence(sentence, index)
+                          renderSentence(sentence, index),
                         )}
 
                         {wichtigsteSentences.length > 0 && (
@@ -623,7 +649,42 @@ const LessonView: React.FC = () => {
                                 <span
                                   className={`text-2xl font-bold text-green-400 ${getGermanFontFamilyClass()}`}
                                 >
-                                  {wordData.word}
+                                  {(() => {
+                                    if (
+                                      currentSpeaking === null &&
+                                      highlightedWord
+                                    ) {
+                                      const cleanHighlight =
+                                        highlightedWord.replace(
+                                          /[.*+?^${}()|[\]\\]/g,
+                                          "\\$&",
+                                        );
+                                      const regex = new RegExp(
+                                        `(\\b${cleanHighlight}\\b)`,
+                                        "gi",
+                                      );
+                                      return wordData.word
+                                        .split(regex)
+                                        .map((part, i) =>
+                                          i % 2 === 1 ? (
+                                            <span
+                                              key={i}
+                                              style={{
+                                                backgroundColor: "#facc15",
+                                                color: "black",
+                                                borderRadius: "3px",
+                                                padding: "0 2px",
+                                              }}
+                                            >
+                                              {part}
+                                            </span>
+                                          ) : (
+                                            part
+                                          ),
+                                        );
+                                    }
+                                    return wordData.word;
+                                  })()}
                                 </span>
                                 <span
                                   className={`text-xl text-gray-400 ml-3 ${getFontFamilyClass()}`}
@@ -647,7 +708,42 @@ const LessonView: React.FC = () => {
                                   <span className="text-blue-400 font-semibold">
                                     DE:
                                   </span>{" "}
-                                  {wordData.example}
+                                  {(() => {
+                                    if (
+                                      currentSpeaking === null &&
+                                      highlightedWord
+                                    ) {
+                                      const cleanHighlight =
+                                        highlightedWord.replace(
+                                          /[.*+?^${}()|[\]\\]/g,
+                                          "\\$&",
+                                        );
+                                      const regex = new RegExp(
+                                        `(\\b${cleanHighlight}\\b)`,
+                                        "gi",
+                                      );
+                                      return wordData.example
+                                        .split(regex)
+                                        .map((part, i) =>
+                                          i % 2 === 1 ? (
+                                            <span
+                                              key={i}
+                                              style={{
+                                                backgroundColor: "#facc15",
+                                                color: "black",
+                                                borderRadius: "3px",
+                                                padding: "0 2px",
+                                              }}
+                                            >
+                                              {part}
+                                            </span>
+                                          ) : (
+                                            part
+                                          ),
+                                        );
+                                    }
+                                    return wordData.example;
+                                  })()}
                                 </p>
                                 <button
                                   onClick={() => speakWord(wordData.example)}
@@ -841,10 +937,163 @@ const LessonView: React.FC = () => {
                 <h3 className="text-2xl font-bold text-gray-500 mb-4">
                   {t.additionalResources}
                 </h3>
-                <p className="text-gray-500 italic">
-                  {t.comingSoon}
-                </p>
+                <p className="text-gray-500 italic">{t.comingSoon}</p>
               </div>
+            </div>
+          )}
+
+          {/* Exercises Tab */}
+          {activeTab === "exercises" && lessonData.exercises && (
+            <div className="space-y-8">
+              {lessonData.exercises.map((exercise) => (
+                <div
+                  key={exercise.id}
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-blue-500/30"
+                >
+                  <h3 className="text-2xl font-bold text-blue-300 mb-2">
+                    {exercise.title}
+                  </h3>
+                  {exercise.titleBg && (
+                    <p className="text-gray-400 mb-6 text-sm">
+                      {exercise.titleBg}
+                    </p>
+                  )}
+
+                  {exercise.type === "matching" && (
+                    <div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                        {/* Left Items */}
+                        <div className="space-y-3">
+                          <p className="text-gray-300 font-semibold mb-3">
+                            Граници на плочи:
+                          </p>
+                          {exercise.leftItems?.map((item) => {
+                            const isSelected = selectedLeft === item.id;
+                            return (
+                              <div
+                                key={item.id}
+                                onClick={() => {
+                                  setSelectedLeft(isSelected ? null : item.id);
+                                  setSelectedRights(new Set());
+                                  setMatchingFeedback(null);
+                                }}
+                                className={`px-6 py-4 rounded-lg cursor-pointer transition-all transform hover:scale-105 ${
+                                  isSelected
+                                    ? "bg-yellow-600 border-2 border-yellow-300 scale-105"
+                                    : "bg-blue-600 hover:bg-blue-500 border border-transparent"
+                                } text-white`}
+                              >
+                                <p className="font-semibold">{item.text}</p>
+                                {item.textBg && (
+                                  <p className="text-sm text-blue-100">
+                                    {item.textBg}
+                                  </p>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* Right Items */}
+                        <div className="space-y-3">
+                          <p className="text-gray-300 font-semibold mb-3">
+                            Процеси:
+                          </p>
+                          {exercise.rightItems?.map((item) => {
+                            const isSelected = selectedRights.has(item.id);
+                            const correspondingPair =
+                              exercise.correctPairs?.find(
+                                (p) => p.leftId === selectedLeft,
+                              );
+                            const isCorrect =
+                              correspondingPair?.rightIds.includes(item.id);
+
+                            return (
+                              <div
+                                key={item.id}
+                                onClick={() => {
+                                  if (!selectedLeft) return;
+
+                                  const newSet = new Set(selectedRights);
+                                  if (newSet.has(item.id)) {
+                                    newSet.delete(item.id);
+                                  } else {
+                                    newSet.add(item.id);
+                                  }
+                                  setSelectedRights(newSet);
+
+                                  // Check if all correct matches are selected
+                                  if (
+                                    newSet.size ===
+                                      correspondingPair?.rightIds.length &&
+                                    Array.from(newSet).every((id) =>
+                                      correspondingPair?.rightIds.includes(id),
+                                    )
+                                  ) {
+                                    setMatchingFeedback("correct");
+                                  } else {
+                                    setMatchingFeedback(null);
+                                  }
+                                }}
+                                className={`px-6 py-4 rounded-lg transition-all transform ${
+                                  !selectedLeft
+                                    ? "cursor-not-allowed opacity-50"
+                                    : "cursor-pointer hover:scale-105"
+                                } ${
+                                  isSelected
+                                    ? isCorrect
+                                      ? "bg-green-600 border-2 border-green-300 scale-105"
+                                      : "bg-red-600 border-2 border-red-300 scale-105"
+                                    : "bg-emerald-600 hover:bg-emerald-500 border border-transparent"
+                                } text-white`}
+                              >
+                                <p className="font-semibold">{item.text}</p>
+                                {item.textBg && (
+                                  <p className="text-sm text-emerald-100">
+                                    {item.textBg}
+                                  </p>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {matchingFeedback === "correct" && (
+                        <div className="bg-green-900/30 border-2 border-green-500 text-green-300 p-4 rounded-lg text-center font-semibold">
+                          ✅ Правилно! Тази граница съответства на избраните
+                          процеси.
+                        </div>
+                      )}
+
+                      {selectedLeft &&
+                        matchingFeedback !== "correct" &&
+                        selectedRights.size > 0 && (
+                          <div className="text-gray-400 text-center p-4">
+                            Кликнете на процесите които съответстват на "
+                            {
+                              exercise.leftItems?.find(
+                                (i) => i.id === selectedLeft,
+                              )?.textBg
+                            }
+                            "
+                          </div>
+                        )}
+
+                      <button
+                        onClick={() => {
+                          setSelectedLeft(null);
+                          setSelectedRights(new Set());
+                          setMatchingFeedback(null);
+                        }}
+                        className="mt-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
+                      >
+                        Нова задача
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           )}
         </div>
