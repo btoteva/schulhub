@@ -11,6 +11,55 @@ import { getLessonById } from "../data/lessons";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 
+// Helper function to insert highlight span at specific index in HTML string
+// Maps plain text index (from speech synthesis) to HTML string index
+const insertHighlight = (html: string, start: number, length: number) => {
+  let p = 0; // plain text index
+  let h = 0; // html string index
+  let startH = -1;
+  let endH = -1;
+
+  while (h < html.length) {
+    // Found start position
+    if (p === start && startH === -1) startH = h;
+    // Found end position
+    if (p === start + length && endH === -1) endH = h;
+
+    if (endH !== -1) break;
+
+    if (html[h] === "<") {
+      // Skip tags
+      while (h < html.length && html[h] !== ">") h++;
+      h++;
+    } else if (html[h] === "&") {
+      // Handle entities (assume length 1 in plain text like &nbsp; -> ' ')
+      const semi = html.indexOf(";", h);
+      if (semi !== -1) {
+        h = semi + 1;
+        p++;
+      } else {
+        h++;
+        p++;
+      }
+    } else {
+      h++;
+      p++;
+    }
+  }
+
+  if (startH !== -1) {
+    if (endH === -1) endH = h;
+    return (
+      html.slice(0, startH) +
+      `<span style="background-color: #facc15; color: black; border-radius: 3px; padding: 0 2px;">` +
+      html.slice(startH, endH) +
+      `</span>` +
+      html.slice(endH)
+    );
+  }
+  return html;
+};
+
 const LessonView: React.FC = () => {
   const { courseId, lessonId } = useParams<{
     courseId: string;
@@ -33,7 +82,12 @@ const LessonView: React.FC = () => {
   const [expandedSentences, setExpandedSentences] = useState<Set<number>>(
     new Set(),
   );
-  const [highlightedWord, setHighlightedWord] = useState<string | null>(null);
+  const [highlightInfo, setHighlightInfo] = useState<{
+    word: string;
+    index: number;
+    length: number;
+  } | null>(null);
+  const [speakingText, setSpeakingText] = useState<string | null>(null);
   const [currentFlashcardIndex, setCurrentFlashcardIndex] = useState(0);
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRights, setSelectedRights] = useState<Set<number>>(new Set());
@@ -157,22 +211,27 @@ const LessonView: React.FC = () => {
   const speakWord = (text: string) => {
     window.speechSynthesis.cancel();
     setCurrentSpeaking(null); // Disables sentence highlighting
+    setSpeakingText(text);
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
     utterance.rate = 0.9;
 
     utterance.onboundary = (event: SpeechSynthesisEvent) => {
       if (event.name === "word") {
-        const word = text.substring(
-          event.charIndex,
-          event.charIndex + (event.charLength || 0),
-        );
-        setHighlightedWord(word.trim());
+        const charIndex = event.charIndex;
+        const charLength = event.charLength || 0;
+        const word = text.substring(charIndex, charIndex + charLength);
+        setHighlightInfo({
+          word: word.trim(),
+          index: charIndex,
+          length: charLength,
+        });
       }
     };
 
     utterance.onend = () => {
-      setHighlightedWord(null);
+      setHighlightInfo(null);
+      setSpeakingText(null);
     };
 
     window.speechSynthesis.speak(utterance);
@@ -199,7 +258,7 @@ const LessonView: React.FC = () => {
     if (currentSpeaking === index && !autoPlay) {
       window.speechSynthesis.cancel();
       setCurrentSpeaking(null);
-      setHighlightedWord(null);
+      setHighlightInfo(null);
       isPlayingAllRef.current = false;
       setIsPlayingAll(false);
       return;
@@ -218,17 +277,20 @@ const LessonView: React.FC = () => {
 
     utterance.onboundary = (event: SpeechSynthesisEvent) => {
       if (event.name === "word") {
-        const word = plainText.substring(
-          event.charIndex,
-          event.charIndex + (event.charLength || 0),
-        );
-        setHighlightedWord(word.trim());
+        const charIndex = event.charIndex;
+        const charLength = event.charLength || 0;
+        const word = plainText.substring(charIndex, charIndex + charLength);
+        setHighlightInfo({
+          word: word.trim(),
+          index: charIndex,
+          length: charLength,
+        });
       }
     };
 
     utterance.onend = () => {
       setCurrentSpeaking(null);
-      setHighlightedWord(null);
+      setHighlightInfo(null);
 
       // If playing all, move to next sentence
       if (isPlayingAllRef.current) {
@@ -534,20 +596,12 @@ const LessonView: React.FC = () => {
                                   __html: (() => {
                                     if (
                                       currentSpeaking === index &&
-                                      highlightedWord
+                                      highlightInfo
                                     ) {
-                                      const cleanHighlightedWord =
-                                        highlightedWord.replace(
-                                          /[.*+?^${}()|[\]\\]/g,
-                                          "\\$&",
-                                        );
-                                      const regex = new RegExp(
-                                        `\\b(${cleanHighlightedWord})\\b`,
-                                        "i",
-                                      );
-                                      return sentenceObj.text.replace(
-                                        regex,
-                                        `<span style="background-color: #facc15; color: black; border-radius: 3px; padding: 0 2px;">$1</span>`,
+                                      return insertHighlight(
+                                        sentenceObj.text,
+                                        highlightInfo.index,
+                                        highlightInfo.length,
                                       );
                                     }
                                     return sentenceObj.text;
@@ -652,36 +706,20 @@ const LessonView: React.FC = () => {
                                   {(() => {
                                     if (
                                       currentSpeaking === null &&
-                                      highlightedWord
+                                      highlightInfo &&
+                                      speakingText === wordData.word
                                     ) {
-                                      const cleanHighlight =
-                                        highlightedWord.replace(
-                                          /[.*+?^${}()|[\]\\]/g,
-                                          "\\$&",
-                                        );
-                                      const regex = new RegExp(
-                                        `(\\b${cleanHighlight}\\b)`,
-                                        "gi",
+                                      return (
+                                        <span
+                                          dangerouslySetInnerHTML={{
+                                            __html: insertHighlight(
+                                              wordData.word,
+                                              highlightInfo.index,
+                                              highlightInfo.length,
+                                            ),
+                                          }}
+                                        />
                                       );
-                                      return wordData.word
-                                        .split(regex)
-                                        .map((part, i) =>
-                                          i % 2 === 1 ? (
-                                            <span
-                                              key={i}
-                                              style={{
-                                                backgroundColor: "#facc15",
-                                                color: "black",
-                                                borderRadius: "3px",
-                                                padding: "0 2px",
-                                              }}
-                                            >
-                                              {part}
-                                            </span>
-                                          ) : (
-                                            part
-                                          ),
-                                        );
                                     }
                                     return wordData.word;
                                   })()}
@@ -711,36 +749,20 @@ const LessonView: React.FC = () => {
                                   {(() => {
                                     if (
                                       currentSpeaking === null &&
-                                      highlightedWord
+                                      highlightInfo &&
+                                      speakingText === wordData.example
                                     ) {
-                                      const cleanHighlight =
-                                        highlightedWord.replace(
-                                          /[.*+?^${}()|[\]\\]/g,
-                                          "\\$&",
-                                        );
-                                      const regex = new RegExp(
-                                        `(\\b${cleanHighlight}\\b)`,
-                                        "gi",
+                                      return (
+                                        <span
+                                          dangerouslySetInnerHTML={{
+                                            __html: insertHighlight(
+                                              wordData.example,
+                                              highlightInfo.index,
+                                              highlightInfo.length,
+                                            ),
+                                          }}
+                                        />
                                       );
-                                      return wordData.example
-                                        .split(regex)
-                                        .map((part, i) =>
-                                          i % 2 === 1 ? (
-                                            <span
-                                              key={i}
-                                              style={{
-                                                backgroundColor: "#facc15",
-                                                color: "black",
-                                                borderRadius: "3px",
-                                                padding: "0 2px",
-                                              }}
-                                            >
-                                              {part}
-                                            </span>
-                                          ) : (
-                                            part
-                                          ),
-                                        );
                                     }
                                     return wordData.example;
                                   })()}
