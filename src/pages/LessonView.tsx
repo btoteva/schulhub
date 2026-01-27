@@ -925,42 +925,58 @@ const LessonView: React.FC = () => {
           {/* Resources Tab */}
           {activeTab === "resources" && (
             <div className="space-y-8">
-              {/* Audio Resources Section */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
-                <h3 className="text-2xl font-bold text-green-400 mb-6">
-                  {t.audioResources}
-                </h3>
+              {lessonData.resources && lessonData.resources.length > 0 ? (
+                <>
+                  {lessonData.resources.map((resource: any) => (
+                    <div
+                      key={resource.id}
+                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700"
+                    >
+                      <h3 className="text-2xl font-bold text-green-400 mb-2">
+                        {resource.title}
+                      </h3>
+                      {resource.titleBg && (
+                        <p className="text-lg text-gray-400 mb-4">
+                          {resource.titleBg}
+                        </p>
+                      )}
 
-                {/* Spotify Player */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-white mb-2">
-                    {t.relaxationAudioTitle}
-                  </h4>
-                  <p className="text-gray-400 mb-4 leading-relaxed">
-                    {t.relaxationAudioDesc}
-                  </p>
-                  <div className="w-full">
-                    <iframe
-                      style={{ borderRadius: "12px" }}
-                      src="https://open.spotify.com/embed/track/1uxAXqIoQkFzQ1ftKNjUNk?utm_source=generator"
-                      width="100%"
-                      height="352"
-                      frameBorder={0}
-                      allowFullScreen
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      loading="lazy"
-                    ></iframe>
-                  </div>
+                      <p className="text-gray-300 mb-2 leading-relaxed">
+                        {resource.description}
+                      </p>
+                      {resource.descriptionBg && (
+                        <p className="text-gray-400 mb-6 leading-relaxed">
+                          {resource.descriptionBg}
+                        </p>
+                      )}
+
+                      {resource.type === "spotify-podcast" &&
+                        resource.embedUrl && (
+                          <div className="w-full">
+                            <iframe
+                              data-testid="embed-iframe"
+                              style={{ borderRadius: "12px" }}
+                              src={resource.embedUrl}
+                              width="100%"
+                              height="352"
+                              frameBorder={0}
+                              allowFullScreen
+                              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                              loading="lazy"
+                            ></iframe>
+                          </div>
+                        )}
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 border-dashed">
+                  <h3 className="text-2xl font-bold text-gray-500 mb-4">
+                    {t.resources}
+                  </h3>
+                  <p className="text-gray-500 italic">{t.comingSoon}</p>
                 </div>
-              </div>
-
-              {/* Additional Resources Section - Coming Soon */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 border-dashed">
-                <h3 className="text-2xl font-bold text-gray-500 mb-4">
-                  {t.additionalResources}
-                </h3>
-                <p className="text-gray-500 italic">{t.comingSoon}</p>
-              </div>
+              )}
             </div>
           )}
 

@@ -37,38 +37,7 @@ const lessonsData: { [key: number]: Band[] } = {
       sections: [
         {
           sectionTitle: "Grundlagen",
-          lessons: [
-            {
-              id: 1,
-              title: "Урок 1: Азбука и произношение",
-              duration: "15 мин",
-              completed: false,
-            },
-            {
-              id: 2,
-              title: "Урок 2: Приветствия и представяне",
-              duration: "20 мин",
-              completed: false,
-            },
-            {
-              id: 3,
-              title: "Урок 3: Числа и цифри",
-              duration: "18 мин",
-              completed: false,
-            },
-            {
-              id: 4,
-              title: "Урок 4: Основни глаголи",
-              duration: "25 мин",
-              completed: false,
-            },
-            {
-              id: 5,
-              title: "Урок 5: Съществителни имена и членове",
-              duration: "22 мин",
-              completed: false,
-            },
-          ],
+          lessons: [],
         },
       ],
     },
@@ -133,30 +102,6 @@ const lessonsData: { [key: number]: Band[] } = {
               title:
                 "LITHOSPHÄRE. ZUSAMMENSETZUNG DER ERDKRUSTE. TEKTONIK DER PLATTEN",
               duration: "18 мин",
-              completed: false,
-            },
-            {
-              id: 2,
-              title: "Урок 2: Климатични зони",
-              duration: "22 мин",
-              completed: false,
-            },
-            {
-              id: 3,
-              title: "Урок 3: Релеф и форми на земята",
-              duration: "20 мин",
-              completed: false,
-            },
-            {
-              id: 4,
-              title: "Урок 4: Реки и езера",
-              duration: "19 мин",
-              completed: false,
-            },
-            {
-              id: 5,
-              title: "Урок 5: Население и градове",
-              duration: "21 мин",
               completed: false,
             },
           ],

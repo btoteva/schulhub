@@ -28,6 +28,16 @@ export interface Exercise {
   correctPairs?: any[];
 }
 
+export interface Resource {
+  id: number;
+  type: string;
+  title: string;
+  titleBg?: string;
+  description: string;
+  descriptionBg?: string;
+  embedUrl?: string;
+}
+
 export interface LessonContent {
   id: string;
   courseId: number;
@@ -38,6 +48,7 @@ export interface LessonContent {
   content?: string;
   images?: { [key: string]: string[] };
   exercises?: Exercise[];
+  resources?: Resource[];
 }
 
 // Import lesson data from separate JSON files

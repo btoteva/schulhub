@@ -13,9 +13,9 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 // Lesson counts based on actual data in Lessons.tsx
 const actualLessonCounts: { [key: number]: number } = {
-  1: 5, // German - 5 lessons in Grundlagen section
+  1: 0, // German - 0 lessons
   2: 5, // Biology - 5 lessons in HERZ-KREISLAUF-SYSTEM section
-  3: 5, // Geography - 5 lessons in География - Основи section
+  3: 1, // Geography - 1 lesson (3-1.json)
 };
 
 const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
@@ -137,9 +137,17 @@ const Home: React.FC = () => {
               {t.platformTitle}
             </h2>
             <p className="text-lg text-gray-300 mt-4">
-              <span className="text-yellow-400 font-semibold">{t.germanSubject}</span> •{" "}
-              <span className="text-green-400 font-semibold">{t.biologySubject}</span> •{" "}
-              <span className="text-blue-400 font-semibold">{t.geographySubject}</span>
+              <span className="text-yellow-400 font-semibold">
+                {t.germanSubject}
+              </span>{" "}
+              •{" "}
+              <span className="text-green-400 font-semibold">
+                {t.biologySubject}
+              </span>{" "}
+              •{" "}
+              <span className="text-blue-400 font-semibold">
+                {t.geographySubject}
+              </span>
             </p>
           </div>
         </div>
@@ -162,7 +170,7 @@ const Home: React.FC = () => {
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient(
-                  course.id
+                  course.id,
                 )} opacity-0 group-hover:opacity-10 transition-opacity`}
               ></div>
 
@@ -172,7 +180,8 @@ const Home: React.FC = () => {
                 <div className="flex items-center justify-end mb-4">
                   <span className="text-gray-400 text-sm flex items-center gap-1">
                     <FaBook className="text-sm" />
-                    {actualLessonCounts[course.id] || course.lessons} {t.lessonsCount}
+                    {actualLessonCounts[course.id] ?? course.lessons}{" "}
+                    {t.lessonsCount}
                   </span>
                 </div>
 
@@ -192,7 +201,7 @@ const Home: React.FC = () => {
                   <Link to={`/lessons/${course.id}`}>
                     <button
                       className={`bg-gradient-to-r ${getSubjectGradient(
-                        course.id
+                        course.id,
                       )} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
                     >
                       {t.seeMore}
