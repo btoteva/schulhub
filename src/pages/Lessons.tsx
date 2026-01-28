@@ -95,12 +95,18 @@ const lessonsData: { [key: number]: Band[] } = {
       bandTitle: "Band 1",
       sections: [
         {
-          sectionTitle: "География - Основи",
+          sectionTitle: " ",
           lessons: [
             {
               id: 1,
               title:
-                "LITHOSPHÄRE. ZUSAMMENSETZUNG DER ERDKRUSTE. TEKTONIK DER PLATTEN",
+                "14 LITHOSPHÄRE. ZUSAMMENSETZUNG DER ERDKRUSTE. TEKTONIK DER PLATTEN",
+              duration: "18 мин",
+              completed: false,
+            },
+            {
+              id: 2,
+              title: "15. ENDOGENE RELIEFBILDENDE PROZESSE",
               duration: "18 мин",
               completed: false,
             },

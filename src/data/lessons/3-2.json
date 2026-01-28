@@ -1,0 +1,100 @@
+{
+    "id": "3-2",
+    "courseId": 3,
+    "title": "15. ENDOGENE RELIEFBILDENDE PROZESSE",
+    "subtitle": "",
+    "images": {
+        "Abb. 1": [
+            "https://i.imgur.com/jb7XU7L.png"
+        ],
+        "Abb. 2": [
+            "https://i.imgur.com/9HkpsaD.png"
+        ]
+    },
+    "content": "📘 15. ENDOGENE RELIEFBILDENDE PROZESSE",
+    "sentences": [
+        {
+            "text": "📘 15. ENDOGENE RELIEFBILDENDE PROZESSE",
+            "translation": "📘 15. ЕНДОГЕННИ РЕЛЕФООБРАЗУВАЩИ ПРОЦЕСИ"
+        },
+        {
+            "text": "Das Relief der Erdoberfläche entsteht durch die Zusammenwirkung von endogenen (inneren) und exogenen (äußeren) Prozessen.",
+            "translation": "Релефът на земната повърхност възниква чрез взаимодействието на ендогенни (вътрешни) и екзогенни (външни) процеси."
+        },
+        {
+            "text": "Endogen sind alle Vorgänge, die im Erdinneren aufgrund der inneren Energie der Erde verlaufen.",
+            "translation": "Ендогенни са всички процеси, които протичат във вътрешността на Земята вследствие на вътрешната ѝ енергия."
+        },
+        {
+            "text": "Sie verursachen die tektonischen Bewegungen, den Vulkanismus und die Erdbeben.",
+            "translation": "Те предизвикват тектоничните движения, вулканизма и земетресенията."
+        },
+        {
+            "text": "So entstehen große Reliefformen wie Bergketten, Ebenen u.a.",
+            "translation": "Така се образуват големи релефни форми като планински вериги, равнини и др."
+        },
+        {
+            "text": "📘 Tektonische Bewegungen",
+            "translation": "📘 Тектонични движения"
+        },
+        {
+            "text": "Diese Bewegungen erzeugen vertikale und horizontale Verschiebungen und Deformationen im oberen Teil der Lithosphäre.",
+            "translation": "Тези движения предизвикват вертикални и хоризонтални размествания и деформации в горната част на литосферата."
+        },
+        {
+            "text": "Deshalb werden sie in vertikale und horizontale aufgeteilt.",
+            "translation": "Затова те се разделят на вертикални и хоризонтални."
+        },
+        {
+            "text": "Zu den vertikalen gehören die Ausgleichsbewegungen, zu den horizontalen die Faltungs- und die Verwerfungsbewegungen.",
+            "translation": "Към вертикалните спадат изравнителните движения, а към хоризонталните — сгъваемите и разломните движения."
+        },
+        {
+            "text": "<strong>Die Ausgleichsbewegungen</strong> stellen langandauernde vertikale Verschiebungen dar, bei denen langsame Hebungen oder Senkungen großer Teile der Erdkruste zustande kommen.",
+            "translation": "<strong>Изравнителните движения</strong> представляват продължителни вертикални размествания, при които настъпват бавни повдигания или снижавания на големи части от земната кора."
+        },
+        {
+            "text": "Sie verursachen keine Deformationen und erzeugen keine neuen Strukturen.",
+            "translation": "Те не предизвикват деформации и не създават нови структури."
+        },
+        {
+            "text": "Sie umfassen die alten Gebiete der Kontinente.",
+            "translation": "Те обхващат старите области на континентите."
+        },
+        {
+            "text": "Es gibt verschiedene Ursachen für die Entstehung von Ausgleichsbewegungen.",
+            "translation": "Съществуват различни причини за възникването на изравнителни движения."
+        },
+        {
+            "text": "Berggebiete sind aus leichterem Gestein aufgebaut; durch das ständige Zerstören und Abtragen von Gesteinsmaterial werden sie noch leichter.",
+            "translation": "Планинските области са изградени от по-леки скали; чрез постоянното разрушаване и отнасяне на скален материал те стават още по-леки."
+        },
+        {
+            "text": "Der plastische obere Mantel reagiert auf die Reduzierung der Masse mit langsamem Aufsteigen.",
+            "translation": "Пластичната горна мантия реагира на намаляването на масата с бавно издигане."
+        },
+        {
+            "text": "Und umgekehrt: in den Gebieten, wo beträchtliche Mengen von Sedimentgestein angehäuft wurden, wird die Erdkruste stärker beansprucht und das Gestein sinkt langsam ab.",
+            "translation": "И обратно: в областите, където са натрупани значителни количества седиментни скали, земната кора се натоварва повече и скалата бавно потъва."
+        },
+        {
+            "text": "Deshalb beobachtet man in Tiefebenen sowie im Schelf des Meeresbodens häufig Absenkungen.",
+            "translation": "Затова в низините и в шелфа на морското дъно често се наблюдават снижавания."
+        },
+        {
+            "text": "Ähnliche Vorgänge, jedoch mit häufigerem Wechsel der Bewegungsrichtung, vollzogen sich im Laufe der kontinentalen Vereisungen.",
+            "translation": "Подобни процеси, но с по-честа смяна на посоката на движение, са протичали по време на континенталните заледявания."
+        },
+        {
+            "text": "Die Riesenmasse der Gletscher führte zur Absenkung der Erdkruste darunter.",
+            "translation": "Огромната маса на ледниците е довела до снижаване на земната кора под тях."
+        },
+        {
+            "text": "Nach der Gletscherschmelze begann der umgekehrte Prozess der Hebung.",
+            "translation": "След разтопяването на ледниците е започнал обратният процес на повдигане."
+        }
+    ],
+    "resources": [],
+    "dictionary": [],
+    "exercises": []
+}

@@ -591,7 +591,7 @@ const LessonView: React.FC = () => {
                                     : !isSectionHeading
                                       ? "text-gray-300"
                                       : ""
-                                }`}
+                                } [&_strong]:font-bold [&_strong]:text-green-400`}
                                 dangerouslySetInnerHTML={{
                                   __html: (() => {
                                     if (
@@ -615,10 +615,11 @@ const LessonView: React.FC = () => {
                             sentenceObj.translation && (
                               <div className="ml-14 pl-4 border-l-2 border-green-500 bg-green-900/20 p-4 rounded-lg animate-in">
                                 <p
-                                  className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()}`}
-                                >
-                                  {sentenceObj.translation}
-                                </p>
+                                  className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-400 [&_strong]:text-lg`}
+                                  dangerouslySetInnerHTML={{
+                                    __html: sentenceObj.translation,
+                                  }}
+                                ></p>
                               </div>
                             )}
 
