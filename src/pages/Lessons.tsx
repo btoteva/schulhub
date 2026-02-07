@@ -65,7 +65,7 @@ const lessonsData: { [key: number]: Band[] } = {
       bandTitle: "Band 2",
       sections: [
         {
-          sectionTitle: "BEWEGUNG UND STÜTZE DES KÖRPERS",
+          sectionTitle: "III BEWEGUNG UND STÜTZE DES KÖRPERS",
           lessons: [
             {
               id: 2,
@@ -100,12 +100,12 @@ const lessonsData: { [key: number]: Band[] } = {
           ],
         },
         {
-          sectionTitle: "5. GESCHLECHTSSYSTEM",
+          sectionTitle: "IV GESCHLECHTSSYSTEM",
           lessons: [
             {
               id: "5-1",
               number: "5",
-              title: "GESCHLECHTSORGANE DES MANNES",
+              title: "IV-1 GESCHLECHTSORGANE DES MANNES",
               duration: "20 мин",
               completed: false,
             },
