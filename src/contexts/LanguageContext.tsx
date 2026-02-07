@@ -47,6 +47,7 @@ interface Translations {
   dictionary: string;
   flashcards: string;
   exercises: string;
+  test: string;
   playAll: string;
   pause: string;
   listen: string;
@@ -128,6 +129,7 @@ const translations: Record<Language, Translations> = {
     dictionary: "Речник",
     flashcards: "Флаш-карти",
     exercises: "Упражнения",
+    test: "Тест",
     playAll: "Пусни всички",
     pause: "Пауза",
     listen: "Слушай",
@@ -211,6 +213,7 @@ const translations: Record<Language, Translations> = {
     dictionary: "Dictionary",
     flashcards: "Flashcards",
     exercises: "Exercises",
+    test: "Test",
     playAll: "Play All",
     pause: "Pause",
     listen: "Listen",
@@ -294,6 +297,7 @@ const translations: Record<Language, Translations> = {
     dictionary: "Wörterbuch",
     flashcards: "Lernkarten",
     exercises: "Übungen",
+    test: "Test",
     playAll: "Alle abspielen",
     pause: "Pause",
     listen: "Anhören",

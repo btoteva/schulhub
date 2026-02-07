@@ -1,8 +1,8 @@
 {
-  "id": "2-4-1",
+  "id": "2-5-1",
   "courseId": 2,
-  "title": "4-1 GESCHLECHTSORGANE DES MANNES",
-  "subtitle": "GESCHLECHTSSYSTEM. GESCHLECHTSORGANE DES MANNES",
+  "title": "5-1 GESCHLECHTSORGANE DES MANNES",
+  "subtitle": "5. GESCHLECHTSSYSTEM. GESCHLECHTSORGANE DES MANNES",
   "content": "Wie beteiligen sich Organe an der Bildung männlicher Geschlechtszellen und an der Erhaltung ihrer Funktionstüchtigkeit bis zur Befruchtung?\n\n📘 Das Geschlechtssystem.\n\nDas Geschlechtssystem ist ein System von Organen, die die Fortpflanzung des Menschen gewährleisten.\n\nBeim Menschen existieren ein Geschlechtssystem des Mannes und ein Geschlechtssystem der Frau.\n\nIm Geschlechtssystem des Mannes bilden sich männliche Geschlechtszellen heraus.\n\nDas Geschlechtssystem des Mannes umfasst die männlichen Geschlechtsorgane, die im Becken und außerhalb des Beckens liegen.\n\nJe nach ihrer Lage unterscheidet man zwischen inneren Geschlechtsorganen (Hoden, Nebenhoden, Samenleiter, Samenbläschen und Vorstehdrüse/Prostata) und äußeren Geschlechtsorganen (das Glied und der Hodensack/Scrotum) (Abb. 1).\n\nSie machen die primären Geschlechtsmerkmale des Mannes aus.\n\nSie gewährleisten die Bildung von männlichen Geschlechtszellen, von Geschlechtshormonen, die innere Befruchtung und den Vollzug des Geschlechtsverkehrs.",
   "images": {
     "Abb. 1": [
@@ -230,6 +230,22 @@
     {
       "text": "Das Skrotum enthält Glattmuskeln, die an der Wärmeregulierung der Hoden beteiligt sind.",
       "translation": "Скротумът съдържа гладки мускули, които участват в топлинната регулация на тестисите."
+    },
+    {
+      "text": "📘 Das Wichtigste. (Най-важното.)",
+      "translation": "Най-важното."
+    },
+    {
+      "text": "Das männliche Geschlechtssystem gewährleistet die Bildung und Reifung der männlichen Geschlechtszellen, die Produktion des männlichen Geschlechtshormons (Testosteron) und die normale innere Befruchtung.",
+      "translation": "Мъжката полова система осигурява образуването и зреенето на мъжки полови клетки, производството на мъжки полов хормон (тестостерон) и нормалното вътрешно оплождане."
+    },
+    {
+      "text": "Die männlichen Geschlechtsdrüsen (Hoden) enthalten Zellen, die sich ständig teilen. Ein Teil von ihnen verwandelt sich in Spermien, die an der Befruchtung teilnehmen.",
+      "translation": "Мъжките полови жлези (семенници) съдържат клетки, които непрекъснато се делят. Част от тях се превръщат в сперматозоиди, които участват в оплождането."
+    },
+    {
+      "text": "Die Samenbläschen und die Prostatadrüse scheiden ein Sekret ab, das die Lebensfähigkeit und Beweglichkeit der Spermien unterstützt.",
+      "translation": "Семенните мехурчета и простатната жлеза отделят секрет, който поддържа жизнеността и подвижността на сперматозоидите."
     }
   ],
   "dictionary": [
@@ -434,6 +450,30 @@
         {"word": "aktiv", "translation": "активен", "example": "aktiven Bewegungen", "example_translation": "активни движения"},
         {"word": "wellenförmig", "translation": "вълнообразен", "example": "wellenförmige Bewegungen", "example_translation": "вълнообразни движения"}
       ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": 0,
+      "title": "Wenden Sie das Gelernte an",
+      "titleBg": "Приложете наученото",
+      "type": "section"
+    },
+    {
+      "id": 1,
+      "title": "Wie unterstützen die Prostata und die Samenbläschen die Spermien bei der Erfüllung ihrer Funktion?",
+      "titleBg": "Как простатата и семенните мехурчета подпомагат сперматозоидите в осъществяването на тяхната функция?",
+      "type": "question",
+      "answer": "Die Prostata und die Samenbläschen scheiden ein Sekret ab, das Einfachzucker und andere Stoffe enthält. Es unterstützt die Beweglichkeit und Lebensfähigkeit der Spermien und liefert Energie für ihre Fortbewegung zur Eizelle.",
+      "answerBg": "Простатата и семенните мехурчета отделят секрет, който съдържа прости захари и други вещества. Той подпомага подвижността и жизнеността на сперматозоидите и осигурява енергия за придвижването им към яйцеклетката."
+    },
+    {
+      "id": 2,
+      "title": "Welcher Teil des männlichen Geschlechtssystems ist mit dem Ausscheidungssystem gemeinsam?",
+      "titleBg": "Коя част от мъжката полова система е обща с отделителната система?",
+      "type": "question",
+      "answer": "Die Harnröhre ist dem Geschlechtssystem und dem Ausscheidungssystem gemeinsam – durch sie werden sowohl die Samenflüssigkeit bei der Ejakulation als auch der Urin ausgeschieden.",
+      "answerBg": "Пикочният канал (Harnröhre) е общ за половата и отделителната система – през него преминава както семенната течност при еякулация, така и урината."
     }
   ]
 }

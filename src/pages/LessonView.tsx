@@ -8,7 +8,7 @@ import {
   FaVolumeUp,
   FaTimes,
 } from "react-icons/fa";
-import { getLessonById } from "../data/lessons";
+import { getLessonById, type LessonContent, type TestQuestion } from "../data/lessons";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -75,8 +75,10 @@ const LessonView: React.FC = () => {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
-    "content" | "dictionary" | "flashcards" | "resources" | "exercises"
+    "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
   >("content");
+  const [testAnswers, setTestAnswers] = useState<Record<number, string>>({});
+  const [testSubmitted, setTestSubmitted] = useState(false);
   const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
   const [isPlayingAll, setIsPlayingAll] = useState(false);
   const [currentPlayAllIndex, setCurrentPlayAllIndex] = useState(0);
@@ -95,6 +97,9 @@ const LessonView: React.FC = () => {
   const [matchingFeedback, setMatchingFeedback] = useState<
     "correct" | "incorrect" | null
   >(null);
+  const [revealedExerciseIds, setRevealedExerciseIds] = useState<Set<number>>(
+    new Set(),
+  );
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingAllRef = useRef(false);
   const currentPlayAllIndexRef = useRef(0);
@@ -109,6 +114,20 @@ const LessonView: React.FC = () => {
       window.speechSynthesis.cancel();
     };
   }, []);
+
+  // When opening a test-only lesson, show only Test tab (no other tabs)
+  const isTestOnlyLesson = !!(
+    lessonData &&
+    ((lessonData as LessonContent).testOnly === true ||
+      ((lessonData as LessonContent).test && (lessonData as LessonContent).id === "2-2-summary"))
+  );
+  useEffect(() => {
+    if (isTestOnlyLesson) {
+      setActiveTab("test");
+      setTestSubmitted(false);
+      setTestAnswers({});
+    }
+  }, [lessonId, isTestOnlyLesson]);
 
   // Load lesson data dynamically
   const lessonData = getLessonById(Number(courseId), lessonId || "");
@@ -466,11 +485,19 @@ const LessonView: React.FC = () => {
             {lessonData.subtitle}
           </h2>
 
-          {/* Tab Navigation */}
-          <div className="flex gap-4 mb-8 border-b border-gray-700 flex-wrap">
+          {/* Tab Navigation – при test-only урок табовете са винаги видими но неактивни */}
+          <div
+            className={`flex gap-4 mb-8 border-b border-gray-700 flex-wrap ${
+              isTestOnlyLesson ? "pointer-events-none opacity-50" : ""
+            }`}
+          >
             <button
-              onClick={() => setActiveTab("content")}
+              type="button"
+              disabled={isTestOnlyLesson}
+              onClick={() => !isTestOnlyLesson && setActiveTab("content")}
               className={`px-6 py-3 font-semibold transition-all ${
+                isTestOnlyLesson ? "cursor-not-allowed" : ""
+              } ${
                 activeTab === "content"
                   ? "text-green-400 border-b-2 border-green-400"
                   : "text-gray-400 hover:text-gray-300"
@@ -479,8 +506,12 @@ const LessonView: React.FC = () => {
               {t.lessonContent}
             </button>
             <button
-              onClick={() => setActiveTab("dictionary")}
+              type="button"
+              disabled={isTestOnlyLesson}
+              onClick={() => !isTestOnlyLesson && setActiveTab("dictionary")}
               className={`px-6 py-3 font-semibold transition-all ${
+                isTestOnlyLesson ? "cursor-not-allowed" : ""
+              } ${
                 activeTab === "dictionary"
                   ? "text-green-400 border-b-2 border-green-400"
                   : "text-gray-400 hover:text-gray-300"
@@ -489,8 +520,12 @@ const LessonView: React.FC = () => {
               {t.dictionary}
             </button>
             <button
-              onClick={() => setActiveTab("flashcards")}
+              type="button"
+              disabled={isTestOnlyLesson}
+              onClick={() => !isTestOnlyLesson && setActiveTab("flashcards")}
               className={`px-6 py-3 font-semibold transition-all ${
+                isTestOnlyLesson ? "cursor-not-allowed" : ""
+              } ${
                 activeTab === "flashcards"
                   ? "text-green-400 border-b-2 border-green-400"
                   : "text-gray-400 hover:text-gray-300"
@@ -499,8 +534,12 @@ const LessonView: React.FC = () => {
               {t.flashcards}
             </button>
             <button
-              onClick={() => setActiveTab("resources")}
+              type="button"
+              disabled={isTestOnlyLesson}
+              onClick={() => !isTestOnlyLesson && setActiveTab("resources")}
               className={`px-6 py-3 font-semibold transition-all ${
+                isTestOnlyLesson ? "cursor-not-allowed" : ""
+              } ${
                 activeTab === "resources"
                   ? "text-green-400 border-b-2 border-green-400"
                   : "text-gray-400 hover:text-gray-300"
@@ -509,8 +548,12 @@ const LessonView: React.FC = () => {
               {t.resources}
             </button>
             <button
-              onClick={() => setActiveTab("exercises")}
+              type="button"
+              disabled={isTestOnlyLesson}
+              onClick={() => !isTestOnlyLesson && setActiveTab("exercises")}
               className={`px-6 py-3 font-semibold transition-all ${
+                isTestOnlyLesson ? "cursor-not-allowed" : ""
+              } ${
                 activeTab === "exercises"
                   ? "text-green-400 border-b-2 border-green-400"
                   : "text-gray-400 hover:text-gray-300"
@@ -520,8 +563,118 @@ const LessonView: React.FC = () => {
             </button>
           </div>
 
+          {/* Test content – показва се винаги когато урокът има test (без табове при test-only) */}
+          {(lessonData as LessonContent).test && (
+            <div className="space-y-8">
+              {(() => {
+                const testData = (lessonData as LessonContent).test!;
+                return (
+                  <>
+                    <div className="bg-gradient-to-r from-violet-700 to-purple-800 text-white rounded-xl px-6 py-4 mb-8">
+                      <h3 className="text-2xl font-bold">{testData.title}</h3>
+                      {testData.titleBg && (
+                        <p className="text-violet-200 text-sm mt-1">{testData.titleBg}</p>
+                      )}
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                      {testData.questions.map((q) => {
+                        const selected = testAnswers[q.id];
+                        const correctOption = q.options.find((o) => o.correct);
+                        const isAnswered = selected !== undefined;
+                        const isCorrect = selected && correctOption && selected === correctOption.id;
+                        return (
+                          <div
+                            key={q.id}
+                            className={`p-6 rounded-xl border-2 ${
+                              isAnswered
+                                ? isCorrect
+                                  ? "bg-green-900/20 border-green-600"
+                                  : "bg-red-900/20 border-red-600"
+                                : "bg-gray-800/50 border-gray-600"
+                            }`}
+                          >
+                            {(q as TestQuestion).image && (
+                              <div className="mb-4 rounded-lg overflow-hidden border border-gray-600 bg-gray-900">
+                                <img
+                                  src={(q as TestQuestion).image}
+                                  alt=""
+                                  className="w-full max-h-64 object-contain cursor-pointer"
+                                  title="Отвори в нов прозорец"
+                                  onClick={() =>
+                                    window.open((q as TestQuestion).image!, "_blank")
+                                  }
+                                />
+                              </div>
+                            )}
+                            <p className="font-bold text-lg text-white mb-1">
+                              {q.id}. {q.question}
+                            </p>
+                            {q.questionBg && (
+                              <p className="text-gray-400 text-sm mb-4">{q.questionBg}</p>
+                            )}
+                            <div className="space-y-2">
+                              {q.options.map((opt) => (
+                                <label
+                                  key={opt.id}
+                                  className={`flex items-start gap-3 p-3 rounded-lg cursor-pointer transition-all ${
+                                    isAnswered && selected === opt.id && !opt.correct
+                                      ? "bg-red-700/30"
+                                      : !isAnswered
+                                        ? "hover:bg-gray-700/50"
+                                        : ""
+                                  } ${selected === opt.id ? "ring-2 ring-cyan-400" : ""}`}
+                                >
+                                  <input
+                                    type="radio"
+                                    name={`q-${q.id}`}
+                                    value={opt.id}
+                                    checked={selected === opt.id}
+                                    onChange={() =>
+                                      setTestAnswers((prev) => ({ ...prev, [q.id]: opt.id }))
+                                    }
+                                    className="mt-1"
+                                  />
+                                  <span className="text-gray-200">
+                                    {opt.id}) {opt.text}
+                                    {opt.textBg && (
+                                      <span className="text-gray-500 text-sm block">{opt.textBg}</span>
+                                    )}
+                                  </span>
+                                </label>
+                              ))}
+                            </div>
+                            {isAnswered && (
+                              <p
+                                className={`mt-3 text-sm font-semibold ${
+                                  isCorrect ? "text-green-400" : "text-red-400"
+                                }`}
+                              >
+                                {isCorrect ? "✓ Верен отговор" : "✗ Грешен отговор"}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="text-center mt-8 p-4 bg-gray-800 rounded-xl">
+                      <p className="text-xl text-white">
+                        Резултат:{" "}
+                        {
+                          testData.questions.filter(
+                            (q) => testAnswers[q.id] === q.options.find((o) => o.correct)?.id,
+                          ).length
+                        }{" "}
+                        / {testData.questions.length}
+                      </p>
+                    </div>
+                  </>
+                );
+              })()}
+            </div>
+          )}
+
           {/* Content Tab */}
-          {activeTab === "content" && lessonData.content && (
+          {!isTestOnlyLesson && activeTab === "content" && lessonData.content && (
             <div>
               {/* Play All Button */}
               <div className="mb-6 flex justify-end">
@@ -715,7 +868,7 @@ const LessonView: React.FC = () => {
           )}
 
           {/* Dictionary Tab */}
-          {activeTab === "dictionary" && (
+          {!isTestOnlyLesson && activeTab === "dictionary" && (
             <div>
               {dictionaryData.map((section) => (
                 <div key={section.id} className="mb-16">
@@ -831,7 +984,7 @@ const LessonView: React.FC = () => {
           )}
 
           {/* Flashcards Tab */}
-          {activeTab === "flashcards" && (
+          {!isTestOnlyLesson && activeTab === "flashcards" && (
             <div className="min-h-[500px] flex flex-col items-center justify-center">
               {allWords.length === 0 ? (
                 <p className="text-gray-400 text-xl">{t.noWordsInDictionary}</p>
@@ -959,7 +1112,7 @@ const LessonView: React.FC = () => {
           )}
 
           {/* Resources Tab */}
-          {activeTab === "resources" && (
+          {!isTestOnlyLesson && activeTab === "resources" && (
             <div className="space-y-8">
               {lessonData.resources && lessonData.resources.length > 0 ? (
                 <>
@@ -1017,23 +1170,73 @@ const LessonView: React.FC = () => {
           )}
 
           {/* Exercises Tab */}
-          {activeTab === "exercises" && lessonData.exercises && (
+          {!isTestOnlyLesson && activeTab === "exercises" && lessonData.exercises && (
             <div className="space-y-8">
               {lessonData.exercises.map((exercise) => (
-                <div
-                  key={exercise.id}
-                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-blue-500/30"
-                >
-                  <h3 className="text-2xl font-bold text-blue-300 mb-2">
-                    {exercise.title}
-                  </h3>
-                  {exercise.titleBg && (
-                    <p className="text-gray-400 mb-6 text-sm">
-                      {exercise.titleBg}
-                    </p>
-                  )}
+                <div key={exercise.id}>
+                  {exercise.type === "section" ? (
+                    <div className="bg-gradient-to-r from-violet-700 to-purple-800 text-white rounded-t-xl px-6 py-4 border-2 border-violet-800 border-b-0 shadow-lg">
+                      <h3 className="text-2xl font-bold">{exercise.title}</h3>
+                      {exercise.titleBg && (
+                        <p className="text-violet-200 text-sm mt-1">
+                          {exercise.titleBg}
+                        </p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-blue-500/30">
+                      <h3 className="text-2xl font-bold text-blue-300 mb-2">
+                        {exercise.title}
+                      </h3>
+                      {exercise.titleBg && (
+                        <p className="text-gray-400 mb-4 text-sm">
+                          {exercise.titleBg}
+                        </p>
+                      )}
 
-                  {exercise.type === "matching" && (
+                      {exercise.type === "question" && (
+                        <div className="mt-4">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setRevealedExerciseIds((prev) => {
+                                const next = new Set(prev);
+                                if (next.has(exercise.id)) next.delete(exercise.id);
+                                else next.add(exercise.id);
+                                return next;
+                              });
+                            }}
+                            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                          >
+                            {revealedExerciseIds.has(exercise.id)
+                              ? "Скрий отговор"
+                              : "Покажи отговор"}
+                          </button>
+                          {revealedExerciseIds.has(exercise.id) &&
+                            (exercise.answer || exercise.answerBg) && (
+                              <div className="mt-4 p-4 bg-green-900/30 border border-green-600/50 rounded-lg space-y-2">
+                                {exercise.answer && (
+                                  <p className="text-gray-200">
+                                    <span className="text-cyan-400 font-semibold">
+                                      DE:{" "}
+                                    </span>
+                                    {exercise.answer}
+                                  </p>
+                                )}
+                                {exercise.answerBg && (
+                                  <p className="text-gray-300 text-sm">
+                                    <span className="text-green-400 font-semibold">
+                                      БГ:{" "}
+                                    </span>
+                                    {exercise.answerBg}
+                                  </p>
+                                )}
+                              </div>
+                            )}
+                        </div>
+                      )}
+
+                      {exercise.type === "matching" && (
                     <div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                         {/* Left Items */}
@@ -1164,6 +1367,8 @@ const LessonView: React.FC = () => {
                       >
                         Нова задача
                       </button>
+                    </div>
+                  )}
                     </div>
                   )}
                 </div>

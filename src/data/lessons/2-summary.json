@@ -1,0 +1,292 @@
+{
+  "id": "2-2-summary",
+  "courseId": 2,
+  "title": "Обобщение: Bewegung und Stütze des Körpers",
+  "subtitle": "Kontrolle und Bewertung. III-1, III-2, III-3",
+  "testOnly": true,
+  "dictionary": [],
+  "test": {
+    "title": "Bewegung und Stütze des Körpers",
+    "titleBg": "Движение и опора на тялото",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Die Ablagerung von Mineralsalzen in den Knochen wird reguliert durch:",
+        "questionBg": "Отлагането на минерални соли в костите се регулира от:",
+        "options": [
+          { "id": "A", "text": "Vitamin A", "textBg": "Витамин А", "correct": false },
+          { "id": "B", "text": "Vitamin C", "textBg": "Витамин С", "correct": false },
+          { "id": "C", "text": "Vitamin D", "textBg": "Витамин D", "correct": true },
+          { "id": "D", "text": "Vitamin K", "textBg": "Витамин K", "correct": false }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "Zu den kurzen Knochen gehören:",
+        "questionBg": "Към късите кости принадлежат:",
+        "options": [
+          { "id": "A", "text": "die Rippen", "textBg": "ребрата", "correct": false },
+          { "id": "B", "text": "die Wirbel", "textBg": "прешлените", "correct": false },
+          { "id": "C", "text": "die Handwurzelknochen", "textBg": "костите на китката", "correct": true },
+          { "id": "D", "text": "die Schädelknochen", "textBg": "костите на черепа", "correct": false }
+        ]
+      },
+      {
+        "id": 3,
+        "question": "Das Schultergelenk ist ein:",
+        "questionBg": "Раменната става е:",
+        "options": [
+          { "id": "A", "text": "Sattelgelenk", "textBg": "седловидна става", "correct": false },
+          { "id": "B", "text": "Scharniergelenk", "textBg": "пантна става", "correct": false },
+          { "id": "C", "text": "Kugelgelenk", "textBg": "топкова става", "correct": true },
+          { "id": "D", "text": "Drehgelenk", "textBg": "въртяща става", "correct": false }
+        ]
+      },
+      {
+        "id": 4,
+        "question": "Welche Teile hat die Wirbelsäule?",
+        "questionBg": "Кои части има гръбначният стълб?",
+        "options": [
+          { "id": "A", "text": "Hals-, Brust- und Lendenwirbelsäule", "textBg": "шийна, гръдна и поясна част", "correct": false },
+          { "id": "B", "text": "Hals-, Brust-, Lenden-, Kreuzbein- und Steißbeinbereich", "textBg": "шийна, гръдна, поясна, кръстова и опашна част", "correct": true },
+          { "id": "C", "text": "Nur Brust- und Lendenbereich", "textBg": "само гръдна и поясна част", "correct": false },
+          { "id": "D", "text": "Schädel und Wirbelsäule", "textBg": "череп и гръбначен стълб", "correct": false }
+        ]
+      },
+      {
+        "id": 5,
+        "question": "Die Streckung der unteren Gliedmaße wird von den Muskeln bewirkt, die:",
+        "questionBg": "Разгъването на долния крайник се осъществява от мускулите, които:",
+        "options": [
+          { "id": "A", "text": "am Rücken liegen", "textBg": "лежат на гърба", "correct": false },
+          { "id": "B", "text": "hinten am Oberschenkel liegen", "textBg": "лежат отзад на бедрото", "correct": true },
+          { "id": "C", "text": "die Bauchdecke bilden", "textBg": "образуват коремната стена", "correct": false },
+          { "id": "D", "text": "am Schädel ansetzen", "textBg": "се закрепват за черепа", "correct": false }
+        ]
+      },
+      {
+        "id": 6,
+        "question": "Eine seitliche Verbiegung der Wirbelsäule nennt man:",
+        "questionBg": "Страничното извиване на гръбначния стълб се нарича:",
+        "options": [
+          { "id": "A", "text": "Verstauchung", "textBg": "навяхване", "correct": false },
+          { "id": "B", "text": "Skoliose", "textBg": "сколиоза", "correct": true },
+          { "id": "C", "text": "Bruch", "textBg": "фрактура", "correct": false },
+          { "id": "D", "text": "Verrenkung", "textBg": "извихване", "correct": false }
+        ]
+      },
+      {
+        "id": 7,
+        "question": "Die Eigenschaft der Muskeln, sich zusammenzuziehen und zu entspannen, heißt:",
+        "questionBg": "Свойството на мускулите да се съкращават и разслабват се нарича:",
+        "options": [
+          { "id": "A", "text": "Elastizität", "textBg": "еластичност", "correct": false },
+          { "id": "B", "text": "Kontraktilität", "textBg": "контрактилност", "correct": true },
+          { "id": "C", "text": "Erregbarkeit", "textBg": "възбудимост", "correct": false },
+          { "id": "D", "text": "Dehnbarkeit", "textBg": "разтегливост", "correct": false }
+        ]
+      },
+      {
+        "id": 8,
+        "question": "Die Knochen des Gesichtsschädels sind an der Bildung beteiligt von:",
+        "questionBg": "Костите на лицевия череп участват в изграждането на:",
+        "options": [
+          { "id": "A", "text": "nur der Augenhöhlen", "textBg": "само на очниците", "correct": false },
+          { "id": "B", "text": "Augenhöhlen, Nasenhöhle und Mundhöhle", "textBg": "очниците, носовата кухина и устната кухина", "correct": true },
+          { "id": "C", "text": "nur der Nasenhöhle", "textBg": "само на носовата кухина", "correct": false },
+          { "id": "D", "text": "dem Gehirn", "textBg": "мозъка", "correct": false }
+        ]
+      },
+      {
+        "id": 9,
+        "question": "Muskeltonus ist der Zustand, bei dem: 1) die Länge des Muskels bei Bewegung abnimmt, 2) die Muskeln auch ohne Bewegung leicht kontrahiert sind, 3) der Muskel maximale Arbeit verrichtet, 4) die Muskeln nicht vollständig entspannt sind.",
+        "questionBg": "Мускулен тонус се нарича състоянието, при което: 1) дължината на мускула намалява при движение, 2) мускулите са слабо съкратени дори без движение, 3) мускулът извършва максимална работа, 4) мускулите не са отпуснати напълно.",
+        "options": [
+          { "id": "A", "text": "nur 1 und 3", "textBg": "само 1 и 3", "correct": false },
+          { "id": "B", "text": "nur 2 und 4", "textBg": "само 2 и 4", "correct": true },
+          { "id": "C", "text": "1, 2 und 4", "textBg": "1, 2 и 4", "correct": false },
+          { "id": "D", "text": "2, 3 und 4", "textBg": "2, 3 и 4", "correct": false }
+        ]
+      },
+      {
+        "id": 10,
+        "question": "Muskelermüdung tritt als Folge auf von: 1) anhaltender Muskelkontraktion, 2) Abnahme der Energiereserven der Muskeln, 3) Ansammlung von Milchsäure in den Muskeln, 4) Störungen in der Struktur der Muskelzellen.",
+        "questionBg": "Мускулната умора настъпва в резултат от: 1) продължително мускулно съкращение, 2) намаляване на енергийните запаси, 3) натрупване на млечна киселина в мускулите, 4) нарушения в структурата на мускулните клетки.",
+        "options": [
+          { "id": "A", "text": "nur 1 und 3", "textBg": "само 1 и 3", "correct": false },
+          { "id": "B", "text": "nur 2 und 3", "textBg": "само 2 и 3", "correct": false },
+          { "id": "C", "text": "1, 2 und 3", "textBg": "1, 2 и 3", "correct": true },
+          { "id": "D", "text": "1, 2 und 4", "textBg": "1, 2 и 4", "correct": false }
+        ]
+      },
+      {
+        "id": 11,
+        "image": "https://i.imgur.com/qzPrG4F.png",
+        "question": "Das Schultergelenk (A) im Skelett entspricht dem Modell:",
+        "questionBg": "Раменната става (А) съответства на модел:",
+        "options": [
+          { "id": "A", "text": "sphärisches (Kugel-)Gelenk", "textBg": "сферична (кълбовидна) става", "correct": true },
+          { "id": "B", "text": "Zylindergelenk", "textBg": "цилиндрична става", "correct": false },
+          { "id": "C", "text": "Sattelgelenk", "textBg": "седловидна става", "correct": false },
+          { "id": "D", "text": "Scharniergelenk", "textBg": "шарнирна става", "correct": false }
+        ]
+      },
+      {
+        "id": 12,
+        "image": "https://i.imgur.com/qzPrG4F.png",
+        "question": "Das Ellbogengelenk (B) entspricht dem Modell:",
+        "questionBg": "Лакътната става (Б) съответства на модел:",
+        "options": [
+          { "id": "A", "text": "sphärisches Gelenk", "textBg": "сферична става", "correct": false },
+          { "id": "B", "text": "Zylindergelenk", "textBg": "цилиндрична става", "correct": false },
+          { "id": "C", "text": "Sattelgelenk", "textBg": "седловидна става", "correct": false },
+          { "id": "D", "text": "Scharniergelenk", "textBg": "шарнирна става", "correct": true }
+        ]
+      },
+      {
+        "id": 13,
+        "image": "https://i.imgur.com/qzPrG4F.png",
+        "question": "Das Handgelenk (V) entspricht dem Modell:",
+        "questionBg": "Ставата на китката (В) съответства на модел:",
+        "options": [
+          { "id": "A", "text": "sphärisches Gelenk", "textBg": "сферична става", "correct": false },
+          { "id": "B", "text": "Ellipsoidgelenk (eiförmig)", "textBg": "макаровидна става", "correct": true },
+          { "id": "C", "text": "Sattelgelenk", "textBg": "седловидна става", "correct": false },
+          { "id": "D", "text": "Scharniergelenk", "textBg": "шарнирна става", "correct": false }
+        ]
+      },
+      {
+        "id": 14,
+        "image": "https://i.imgur.com/qzPrG4F.png",
+        "question": "Das Gelenk an der Daumenbasis (G) entspricht dem Modell:",
+        "questionBg": "Ставата в основата на палеца (Г) съответства на модел:",
+        "options": [
+          { "id": "A", "text": "sphärisches Gelenk", "textBg": "сферична става", "correct": false },
+          { "id": "B", "text": "Zylindergelenk", "textBg": "цилиндрична става", "correct": false },
+          { "id": "C", "text": "Sattelgelenk", "textBg": "седловидна става", "correct": true },
+          { "id": "D", "text": "Scharniergelenk", "textBg": "шарнирна става", "correct": false }
+        ]
+      },
+      {
+        "id": 15,
+        "image": "https://i.imgur.com/A4t7ZFf.png",
+        "question": "Der mit 1 bezeichnete Muskel (Rückenansicht) ist:",
+        "questionBg": "Мускулът, обозначен с 1 на схемата (гръб), е:",
+        "options": [
+          { "id": "A", "text": "der Trapezmuskel (Musculus trapezius)", "textBg": "трапецовидният мускул", "correct": true },
+          { "id": "B", "text": "der Deltamuskel", "textBg": "делтовидният мускул", "correct": false },
+          { "id": "C", "text": "der große Gesäßmuskel", "textBg": "големият седалищен мускул", "correct": false },
+          { "id": "D", "text": "der Oberschenkelbeuger", "textBg": "бедрените сгъвачи", "correct": false }
+        ]
+      },
+      {
+        "id": 16,
+        "image": "https://i.imgur.com/A4t7ZFf.png",
+        "question": "Der mit 2 bezeichnete Muskel ist:",
+        "questionBg": "Мускулът, обозначен с 2, е:",
+        "options": [
+          { "id": "A", "text": "der Trapezmuskel", "textBg": "трапецовиден мускул", "correct": false },
+          { "id": "B", "text": "der Deltamuskel (Musculus deltoideus)", "textBg": "делтовидният мускул", "correct": true },
+          { "id": "C", "text": "der große Gesäßmuskel", "textBg": "големият седалищен мускул", "correct": false },
+          { "id": "D", "text": "der Zwillingswadenmuskel", "textBg": "двойчо-камбанен мускул", "correct": false }
+        ]
+      },
+      {
+        "id": 17,
+        "image": "https://i.imgur.com/A4t7ZFf.png",
+        "question": "Der mit 3 bezeichnete Muskel ist:",
+        "questionBg": "Мускулът, обозначен с 3, е:",
+        "options": [
+          { "id": "A", "text": "der Trapezmuskel", "textBg": "трапецовиден мускул", "correct": false },
+          { "id": "B", "text": "der Deltamuskel", "textBg": "делтовидният мускул", "correct": false },
+          { "id": "C", "text": "der große Gesäßmuskel", "textBg": "големият седалищен мускул", "correct": false },
+          { "id": "D", "text": "die Oberschenkelrückseitenmuskulatur (Hamstrings)", "textBg": "мускули по задната страна на бедрото", "correct": true }
+        ]
+      },
+      {
+        "id": 18,
+        "image": "https://i.imgur.com/A4t7ZFf.png",
+        "question": "Die mit 4 bezeichneten Muskeln sind:",
+        "questionBg": "Мускулите, обозначени с 4, са:",
+        "options": [
+          { "id": "A", "text": "der Trapezmuskel", "textBg": "трапецовиден мускул", "correct": false },
+          { "id": "B", "text": "der Deltamuskel", "textBg": "делтовидният мускул", "correct": false },
+          { "id": "C", "text": "der große Gesäßmuskel (Musculus gluteus maximus)", "textBg": "големият седалищен мускул", "correct": true },
+          { "id": "D", "text": "die Oberschenkelrückseitenmuskulatur", "textBg": "мускули по задната страна на бедрото", "correct": false }
+        ]
+      },
+      {
+        "id": 19,
+        "image": "https://i.imgur.com/A4t7ZFf.png",
+        "question": "Der mit 5 bezeichnete Muskel ist:",
+        "questionBg": "Мускулът, обозначен с 5, е:",
+        "options": [
+          { "id": "A", "text": "der Trapezmuskel", "textBg": "трапецовиден мускул", "correct": false },
+          { "id": "B", "text": "der Deltamuskel", "textBg": "делтовидният мускул", "correct": false },
+          { "id": "C", "text": "der große Gesäßmuskel", "textBg": "големият седалищен мускул", "correct": false },
+          { "id": "D", "text": "der Zwillingswadenmuskel (Musculus gastrocnemius)", "textBg": "двойчо-камбаненият мускул (прасец)", "correct": true }
+        ]
+      },
+      {
+        "id": 20,
+        "image": "https://i.imgur.com/8cUOpUn.png",
+        "question": "Die auf Abbildung 1 dargestellte Verletzung ist:",
+        "questionBg": "Травмата на фигура 1 е:",
+        "options": [
+          { "id": "A", "text": "Verstauchung", "textBg": "навяхване", "correct": false },
+          { "id": "B", "text": "Knochenbruch (Fraktur)", "textBg": "фрактура (чупена кост)", "correct": true },
+          { "id": "C", "text": "Bandscheibenvorfall", "textBg": "дискова херния", "correct": false },
+          { "id": "D", "text": "Meniskusschaden", "textBg": "увреждане на менискуса", "correct": false }
+        ]
+      },
+      {
+        "id": 21,
+        "image": "https://i.imgur.com/8cUOpUn.png",
+        "question": "Die auf Abbildung 2 dargestellte Verletzung ist:",
+        "questionBg": "Травмата на фигура 2 е:",
+        "options": [
+          { "id": "A", "text": "Verstauchung", "textBg": "навяхване", "correct": true },
+          { "id": "B", "text": "Knochenbruch", "textBg": "фрактура", "correct": false },
+          { "id": "C", "text": "Bandscheibenvorfall", "textBg": "дискова херния", "correct": false },
+          { "id": "D", "text": "Knorpelschaden", "textBg": "увреждане на хрущяла", "correct": false }
+        ]
+      },
+      {
+        "id": 22,
+        "image": "https://i.imgur.com/8cUOpUn.png",
+        "question": "Die auf Abbildung 3 dargestellte Verletzung ist:",
+        "questionBg": "Травмата на фигура 3 е:",
+        "options": [
+          { "id": "A", "text": "einfacher Bruch", "textBg": "проста фрактура", "correct": false },
+          { "id": "B", "text": "Trümmerbruch (mehrere Bruchstücke)", "textBg": "счупване на няколко фрагмента", "correct": true },
+          { "id": "C", "text": "Verstauchung", "textBg": "навяхване", "correct": false },
+          { "id": "D", "text": "Bandscheibenvorfall", "textBg": "дискова херния", "correct": false }
+        ]
+      },
+      {
+        "id": 23,
+        "image": "https://i.imgur.com/8cUOpUn.png",
+        "question": "Die auf Abbildung 4 dargestellte Verletzung betrifft:",
+        "questionBg": "Травмата на фигура 4 засяга:",
+        "options": [
+          { "id": "A", "text": "den Knochen", "textBg": "костта", "correct": false },
+          { "id": "B", "text": "die Bänder", "textBg": "свързците", "correct": false },
+          { "id": "C", "text": "den Knorpel / Meniskus im Knie", "textBg": "хрущяла/менискуса в коляното", "correct": true },
+          { "id": "D", "text": "die Bandscheibe", "textBg": "междупрешленния диск", "correct": false }
+        ]
+      },
+      {
+        "id": 24,
+        "image": "https://i.imgur.com/8cUOpUn.png",
+        "question": "Die auf Abbildung 5 dargestellte Verletzung ist:",
+        "questionBg": "Травмата на фигура 5 е:",
+        "options": [
+          { "id": "A", "text": "Verstauchung", "textBg": "навяхване", "correct": false },
+          { "id": "B", "text": "Knochenbruch", "textBg": "фрактура", "correct": false },
+          { "id": "C", "text": "Bandscheibenvorfall (Diskushernie)", "textBg": "дискова херния", "correct": true },
+          { "id": "D", "text": "Meniskusschaden", "textBg": "увреждане на менискуса", "correct": false }
+        ]
+      }
+    ]
+  }
+}

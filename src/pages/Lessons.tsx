@@ -88,11 +88,23 @@ const lessonsData: { [key: number]: Band[] } = {
           ],
         },
         {
-          sectionTitle: "4. GESCHLECHTSSYSTEM",
+          sectionTitle: "Обобщение (III-1, III-2, III-3)",
           lessons: [
             {
-              id: "4-1",
-              number: "1",
+              id: "2-summary",
+              number: "Тест",
+              title: "Kontrolle und Bewertung – Multiple Choice",
+              duration: "15 мин",
+              completed: false,
+            },
+          ],
+        },
+        {
+          sectionTitle: "5. GESCHLECHTSSYSTEM",
+          lessons: [
+            {
+              id: "5-1",
+              number: "5",
               title: "GESCHLECHTSORGANE DES MANNES",
               duration: "20 мин",
               completed: false,
