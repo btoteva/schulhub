@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useParams, Link, Navigate } from "react-router-dom";
 import {
   FaArrowLeft,
@@ -195,6 +196,50 @@ const LessonView: React.FC = () => {
   const handleWordLeave = () => {
     setHoveredWord(null);
     setWordTranslation(null);
+  };
+
+  // Render sentence as word-by-word spans so words from dictionary show tooltip on hover
+  const renderSentenceWithWordTooltips = (
+    text: string,
+    index: number,
+  ): React.ReactNode => {
+    const isHighlighting =
+      currentSpeaking === index && highlightInfo !== null;
+    if (isHighlighting && highlightInfo) {
+      return (
+        <span
+          dangerouslySetInnerHTML={{
+            __html: insertHighlight(
+              text,
+              highlightInfo.index,
+              highlightInfo.length,
+            ),
+          }}
+        />
+      );
+    }
+    const plainText = text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const tokens = plainText.split(/(\s+)/);
+    return (
+      <>
+        {tokens.map((token, i) => {
+          if (/^\s+$/.test(token)) return <span key={i}>{token}</span>;
+          const hasTranslation = findWordTranslation(token) !== null;
+          return hasTranslation ? (
+            <span
+              key={i}
+              onMouseEnter={(e) => handleWordHover(e, token)}
+              onMouseLeave={handleWordLeave}
+              className="border-b border-dotted border-cyan-400/70 cursor-help hover:bg-cyan-900/30 rounded px-0.5"
+            >
+              {token}
+            </span>
+          ) : (
+            <span key={i}>{token}</span>
+          );
+        })}
+      </>
+    );
   };
 
   // Use sentences from lessonData if available, otherwise split content
@@ -592,22 +637,12 @@ const LessonView: React.FC = () => {
                                       ? "text-gray-300"
                                       : ""
                                 } [&_strong]:font-bold [&_strong]:text-green-400`}
-                                dangerouslySetInnerHTML={{
-                                  __html: (() => {
-                                    if (
-                                      currentSpeaking === index &&
-                                      highlightInfo
-                                    ) {
-                                      return insertHighlight(
-                                        sentenceObj.text,
-                                        highlightInfo.index,
-                                        highlightInfo.length,
-                                      );
-                                    }
-                                    return sentenceObj.text;
-                                  })(),
-                                }}
-                              ></p>
+                              >
+                                {renderSentenceWithWordTooltips(
+                                  sentenceObj.text,
+                                  index,
+                                )}
+                              </p>
                             </div>
                           </div>
 
@@ -1138,32 +1173,31 @@ const LessonView: React.FC = () => {
         </div>
       </main>
 
-      {/* Word Hover Tooltip */}
-      {hoveredWord && wordTranslation && (
-        <div
-          className="fixed bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-4 py-2 rounded-lg shadow-2xl z-50 pointer-events-none text-sm font-semibold whitespace-nowrap border border-cyan-400"
-          style={{
-            left: `${tooltipPos.x}px`,
-            top: `${tooltipPos.y}px`,
-            transform: "translate(-50%, -100%)",
-          }}
-        >
-          <div className="flex items-center gap-2">
-            <span className="text-cyan-200 font-normal">{hoveredWord}</span>
-            <span className="text-white">→</span>
-            <span>{wordTranslation}</span>
-          </div>
-          {/* Tooltip arrow */}
+      {/* Word Hover Tooltip – балонче с превод при посочване на дума от речника */}
+      {hoveredWord &&
+        wordTranslation &&
+        createPortal(
           <div
-            className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-gradient-to-r from-cyan-600 to-blue-600 transform rotate-45"
+            className="fixed bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-4 py-2 rounded-lg shadow-2xl pointer-events-none text-sm font-semibold whitespace-nowrap border-2 border-cyan-400"
             style={{
-              width: "8px",
-              height: "8px",
-              marginTop: "-4px",
+              left: `${tooltipPos.x}px`,
+              top: `${tooltipPos.y}px`,
+              transform: "translate(-50%, -100%)",
+              zIndex: 9999,
             }}
-          />
-        </div>
-      )}
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-cyan-100 font-normal">{hoveredWord}</span>
+              <span className="text-white">→</span>
+              <span>{wordTranslation}</span>
+            </div>
+            <div
+              className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-cyan-600 transform rotate-45"
+              style={{ width: "8px", height: "8px", marginTop: "-4px" }}
+            />
+          </div>,
+          document.body,
+        )}
 
       {/* Footer */}
       <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16">

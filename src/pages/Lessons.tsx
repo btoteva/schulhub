@@ -15,7 +15,8 @@ import { useLanguage } from "../contexts/LanguageContext";
 interface LessonSection {
   sectionTitle: string;
   lessons: Array<{
-    id: number;
+    id: number | string;
+    number?: string; // display number in section (e.g. "1")
     title: string;
     duration: string;
     completed: boolean;
@@ -82,6 +83,18 @@ const lessonsData: { [key: number]: Band[] } = {
               id: 4,
               title: "III-3 BEWEGUNGS- UND STÜTZSYSTEM. MUSKELN",
               duration: "25 мин",
+              completed: false,
+            },
+          ],
+        },
+        {
+          sectionTitle: "4. GESCHLECHTSSYSTEM",
+          lessons: [
+            {
+              id: "4-1",
+              number: "1",
+              title: "GESCHLECHTSORGANE DES MANNES",
+              duration: "20 мин",
               completed: false,
             },
           ],
@@ -263,7 +276,7 @@ const Lessons: React.FC = () => {
                               <div
                                 className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}
                               >
-                                {lesson.id}
+                                {lesson.number ?? lesson.id}
                               </div>
 
                               <div className="flex-1">
