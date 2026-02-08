@@ -328,7 +328,7 @@
         {
           "groupLabel": "2. Gliedmaßen – A. Obere Gliedmaßen (Hände)",
           "groupLabelBg": "2. Крайници – А. Горни крайници (ръце – китки)",
-          "imageUrl": "https://i.imgur.com/vy8Nfs5.png",
+          "imageUrl": "https://i.imgur.com/Y8eVYOO.png",
           "bones": [
             { "de": "der Handwurzelknochen", "bg": "киткова кост" },
             { "de": "der Mittelhandknochen", "bg": "предкиткова кост" },
@@ -372,22 +372,25 @@
         {
           "groupLabel": "3. Der Rumpf – b. Der Brustkorb",
           "groupLabelBg": "3. Туловище – б. Гръден кош",
+          "imageUrl": "https://i.imgur.com/ZGhG5dZ.png",
           "bones": [
             { "de": "die Rippen (12 Paare)", "bg": "ребра" },
             { "de": "das Brustbein", "bg": "гръдна кост" }
           ]
         },
         {
-          "groupLabel": "3. Der Rumpf – c. Der Schultergürtel",
-          "groupLabelBg": "3. Туловище – в. Раменен пояс",
+          "groupLabel": "3. Der Rumpf – c. der Schultergürtel",
+          "groupLabelBg": "3. Туловище –c. Раменен пояс",
+          "imageUrl": "https://i.imgur.com/tkp88bv.png",
           "bones": [
             { "de": "das Schlüsselbein", "bg": "ключица" },
             { "de": "das Schulterblatt", "bg": "лопатка" }
           ]
         },
         {
-          "groupLabel": "3. Der Rumpf – d. Der Beckengürtel",
-          "groupLabelBg": "3. Туловище – г. Тазов пояс",
+          "groupLabel": "3. Der Rumpf – d. der Beckengürtel",
+          "groupLabelBg": "3. Туловище – d. Тазов пояс",
+          "imageUrl": "https://i.imgur.com/5nlMobw.png",
           "bones": [
             { "de": "das Darmbein", "bg": "тазова кост" },
             { "de": "das Sitzbein", "bg": "седалищна кост" },
