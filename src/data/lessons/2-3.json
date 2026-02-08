@@ -292,7 +292,7 @@
         {
           "groupLabel": "1. Kopf – A. Gesichtsschädel",
           "groupLabelBg": "1. Глава – А. Лицев череп",
-          "imageUrl": "/images/skull-gesichtsschadel.png",
+          "imageUrl": "https://i.imgur.com/bhFvpJO.png",
           "bones": [
             { "de": "der Gesichtsschädel", "bg": "лицев череп" },
             { "de": "der Oberkiefer (2)", "bg": "горна челюст" },
@@ -305,7 +305,7 @@
         {
           "groupLabel": "1. Kopf – B. Hirnschädel",
           "groupLabelBg": "1. Глава – Б. Мозъчен череп",
-          "imageUrl": "/images/skull-scheitel-schlafenbein.png",
+          "imageUrl": "https://i.imgur.com/7mfUpDY.png",
           "bones": [
             { "de": "der Hirnschädel", "bg": "мозъчен череп" },
             { "de": "das Hinterhauptsbein", "bg": "тилна кост" },
@@ -317,7 +317,7 @@
         {
           "groupLabel": "2. Gliedmaßen – A. Obere Gliedmaßen (Arme)",
           "groupLabelBg": "2. Крайници – А. Горни крайници (ръце)",
-          "imageUrl": "/images/skeleton-arm.png",
+          "imageUrl": "https://i.imgur.com/4mnPx8E.png",
           "bones": [
             { "de": "der Oberarmknochen", "bg": "мишнична кост" },
             { "de": "der Unterarmknochen", "bg": "предмишнична кост" },
@@ -328,7 +328,7 @@
         {
           "groupLabel": "2. Gliedmaßen – A. Obere Gliedmaßen (Hände)",
           "groupLabelBg": "2. Крайници – А. Горни крайници (ръце – китки)",
-          "imageUrl": "/images/skeleton-hand.png",
+          "imageUrl": "https://i.imgur.com/vy8Nfs5.png",
           "bones": [
             { "de": "der Handwurzelknochen", "bg": "киткова кост" },
             { "de": "der Mittelhandknochen", "bg": "предкиткова кост" },
@@ -338,7 +338,7 @@
         {
           "groupLabel": "2. Gliedmaßen – B. Untere Gliedmaßen (Beine)",
           "groupLabelBg": "2. Крайници – Б. Долни крайници (крака)",
-          "imageUrl": "/images/skeleton-legs.png",
+          "imageUrl": "https://i.imgur.com/5wushSa.png",
           "bones": [
             { "de": "der Oberschenkelknochen", "bg": "бедрена кост" },
             { "de": "der Unterschenkelknochen", "bg": "подбедрена кост" },
@@ -350,7 +350,6 @@
         {
           "groupLabel": "2. Gliedmaßen – B. Untere Gliedmaßen (Füße)",
           "groupLabelBg": "2. Крайници – Б. Долни крайници (стъпала)",
-          "imageUrl": "/images/skeleton-feet.png",
           "bones": [
             { "de": "die Ferse", "bg": "пета" },
             { "de": "der Fußwurzelknochen", "bg": "задностъпална кост" },
