@@ -9,6 +9,7 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { getLessonById, type LessonContent, type TestQuestion } from "../data/lessons";
+import { SkeletonDiagram } from "../components/SkeletonDiagram";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -606,9 +607,19 @@ const LessonView: React.FC = () => {
                                 />
                               </div>
                             )}
-                            <p className="font-bold text-lg text-white mb-1">
-                              {q.id}. {q.question}
-                            </p>
+                            <div className="flex items-start gap-2 mb-1">
+                              <p className="font-bold text-lg text-white">
+                                {q.id}. {q.question}
+                              </p>
+                              <button
+                                type="button"
+                                onClick={() => speakWord(q.question)}
+                                className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                title="Чети въпрос на глас"
+                              >
+                                <FaVolumeUp className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
                             {q.questionBg && (
                               <p className="text-gray-400 text-sm mb-4">{q.questionBg}</p>
                             )}
@@ -634,12 +645,23 @@ const LessonView: React.FC = () => {
                                     }
                                     className="mt-1"
                                   />
-                                  <span className="text-gray-200">
+                                  <span className="text-gray-200 flex-1">
                                     {opt.id}) {opt.text}
                                     {opt.textBg && (
                                       <span className="text-gray-500 text-sm block">{opt.textBg}</span>
                                     )}
                                   </span>
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      speakWord(opt.text);
+                                    }}
+                                    className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                    title="Чети отговор на глас"
+                                  >
+                                    <FaVolumeUp className="w-3.5 h-3.5" />
+                                  </button>
                                 </label>
                               ))}
                             </div>
@@ -1176,7 +1198,17 @@ const LessonView: React.FC = () => {
                 <div key={exercise.id}>
                   {exercise.type === "section" ? (
                     <div className="bg-gradient-to-r from-violet-700 to-purple-800 text-white rounded-t-xl px-6 py-4 border-2 border-violet-800 border-b-0 shadow-lg">
-                      <h3 className="text-2xl font-bold">{exercise.title}</h3>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-2xl font-bold">{exercise.title}</h3>
+                        <button
+                          type="button"
+                          onClick={() => speakWord(exercise.title)}
+                          className="p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
+                          title="Чети на глас"
+                        >
+                          <FaVolumeUp className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                       {exercise.titleBg && (
                         <p className="text-violet-200 text-sm mt-1">
                           {exercise.titleBg}
@@ -1185,14 +1217,33 @@ const LessonView: React.FC = () => {
                     </div>
                   ) : (
                     <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-blue-500/30">
-                      <h3 className="text-2xl font-bold text-blue-300 mb-2">
-                        {exercise.title}
-                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-2xl font-bold text-blue-300">
+                          {exercise.title}
+                        </h3>
+                        <button
+                          type="button"
+                          onClick={() => speakWord(exercise.title)}
+                          className="p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                          title="Чети заглавие на глас"
+                        >
+                          <FaVolumeUp className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                       {exercise.titleBg && (
                         <p className="text-gray-400 mb-4 text-sm">
                           {exercise.titleBg}
                         </p>
                       )}
+
+                      {exercise.type === "skeleton" &&
+                        exercise.skeletonParts &&
+                        exercise.skeletonParts.length > 0 && (
+                          <SkeletonDiagram
+                            imageUrl={exercise.skeletonImageUrl}
+                            parts={exercise.skeletonParts}
+                          />
+                        )}
 
                       {exercise.type === "question" && (
                         <div className="mt-4">
@@ -1216,11 +1267,19 @@ const LessonView: React.FC = () => {
                             (exercise.answer || exercise.answerBg) && (
                               <div className="mt-4 p-4 bg-green-900/30 border border-green-600/50 rounded-lg space-y-2">
                                 {exercise.answer && (
-                                  <p className="text-gray-200">
+                                  <p className="text-gray-200 flex items-center gap-2">
                                     <span className="text-cyan-400 font-semibold">
                                       DE:{" "}
                                     </span>
                                     {exercise.answer}
+                                    <button
+                                      type="button"
+                                      onClick={() => speakWord(exercise.answer!)}
+                                      className="p-1 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                      title="Чети отговор на глас"
+                                    >
+                                      <FaVolumeUp className="w-3 h-3" />
+                                    </button>
                                   </p>
                                 )}
                                 {exercise.answerBg && (
@@ -1254,7 +1313,7 @@ const LessonView: React.FC = () => {
                                   setSelectedRights(new Set());
                                   setMatchingFeedback(null);
                                 }}
-                                className={`px-6 py-4 rounded-lg cursor-pointer transition-all transform hover:scale-105 ${
+                                className={`relative px-6 py-4 pr-12 rounded-lg cursor-pointer transition-all transform hover:scale-105 ${
                                   isSelected
                                     ? "bg-yellow-600 border-2 border-yellow-300 scale-105"
                                     : "bg-blue-600 hover:bg-blue-500 border border-transparent"
@@ -1266,6 +1325,17 @@ const LessonView: React.FC = () => {
                                     {item.textBg}
                                   </p>
                                 )}
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    speakWord(item.text);
+                                  }}
+                                  className="absolute top-2 right-2 p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
+                                  title="Чети на глас"
+                                >
+                                  <FaVolumeUp className="w-3.5 h-3.5" />
+                                </button>
                               </div>
                             );
                           })}
@@ -1312,7 +1382,7 @@ const LessonView: React.FC = () => {
                                     setMatchingFeedback(null);
                                   }
                                 }}
-                                className={`px-6 py-4 rounded-lg transition-all transform ${
+                                className={`relative px-6 py-4 pr-12 rounded-lg transition-all transform ${
                                   !selectedLeft
                                     ? "cursor-not-allowed opacity-50"
                                     : "cursor-pointer hover:scale-105"
@@ -1330,6 +1400,17 @@ const LessonView: React.FC = () => {
                                     {item.textBg}
                                   </p>
                                 )}
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    speakWord(item.text);
+                                  }}
+                                  className="absolute top-2 right-2 p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
+                                  title="Чети на глас"
+                                >
+                                  <FaVolumeUp className="w-3.5 h-3.5" />
+                                </button>
                               </div>
                             );
                           })}

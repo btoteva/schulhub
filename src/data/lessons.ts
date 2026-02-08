@@ -18,6 +18,21 @@ export interface LessonSentence {
   translation: string;
 }
 
+/** One bone: German term + Bulgarian translation */
+export interface SkeletonBone {
+  de: string;
+  bg: string;
+}
+
+/** Group of bones (e.g. "1.Kopf – Gesichtsschädel") */
+export interface SkeletonPart {
+  groupLabel: string;
+  groupLabelBg?: string;
+  /** Optional image for this group (e.g. Scheitelbein/Schläfenbein diagram) */
+  imageUrl?: string;
+  bones: SkeletonBone[];
+}
+
 export interface Exercise {
   id: number;
   title: string;
@@ -29,6 +44,9 @@ export interface Exercise {
   /** Model answer for type "question" (open-ended). */
   answer?: string;
   answerBg?: string;
+  /** For type "skeleton": optional main image; parts = grouped bones */
+  skeletonImageUrl?: string;
+  skeletonParts?: SkeletonPart[];
 }
 
 export interface Resource {

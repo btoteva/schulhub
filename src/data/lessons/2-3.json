@@ -281,6 +281,123 @@
       "translation": "Костите и ставите на стъпалото образуват голям и малък свод, които подпомагат ходенето, като поемат тежестта на тялото и чрез пружиниране смекчават натиска."
     }
   ],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "Skelett – Knochen",
+      "titleBg": "Скелет – кости",
+      "type": "skeleton",
+      "skeletonImageUrl": "https://i.imgur.com/qi88xPy.png",
+      "skeletonParts": [
+        {
+          "groupLabel": "1. Kopf – A. Gesichtsschädel",
+          "groupLabelBg": "1. Глава – А. Лицев череп",
+          "imageUrl": "/images/skull-gesichtsschadel.png",
+          "bones": [
+            { "de": "der Gesichtsschädel", "bg": "лицев череп" },
+            { "de": "der Oberkiefer (2)", "bg": "горна челюст" },
+            { "de": "der Unterkiefer", "bg": "долна челюст" },
+            { "de": "das Nasenbein (2)", "bg": "носна кост" },
+            { "de": "das Stirnbein", "bg": "челна кост" },
+            { "de": "das Jochbein (2)", "bg": "ябълчна (скулова) кост" }
+          ]
+        },
+        {
+          "groupLabel": "1. Kopf – B. Hirnschädel",
+          "groupLabelBg": "1. Глава – Б. Мозъчен череп",
+          "imageUrl": "/images/skull-scheitel-schlafenbein.png",
+          "bones": [
+            { "de": "der Hirnschädel", "bg": "мозъчен череп" },
+            { "de": "das Hinterhauptsbein", "bg": "тилна кост" },
+            { "de": "das Keilbein", "bg": "клиновидна кост" },
+            { "de": "das Schläfenbein (2)", "bg": "слепоочна кост" },
+            { "de": "das Scheitelbein (2)", "bg": "теменна кост" }
+          ]
+        },
+        {
+          "groupLabel": "2. Gliedmaßen – A. Obere Gliedmaßen (Arme)",
+          "groupLabelBg": "2. Крайници – А. Горни крайници (ръце)",
+          "imageUrl": "/images/skeleton-arm.png",
+          "bones": [
+            { "de": "der Oberarmknochen", "bg": "мишнична кост" },
+            { "de": "der Unterarmknochen", "bg": "предмишнична кост" },
+            { "de": "die Elle", "bg": "лакътна кост" },
+            { "de": "die Speiche", "bg": "лъчева кост" }
+          ]
+        },
+        {
+          "groupLabel": "2. Gliedmaßen – A. Obere Gliedmaßen (Hände)",
+          "groupLabelBg": "2. Крайници – А. Горни крайници (ръце – китки)",
+          "imageUrl": "/images/skeleton-hand.png",
+          "bones": [
+            { "de": "der Handwurzelknochen", "bg": "киткова кост" },
+            { "de": "der Mittelhandknochen", "bg": "предкиткова кост" },
+            { "de": "der Fingerknochen", "bg": "кост на пръст на ръката" }
+          ]
+        },
+        {
+          "groupLabel": "2. Gliedmaßen – B. Untere Gliedmaßen (Beine)",
+          "groupLabelBg": "2. Крайници – Б. Долни крайници (крака)",
+          "imageUrl": "/images/skeleton-legs.png",
+          "bones": [
+            { "de": "der Oberschenkelknochen", "bg": "бедрена кост" },
+            { "de": "der Unterschenkelknochen", "bg": "подбедрена кост" },
+            { "de": "das Schienbein", "bg": "голям пищял" },
+            { "de": "das Wadenbein", "bg": "малък пищял" },
+            { "de": "die Kniescheibe", "bg": "колянно капаче" }
+          ]
+        },
+        {
+          "groupLabel": "2. Gliedmaßen – B. Untere Gliedmaßen (Füße)",
+          "groupLabelBg": "2. Крайници – Б. Долни крайници (стъпала)",
+          "imageUrl": "/images/skeleton-feet.png",
+          "bones": [
+            { "de": "die Ferse", "bg": "пета" },
+            { "de": "der Fußwurzelknochen", "bg": "задностъпална кост" },
+            { "de": "der Mittelfußknochen", "bg": "предстъпална кост" },
+            { "de": "der Zehenknochen", "bg": "кост на пръст на крака" }
+          ]
+        },
+        {
+          "groupLabel": "3. Der Rumpf – a. Die Wirbelsäule",
+          "groupLabelBg": "3. Туловище – a. Гръбначен стълб",
+          "bones": [
+            { "de": "7 Halswirbeln", "bg": "шийни прешлени" },
+            { "de": "12 Brustwirbeln", "bg": "гръдни прешлени" },
+            { "de": "5 Lendenwirbeln", "bg": "поясни прешлени" },
+            { "de": "5 Kreuzbeinwirbeln", "bg": "кръстцови прешлени" },
+            { "de": "4–5 Steißbeinwirbel", "bg": "опашен прешлен" }
+          ]
+        },
+        {
+          "groupLabel": "3. Der Rumpf – b. Der Brustkorb",
+          "groupLabelBg": "3. Туловище – б. Гръден кош",
+          "bones": [
+            { "de": "die Rippen (12 Paare)", "bg": "ребра" },
+            { "de": "das Brustbein", "bg": "гръдна кост" }
+          ]
+        },
+        {
+          "groupLabel": "3. Der Rumpf – c. Der Schultergürtel",
+          "groupLabelBg": "3. Туловище – в. Раменен пояс",
+          "bones": [
+            { "de": "das Schlüsselbein", "bg": "ключица" },
+            { "de": "das Schulterblatt", "bg": "лопатка" }
+          ]
+        },
+        {
+          "groupLabel": "3. Der Rumpf – d. Der Beckengürtel",
+          "groupLabelBg": "3. Туловище – г. Тазов пояс",
+          "bones": [
+            { "de": "das Darmbein", "bg": "тазова кост" },
+            { "de": "das Sitzbein", "bg": "седалищна кост" },
+            { "de": "das Schambein", "bg": "срамна кост" },
+            { "de": "das Kreuzbein", "bg": "кръстцова кост" }
+          ]
+        }
+      ]
+    }
+  ],
   "dictionary": [
     {
       "id": "nomen",
