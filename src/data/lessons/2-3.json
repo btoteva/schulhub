@@ -350,6 +350,7 @@
         {
           "groupLabel": "2. Gliedmaßen – B. Untere Gliedmaßen (Füße)",
           "groupLabelBg": "2. Крайници – Б. Долни крайници (стъпала)",
+          "imageUrl": "https://i.imgur.com/FUdf1PY.png",
           "bones": [
             { "de": "die Ferse", "bg": "пета" },
             { "de": "der Fußwurzelknochen", "bg": "задностъпална кост" },
