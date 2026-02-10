@@ -5,11 +5,15 @@ import {
   FaGlobeAmericas,
   FaMicroscope,
   FaGraduationCap,
+  FaCalendarAlt,
+  FaClock,
 } from "react-icons/fa";
 import { MdScience, MdLanguage, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
+import weeklyProgramData from "../data/weekly-program.json";
 import { Course } from "../types/Course";
 import { useLanguage } from "../contexts/LanguageContext";
+import { weeklyProgramAuth } from "../utils/weekly-program-auth";
 
 // Lesson counts based on actual data in Lessons.tsx
 const actualLessonCounts: { [key: number]: number } = {
@@ -75,6 +79,14 @@ const Home: React.FC = () => {
   const courses = coursesData as Course[];
   const subjects = ["german", "biology", "geography"];
   const [currentSubject, setCurrentSubject] = useState(0);
+  const [programUnlocked, setProgramUnlocked] = useState(false);
+  const [programPassword, setProgramPassword] = useState("");
+  const [programRemember, setProgramRemember] = useState(false);
+  const [programError, setProgramError] = useState("");
+
+  useEffect(() => {
+    setProgramUnlocked(weeklyProgramAuth.isUnlocked());
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -82,6 +94,24 @@ const Home: React.FC = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleProgramUnlock = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setProgramError("");
+    const ok = await weeklyProgramAuth.checkPassword(programPassword);
+    if (ok) {
+      weeklyProgramAuth.setUnlocked(programRemember);
+      setProgramUnlocked(true);
+      setProgramPassword("");
+    } else {
+      setProgramError(t.weeklyProgramWrongPassword);
+    }
+  };
+
+  const handleProgramLock = () => {
+    weeklyProgramAuth.clearUnlocked();
+    setProgramUnlocked(false);
+  };
 
   const getSubjectIcon = (id: number) => {
     if (id === 1) {
@@ -217,6 +247,102 @@ const Home: React.FC = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Weekly Program Section */}
+      <section className="w-full px-4 py-16 border-t border-gray-800/50">
+        <div className="container mx-auto flex items-center justify-between gap-4 mb-8 flex-wrap">
+          <div className="flex items-center gap-3">
+            <FaCalendarAlt className="text-4xl text-amber-400" />
+            <h3 className="text-4xl font-bold text-white">
+              {t.weeklyProgramTitle}
+            </h3>
+          </div>
+          {programUnlocked && (
+            <button
+              type="button"
+              onClick={handleProgramLock}
+              className="text-sm text-gray-400 hover:text-amber-400 transition-colors"
+            >
+              {t.weeklyProgramLock}
+            </button>
+          )}
+        </div>
+
+        {programUnlocked ? (
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {(weeklyProgramData as { days: Array<{ day: string; dayShort: string; items: Array<{ time?: string; timeFrom?: string; timeTo?: string; title: string; description?: string }> }> }).days.map((d, i) => (
+              <div
+                key={i}
+                className="bg-gray-800/60 rounded-xl border border-gray-600 overflow-hidden flex flex-col min-w-0"
+              >
+                <div className="bg-amber-500/20 text-amber-200 font-semibold px-4 py-3 border-b border-gray-600">
+                  <span className="hidden sm:inline">{d.day}</span>
+                  <span className="sm:hidden">{d.dayShort}</span>
+                </div>
+                <div className="p-3 space-y-2 min-h-[4rem] flex-1">
+                  {d.items.length === 0 ? (
+                    <p className="text-gray-500 text-sm">—</p>
+                  ) : (
+                    d.items.map((item, j) => (
+                      <div
+                        key={j}
+                        className="text-sm text-gray-300 border-l-2 border-amber-500/50 pl-2"
+                      >
+                        <span className="flex items-center gap-1.5 text-amber-200/90 flex-wrap">
+                          <span className="font-semibold text-amber-300 tabular-nums">{j + 1}.</span>
+                          <FaClock className="text-xs shrink-0" />
+                          {item.timeFrom && item.timeTo
+                            ? `От ${item.timeFrom} до ${item.timeTo}`
+                            : (item.time ?? "")}
+                        </span>
+                        <p className="font-medium text-white mt-0.5">{item.title}</p>
+                        {item.description ? (
+                          <p className="text-gray-400 text-xs mt-0.5">{item.description}</p>
+                        ) : null}
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <form
+            onSubmit={handleProgramUnlock}
+            className="max-w-sm flex flex-col gap-4 p-6 bg-gray-800/60 rounded-xl border border-gray-600"
+          >
+            <label className="text-gray-300 text-sm">
+              {t.weeklyProgramEnterPassword}
+            </label>
+            <input
+              type="password"
+              value={programPassword}
+              onChange={(e) => setProgramPassword(e.target.value)}
+              className="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500"
+              placeholder="••••••••"
+              autoComplete="off"
+            />
+            <label className="flex items-center gap-2 text-gray-400 text-sm cursor-pointer">
+              <input
+                type="checkbox"
+                checked={programRemember}
+                onChange={(e) => setProgramRemember(e.target.checked)}
+                className="rounded border-gray-600 bg-gray-700 text-amber-500 focus:ring-amber-500/50"
+              />
+              {t.weeklyProgramRememberMe}
+            </label>
+            {programError && (
+              <p className="text-red-400 text-sm">{programError}</p>
+            )}
+            <button
+              type="submit"
+              className="bg-amber-500 hover:bg-amber-600 text-gray-900 font-semibold px-4 py-2 rounded-lg transition-colors"
+            >
+              {t.weeklyProgramUnlock}
+            </button>
+          </form>
+        )}
       </section>
 
       {/* Footer */}

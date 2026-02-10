@@ -30,6 +30,12 @@ interface Translations {
   geographySubject: string;
   selectSubject: string;
   discoverPath: string;
+  weeklyProgramTitle: string;
+  weeklyProgramEnterPassword: string;
+  weeklyProgramRememberMe: string;
+  weeklyProgramUnlock: string;
+  weeklyProgramWrongPassword: string;
+  weeklyProgramLock: string;
   lessonsCount: string;
   seeMore: string;
   allRightsReserved: string;
@@ -112,6 +118,12 @@ const translations: Record<Language, Translations> = {
     geographySubject: "География",
     selectSubject: "Изберете предмет и тема за преглед",
     discoverPath: "Открийте своя път към знанието",
+    weeklyProgramTitle: "Седмична програма",
+    weeklyProgramEnterPassword: "Парола за достъп",
+    weeklyProgramRememberMe: "Запомни ме",
+    weeklyProgramUnlock: "Отключи",
+    weeklyProgramWrongPassword: "Грешна парола",
+    weeklyProgramLock: "Скрий програмата",
     lessonsCount: "урока",
     seeMore: "Виж повече",
     allRightsReserved: "Всички права запазени.",
@@ -196,6 +208,12 @@ const translations: Record<Language, Translations> = {
     geographySubject: "Geography",
     selectSubject: "Select a subject and topic to review",
     discoverPath: "Discover your path to knowledge",
+    weeklyProgramTitle: "Weekly program",
+    weeklyProgramEnterPassword: "Password to view",
+    weeklyProgramRememberMe: "Remember me",
+    weeklyProgramUnlock: "Unlock",
+    weeklyProgramWrongPassword: "Wrong password",
+    weeklyProgramLock: "Hide program",
     lessonsCount: "lessons",
     seeMore: "See More",
     allRightsReserved: "All rights reserved.",
@@ -280,6 +298,12 @@ const translations: Record<Language, Translations> = {
     geographySubject: "Geographie",
     selectSubject: "Wählen Sie ein Fach und Thema",
     discoverPath: "Entdecken Sie Ihren Weg zum Wissen",
+    weeklyProgramTitle: "Wochenprogramm",
+    weeklyProgramEnterPassword: "Passwort zum Anzeigen",
+    weeklyProgramRememberMe: "Angemeldet bleiben",
+    weeklyProgramUnlock: "Entsperren",
+    weeklyProgramWrongPassword: "Falsches Passwort",
+    weeklyProgramLock: "Programm ausblenden",
     lessonsCount: "Lektionen",
     seeMore: "Mehr sehen",
     allRightsReserved: "Alle Rechte vorbehalten.",
