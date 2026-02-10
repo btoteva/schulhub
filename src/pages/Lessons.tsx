@@ -109,6 +109,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "20 мин",
               completed: false,
             },
+            {
+              id: "5-2",
+              number: "6",
+              title: "IV-2 GESCHLECHTSORGANE DER FRAU",
+              duration: "20 мин",
+              completed: false,
+            },
           ],
         },
       ],
