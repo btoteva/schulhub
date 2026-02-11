@@ -742,16 +742,16 @@ const LessonView: React.FC = () => {
                       sentenceObj: { text: string; translation: string },
                       index: number,
                     ) => {
-                      const figureMatch = sentenceObj.text.match(
-                        /\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/i,
-                      );
-                      const figureKey = figureMatch
-                        ? `Abb. ${figureMatch[1]}`
-                        : null;
-                      const figureImages =
-                        figureKey && lessonData.images
-                          ? lessonData.images[figureKey]
-                          : null;
+                      const figureMatches = [
+                        ...sentenceObj.text.matchAll(
+                          /\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/gi,
+                        ),
+                      ];
+                      const figureKeys = [
+                        ...new Set(
+                          figureMatches.map((m) => `Abb. ${m[1]}`),
+                        ),
+                      ];
 
                       const isSectionHeading = /^[📘💡]/.test(
                         sentenceObj.text.trim(),
@@ -833,25 +833,33 @@ const LessonView: React.FC = () => {
                               </div>
                             )}
 
-                          {figureImages && figureImages.length > 0 && (
-                            <div className="ml-14 mt-4 mb-6">
-                              <p className="text-green-400 font-semibold mb-3">
-                                {figureKey}:
-                              </p>
-                              <div className="flex gap-4 flex-wrap">
-                                {figureImages.map((imgUrl, imgIndex) => (
-                                  <img
-                                    key={imgIndex}
-                                    src={imgUrl}
-                                    alt={`${figureKey} - Схема ${imgIndex + 1}`}
-                                    className="max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
-                                    onClick={() =>
-                                      window.open(imgUrl, "_blank")
-                                    }
-                                  />
-                                ))}
-                              </div>
-                            </div>
+                          {figureKeys.map(
+                            (figureKey) =>
+                              lessonData.images?.[figureKey]?.length > 0 && (
+                                <div
+                                  key={figureKey}
+                                  className="ml-14 mt-4 mb-6"
+                                >
+                                  <p className="text-green-400 font-semibold mb-3">
+                                    {figureKey}:
+                                  </p>
+                                  <div className="flex gap-4 flex-wrap">
+                                    {lessonData.images[figureKey].map(
+                                      (imgUrl: string, imgIndex: number) => (
+                                        <img
+                                          key={imgIndex}
+                                          src={imgUrl}
+                                          alt={`${figureKey} - Схема ${imgIndex + 1}`}
+                                          className="max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
+                                          onClick={() =>
+                                            window.open(imgUrl, "_blank")
+                                          }
+                                        />
+                                      ),
+                                    )}
+                                  </div>
+                                </div>
+                              ),
                           )}
                         </div>
                       );

@@ -116,6 +116,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "20 мин",
               completed: false,
             },
+            {
+              id: "5-3",
+              number: "7",
+              title: "IV-3 DIE BEFRUCHTUNG.",
+              duration: "20 мин",
+              completed: false,
+            },
           ],
         },
       ],
