@@ -73,7 +73,7 @@ const LessonView: React.FC = () => {
     getGermanFontSizeValue,
     getGermanFontFamilyClass,
   } = useFont();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
@@ -219,6 +219,7 @@ const LessonView: React.FC = () => {
   };
 
   // Render sentence as word-by-word spans so words from dictionary show tooltip on hover
+  // Preserves <strong>...</strong> and renders it in green
   const renderSentenceWithWordTooltips = (
     text: string,
     index: number,
@@ -238,24 +239,44 @@ const LessonView: React.FC = () => {
         />
       );
     }
-    const plainText = text.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-    const tokens = plainText.split(/(\s+)/);
+    const strongRegex = /(<strong>.*?<\/strong>)/g;
+    const segments = text.split(strongRegex);
     return (
       <>
-        {tokens.map((token, i) => {
-          if (/^\s+$/.test(token)) return <span key={i}>{token}</span>;
-          const hasTranslation = findWordTranslation(token) !== null;
-          return hasTranslation ? (
-            <span
-              key={i}
-              onMouseEnter={(e) => handleWordHover(e, token)}
-              onMouseLeave={handleWordLeave}
-              className="border-b border-dotted border-cyan-400/70 cursor-help hover:bg-cyan-900/30 rounded px-0.5"
-            >
-              {token}
-            </span>
-          ) : (
-            <span key={i}>{token}</span>
+        {segments.map((segment, segIdx) => {
+          const strongMatch = segment.match(/^<strong>(.*?)<\/strong>$/s);
+          if (strongMatch) {
+            return (
+              <strong
+                key={segIdx}
+                className="font-bold text-green-400"
+              >
+                {strongMatch[1]}
+              </strong>
+            );
+          }
+          const plainText = segment.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+          if (!plainText) return <span key={segIdx}>{segment}</span>;
+          const tokens = plainText.split(/(\s+)/);
+          return (
+            <React.Fragment key={segIdx}>
+              {tokens.map((token, i) => {
+                if (/^\s+$/.test(token)) return <span key={`${segIdx}-${i}`}>{token}</span>;
+                const hasTranslation = findWordTranslation(token) !== null;
+                return hasTranslation ? (
+                  <span
+                    key={`${segIdx}-${i}`}
+                    onMouseEnter={(e) => handleWordHover(e, token)}
+                    onMouseLeave={handleWordLeave}
+                    className="border-b border-dotted border-cyan-400/70 cursor-help hover:bg-cyan-900/30 rounded px-0.5"
+                  >
+                    {token}
+                  </span>
+                ) : (
+                  <span key={`${segIdx}-${i}`}>{token}</span>
+                );
+              })}
+            </React.Fragment>
           );
         })}
       </>
@@ -744,7 +765,7 @@ const LessonView: React.FC = () => {
                     ) => {
                       const figureMatches = [
                         ...sentenceObj.text.matchAll(
-                          /\(Abb\.\s*(\d+)[a-z]?(?:\s*(?:und|,)\s*[a-z])?\)/gi,
+                          /\(Abb\.\s*(\d+)\)/g,
                         ),
                       ];
                       const figureKeys = [
@@ -889,6 +910,42 @@ const LessonView: React.FC = () => {
                             })}
                           </div>
                         )}
+
+                        {lessonData.images &&
+                          Object.keys(lessonData.images).length > 0 && (
+                            <div className="mt-8 pt-6 border-t border-gray-600">
+                              <h3 className="text-xl font-bold text-green-400 mb-4">
+                                {t.figures || "Фигури"}
+                              </h3>
+                              <div className="space-y-6">
+                                {Object.entries(lessonData.images).map(
+                                  ([figureKey, urls]) =>
+                                    urls.length > 0 && (
+                                      <div key={figureKey}>
+                                        <p className="text-green-400 font-semibold mb-3">
+                                          {figureKey}:
+                                        </p>
+                                        <div className="flex gap-4 flex-wrap">
+                                          {urls.map(
+                                            (imgUrl: string, imgIndex: number) => (
+                                              <img
+                                                key={imgIndex}
+                                                src={imgUrl}
+                                                alt={`${figureKey} - ${imgIndex + 1}`}
+                                                className="max-w-full sm:max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
+                                                onClick={() =>
+                                                  window.open(imgUrl, "_blank")
+                                                }
+                                              />
+                                            ),
+                                          )}
+                                        </div>
+                                      </div>
+                                    ),
+                                )}
+                              </div>
+                            </div>
+                          )}
                       </>
                     );
                   })()}
@@ -1171,9 +1228,10 @@ const LessonView: React.FC = () => {
 
                       {resource.type === "spotify-podcast" &&
                         resource.embedUrl && (
-                          <div className="w-full">
+                          <div className="w-full min-h-[352px]">
                             <iframe
                               data-testid="embed-iframe"
+                              title={resource.title || "Spotify Podcast"}
                               style={{ borderRadius: "12px" }}
                               src={resource.embedUrl}
                               width="100%"
@@ -1181,8 +1239,16 @@ const LessonView: React.FC = () => {
                               frameBorder={0}
                               allowFullScreen
                               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                              loading="lazy"
+                              loading="eager"
                             ></iframe>
+                            <a
+                              href={resource.embedUrl.replace("/embed/", "/").replace(/\?.*$/, "")}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-block mt-3 text-sm text-green-400 hover:text-green-300 underline"
+                            >
+                              {language === "bg" ? "Отвори в Spotify" : language === "de" ? "In Spotify öffnen" : "Open in Spotify"}
+                            </a>
                           </div>
                         )}
                     </div>

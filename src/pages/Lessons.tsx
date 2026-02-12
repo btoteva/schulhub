@@ -149,6 +149,12 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "18 мин",
               completed: false,
             },
+            {
+              id: 3,
+              title: "16. EXOGENE RELIEFBILDENDE PROZESSE",
+              duration: "18 мин",
+              completed: false,
+            },
           ],
         },
       ],

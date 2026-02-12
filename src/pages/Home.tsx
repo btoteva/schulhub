@@ -19,7 +19,7 @@ import { weeklyProgramAuth } from "../utils/weekly-program-auth";
 const actualLessonCounts: { [key: number]: number } = {
   1: 0, // German - 0 lessons
   2: 5, // Biology - 5 lessons in HERZ-KREISLAUF-SYSTEM section
-  3: 1, // Geography - 1 lesson (3-1.json)
+  3: 3, // Geography - 3 lessons (3-1, 3-2, 3-3)
 };
 
 const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
