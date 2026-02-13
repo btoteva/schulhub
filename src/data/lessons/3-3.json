@@ -395,7 +395,17 @@
             "translation": "Когато сталактити и сталагмити се сраснат, се образуват колони, наречени сталагнати."
         }
     ],
-    "resources": [],
+    "resources": [
+        {
+            "id": 1,
+            "type": "spotify-podcast",
+            "title": "Podcast: Exogene reliefbildende Prozesse",
+            "titleBg": "Подкаст: Екзогенни релефообразуващи процеси",
+            "description": "Hören Sie sich diesen informativen Podcast über exogene reliefbildende Prozesse an.",
+            "descriptionBg": "Изслушайте този информативен подкаст за екзогенните релефообразуващи процеси.",
+            "embedUrl": "https://creators.spotify.com/pod/profile/-11063/embed/episodes/EXOGENE-RELIEFBILDENDE-PROZESSE-e3f23ed/a-acfk803"
+        }
+    ],
     "dictionary": [
         {
             "id": "nomen",
