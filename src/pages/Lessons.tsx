@@ -132,7 +132,7 @@ const lessonsData: { [key: number]: Band[] } = {
               id: "5-4",
               number: "8",
               title: "V-1 RÜCKENMARK",
-              duration: "—",
+              duration: "25 мин",
               completed: false,
             },
           ],

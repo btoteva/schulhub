@@ -1220,6 +1220,32 @@ const LessonView: React.FC = () => {
                             </a>
                           </div>
                         )}
+                      {resource.type === "youtube-video" &&
+                        resource.embedUrl && (
+                          <div className="w-full max-w-4xl">
+                            <iframe
+                              data-testid="embed-iframe"
+                              title={resource.title || "YouTube Video"}
+                              style={{ borderRadius: "12px" }}
+                              src={resource.embedUrl}
+                              width="100%"
+                              height="315"
+                              className="w-full"
+                              frameBorder={0}
+                              allowFullScreen
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              loading="eager"
+                            ></iframe>
+                            <a
+                              href={`https://www.youtube.com/watch?v=${resource.embedUrl.split("/embed/")[1]?.split("?")[0] || ""}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-block mt-3 text-sm text-green-400 hover:text-green-300 underline"
+                            >
+                              {language === "bg" ? "Отвори в YouTube" : language === "de" ? "Auf YouTube öffnen" : "Open on YouTube"}
+                            </a>
+                          </div>
+                        )}
                     </div>
                   ))}
                 </>

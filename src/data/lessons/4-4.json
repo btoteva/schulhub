@@ -83,7 +83,17 @@
     { "text": "Es besteht aus weißer und grauer Substanz: Die weiße Substanz bildet Nervenbahnen für die Impulse zum und vom Gehirn; die graue Substanz enthält Zentren für motorische und vegetative Reflexe.", "translation": "Състои се от бяло и сиво вещество: бялото вещество образува нервни пътища за импулсите към и от мозъка; сивото съдържа центрове за двигателни и вегетативни рефлекси." },
     { "text": "Bei einem Reflex entstehen Impulse in den Rezeptoren, laufen über eine Kette von Neuronen zu den Muskeln (oder Drüsen) und bewirken Kontraktion (oder Sekretion) – das ist der Reflexbogen.", "translation": "При рефлекс възникват импулси в рецепторите, преминават по верига от неврони до мускулите (или жлезите) и предизвикват съкращение (или секреция) – това е рефлексната дъга." }
   ],
-  "resources": [],
+  "resources": [
+    {
+      "id": 1,
+      "type": "youtube-video",
+      "title": "Video: Nervensystem und Rückenmark",
+      "titleBg": "Видео: Нервна система и гръбначен мозък",
+      "description": "Informatives Video zum Thema Nervensystem und Rückenmark.",
+      "descriptionBg": "Информативно видео по темата нервна система и гръбначен мозък.",
+      "embedUrl": "https://www.youtube.com/embed/ef09DB92hEU"
+    }
+  ],
   "dictionary": [
     {
       "id": "nervensystem",
