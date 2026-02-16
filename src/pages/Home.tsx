@@ -18,7 +18,7 @@ import { weeklyProgramAuth } from "../utils/weekly-program-auth";
 // Lesson counts based on actual data in Lessons.tsx
 const actualLessonCounts: { [key: number]: number } = {
   1: 0, // German - 0 lessons
-  2: 5, // Biology - 5 lessons in HERZ-KREISLAUF-SYSTEM section
+  2: 9, // Biology – HERZ, III (3), Summary, IV (3), V NERVENSYSTEM (1)
   3: 3, // Geography - 3 lessons (3-1, 3-2, 3-3)
 };
 

@@ -911,41 +911,6 @@ const LessonView: React.FC = () => {
                           </div>
                         )}
 
-                        {lessonData.images &&
-                          Object.keys(lessonData.images).length > 0 && (
-                            <div className="mt-8 pt-6 border-t border-gray-600">
-                              <h3 className="text-xl font-bold text-green-400 mb-4">
-                                {t.figures || "Фигури"}
-                              </h3>
-                              <div className="space-y-6">
-                                {Object.entries(lessonData.images).map(
-                                  ([figureKey, urls]) =>
-                                    urls.length > 0 && (
-                                      <div key={figureKey}>
-                                        <p className="text-green-400 font-semibold mb-3">
-                                          {figureKey}:
-                                        </p>
-                                        <div className="flex gap-4 flex-wrap">
-                                          {urls.map(
-                                            (imgUrl: string, imgIndex: number) => (
-                                              <img
-                                                key={imgIndex}
-                                                src={imgUrl}
-                                                alt={`${figureKey} - ${imgIndex + 1}`}
-                                                className="max-w-full sm:max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
-                                                onClick={() =>
-                                                  window.open(imgUrl, "_blank")
-                                                }
-                                              />
-                                            ),
-                                          )}
-                                        </div>
-                                      </div>
-                                    ),
-                                )}
-                              </div>
-                            </div>
-                          )}
                       </>
                     );
                   })()}

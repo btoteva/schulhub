@@ -125,6 +125,18 @@ const lessonsData: { [key: number]: Band[] } = {
             },
           ],
         },
+        {
+          sectionTitle: "V NERVENSYSTEM",
+          lessons: [
+            {
+              id: "5-4",
+              number: "8",
+              title: "V-1 RÜCKENMARK",
+              duration: "—",
+              completed: false,
+            },
+          ],
+        },
       ],
     },
   ],
