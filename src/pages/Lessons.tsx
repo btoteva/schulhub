@@ -6,9 +6,13 @@ import {
   FaGraduationCap,
   FaCheckCircle,
   FaClock,
+  FaVideo,
+  FaTasks,
+  FaSpotify,
 } from "react-icons/fa";
 import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
+import { getLessonById } from "../data/lessons";
 import { useLanguage } from "../contexts/LanguageContext";
 
 // Lesson section interface
@@ -175,7 +179,7 @@ const lessonsData: { [key: number]: Band[] } = {
 };
 
 const Lessons: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { courseId } = useParams<{ courseId: string }>();
   const course = coursesData.find((c) => c.id === Number(courseId));
   const bands = lessonsData[Number(courseId)] || [];
@@ -332,6 +336,64 @@ const Lessons: React.FC = () => {
                                     <FaClock className="text-sm" />
                                     {lesson.duration}
                                   </span>
+                                  {(() => {
+                                    const lessonContent = getLessonById(
+                                      Number(courseId),
+                                      String(lesson.id),
+                                    );
+                                    const hasVideo = lessonContent?.resources?.some(
+                                      (r: { type?: string }) =>
+                                        r.type === "youtube-video",
+                                    );
+                                    const hasPodcast =
+                                      lessonContent?.resources?.some(
+                                        (r: { type?: string }) =>
+                                          r.type === "spotify-podcast",
+                                      );
+                                    const hasExercises =
+                                      (lessonContent?.exercises?.length ?? 0) >
+                                      0;
+                                    return (
+                                      <>
+                                        {hasVideo && (
+                                          <span
+                                            className="flex items-center gap-1"
+                                            title={
+                                              language === "bg"
+                                                ? "Видео"
+                                                : "Video"
+                                            }
+                                          >
+                                            <FaVideo className="text-sm text-red-400" />
+                                          </span>
+                                        )}
+                                        {hasPodcast && (
+                                          <span
+                                            className="flex items-center gap-1"
+                                            title={
+                                              language === "bg"
+                                                ? "Подкаст (Spotify)"
+                                                : "Podcast (Spotify)"
+                                            }
+                                          >
+                                            <FaSpotify className="text-sm text-green-500" />
+                                          </span>
+                                        )}
+                                        {hasExercises && (
+                                          <span
+                                            className="flex items-center gap-1"
+                                            title={
+                                              language === "bg"
+                                                ? "Упражнения"
+                                                : "Übungen"
+                                            }
+                                          >
+                                            <FaTasks className="text-sm text-amber-400" />
+                                          </span>
+                                        )}
+                                      </>
+                                    );
+                                  })()}
                                   {lesson.completed && (
                                     <span className="flex items-center gap-1 text-green-400">
                                       <FaCheckCircle className="text-sm" />
