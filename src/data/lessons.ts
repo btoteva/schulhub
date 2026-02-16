@@ -47,6 +47,8 @@ export interface Exercise {
   /** For type "skeleton": optional main image; parts = grouped bones */
   skeletonImageUrl?: string;
   skeletonParts?: SkeletonPart[];
+  /** For type "quiz": multiple-choice questions */
+  questions?: TestQuestion[];
 }
 
 export interface Resource {

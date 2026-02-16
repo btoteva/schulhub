@@ -183,5 +183,94 @@
       ]
     }
   ],
-  "exercises": []
+  "exercises": [
+    {
+      "id": 1,
+      "title": "Quiz: Nervensystem und Rückenmark",
+      "titleBg": "Квиз: Нервна система и гръбначен мозък",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Was umfasst das Zentralnervensystem (ZNS)?",
+          "questionBg": "Какво включва централната нервна система (ЦНС)?",
+          "options": [
+            { "id": "A", "text": "Nur das Gehirn", "textBg": "Само главния мозък", "correct": false },
+            { "id": "B", "text": "Das Gehirn und das Rückenmark", "textBg": "Главния мозък и гръбначния мозък", "correct": true },
+            { "id": "C", "text": "Die Nerven in den Gliedmaßen", "textBg": "Нервите в крайниците", "correct": false }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Wie lang ist das Rückenmark bei einem Erwachsenen etwa?",
+          "questionBg": "Колко е дълъг приблизително гръбначният мозък при възрастен човек?",
+          "options": [
+            { "id": "A", "text": "100 cm", "textBg": "100 см", "correct": false },
+            { "id": "B", "text": "45 cm", "textBg": "45 см", "correct": true },
+            { "id": "C", "text": "20 cm", "textBg": "20 см", "correct": false }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Welche Form hat die graue Substanz im Querschnitt des Rückenmarks?",
+          "questionBg": "Каква форма има сивото вещество в напречното сечение на гръбначния мозък?",
+          "options": [
+            { "id": "A", "text": "Kreisform", "textBg": "Кръгла форма", "correct": false },
+            { "id": "B", "text": "H-Form", "textBg": "Н-образна форма", "correct": true },
+            { "id": "C", "text": "Sternform", "textBg": "Звездообразна форма", "correct": false }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Was ist die Hauptfunktion der weißen Substanz?",
+          "questionBg": "Каква е основната функция на бялото вещество?",
+          "options": [
+            { "id": "A", "text": "Die Reflextätigkeit", "textBg": "Рефлекторна дейност", "correct": false },
+            { "id": "B", "text": "Die Leitungsfunktion", "textBg": "Проводна функция", "correct": true },
+            { "id": "C", "text": "Speicherung von Fett", "textBg": "Съхранение на мазнини", "correct": false }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Wie viele Paare von Rückenmarknerven gehen vom Rückenmark ab?",
+          "questionBg": "Колко чифта гръбначномозъчни нерви излизат от гръбначния мозък?",
+          "options": [
+            { "id": "A", "text": "12 Paare", "textBg": "12 чифта", "correct": false },
+            { "id": "B", "text": "31 Paare", "textBg": "31 чифта", "correct": true },
+            { "id": "C", "text": "7 Paare", "textBg": "7 чифта", "correct": false }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "Welche Bestandteile gehören zum Reflexbogen?",
+          "questionBg": "Кои елементи влизат в състава на рефлексната дъга?",
+          "options": [
+            { "id": "A", "text": "Nur Rezeptor und Muskel", "textBg": "Само рецептор и мускул", "correct": false },
+            { "id": "B", "text": "Gehirn, Herz und Lunge", "textBg": "Главен мозък, сърце и бели дробове", "correct": false },
+            { "id": "C", "text": "Rezeptor, Sinnesneuron, Nervenzentrum, motorisches Neuron und ausführendes Organ", "textBg": "Рецептор, сетивен неврон, нервен център, двигателен неврон и изпълнителен орган", "correct": true }
+          ]
+        },
+        {
+          "id": 7,
+          "question": "Welches System kontrolliert die Tätigkeit der inneren Organe und des Herzens?",
+          "questionBg": "Коя система контролира дейността на вътрешните органи и сърцето?",
+          "options": [
+            { "id": "A", "text": "Das somatische Nervensystem", "textBg": "Соматичната нервна система", "correct": false },
+            { "id": "B", "text": "Das vegetative (autonome) Nervensystem", "textBg": "Вегетативната (автономна) нервна система", "correct": true },
+            { "id": "C", "text": "Das Knochensystem", "textBg": "Костната система", "correct": false }
+          ]
+        },
+        {
+          "id": 8,
+          "question": "Wo befinden sich die Zellkörper der motorischen Neuronen?",
+          "questionBg": "Къде се намират телата на двигателните неврони?",
+          "options": [
+            { "id": "A", "text": "In den Hinterhörnern", "textBg": "В задните рога", "correct": false },
+            { "id": "B", "text": "In den Vorderhörnern", "textBg": "В предните рога", "correct": true },
+            { "id": "C", "text": "In den Spinalganglien", "textBg": "В спиналните ганглии", "correct": false }
+          ]
+        }
+      ]
+    }
+  ]
 }

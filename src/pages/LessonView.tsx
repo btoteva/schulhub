@@ -101,6 +101,10 @@ const LessonView: React.FC = () => {
   const [revealedExerciseIds, setRevealedExerciseIds] = useState<Set<number>>(
     new Set(),
   );
+  /** exerciseId -> questionId -> optionId for quiz-type exercises */
+  const [exerciseQuizAnswers, setExerciseQuizAnswers] = useState<
+    Record<number, Record<number, string>>
+  >({});
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingAllRef = useRef(false);
   const currentPlayAllIndexRef = useRef(0);
@@ -1333,6 +1337,132 @@ const LessonView: React.FC = () => {
                             )}
                         </div>
                       )}
+
+                      {exercise.type === "quiz" &&
+                        exercise.questions &&
+                        exercise.questions.length > 0 && (
+                          <div className="mt-6 space-y-6">
+                            {exercise.questions.map((q) => {
+                              const selected =
+                                exerciseQuizAnswers[exercise.id]?.[q.id];
+                              const correctOption = q.options.find(
+                                (o) => o.correct,
+                              );
+                              const isAnswered = selected !== undefined;
+                              const isCorrect =
+                                selected &&
+                                correctOption &&
+                                selected === correctOption.id;
+                              return (
+                                <div
+                                  key={q.id}
+                                  className={`p-5 rounded-xl border-2 ${
+                                    isAnswered
+                                      ? isCorrect
+                                        ? "bg-green-900/20 border-green-600"
+                                        : "bg-red-900/20 border-red-600"
+                                      : "bg-gray-800/50 border-gray-600"
+                                  }`}
+                                >
+                                  <div className="flex items-start gap-2 mb-1">
+                                    <p className="font-bold text-lg text-white">
+                                      {q.id}. {q.question}
+                                    </p>
+                                    <button
+                                      type="button"
+                                      onClick={() => speakWord(q.question)}
+                                      className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                      title="Чети въпрос на глас"
+                                    >
+                                      <FaVolumeUp className="w-3.5 h-3.5" />
+                                    </button>
+                                  </div>
+                                  {q.questionBg && (
+                                    <p className="text-gray-400 text-sm mb-4">
+                                      {q.questionBg}
+                                    </p>
+                                  )}
+                                  <div className="space-y-2">
+                                    {q.options.map((opt) => (
+                                      <label
+                                        key={opt.id}
+                                        className={`flex items-start gap-3 p-3 rounded-lg cursor-pointer transition-all ${
+                                          isAnswered &&
+                                          selected === opt.id &&
+                                          !opt.correct
+                                            ? "bg-red-700/30"
+                                            : !isAnswered
+                                              ? "hover:bg-gray-700/50"
+                                              : ""
+                                        } ${selected === opt.id ? "ring-2 ring-cyan-400" : ""}`}
+                                      >
+                                        <input
+                                          type="radio"
+                                          name={`quiz-${exercise.id}-q-${q.id}`}
+                                          value={opt.id}
+                                          checked={selected === opt.id}
+                                          onChange={() =>
+                                            setExerciseQuizAnswers((prev) => ({
+                                              ...prev,
+                                              [exercise.id]: {
+                                                ...(prev[exercise.id] || {}),
+                                                [q.id]: opt.id,
+                                              },
+                                            }))
+                                          }
+                                          className="mt-1"
+                                        />
+                                        <span className="text-gray-200 flex-1">
+                                          {opt.id}) {opt.text}
+                                          {opt.textBg && (
+                                            <span className="text-gray-500 text-sm block">
+                                              {opt.textBg}
+                                            </span>
+                                          )}
+                                        </span>
+                                        <button
+                                          type="button"
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            speakWord(opt.text);
+                                          }}
+                                          className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                          title="Чети отговор на глас"
+                                        >
+                                          <FaVolumeUp className="w-3.5 h-3.5" />
+                                        </button>
+                                      </label>
+                                    ))}
+                                  </div>
+                                  {isAnswered && (
+                                    <p
+                                      className={`mt-3 text-sm font-semibold ${
+                                        isCorrect
+                                          ? "text-green-400"
+                                          : "text-red-400"
+                                      }`}
+                                    >
+                                      {isCorrect
+                                        ? "✓ Верен отговор"
+                                        : "✗ Грешен отговор"}
+                                    </p>
+                                  )}
+                                </div>
+                              );
+                            })}
+                            <div className="text-center p-4 bg-gray-800/80 rounded-xl">
+                              <p className="text-lg text-white">
+                                Резултат:{" "}
+                                {exercise.questions.filter(
+                                  (q) =>
+                                    exerciseQuizAnswers[exercise.id]?.[q.id] ===
+                                    q.options.find((o) => o.correct)?.id,
+                                ).length}{" "}
+                                / {exercise.questions.length}
+                              </p>
+                            </div>
+                          </div>
+                        )}
 
                       {exercise.type === "matching" && (
                     <div>
