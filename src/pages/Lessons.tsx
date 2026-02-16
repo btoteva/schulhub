@@ -9,6 +9,7 @@ import {
   FaVideo,
   FaTasks,
   FaSpotify,
+  FaThLarge,
 } from "react-icons/fa";
 import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
@@ -353,6 +354,11 @@ const Lessons: React.FC = () => {
                                     const hasExercises =
                                       (lessonContent?.exercises?.length ?? 0) >
                                       0;
+                                    const hasFlashcards =
+                                      (lessonContent?.dictionary?.flatMap(
+                                        (s: { words?: unknown[] }) =>
+                                          s.words ?? [],
+                                      ).length ?? 0) > 0;
                                     return (
                                       <>
                                         {hasVideo && (
@@ -389,6 +395,18 @@ const Lessons: React.FC = () => {
                                             }
                                           >
                                             <FaTasks className="text-sm text-amber-400" />
+                                          </span>
+                                        )}
+                                        {hasFlashcards && (
+                                          <span
+                                            className="flex items-center gap-1"
+                                            title={
+                                              language === "bg"
+                                                ? "Флаш-карти"
+                                                : "Lernkarten"
+                                            }
+                                          >
+                                            <FaThLarge className="text-sm text-cyan-400" />
                                           </span>
                                         )}
                                       </>
