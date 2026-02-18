@@ -216,7 +216,17 @@
       "translation": "Малкият мозък е свързан с равновесието и мускулния тонус."
     }
   ],
-  "resources": [],
+  "resources": [
+    {
+      "id": 1,
+      "type": "youtube-video",
+      "title": "Video: Gehirn",
+      "titleBg": "Видео: Главен мозък",
+      "description": "Informatives Video zum Thema Gehirn und seine Teile.",
+      "descriptionBg": "Информативно видео по темата главен мозък и неговите части.",
+      "embedUrl": "https://www.youtube.com/embed/ELTvcPRCoEw"
+    }
+  ],
   "dictionary": [
     {
       "id": "gehirn",
