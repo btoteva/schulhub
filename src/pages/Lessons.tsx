@@ -140,6 +140,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "25 мин",
               completed: false,
             },
+            {
+              id: "5-5",
+              number: "9",
+              title: "V-2 GEHIRN",
+              duration: "20 мин",
+              completed: false,
+            },
           ],
         },
       ],
@@ -342,10 +349,11 @@ const Lessons: React.FC = () => {
                                       Number(courseId),
                                       String(lesson.id),
                                     );
-                                    const hasVideo = lessonContent?.resources?.some(
-                                      (r: { type?: string }) =>
-                                        r.type === "youtube-video",
-                                    );
+                                    const hasVideo =
+                                      lessonContent?.resources?.some(
+                                        (r: { type?: string }) =>
+                                          r.type === "youtube-video",
+                                      );
                                     const hasPodcast =
                                       lessonContent?.resources?.some(
                                         (r: { type?: string }) =>
