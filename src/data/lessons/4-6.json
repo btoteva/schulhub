@@ -132,7 +132,17 @@
       "translation": "Вегетативната нервна система се състои от две различаващи се по структура и функции части: симпатикова и парасимпатикова."
     }
   ],
-  "resources": [],
+  "resources": [
+    {
+      "id": 1,
+      "type": "youtube-video",
+      "title": "Video: Vegetatives Nervensystem",
+      "titleBg": "Видео: Вегетативна нервна система",
+      "description": "Informatives Video zum Thema vegetatives (autonomes) Nervensystem.",
+      "descriptionBg": "Информативно видео по темата вегетативна (автономна) нервна система.",
+      "embedUrl": "https://www.youtube.com/embed/vwiDwcnrx1E"
+    }
+  ],
   "dictionary": [
     {
       "id": "vegetatives-nervensystem",
