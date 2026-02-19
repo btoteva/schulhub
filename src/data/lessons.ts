@@ -109,6 +109,7 @@ import lesson4_2 from "./lessons/4-2.json";
 import lesson4_3 from "./lessons/4-3.json";
 import lesson4_4 from "./lessons/4-4.json";
 import lesson4_5 from "./lessons/4-5.json";
+import lesson4_6 from "./lessons/4-6.json";
 import lesson2_summary from "./lessons/2-summary.json";
 import lesson3_1 from "./lessons/3-1.json";
 import lesson3_2 from "./lessons/3-2.json";
@@ -125,6 +126,7 @@ export const lessonsData: LessonContent[] = [
   lesson4_3 as LessonContent,
   lesson4_4 as LessonContent,
   lesson4_5 as LessonContent,
+  lesson4_6 as LessonContent,
   lesson4_1 as LessonContent,
   lesson3_1 as LessonContent,
   lesson3_2 as LessonContent,

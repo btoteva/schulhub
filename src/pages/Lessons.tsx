@@ -147,6 +147,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "20 мин",
               completed: false,
             },
+            {
+              id: "5-6",
+              number: "10",
+              title: "V-3 DAS VEGETATIVE NERVENSYSTEM",
+              duration: "20 мин",
+              completed: false,
+            },
           ],
         },
       ],

@@ -763,6 +763,7 @@ const LessonView: React.FC = () => {
                         ? []
                         : sentences.slice(wichtigsteIndex);
 
+                    const shownFigures = new Set<string>();
                     const renderSentence = (
                       sentenceObj: { text: string; translation: string },
                       index: number,
@@ -776,7 +777,11 @@ const LessonView: React.FC = () => {
                         ...new Set(
                           figureMatches.map((m) => `Abb. ${m[1]}`),
                         ),
-                      ];
+                      ].filter((key) => {
+                        if (shownFigures.has(key)) return false;
+                        shownFigures.add(key);
+                        return true;
+                      });
 
                       const isSectionHeading = /^[📘💡]/.test(
                         sentenceObj.text.trim(),
