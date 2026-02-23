@@ -10,11 +10,11 @@
   },
   {
     "id": "2",
-    "title": "DSD I Modellsatz 2",
-    "titleBg": "DSD I Моделен тест 2",
-    "description": "Leseverstehen",
-    "descriptionBg": "Четене с разбиране",
-    "available": false,
+    "title": "Modellsatz 1 Hörverstehen Texte",
+    "titleBg": "Моделен тест 1 Hörverstehen Texte",
+    "description": "",
+    "descriptionBg": "",
+    "available": true,
     "route": "dsd-modellsatz-2"
   },
   {

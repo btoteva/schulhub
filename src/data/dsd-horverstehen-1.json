@@ -1,0 +1,175 @@
+{
+  "id": "dsd1-horverstehen-1",
+  "title": "Modellsatz 1 Hörverstehen Texte",
+  "titleBg": "Моделен тест 1 Hörverstehen Texte",
+  "subtitle": "Teil 1 – Straßenszenen",
+  "subtitleBg": "Част 1 – Улични сцени",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Straßenszenen",
+      "audioUrl": "https://www.dropbox.com/scl/fi/9x0i56bhmhoajz9yksxai/01-Spur-1.mp3?rlkey=ny00u9wxt9pztwo6icgmdu147&st=t2mn1f32&dl=1",
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Mann A", "text": "Entschuldigen Sie bitte. Ich suche die nächste Post. Die Briefe müssen noch heute Abend weg." },
+            { "speaker": "Mann B", "text": "Die Post? Warten Sie mal… Die ist am Markt." },
+            { "speaker": "Mann A", "text": "Aha. Und wo ist der denn?" },
+            { "speaker": "Mann B", "text": "Gehen Sie die Straße hier immer geradeaus. Sie kommen nach ungefähr 5 Minuten auf einen großen Platz. Da ist dann die Post." }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Frau", "text": "Entschuldigung, fahren Sie zum Schwimmbad?" },
+            { "speaker": "Mann", "text": "Nein, tut mir leid. Da müssen Sie schon umsteigen." },
+            { "speaker": "Frau", "text": "Und wo? Wissen Sie das vielleicht?" },
+            { "speaker": "Mann", "text": "Ja, Moment… Ich kann nachgucken. Ah. Da steigen Sie am besten bei mir ein und fahren bis zum Hauptbahnhof mit. Und dort nehmen Sie die Linie 91." },
+            { "speaker": "Frau", "text": "Gut, danke." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Mann", "text": "Hallo. Hast Du etwas Zeit?" },
+            { "speaker": "Mädchen", "text": "Warum?" },
+            { "speaker": "Mann", "text": "Du bist doch noch Schüler, oder?" },
+            { "speaker": "Mädchen", "text": "Ja." },
+            { "speaker": "Mann", "text": "Dann habe ich hier ein Angebot für dich." },
+            { "speaker": "Mädchen", "text": "Was für ein Angebot?" },
+            { "speaker": "Mann", "text": "Du zahlst nur 20€ im Monat und kannst so viel mit deinen Freunden telefonieren, wie du willst. Und du kannst dir eine Farbe aussuchen, die dir gefällt." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Verkäuferin", "text": "Was kann ich für dich tun?" },
+            { "speaker": "Junge", "text": "Ich hätte gerne einen Strauß. Einen schönen großen bitte. Der ist für meine Mama; sie hat nämlich heute Geburtstag." },
+            { "speaker": "Verkäuferin", "text": "Diese hier haben eine schöne dunkelrote Farbe. Noch ein paar grüne Blätter dazu?" },
+            { "speaker": "Junge", "text": "Ja. Wie lange halten sie denn in der Vase?" },
+            { "speaker": "Verkäuferin", "text": "Mit frischem Wasser eine Woche. Das macht 5 Euro." }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Mann", "text": "Hey, kannst du nicht aufpassen und langsamer fahren? Das ist hier doch kein Radweg!" },
+            { "speaker": "Mädchen", "text": "Oh, Entschuldigung, ich habe Sie gar nicht aus dem Haus kommen sehen!" },
+            { "speaker": "Mann", "text": "Nicht gesehen? Wo hast du denn hingeguckt? Du musst besser aufpassen, sonst passiert noch etwas." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Nachrichten auf dem Anrufbeantworter",
+      "audioUrl": "https://www.dropbox.com/scl/fi/8n6wi1cbw5td3brjxv7z8/02-Spur-2.mp3?rlkey=1ba17qva95xj07xsvvhfbyoek&st=u1uons0s&dl=1",
+      "aufgaben": [
+        {
+          "id": 6,
+          "text": "Hallo Klaus, hier ist Jochen. Morgen Nachmittag wollten wir doch eigentlich schwimmen gehen, aber ich kann leider nicht. Ich muss meinen Eltern im Garten helfen. Vielleicht können wir uns dann nächste Woche mal treffen. Bitte ruf mich an, am besten auf meinem Handy, die Nummer hast du ja."
+        },
+        {
+          "id": 7,
+          "text": "Guten Tag Frau Müller! Hier ist das Reisebüro Brink, Holter. Sie haben Ende Oktober gefragt, ob es noch freie Plätze für die Städtereise nach Bremen gibt. Sie wollten ein Wochenende im November fahren. Aber im November ist leider gar nichts mehr frei. Erst im Dezember wieder; da können Sie sich noch das Wochenende aussuchen. Bitte melden Sie sich bald!"
+        },
+        {
+          "id": 8,
+          "text": "Hallo! Ich bin's, Kerstin. Ich muss am Wochenende nun doch nicht nach Düsseldorf. Ich hab' frei und kann nach Köln kommen. Hoffentlich hast du noch nichts vor. Wenn's bei dir passt, kann ich Samstag um 11 da sein. Du kannst mich heute so ab 7 zu Hause anrufen. Ich versuch's aber auch noch mal. Tschüss!"
+        },
+        {
+          "id": 9,
+          "text": "Hi Nicole! Hier ist Jan. Äh, mein Computer ist kaputt – und ich muss doch noch mein Referat für die Schule machen. Du hast mir da doch schon mal geholfen. Kannst du noch heute zu mir kommen? Danach können wir ja ins Kino gehen – ich zahl auch für uns beide, okay? Tschüss dann!"
+        }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Interview mit Hanna",
+      "audioUrl": "https://www.dropbox.com/scl/fi/zkoxqv72wvc66vftcmdps/03-Spur-3.mp3?rlkey=eipptr1uqa6o9q43dg3ki7ec5&st=rgw2v401&dl=1",
+      "intro": "Hanna König ist 21 Jahre alt und macht eine Ausbildung zur Elektronikerin. Hanna König ist außerdem Schülersprecherin an der Berufsschule. Im folgenden Gespräch erzählt sie von ihrer Ausbildung.",
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Du machst zurzeit eine Ausbildung als Elektronikerin. Warum hast du diesen Beruf gewählt?" },
+            { "speaker": "Hanna", "text": "Also, mein Vater ist Elektroingenieur und hat eine eigene Firma. Schon als Teenager habe ich mich für technische Dinge interessiert und manchmal bei meinem Vater im Büro mitgeholfen. In der Schule habe ich dann nicht Hauswirtschaft, sondern Technik gewählt. Das ist für ein Mädchen eher selten. Nach der Hauptschule habe ich dann noch zwei Jahre eine Berufsfachschule besucht. Da habe ich gemerkt, dass mir die Elektrotechnik sehr viel Spaß macht und dass ich das auch ganz gut kann. Aus diesem Grund habe ich mir dann einen Betrieb gesucht, bei dem ich eine Ausbildung zur Elektronikerin machen kann." }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Du hast schon gesagt, dass es immer noch ungewöhnlich ist, als Frau in einem technischen Beruf zu arbeiten. Hattest du deshalb Probleme?" },
+            { "speaker": "Hanna", "text": "Nun ja, die Kollegen sind es nicht gewohnt, mit einer Frau zusammenzuarbeiten. Als Frau muss man erst mal zeigen, was man kann. Aber wenn man gut ist, dann akzeptieren die Kollegen auch eine Frau. Mit meinem Chef war es anders. Er fand es von Anfang an interessant, eine Frau auszubilden. Deshalb hat er mir diese Chance gegeben." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Gibt es Bereiche deiner Ausbildung, die dir besonderen Spaß machen?" },
+            { "speaker": "Hanna", "text": "Sehr gut gefällt mir der praktische Teil der Ausbildung. Im Betrieb müssen wir Auszubildenden alle Arbeiten machen, die es gibt, wie zum Beispiel Anlagen zusammenbauen und Schaltpläne zeichnen." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Neben der Ausbildung im Betrieb musst du ja auch eine Berufsschule besuchen. Was gefällt dir dort am besten?" },
+            { "speaker": "Hanna", "text": "In der Berufsschule macht mir vor allem der Unterricht in den technischen Fächern Spaß. Ich gehe eigentlich gern zur Schule." }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Du bist in der Schule ja auch sehr aktiv, denn du bist Schülersprecherin. Was musst du als Schülersprecherin machen?" },
+            { "speaker": "Hanna", "text": "Ich soll die Wünsche der Schülerinnen und Schüler vertreten und – wenn's geht – auch verwirklichen können. Außerdem nehme ich an den Schulkonferenzen teil. Bei Schulkonferenzen kommen Lehrer, Schülersprecher, Eltern zusammen und diskutieren über Pläne für das nächste Schuljahr z.B. über das nächste Schulfest." }
+          ]
+        },
+        {
+          "id": 6,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Was machst du als Schülersprecherin gern und was machst du nicht so gern?" },
+            { "speaker": "Hanna", "text": "Naja, fangen wir erst mal mit den unangenehmeren Seiten als Schülersprecherin an. Ich mag es überhaupt nicht, Reden zu halten. Zum Glück kommt das nicht so oft vor. Aber alles andere macht mir eigentlich super viel Spaß." }
+          ]
+        },
+        {
+          "id": 7,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Und wie sieht die berufliche Zukunft aus? Hast du schon Pläne?" },
+            { "speaker": "Hanna", "text": "Ja, habe ich. Ich möchte gern studieren, aber das geht mit meinem Schulabschluss ja nicht. Deshalb besuche ich ab Sommer die Abendschule, um einen Abschluss zu bekommen, mit dem ich studieren kann. Nach der Abendschule würde ich dann gern einen technischen Studiengang beginnen." }
+          ]
+        },
+        {
+          "id": 8,
+          "lines": [
+            { "speaker": "Interviewer", "text": "Vielen Dank für das Gespräch und alles Gute für deine Zukunft!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Anna in Frankreich",
+      "audioUrl": "https://www.dropbox.com/scl/fi/80r36nrn4jjghjrzzzc5l/04-Spur-4.mp3?rlkey=wzyuje7b317eexamvz8sz31tr&st=9mg5zdq0&dl=1",
+      "content": "Hallo, ich heiße Anna und komme aus Bayern. Im Sommer habe ich Clement kennen gelernt. Er war für drei Wochen als Austauschschüler an meinem Gymnasium. Weil ich drei Monate in Frankreich verbringen wollte, habe ich Clement zu mir eingeladen, um ihn näher kennen zu lernen. Dabei haben wir uns so gut verstanden, dass wir diesen Austausch unbedingt zusammen machen wollten.\n\nAnfang September war es dann so weit: Clement war drei Monate bei mir und meiner Familie. Er hat sich schnell bei uns wohl gefühlt und wir hatten eine coole Zeit. Im Dezember war der Austausch für Clement zu Ende, aber einen Monat später bin ich nach Frankreich geflogen. Am Flughafen in Bordeaux wartete Clement mit seiner Familie auf mich, um mich abzuholen. Ich verstand mich mit seinen Eltern sofort sehr gut, was mich besonders gefreut hat.\n\nZwei Tage später war der erste Schultag. Die Schüler in meiner Klasse, also in Clements Klasse, haben mich sofort herzlich begrüßt und mich von Anfang an akzeptiert. Ich hab mich mit vielen super verstanden. Die Lehrer waren auch alle sehr nett und manche haben sich auch um mich gekümmert.\n\nDirekt am ersten Tag hab' ich den Unterschied zur deutschen Schule entdeckt: Die Unterrichtsstunde dauert hier 60 Minuten, die Schule fängt um 8 Uhr an und geht bis 18:00 Uhr. Am Anfang war ich deshalb jeden Abend total müde. Aber nach einiger Zeit war es kein Problem mehr.\n\nIch fing an, mich an diese Schule zu gewöhnen, und jeden Tag hat's mir besser gefallen. Ich hatte Französisch, Mathe, Englisch, Deutsch, Physik, Sport und Bio. In Englisch und Deutsch konnte ich im Unterricht gut mitmachen. Das hat mir auch Spaß gemacht. Ich hab' sogar mal auf Französisch ein Referat über das deutsche Schulsystem gehalten. Sport war prima, weil's da viel mehr Angebote gibt.\n\nMittags hab' ich mit Clement immer in der Kantine gegessen und meine Freistunden hab' ich meistens mit Freunden im Schülercafé verbracht. Manchmal bin ich auch in die Bibliothek gegangen, um da zu lernen oder E-Mails zu verschicken. Nach einiger Zeit konnte ich immer besser Französisch und es war richtig cool, mich auf Französisch zu unterhalten.\n\nDie Wochenenden in der Familie waren immer schön. Manchmal haben wir uns mit ein paar Freunden getroffen oder sind ins Kino. Sonntags haben wir mit der Familie immer Ausflüge gemacht und wirklich schöne Städte besucht.\n\nIch hatte eine total schöne Zeit in Frankreich. Diese drei Monate waren die schönsten in meinem Leben. Ich bin glücklich, dass ich diesen Austausch machen durfte. Mit Clement und seiner Familie telefoniere ich oft, und wir planen schon unser nächstes Wiedersehen.\n\nEins ist sicher: Ich werde wieder nach Frankreich fahren, weil ich die Sprache und das Land liebe."
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Wie war das Wochenende?",
+      "audioUrl": "https://www.dropbox.com/scl/fi/v0qhzacg4qzwclwka9uj2/05-Spur-5.mp3?rlkey=khqzpr8crz600yyn865tk0915&st=zipq6ou0&dl=1",
+      "itemLabel": "Nummer",
+      "aufgaben": [
+        { "id": 0, "text": "Samstag bin ich aufgewacht und mir fiel gleich ein: Heute ist ja mein Geburtstag. Am Nachmittag kamen dann meine Verwandten und wir feierten mit Kaffee und Kuchen. Ich bekam von meinen Eltern ein neues Fahrrad und meine Großeltern schenkten mir zwei Bücher. Die hatte ich mir schon lange gewünscht." },
+        { "id": 21, "text": "Wir trafen uns um acht Uhr am Bahnhof, denn wir mussten noch eine Stunde mit dem Zug fahren. Alle waren sehr nervös, denn uns stand ein wichtiges Spiel bevor. Als wir auf dem Sportplatz ankamen, waren unsere Gegner schon auf dem Feld. Es war ein spannendes Spiel, aber am Ende waren wir mit drei Toren Sieger." },
+        { "id": 22, "text": "Meine Mutter hat mich Samstag um fünf Uhr morgens geweckt. Ich musste mich schnell anziehen, denn wir hatten eine lange Fahrt vor uns. Nach 4 Stunden Autofahrt haben wir unser Ziel erreicht: Die Berge. Wir wanderten durch einen Wald bis zur Hütte, in der wir übernachtet haben." },
+        { "id": 23, "text": "Samstagmorgen bin ich zu meinem Freund Paul gefahren, denn wir wollten das ganze Wochenende gemeinsam spielen. Paul zeigte mir sofort sein neues Computerspiel, von dem er gar nicht mehr wegzubekommen war. Ich fand das nicht so toll, denn ich wollte lieber draußen mit meinem neuen Fahrrad fahren." },
+        { "id": 24, "text": "Sonntag schien die Sonne und ich traf mich mit meiner Freundin zum Fahrrad fahren. Wir mussten zwei Stunden fahren, bis wir endlich am See ankamen. Wir packten unser mitgebrachtes Essen aus und genossen die Sonne. Die Nacht haben wir dann in unserem Zelt direkt am Ufer verbracht." }
+      ]
+    }
+  ]
+}
