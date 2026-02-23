@@ -1,0 +1,123 @@
+{
+  "id": "dsd1-modellsatz2",
+  "title": "DSD I Modellsatz 2",
+  "titleBg": "DSD I Моделен тест 2",
+  "subtitle": "Leseverstehen – Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext. Der Text hat vier Lücken (Aufgabe 1-4).\nSetze aus der Wortliste (A-H) das richtige Wort in jede Lücke ein.\nEinige Wörter bleiben übrig.",
+      "text": "Fernsehen kann informativ, unterhaltsam und interessant sein. Trotzdem finden nicht alle Deutschen das Fernsehen gut, weil es sehr viele (0) **Z** Sendungen gibt. Deshalb (1) ________ einige Leute zu Hause gar keinen Fernseher haben. Sie hören lieber Radio, (2) ________ Zeitung oder informieren sich im Internet. Andere können aber nicht ohne Fernseher leben. Die Deutschen sitzen immer (3) ________ vor dem Fernseher: 1988 sahen Jugendliche und Erwachsene 2,5 Stunden am Tag fern. 2004 waren es bereits 3,5 Stunden, und es werden immer mehr. Vor kurzem gab es auch in den USA einen neuen (4) ________: Amerikaner sehen sogar fünf Stunden lang fern. In Deutschland sind es übrigens nicht die jungen Zuschauer, die am längsten fernsehen, sondern die älteren Zuschauer, die über 50 Jahre alt sind.",
+      "wordList": [
+        { "id": "Z", "word": "schlechte", "wordBg": "лоши" },
+        { "id": "A", "word": "besitzen", "wordBg": "притежавам" },
+        { "id": "B", "word": "länger", "wordBg": "по-дълго" },
+        { "id": "C", "word": "Sport", "wordBg": "спорт" },
+        { "id": "D", "word": "wollen", "wordBg": "искам" },
+        { "id": "E", "word": "lesen", "wordBg": "чета" },
+        { "id": "F", "word": "Rekord", "wordBg": "рекорд" },
+        { "id": "G", "word": "kürzer", "wordBg": "по-кратко" },
+        { "id": "H", "word": "weniger", "wordBg": "по-малко" }
+      ],
+      "tasks": [
+        { "id": 1, "gap": 1, "correct": "D", "question": "Lücke 1" },
+        { "id": 2, "gap": 2, "correct": "E", "question": "Lücke 2" },
+        { "id": 3, "gap": 3, "correct": "B", "question": "Lücke 3" },
+        { "id": 4, "gap": 4, "correct": "F", "question": "Lücke 4" }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Welche Überschrift passt am besten zum Text? Kreuze an.",
+        "questionBg": "Кой заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          { "id": "A", "text": "Die Deutschen und das Fernsehen", "correct": true },
+          { "id": "B", "text": "Fernsehen in den USA", "correct": false },
+          { "id": "C", "text": "Weltweit immer weniger Fernseher", "correct": false }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2: Wer hat die E-Mail geschrieben?",
+      "titleBg": "Част 2: Кой е написал имейла?",
+      "intro": "Auf der nächsten Seite findest du acht kurze E-Mails von Schülern und ein Beispiel.\nLies die Aufgaben (6-9) und die E-Mails (A-H).\n**Schreibe den richtigen Buchstaben (A-H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen.\nVier Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6–9",
+      "summaries": [
+        { "id": 0, "text": "Jan möchte Geld sparen und nimmt deswegen jemanden mit.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Jasmin möchte ein Musikinstrument verkaufen.", "correct": "A", "isExample": false },
+        { "id": 7, "text": "Katrin bietet einen Sportkurs an.", "correct": "E", "isExample": false },
+        { "id": 8, "text": "Sophie fährt gern Fahrrad in der Natur.", "correct": "F", "isExample": false },
+        { "id": 9, "text": "Luis sucht einen Privatlehrer für sein Hobby.", "correct": "C", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Fahre am Samstag zum Konzert von „Anabell\" nach Mannheim. Wer möchte auch dahin? Ich habe einen freien Platz in meinem Auto. Fahrtkosten werden natürlich geteilt." },
+        { "id": "A", "text": "Biete gebrauchtes Saxophon in gutem Zustand an. Das Saxophon ist drei Jahre alt. Ich habe es wenig benutzt, weil ich eigentlich lieber Klarinette spiele. Über den Preis können wir reden." },
+        { "id": "B", "text": "Hi Fans! Unsere Mittelstufenband gibt nächsten Mittwoch in unserer Sporthalle ein Konzert. Der Eintritt ist kostenlos. Geschwister und Freunde können mitkommen. Die Halle ist ab 17 Uhr geöffnet. Konzertbeginn: 18 Uhr." },
+        { "id": "C", "text": "Ich möchte gerne Saxophon spielen lernen und suche jemanden, der nicht so langweiligen Unterricht macht. Möglichst bald möchte ich in einer Band spielen. Wer kann mir dreimal in der Woche Unterricht geben?" },
+        { "id": "D", "text": "Mein Freund und ich möchten am Wochenende zum Beachvolleyball-Turnier ans Meer. Unsere Eltern haben keine Zeit, uns zu fahren. Wer fährt auch dahin und kann uns mitnehmen? Wir geben natürlich etwas für das Benzin dazu." },
+        { "id": "E", "text": "Neue Karate-AG am Mittwochnachmittag. Alle Schüler ab 14 Jahren sind eingeladen, mitzumachen. Die Teilnahme ist kostenlos. Es gibt eine Jungen- und eine Mädchengruppe. Meldet euch bis zum nächsten Freitag!" },
+        { "id": "F", "text": "Suche Mitfahrer für Mountainbiketouren. Habe keine Lust, alleine durch die Berge zu fahren. Wer hat ein gutes Rad und kommt mit? Samstags habe ich manchmal noch Unterricht, aber sonntags kann ich fast immer." },
+        { "id": "G", "text": "Ich plane einen Zeltausflug mit dem Zug ans Meer. Zwei aus meiner Klasse machen schon mit. Wer möchte noch dabei sein? Das wird bestimmt viel Spaß machen! Wir können Ball spielen, im Zelt schlafen und abends Lagerfeuer machen. Meldet euch bei mir!" },
+        { "id": "H", "text": "Verkaufe mein Mountainbike, Marke Rothwild. Farbe: dunkelrot/weiß. Das Rad ist erst ein Jahr alt, sieht aus wie neu und ist auch technisch in einem Top-Zustand. Ich fahre jetzt lieber Rennrad und gebe das Mountainbike zu einem guten Preis ab." }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3: Arbeiten im Zirkus",
+      "titleBg": "Част 3: Работа в цирка",
+      "intro": "Lies den Text und die Aufgaben (10-14).\nKreuze bei jeder Aufgabe (10-14) an: richtig oder falsch?",
+      "text": "Es fing schon in der Schule an: Tom Vieseler brachte sich selbst das Jonglieren mit drei Bällen bei. Im Schulsport zeigte er immer wieder besonderes Talent. Mit 14 Jahren hatte er schon seinen ersten Auftritt mit einer Zirkusgruppe, die in seiner Schule war.\n\nAuch jetzt, nach vielen Jahren Erfahrung im Zirkus, ist Tom vor Auftritten immer noch nervös. Aber er mag die Aufregung, denn sie hilft ihm, aufmerksam und konzentriert zu sein. Außerdem macht ihn der Applaus, den er bekommt, immer sehr stolz.\n\nTrotzdem gibt es natürlich Tage, an denen man nicht so fit ist. Auf die Frage, wie er damit umgeht, antwortet Tom: „Ich versuche einfach, dass solche Tage so selten wie möglich sind. Das heißt, ich trainiere einfach extrem viel.“\n\nIn seiner Zirkusschule „Toledos\" unterrichtet Tom 50 Kinder und Jugendliche in verschiedenen Gruppen, die jüngsten sind erst vier Jahre alt. „Kinder lieben die Artistik und den Zirkus. Denn im Zirkus werden Träume wahr, es ist aufregend und spannend, aber auch lustig.“\n\nUnd was muss man mitbringen, wenn man selbst Zirkusartist werden will? „Viel Fleiß, Geduld und Ausdauer\", meint Tom. Er zum Beispiel übt an vier Tagen in der Woche, jeweils drei Stunden.",
+      "tasks": [
+        { "id": 10, "statement": "Tom ist schon als Teenager im Zirkus aufgetreten.", "correct": "richtig" },
+        { "id": 11, "statement": "Tom ist heute immer noch Artist.", "correct": "richtig" },
+        { "id": 12, "statement": "Applaus macht Tom nervös.", "correct": "falsch" },
+        { "id": 13, "statement": "Tom unterrichtet in seiner Zirkusschule auch Vierjährige.", "correct": "richtig" },
+        { "id": 14, "statement": "Laut Tom kann man nur Zirkusartist werden, wenn man 4 Tage die Woche trainiert.", "correct": "falsch" }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "intro": "Lies den Text und die Aufgaben 15-20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Florian Uhrig ist 17 Jahre alt und besucht die 12. Klasse eines Gymnasiums in Nürnberg. In seiner Freizeit zählt für ihn vor allem der Sport: „Ich spiele Fußball, fahre Fahrrad, laufe und manchmal schwimme ich auch\", erzählt er. „Beim Sport kann ich meine Freunde treffen und Spaß haben.\"\n\nSpaß haben - das war auch sein Gedanke, als er vom Fürther Schülertriathlon hörte und sich zusammen mit seinem Freund Alex anmeldete. Den Schülertriathlon zu gewinnen war gar nicht so einfach: zuerst 400 Meter schwimmen, danach 9 Kilometer Fahrrad fahren und zum Schluss 3.250 Meter laufen. Mit dem Training begann Florian zwei Monate vorher. „Laufen und Rad fahren waren kein Problem, das mache ich sowieso jede Woche\", meint er.\n\nBeim Schwimmen sah es anders aus: „Als Alex und ich das erste Mal zum Training im Schwimmbad waren, hatten wir viele Probleme.\" Doch Hilfe kam schnell. Der Trainer gab Tipps und erklärte, wie es richtig geht. Trainiert hat Florian dreimal in der Woche. Erst schaffte er nur 100, dann 200 und bald 500 Meter.\n\nDas Training gehörte bald zu Florians Alltag. „Es war nicht immer leicht, gerade, wenn es in der Schule stressig war. Aber Alex und ich haben uns gegenseitig motiviert. Ich habe dann gesagt: ,Komm, lass uns erst mal Sport machen, danach geht das Lernen besser. Außerdem macht das Training zu zweit mehr Spaß.\"\n\nNach zwei Monaten Training war Florian fit. Dann kam der große Tag. Es ging los mit dem Schwimmen. Florian war nervös, er schwamm die erste Bahn sehr schnell. Für die zweite fehlte ihm deswegen fast die Luft und er schluckte Wasser. „Aber ich bin danach neben Alex geschwommen. Das hat mich dann beruhigt\", berichtet er.\n\nWenig später kletterte er aus dem Wasser. Erst abtrocknen, dann umziehen und ab aufs Rad. Das war für Florian anstrengend und ungewohnt. Dennoch kämpfte er sich immer weiter vor und lag schließlich vorne. Das Laufen am Schluss war für ihn kein Problem mehr. Als er dann als Erster die Ziellinie erreichte, war er sehr glücklich. Alex erreichte das Ziel nur kurz nach ihm.",
+      "questions": [
+        { "id": 15, "question": "Florian", "options": [ { "id": "A", "text": "spielt am liebsten Fußball.", "correct": false }, { "id": "B", "text": "trainiert seit Jahren Triathlon.", "correct": false }, { "id": "C", "text": "treibt mehrere Sportarten.", "correct": true } ] },
+        { "id": 16, "question": "Florian meldete sich zum Schülertriathlon an, um", "options": [ { "id": "A", "text": "Freude daran zu haben.", "correct": true }, { "id": "B", "text": "ihn zu gewinnen.", "correct": false }, { "id": "C", "text": "neue Freunde kennen zu lernen.", "correct": false } ] },
+        { "id": 17, "question": "Florian und Alex", "options": [ { "id": "A", "text": "konnten am Anfang schlecht schwimmen.", "correct": true }, { "id": "B", "text": "waren selten beim Schwimmtraining.", "correct": false }, { "id": "C", "text": "waren schon am Anfang gute Schwimmer.", "correct": false } ] },
+        { "id": 18, "question": "Das Training", "options": [ { "id": "A", "text": "motivierte die beiden für den Triathlon.", "correct": false }, { "id": "B", "text": "war häufig anstrengend.", "correct": true }, { "id": "C", "text": "war wichtiger als das Lernen.", "correct": false } ] },
+        { "id": 19, "question": "Beim Schwimmen", "options": [ { "id": "A", "text": "lag Florian an der Spitze.", "correct": false }, { "id": "B", "text": "war es für Florian sehr mühsam.", "correct": true }, { "id": "C", "text": "überholte Florian seinen Freund Alex.", "correct": false } ] },
+        { "id": 20, "question": "Welche Überschrift passt am besten?", "options": [ { "id": "A", "text": "Anstrengendes Schwimmtraining", "correct": false }, { "id": "B", "text": "Gemeinsam zum Erfolg", "correct": true }, { "id": "C", "text": "Weg vom Schulstress", "correct": false } ] }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5: Welche Überschrift passt?",
+      "titleBg": "Част 5: Кое заглавие пасва?",
+      "intro": "Lies die Texte 21-24 und die Überschriften A-H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A-H) in die rechte Spalte.\nDu kannst jeden Buchstaben nur einmal wählen. Vier Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 21-24",
+      "summaries": [
+        { "id": 0, "text": "Obwohl es ein großes Luxusauto ist, fühlt es sich an, als ob man einen rasanten Sportwagen fährt. Eine Klimaanlage ist z. B. schon inklusive - das kann der Kunde natürlich erwarten. Wenn man auf der Autobahn fährt, merkt man die Geschwindigkeit kaum. Und das auch nur ganz leise. Selbst wenn der Wagen steht, kann man kaum sagen, ob der Motor läuft oder nicht. Der Kunde sollte aber schon bereit sein, etwas mehr Geld auszugeben, z.B. für das Benzin.", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "Sie wollen mehr als nur schnell und sicher ans Ziel kommen? Sie lieben die Natur und die Landschaft? Sie suchen etwas Besonderes, aber Sie wollen auch auf steinigen Wegen garantierte Sicherheit und Fahrspaß? Sie brauchen ein zuverlässiges und sicheres Auto, das mit allen Straßen fertig wird? Dann ist dies der richtige Wagen für Sie!", "correct": "B", "isExample": false },
+        { "id": 22, "text": "Dieser wunderschöne Kleinwagen begeistert wirklich alle Kunden: Egal, ob Romantik-Liebhaber oder alle, die einfach nur ein ganz besonders schickes Auto wollen! Dieses Auto gibt es in sechs bunten Farben. Wählen Sie einfach Ihr Lieblingsmodell und der Fahrspaß ist garantiert.", "correct": "C", "isExample": false },
+        { "id": 23, "text": "Sie lieben den frischen Wind in Ihren Haaren und lassen sich auch gern beim Fahren von der Sonne bescheinen? Sie möchten jeden Augenblick beim Fahren genießen? Dennoch erwarten Sie in Ihrem Wagen den üblichen Komfort? Kein Problem! In diesem Wagen lässt sich hier das Dach problemlos öffnen.", "correct": "E", "isExample": false },
+        { "id": 24, "text": "Sie haben gerade erst den Führerschein und fühlen sich auf der Straße noch etwas unsicher? Dieses moderne und kleine Auto bietet Ihnen alles, was Sie benötigen, um sich sicher zu fühlen. Auch wenn Sie gerade erst ihren Führerschein gemacht haben, ist dieses Auto genau das Richtige für Sie. Auch auf der Autobahn erreichen Sie vor allem sicher Ihr Ziel.", "correct": "F", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Komfort und sportliche Note in der gehobenen Extraklasse" },
+        { "id": "A", "text": "Platz ist in der kleinsten Parklücke!" },
+        { "id": "B", "text": "Für Ihr Abenteuer auf den Wegen abseits der Straße" },
+        { "id": "C", "text": "Spaß am Hobby, Spaß an Farben, Spaß am Fahren" },
+        { "id": "D", "text": "Große Aufgaben für kleine Hobby-Bastler" },
+        { "id": "E", "text": "Mit dem Cabrio in den Sonnenuntergang" },
+        { "id": "F", "text": "Der richtige Kleinwagen für Fahranfänger" },
+        { "id": "G", "text": "Der kleine Wagen für den erfahrenen Autofahrer" },
+        { "id": "H", "text": "Wie viel Platz dieser Kombi bietet, sieht man ihm nicht an" }
+      ]
+    }
+  ]
+}

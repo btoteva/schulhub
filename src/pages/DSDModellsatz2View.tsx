@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowUp, FaArrowDown } from "react-icons/fa";
-import dsdData from "../data/dsd-modellsatz-1.json";
+import dsdData from "../data/dsd-modellsatz-2.json";
 
-const STORAGE_KEY = "schulhub-dsd-modellsatz-1";
+const STORAGE_KEY = "schulhub-dsd-modellsatz-2";
 
 interface DSDState {
   teil1?: Record<number, string>;
@@ -14,7 +14,7 @@ interface DSDState {
   teil5?: Record<number, string>;
 }
 
-const DSDModellsatz1View: React.FC = () => {
+const DSDModellsatz2View: React.FC = () => {
   const [answers, setAnswers] = useState<DSDState>({});
   const [showResults, setShowResults] = useState(false);
   const [showAnswerKey, setShowAnswerKey] = useState(false);
@@ -144,11 +144,11 @@ const DSDModellsatz1View: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Link
-          to="/"
+          to="/german/dsd-tests"
           className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 mb-8"
         >
           <FaArrowLeft />
-          Начало
+          DSD I Тестове
         </Link>
 
         <header className="mb-12">
@@ -208,6 +208,9 @@ const DSDModellsatz1View: React.FC = () => {
           {teil1 && (
             <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil1.title}</h2>
+              {(teil1 as { instruction?: string }).instruction && (
+                <p className="text-gray-300 mb-4 whitespace-pre-line">{(teil1 as { instruction: string }).instruction}</p>
+              )}
               <p className="text-gray-300 leading-relaxed mb-6">
                 {(() => {
                   const sortedTasks = [...(teil1.tasks || [])].sort(
@@ -227,7 +230,11 @@ const DSDModellsatz1View: React.FC = () => {
                   segments.push(rest);
                   return segments.map((seg, i) =>
                     typeof seg === "string" ? (
-                      <React.Fragment key={i}>{seg}</React.Fragment>
+                      <React.Fragment key={i}>
+                        {seg.split(/\*\*(.*?)\*\*/g).map((part, j) =>
+                          j % 2 === 1 ? <strong key={j} className="text-amber-200 font-medium">{part}</strong> : part
+                        )}
+                      </React.Fragment>
                     ) : (
                       <span key={i} className="inline-flex items-center align-baseline gap-1 mx-0.5">
                         <span className="text-amber-200/80 font-medium">({seg.task.id})</span>
@@ -303,6 +310,9 @@ const DSDModellsatz1View: React.FC = () => {
                   </div>
                 </div>
               )}
+              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold text-center">
+                Ende Teil 1
+              </p>
             </section>
           )}
 
@@ -311,7 +321,11 @@ const DSDModellsatz1View: React.FC = () => {
             <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil2.title}</h2>
               {(teil2 as { intro?: string }).intro && (
-                <p className="text-gray-300 mb-6 whitespace-pre-line">{(teil2 as { intro: string }).intro}</p>
+                <p className="text-gray-300 mb-6 whitespace-pre-line">
+                  {(teil2 as { intro: string }).intro.split(/\*\*(.*?)\*\*/g).map((part, i) =>
+                    i % 2 === 1 ? <strong key={i} className="text-amber-200 font-semibold">{part}</strong> : part
+                  )}
+                </p>
               )}
 
               <h3 className="text-lg font-semibold text-amber-200 mb-3">E-Mails A–H</h3>
@@ -375,6 +389,9 @@ const DSDModellsatz1View: React.FC = () => {
                   </tbody>
                 </table>
               </div>
+              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold text-center">
+                Ende Teil 2
+              </p>
             </section>
           )}
 
@@ -426,6 +443,9 @@ const DSDModellsatz1View: React.FC = () => {
                   );
                 })}
               </div>
+              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold text-center">
+                Ende Teil 3
+              </p>
             </section>
           )}
 
@@ -482,6 +502,9 @@ const DSDModellsatz1View: React.FC = () => {
                   );
                 })}
               </div>
+              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold text-center">
+                Ende Teil 4
+              </p>
             </section>
           )}
 
@@ -554,6 +577,9 @@ const DSDModellsatz1View: React.FC = () => {
                   </tbody>
                 </table>
               </div>
+              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold text-center">
+                Ende Teil 5
+              </p>
             </section>
           )}
 
@@ -629,4 +655,4 @@ const DSDModellsatz1View: React.FC = () => {
   );
 };
 
-export default DSDModellsatz1View;
+export default DSDModellsatz2View;

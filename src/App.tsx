@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Lessons from './pages/Lessons';
 import LessonView from './pages/LessonView';
 import DSDModellsatz1View from './pages/DSDModellsatz1View';
+import DSDModellsatz2View from './pages/DSDModellsatz2View';
 import DSDHorverstehen1View from './pages/DSDHorverstehen1View';
 import DSDSchriftliche1View from './pages/DSDSchriftliche1View';
 import DSDTestsList from './pages/DSDTestsList';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />
           <Route path="/german/dsd-modellsatz-1" element={<DSDModellsatz1View />} />
           <Route path="/german/dsd-modellsatz-2" element={<DSDHorverstehen1View />} />
+          <Route path="/german/dsd-modellsatz-3" element={<DSDModellsatz2View />} />
           <Route path="/german/dsd-schriftliche-1" element={<DSDSchriftliche1View />} />
         </Routes>
       </div>

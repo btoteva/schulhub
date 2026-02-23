@@ -4,6 +4,7 @@
   "titleBg": "DSD I Моделен тест 1",
   "subtitle": "Leseverstehen – Texte und Aufgaben",
   "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {
       "id": "teil1",
