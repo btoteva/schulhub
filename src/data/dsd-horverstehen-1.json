@@ -4,12 +4,21 @@
   "titleBg": "Моделен тест 1 Hörverstehen Texte",
   "subtitle": "Teil 1 – Straßenszenen",
   "subtitleBg": "Част 1 – Улични сцени",
+  "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {
       "id": "teil1",
       "title": "Teil 1",
       "subtitle": "Straßenszenen",
       "audioUrl": "https://www.dropbox.com/scl/fi/9x0i56bhmhoajz9yksxai/01-Spur-1.mp3?rlkey=ny00u9wxt9pztwo6icgmdu147&st=t2mn1f32&dl=1",
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen. Alle Szenen spielen auf der Straße. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Welches Bild passt?",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild an (A oder B oder C).",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "szenen": [ { "id": 1 }, { "id": 2, "bildA": "https://i.imgur.com/RG2KS5s.png", "bildB": "https://i.imgur.com/md00grD.png", "bildC": "https://i.imgur.com/FGsu0oW.png" }, { "id": 3 }, { "id": 4 }, { "id": 5 } ]
+      },
       "scenes": [
         {
           "id": 1,

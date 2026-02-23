@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowDown, FaArrowUp } from "react-icons/fa";
 import horverstehenData from "../data/dsd-horverstehen-1.json";
 
 const DSDHorverstehen1View: React.FC = () => {
+  const [teil1Bilder, setTeil1Bilder] = useState<Record<number, string>>({});
   const data = horverstehenData as {
     title: string;
     titleBg: string;
     subtitle: string;
+    horverstehenInstructions?: string;
     teile: Array<{
       id: string;
       title: string;
@@ -20,6 +22,14 @@ const DSDHorverstehen1View: React.FC = () => {
         lines: Array<{ speaker: string; text: string }>;
       }>;
       aufgaben?: Array<{ id: number; text: string }>;
+      teil1Exercise?: {
+        instruction1: string;
+        question: string;
+        instruction2: string;
+        instruction3: string;
+        bildInstruction: string;
+        szenen: Array<{ id: number; bildA?: string; bildB?: string; bildC?: string }>;
+      };
     }>;
   };
 
@@ -37,6 +47,11 @@ const DSDHorverstehen1View: React.FC = () => {
         <header className="mb-12">
           <h1 className="text-3xl font-bold text-amber-400">{data.title}</h1>
           <p className="text-gray-400 mt-1">{data.subtitle}</p>
+          {data.horverstehenInstructions && (
+            <p className="text-gray-300 mt-6 leading-relaxed max-w-3xl">
+              {data.horverstehenInstructions}
+            </p>
+          )}
         </header>
 
         <div className="flex gap-3 mb-8">
@@ -134,6 +149,59 @@ const DSDHorverstehen1View: React.FC = () => {
               <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold">
                 Ende {teil.title}
               </p>
+
+              {(teil as { teil1Exercise?: { instruction1: string; question: string; instruction2: string; instruction3: string; bildInstruction: string; szenen: Array<{ id: number; bildA?: string; bildB?: string; bildC?: string }> } }).teil1Exercise && (() => {
+                const ex = (teil as { teil1Exercise: { instruction1: string; question: string; instruction2: string; instruction3: string; bildInstruction: string; szenen: Array<{ id: number; bildA?: string; bildB?: string; bildC?: string }> } }).teil1Exercise;
+                  const defaultBilder = { A: "https://i.imgur.com/FhxWjQy.png", B: "https://i.imgur.com/jCGQlwH.png", C: "https://i.imgur.com/fsuHMC2.png" };
+                return (
+                  <div className="mt-12 pt-10 border-t-2 border-amber-500/40">
+                    <h3 className="text-xl font-bold text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
+                    <h4 className="text-lg font-semibold text-amber-200 mt-6 mb-4">{teil.title} – {teil.subtitle}</h4>
+                    <p className="text-gray-300 mb-2">{ex.instruction1}</p>
+                    <p className="text-amber-200 font-bold my-3">{ex.question}</p>
+                    <p className="text-gray-300 mb-1">{ex.instruction2}</p>
+                    <p className="text-gray-300 mb-8">{ex.instruction3}</p>
+                    <div className="space-y-10">
+                      {ex.szenen.map((sz) => (
+                        <div key={sz.id} className="border border-gray-600 rounded-xl p-6 bg-gray-900/30">
+                          <p className="text-amber-200 font-semibold mb-2">Szene {sz.id}</p>
+                          <p className="text-gray-400 text-sm mb-4">{ex.bildInstruction}</p>
+                          <div className="grid grid-cols-3 gap-6">
+                            {(["A", "B", "C"] as const).map((opt) => (
+                              <label
+                                key={opt}
+                                className={`flex flex-col items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
+                                  teil1Bilder[sz.id] === opt
+                                    ? "border-amber-400 bg-amber-900/20"
+                                    : "border-gray-600 hover:border-gray-500"
+                                }`}
+                              >
+                                <div className="w-full aspect-[4/3] max-h-32 bg-gray-700/50 rounded border border-gray-600 flex items-center justify-center overflow-hidden">
+                                  {(() => {
+                                    const url = (sz as { bildA?: string; bildB?: string; bildC?: string })[`bild${opt}` as "bildA" | "bildB" | "bildC"] ?? defaultBilder[opt];
+                                    return <img src={url} alt={`Bild ${opt}`} className="w-full h-full object-contain" />;
+                                  })()}
+                                </div>
+                                <span className="flex items-center gap-2">
+                                  <input
+                                    type="radio"
+                                    name={`teil1-sz-${sz.id}`}
+                                    value={opt}
+                                    checked={teil1Bilder[sz.id] === opt}
+                                    onChange={() => setTeil1Bilder((prev) => ({ ...prev, [sz.id]: opt }))}
+                                    className="w-4 h-4 text-amber-500"
+                                  />
+                                  {opt}
+                                </span>
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
             </section>
           ))}
         </div>
