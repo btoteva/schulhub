@@ -186,6 +186,12 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "18 мин",
               completed: false,
             },
+            {
+              id: 4,
+              title: "19 DAS NATURRESSOURCEN-POTENTIAL DER ERDE - 1",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],

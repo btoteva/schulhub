@@ -1565,7 +1565,7 @@ const LessonView: React.FC = () => {
                         {/* Left Items */}
                         <div className="space-y-3">
                           <p className="text-gray-300 font-semibold mb-3">
-                            Граници на плочи:
+                            {(exercise as { leftLabel?: string }).leftLabel ?? "Граници на плочи"}:
                           </p>
                           {exercise.leftItems?.map((item) => {
                             const isSelected = selectedLeft === item.id;
@@ -1608,7 +1608,7 @@ const LessonView: React.FC = () => {
                         {/* Right Items */}
                         <div className="space-y-3">
                           <p className="text-gray-300 font-semibold mb-3">
-                            Процеси:
+                            {(exercise as { rightLabel?: string }).rightLabel ?? "Процеси"}:
                           </p>
                           {exercise.rightItems?.map((item) => {
                             const isSelected = selectedRights.has(item.id);

@@ -179,7 +179,11 @@ const DSDHorverstehen1View: React.FC = () => {
                                 <div className="w-full aspect-[4/3] max-h-32 bg-gray-700/50 rounded border border-gray-600 flex items-center justify-center overflow-hidden">
                                   {(() => {
                                     const url = (sz as { bildA?: string; bildB?: string; bildC?: string })[`bild${opt}` as "bildA" | "bildB" | "bildC"] ?? defaultBilder[opt];
-                                    return <img src={url} alt={`Bild ${opt}`} className="w-full h-full object-contain" />;
+                                    return url ? (
+                                      <img src={url} alt={`Bild ${opt}`} className="w-full h-full object-contain" />
+                                    ) : (
+                                      <span className="text-gray-500 text-sm">Bild {opt}</span>
+                                    );
                                   })()}
                                 </div>
                                 <span className="flex items-center gap-2">

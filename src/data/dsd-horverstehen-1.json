@@ -17,7 +17,7 @@
         "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild an (A oder B oder C).",
         "instruction3": "Danach hörst du die Szenen noch einmal.",
         "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
-        "szenen": [ { "id": 1 }, { "id": 2, "bildA": "https://i.imgur.com/RG2KS5s.png", "bildB": "https://i.imgur.com/md00grD.png", "bildC": "https://i.imgur.com/FGsu0oW.png" }, { "id": 3 }, { "id": 4 }, { "id": 5 } ]
+        "szenen": [ { "id": 1 }, { "id": 2, "bildA": "https://i.imgur.com/RG2KS5s.png", "bildB": "https://i.imgur.com/md00grD.png", "bildC": "https://i.imgur.com/FGsu0oW.png" }, { "id": 3, "bildA": "", "bildB": "", "bildC": "" }, { "id": 4, "bildA": "", "bildB": "", "bildC": "" }, { "id": 5, "bildA": "", "bildB": "", "bildC": "" } ]
       },
       "scenes": [
         {
