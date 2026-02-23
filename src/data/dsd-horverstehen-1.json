@@ -17,7 +17,7 @@
         "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild an (A oder B oder C).",
         "instruction3": "Danach hörst du die Szenen noch einmal.",
         "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
-        "szenen": [ { "id": 1 }, { "id": 2, "bildA": "https://i.imgur.com/RG2KS5s.png", "bildB": "https://i.imgur.com/md00grD.png", "bildC": "https://i.imgur.com/FGsu0oW.png" }, { "id": 3, "bildA": "", "bildB": "", "bildC": "" }, { "id": 4, "bildA": "", "bildB": "", "bildC": "" }, { "id": 5, "bildA": "", "bildB": "", "bildC": "" } ]
+        "szenen": [ { "id": 1 }, { "id": 2, "bildA": "https://i.imgur.com/RG2KS5s.png", "bildB": "https://i.imgur.com/md00grD.png", "bildC": "https://i.imgur.com/FGsu0oW.png" }, { "id": 3, "bildA": "https://i.imgur.com/jBNRUI1.png", "bildB": "https://i.imgur.com/p1RWHoA.png", "bildC": "https://i.imgur.com/VmWNunE.png" }, { "id": 4, "bildA": "https://i.imgur.com/OTqUH1P.png", "bildB": "https://i.imgur.com/HiERdzv.png", "bildC": "https://i.imgur.com/aXW9Pbh.png" }, { "id": 5, "bildA": "https://i.imgur.com/beVxTCb.png", "bildB": "https://i.imgur.com/6IaEJK6.png", "bildC": "https://i.imgur.com/KJAx2yI.png" } ]
       },
       "scenes": [
         {
