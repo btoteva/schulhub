@@ -12,69 +12,478 @@
       "subtitle": "Verabredungen",
       "audioUrl": "https://www.dropbox.com/scl/fi/9df2takad197zvaywpzn9/Teil-1.mp3?rlkey=qa3efhskgc1yz1gom049k2xlm&st=3hagfken&dl=1",
       "teil1Exercise": {
-        "instruction1": "Du hörst gleich fünf Szenen.",
-        "question": "Welches Bild passt?",
-        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild an (A oder B oder C).",
+        "instruction1": "Du hörst gleich fünf Szenen, in denen sich Leute verabreden. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Wo findet die Verabredung später statt?",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
         "instruction3": "Danach hörst du die Szenen noch einmal.",
-        "bildInstruction": "Sieh dir zuerst die Bilder an.",
-        "szenen": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }, { "id": 5 }]
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "szenen": [
+          { "id": 1, "bildA": "https://i.imgur.com/jCBTqft.png", "bildB": "https://i.imgur.com/hF4UwZB.png", "bildC": "https://i.imgur.com/25sDWOV.png" },
+          { "id": 2, "bildA": "https://i.imgur.com/df3ehLL.png", "bildB": "https://i.imgur.com/qUIqCOI.png", "bildC": "https://i.imgur.com/TYSMYWW.png" },
+          { "id": 3, "bildA": "https://i.imgur.com/iVHmsWV.png", "bildB": "https://i.imgur.com/MuqLHd3.png", "bildC": "https://i.imgur.com/5HqmldC.png" },
+          { "id": 4, "bildA": "https://i.imgur.com/LCv9aNN.png", "bildB": "https://i.imgur.com/uygiqnX.png", "bildC": "https://i.imgur.com/IwhTpHP.png" },
+          { "id": 5, "bildA": "https://i.imgur.com/3YjuJsg.png", "bildB": "https://i.imgur.com/mqJF1tR.png", "bildC": "https://i.imgur.com/R6pFoyk.png" }
+        ]
       },
       "scenes": [
         {
           "id": 1,
           "lines": [
-            { "speaker": "Mädchen 1", "text": "Du, ich will mir nachher ne neue Hose kaufen. Kommst du mit?" },
-            { "speaker": "Mädchen 2", "text": "Klar! Ich wollte sowieso mal wieder nach Klamotten gucken..." },
-            { "speaker": "Mädchen 1", "text": "Ja, super! Wir treffen uns an der Kirche, okay?" },
-            { "speaker": "Mädchen 2", "text": "Och, das ist für mich so weit. Besser am Blumenladen!" },
-            { "speaker": "Mädchen 1", "text": "Oh nee, der ist für mich zu weit weg. Sehen wir uns doch lieber am Kino!" },
-            { "speaker": "Mädchen 2", "text": "Na gut, okay." }
+            {
+              "speaker": "Mädchen 1",
+              "text": "Du, ich will mir nachher ne neue Hose kaufen. Kommst du mit?"
+            },
+            {
+              "speaker": "Mädchen 2",
+              "text": "Klar! Ich wollte sowieso mal wieder nach Klamotten gucken..."
+            },
+            {
+              "speaker": "Mädchen 1",
+              "text": "Ja, super! Wir treffen uns an der Kirche, okay?"
+            },
+            {
+              "speaker": "Mädchen 2",
+              "text": "Och, das ist für mich so weit. Besser am Blumenladen!"
+            },
+            {
+              "speaker": "Mädchen 1",
+              "text": "Oh nee, der ist für mich zu weit weg. Sehen wir uns doch lieber am Kino!"
+            },
+            {
+              "speaker": "Mädchen 2",
+              "text": "Na gut, okay."
+            }
           ]
         },
         {
           "id": 2,
           "lines": [
-            { "speaker": "Oma", "text": "Hallo Paul, wie geht's dir? Ich habe heute morgen einen Schokoladenkuchen gebacken. Möchtest du zum Kaffee vorbeikommen?" },
-            { "speaker": "Opa", "text": "Eigentlich wollte ich mit meinem Enkel in den Zoo gehen." },
-            { "speaker": "Oma", "text": "Kannst du da nicht morgen mit ihm hingehen?" },
-            { "speaker": "Opa", "text": "Nein, da spiele ich schon Karten. Aber ich könnte ja heute zusammen mit meinem Enkel kommen, bevor wir in den Zoo gehen." },
-            { "speaker": "Oma", "text": "Oh ja, da freue ich mich." }
+            {
+              "speaker": "Oma",
+              "text": "Hallo Paul, wie geht's dir? Ich habe heute morgen einen Schokoladenkuchen gebacken. Möchtest du zum Kaffee vorbeikommen?"
+            },
+            {
+              "speaker": "Opa",
+              "text": "Eigentlich wollte ich mit meinem Enkel in den Zoo gehen."
+            },
+            {
+              "speaker": "Oma",
+              "text": "Kannst du da nicht morgen mit ihm hingehen?"
+            },
+            {
+              "speaker": "Opa",
+              "text": "Nein, da spiele ich schon Karten. Aber ich könnte ja heute zusammen mit meinem Enkel kommen, bevor wir in den Zoo gehen."
+            },
+            {
+              "speaker": "Oma",
+              "text": "Oh ja, da freue ich mich."
+            }
           ]
         },
         {
           "id": 3,
           "lines": [
-            { "speaker": "Mädchen", "text": "Hi Stefan! Kommst du heute Nachmittag auch mit?" },
-            { "speaker": "Junge", "text": "Wie... Was macht ihr denn?" },
-            { "speaker": "Mädchen", "text": "Wir wollen uns mit ein paar Jungen und Mädchen aus der Klasse treffen. Dann gehen wir ins Schwimmbad." },
-            { "speaker": "Junge", "text": "Hmm, sollen wir nicht lieber auf dem Schulhof Tischtennis spielen?" },
-            { "speaker": "Mädchen", "text": "Nee, die anderen wollen bei dem heißen Wetter lieber schwimmen. Ich wäre auch lieber Fahrrad gefahren." },
-            { "speaker": "Junge", "text": "Na gut. Ich komme dann mit." }
+            {
+              "speaker": "Mädchen",
+              "text": "Hi Stefan! Kommst du heute Nachmittag auch mit?"
+            },
+            {
+              "speaker": "Junge",
+              "text": "Wie... Was macht ihr denn?"
+            },
+            {
+              "speaker": "Mädchen",
+              "text": "Wir wollen uns mit ein paar Jungen und Mädchen aus der Klasse treffen. Dann gehen wir ins Schwimmbad."
+            },
+            {
+              "speaker": "Junge",
+              "text": "Hmm, sollen wir nicht lieber auf dem Schulhof Tischtennis spielen?"
+            },
+            {
+              "speaker": "Mädchen",
+              "text": "Nee, die anderen wollen bei dem heißen Wetter lieber schwimmen. Ich wäre auch lieber Fahrrad gefahren."
+            },
+            {
+              "speaker": "Junge",
+              "text": "Na gut. Ich komme dann mit."
+            }
           ]
         },
         {
           "id": 4,
           "lines": [
-            { "speaker": "Junge", "text": "Hallo Jessica! Wollen wir nachher zusammen Hausaufgaben machen?" },
-            { "speaker": "Mädchen", "text": "Joa, klingt gut!" },
-            { "speaker": "Junge", "text": "Können wir uns dafür bei dir zu Hause treffen?" },
-            { "speaker": "Mädchen", "text": "Nee, das geht nicht. Meine Eltern bekommen Besuch. Dann haben wir keine Ruhe." },
-            { "speaker": "Junge", "text": "Willst du die Aufgaben lieber in der Schule machen?" },
-            { "speaker": "Mädchen", "text": "Wir können auch einfach in den Park gehen. Was meinst du?" },
-            { "speaker": "Junge", "text": "Okay, alles klar - das Wetter ist ja schön." }
+            {
+              "speaker": "Junge",
+              "text": "Hallo Jessica! Wollen wir nachher zusammen Hausaufgaben machen?"
+            },
+            {
+              "speaker": "Mädchen",
+              "text": "Joa, klingt gut!"
+            },
+            {
+              "speaker": "Junge",
+              "text": "Können wir uns dafür bei dir zu Hause treffen?"
+            },
+            {
+              "speaker": "Mädchen",
+              "text": "Nee, das geht nicht. Meine Eltern bekommen Besuch. Dann haben wir keine Ruhe."
+            },
+            {
+              "speaker": "Junge",
+              "text": "Willst du die Aufgaben lieber in der Schule machen?"
+            },
+            {
+              "speaker": "Mädchen",
+              "text": "Wir können auch einfach in den Park gehen. Was meinst du?"
+            },
+            {
+              "speaker": "Junge",
+              "text": "Okay, alles klar - das Wetter ist ja schön."
+            }
           ]
         },
         {
           "id": 5,
           "lines": [
-            { "speaker": "Mutter", "text": "Kinder, draußen liegt Schnee - sollen wir nicht mal alle raus? Wir können im Wald spazieren gehen!" },
-            { "speaker": "Tochter", "text": "Oh, bitte nicht in den Wald! Ich will lieber im Garten einen Schneemann bauen." },
-            { "speaker": "Sohn", "text": "Oh Mann, wie langweilig! Am Berg Schlitten fahren ist doch viel lustiger!" },
-            { "speaker": "Mutter", "text": "Also, ich möchte ja gerne in den Wald, aber das ist ja zu langweilig für euch. Fürs Schlitten fahren müssten wir die schweren Dinger erst aus dem Keller holen. Lasst uns doch erstmal einen Schneemann bauen." },
-            { "speaker": "Sohn", "text": "Naaa guuut, gehen wir eben in den Garten." }
+            {
+              "speaker": "Mutter",
+              "text": "Kinder, draußen liegt Schnee - sollen wir nicht mal alle raus? Wir können im Wald spazieren gehen!"
+            },
+            {
+              "speaker": "Tochter",
+              "text": "Oh, bitte nicht in den Wald! Ich will lieber im Garten einen Schneemann bauen."
+            },
+            {
+              "speaker": "Sohn",
+              "text": "Oh Mann, wie langweilig! Am Berg Schlitten fahren ist doch viel lustiger!"
+            },
+            {
+              "speaker": "Mutter",
+              "text": "Also, ich möchte ja gerne in den Wald, aber das ist ja zu langweilig für euch. Fürs Schlitten fahren müssten wir die schweren Dinger erst aus dem Keller holen. Lasst uns doch erstmal einen Schneemann bauen."
+            },
+            {
+              "speaker": "Sohn",
+              "text": "Naaa guuut, gehen wir eben in den Garten."
+            }
           ]
         }
       ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Nachrichten auf dem Anrufbeantworter",
+      "audioUrl": "",
+      "aufgaben": [
+        {
+          "id": 6,
+          "text": "Hi Sven, hier ist Alexander. Ich weiß nicht, ob du schon gehört hast, dass Felix im Krankenhaus liegt. Er hat sich ein Bein gebrochen. Jetzt haben wir keinen Torwart und das Spiel gegen die 10. Klasse ist schon am Sonntag. Kannst du für Felix spielen? Sag jetzt nicht Nein! Wir brauchen dich!"
+        },
+        {
+          "id": 7,
+          "text": "Hallo Kiki, hier ist Jana. Ich wollte dich erinnern, dass ich bis morgen das Geld für den Theaterbesuch einsammeln muss. Ich habe immer noch nichts von dir bekommen. Ich muss das Geld morgen bei Frau Marzahn abgeben und du bist die letzte, die noch bezahlen muss. Deinetwegen fällt sonst noch der Theaterbesuch aus."
+        },
+        {
+          "id": 8,
+          "text": "Guten Tag, Herr Wiener, hier die Zahnarztpraxis Dr. Klüger. Sie haben ja einen Termin für Freitag um 8.30 Uhr. Leider müssen wir den Termin verschieben, da der Herr Doktor krank geworden ist. Können wir einen neuen Termin vereinbaren? Wenn Ihre Zahnschmerzen ganz schlimm werden, können Sie sich an Herrn Doktor Hummel in der Uniklinik wenden."
+        },
+        {
+          "id": 9,
+          "text": "Guten Tag Frau Weber, hier ist Annette Meier vom Tanzstudio. Ihre Tochter Claudia hat die letzten beiden Male beim Unterricht gefehlt. Deshalb möchte ich fragen, ob sie den Tanzkurs abbrechen möchte. Es würde uns sehr Leid tun, weil Claudia sehr gut tanzt und ich habe gesehen, dass sie viel Freude daran hat."
+        }
+      ],
+      "teil2Exercise": {
+        "instruction1": "Wenn man nicht zu Hause ist und jemand anruft, dann kann er eine Nachricht auf den Anrufbeantworter sprechen.",
+        "instruction2": "Du hörst gleich vier Nachrichten auf dem Anrufbeantworter.",
+        "instruction3": "Lies zuerst die Aufgaben 6-9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction4": "Höre nun die Nachrichten. Löse die Aufgaben beim Hören. Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Nachrichten noch einmal.",
+        "tasks": [
+          {
+            "id": 6,
+            "prompt": "Sven soll",
+            "options": [
+              { "id": "A", "text": "am Sonntag mitspielen." },
+              { "id": "B", "text": "den Torwart anrufen." },
+              { "id": "C", "text": "Felix im Krankenhaus besuchen." }
+            ]
+          },
+          {
+            "id": 7,
+            "prompt": "Kiki hat",
+            "options": [
+              { "id": "A", "text": "Frau Marzahn das Geld gegeben." },
+              { "id": "B", "text": "noch kein Geld bezahlt." },
+              { "id": "C", "text": "zu wenig Geld bezahlt." }
+            ]
+          },
+          {
+            "id": 8,
+            "prompt": "Herr Wiener",
+            "options": [
+              { "id": "A", "text": "geht am Freitag zu Dr. Klüger." },
+              { "id": "B", "text": "hat einen Termin in der Uniklinik." },
+              { "id": "C", "text": "muss zum Zahnarzt." }
+            ]
+          },
+          {
+            "id": 9,
+            "prompt": "Claudia",
+            "options": [
+              { "id": "A", "text": "geht nicht so gerne zum Tanzkurs." },
+              { "id": "B", "text": "hat den Tanzkurs abgebrochen." },
+              { "id": "C", "text": "war schon ein paar Mal nicht im Tanzkurs." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Mit dem Fahrrad quer durch China",
+      "audioUrl": "https://www.dropbox.com/scl/fi/phdfmxlz1zz03wuhbsha8/Teil-3.mp3?rlkey=s34c7asdx6aiw526x3710pp5f&st=26adeq41&dl=1",
+      "intro": "Der Geografielehrer Michael Brühl ist mit seinem Fahrrad in 100 Tagen 5.600 km quer durch ganz China gefahren. Nach seiner Rückkehr wurde er von einem Schülerredakteur interviewt.",
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Hallo Herr Brühl, 5600 km – das klingt nach einem langen Weg. War es denn eine sehr anstrengende Reise?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Klar! Vor allem körperlich bin ich manchmal an meine Grenze gekommen. Zu den weiten Strecken kam auch noch die Höhe von 2.000 Metern hinzu, in der ich mit meinem 55 Kilo schweren Fahrrad unterwegs war. Mit der Zeit wurde meine Kondition zwar immer besser, aber es war auch aus anderen Gründen anstrengend."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Was meinen Sie denn genau damit?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Also, es war sehr schwierig, weil ich kein Chinesisch spreche und die meisten Chinesen wiederum kein Englisch sprechen. Manchmal hab' ich also mehrere Wochen niemanden getroffen, mit dem ich mich unterhalten konnte. Anstrengend war auch, dass viele Straßen im Moment neu gebaut werden. Das hieß für mich, dass ich auf einer 500 km langen Baustelle an Tausenden von neugierigen Arbeitern vorbeifuhr."
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Waren die Chinesen denn nicht nett?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Doch, doch, im persönlichen Kontakt waren sie immer freundlich. Ich war für sie vielleicht so etwas wie ein „exotischer Vogel\", den sie noch nie gesehen haben."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Haben Sie auch gefährliche Situationen erlebt?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Jaa, schon. Die freilaufenden Hunde in Tibet zum Beispiel können richtig gefährlich sein. Manchmal sind die Hunde auf mich losgerannt und haben wie wild gebellt. Ich wollte meine Route schon ändern, aber dann hatte ich die Idee mit den Regenschirmen."
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "„Regenschirme\"?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "<lacht> Ja! Ich hab' zwei Regenschirme gekauft. Ich hab' sie geöffnet und an meinem Fahrrad festgemacht. Damit hatte ich großen Erfolg, denn die Hunde kamen tatsächlich nicht mehr an mich ran. Die meisten von ihnen blieben sogar ängstlich am Straßenrand sitzen."
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Und war es für Sie sonst nie gefährlich in China?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Naja, der Verkehr in China ist manchmal schon sehr gefährlich. Viele Leute fahren so schnell wie möglich und achten nicht auf Fahrradfahrer. Die Lastwagenfahrer haben es oft eilig und hupen, wenn jemand zu langsam fährt."
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Aha. Was hat Ihnen denn nun am besten in China gefallen?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Also, landschaftlich war das Bergland wunderbar. Auch die Bevölkerung im flachen Süden Chinas mit ihren bunten Kleidern werde ich nie vergessen."
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "lines": [
+            {
+              "speaker": "Interviewer",
+              "text": "Können Sie China als Reiseland empfehlen?"
+            },
+            {
+              "speaker": "Michael Brühl",
+              "text": "Ja klar, unbedingt! Aber ich würde das nächste Mal nicht mit dem Fahrrad, sondern lieber in einer größeren Gruppe mit einem Touristenführer reisen."
+            }
+          ]
+        }
+      ],
+      "teil3Exercise": {
+        "instruction1": "Lies zuerst die Sätze 10-14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10-14) an: richtig oder falsch?",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Seine chinesischen Sprachkenntnisse halfen Herrn Brühl weiter." },
+          { "id": 11, "statement": "Wegen der Hunde musste Herr Brühl seine Route ändern." },
+          { "id": 12, "statement": "Herr Brühl kaufte Schirme, obwohl es nicht regnete." },
+          { "id": 13, "statement": "Viele Autofahrer, die Herr Brühl gesehen hat, haben keine Rücksicht auf andere genommen." },
+          { "id": 14, "statement": "Herr Brühl fand die Menschen in den Bergen faszinierend." }
+        ]
+      }
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Nie in der Schule",
+      "audioUrl": "https://www.dropbox.com/scl/fi/m5jbtlv75up2cv50l46gm/Teil-4.mp3?rlkey=t7bo80lrexl8syim9lbck64gv&st=fimlmarq&dl=1",
+      "content": "Hallo. Ich bin Frederik, bin 25 Jahre alt und ich war nie in der Schule. Nie! Viele von meinen Freunden erzählen, dass sie Angst vor Schulaufgaben und Prüfungen hatten, dass sie Vokabeln oder Jahreszahlen auswendig lernen mussten und dann auch noch im Sportunterricht als letzter Spieler in eine Mannschaft gewählt wurden. Ich kenne das alles nicht. Ich hatte eine glückliche Kindheit. Niemand hat mich gezwungen, ein Schulbuch zu lesen, Lektion für Lektion. Meine Eltern beantworteten meine Fragen, wenn ich etwas wissen wollte. Sie suchten mit mir Bücher oder suchten Leute, die meine Fragen beantworten konnten. Das machte mir Spaß, und ich lernte nur das, was mich interessierte. Ohne Prüfung – bis heute. Ich bin Gitarrenbauer, Musiker, Journalist und hab auch schon als Redakteur eines Magazins gearbeitet.\n\nIch bin in einer kleinen Wohnung in Paris-Mitte aufgewachsen. Mein Vater ist Schriftsteller, meine Mutter Grundschullehrerin. Sie gab aber ihren Beruf auf, um (wie mein Vater) in der Nähe zu sein, wenn meine jüngere Schwester und ich sie brauchten. Je älter wir wurden, desto mehr kümmerte sie sich aber um ihre eigenen Dinge und wir uns um unsere. In Frankreich geht so etwas, da gibt es keine Schulpflicht, ebenso wie in Österreich und anderen Ländern. Lesen habe ich mit drei Jahren gelernt. Ich fand, dass der Buchstabe O wie ein Ei und das große C wie ein gedrehter Eierbecher aussah. Ich wollte wissen, wie die Buchstaben heißen, fragte wieder und wieder meine Eltern. Ich begann zu lesen, nur langsam, aber immerhin. Rechnen hab' ich mit vier Jahren gelernt, als ich merkte, dass fünf Finger an der einen Hand nur halb so viel sind wie zehn.\n\nIch habe immer das gelernt, was ich brauchte. Zuerst als Gitarrenbauer, dann als Musiker und als Journalist. Ich habe nachgesehen, was ich in der Zeitung nicht verstand oder in der S-Bahn hörte. Das mache ich heute noch so. Wenn ich etwas nicht weiß, finde ich es nicht schlimm, ich fühle mich eher so wie vor einer neuen Entdeckung. Manche Leute denken, dass ich kein sozialer Mensch bin, weil ich nicht in der Schule war. Das stimmt aber nicht. Ich war viel mit meiner Schwester und meinen Cousinen zusammen, die übrigens alle auch nicht in der Schule waren. Ich musste mir ohne Schule Freunde suchen. Das aber ging gut: Ich hatte viele Freunde und Bekannte. Übrigens: Kaum einer meiner Freunde war so alt wie ich. Die meisten waren älter oder jünger. – Ganz im Gegensatz zu den Schulkindern. Die lernen in der Schule ja eher Gleichaltrige kennen.\n\nMein Tag war relativ geordnet. Schon mit zwölf Jahren stand ich um sechs Uhr auf, um Gitarre zu üben, weil die Stadt am Morgen so leise und der Klang dann viel besser ist. Nach dem Frühstück übte ich manchmal Sprachen, zum Beispiel Englisch und Deutsch. Manchmal habe ich 20 Lektionen am Tag gelernt, manchmal machte ich nach einiger Zeit wieder etwas anderes. Später war ich viel in Bibliotheken, denn irgendwo gab es immer eine Antwort auf meine Fragen. Immer.",
+      "teil4Exercise": {
+        "instruction1": "Du hörst eine Reportage im Schülerradio. Frederik erzählt von seinem Leben ohne Schule.",
+        "instruction2": "Lies zuerst die Aufgaben 15-20. Du hast dafür eine Minute Zeit.",
+        "instruction3": "Höre nun die Reportage. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Reportage noch einmal.",
+        "tasks": [
+          {
+            "id": 15,
+            "prompt": "Frederik war als Kind glücklich, weil er",
+            "options": [
+              { "id": "A", "text": "gut Vokabeln und Jahreszahlen lernen konnte." },
+              { "id": "B", "text": "keine Angst vor Hausaufgaben und Prüfungen hatte." },
+              { "id": "C", "text": "oft als Erster in die Sportmannschaft gewählt wurde." }
+            ]
+          },
+          {
+            "id": 16,
+            "prompt": "Als Kind lernte Frederik nur das, was",
+            "options": [
+              { "id": "A", "text": "er wirklich wissen wollte." },
+              { "id": "B", "text": "in keinem Schulbuch stand." },
+              { "id": "C", "text": "seine Eltern ihm erklärten." }
+            ]
+          },
+          {
+            "id": 17,
+            "prompt": "Frederiks Mutter gab ihren Beruf auf,",
+            "options": [
+              { "id": "A", "text": "da sie näher bei ihren Kindern sein wollte." },
+              { "id": "B", "text": "um bei ihrem Mann zu sein." },
+              { "id": "C", "text": "weil sie mehr Zeit für ihre eigenen Dinge brauchte." }
+            ]
+          },
+          {
+            "id": 18,
+            "prompt": "Frederik hat Lesen gelernt, indem er",
+            "options": [
+              { "id": "A", "text": "mit seinen Eltern zusammen geübt hat." },
+              { "id": "B", "text": "mit seinen Fingern Buchstaben gebildet hat." },
+              { "id": "C", "text": "sich für Buchstaben Gegenstände überlegt hat." }
+            ]
+          },
+          {
+            "id": 19,
+            "prompt": "Frederik lernt immer Neues, weil er",
+            "options": [
+              { "id": "A", "text": "als Journalist oft Zeitung lesen muss." },
+              { "id": "B", "text": "es schlimm findet, wenn er etwas nicht weiß." },
+              { "id": "C", "text": "sich informiert, wenn er Unbekanntes hört oder liest." }
+            ]
+          },
+          {
+            "id": 20,
+            "prompt": "Die meisten von Frederiks Freunden bestanden aus",
+            "options": [
+              { "id": "A", "text": "gleichaltrigen Schulkindern." },
+              { "id": "B", "text": "Kindern, die nicht im selben Alter waren." },
+              { "id": "C", "text": "seinen Cousinen und seiner Schwester." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Fernsehsendungen",
+      "audioUrl": "https://www.dropbox.com/scl/fi/vh2cdw8smdl89gvbzjmc2/Teil-5.mp3?rlkey=hpe94ob07dck499wg2nx8wbst&st=rwi23wat&dl=1",
+      "itemLabel": "Nummer",
+      "aufgaben": [
+        {
+          "id": 0,
+          "text": "In dieser Sendung geht es um ein Tier, das verschiedene Tricks kann. Es läuft im Kreis oder stellt sich auf die Hinterbeine. Sein Pfleger gibt ihm Zucker, wenn es gut mitmacht. Das Tier sieht wunderschön aus, ganz weiß, mit wenigen schwarzen Flecken."
+        },
+        {
+          "id": 21,
+          "text": "Aus dieser Sendung kann man viel lernen. Zum Beispiel, warum Milch sauer wird und wie man das selbst machen kann. Ich habe es zu Hause ausprobiert – aber bei mir wurde nicht die Milch sauer, sondern meine Mutter."
+        },
+        {
+          "id": 22,
+          "text": "In dieser Sendung überraschen die Macher Leute zu Hause. Sie bringen viele Handwerker mit und renovieren die ganze Wohnung. Neue Möbel rein, das Badezimmer wird renoviert, die Wände gestrichen – und sie kümmern sich sogar um den Garten."
+        },
+        {
+          "id": 23,
+          "text": "In dieser Sendung erklären die Moderatoren, wie man zum Beispiel einen Computer schneller machen kann. Außerdem kann man lernen, wie man einen Reifen beim Auto wechselt und wie man einen Toaster reparieren kann."
+        },
+        {
+          "id": 24,
+          "text": "In dieser Sendung geht es darum, seltene Dinge zu finden. Zum Beispiel ein bestimmtes Buch, das es nicht mehr zu kaufen gibt. Wenn man so etwas sucht, kann man die Sendung kontaktieren. Und Zuschauer, die das Gesuchte besitzen, können sich melden – dann kann man tauschen."
+        }
+      ],
+      "teil5Exercise": {
+        "instruction1": "Am Montag unterhalten sich die Schüler der Klasse 6a darüber, was sie am Wochenende im Fernsehen gesehen haben. Du hörst zuerst ein Beispiel und dann fünf weitere kurze Berichte von Schülern.",
+        "instruction2": "Lies zuerst die Liste mit den verschiedenen Titeln der Sendungen (A-H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction3": "Notiere beim Hören zu jedem Bericht den richtigen Buchstaben (A-H).",
+        "instruction4": "Fünf Buchstaben bleiben übrig.",
+        "instruction5": "Achtung! Du hörst die Berichte nur einmal. Zuerst hörst du ein Beispiel.",
+        "instruction6": "Das Beispiel hat die Nummer 0. Die Lösung ist Z.",
+        "activities": [
+          { "id": "Z", "text": "Nobby, das kluge Pony" },
+          { "id": "A", "text": "Alles über Computer" },
+          { "id": "B", "text": "Die besten Streiche für die Schule" },
+          { "id": "C", "text": "Ein \u201eneues\u201c Zuhause" },
+          { "id": "D", "text": "Gutes für wenig Geld" },
+          { "id": "E", "text": "Naturwissenschaften - einfach erklärt" },
+          { "id": "F", "text": "Technik & Co" },
+          { "id": "G", "text": "Tauschen nicht Kaufen" },
+          { "id": "H", "text": "Tipps für den Hauskauf" }
+        ],
+        "exampleNr": 0,
+        "exampleLetter": "Z",
+        "taskNumbers": [ 21, 22, 23, 24 ]
+      }
     }
   ]
 }

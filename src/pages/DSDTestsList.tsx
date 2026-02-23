@@ -15,7 +15,7 @@ type TestItem = {
 };
 
 const MODELLSATZ_1_IDS = ["1", "2", "3"];
-const MODELLSATZ_2_IDS = ["4", "5"];
+const MODELLSATZ_2_IDS = ["4", "5", "6"];
 
 const MODELLSATZ_1_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "1": FaClipboardList,
@@ -26,6 +26,7 @@ const MODELLSATZ_1_ICONS: Record<string, React.ComponentType<{ className?: strin
 const MODELLSATZ_2_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "4": FaClipboardList,
   "5": FaHeadphones,
+  "6": FaPenFancy,
 };
 
 const DSDTestsList: React.FC = () => {
@@ -164,10 +165,10 @@ const DSDTestsList: React.FC = () => {
                   </h2>
                   <p className="text-gray-400 text-sm mt-1">
                     {language === "bg"
-                      ? "Части от един изпит: Leseverstehen, Hörverstehen"
+                      ? "Части от един изпит: Leseverstehen, Hörverstehen, Schriftliche Kommunikation"
                       : language === "de"
-                        ? "Teile einer Prüfung: Leseverstehen, Hörverstehen"
-                        : "Parts of one exam: Reading"}
+                        ? "Teile einer Prüfung: Leseverstehen, Hörverstehen, Schriftliche Kommunikation"
+                        : "Parts of one exam: Reading, Listening, Written communication"}
                   </p>
                 </div>
                 <span className="flex-shrink-0 text-amber-400">
