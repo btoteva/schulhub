@@ -58,6 +58,8 @@ interface Translations {
   test: string;
   playAll: string;
   pause: string;
+  showAllTranslations: string;
+  hideAllTranslations: string;
   listen: string;
   stop: string;
   clickForTranslation: string;
@@ -149,6 +151,8 @@ const translations: Record<Language, Translations> = {
     test: "Тест",
     playAll: "Пусни всички",
     pause: "Пауза",
+    showAllTranslations: "Покажи всички преводи",
+    hideAllTranslations: "Скрий всички преводи",
     listen: "Слушай",
     stop: "Спри",
     clickForTranslation: "Кликни за превод",
@@ -242,6 +246,8 @@ const translations: Record<Language, Translations> = {
     test: "Test",
     playAll: "Play All",
     pause: "Pause",
+    showAllTranslations: "Show all translations",
+    hideAllTranslations: "Hide all translations",
     listen: "Listen",
     stop: "Stop",
     clickForTranslation: "Click for translation",
@@ -335,6 +341,8 @@ const translations: Record<Language, Translations> = {
     test: "Test",
     playAll: "Alle abspielen",
     pause: "Pause",
+    showAllTranslations: "Alle Übersetzungen anzeigen",
+    hideAllTranslations: "Alle Übersetzungen ausblenden",
     listen: "Anhören",
     stop: "Stopp",
     clickForTranslation: "Klicken für Übersetzung",

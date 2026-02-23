@@ -768,8 +768,39 @@ const LessonView: React.FC = () => {
           {/* Content Tab */}
           {!isTestOnlyLesson && activeTab === "content" && lessonData.content && (
             <div>
-              {/* Play All Button */}
-              <div className="mb-6 flex justify-end">
+              {/* Play All + Show/Hide all translations */}
+              <div className="mb-6 flex flex-wrap justify-end gap-3">
+                {sentences.length > 0 && (() => {
+                  const indicesWithTranslation = sentences
+                    .map((s, i) => (s.translation ? i : -1))
+                    .filter((i) => i >= 0);
+                  const allExpanded =
+                    indicesWithTranslation.length > 0 &&
+                    indicesWithTranslation.every((i) =>
+                      expandedSentences.has(i),
+                    );
+                  return (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (allExpanded) {
+                          setExpandedSentences(new Set());
+                        } else {
+                          setExpandedSentences(
+                            new Set(indicesWithTranslation),
+                          );
+                        }
+                      }}
+                      className="flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all bg-gray-700 hover:bg-gray-600 text-white border border-gray-600"
+                    >
+                      {allExpanded ? (
+                        <span>{t.hideAllTranslations}</span>
+                      ) : (
+                        <span>{t.showAllTranslations}</span>
+                      )}
+                    </button>
+                  );
+                })()}
                 <button
                   onClick={togglePlayAll}
                   className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 ${
