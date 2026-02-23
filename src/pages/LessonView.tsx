@@ -120,6 +120,9 @@ const LessonView: React.FC = () => {
     };
   }, []);
 
+  // Load lesson data dynamically (needed for storage key)
+  const lessonData = getLessonById(Number(courseId), lessonId || "");
+
   // When opening a test-only lesson, show only Test tab (no other tabs)
   const isTestOnlyLesson = !!(
     lessonData &&
@@ -134,8 +137,50 @@ const LessonView: React.FC = () => {
     }
   }, [lessonId, isTestOnlyLesson]);
 
-  // Load lesson data dynamically
-  const lessonData = getLessonById(Number(courseId), lessonId || "");
+  // Skip first save after load so we don't overwrite with empty state
+  const skipNextExerciseSaveRef = useRef(true);
+
+  // Load saved exercise progress (quiz answers, revealed question IDs) so user can continue later
+  useEffect(() => {
+    if (!courseId || !lessonId) return;
+    skipNextExerciseSaveRef.current = true;
+    const key = `schulhub-exercise-${courseId}-${lessonId}`;
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      const data = JSON.parse(raw) as {
+        quizAnswers?: Record<number, Record<number, string>>;
+        revealedIds?: number[];
+      };
+      if (data.quizAnswers && typeof data.quizAnswers === "object") {
+        setExerciseQuizAnswers(data.quizAnswers);
+      }
+      if (Array.isArray(data.revealedIds)) {
+        setRevealedExerciseIds(new Set(data.revealedIds));
+      }
+    } catch {
+      // ignore invalid stored data
+    }
+  }, [courseId, lessonId]);
+
+  // Save exercise progress to localStorage when user changes answers (not on first run after load)
+  useEffect(() => {
+    if (!courseId || !lessonId) return;
+    if (skipNextExerciseSaveRef.current) {
+      skipNextExerciseSaveRef.current = false;
+      return;
+    }
+    const key = `schulhub-exercise-${courseId}-${lessonId}`;
+    const payload = {
+      quizAnswers: exerciseQuizAnswers,
+      revealedIds: Array.from(revealedExerciseIds),
+    };
+    try {
+      localStorage.setItem(key, JSON.stringify(payload));
+    } catch {
+      // ignore quota / private mode
+    }
+  }, [courseId, lessonId, exerciseQuizAnswers, revealedExerciseIds]);
 
   // If lesson not found, redirect back
   if (!lessonData) {
@@ -1268,6 +1313,25 @@ const LessonView: React.FC = () => {
           {/* Exercises Tab */}
           {!isTestOnlyLesson && activeTab === "exercises" && lessonData.exercises && (
             <div className="space-y-8">
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-gray-600">
+                <p className="text-gray-400 text-sm">
+                  {language === "bg"
+                    ? "Напредъкът се запазва автоматично. Можеш да продължиш по-късно."
+                    : language === "de"
+                      ? "Der Fortschritt wird automatisch gespeichert. Du kannst später weitermachen."
+                      : "Progress is saved automatically. You can continue later."}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setExerciseQuizAnswers({});
+                    setRevealedExerciseIds(new Set());
+                  }}
+                  className="px-4 py-2 text-sm font-medium text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg transition-colors"
+                >
+                  {t.clearExerciseProgress}
+                </button>
+              </div>
               {lessonData.exercises.map((exercise) => (
                 <div key={exercise.id}>
                   {exercise.type === "section" ? (

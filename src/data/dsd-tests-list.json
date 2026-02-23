@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "DSD I Modellsatz 1",
+    "titleBg": "DSD I Моделен тест 1",
+    "description": "Leseverstehen – Texte und Aufgaben",
+    "descriptionBg": "Четене с разбиране – текстове и задачи",
+    "available": true,
+    "route": "dsd-modellsatz-1"
+  },
+  {
+    "id": "2",
+    "title": "DSD I Modellsatz 2",
+    "titleBg": "DSD I Моделен тест 2",
+    "description": "Leseverstehen",
+    "descriptionBg": "Четене с разбиране",
+    "available": false,
+    "route": "dsd-modellsatz-2"
+  },
+  {
+    "id": "3",
+    "title": "DSD I Modellsatz 3",
+    "titleBg": "DSD I Моделен тест 3",
+    "description": "Leseverstehen",
+    "descriptionBg": "Четене с разбиране",
+    "available": false,
+    "route": "dsd-modellsatz-3"
+  },
+  {
+    "id": "4",
+    "title": "DSD I Modellsatz 4",
+    "titleBg": "DSD I Моделен тест 4",
+    "description": "Leseverstehen",
+    "descriptionBg": "Четене с разбиране",
+    "available": false,
+    "route": "dsd-modellsatz-4"
+  }
+]

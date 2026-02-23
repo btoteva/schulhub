@@ -249,6 +249,7 @@ const Lessons: React.FC = () => {
   const getCourseLevel = () => {
     if (course.level === "beginner") return t.beginnerLevel;
     if (course.level === "grade8") return t.grade8;
+    if (course.level === "b1") return t.b1Level;
     return course.level;
   };
 

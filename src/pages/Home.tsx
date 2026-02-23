@@ -148,6 +148,7 @@ const Home: React.FC = () => {
   const getCourseLevel = (level: string) => {
     if (level === "beginner") return t.beginnerLevel;
     if (level === "grade8") return t.grade8;
+    if (level === "b1") return t.b1Level;
     return level;
   };
 
@@ -223,20 +224,31 @@ const Home: React.FC = () => {
                   {getCourseDesc(course.id)}
                 </p>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-3">
                   <span className="text-orange-400 font-semibold flex items-center gap-2">
                     <FaGraduationCap className="text-sm" />
                     {getCourseLevel(course.level)}
                   </span>
-                  <Link to={`/lessons/${course.id}`}>
-                    <button
-                      className={`bg-gradient-to-r ${getSubjectGradient(
-                        course.id,
-                      )} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
-                    >
-                      {t.seeMore}
-                    </button>
-                  </Link>
+                  <div className="flex gap-2">
+                    {course.id === 1 && (
+                      <Link to="/german/dsd-tests">
+                        <button
+                          className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105 text-sm"
+                        >
+                          {t.dsdTests}
+                        </button>
+                      </Link>
+                    )}
+                    <Link to={`/lessons/${course.id}`}>
+                      <button
+                        className={`bg-gradient-to-r ${getSubjectGradient(
+                          course.id,
+                        )} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
+                      >
+                        {t.seeMore}
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 

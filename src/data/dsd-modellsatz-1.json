@@ -1,0 +1,324 @@
+{
+  "id": "dsd1-modellsatz1",
+  "title": "DSD I Modellsatz 1",
+  "titleBg": "DSD I Моделен тест 1",
+  "subtitle": "Leseverstehen – Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "text": "Alle Schüler waren pünktlich um 6:30 Uhr auf dem Schulhof. So (0) **früh** ist unser Bus gestartet, der uns in die Stadt Colmar im Elsass bringen sollte. Im Elsass (1) ________ ca. 1,8 Millionen Menschen. Es ist die kleinste Region in Frankreich. Die Fahrt dauert nicht lange, und wir sind schnell an der Grenze zwischen Deutschland und Frankreich. Nach einer knappen Stunde sind wir in Colmar. Das Wetter ist schön, die Sonne scheint, und es ist nicht so kalt. Alle sind sehr (2) ________ auf die unbekannte Stadt. Zuerst laufen wir durch die Altstadt. Danach besuchen wir den Stadtteil Petite Venise. Hier (3) ________ wir auch das Bartholdi-Museum. Wir haben etwas Hunger und kaufen Früchtebrot, das ist auf der ganzen Welt bekannt. Es schmeckt sehr (4) ________! Dann fahren wir wieder nach Hause. Der Tag war viel zu kurz, denn Colmar ist wirklich eine interessante Stadt!",
+      "wordList": [
+        {
+          "id": "A",
+          "word": "besichtigen",
+          "wordBg": "посещавам"
+        },
+        {
+          "id": "B",
+          "word": "bleiben",
+          "wordBg": "оставам"
+        },
+        {
+          "id": "C",
+          "word": "leben",
+          "wordBg": "живея"
+        },
+        {
+          "id": "D",
+          "word": "gut",
+          "wordBg": "добро"
+        },
+        {
+          "id": "E",
+          "word": "müde",
+          "wordBg": "уморен"
+        },
+        {
+          "id": "F",
+          "word": "neugierig",
+          "wordBg": "любопитен"
+        },
+        {
+          "id": "G",
+          "word": "Uhr",
+          "wordBg": "час"
+        },
+        {
+          "id": "H",
+          "word": "versuchen",
+          "wordBg": "опитвам"
+        }
+      ],
+      "tasks": [
+        {
+          "id": 1,
+          "gap": 1,
+          "correct": "C",
+          "question": "Lücke 1"
+        },
+        {
+          "id": 2,
+          "gap": 2,
+          "correct": "F",
+          "question": "Lücke 2"
+        },
+        {
+          "id": 3,
+          "gap": 3,
+          "correct": "A",
+          "question": "Lücke 3"
+        },
+        {
+          "id": 4,
+          "gap": 4,
+          "correct": "D",
+          "question": "Lücke 4"
+        }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Welche Überschrift passt am besten zum Text?",
+        "questionBg": "Кой заглавие пасва най-добре на текста?",
+        "options": [
+          {
+            "id": "A",
+            "text": "Das Essen in Colmar",
+            "correct": false
+          },
+          {
+            "id": "B",
+            "text": "Schulausflug nach Colmar",
+            "correct": true
+          },
+          {
+            "id": "C",
+            "text": "Viele Museen in Colmar",
+            "correct": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2: Wer hat die E-Mail geschrieben?",
+      "titleBg": "Част 2: Кой е написал имейла?",
+      "intro": "Auf der nächsten Seite findest du acht kurze E-Mails von Schülern und ein Beispiel.\nLies die Zusammenfassungen (6–9) und die E-Mails (A–H).\nSchreibe den richtigen Buchstaben (A–H) in die rechte Spalte.\nDu kannst jeden Buchstaben nur einmal wählen.",
+      "tableTitle": "Aufgaben 6–9",
+      "summaries": [
+        { "id": 0, "text": "Matthias möchte mit seinem Freund Timo in den Urlaub fahren.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Anna lädt ihre Freunde zu ihrer großen Party ein.", "correct": "H", "isExample": false },
+        { "id": 7, "text": "Nathalie hat ihre Freunde lange nicht gesehen.", "correct": "D", "isExample": false },
+        { "id": 8, "text": "Tobias ist verletzt und kann deshalb nicht zum Unterricht kommen.", "correct": "E", "isExample": false },
+        { "id": 9, "text": "Torsten weiß nicht, was er für seinen Führerschein machen muss.", "correct": "A", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Hallo... sag mal, hast du im März Zeit? Wieso ich frage? Ich hätte Lust nach Berlin zu fahren und wollte dich fragen, ob du mitkommst. Schreib mir doch schnell. Liebe Grüße" },
+        { "id": "A", "text": "Lieb... hast du schon mit dem Fahrlehrer gesprochen? Wie viele Stunden muss ich denn selbst fahren, bis ich mich zur Prüfung melden kann? Danke für deine Antwort!" },
+        { "id": "B", "text": "Hallo, vielen Dank für deine Infos über den Tanzkurs. Ich habe auch Lust teilzunehmen und will mich anmelden, weil meine Tanztechnik vor dem Schulfest noch viel besser werden muss. Treffen wir uns am Bus? Liebe Grüße" },
+        { "id": "C", "text": "Hallo ... na, bist du mit deinem Praktikumsbericht schon fertig? Ich habe keine Ideen.... wie viel muss ich denn schreiben? Mit Fotos habe ich schon 5 Seiten. Ruf mich doch bitte an." },
+        { "id": "D", "text": "Hallo zusammen, wir haben uns lange nicht getroffen, finde ich. Wollen wir diese Woche einmal zusammen Pizza essen gehen? Vielleicht Donnerstag oder Freitag? Wie letztes Mal im Oceano? Viele Grüße" },
+        { "id": "E", "text": "Hallo, ich kann heute leider nicht zum Nachhilfeunterricht kommen. Ich hatte gestern einen Unfall mit dem Fahrrad und muss heute zu Hause bleiben. Aber es geht mir schon wieder besser. Nächste Woche kann ich wieder kommen. Gruß" },
+        { "id": "F", "text": "Hey, meine Eltern sind heute Abend in der Oper und wir können deshalb bei uns schön kochen. Ich habe schon alles eingekauft, du musst nur kommen und gute Laune mitbringen. Bis dann" },
+        { "id": "G", "text": "Lieb... ich wollte nur kurz „Hallo\" sagen und fragen, wie es dir geht. Alles in Ordnung? Bald habe ich mehr Zeit und kann dann an einem Dienstag- oder Freitagabend zum Quatschen vorbeikommen. Ich wünsche dir eine stressfreie Woche." },
+        { "id": "H", "text": "Hallo ihr alle! Am kommenden Samstag möchten wir meinen 15. Geburtstag feiern. Wäre klasse, wenn ihr alle dabei seid. Gefeiert wird bei uns zuhause in der Winterstrasse 72, ab 20:00 Uhr. Bitte antwortet bis Donnerstag, ob ihr kommen könnt. Also, bis dann!" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3: Pack die Badehose ein...",
+      "titleBg": "Част 3: Вземи бански костюм...",
+      "intro": "Lies den Text und die Aufgaben (10–14).\nKreuze bei jeder Aufgabe an: richtig oder falsch?",
+      "text": "Heute kann von den 11-jährigen Kindern jedes fünfte nicht einmal 25 Meter weit schwimmen. Das hat eine Studie der Universität Bielefeld aus dem Jahr 2006 gezeigt. In Deutschland wächst die Zahl der Menschen, die durch Ertrinken sterben, in den letzten Jahren wieder. Das Schulschwimmen ist jedoch einigen Städten zu teuer, deshalb findet es an vielen Schulen nicht mehr statt. Klar, dass Eltern den Schwimmunterricht so früh wie möglich selbst organisieren möchten. Wenn man schwimmen kann, macht man später auch gern andere Wassersportarten wie Wasserball, Surfen und Kanu-Fahren. Außerdem ist Schwimmen die gesündeste von allen Sportarten, denn beim Schwimmen kann man sich nicht verletzen. Doch das Schwimmen gehört nicht wie Laufen zu den Bewegungsformen, die der Mensch von Natur aus kann. „Sinnvoll ist der Unterricht deshalb erst ungefähr mit Schulbeginn. Erst in diesem Alter lernen die Kinder, die Arme und Beine bewusst richtig zu bewegen“, sagt der Schwimmlehrer Michael Hahn. Kinder, die im Wasser spielen, springen und tauchen, fürchten sich nicht mehr vor Wasser. Die Kinder lernen ihren Körper besser kennen. Deshalb ist es gut, mit den Kindern so oft wie möglich ins Schwimmbad zu gehen. Dazu gibt es in manchen Städten Angebote wie Baby- und Kleinkindschwimmen. Oder Eltern baden und spielen selber mit ihren Babys und Kindern im Schwimmbad.",
+      "tasks": [
+        {
+          "id": 10,
+          "statement": "Die meisten 11-jährigen haben Probleme mit dem Schwimmen.",
+          "correct": "falsch"
+        },
+        {
+          "id": 11,
+          "statement": "Überall in Deutschland gibt es Schwimmunterricht an den Schulen.",
+          "correct": "falsch"
+        },
+        {
+          "id": 12,
+          "statement": "Wer früh schwimmen lernt, interessiert sich später auch für anderen Sport im Wasser.",
+          "correct": "richtig"
+        },
+        {
+          "id": 13,
+          "statement": "Wenn Kinder oft im Wasser sind, bekommen sie ein besseres Körpergefühl.",
+          "correct": "richtig"
+        },
+        {
+          "id": 14,
+          "statement": "Einige Städte bieten Schwimmkurse für kleine Kinder an.",
+          "correct": "richtig"
+        }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4: Schule einmal anders",
+      "titleBg": "Част 4: Училище по различен начин",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Ein Klassenzimmer, 30 Schüler, vorne an der Tafel steht der Lehrer und unterrichtet. So sieht normalerweise Schule aus. Oder vielleicht doch nicht immer? Es geht nämlich auch anders: die „Web-Individualschule“ hat keine Klassenräume, keinen Pausenhof und keine Tafeln. Hier findet der Unterricht nur über den Computer statt. Manche Schüler, deren Eltern zum Beispiel beruflich für längere Zeit ins Ausland müssen, können keine normale Schule in Deutschland besuchen. Sie fehlen zu lange im Unterricht und irgendwann sind ihre Wissenslücken zu groß. Diese Kinder und Jugendlichen haben aber meistens – wo auch immer sie gerade auf der Welt sind – einen Internetanschluss. Und das reicht, um an der Internetschule unterrichtet zu werden. In dieser Schule bekommt jeder Schüler seinen eigenen Lernplan per E-Mail zugeschickt. Das sind Aufgaben aus verschiedenen Themengebieten. Der Schüler lässt sich soviel Zeit, wie er braucht. Er sendet dann die Aufgaben zurück, wenn er fertig ist. Danach erhält er sein nächstes „Lernpaket\". Das Besondere dabei ist, dass die Schüler nicht einfach irgendwelche Standardaufgaben bekommen. Nein – jeder Schüler bekommt Übungen, die nur für ihn gemacht wurden. Zum Beispiel berechnet dann ein Fußball-Fan, wie man schießen muss, um das Tor zu treffen. Ein Schüler, der sich für Autos interessiert, lernt, wie ein Automotor funktioniert. Schüler, die Computerspiele mögen, schreiben Aufsätze darüber, warum es Altersgrenzen für viele Spiele gibt. Und so ist Lernen kein „trockener Unterricht\", sondern es bedeutet, mehr über interessante Themen zu erfahren. Manche Leute kritisieren, dass Kinder dabei allein vor dem Computer lernen. Sie meinen, dass man in der Schulzeit auch lernen soll, mit anderen zusammen zu arbeiten – so etwas lernt man in der Internet-Schule tatsächlich nicht. Für die Prüfung können sich die Schüler grundsätzlich an jeder Schule anmelden. Diese Schule muss natürlich die passende Abschlussprüfung anbieten. Die Abschlussprüfung selber findet also nicht im Internet statt. Wie normale Schüler müssen die Web-Individualschüler eine Prüfung an einer staatlichen Schule mitschreiben. Die Internet-Schüler machen sich hier aber keine Sorgen: Bis jetzt haben alle ihre Prüfungen bestanden und keiner musste sie wiederholen.",
+      "questions": [
+        {
+          "id": 15,
+          "question": "Es gibt die „Web-Individualschule\", weil einige",
+          "options": [
+            {
+              "id": "A",
+              "text": "Familien lange in einem anderen Land leben.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Jugendliche große Wissenslücken haben.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Kinder einen Internetanschluss haben.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "question": "Die Schüler",
+          "options": [
+            {
+              "id": "A",
+              "text": "bearbeiten die Aufgaben in ihrem eigenen Tempo.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "benötigen mehr Zeit als andere Schüler.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "erstellen ihren eigenen Lernplan.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "question": "Die Aufgaben in der Web-Individualschule",
+          "options": [
+            {
+              "id": "A",
+              "text": "haben mit den Interessen der Schüler zu tun.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "sind meistens Standardaufgaben.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "sind so wie die Aufgaben an richtigen Schulen.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "question": "Kritiker des Unterrichts meinen, dass",
+          "options": [
+            {
+              "id": "A",
+              "text": "das Lernen am Computer zu langweilig ist.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "man in der Schulzeit mehr lernen soll.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Schüler auch Teamarbeit lernen sollen.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "question": "Die Internet-Schüler machen ihre Prüfungen",
+          "options": [
+            {
+              "id": "A",
+              "text": "an normalen Schulen.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "im Internet.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "nur an besonderen Schulen.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "question": "Das Lernen mit der Web-Schule",
+          "options": [
+            {
+              "id": "A",
+              "text": "hat Vorteile.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "ist wenig erfolgreich.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "wird nicht kritisiert.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5: Welche Überschrift passt?",
+      "titleBg": "Част 5: Кое заглавие пасва?",
+      "intro": "Lies die Texte 21–24 und die Überschriften A–H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A–H) in die rechte Spalte.\nDu kannst jeden Buchstaben nur einmal wählen. Vier Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 21–24",
+      "summaries": [
+        { "id": 0, "text": "Ob in den USA, Australien oder Europa – ein Job als Au Pair eröffnet für Sie ganz neue Möglichkeiten. Sie kümmern sich um die Kinder Ihrer Gastfamilie und bekommen dafür ein kleines Taschengeld. Sie essen und wohnen zusammen mit der Familie. Nach und nach werden sich Ihre Sprachkenntnisse deutlich verbessern. Verdienen Sie Geld und lernen Sie dabei Land und Leute Ihres persönlichen Traumlandes kennen!", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "5 Euro/Std. plus Prämie. So viel kannst du verdienen, wenn du für uns Brötchen, Kuchen und andere Backwaren unseren Kunden nach Hause bringst. Die Arbeitszeit beträgt ungefähr 2 - 3 Stunden täglich. Wir wünschen uns ein gepflegtes Aussehen, höfliches Benehmen und auch gute Deutschkenntnisse. Wenn du gern Kontakt mit Menschen hast und in einem gut gelaunten Team mitarbeiten möchtest, dann melde dich bei uns. Das Pausenbrot - Team", "correct": "F", "isExample": false },
+        { "id": 22, "text": "Wer kann uns ab Dezember unterstützen, wenn wir mit unseren PCs und Notebooks Schwierigkeiten haben? Du musst kein Profi sein. Wir nehmen auch gern Schüler oder Studenten mit guten Computerkenntnissen. Wir erwarten aber, dass du dich mit der üblichen Hard- und Software auskennst. Du wirst nach Stunden bezahlt. Wir wohnen im Stadtzentrum, hinter dem Hauptbahnhof. Erreichbar abends ab 19 Uhr.", "correct": "B", "isExample": false },
+        { "id": 23, "text": "Wir suchen eine zuverlässige Person, die sich um unsere vierjährige Tochter kümmert. Wir haben öfter am Wochenende Seminare und brauchen deshalb jemanden, der am Samstag und Sonntag von 9 – 16 Uhr für unsere Tochter da ist. Da im Februar unser zweites Kind auf die Welt kommt, wäre es schön, wenn Sie diesen Job länger machen können und auch schon Erfahrungen mit kleineren Kindern haben. Wir wohnen in der Nähe der Uniklinik.", "correct": "D", "isExample": false },
+        { "id": 24, "text": "Sie lieben Musik, Filme und alles was mit Computern zu tun hat? Sie können mit Geld umgehen? Sie sind zu Kunden freundlich und immer hilfsbereit? Und Sie bleiben auch ruhig, wenn das Geschäft voll ist und die Kunden lange warten müssen um zu bezahlen? Moderne Computerkassen machen Ihnen keine Angst? Haben Sie diese Eigenschaften? Dann bewerben Sie sich doch bei uns im Media-Center.", "correct": "C", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Arbeiten im Ausland" },
+        { "id": "A", "text": "Aufräumarbeiten im Mediashop" },
+        { "id": "B", "text": "Hilfe bei Computerproblemen" },
+        { "id": "C", "text": "Kassierer/Kassiererin in einem Elektronikgeschäft" },
+        { "id": "D", "text": "Kinderbetreuung" },
+        { "id": "E", "text": "Kurse für Computeranfänger" },
+        { "id": "F", "text": "Nebenjob in einer Bäckerei" },
+        { "id": "G", "text": "Sonntagsverkauf in Bäckerei" },
+        { "id": "H", "text": "Wochenendarbeit im Kindergarten" }
+      ]
+    }
+  ]
+}

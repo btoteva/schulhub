@@ -53,6 +53,8 @@ interface Translations {
   dictionary: string;
   flashcards: string;
   exercises: string;
+  clearExerciseProgress: string;
+  dsdTests: string;
   test: string;
   playAll: string;
   pause: string;
@@ -88,6 +90,7 @@ interface Translations {
   // Course levels/grades
   grade8: string;
   beginnerLevel: string;
+  b1Level: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -141,6 +144,8 @@ const translations: Record<Language, Translations> = {
     dictionary: "Речник",
     flashcards: "Флаш-карти",
     exercises: "Упражнения",
+    clearExerciseProgress: "Изчисти напредъка за този урок",
+    dsdTests: "DSD I Тестове",
     test: "Тест",
     playAll: "Пусни всички",
     pause: "Пауза",
@@ -180,6 +185,7 @@ const translations: Record<Language, Translations> = {
     // Course levels/grades
     grade8: "8 клас",
     beginnerLevel: "Начинаещи",
+    b1Level: "Ниво B1",
   },
   en: {
     // Header
@@ -231,6 +237,8 @@ const translations: Record<Language, Translations> = {
     dictionary: "Dictionary",
     flashcards: "Flashcards",
     exercises: "Exercises",
+    clearExerciseProgress: "Clear progress for this lesson",
+    dsdTests: "DSD I Tests",
     test: "Test",
     playAll: "Play All",
     pause: "Pause",
@@ -270,6 +278,7 @@ const translations: Record<Language, Translations> = {
     // Course levels/grades
     grade8: "Grade 8",
     beginnerLevel: "Beginner",
+    b1Level: "Level B1",
   },
   de: {
     // Header
@@ -321,6 +330,8 @@ const translations: Record<Language, Translations> = {
     dictionary: "Wörterbuch",
     flashcards: "Lernkarten",
     exercises: "Übungen",
+    clearExerciseProgress: "Fortschritt für diese Lektion zurücksetzen",
+    dsdTests: "DSD I Tests",
     test: "Test",
     playAll: "Alle abspielen",
     pause: "Pause",
@@ -360,6 +371,7 @@ const translations: Record<Language, Translations> = {
     // Course levels/grades
     grade8: "Klasse 8",
     beginnerLevel: "Anfänger",
+    b1Level: "Niveau B1",
   },
 };
 
