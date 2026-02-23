@@ -13,6 +13,108 @@ import { SkeletonDiagram } from "../components/SkeletonDiagram";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 
+// Extract title before table (e.g. <strong>Title</strong><br/>)
+function extractTitleBeforeTable(html: string): string {
+  const before = html.split("<table")[0] || "";
+  const doc = new DOMParser().parseFromString(before, "text/html");
+  return doc.body?.textContent?.trim() || "";
+}
+
+// Parse table HTML into 2D array of cell text contents
+function parseTableCells(html: string): string[][] {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const table = doc.querySelector("table");
+  if (!table) return [];
+  const rows: string[][] = [];
+  table.querySelectorAll("tr").forEach((tr) => {
+    const cells: string[] = [];
+    tr.querySelectorAll("th, td").forEach((cell) => {
+      cells.push(cell.textContent?.trim() || "");
+    });
+    rows.push(cells);
+  });
+  return rows;
+}
+
+// Interactive table: click cell to show BG translation below DE text (like other sentences)
+function InteractiveTable({
+  title,
+  deCells,
+  bgCells,
+  onSpeak,
+  tableId,
+}: {
+  title?: string;
+  deCells: string[][];
+  bgCells: string[][];
+  onSpeak: (text: string) => void;
+  tableId: string;
+}) {
+  const [expandedCells, setExpandedCells] = useState<Set<string>>(new Set());
+  const toggleCell = (key: string) => {
+    setExpandedCells((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
+  const cellClass = "border border-gray-600 px-4 py-3 text-left align-top";
+  const headerClass = "border border-gray-600 px-4 py-3 text-left font-semibold bg-gray-700/80 text-gray-200";
+  return (
+    <div className="overflow-x-auto my-4">
+      {title && (
+        <p className="text-emerald-400 font-bold mb-3">{title}</p>
+      )}
+      <table className="w-full min-w-[700px] border-collapse border border-gray-600">
+        <tbody>
+          {deCells.map((row, ri) => (
+            <tr key={ri}>
+              {row.map((deText, ci) => {
+                const key = `${tableId}-${ri}-${ci}`;
+                const isExpanded = expandedCells.has(key);
+                const bgText = bgCells[ri]?.[ci];
+                const isHeader = ri === 0;
+                return (
+                  <td
+                    key={ci}
+                    className={isHeader ? headerClass : `${cellClass} text-gray-300 cursor-pointer hover:bg-gray-700/50 group relative`}
+                    onClick={() => !isHeader && toggleCell(key)}
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span>{deText}</span>
+                        {!isHeader && deText && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onSpeak(deText);
+                            }}
+                            className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center bg-blue-600/80 hover:bg-blue-500 text-white text-xs opacity-70 group-hover:opacity-100"
+                            title="Чети на глас"
+                          >
+                            <FaVolumeUp className="text-xs" />
+                          </button>
+                        )}
+                      </div>
+                      {!isHeader && isExpanded && bgText && (
+                        <div className="pl-3 border-l-2 border-green-500 bg-green-900/20 py-2 pr-2 rounded-r text-green-300 text-sm">
+                          {bgText}
+                        </div>
+                      )}
+                    </div>
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 // Helper function to insert highlight span at specific index in HTML string
 // Maps plain text index (from speech synthesis) to HTML string index
 const insertHighlight = (html: string, start: number, length: number) => {
@@ -269,10 +371,36 @@ const LessonView: React.FC = () => {
 
   // Render sentence as word-by-word spans so words from dictionary show tooltip on hover
   // Preserves <strong>...</strong> and renders it in green
+  // For content with <table> and translation, render InteractiveTable; else static HTML
   const renderSentenceWithWordTooltips = (
     text: string,
     index: number,
+    translation?: string,
   ): React.ReactNode => {
+    if (text.includes("<table") && translation?.includes("<table")) {
+      const deCells = parseTableCells(text);
+      const bgCells = parseTableCells(translation);
+      const title = extractTitleBeforeTable(text);
+      if (deCells.length > 0 && bgCells.length > 0) {
+        return (
+          <InteractiveTable
+            title={title || undefined}
+            deCells={deCells}
+            bgCells={bgCells}
+            onSpeak={(t) => speakWord(t)}
+            tableId={`table-${index}`}
+          />
+        );
+      }
+    }
+    if (text.includes("<table")) {
+      return (
+        <div
+          className="overflow-x-auto my-4 [&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-gray-600 [&_th]:bg-gray-700/80 [&_th]:border [&_th]:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-200 [&_td]:border [&_td]:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-gray-300 [&_td]:align-top"
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
+      );
+    }
     const isHighlighting =
       currentSpeaking === index && highlightInfo !== null;
     if (isHighlighting && highlightInfo) {
@@ -870,6 +998,7 @@ const LessonView: React.FC = () => {
                           sentenceObj.text,
                         );
                       const isImportant = isKeyQuestion || isDefinition;
+                      const isTableContent = sentenceObj.text.includes("<table");
 
                       return (
                         <div key={index} className="space-y-1">
@@ -885,6 +1014,7 @@ const LessonView: React.FC = () => {
                             }`}
                             onClick={() => toggleExpandedSentence(index)}
                           >
+                            {!isTableContent && (
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -905,7 +1035,17 @@ const LessonView: React.FC = () => {
                                 <FaVolumeUp className="text-white text-sm" />
                               )}
                             </button>
-                            <div className="flex-1">
+                            )}
+                            <div className={`flex-1 ${isTableContent ? "min-w-0" : ""}`}>
+                              {isTableContent ? (
+                                <div className="w-full">
+                                  {renderSentenceWithWordTooltips(
+                                    sentenceObj.text,
+                                    index,
+                                    sentenceObj.translation,
+                                  )}
+                                </div>
+                              ) : (
                               <p
                                 className={`leading-relaxed ${getGermanFontFamilyClass()} ${
                                   isSectionHeading
@@ -924,18 +1064,29 @@ const LessonView: React.FC = () => {
                                   index,
                                 )}
                               </p>
+                              )}
                             </div>
                           </div>
 
                           {expandedSentences.has(index) &&
-                            sentenceObj.translation && (
-                              <div className="ml-14 pl-4 border-l-2 border-green-500 bg-green-900/20 p-4 rounded-lg animate-in">
-                                <p
-                                  className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-400 [&_strong]:text-lg`}
-                                  dangerouslySetInnerHTML={{
-                                    __html: sentenceObj.translation,
-                                  }}
-                                ></p>
+                            sentenceObj.translation &&
+                            !(isTableContent && sentenceObj.translation.includes("<table")) && (
+                              <div className={`animate-in overflow-x-auto ${sentenceObj.translation.includes("<table") ? "mt-4" : "ml-14 pl-4 border-l-2 border-green-500 bg-green-900/20 p-4 rounded-lg"}`}>
+                                {sentenceObj.translation.includes("<table") ? (
+                                  <div
+                                    className="[&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-gray-600 [&_th]:bg-gray-700/80 [&_th]:border [&_th]:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-200 [&_td]:border [&_td]:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-gray-300"
+                                    dangerouslySetInnerHTML={{
+                                      __html: sentenceObj.translation,
+                                    }}
+                                  />
+                                ) : (
+                                  <p
+                                    className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-400 [&_strong]:text-lg`}
+                                    dangerouslySetInnerHTML={{
+                                      __html: sentenceObj.translation,
+                                    }}
+                                  ></p>
+                                )}
                               </div>
                             )}
 
@@ -978,21 +1129,23 @@ const LessonView: React.FC = () => {
                         )}
 
                         {wichtigsteSentences.length > 0 && (
-                          <div className="mt-8 p-6 bg-sky-900/30 border-2 border-sky-700 rounded-xl shadow-lg">
-                            {wichtigsteSentences.map((sentence, i) => {
-                              const index = i + wichtigsteIndex;
-                              if (i === 0) {
-                                return (
-                                  <h3
-                                    key={index}
-                                    className="text-2xl font-bold text-sky-300 mb-4"
-                                  >
-                                    {sentence.text}
-                                  </h3>
-                                );
-                              }
-                              return renderSentence(sentence, index);
-                            })}
+                          <div className="mt-8 rounded-xl overflow-hidden border border-amber-900/60 shadow-lg">
+                            <div className="bg-[#B0302E] px-6 py-4 flex items-center gap-3">
+                              <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FDD47E] flex items-center justify-center text-[#B0302E] font-bold text-lg border-2 border-[#B0302E]">
+                                !
+                              </span>
+                              <h3 className="text-2xl font-bold text-white">
+                                {language === "bg" && wichtigsteSentences[0].translation
+                                  ? wichtigsteSentences[0].translation.replace(/^📘\s*/, "").trim()
+                                  : wichtigsteSentences[0].text.replace(/^📘\s*/, "").replace(/\s*\([^)]*\)\.?$/, "").trim() || "Най-важното"}
+                              </h3>
+                            </div>
+                            <div className="p-6 bg-sky-900/30 space-y-2">
+                              {wichtigsteSentences.slice(1).map((sentence, i) => {
+                                const index = i + 1 + wichtigsteIndex;
+                                return renderSentence(sentence, index);
+                              })}
+                            </div>
                           </div>
                         )}
 

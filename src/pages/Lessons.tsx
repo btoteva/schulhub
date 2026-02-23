@@ -156,6 +156,18 @@ const lessonsData: { [key: number]: Band[] } = {
             },
           ],
         },
+        {
+          sectionTitle: "VI DAS ENDOKRINE SYSTEM",
+          lessons: [
+            {
+              id: "6-1",
+              number: "11",
+              title: "VI-1 HYPOPHYSE, SCHILDDRÜSE UND NEBENSCHILDDRÜSEN",
+              duration: "25 мин",
+              completed: false,
+            },
+          ],
+        },
       ],
     },
   ],
