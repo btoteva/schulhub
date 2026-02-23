@@ -10,15 +10,24 @@
   },
   {
     "id": "2",
-    "title": "Modellsatz 1 Hörverstehen Texte",
-    "titleBg": "Моделен тест 1 Hörverstehen Texte",
-    "description": "",
-    "descriptionBg": "",
+    "title": "DSD I Modellsatz 1",
+    "titleBg": "DSD I Моделен тест 1",
+    "description": "Hörverstehen Texte",
+    "descriptionBg": "Hörverstehen Texte",
     "available": true,
     "route": "dsd-modellsatz-2"
   },
   {
     "id": "3",
+    "title": "DSD I Modellsatz 1",
+    "titleBg": "DSD I Моделен тест 1",
+    "description": "Schriftliche Kommunikation – Hausaufgaben",
+    "descriptionBg": "Писмена комуникация – Домашни",
+    "available": true,
+    "route": "dsd-schriftliche-1"
+  },
+  {
+    "id": "4",
     "title": "DSD I Modellsatz 3",
     "titleBg": "DSD I Моделен тест 3",
     "description": "Leseverstehen",
@@ -27,7 +36,7 @@
     "route": "dsd-modellsatz-3"
   },
   {
-    "id": "4",
+    "id": "5",
     "title": "DSD I Modellsatz 4",
     "titleBg": "DSD I Моделен тест 4",
     "description": "Leseverstehen",

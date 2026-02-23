@@ -1,9 +1,9 @@
 {
   "id": "dsd1-horverstehen-1",
-  "title": "Modellsatz 1 Hörverstehen Texte",
-  "titleBg": "Моделен тест 1 Hörverstehen Texte",
-  "subtitle": "Teil 1 – Straßenszenen",
-  "subtitleBg": "Част 1 – Улични сцени",
+  "title": "DSD I Modellsatz 1",
+  "titleBg": "DSD I Моделен тест 1",
+  "subtitle": "Hörverstehen Texte",
+  "subtitleBg": "Текстове за слушане",
   "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {
@@ -93,7 +93,52 @@
           "id": 9,
           "text": "Hi Nicole! Hier ist Jan. Äh, mein Computer ist kaputt – und ich muss doch noch mein Referat für die Schule machen. Du hast mir da doch schon mal geholfen. Kannst du noch heute zu mir kommen? Danach können wir ja ins Kino gehen – ich zahl auch für uns beide, okay? Tschüss dann!"
         }
-      ]
+      ],
+      "teil2Exercise": {
+        "instruction1": "Wenn man nicht zu Hause ist und jemand anruft, dann kann er eine Nachricht auf den Anrufbeantworter sprechen.",
+        "instruction2": "Du hörst gleich vier Nachrichten auf dem Anrufbeantworter.",
+        "instruction3": "Lies zuerst die Aufgaben 6-9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction4": "Höre nun die Nachrichten. Löse die Aufgaben beim Hören. Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Nachrichten noch einmal.",
+        "tasks": [
+          {
+            "id": 6,
+            "prompt": "Morgen Nachmittag",
+            "options": [
+              { "id": "A", "text": "arbeitet Jochen im Garten." },
+              { "id": "B", "text": "geht Jochen schwimmen." },
+              { "id": "C", "text": "trifft Jochen sich mit einem Freund." }
+            ]
+          },
+          {
+            "id": 7,
+            "prompt": "Es gibt noch freie Plätze an einem Wochenende im",
+            "options": [
+              { "id": "A", "text": "Oktober." },
+              { "id": "B", "text": "November." },
+              { "id": "C", "text": "Dezember." }
+            ]
+          },
+          {
+            "id": 8,
+            "prompt": "Am Wochenende",
+            "options": [
+              { "id": "A", "text": "ist Kerstin zu Hause." },
+              { "id": "B", "text": "möchte Kerstin nach Köln fahren." },
+              { "id": "C", "text": "muss Kerstin in Düsseldorf arbeiten." }
+            ]
+          },
+          {
+            "id": 9,
+            "prompt": "Nicole",
+            "options": [
+              { "id": "A", "text": "braucht Jans Hilfe." },
+              { "id": "B", "text": "versteht viel von Computern." },
+              { "id": "C", "text": "zahlt die Kinokarten." }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "teil3",
@@ -157,14 +202,90 @@
             { "speaker": "Interviewer", "text": "Vielen Dank für das Gespräch und alles Gute für deine Zukunft!" }
           ]
         }
-      ]
+      ],
+      "teil3Exercise": {
+        "instruction1": "Lies zuerst die Sätze 10–14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10–14) an: richtig oder falsch?",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Hannas Vater war wichtig für ihre Berufswahl." },
+          { "id": 11, "statement": "Hannas Chef wollte zuerst keine Frau im Betrieb." },
+          { "id": 12, "statement": "Als Schülersprecherin ist Hanna bei Schulkonferenzen dabei." },
+          { "id": 13, "statement": "Hanna spricht gern vor vielen Menschen." },
+          { "id": 14, "statement": "Hanna überlegt noch, was sie nach der Ausbildung machen soll." }
+        ]
+      }
     },
     {
       "id": "teil4",
       "title": "Teil 4",
       "subtitle": "Anna in Frankreich",
       "audioUrl": "https://www.dropbox.com/scl/fi/80r36nrn4jjghjrzzzc5l/04-Spur-4.mp3?rlkey=wzyuje7b317eexamvz8sz31tr&st=9mg5zdq0&dl=1",
-      "content": "Hallo, ich heiße Anna und komme aus Bayern. Im Sommer habe ich Clement kennen gelernt. Er war für drei Wochen als Austauschschüler an meinem Gymnasium. Weil ich drei Monate in Frankreich verbringen wollte, habe ich Clement zu mir eingeladen, um ihn näher kennen zu lernen. Dabei haben wir uns so gut verstanden, dass wir diesen Austausch unbedingt zusammen machen wollten.\n\nAnfang September war es dann so weit: Clement war drei Monate bei mir und meiner Familie. Er hat sich schnell bei uns wohl gefühlt und wir hatten eine coole Zeit. Im Dezember war der Austausch für Clement zu Ende, aber einen Monat später bin ich nach Frankreich geflogen. Am Flughafen in Bordeaux wartete Clement mit seiner Familie auf mich, um mich abzuholen. Ich verstand mich mit seinen Eltern sofort sehr gut, was mich besonders gefreut hat.\n\nZwei Tage später war der erste Schultag. Die Schüler in meiner Klasse, also in Clements Klasse, haben mich sofort herzlich begrüßt und mich von Anfang an akzeptiert. Ich hab mich mit vielen super verstanden. Die Lehrer waren auch alle sehr nett und manche haben sich auch um mich gekümmert.\n\nDirekt am ersten Tag hab' ich den Unterschied zur deutschen Schule entdeckt: Die Unterrichtsstunde dauert hier 60 Minuten, die Schule fängt um 8 Uhr an und geht bis 18:00 Uhr. Am Anfang war ich deshalb jeden Abend total müde. Aber nach einiger Zeit war es kein Problem mehr.\n\nIch fing an, mich an diese Schule zu gewöhnen, und jeden Tag hat's mir besser gefallen. Ich hatte Französisch, Mathe, Englisch, Deutsch, Physik, Sport und Bio. In Englisch und Deutsch konnte ich im Unterricht gut mitmachen. Das hat mir auch Spaß gemacht. Ich hab' sogar mal auf Französisch ein Referat über das deutsche Schulsystem gehalten. Sport war prima, weil's da viel mehr Angebote gibt.\n\nMittags hab' ich mit Clement immer in der Kantine gegessen und meine Freistunden hab' ich meistens mit Freunden im Schülercafé verbracht. Manchmal bin ich auch in die Bibliothek gegangen, um da zu lernen oder E-Mails zu verschicken. Nach einiger Zeit konnte ich immer besser Französisch und es war richtig cool, mich auf Französisch zu unterhalten.\n\nDie Wochenenden in der Familie waren immer schön. Manchmal haben wir uns mit ein paar Freunden getroffen oder sind ins Kino. Sonntags haben wir mit der Familie immer Ausflüge gemacht und wirklich schöne Städte besucht.\n\nIch hatte eine total schöne Zeit in Frankreich. Diese drei Monate waren die schönsten in meinem Leben. Ich bin glücklich, dass ich diesen Austausch machen durfte. Mit Clement und seiner Familie telefoniere ich oft, und wir planen schon unser nächstes Wiedersehen.\n\nEins ist sicher: Ich werde wieder nach Frankreich fahren, weil ich die Sprache und das Land liebe."
+      "content": "Hallo, ich heiße Anna und komme aus Bayern. Im Sommer habe ich Clement kennen gelernt. Er war für drei Wochen als Austauschschüler an meinem Gymnasium. Weil ich drei Monate in Frankreich verbringen wollte, habe ich Clement zu mir eingeladen, um ihn näher kennen zu lernen. Dabei haben wir uns so gut verstanden, dass wir diesen Austausch unbedingt zusammen machen wollten.\n\nAnfang September war es dann so weit: Clement war drei Monate bei mir und meiner Familie. Er hat sich schnell bei uns wohl gefühlt und wir hatten eine coole Zeit. Im Dezember war der Austausch für Clement zu Ende, aber einen Monat später bin ich nach Frankreich geflogen. Am Flughafen in Bordeaux wartete Clement mit seiner Familie auf mich, um mich abzuholen. Ich verstand mich mit seinen Eltern sofort sehr gut, was mich besonders gefreut hat.\n\nZwei Tage später war der erste Schultag. Die Schüler in meiner Klasse, also in Clements Klasse, haben mich sofort herzlich begrüßt und mich von Anfang an akzeptiert. Ich hab mich mit vielen super verstanden. Die Lehrer waren auch alle sehr nett und manche haben sich auch um mich gekümmert.\n\nDirekt am ersten Tag hab' ich den Unterschied zur deutschen Schule entdeckt: Die Unterrichtsstunde dauert hier 60 Minuten, die Schule fängt um 8 Uhr an und geht bis 18:00 Uhr. Am Anfang war ich deshalb jeden Abend total müde. Aber nach einiger Zeit war es kein Problem mehr.\n\nIch fing an, mich an diese Schule zu gewöhnen, und jeden Tag hat's mir besser gefallen. Ich hatte Französisch, Mathe, Englisch, Deutsch, Physik, Sport und Bio. In Englisch und Deutsch konnte ich im Unterricht gut mitmachen. Das hat mir auch Spaß gemacht. Ich hab' sogar mal auf Französisch ein Referat über das deutsche Schulsystem gehalten. Sport war prima, weil's da viel mehr Angebote gibt.\n\nMittags hab' ich mit Clement immer in der Kantine gegessen und meine Freistunden hab' ich meistens mit Freunden im Schülercafé verbracht. Manchmal bin ich auch in die Bibliothek gegangen, um da zu lernen oder E-Mails zu verschicken. Nach einiger Zeit konnte ich immer besser Französisch und es war richtig cool, mich auf Französisch zu unterhalten.\n\nDie Wochenenden in der Familie waren immer schön. Manchmal haben wir uns mit ein paar Freunden getroffen oder sind ins Kino. Sonntags haben wir mit der Familie immer Ausflüge gemacht und wirklich schöne Städte besucht.\n\nIch hatte eine total schöne Zeit in Frankreich. Diese drei Monate waren die schönsten in meinem Leben. Ich bin glücklich, dass ich diesen Austausch machen durfte. Mit Clement und seiner Familie telefoniere ich oft, und wir planen schon unser nächstes Wiedersehen.\n\nEins ist sicher: Ich werde wieder nach Frankreich fahren, weil ich die Sprache und das Land liebe.",
+      "teil4Exercise": {
+        "instruction1": "Du hörst eine Reportage im Schülerradio. Anna berichtet über ihren Aufenthalt in Frankreich.",
+        "instruction2": "Lies zuerst die Aufgaben 15–20. Du hast dafür eine Minute Zeit.",
+        "instruction3": "Höre nun die Reportage. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Reportage noch einmal.",
+        "tasks": [
+          {
+            "id": 15,
+            "prompt": "Anna und Clement haben sich",
+            "options": [
+              { "id": "A", "text": "im September kennen gelernt." },
+              { "id": "B", "text": "in der Schule kennen gelernt." },
+              { "id": "C", "text": "in Frankreich kennen gelernt." }
+            ]
+          },
+          {
+            "id": 16,
+            "prompt": "Anna fand an ihrem ersten Schultag in Frankreich",
+            "options": [
+              { "id": "A", "text": "den Empfang in der Klasse super." },
+              { "id": "B", "text": "manche neue Lehrer nicht so nett." },
+              { "id": "C", "text": "nicht sofort ihren Klassenraum." }
+            ]
+          },
+          {
+            "id": 17,
+            "prompt": "Am Anfang hatte Anna Probleme, weil",
+            "options": [
+              { "id": "A", "text": "die Schule schon um 8 Uhr anfängt." },
+              { "id": "B", "text": "die Unterrichtsstunde 60 Minuten dauert." },
+              { "id": "C", "text": "sie den ganzen Tag in der Schule war." }
+            ]
+          },
+          {
+            "id": 18,
+            "prompt": "In Annas Referat ging es um",
+            "options": [
+              { "id": "A", "text": "Französischunterricht in Deutschland." },
+              { "id": "B", "text": "Schulen in Deutschland." },
+              { "id": "C", "text": "Sportunterricht in Deutschland." }
+            ]
+          },
+          {
+            "id": 19,
+            "prompt": "Ihre Freistunden verbrachte Anna meistens",
+            "options": [
+              { "id": "A", "text": "im Schülercafé." },
+              { "id": "B", "text": "in der Bibliothek." },
+              { "id": "C", "text": "in der Schulkantine." }
+            ]
+          },
+          {
+            "id": 20,
+            "prompt": "An Sonntagen hat Anna",
+            "options": [
+              { "id": "A", "text": "mit ihrer Familie gekocht." },
+              { "id": "B", "text": "neue Leute kennen gelernt." },
+              { "id": "C", "text": "schöne Städte gesehen." }
+            ]
+          }
+        ]
+      }
     },
     {
       "id": "teil5",
@@ -178,7 +299,29 @@
         { "id": 22, "text": "Meine Mutter hat mich Samstag um fünf Uhr morgens geweckt. Ich musste mich schnell anziehen, denn wir hatten eine lange Fahrt vor uns. Nach 4 Stunden Autofahrt haben wir unser Ziel erreicht: Die Berge. Wir wanderten durch einen Wald bis zur Hütte, in der wir übernachtet haben." },
         { "id": 23, "text": "Samstagmorgen bin ich zu meinem Freund Paul gefahren, denn wir wollten das ganze Wochenende gemeinsam spielen. Paul zeigte mir sofort sein neues Computerspiel, von dem er gar nicht mehr wegzubekommen war. Ich fand das nicht so toll, denn ich wollte lieber draußen mit meinem neuen Fahrrad fahren." },
         { "id": 24, "text": "Sonntag schien die Sonne und ich traf mich mit meiner Freundin zum Fahrrad fahren. Wir mussten zwei Stunden fahren, bis wir endlich am See ankamen. Wir packten unser mitgebrachtes Essen aus und genossen die Sonne. Die Nacht haben wir dann in unserem Zelt direkt am Ufer verbracht." }
-      ]
+      ],
+      "teil5Exercise": {
+        "instruction1": "Am Montag unterhalten sich die Schüler der Klasse 6a darüber, was sie am Wochenende gemacht haben. Du hörst gleich fünf kurze Berichte von Schülern.",
+        "instruction2": "Lies zuerst die Liste mit den verschiedenen Aktivitäten (A-H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction3": "Notiere beim Hören zu jedem Namen den richtigen Buchstaben Nummer (A-H).",
+        "instruction4": "Einige Buchstaben bleiben übrig.",
+        "instruction5": "Du hörst die Berichte einmal. Zuerst hörst du ein Beispiel, Kerstin berichtet.",
+        "instruction6": "Kerstin hat die Nummer 0. Die Lösung ist Z.",
+        "activities": [
+          { "id": "Z", "text": "Geburtstag feiern" },
+          { "id": "A", "text": "Ausflug zum See" },
+          { "id": "B", "text": "Zelten im Wald" },
+          { "id": "C", "text": "Besuch beim Freund" },
+          { "id": "D", "text": "Ein Stadion besichtigen" },
+          { "id": "E", "text": "Fahrradtour mit der Familie" },
+          { "id": "F", "text": "Fußball spielen" },
+          { "id": "G", "text": "Lange schlafen" },
+          { "id": "H", "text": "Wandern mit der Familie" }
+        ],
+        "exampleNr": 0,
+        "exampleLetter": "Z",
+        "taskNumbers": [ 21, 22, 23, 24 ]
+      }
     }
   ]
 }
