@@ -17,7 +17,7 @@ import DSDTestsList from './pages/DSDTestsList';
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="App">
+      <div className="App min-h-screen bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

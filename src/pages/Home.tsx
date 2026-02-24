@@ -13,6 +13,7 @@ import coursesData from "../data/courses.json";
 import weeklyProgramData from "../data/weekly-program.json";
 import { Course } from "../types/Course";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useTheme } from "../contexts/ThemeContext";
 import { weeklyProgramAuth } from "../utils/weekly-program-auth";
 
 // Lesson counts based on actual data in Lessons.tsx
@@ -32,8 +33,8 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
             <MdLanguage className="text-white text-6xl" />
           </div>
           <div className="text-left">
-            <h3 className="text-4xl font-bold text-white mb-2">Deutsch</h3>
-            <p className="text-xl text-gray-300">Sprechen Sie Deutsch?</p>
+            <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">Deutsch</h3>
+            <p className="text-xl text-slate-800 dark:text-gray-300">Sprechen Sie Deutsch?</p>
           </div>
         </div>
       </div>
@@ -49,8 +50,8 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
             <FaMicroscope className="text-white text-6xl" />
           </div>
           <div className="text-left">
-            <h3 className="text-4xl font-bold text-white mb-2">Биология</h3>
-            <p className="text-xl text-gray-300">Изучаване на живота</p>
+            <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">Биология</h3>
+            <p className="text-xl text-slate-800 dark:text-gray-300">Изучаване на живота</p>
           </div>
         </div>
       </div>
@@ -66,8 +67,8 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
           <FaGlobeAmericas className="text-white text-6xl" />
         </div>
         <div className="text-left">
-          <h3 className="text-4xl font-bold text-white mb-2">География</h3>
-          <p className="text-xl text-gray-300">Откривайте света</p>
+          <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">География</h3>
+          <p className="text-xl text-slate-800 dark:text-gray-300">Откривайте света</p>
         </div>
       </div>
     </div>
@@ -76,6 +77,8 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
+  const { theme } = useTheme();
+  const isLight = theme === "light";
   const courses = coursesData as Course[];
   const subjects = ["german", "biology", "geography"];
   const [currentSubject, setCurrentSubject] = useState(0);
@@ -153,9 +156,21 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
+    <div
+      className={
+        isLight
+          ? "min-h-screen bg-gradient-to-b from-slate-200 via-slate-100 to-white"
+          : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black"
+      }
+    >
       {/* Hero Section with Animated Illustrations */}
-      <section className="relative bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 text-white py-20 border-b border-gray-800/50 overflow-hidden">
+      <section
+        className={
+          isLight
+            ? "relative bg-gradient-to-br from-slate-100/80 via-slate-50/80 to-white/80 text-slate-900 py-20 border-b border-slate-200 overflow-hidden"
+            : "relative bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 text-white py-20 border-b border-gray-800/50 overflow-hidden"
+        }
+      >
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-500 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-10 right-10 w-40 h-40 bg-green-500 rounded-full blur-3xl animate-pulse"></div>
@@ -167,7 +182,7 @@ const Home: React.FC = () => {
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400 bg-clip-text text-transparent drop-shadow-lg">
               {t.platformTitle}
             </h2>
-            <p className="text-lg text-gray-300 mt-4">
+            <p className="text-lg text-slate-800 dark:text-gray-300 mt-4">
               <span className="text-yellow-400 font-semibold">
                 {t.germanSubject}
               </span>{" "}
@@ -186,10 +201,10 @@ const Home: React.FC = () => {
 
       {/* Courses Section */}
       <section className="container mx-auto px-4 py-20">
-        <h3 className="text-5xl font-bold text-white mb-4 text-center">
+        <h3 className="text-5xl font-bold text-slate-800 dark:text-white mb-4 text-center">
           {t.selectSubject}
         </h3>
-        <p className="text-gray-400 text-center mb-16 text-lg">
+        <p className="text-slate-800 dark:text-gray-400 text-center mb-16 text-lg">
           {t.discoverPath}
         </p>
 
@@ -197,7 +212,7 @@ const Home: React.FC = () => {
           {courses.map((course) => (
             <div
               key={course.id}
-              className="group relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-700 hover:border-transparent transform hover:scale-105"
+              className="group relative bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 dark:border-gray-700 hover:border-transparent transform hover:scale-105"
             >
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient(
@@ -209,18 +224,18 @@ const Home: React.FC = () => {
                 <div className="mb-6">{getSubjectIcon(course.id)}</div>
 
                 <div className="flex items-center justify-end mb-4">
-                  <span className="text-gray-400 text-sm flex items-center gap-1">
+                  <span className="text-slate-700 dark:text-gray-400 text-sm flex items-center gap-1">
                     <FaBook className="text-sm" />
                     {actualLessonCounts[course.id] ?? course.lessons}{" "}
                     {t.lessonsCount}
                   </span>
                 </div>
 
-                <h4 className="text-3xl font-bold text-white mb-4">
+                <h4 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">
                   {getCourseTitle(course.id)}
                 </h4>
 
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-slate-800 dark:text-gray-400 mb-6 leading-relaxed">
                   {getCourseDesc(course.id)}
                 </p>
 
@@ -262,11 +277,11 @@ const Home: React.FC = () => {
       </section>
 
       {/* Weekly Program Section */}
-      <section className="w-full px-4 py-16 border-t border-gray-800/50">
+      <section className="w-full px-4 py-16 border-t border-slate-200 dark:border-gray-800/50">
         <div className="container mx-auto flex items-center justify-between gap-4 mb-8 flex-wrap">
           <div className="flex items-center gap-3">
-            <FaCalendarAlt className="text-4xl text-amber-400" />
-            <h3 className="text-4xl font-bold text-white">
+            <FaCalendarAlt className="text-4xl text-amber-500 dark:text-amber-400" />
+            <h3 className="text-4xl font-bold text-slate-800 dark:text-white">
               {t.weeklyProgramTitle}
             </h3>
           </div>
@@ -274,7 +289,7 @@ const Home: React.FC = () => {
             <button
               type="button"
               onClick={handleProgramLock}
-              className="text-sm text-gray-400 hover:text-amber-400 transition-colors"
+              className="text-sm text-slate-700 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors"
             >
               {t.weeklyProgramLock}
             </button>
@@ -286,31 +301,31 @@ const Home: React.FC = () => {
             {(weeklyProgramData as { days: Array<{ day: string; dayShort: string; items: Array<{ time?: string; timeFrom?: string; timeTo?: string; title: string; description?: string }> }> }).days.map((d, i) => (
               <div
                 key={i}
-                className="bg-gray-800/60 rounded-xl border border-gray-600 overflow-hidden flex flex-col min-w-0"
+                className="bg-slate-100 dark:bg-gray-800/60 rounded-xl border border-slate-200 dark:border-gray-600 overflow-hidden flex flex-col min-w-0"
               >
-                <div className="bg-amber-500/20 text-amber-200 font-semibold px-4 py-3 border-b border-gray-600">
+                <div className="bg-amber-500/20 text-amber-800 dark:text-amber-200 font-semibold px-4 py-3 border-b border-slate-200 dark:border-gray-600">
                   <span className="hidden sm:inline">{d.day}</span>
                   <span className="sm:hidden">{d.dayShort}</span>
                 </div>
                 <div className="p-3 space-y-2 min-h-[4rem] flex-1">
                   {d.items.length === 0 ? (
-                    <p className="text-gray-500 text-sm">—</p>
+                    <p className="text-slate-700 dark:text-gray-500 text-sm">—</p>
                   ) : (
                     d.items.map((item, j) => (
                       <div
                         key={j}
-                        className="text-sm text-gray-300 border-l-2 border-amber-500/50 pl-2"
+                        className="text-sm text-slate-900 dark:text-gray-300 border-l-2 border-amber-500/50 pl-2"
                       >
-                        <span className="flex items-center gap-1.5 text-amber-200/90 flex-wrap">
-                          <span className="font-semibold text-amber-300 tabular-nums">{j + 1}.</span>
+                        <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-200/90 flex-wrap">
+                          <span className="font-semibold text-amber-600 dark:text-amber-300 tabular-nums">{j + 1}.</span>
                           <FaClock className="text-xs shrink-0" />
                           {item.timeFrom && item.timeTo
                             ? `От ${item.timeFrom} до ${item.timeTo}`
                             : (item.time ?? "")}
                         </span>
-                        <p className="font-medium text-white mt-0.5">{item.title}</p>
+                        <p className="font-medium text-slate-900 dark:text-white mt-0.5">{item.title}</p>
                         {item.description ? (
-                          <p className="text-gray-400 text-xs mt-0.5">{item.description}</p>
+                          <p className="text-slate-700 dark:text-gray-400 text-xs mt-0.5">{item.description}</p>
                         ) : null}
                       </div>
                     ))
@@ -322,25 +337,25 @@ const Home: React.FC = () => {
         ) : (
           <form
             onSubmit={handleProgramUnlock}
-            className="max-w-sm flex flex-col gap-4 p-6 bg-gray-800/60 rounded-xl border border-gray-600"
+            className="max-w-sm flex flex-col gap-4 p-6 bg-slate-100 dark:bg-gray-800/60 rounded-xl border border-slate-200 dark:border-gray-600"
           >
-            <label className="text-gray-300 text-sm">
+            <label className="text-slate-900 dark:text-gray-300 text-sm">
               {t.weeklyProgramEnterPassword}
             </label>
             <input
               type="password"
               value={programPassword}
               onChange={(e) => setProgramPassword(e.target.value)}
-              className="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500"
+              className="bg-white dark:bg-gray-700 border border-slate-300 dark:border-gray-600 rounded-lg px-4 py-2 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500"
               placeholder="••••••••"
               autoComplete="off"
             />
-            <label className="flex items-center gap-2 text-gray-400 text-sm cursor-pointer">
+            <label className="flex items-center gap-2 text-slate-800 dark:text-gray-400 text-sm cursor-pointer">
               <input
                 type="checkbox"
                 checked={programRemember}
                 onChange={(e) => setProgramRemember(e.target.checked)}
-                className="rounded border-gray-600 bg-gray-700 text-amber-500 focus:ring-amber-500/50"
+                className="rounded border-slate-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-amber-500 focus:ring-amber-500/50"
               />
               {t.weeklyProgramRememberMe}
             </label>
@@ -358,7 +373,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50">
+      <footer className="bg-slate-200/80 dark:bg-black/50 text-slate-800 dark:text-gray-500 py-8 border-t border-slate-300 dark:border-gray-800/50">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>

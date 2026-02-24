@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { useTheme } from "../contexts/ThemeContext";
 import dsdData from "../data/dsd-modellsatz-2.json";
 
 const STORAGE_KEY = "schulhub-dsd-modellsatz-2";
@@ -139,33 +140,41 @@ const DSDModellsatz2View: React.FC = () => {
   };
 
   const { correct, total } = getScore();
+  const { theme } = useTheme();
+  const isLight = theme === "light";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
+    <div
+      className={
+        isLight
+          ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900"
+          : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white"
+      }
+    >
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Link
           to="/german/dsd-tests"
-          className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 mb-8"
+          className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-400 hover:text-amber-600 dark:text-amber-300"}`}
         >
           <FaArrowLeft />
           DSD I Тестове
         </Link>
 
         <header className="mb-12">
-          <h1 className="text-3xl font-bold text-amber-400">{data.title}</h1>
-          <p className="text-gray-400 mt-1">{data.subtitle}</p>
+          <h1 className={`text-3xl font-bold ${isLight ? "text-amber-600" : "text-amber-400"}`}>{data.title}</h1>
+          <p className={isLight ? "text-slate-600 mt-1" : "text-gray-400 mt-1"}>{data.subtitle}</p>
         </header>
 
         {data.leseverstehenInstructions && (
-          <p className="mb-8 text-gray-300 leading-relaxed max-w-3xl">
+          <p className="mb-8 text-slate-900 dark:text-gray-300 leading-relaxed max-w-3xl">
             {data.leseverstehenInstructions.split(/\*\*(.*?)\*\*/g).map((part, i) =>
-              i % 2 === 1 ? <strong key={i} className="font-bold text-amber-200">{part}</strong> : part
+              i % 2 === 1 ? <strong key={i} className="font-bold text-amber-700 dark:text-amber-200">{part}</strong> : part
             )}
           </p>
         )}
 
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 p-4 bg-gray-800/50 rounded-xl border border-amber-500/30">
-          <p className="text-gray-300 text-sm">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 p-4 bg-white dark:bg-gray-800/50 rounded-xl border border-amber-500/30">
+          <p className="text-slate-900 dark:text-gray-300 text-sm">
             Напредъкът се запазва автоматично. Можеш да продължиш по-късно.
           </p>
           <div className="flex gap-3">
@@ -179,14 +188,14 @@ const DSDModellsatz2View: React.FC = () => {
             <button
               type="button"
               onClick={clearProgress}
-              className="px-4 py-2 text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg"
+              className="px-4 py-2 text-amber-700 dark:text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg"
             >
               Изчисти напредъка
             </button>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" })}
-              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg inline-flex items-center gap-2"
+              className="px-4 py-2 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white font-semibold rounded-lg inline-flex items-center gap-2"
               title="Надолу"
             >
               <FaArrowDown />
@@ -197,7 +206,7 @@ const DSDModellsatz2View: React.FC = () => {
 
         {showResults && (
           <div className="mb-8 p-6 bg-amber-900/20 border-2 border-amber-500 rounded-xl">
-            <p className="text-xl font-bold text-amber-300">
+            <p className="text-xl font-bold text-amber-600 dark:text-amber-300">
               Резултат: {correct} / {total}
             </p>
           </div>
@@ -206,12 +215,12 @@ const DSDModellsatz2View: React.FC = () => {
         <div className="space-y-12">
           {/* Teil 1 */}
           {teil1 && (
-            <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil1.title}</h2>
+            <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil1.title}</h2>
               {(teil1 as { instruction?: string }).instruction && (
-                <p className="text-gray-300 mb-4 whitespace-pre-line">{(teil1 as { instruction: string }).instruction}</p>
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil1 as { instruction: string }).instruction}</p>
               )}
-              <p className="text-gray-300 leading-relaxed mb-6">
+              <p className="text-slate-900 dark:text-gray-300 leading-relaxed mb-6">
                 {(() => {
                   const sortedTasks = [...(teil1.tasks || [])].sort(
                     (a, b) => (a as { gap: number }).gap - (b as { gap: number }).gap
@@ -232,21 +241,21 @@ const DSDModellsatz2View: React.FC = () => {
                     typeof seg === "string" ? (
                       <React.Fragment key={i}>
                         {seg.split(/\*\*(.*?)\*\*/g).map((part, j) =>
-                          j % 2 === 1 ? <strong key={j} className="text-amber-200 font-medium">{part}</strong> : part
+                          j % 2 === 1 ? <strong key={j} className="text-amber-700 dark:text-amber-200 font-medium">{part}</strong> : part
                         )}
                       </React.Fragment>
                     ) : (
                       <span key={i} className="inline-flex items-center align-baseline gap-1 mx-0.5">
-                        <span className="text-amber-200/80 font-medium">({seg.task.id})</span>
+                        <span className="text-amber-700 dark:text-amber-200/80 font-medium">({seg.task.id})</span>
                         <select
                           value={answers.teil1?.[seg.task.id] || ""}
                           onChange={(e) => updateAnswer("teil1", seg.task.id, e.target.value)}
-                          className={`inline-block min-w-[10rem] bg-gray-700 border rounded px-2 py-1 text-white text-base align-middle ${
+                          className={`inline-block min-w-[10rem] bg-slate-200 dark:bg-gray-700 border rounded px-2 py-1 text-slate-900 dark:text-white text-base align-middle ${
                             showResults && answers.teil1?.[seg.task.id] === seg.task.correct
                               ? "border-green-500"
                               : showResults && answers.teil1?.[seg.task.id]
                                 ? "border-red-500"
-                                : "border-gray-600"
+                                : "border-slate-300 dark:border-gray-600"
                           }`}
                         >
                           <option value="">--</option>
@@ -273,11 +282,11 @@ const DSDModellsatz2View: React.FC = () => {
                 })()}
               </p>
               {teil1.aufgabe5 && (teil1.aufgabe5 as { intro?: string }).intro && (
-                <p className="font-bold text-amber-200 mt-6 mb-2 whitespace-pre-line">{(teil1.aufgabe5 as { intro: string }).intro}</p>
+                <p className="font-bold text-amber-700 dark:text-amber-200 mt-6 mb-2 whitespace-pre-line">{(teil1.aufgabe5 as { intro: string }).intro}</p>
               )}
               {teil1.aufgabe5 && (
-                <div className="mt-4 p-6 bg-gray-700/50 rounded-lg">
-                  <p className="font-semibold text-amber-200 mb-4">Aufgabe 5: {teil1.aufgabe5.question}</p>
+                <div className="mt-4 p-6 bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50 rounded-lg">
+                  <p className="font-semibold text-amber-700 dark:text-amber-200 mb-4">Aufgabe 5: {teil1.aufgabe5.question}</p>
                   <div className="space-y-2">
                     {teil1.aufgabe5.options.map((opt) => {
                       const selected = answers.teil1_aufgabe5 === opt.id;
@@ -287,7 +296,7 @@ const DSDModellsatz2View: React.FC = () => {
                         <label
                           key={opt.id}
                           className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer ${
-                            isCorrect ? "bg-green-900/30" : isWrong ? "bg-red-900/30" : "hover:bg-gray-600/50"
+                            isCorrect ? "bg-green-900/30" : isWrong ? "bg-red-900/30" : "hover:bg-slate-300 dark:hover:bg-slate-200 dark:hover:bg-gray-600/50"
                           }`}
                         >
                           <input
@@ -318,31 +327,31 @@ const DSDModellsatz2View: React.FC = () => {
 
           {/* Teil 2: Wer hat die E-Mail geschrieben? */}
           {teil2 && teil2.summaries && teil2.emailOptions && (
-            <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil2.title}</h2>
+            <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil2.title}</h2>
               {(teil2 as { intro?: string }).intro && (
-                <p className="text-gray-300 mb-6 whitespace-pre-line">
+                <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">
                   {(teil2 as { intro: string }).intro.split(/\*\*(.*?)\*\*/g).map((part, i) =>
-                    i % 2 === 1 ? <strong key={i} className="text-amber-200 font-semibold">{part}</strong> : part
+                    i % 2 === 1 ? <strong key={i} className="text-amber-700 dark:text-amber-200 font-semibold">{part}</strong> : part
                   )}
                 </p>
               )}
 
-              <h3 className="text-lg font-semibold text-amber-200 mb-3">E-Mails A–H</h3>
-              <div className="mb-8 space-y-3 text-gray-300 text-sm">
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">E-Mails A–H</h3>
+              <div className="mb-8 space-y-3 text-slate-900 dark:text-gray-300 text-sm">
                 {teil2.emailOptions.map((em) => (
                   <p key={em.id}><strong>{em.id}</strong>: {em.text}</p>
                 ))}
               </div>
 
-              <h3 className="text-lg font-semibold text-amber-200 mb-3">{(teil2 as { tableTitle?: string }).tableTitle || "Aufgaben 6–9"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil2 as { tableTitle?: string }).tableTitle || "Aufgaben 6–9"}</h3>
               <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-600">
+                <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
-                    <tr className="bg-gray-700/50">
-                      <th className="border border-gray-600 px-4 py-2 text-left text-amber-200 w-16">Nr.</th>
-                      <th className="border border-gray-600 px-4 py-2 text-left text-amber-200">Zusammenfassung</th>
-                      <th className="border border-gray-600 px-4 py-2 text-left text-amber-200 w-24">Buchstabe</th>
+                    <tr className="bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50">
+                      <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-16">Nr.</th>
+                      <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200">Zusammenfassung</th>
+                      <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-24">Buchstabe</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -356,18 +365,18 @@ const DSDModellsatz2View: React.FC = () => {
                           key={row.id}
                           className={isCorrect ? "bg-green-900/20" : isWrong ? "bg-red-900/20" : ""}
                         >
-                          <td className="border border-gray-600 px-4 py-2 text-gray-200">{row.id}</td>
-                          <td className="border border-gray-600 px-4 py-2 text-gray-200">{row.text}</td>
-                          <td className="border border-gray-600 px-4 py-2">
+                          <td className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-slate-900 dark:text-gray-200">{row.id}</td>
+                          <td className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-slate-900 dark:text-gray-200">{row.text}</td>
+                          <td className="border border-slate-300 dark:border-gray-600 px-4 py-2">
                             {isExample ? (
-                              <span className="text-amber-300 font-semibold">{row.correct}</span>
+                              <span className="text-amber-600 dark:text-amber-300 font-semibold">{row.correct}</span>
                             ) : (
                               <span className="inline-flex items-center gap-2">
                                 <select
                                   value={selected || ""}
                                   onChange={(e) => updateAnswer("teil2", row.id, e.target.value)}
-                                  className={`bg-gray-700 border rounded px-2 py-1 text-white w-14 ${
-                                    isCorrect ? "border-green-500" : isWrong ? "border-red-500" : "border-gray-600"
+                                  className={`bg-slate-200 dark:bg-gray-700 border rounded px-2 py-1 text-slate-900 dark:text-white w-14 ${
+                                    isCorrect ? "border-green-500" : isWrong ? "border-red-500" : "border-slate-300 dark:border-gray-600"
                                   }`}
                                 >
                                   <option value="">–</option>
@@ -397,13 +406,13 @@ const DSDModellsatz2View: React.FC = () => {
 
           {/* Teil 3 */}
           {teil3 && teil3.tasks && (
-            <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil3.title}</h2>
+            <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil3.title}</h2>
               {(teil3 as { intro?: string }).intro && (
-                <p className="text-gray-300 mb-4 whitespace-pre-line">{(teil3 as { intro: string }).intro}</p>
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil3 as { intro: string }).intro}</p>
               )}
               {teil3.text && (
-                <div className="text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil3.text}</div>
+                <div className="text-slate-900 dark:text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil3.text}</div>
               )}
               <div className="space-y-4">
                 {teil3.tasks.map((t) => {
@@ -415,10 +424,10 @@ const DSDModellsatz2View: React.FC = () => {
                     <div
                       key={task.id}
                       className={`p-4 rounded-lg border ${
-                        isCorrect ? "border-green-500 bg-green-900/20" : isWrong ? "border-red-500 bg-red-900/20" : "border-gray-600"
+                        isCorrect ? "border-green-500 bg-green-900/20" : isWrong ? "border-red-500 bg-red-900/20" : "border-slate-300 dark:border-gray-600"
                       }`}
                     >
-                      <p className="text-gray-200 mb-3">{task.id}. {task.statement}</p>
+                      <p className="text-slate-900 dark:text-gray-200 mb-3">{task.id}. {task.statement}</p>
                       <div className="flex gap-4">
                         {(["richtig", "falsch"] as const).map((val) => (
                           <label key={val} className="flex items-center gap-2 cursor-pointer">
@@ -451,13 +460,13 @@ const DSDModellsatz2View: React.FC = () => {
 
           {/* Teil 4 */}
           {teil4 && teil4.questions && (
-            <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil4.title}</h2>
+            <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil4.title}</h2>
               {(teil4 as { intro?: string }).intro && (
-                <p className="text-gray-300 mb-4 whitespace-pre-line">{(teil4 as { intro: string }).intro}</p>
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil4 as { intro: string }).intro}</p>
               )}
               {teil4.text && (
-                <div className="text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil4.text}</div>
+                <div className="text-slate-900 dark:text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil4.text}</div>
               )}
               <div className="space-y-6">
                 {teil4.questions.map((q) => {
@@ -469,16 +478,16 @@ const DSDModellsatz2View: React.FC = () => {
                     <div
                       key={q.id}
                       className={`p-5 rounded-xl border ${
-                        isCorrect ? "border-green-500 bg-green-900/20" : isWrong ? "border-red-500 bg-red-900/20" : "border-gray-600"
+                        isCorrect ? "border-green-500 bg-green-900/20" : isWrong ? "border-red-500 bg-red-900/20" : "border-slate-300 dark:border-gray-600"
                       }`}
                     >
-                      <p className="font-semibold text-white mb-4">{q.id}. {q.question}</p>
+                      <p className="font-semibold text-slate-900 dark:text-white mb-4">{q.id}. {q.question}</p>
                       <div className="space-y-2">
                         {q.options.map((opt) => (
                           <label
                             key={opt.id}
                             className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer ${
-                              !showResults ? "hover:bg-gray-700/50" : ""
+                              !showResults ? "hover:bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50" : ""
                             }`}
                           >
                             <input
@@ -510,27 +519,27 @@ const DSDModellsatz2View: React.FC = () => {
 
           {/* Teil 5: Welche Überschrift passt? */}
           {teil5 && teil5.summaries && teil5.headlineOptions && (
-            <section className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-400 mb-4">{teil5.title}</h2>
+            <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil5.title}</h2>
               {(teil5 as { intro?: string }).intro && (
-                <p className="text-gray-300 mb-6 whitespace-pre-line">{(teil5 as { intro: string }).intro}</p>
+                <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">{(teil5 as { intro: string }).intro}</p>
               )}
 
-              <h3 className="text-lg font-semibold text-amber-200 mb-3">Überschriften A–H</h3>
-              <div className="mb-8 space-y-2 text-gray-300 text-sm">
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">Überschriften A–H</h3>
+              <div className="mb-8 space-y-2 text-slate-900 dark:text-gray-300 text-sm">
                 {teil5.headlineOptions.map((h) => (
                   <p key={h.id}><strong>{h.id}</strong>: {h.text}</p>
                 ))}
               </div>
 
-              <h3 className="text-lg font-semibold text-amber-200 mb-3">{(teil5 as { tableTitle?: string }).tableTitle || "Aufgaben 21–24"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil5 as { tableTitle?: string }).tableTitle || "Aufgaben 21–24"}</h3>
               <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-600">
+                <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
-                    <tr className="bg-gray-700/50">
-                      <th className="border border-gray-600 px-4 py-2 text-left text-amber-200 w-16">Nr.</th>
-                      <th className="border border-gray-600 px-4 py-2 text-left text-amber-200">Text</th>
-                      <th className="border border-gray-600 px-4 py-2 text-left text-amber-200 w-24">Buchstabe</th>
+                    <tr className="bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50">
+                      <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-16">Nr.</th>
+                      <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200">Text</th>
+                      <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-24">Buchstabe</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -544,18 +553,18 @@ const DSDModellsatz2View: React.FC = () => {
                           key={row.id}
                           className={isCorrect ? "bg-green-900/20" : isWrong ? "bg-red-900/20" : ""}
                         >
-                          <td className="border border-gray-600 px-4 py-2 text-gray-200">{row.id}</td>
-                          <td className="border border-gray-600 px-4 py-2 text-gray-200">{row.text}</td>
-                          <td className="border border-gray-600 px-4 py-2">
+                          <td className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-slate-900 dark:text-gray-200">{row.id}</td>
+                          <td className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-slate-900 dark:text-gray-200">{row.text}</td>
+                          <td className="border border-slate-300 dark:border-gray-600 px-4 py-2">
                             {isExample ? (
-                              <span className="text-amber-300 font-semibold">{row.correct}</span>
+                              <span className="text-amber-600 dark:text-amber-300 font-semibold">{row.correct}</span>
                             ) : (
                               <span className="inline-flex items-center gap-2">
                                 <select
                                   value={selected || ""}
                                   onChange={(e) => updateAnswer("teil5", row.id, e.target.value)}
-                                  className={`bg-gray-700 border rounded px-2 py-1 text-white w-14 ${
-                                    isCorrect ? "border-green-500" : isWrong ? "border-red-500" : "border-gray-600"
+                                  className={`bg-slate-200 dark:bg-gray-700 border rounded px-2 py-1 text-slate-900 dark:text-white w-14 ${
+                                    isCorrect ? "border-green-500" : isWrong ? "border-red-500" : "border-slate-300 dark:border-gray-600"
                                   }`}
                                 >
                                   <option value="">–</option>
@@ -585,7 +594,7 @@ const DSDModellsatz2View: React.FC = () => {
 
           {/* Ende Leseverstehen */}
           <section className="mt-12 p-6 rounded-xl border-2 border-amber-500/50 bg-amber-900/10">
-            <p className="text-amber-200 font-medium whitespace-pre-line text-center mb-6">
+            <p className="text-amber-700 dark:text-amber-200 font-medium whitespace-pre-line text-center mb-6">
               Bitte übertrage nun deine Lösungen (1–24) auf das Antwortblatt.
               {"\n"}
               Ende Prüfungsteil Leseverstehen
@@ -606,14 +615,14 @@ const DSDModellsatz2View: React.FC = () => {
               <button
                 type="button"
                 onClick={clearProgress}
-                className="px-6 py-3 text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg font-semibold"
+                className="px-6 py-3 text-amber-700 dark:text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg font-semibold"
               >
                 Изчисти напредъка
               </button>
               <button
                 type="button"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg inline-flex items-center gap-2"
+                className="px-6 py-3 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white font-semibold rounded-lg inline-flex items-center gap-2"
                 title="Нагоре"
               >
                 <FaArrowUp />
@@ -622,27 +631,27 @@ const DSDModellsatz2View: React.FC = () => {
             </div>
 
             {showAnswerKey && (
-              <div className="mt-8 p-6 bg-gray-900/80 rounded-xl border border-amber-500/30 text-left">
+              <div className="mt-8 p-6 bg-slate-200 dark:bg-gray-900/80 rounded-xl border border-amber-500/30 text-left">
                 <h3 className="text-xl font-bold text-amber-400 mb-6">Deutsches Sprachdiplom der KMK DSD I – Leseverstehen Lösungsschlüssel</h3>
-                <div className="space-y-5 text-gray-300 text-sm leading-relaxed">
+                <div className="space-y-5 text-slate-900 dark:text-gray-300 text-sm leading-relaxed">
                   <div>
-                    <p className="font-semibold text-amber-200 mb-1">Teil 1</p>
+                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 1</p>
                     <p>1 C &nbsp;&nbsp; 2 F &nbsp;&nbsp; 3 A &nbsp;&nbsp; 4 D &nbsp;&nbsp; 5 B</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-amber-200 mb-1">Teil 2: Wer hat die E-Mail geschrieben?</p>
+                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 2: Wer hat die E-Mail geschrieben?</p>
                     <p>6 H &nbsp;&nbsp; 7 D &nbsp;&nbsp; 8 E &nbsp;&nbsp; 9 A</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-amber-200 mb-1">Teil 3: Pack die Badehose ein</p>
+                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 3: Pack die Badehose ein</p>
                     <p>10 falsch &nbsp;&nbsp; 11 falsch &nbsp;&nbsp; 12 richtig &nbsp;&nbsp; 13 richtig &nbsp;&nbsp; 14 richtig</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-amber-200 mb-1">Teil 4: Schule einmal anders</p>
+                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 4: Schule einmal anders</p>
                     <p>15 A &nbsp;&nbsp; 16 A &nbsp;&nbsp; 17 A &nbsp;&nbsp; 18 C &nbsp;&nbsp; 19 A &nbsp;&nbsp; 20 A</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-amber-200 mb-1">Teil 5: Welche Überschrift passt?</p>
+                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 5: Welche Überschrift passt?</p>
                     <p>21 F &nbsp;&nbsp; 22 B &nbsp;&nbsp; 23 D &nbsp;&nbsp; 24 C</p>
                   </div>
                 </div>

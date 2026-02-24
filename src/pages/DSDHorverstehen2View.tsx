@@ -10,6 +10,7 @@ type Teil1Exercise = {
 };
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowDown, FaArrowUp, FaHeadphones } from "react-icons/fa";
+import { useTheme } from "../contexts/ThemeContext";
 import horverstehenData from "../data/dsd-horverstehen-2.json";
 
 const TEIL1_CORRECT: Record<number, string> = { 1: "B", 2: "A", 3: "A", 4: "C", 5: "B" };
@@ -91,12 +92,21 @@ const DSDHorverstehen2View: React.FC = () => {
     }>;
   };
 
+  const { theme } = useTheme();
+  const isLight = theme === "light";
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
+    <div
+      className={
+        isLight
+          ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900"
+          : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white"
+      }
+    >
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Link
           to="/german/dsd-tests"
-          className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 mb-8"
+          className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-600 dark:text-amber-400 hover:text-amber-300"}`}
         >
           <FaArrowLeft />
           DSD I Тестове
@@ -107,11 +117,11 @@ const DSDHorverstehen2View: React.FC = () => {
             <div className="w-12 h-12 rounded-lg bg-amber-600/80 flex items-center justify-center">
               <FaHeadphones className="text-white text-xl" />
             </div>
-            <h1 className="text-3xl font-bold text-amber-400">{data.title}</h1>
+            <h1 className={`text-3xl font-bold ${isLight ? "text-amber-600" : "text-amber-600 dark:text-amber-400"}`}>{data.title}</h1>
           </div>
-          <p className="text-gray-400 mt-1">{data.subtitle}</p>
+          <p className={isLight ? "text-slate-600 mt-1" : "text-slate-800 dark:text-gray-400 mt-1"}>{data.subtitle}</p>
           {data.horverstehenInstructions && (
-            <p className="text-gray-300 mt-6 leading-relaxed max-w-3xl">
+            <p className="text-slate-900 dark:text-gray-300 mt-6 leading-relaxed max-w-3xl">
               {data.horverstehenInstructions}
             </p>
           )}
@@ -121,7 +131,7 @@ const DSDHorverstehen2View: React.FC = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" })}
-            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg inline-flex items-center gap-2"
+            className="px-4 py-2 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white font-semibold rounded-lg inline-flex items-center gap-2"
           >
             <FaArrowDown />
             Надолу
@@ -129,7 +139,7 @@ const DSDHorverstehen2View: React.FC = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg inline-flex items-center gap-2"
+            className="px-4 py-2 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white font-semibold rounded-lg inline-flex items-center gap-2"
           >
             <FaArrowUp />
             Нагоре
@@ -142,7 +152,7 @@ const DSDHorverstehen2View: React.FC = () => {
               key={teil.id}
               className="bg-gray-800/50 rounded-xl p-8 border border-amber-500/30"
             >
-              <h2 className="text-2xl font-bold text-amber-400 mb-2">
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-2">
                 {teil.title}
               </h2>
               <h3 className="text-xl font-semibold text-amber-200 mb-4">
@@ -150,15 +160,15 @@ const DSDHorverstehen2View: React.FC = () => {
               </h3>
 
               {teil.intro && (
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-slate-900 dark:text-gray-300 mb-6 leading-relaxed">
                   {teil.intro}
                 </p>
               )}
 
               {teil.audioUrl && (
-                <div className="mb-8 p-6 bg-gray-900/50 rounded-xl border border-amber-500/30">
+                <div className="mb-8 p-6 bg-slate-100 dark:bg-gray-900/50 rounded-xl border border-amber-500/30">
                   <p className="text-amber-200 font-semibold mb-3 flex items-center gap-2">
-                    <FaHeadphones className="text-amber-400" />
+                    <FaHeadphones className="text-amber-600 dark:text-amber-400" />
                     Audio – {teil.title}
                   </p>
                   <audio
@@ -178,7 +188,7 @@ const DSDHorverstehen2View: React.FC = () => {
                       <h4 className="text-lg font-bold text-amber-300 mb-4">
                         {teil.itemLabel || "Aufgabe"} {aufgabe.id}
                       </h4>
-                      <p className="text-gray-200 leading-relaxed">{aufgabe.text}</p>
+                      <p className="text-slate-900 dark:text-gray-200 leading-relaxed">{aufgabe.text}</p>
                     </div>
                   ))}
                 </div>
@@ -190,8 +200,8 @@ const DSDHorverstehen2View: React.FC = () => {
                     <div key={scene.id}>
                       <div className="space-y-3">
                         {scene.lines.map((line, i) => (
-                          <p key={i} className="text-gray-200 leading-relaxed">
-                            <span className="font-semibold text-amber-200">
+                          <p key={i} className="text-slate-900 dark:text-gray-200 leading-relaxed">
+                            <span className="font-semibold text-amber-800 dark:text-amber-200">
                               {line.speaker}:{" "}
                             </span>
                             {line.text}
@@ -204,7 +214,7 @@ const DSDHorverstehen2View: React.FC = () => {
               )}
 
               {teil.content && (
-                <div className="text-gray-200 leading-relaxed whitespace-pre-line">
+                <div className="text-slate-900 dark:text-gray-200 leading-relaxed whitespace-pre-line">
                   {teil.content}
                 </div>
               )}
@@ -214,16 +224,16 @@ const DSDHorverstehen2View: React.FC = () => {
                 const defaultBilder = { A: "https://i.imgur.com/FhxWjQy.png", B: "https://i.imgur.com/jCGQlwH.png", C: "https://i.imgur.com/fsuHMC2.png" };
                 return (
                   <div className="mt-12 pt-10 border-t-2 border-amber-500/40">
-                    <h3 className="text-xl font-bold text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
+                    <h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
                     <h4 className="text-lg font-semibold text-amber-200 mt-6 mb-4">{teil.title} – {teil.subtitle}</h4>
-                    <p className="text-gray-300 mb-2">{ex.instruction1}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction1}</p>
                     <p className="text-amber-200 font-bold my-3">{ex.question}</p>
-                    <p className="text-gray-300 mb-1">{ex.instruction2}</p>
-                    <p className="text-gray-300 mb-8">{ex.instruction3}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-1">{ex.instruction2}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-8">{ex.instruction3}</p>
                     <div className="space-y-10">
                       {ex.szenen.map((sz) => (
-                        <div key={sz.id} className="border border-gray-600 rounded-xl p-6 bg-gray-900/30">
-                          <p className="text-gray-400 text-sm mb-4">{ex.bildInstruction}</p>
+                        <div key={sz.id} className="border border-slate-300 dark:border-gray-600 rounded-xl p-6 bg-slate-100 dark:bg-gray-900/30">
+                          <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">{ex.bildInstruction}</p>
                           <div className="grid grid-cols-3 gap-6">
                             {(["A", "B", "C"] as const).map((opt) => (
                               <label
@@ -231,10 +241,10 @@ const DSDHorverstehen2View: React.FC = () => {
                                 className={`flex flex-col items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                                   teil1Bilder[sz.id] === opt
                                     ? "border-amber-400 bg-amber-900/20"
-                                    : "border-gray-600 hover:border-gray-500"
+                                    : "border-slate-300 dark:border-gray-600 hover:border-gray-500"
                                 }`}
                               >
-                                <div className="w-full aspect-[4/3] max-h-32 bg-gray-700/50 rounded border border-gray-600 flex items-center justify-center overflow-hidden">
+                                <div className="w-full aspect-[4/3] max-h-32 bg-slate-200 dark:bg-gray-700/50 rounded border border-slate-300 dark:border-gray-600 flex items-center justify-center overflow-hidden">
                                   {(() => {
                                     const url = (sz as { bildA?: string; bildB?: string; bildC?: string })[`bild${opt}` as "bildA" | "bildB" | "bildC"] ?? defaultBilder[opt];
                                     return typeof url === "string" ? (
@@ -282,7 +292,7 @@ const DSDHorverstehen2View: React.FC = () => {
                         const results = [1, 2, 3, 4, 5].map((nr) => ({ nr, correct: teil1Bilder[nr] === TEIL1_CORRECT[nr] }));
                         const richtig = results.filter((r) => r.correct).length;
                         return (
-                          <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-gray-600">
+                          <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-600">
                             <p className="text-amber-200 font-semibold mb-2">
                               {richtig} von 5 richtig
                             </p>
@@ -295,10 +305,10 @@ const DSDHorverstehen2View: React.FC = () => {
                         );
                       })()}
                       {showTeil1Answers && (
-                        <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-amber-500/30">
+                        <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-amber-500/30">
                           <p className="text-amber-200 font-semibold mb-2">Lösungen:</p>
                           {[1, 2, 3, 4, 5].map((nr) => (
-                            <p key={nr} className="text-gray-200">{nr}: {TEIL1_CORRECT[nr]}</p>
+                            <p key={nr} className="text-slate-900 dark:text-gray-200">{nr}: {TEIL1_CORRECT[nr]}</p>
                           ))}
                         </div>
                       )}
@@ -311,19 +321,19 @@ const DSDHorverstehen2View: React.FC = () => {
                 const ex = teil.teil2Exercise;
                 return (
                   <div className="mt-12 pt-10 border-t-2 border-amber-500/40">
-                    <h3 className="text-xl font-bold text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
+                    <h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
                     <h4 className="text-lg font-semibold text-amber-200 mt-6 mb-4">{teil.title} – {teil.subtitle}</h4>
-                    <p className="text-gray-300 mb-2">{ex.instruction1}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction2}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction3}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction1}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction2}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction3}</p>
                     <p className="text-amber-200 font-bold my-3">{ex.instruction4}</p>
-                    <p className="text-gray-300 mb-8">{ex.instruction5}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-8">{ex.instruction5}</p>
                     <p className="text-amber-200 font-semibold mb-4">Aufgaben 6-9</p>
                     <div className="space-y-8">
                       {ex.tasks.map((task) => (
-                        <div key={task.id} className="border border-gray-600 rounded-xl p-6 bg-gray-900/30">
+                        <div key={task.id} className="border border-slate-300 dark:border-gray-600 rounded-xl p-6 bg-slate-100 dark:bg-gray-900/30">
                           <p className="text-amber-200 font-semibold mb-4">Aufgabe {task.id}</p>
-                          <p className="text-gray-200 mb-4">{task.prompt}</p>
+                          <p className="text-slate-900 dark:text-gray-200 mb-4">{task.prompt}</p>
                           <div className="space-y-2">
                             {task.options.map((opt) => (
                               <label
@@ -331,7 +341,7 @@ const DSDHorverstehen2View: React.FC = () => {
                                 className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-colors ${
                                   teil2Answers[task.id] === opt.id
                                     ? "border-amber-400 bg-amber-900/20"
-                                    : "border-gray-600 hover:border-gray-500"
+                                    : "border-slate-300 dark:border-gray-600 hover:border-gray-500"
                                 }`}
                               >
                                 <input
@@ -342,7 +352,7 @@ const DSDHorverstehen2View: React.FC = () => {
                                   onChange={() => setTeil2Answers((prev) => ({ ...prev, [task.id]: opt.id }))}
                                   className="w-4 h-4 text-amber-500"
                                 />
-                                <span className="text-gray-200">{opt.id}. {opt.text}</span>
+                                <span className="text-slate-900 dark:text-gray-200">{opt.id}. {opt.text}</span>
                               </label>
                             ))}
                           </div>
@@ -371,9 +381,9 @@ const DSDHorverstehen2View: React.FC = () => {
                         const results = taskIds.map((id) => ({ id, correct: teil2Answers[id] === TEIL2_CORRECT[id] }));
                         const richtig = results.filter((r) => r.correct).length;
                         return (
-                          <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-gray-600">
+                          <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-600">
                             <p className="text-amber-200 font-bold mb-3">{richtig} von 4 richtig</p>
-                            <ul className="space-y-1 text-gray-200">
+                            <ul className="space-y-1 text-slate-900 dark:text-gray-200">
                               {results.map(({ id, correct }) => (
                                 <li key={id} className="flex items-center gap-2">
                                   <span className={correct ? "text-green-400" : "text-red-400"}>{correct ? "✓" : "✗"}</span>
@@ -386,10 +396,10 @@ const DSDHorverstehen2View: React.FC = () => {
                         );
                       })()}
                       {showTeil2Answers && (
-                        <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-amber-500/30">
+                        <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-amber-500/30">
                           <p className="text-amber-200 font-semibold mb-2">Lösungen:</p>
                           {[6, 7, 8, 9].map((id) => (
-                            <p key={id} className="text-gray-200">Aufgabe {id}: {TEIL2_CORRECT[id]}</p>
+                            <p key={id} className="text-slate-900 dark:text-gray-200">Aufgabe {id}: {TEIL2_CORRECT[id]}</p>
                           ))}
                         </div>
                       )}
@@ -402,20 +412,20 @@ const DSDHorverstehen2View: React.FC = () => {
                 const ex = teil.teil3Exercise;
                 return (
                   <div className="mt-12 pt-10 border-t-2 border-amber-500/40">
-                    <h3 className="text-xl font-bold text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
+                    <h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
                     <h4 className="text-lg font-semibold text-amber-200 mt-6 mb-4">{teil.title} – {teil.subtitle}</h4>
-                    <p className="text-gray-300 mb-2">{ex.instruction1}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction2}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction1}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction2}</p>
                     <p className="text-amber-200 font-bold my-3">{ex.instruction3}</p>
-                    <p className="text-gray-300 mb-8">{ex.instruction4}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-8">{ex.instruction4}</p>
                     <p className="text-amber-200 font-semibold mb-4">Aufgaben 10-14</p>
                     <div className="space-y-6">
                       {ex.tasks.map((task) => (
-                        <div key={task.id} className="border border-gray-600 rounded-xl p-6 bg-gray-900/30 flex flex-col sm:flex-row sm:items-center gap-4">
-                          <p className="text-gray-200 font-semibold sm:min-w-[2.5rem]">Aufgabe {task.id}</p>
-                          <p className="text-gray-200 flex-1">{task.statement}</p>
+                        <div key={task.id} className="border border-slate-300 dark:border-gray-600 rounded-xl p-6 bg-slate-100 dark:bg-gray-900/30 flex flex-col sm:flex-row sm:items-center gap-4">
+                          <p className="text-slate-900 dark:text-gray-200 font-semibold sm:min-w-[2.5rem]">Aufgabe {task.id}</p>
+                          <p className="text-slate-900 dark:text-gray-200 flex-1">{task.statement}</p>
                           <div className="flex gap-6 flex-shrink-0">
-                            <label className={`flex items-center gap-2 cursor-pointer ${teil3Answers[task.id] === "richtig" ? "text-green-400" : "text-gray-400"}`}>
+                            <label className={`flex items-center gap-2 cursor-pointer ${teil3Answers[task.id] === "richtig" ? "text-green-400" : "text-slate-800 dark:text-gray-400"}`}>
                               <input
                                 type="radio"
                                 name={`teil3-${task.id}`}
@@ -426,7 +436,7 @@ const DSDHorverstehen2View: React.FC = () => {
                               />
                               richtig
                             </label>
-                            <label className={`flex items-center gap-2 cursor-pointer ${teil3Answers[task.id] === "falsch" ? "text-red-400" : "text-gray-400"}`}>
+                            <label className={`flex items-center gap-2 cursor-pointer ${teil3Answers[task.id] === "falsch" ? "text-red-400" : "text-slate-800 dark:text-gray-400"}`}>
                               <input
                                 type="radio"
                                 name={`teil3-${task.id}`}
@@ -463,9 +473,9 @@ const DSDHorverstehen2View: React.FC = () => {
                         const results = taskIds.map((id) => ({ id, correct: teil3Answers[id] === TEIL3_CORRECT[id] }));
                         const richtig = results.filter((r) => r.correct).length;
                         return (
-                          <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-gray-600">
+                          <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-600">
                             <p className="text-amber-200 font-bold mb-3">{richtig} von 5 richtig</p>
-                            <ul className="space-y-1 text-gray-200">
+                            <ul className="space-y-1 text-slate-900 dark:text-gray-200">
                               {results.map(({ id, correct }) => (
                                 <li key={id} className="flex items-center gap-2">
                                   <span className={correct ? "text-green-400" : "text-red-400"}>{correct ? "✓" : "✗"}</span>
@@ -478,10 +488,10 @@ const DSDHorverstehen2View: React.FC = () => {
                         );
                       })()}
                       {showTeil3Answers && (
-                        <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-amber-500/30">
+                        <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-amber-500/30">
                           <p className="text-amber-200 font-semibold mb-2">Lösungen:</p>
                           {[10, 11, 12, 13, 14].map((id) => (
-                            <p key={id} className="text-gray-200">Aufgabe {id}: {TEIL3_CORRECT[id]}</p>
+                            <p key={id} className="text-slate-900 dark:text-gray-200">Aufgabe {id}: {TEIL3_CORRECT[id]}</p>
                           ))}
                         </div>
                       )}
@@ -494,19 +504,19 @@ const DSDHorverstehen2View: React.FC = () => {
                 const ex = teil.teil4Exercise;
                 return (
                   <div className="mt-12 pt-10 border-t-2 border-amber-500/40">
-                    <h3 className="text-xl font-bold text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
+                    <h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
                     <h4 className="text-lg font-semibold text-amber-200 mt-6 mb-4">{teil.title} – {teil.subtitle}</h4>
-                    <p className="text-gray-300 mb-2">{ex.instruction1}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction2}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction3}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction1}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction2}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction3}</p>
                     <p className="text-amber-200 font-bold my-3">{ex.instruction4}</p>
-                    <p className="text-gray-300 mb-8">{ex.instruction5}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-8">{ex.instruction5}</p>
                     <p className="text-amber-200 font-semibold mb-4">Aufgaben 15-20</p>
                     <div className="space-y-8">
                       {ex.tasks.map((task) => (
-                        <div key={task.id} className="border border-gray-600 rounded-xl p-6 bg-gray-900/30">
+                        <div key={task.id} className="border border-slate-300 dark:border-gray-600 rounded-xl p-6 bg-slate-100 dark:bg-gray-900/30">
                           <p className="text-amber-200 font-semibold mb-4">Aufgabe {task.id}</p>
-                          <p className="text-gray-200 mb-4">{task.prompt}</p>
+                          <p className="text-slate-900 dark:text-gray-200 mb-4">{task.prompt}</p>
                           <div className="space-y-2">
                             {task.options.map((opt) => (
                               <label
@@ -514,7 +524,7 @@ const DSDHorverstehen2View: React.FC = () => {
                                 className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-colors ${
                                   teil4Answers[task.id] === opt.id
                                     ? "border-amber-400 bg-amber-900/20"
-                                    : "border-gray-600 hover:border-gray-500"
+                                    : "border-slate-300 dark:border-gray-600 hover:border-gray-500"
                                 }`}
                               >
                                 <input
@@ -525,7 +535,7 @@ const DSDHorverstehen2View: React.FC = () => {
                                   onChange={() => setTeil4Answers((prev) => ({ ...prev, [task.id]: opt.id }))}
                                   className="w-4 h-4 text-amber-500"
                                 />
-                                <span className="text-gray-200">{opt.id}. {opt.text}</span>
+                                <span className="text-slate-900 dark:text-gray-200">{opt.id}. {opt.text}</span>
                               </label>
                             ))}
                           </div>
@@ -554,9 +564,9 @@ const DSDHorverstehen2View: React.FC = () => {
                         const results = taskIds.map((id) => ({ id, correct: teil4Answers[id] === TEIL4_CORRECT[id] }));
                         const richtig = results.filter((r) => r.correct).length;
                         return (
-                          <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-gray-600">
+                          <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-600">
                             <p className="text-amber-200 font-bold mb-3">{richtig} von 6 richtig</p>
-                            <ul className="space-y-1 text-gray-200">
+                            <ul className="space-y-1 text-slate-900 dark:text-gray-200">
                               {results.map(({ id, correct }) => (
                                 <li key={id} className="flex items-center gap-2">
                                   <span className={correct ? "text-green-400" : "text-red-400"}>{correct ? "✓" : "✗"}</span>
@@ -569,10 +579,10 @@ const DSDHorverstehen2View: React.FC = () => {
                         );
                       })()}
                       {showTeil4Answers && (
-                        <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-amber-500/30">
+                        <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-amber-500/30">
                           <p className="text-amber-200 font-semibold mb-2">Lösungen:</p>
                           {[15, 16, 17, 18, 19, 20].map((id) => (
-                            <p key={id} className="text-gray-200">Aufgabe {id}: {TEIL4_CORRECT[id]}</p>
+                            <p key={id} className="text-slate-900 dark:text-gray-200">Aufgabe {id}: {TEIL4_CORRECT[id]}</p>
                           ))}
                         </div>
                       )}
@@ -586,19 +596,19 @@ const DSDHorverstehen2View: React.FC = () => {
                 const letterOptions = ex.activities.filter((a) => a.id !== "Z");
                 return (
                   <div className="mt-12 pt-10 border-t-2 border-amber-500/40">
-                    <h3 className="text-xl font-bold text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
+                    <h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 mb-2">Hörverstehen – Aufgaben</h3>
                     <h4 className="text-lg font-semibold text-amber-200 mt-6 mb-4">{teil.title} – {teil.subtitle}</h4>
-                    <p className="text-gray-300 mb-2">{ex.instruction1}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction2}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction1}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction2}</p>
                     <p className="text-amber-200 font-bold my-3">{ex.instruction3}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction4}</p>
-                    <p className="text-gray-300 mb-2">{ex.instruction5}</p>
-                    <p className="text-gray-300 mb-6">{ex.instruction6}</p>
-                    <div className="mb-8 p-4 rounded-xl bg-gray-900/50 border border-gray-600">
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction4}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-2">{ex.instruction5}</p>
+                    <p className="text-slate-900 dark:text-gray-300 mb-6">{ex.instruction6}</p>
+                    <div className="mb-8 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-600">
                       <p className="text-amber-200 font-semibold mb-3">Titel A-H</p>
                       <ul className="space-y-1">
                         {ex.activities.map((a) => (
-                          <li key={a.id} className={a.id === "Z" ? "text-gray-400 bg-gray-800/50 rounded px-2 py-1" : "text-gray-200"}>
+                          <li key={a.id} className={a.id === "Z" ? "text-slate-800 dark:text-gray-400 bg-gray-800/50 rounded px-2 py-1" : "text-slate-900 dark:text-gray-200"}>
                             <span className="font-medium text-amber-300/90">({a.id})</span> {a.text}
                           </li>
                         ))}
@@ -606,26 +616,26 @@ const DSDHorverstehen2View: React.FC = () => {
                     </div>
                     <p className="text-amber-200 font-semibold mb-4">Aufgaben 21-24</p>
                     <div className="overflow-x-auto">
-                      <table className="w-full max-w-md border border-gray-600 rounded-lg overflow-hidden">
+                      <table className="w-full max-w-md border border-slate-300 dark:border-gray-600 rounded-lg overflow-hidden">
                         <thead>
                           <tr className="bg-gray-800/70">
-                            <th className="border-b border-gray-600 px-4 py-3 text-left text-amber-200 font-semibold">Aufgabe</th>
-                            <th className="border-b border-gray-600 px-4 py-3 text-left text-amber-200 font-semibold">Buchstabe</th>
+                            <th className="border-b border-slate-300 dark:border-gray-600 px-4 py-3 text-left text-amber-200 font-semibold">Aufgabe</th>
+                            <th className="border-b border-slate-300 dark:border-gray-600 px-4 py-3 text-left text-amber-200 font-semibold">Buchstabe</th>
                           </tr>
                         </thead>
-                        <tbody className="text-gray-200">
-                          <tr className="border-b border-gray-600 bg-gray-900/30">
+                        <tbody className="text-slate-900 dark:text-gray-200">
+                          <tr className="border-b border-slate-300 dark:border-gray-600 bg-slate-100 dark:bg-gray-900/30">
                             <td className="px-4 py-3">{ex.exampleNr}</td>
                             <td className="px-4 py-3 text-amber-300 font-medium">{ex.exampleLetter}</td>
                           </tr>
                           {ex.taskNumbers.map((nr) => (
-                            <tr key={nr} className="border-b border-gray-600 bg-gray-900/30">
+                            <tr key={nr} className="border-b border-slate-300 dark:border-gray-600 bg-slate-100 dark:bg-gray-900/30">
                               <td className="px-4 py-3">{nr}</td>
                               <td className="px-4 py-2">
                                 <select
                                   value={teil5Answers[nr] ?? ""}
                                   onChange={(e) => setTeil5Answers((prev) => ({ ...prev, [nr]: e.target.value }))}
-                                  className="bg-gray-800 border border-gray-600 rounded px-3 py-2 text-gray-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-w-[4rem]"
+                                  className="bg-gray-800 border border-slate-300 dark:border-gray-600 rounded px-3 py-2 text-slate-900 dark:text-gray-200 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 min-w-[4rem]"
                                 >
                                   <option value="">–</option>
                                   {letterOptions.map((opt) => (
@@ -660,9 +670,9 @@ const DSDHorverstehen2View: React.FC = () => {
                         const results = taskIds.map((id) => ({ id, correct: teil5Answers[id] === TEIL5_CORRECT[id] }));
                         const richtig = results.filter((r) => r.correct).length;
                         return (
-                          <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-gray-600">
+                          <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-600">
                             <p className="text-amber-200 font-bold mb-3">{richtig} von 4 richtig</p>
-                            <ul className="space-y-1 text-gray-200">
+                            <ul className="space-y-1 text-slate-900 dark:text-gray-200">
                               {results.map(({ id, correct }) => (
                                 <li key={id} className="flex items-center gap-2">
                                   <span className={correct ? "text-green-400" : "text-red-400"}>{correct ? "✓" : "✗"}</span>
@@ -675,10 +685,10 @@ const DSDHorverstehen2View: React.FC = () => {
                         );
                       })()}
                       {showTeil5Answers && (
-                        <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-amber-500/30">
+                        <div className="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-gray-900/50 border border-amber-500/30">
                           <p className="text-amber-200 font-semibold mb-2">Lösungen:</p>
                           {[21, 22, 23, 24].map((id) => (
-                            <p key={id} className="text-gray-200">Nr. {id}: {TEIL5_CORRECT[id]}</p>
+                            <p key={id} className="text-slate-900 dark:text-gray-200">Nr. {id}: {TEIL5_CORRECT[id]}</p>
                           ))}
                         </div>
                       )}
@@ -687,7 +697,7 @@ const DSDHorverstehen2View: React.FC = () => {
                 );
               })()}
 
-              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-400 font-semibold">
+              <p className="mt-8 pt-6 border-t border-amber-500/30 text-amber-600 dark:text-amber-400 font-semibold">
                 Ende {teil.title}
               </p>
             </section>
@@ -695,10 +705,10 @@ const DSDHorverstehen2View: React.FC = () => {
         </div>
 
         <section className="mt-12 p-6 rounded-xl border-2 border-amber-500/50 bg-amber-900/10">
-          <p className="text-gray-300 text-center mb-4">
+          <p className="text-slate-900 dark:text-gray-300 text-center mb-4">
             Du hast jetzt 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.
           </p>
-          <p className="text-amber-400 font-semibold text-center">
+          <p className="text-amber-600 dark:text-amber-400 font-semibold text-center">
             Ende Prüfungsteil Hörverstehen
           </p>
         </section>
@@ -707,7 +717,7 @@ const DSDHorverstehen2View: React.FC = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500/50 text-amber-400 hover:bg-amber-500/30 hover:border-amber-400 transition-colors"
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500/50 text-amber-600 dark:text-amber-400 hover:bg-amber-500/30 hover:border-amber-400 transition-colors"
             aria-label="Nach oben"
           >
             <FaArrowUp className="w-5 h-5" />

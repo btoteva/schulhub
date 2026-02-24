@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBook, FaGlobe } from "react-icons/fa";
+import { FaBook, FaGlobe, FaSun, FaMoon } from "react-icons/fa";
 import FontSettings from "./FontSettings";
 import { useLanguage, Language } from "../contexts/LanguageContext";
+import { useTheme } from "../contexts/ThemeContext";
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useLanguage();
@@ -20,7 +21,7 @@ const LanguageSelector: React.FC = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-3 py-2 text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+        className="px-3 py-2 text-slate-600 hover:text-slate-900 dark:text-gray-300 dark:hover:text-white transition-colors flex items-center gap-2"
         title="Language"
       >
         <span className="text-lg">{currentLang?.flag}</span>
@@ -28,7 +29,7 @@ const LanguageSelector: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-2 bg-gray-900 rounded-lg shadow-2xl border border-gray-700 py-2 z-[300]">
+        <div className="absolute top-full right-0 mt-2 bg-white dark:bg-gray-900 rounded-lg shadow-2xl border border-slate-200 dark:border-gray-700 py-2 z-[300]">
           {languages.map((lang) => (
             <button
               key={lang.code}
@@ -39,7 +40,7 @@ const LanguageSelector: React.FC = () => {
               className={`w-full text-left px-4 py-2 flex items-center gap-3 transition-colors ${
                 language === lang.code
                   ? "bg-green-600 text-white"
-                  : "text-gray-300 hover:bg-gray-800"
+                  : "text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-gray-800"
               }`}
             >
               <span className="text-lg">{lang.flag}</span>
@@ -54,9 +55,10 @@ const LanguageSelector: React.FC = () => {
 
 const Header: React.FC = () => {
   const { t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="bg-gradient-to-r from-slate-800 via-slate-900 to-slate-800 border-b border-slate-700/50 shadow-2xl backdrop-blur-sm relative z-[200]">
+    <header className="bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 border-b border-slate-300 dark:border-slate-700/50 shadow-2xl backdrop-blur-sm relative z-[200]">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group cursor-pointer">
@@ -74,14 +76,14 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-8 items-center">
             <Link
               to="/"
-              className="text-gray-300 hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
+              className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
             >
               {t.home}
             </Link>
 
             <a
               href="#"
-              className="text-gray-300 hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
+              className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
             >
               {t.aboutUs}
             </a>
@@ -90,7 +92,7 @@ const Header: React.FC = () => {
               href="https://codepen.io/btoteva/full/xbOGgwE"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider flex items-center"
+              className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider flex items-center"
               aria-label="Main Menu"
               title="Main Menu"
             >
@@ -103,13 +105,25 @@ const Header: React.FC = () => {
               </svg>
             </a>
 
-            <div className="border-l border-gray-700 pl-4 flex items-center gap-2">
+            <div className="border-l border-slate-300 dark:border-gray-700 pl-4 flex items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg text-slate-600 hover:text-amber-500 hover:bg-slate-200 dark:text-gray-300 dark:hover:text-amber-400 dark:hover:bg-slate-700 transition-colors"
+                title={theme === "dark" ? "Светла тема" : "Тъмна тема"}
+                aria-label={theme === "dark" ? "Светла тема" : "Тъмна тема"}
+              >
+                {theme === "dark" ? (
+                  <FaSun className="w-5 h-5" />
+                ) : (
+                  <FaMoon className="w-5 h-5" />
+                )}
+              </button>
               <LanguageSelector />
               <FontSettings />
             </div>
           </nav>
 
-          <button className="md:hidden text-white hover:text-yellow-400 transition-colors">
+          <button className="md:hidden text-slate-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors">
             <svg
               className="w-6 h-6"
               fill="none"

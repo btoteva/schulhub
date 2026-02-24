@@ -52,16 +52,16 @@ export function SkeletonDiagram({
       {(title || titleBg) && (
         <div className="mb-4">
           {title && (
-            <h4 className="text-xl font-bold text-cyan-300">{title}</h4>
+            <h4 className="text-xl font-bold text-cyan-600 dark:text-cyan-300">{title}</h4>
           )}
           {titleBg && (
-            <p className="text-gray-400 text-sm">{titleBg}</p>
+            <p className="text-slate-600 dark:text-gray-400 text-sm">{titleBg}</p>
           )}
         </div>
       )}
 
       {imageUrl && (
-        <div className="rounded-xl overflow-hidden border border-gray-600 bg-gray-900 mb-6">
+        <div className="rounded-xl overflow-hidden border border-slate-300 dark:border-gray-600 bg-slate-200 dark:bg-gray-900 mb-6">
           <img
             src={imageUrl}
             alt="Човешки скелет"
@@ -70,7 +70,7 @@ export function SkeletonDiagram({
         </div>
       )}
 
-      <p className="text-gray-400 text-sm mb-4">
+      <p className="text-slate-600 dark:text-gray-400 text-sm mb-4">
         Кликни върху кост, за да видиш превода на български.
       </p>
 
@@ -78,16 +78,16 @@ export function SkeletonDiagram({
         {parts.map((part, partIndex) => (
           <div
             key={partIndex}
-            className="bg-gray-800/60 rounded-xl p-6 border border-gray-600"
+            className="bg-slate-100 dark:bg-gray-800/60 rounded-xl p-6 border border-slate-200 dark:border-gray-600"
           >
-            <h5 className="text-lg font-semibold text-amber-300 mb-1">
+            <h5 className="text-lg font-semibold text-amber-600 dark:text-amber-300 mb-1">
               {part.groupLabel}
             </h5>
             {part.groupLabelBg && (
-              <p className="text-gray-500 text-sm mb-4">{part.groupLabelBg}</p>
+              <p className="text-slate-500 dark:text-gray-500 text-sm mb-4">{part.groupLabelBg}</p>
             )}
             {part.imageUrl && (
-              <div className="rounded-lg overflow-hidden border border-gray-600 bg-gray-900 mb-4 max-w-lg">
+              <div className="rounded-lg overflow-hidden border border-slate-300 dark:border-gray-600 bg-slate-200 dark:bg-gray-900 mb-4 max-w-lg">
                 <img
                   src={part.imageUrl}
                   alt=""
@@ -104,8 +104,8 @@ export function SkeletonDiagram({
                     key={boneIndex}
                     className={`relative text-left px-4 py-3 pb-10 rounded-lg border-2 transition-all min-h-[4rem] ${
                       isRevealed
-                        ? "border-cyan-500 bg-cyan-900/30"
-                        : "border-gray-600 bg-gray-700/50 hover:border-cyan-600/70 hover:bg-gray-700"
+                        ? "border-cyan-500 bg-cyan-100 dark:bg-cyan-900/30"
+                        : "border-slate-300 dark:border-gray-600 bg-slate-200 dark:bg-gray-700/50 hover:border-cyan-500 dark:hover:border-cyan-600/70 hover:bg-slate-300 dark:hover:bg-gray-700"
                     }`}
                   >
                     <button
@@ -113,11 +113,11 @@ export function SkeletonDiagram({
                       onClick={() => toggleBone(partIndex, boneIndex)}
                       className="block w-full text-left pr-0"
                     >
-                      <span className="text-white font-medium block">
+                      <span className="text-slate-900 dark:text-white font-medium block">
                         {bone.de}
                       </span>
                       {isRevealed && (
-                        <span className="text-cyan-200 text-sm block mt-1">
+                        <span className="text-cyan-800 dark:text-cyan-200 text-sm block mt-1">
                           {bone.bg}
                         </span>
                       )}

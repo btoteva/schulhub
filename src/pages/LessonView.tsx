@@ -12,6 +12,7 @@ import { getLessonById, type LessonContent, type TestQuestion } from "../data/le
 import { SkeletonDiagram } from "../components/SkeletonDiagram";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useTheme } from "../contexts/ThemeContext";
 
 // Extract title before table (e.g. <strong>Title</strong><br/>)
 function extractTitleBeforeTable(html: string): string {
@@ -59,14 +60,14 @@ function InteractiveTable({
       return next;
     });
   };
-  const cellClass = "border border-gray-600 px-4 py-3 text-left align-top";
-  const headerClass = "border border-gray-600 px-4 py-3 text-left font-semibold bg-gray-700/80 text-gray-200";
+  const cellClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left align-top";
+  const headerClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-slate-200 dark:bg-gray-700/80 text-slate-800 dark:text-gray-200";
   return (
     <div className="overflow-x-auto my-4">
       {title && (
-        <p className="text-emerald-400 font-bold mb-3">{title}</p>
+        <p className="text-emerald-600 dark:text-emerald-400 font-bold mb-3">{title}</p>
       )}
-      <table className="w-full min-w-[700px] border-collapse border border-gray-600">
+      <table className="w-full min-w-[700px] border-collapse border border-slate-300 dark:border-gray-600">
         <tbody>
           {deCells.map((row, ri) => (
             <tr key={ri}>
@@ -78,7 +79,7 @@ function InteractiveTable({
                 return (
                   <td
                     key={ci}
-                    className={isHeader ? headerClass : `${cellClass} text-gray-300 cursor-pointer hover:bg-gray-700/50 group relative`}
+                    className={isHeader ? headerClass : `${cellClass} text-slate-900 dark:text-gray-300 cursor-pointer hover:bg-slate-100 dark:hover:bg-gray-700/50 group relative`}
                     onClick={() => !isHeader && toggleCell(key)}
                   >
                     <div className="space-y-2">
@@ -99,7 +100,7 @@ function InteractiveTable({
                         )}
                       </div>
                       {!isHeader && isExpanded && bgText && (
-                        <div className="pl-3 border-l-2 border-green-500 bg-green-900/20 py-2 pr-2 rounded-r text-green-300 text-sm">
+                        <div className="pl-3 border-l-2 border-green-500 bg-green-50 dark:bg-green-900/20 py-2 pr-2 rounded-r text-green-800 dark:text-green-300 text-sm">
                           {bgText}
                         </div>
                       )}
@@ -176,6 +177,7 @@ const LessonView: React.FC = () => {
     getGermanFontFamilyClass,
   } = useFont();
   const { t, language } = useLanguage();
+  const { theme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
@@ -396,7 +398,7 @@ const LessonView: React.FC = () => {
     if (text.includes("<table")) {
       return (
         <div
-          className="overflow-x-auto my-4 [&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-gray-600 [&_th]:bg-gray-700/80 [&_th]:border [&_th]:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-200 [&_td]:border [&_td]:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-gray-300 [&_td]:align-top"
+          className="overflow-x-auto my-4 [&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-slate-300 [&_table]:dark:border-gray-600 [&_th]:bg-slate-200 [&_th]:dark:bg-gray-700/80 [&_th]:border [&_th]:border-slate-300 [&_th]:dark:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-slate-800 [&_th]:dark:text-gray-200 [&_td]:border [&_td]:border-slate-300 [&_td]:dark:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-slate-900 [&_td]:dark:text-gray-300 [&_td]:align-top"
           dangerouslySetInnerHTML={{ __html: text }}
         />
       );
@@ -598,15 +600,22 @@ const LessonView: React.FC = () => {
     }
   };
 
+  const isLight = theme === "light";
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
+    <div
+      className={
+        isLight
+          ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900"
+          : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white"
+      }
+    >
       {/* Navigation Header */}
-      <header className="bg-gray-800/50 border-b border-gray-700 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-white/90 dark:bg-gray-800/50 border-b border-slate-200 dark:border-gray-700 sticky top-0 z-50 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link
               to={`/lessons/${courseId}`}
-              className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-slate-800 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <FaArrowLeft />
               <span>{t.back}</span>
@@ -626,35 +635,35 @@ const LessonView: React.FC = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black/70 z-40" onClick={toggleMenu}>
           <nav
-            className="fixed top-0 left-0 h-full w-80 bg-gray-900 shadow-2xl overflow-y-auto"
+            className="fixed top-0 left-0 h-full w-80 bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto border-r border-slate-200 dark:border-gray-800"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6">
               <button
                 onClick={toggleMenu}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+                className="absolute top-4 right-4 text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white text-2xl"
               >
                 ×
               </button>
-              <h3 className="text-xl font-bold text-green-400 mb-4">
+              <h3 className="text-xl font-bold text-green-600 dark:text-green-400 mb-4">
                 {t.menu.toUpperCase()}
               </h3>
               <ul className="space-y-2">
                 <li>
                   <Link
                     to="/"
-                    className="block text-gray-300 hover:text-white py-2"
+                    className="block text-slate-900 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white py-2"
                   >
                     {t.home.toUpperCase()}
                   </Link>
                 </li>
-                <li className="text-green-400 italic">
+                <li className="text-green-600 dark:text-green-400 italic">
                   {t.biologyCourseTitle}
                 </li>
                 <li>
                   <a
                     href="#"
-                    className="block text-gray-300 hover:text-white py-2 text-sm"
+                    className="block text-slate-900 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white py-2 text-sm"
                   >
                     2.1. VERDAUUNGSSYSTEM. ERNÄHRUNG
                   </a>
@@ -662,7 +671,7 @@ const LessonView: React.FC = () => {
                 <li>
                   <a
                     href="#"
-                    className="block text-gray-300 hover:text-white py-2 text-sm"
+                    className="block text-slate-900 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white py-2 text-sm"
                   >
                     5.3 HERZ-KREISLAUF-SYSTEM. HERZTÄTIGKEIT. BLUTKREISLAUF
                   </a>
@@ -680,13 +689,13 @@ const LessonView: React.FC = () => {
           <h1 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
             {lessonData.title}
           </h1>
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-300">
+          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800 dark:text-gray-300">
             {lessonData.subtitle}
           </h2>
 
           {/* Tab Navigation – при test-only урок табовете са винаги видими но неактивни */}
           <div
-            className={`flex gap-4 mb-8 border-b border-gray-700 flex-wrap ${
+            className={`flex gap-4 mb-8 border-b border-slate-200 dark:border-gray-700 flex-wrap ${
               isTestOnlyLesson ? "pointer-events-none opacity-50" : ""
             }`}
           >
@@ -698,8 +707,8 @@ const LessonView: React.FC = () => {
                 isTestOnlyLesson ? "cursor-not-allowed" : ""
               } ${
                 activeTab === "content"
-                  ? "text-green-400 border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-gray-300"
+                  ? "text-green-600 dark:text-green-400 border-b-2 border-green-600 dark:border-green-400"
+                  : "text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-300"
               }`}
             >
               {t.lessonContent}
@@ -712,8 +721,8 @@ const LessonView: React.FC = () => {
                 isTestOnlyLesson ? "cursor-not-allowed" : ""
               } ${
                 activeTab === "dictionary"
-                  ? "text-green-400 border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-gray-300"
+                  ? "text-green-600 dark:text-green-400 border-b-2 border-green-600 dark:border-green-400"
+                  : "text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-300"
               }`}
             >
               {t.dictionary}
@@ -726,8 +735,8 @@ const LessonView: React.FC = () => {
                 isTestOnlyLesson ? "cursor-not-allowed" : ""
               } ${
                 activeTab === "flashcards"
-                  ? "text-green-400 border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-gray-300"
+                  ? "text-green-600 dark:text-green-400 border-b-2 border-green-600 dark:border-green-400"
+                  : "text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-300"
               }`}
             >
               {t.flashcards}
@@ -740,8 +749,8 @@ const LessonView: React.FC = () => {
                 isTestOnlyLesson ? "cursor-not-allowed" : ""
               } ${
                 activeTab === "resources"
-                  ? "text-green-400 border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-gray-300"
+                  ? "text-green-600 dark:text-green-400 border-b-2 border-green-600 dark:border-green-400"
+                  : "text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-300"
               }`}
             >
               {t.resources}
@@ -754,8 +763,8 @@ const LessonView: React.FC = () => {
                 isTestOnlyLesson ? "cursor-not-allowed" : ""
               } ${
                 activeTab === "exercises"
-                  ? "text-green-400 border-b-2 border-green-400"
-                  : "text-gray-400 hover:text-gray-300"
+                  ? "text-green-600 dark:text-green-400 border-b-2 border-green-600 dark:border-green-400"
+                  : "text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-300"
               }`}
             >
               {t.exercises}
@@ -789,11 +798,11 @@ const LessonView: React.FC = () => {
                                 ? isCorrect
                                   ? "bg-green-900/20 border-green-600"
                                   : "bg-red-900/20 border-red-600"
-                                : "bg-gray-800/50 border-gray-600"
+                                : "bg-slate-100 dark:bg-gray-800/50 border-slate-300 dark:border-gray-600"
                             }`}
                           >
                             {(q as TestQuestion).image && (
-                              <div className="mb-4 rounded-lg overflow-hidden border border-gray-600 bg-gray-900">
+                              <div className="mb-4 rounded-lg overflow-hidden border border-slate-300 dark:border-gray-600 bg-slate-200 dark:bg-gray-900">
                                 <img
                                   src={(q as TestQuestion).image}
                                   alt=""
@@ -806,7 +815,7 @@ const LessonView: React.FC = () => {
                               </div>
                             )}
                             <div className="flex items-start gap-2 mb-1">
-                              <p className="font-bold text-lg text-white">
+                              <p className="font-bold text-lg text-slate-900 dark:text-white">
                                 {q.id}. {q.question}
                               </p>
                               <button
@@ -819,7 +828,7 @@ const LessonView: React.FC = () => {
                               </button>
                             </div>
                             {q.questionBg && (
-                              <p className="text-gray-400 text-sm mb-4">{q.questionBg}</p>
+                              <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">{q.questionBg}</p>
                             )}
                             <div className="space-y-2">
                               {q.options.map((opt) => (
@@ -829,7 +838,7 @@ const LessonView: React.FC = () => {
                                     isAnswered && selected === opt.id && !opt.correct
                                       ? "bg-red-700/30"
                                       : !isAnswered
-                                        ? "hover:bg-gray-700/50"
+                                        ? "hover:bg-slate-200 dark:hover:bg-gray-700/50"
                                         : ""
                                   } ${selected === opt.id ? "ring-2 ring-cyan-400" : ""}`}
                                 >
@@ -843,10 +852,10 @@ const LessonView: React.FC = () => {
                                     }
                                     className="mt-1"
                                   />
-                                  <span className="text-gray-200 flex-1">
+                                  <span className="text-slate-800 dark:text-gray-200 flex-1">
                                     {opt.id}) {opt.text}
                                     {opt.textBg && (
-                                      <span className="text-gray-500 text-sm block">{opt.textBg}</span>
+                                      <span className="text-slate-500 dark:text-gray-500 text-sm block">{opt.textBg}</span>
                                     )}
                                   </span>
                                   <button
@@ -876,8 +885,8 @@ const LessonView: React.FC = () => {
                         );
                       })}
                     </div>
-                    <div className="text-center mt-8 p-4 bg-gray-800 rounded-xl">
-                      <p className="text-xl text-white">
+                    <div className="text-center mt-8 p-4 bg-slate-200 dark:bg-gray-800 rounded-xl">
+                      <p className="text-xl text-slate-900 dark:text-white">
                         Резултат:{" "}
                         {
                           testData.questions.filter(
@@ -919,7 +928,7 @@ const LessonView: React.FC = () => {
                           );
                         }
                       }}
-                      className="flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all bg-gray-700 hover:bg-gray-600 text-white border border-gray-600"
+                      className="flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white border border-slate-300 dark:border-gray-600"
                     >
                       {allExpanded ? (
                         <span>{t.hideAllTranslations}</span>
@@ -952,8 +961,20 @@ const LessonView: React.FC = () => {
               </div>
 
               {/* Content with individual sentence buttons */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
-                <div className="prose prose-invert max-w-none space-y-1">
+              <div
+                className={
+                  isLight
+                    ? "bg-white rounded-xl p-8 border border-slate-200 shadow-sm"
+                    : "bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700"
+                }
+              >
+                <div
+                  className={
+                    isLight
+                      ? "prose prose-slate max-w-none space-y-1"
+                      : "prose prose-invert max-w-none space-y-1"
+                  }
+                >
                   {(() => {
                     const wichtigsteIndex = sentences.findIndex((s) =>
                       s.text.includes("📘 Das Wichtigste."),
@@ -1005,12 +1026,12 @@ const LessonView: React.FC = () => {
                           <div
                             className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
                               currentSpeaking === index
-                                ? "bg-green-900/30 border-l-4 border-green-500"
+                                ? "bg-green-100 dark:bg-green-900/30 border-l-4 border-green-500 mt-6 mb-2"
                                 : isSectionHeading
-                                  ? "bg-gradient-to-r from-emerald-900/50 to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
+                                  ? "bg-gradient-to-r from-emerald-100 to-teal-50 dark:from-emerald-900/50 dark:to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
                                   : isImportant
-                                    ? "bg-gradient-to-r from-amber-900/40 to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
-                                    : "hover:bg-gray-800/50"
+                                    ? "bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/40 dark:to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
+                                    : "hover:bg-slate-100 dark:hover:bg-gray-800/50"
                             }`}
                             onClick={() => toggleExpandedSentence(index)}
                           >
@@ -1049,15 +1070,15 @@ const LessonView: React.FC = () => {
                               <p
                                 className={`leading-relaxed ${getGermanFontFamilyClass()} ${
                                   isSectionHeading
-                                    ? "text-2xl text-emerald-400 font-bold"
+                                    ? "text-2xl text-emerald-700 dark:text-emerald-400 font-bold"
                                     : getGermanFontSizeValue()
                                 } ${
                                   isImportant && !isSectionHeading
-                                    ? "text-amber-200 font-semibold"
+                                    ? "text-amber-800 dark:text-amber-200 font-semibold"
                                     : !isSectionHeading
-                                      ? "text-gray-300"
+                                      ? "text-slate-900 dark:text-gray-300"
                                       : ""
-                                } [&_strong]:font-bold [&_strong]:text-green-400`}
+                                } [&_strong]:font-bold [&_strong]:text-green-600 [&_strong]:dark:text-green-400`}
                               >
                                 {renderSentenceWithWordTooltips(
                                   sentenceObj.text,
@@ -1071,17 +1092,17 @@ const LessonView: React.FC = () => {
                           {expandedSentences.has(index) &&
                             sentenceObj.translation &&
                             !(isTableContent && sentenceObj.translation.includes("<table")) && (
-                              <div className={`animate-in overflow-x-auto ${sentenceObj.translation.includes("<table") ? "mt-4" : "ml-14 pl-4 border-l-2 border-green-500 bg-green-900/20 p-4 rounded-lg"}`}>
+                              <div className={`animate-in overflow-x-auto ${sentenceObj.translation.includes("<table") ? "mt-4" : "ml-14 pl-4 border-l-2 border-green-500 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg"}`}>
                                 {sentenceObj.translation.includes("<table") ? (
                                   <div
-                                    className="[&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-gray-600 [&_th]:bg-gray-700/80 [&_th]:border [&_th]:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-gray-200 [&_td]:border [&_td]:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-gray-300"
+                                    className="[&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-slate-300 [&_table]:dark:border-gray-600 [&_th]:bg-slate-200 [&_th]:dark:bg-gray-700/80 [&_th]:border [&_th]:border-slate-300 [&_th]:dark:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-slate-800 [&_th]:dark:text-gray-200 [&_td]:border [&_td]:border-slate-300 [&_td]:dark:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-slate-900 [&_td]:dark:text-gray-300"
                                     dangerouslySetInnerHTML={{
                                       __html: sentenceObj.translation,
                                     }}
                                   />
                                 ) : (
                                   <p
-                                    className={`text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-400 [&_strong]:text-lg`}
+                                    className={`text-slate-800 dark:text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-600 [&_strong]:dark:text-green-400 [&_strong]:text-lg`}
                                     dangerouslySetInnerHTML={{
                                       __html: sentenceObj.translation,
                                     }}
@@ -1097,7 +1118,7 @@ const LessonView: React.FC = () => {
                                   key={figureKey}
                                   className="ml-14 mt-4 mb-6"
                                 >
-                                  <p className="text-green-400 font-semibold mb-3">
+                                  <p className="text-green-600 dark:text-green-400 font-semibold mb-3">
                                     {figureKey}:
                                   </p>
                                   <div className="flex gap-4 flex-wrap">
@@ -1107,7 +1128,7 @@ const LessonView: React.FC = () => {
                                           key={imgIndex}
                                           src={imgUrl}
                                           alt={`${figureKey} - Схема ${imgIndex + 1}`}
-                                          className="max-w-[48%] h-auto rounded-lg border border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
+                                          className="max-w-[48%] h-auto rounded-lg border border-slate-300 dark:border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
                                           onClick={() =>
                                             window.open(imgUrl, "_blank")
                                           }
@@ -1140,7 +1161,7 @@ const LessonView: React.FC = () => {
                                   : wichtigsteSentences[0].text.replace(/^📘\s*/, "").replace(/\s*\([^)]*\)\.?$/, "").trim() || "Най-важното"}
                               </h3>
                             </div>
-                            <div className="p-6 bg-sky-900/30 space-y-2">
+                            <div className="p-6 bg-sky-100 dark:bg-sky-900/30 space-y-2">
                               {wichtigsteSentences.slice(1).map((sentence, i) => {
                                 const index = i + 1 + wichtigsteIndex;
                                 return renderSentence(sentence, index);
@@ -1170,7 +1191,7 @@ const LessonView: React.FC = () => {
                     {section.words.map((wordData, index) => (
                       <div
                         key={index}
-                        className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all"
+                        className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6 border border-slate-200 dark:border-gray-700 hover:border-green-500 transition-all"
                       >
                         <div className="flex items-start gap-4">
                           <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -1180,7 +1201,7 @@ const LessonView: React.FC = () => {
                             <div className="mb-3 flex items-center justify-between">
                               <div>
                                 <span
-                                  className={`text-2xl font-bold text-green-400 ${getGermanFontFamilyClass()}`}
+                                  className={`text-2xl font-bold text-green-600 dark:text-green-400 ${getGermanFontFamilyClass()}`}
                                 >
                                   {(() => {
                                     if (
@@ -1204,7 +1225,7 @@ const LessonView: React.FC = () => {
                                   })()}
                                 </span>
                                 <span
-                                  className={`text-xl text-gray-400 ml-3 ${getFontFamilyClass()}`}
+                                  className={`text-xl text-slate-800 dark:text-gray-400 ml-3 ${getFontFamilyClass()}`}
                                 >
                                   → {wordData.translation}
                                 </span>
@@ -1220,9 +1241,9 @@ const LessonView: React.FC = () => {
                             <div className="space-y-2">
                               <div className="flex items-start gap-2">
                                 <p
-                                  className={`text-gray-300 italic flex-1 ${getGermanFontFamilyClass()} ${getGermanFontSizeValue()}`}
+                                  className={`text-slate-900 dark:text-gray-300 italic flex-1 ${getGermanFontFamilyClass()} ${getGermanFontSizeValue()}`}
                                 >
-                                  <span className="text-blue-400 font-semibold">
+                                  <span className="text-blue-600 dark:text-blue-400 font-semibold">
                                     DE:
                                   </span>{" "}
                                   {(() => {
@@ -1255,9 +1276,9 @@ const LessonView: React.FC = () => {
                                 </button>
                               </div>
                               <p
-                                className={`text-gray-400 ${getFontFamilyClass()} ${getFontSizeValue()}`}
+                                className={`text-slate-800 dark:text-gray-400 ${getFontFamilyClass()} ${getFontSizeValue()}`}
                               >
-                                <span className="text-green-400 font-semibold">
+                                <span className="text-green-600 dark:text-green-400 font-semibold">
                                   BG:
                                 </span>{" "}
                                 {wordData.example_translation}
@@ -1277,7 +1298,7 @@ const LessonView: React.FC = () => {
           {!isTestOnlyLesson && activeTab === "flashcards" && (
             <div className="min-h-[500px] flex flex-col items-center justify-center">
               {allWords.length === 0 ? (
-                <p className="text-gray-400 text-xl">{t.noWordsInDictionary}</p>
+                <p className="text-slate-800 dark:text-gray-400 text-xl">{t.noWordsInDictionary}</p>
               ) : (
                 <>
                   <div className="perspective w-full max-w-2xl mb-8">
@@ -1302,13 +1323,13 @@ const LessonView: React.FC = () => {
                           } as React.CSSProperties
                         }
                       >
-                        <p className="text-gray-300 text-sm mb-4">{t.german}</p>
+                        <p className="text-blue-100 text-sm mb-4">{t.german}</p>
                         <p
                           className={`text-4xl font-bold text-white text-center ${getGermanFontFamilyClass()}`}
                         >
                           {allWords[currentFlashcardIndex]?.word}
                         </p>
-                        <p className="text-gray-200 text-sm mt-8">
+                        <p className="text-blue-100/90 text-sm mt-8">
                           {t.clickForTranslation}
                         </p>
                       </div>
@@ -1323,7 +1344,7 @@ const LessonView: React.FC = () => {
                           } as React.CSSProperties
                         }
                       >
-                        <p className="text-gray-300 text-sm mb-4">
+                        <p className="text-green-100 text-sm mb-4">
                           {t.translationToBulgarian}
                         </p>
                         <p
@@ -1332,7 +1353,7 @@ const LessonView: React.FC = () => {
                           {allWords[currentFlashcardIndex]?.translation}
                         </p>
                         <p
-                          className={`text-gray-200 text-sm mt-8 ${getGermanFontFamilyClass()}`}
+                          className={`text-green-100/90 text-sm mt-8 ${getGermanFontFamilyClass()}`}
                         >
                           {allWords[currentFlashcardIndex]?.example}
                         </p>
@@ -1356,7 +1377,7 @@ const LessonView: React.FC = () => {
                       ← {t.back}
                     </button>
 
-                    <div className="text-gray-400 font-semibold">
+                    <div className="text-slate-800 dark:text-gray-400 font-semibold">
                       {currentFlashcardIndex + 1} / {allWords.length}
                     </div>
 
@@ -1386,7 +1407,7 @@ const LessonView: React.FC = () => {
                   </button>
 
                   {/* Progress bar */}
-                  <div className="w-full max-w-2xl mt-12 h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div className="w-full max-w-2xl mt-12 h-2 bg-slate-300 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300"
                       style={{
@@ -1409,22 +1430,22 @@ const LessonView: React.FC = () => {
                   {lessonData.resources.map((resource: any) => (
                     <div
                       key={resource.id}
-                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700"
+                      className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-gray-700"
                     >
-                      <h3 className="text-2xl font-bold text-green-400 mb-2">
+                      <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">
                         {resource.title}
                       </h3>
                       {resource.titleBg && (
-                        <p className="text-lg text-gray-400 mb-4">
+                        <p className="text-lg text-slate-800 dark:text-gray-400 mb-4">
                           {resource.titleBg}
                         </p>
                       )}
 
-                      <p className="text-gray-300 mb-2 leading-relaxed">
+                      <p className="text-slate-900 dark:text-gray-300 mb-2 leading-relaxed">
                         {resource.description}
                       </p>
                       {resource.descriptionBg && (
-                        <p className="text-gray-400 mb-6 leading-relaxed">
+                        <p className="text-slate-800 dark:text-gray-400 mb-6 leading-relaxed">
                           {resource.descriptionBg}
                         </p>
                       )}
@@ -1484,11 +1505,11 @@ const LessonView: React.FC = () => {
                   ))}
                 </>
               ) : (
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 border-dashed">
-                  <h3 className="text-2xl font-bold text-gray-500 mb-4">
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-gray-700 border-dashed">
+                  <h3 className="text-2xl font-bold text-slate-500 dark:text-gray-500 mb-4">
                     {t.resources}
                   </h3>
-                  <p className="text-gray-500 italic">{t.comingSoon}</p>
+                  <p className="text-slate-500 dark:text-gray-500 italic">{t.comingSoon}</p>
                 </div>
               )}
             </div>
@@ -1497,8 +1518,8 @@ const LessonView: React.FC = () => {
           {/* Exercises Tab */}
           {!isTestOnlyLesson && activeTab === "exercises" && lessonData.exercises && (
             <div className="space-y-8">
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-gray-600">
-                <p className="text-gray-400 text-sm">
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-slate-300 dark:border-gray-600">
+                <p className="text-slate-800 dark:text-gray-400 text-sm">
                   {language === "bg"
                     ? "Напредъкът се запазва автоматично. Можеш да продължиш по-късно."
                     : language === "de"
@@ -1538,9 +1559,9 @@ const LessonView: React.FC = () => {
                       )}
                     </div>
                   ) : (
-                    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-blue-500/30">
+                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-blue-500/30">
                       <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-2xl font-bold text-blue-300">
+                        <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-300">
                           {exercise.title}
                         </h3>
                         <button
@@ -1553,7 +1574,7 @@ const LessonView: React.FC = () => {
                         </button>
                       </div>
                       {exercise.titleBg && (
-                        <p className="text-gray-400 mb-4 text-sm">
+                        <p className="text-slate-800 dark:text-gray-400 mb-4 text-sm">
                           {exercise.titleBg}
                         </p>
                       )}
@@ -1589,7 +1610,7 @@ const LessonView: React.FC = () => {
                             (exercise.answer || exercise.answerBg) && (
                               <div className="mt-4 p-4 bg-green-900/30 border border-green-600/50 rounded-lg space-y-2">
                                 {exercise.answer && (
-                                  <p className="text-gray-200 flex items-center gap-2">
+                                  <p className="text-slate-800 dark:text-gray-200 flex items-center gap-2">
                                     <span className="text-cyan-400 font-semibold">
                                       DE:{" "}
                                     </span>
@@ -1605,7 +1626,7 @@ const LessonView: React.FC = () => {
                                   </p>
                                 )}
                                 {exercise.answerBg && (
-                                  <p className="text-gray-300 text-sm">
+                                  <p className="text-slate-900 dark:text-gray-300 text-sm">
                                     <span className="text-green-400 font-semibold">
                                       БГ:{" "}
                                     </span>
@@ -1640,7 +1661,7 @@ const LessonView: React.FC = () => {
                                       ? isCorrect
                                         ? "bg-green-900/20 border-green-600"
                                         : "bg-red-900/20 border-red-600"
-                                      : "bg-gray-800/50 border-gray-600"
+                                      : "bg-slate-100 dark:bg-gray-800/50 border-slate-300 dark:border-gray-600"
                                   }`}
                                 >
                                   <div className="flex items-start gap-2 mb-1">
@@ -1657,7 +1678,7 @@ const LessonView: React.FC = () => {
                                     </button>
                                   </div>
                                   {q.questionBg && (
-                                    <p className="text-gray-400 text-sm mb-4">
+                                    <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">
                                       {q.questionBg}
                                     </p>
                                   )}
@@ -1671,7 +1692,7 @@ const LessonView: React.FC = () => {
                                           !opt.correct
                                             ? "bg-red-700/30"
                                             : !isAnswered
-                                              ? "hover:bg-gray-700/50"
+                                              ? "hover:bg-slate-200 dark:hover:bg-gray-700/50"
                                               : ""
                                         } ${selected === opt.id ? "ring-2 ring-cyan-400" : ""}`}
                                       >
@@ -1691,10 +1712,10 @@ const LessonView: React.FC = () => {
                                           }
                                           className="mt-1"
                                         />
-                                        <span className="text-gray-200 flex-1">
+                                        <span className="text-slate-800 dark:text-gray-200 flex-1">
                                           {opt.id}) {opt.text}
                                           {opt.textBg && (
-                                            <span className="text-gray-500 text-sm block">
+                                            <span className="text-slate-500 dark:text-gray-500 text-sm block">
                                               {opt.textBg}
                                             </span>
                                           )}
@@ -1729,7 +1750,7 @@ const LessonView: React.FC = () => {
                                 </div>
                               );
                             })}
-                            <div className="text-center p-4 bg-gray-800/80 rounded-xl">
+                            <div className="text-center p-4 bg-slate-200 dark:bg-gray-800/80 rounded-xl">
                               <p className="text-lg text-white">
                                 Резултат:{" "}
                                 {exercise.questions.filter(
@@ -1748,7 +1769,7 @@ const LessonView: React.FC = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                         {/* Left Items */}
                         <div className="space-y-3">
-                          <p className="text-gray-300 font-semibold mb-3">
+                          <p className="text-slate-900 dark:text-gray-300 font-semibold mb-3">
                             {(exercise as { leftLabel?: string }).leftLabel ?? "Граници на плочи"}:
                           </p>
                           {exercise.leftItems?.map((item) => {
@@ -1791,7 +1812,7 @@ const LessonView: React.FC = () => {
 
                         {/* Right Items */}
                         <div className="space-y-3">
-                          <p className="text-gray-300 font-semibold mb-3">
+                          <p className="text-slate-900 dark:text-gray-300 font-semibold mb-3">
                             {(exercise as { rightLabel?: string }).rightLabel ?? "Процеси"}:
                           </p>
                           {exercise.rightItems?.map((item) => {
@@ -1875,7 +1896,7 @@ const LessonView: React.FC = () => {
                       {selectedLeft &&
                         matchingFeedback !== "correct" &&
                         selectedRights.size > 0 && (
-                          <div className="text-gray-400 text-center p-4">
+                          <div className="text-slate-800 dark:text-gray-400 text-center p-4">
                             Кликнете на процесите които съответстват на "
                             {
                               exercise.leftItems?.find(
@@ -1892,7 +1913,7 @@ const LessonView: React.FC = () => {
                           setSelectedRights(new Set());
                           setMatchingFeedback(null);
                         }}
-                        className="mt-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
+                        className="mt-4 px-6 py-2 bg-slate-600 dark:bg-gray-600 hover:bg-slate-700 dark:hover:bg-gray-700 text-white rounded-lg transition-colors"
                       >
                         Нова задача
                       </button>
@@ -1934,7 +1955,7 @@ const LessonView: React.FC = () => {
         )}
 
       {/* Footer */}
-      <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16">
+      <footer className="bg-slate-200/80 dark:bg-black/50 text-slate-800 dark:text-gray-500 py-8 border-t border-slate-300 dark:border-gray-800/50 mt-16">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>
