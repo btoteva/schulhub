@@ -1,0 +1,749 @@
+{
+  "id": "3-5",
+  "courseId": 3,
+  "title": "20. DAS NATURRESSOURCEN-POTENTIAL DER ERDE-2",
+  "subtitle": "",
+  "dictionary": [
+    {
+      "id": "energetisch",
+      "headingId": "energetisch-heading",
+      "title": "1. Енергийни ресурси",
+      "words": [
+        {
+          "word": "die energetischen Ressourcen",
+          "translation": "енергийни ресурси",
+          "example": "Die energetischen Ressourcen unterliegen ständiger Veränderung.",
+          "example_translation": "Енергийните ресурси са подложени на постоянни промени."
+        },
+        {
+          "word": "die Menschheitsgeschichte",
+          "translation": "история на човечеството",
+          "example": "in der Menschheitsgeschichte",
+          "example_translation": "в историята на човечеството"
+        },
+        {
+          "word": "die fossilen Brennstoffe",
+          "translation": "изкопаеми горива",
+          "example": "Kohle, Erdöl, Erdgas – fossile Brennstoffe",
+          "example_translation": "въглища, нефт, природен газ – изкопаеми горива"
+        },
+        {
+          "word": "die Kohle, -n",
+          "translation": "въглища",
+          "example": "Die Kohlevorräte betragen weltweit etwa 909 Milliarden Tonnen.",
+          "example_translation": "Световните запаси от въглища възлизат на около 909 милиарда тона."
+        },
+        {
+          "word": "das Erdöl, -e",
+          "translation": "нефт",
+          "example": "Erdöl- und Erdgasvorkommen",
+          "example_translation": "находища на нефт и газ"
+        },
+        {
+          "word": "das Erdgas",
+          "translation": "природен газ",
+          "example": "Die größten Mengen Erdgas besitzen Russland, die USA, Kanada.",
+          "example_translation": "Най-големите количества природен газ притежават Русия, САЩ, Канада."
+        },
+        {
+          "word": "die Energiequelle, -n",
+          "translation": "източник на енергия",
+          "example": "alternative Energiequellen",
+          "example_translation": "алтернативни източници на енергия"
+        },
+        {
+          "word": "die Energiesparpolitik",
+          "translation": "политика за спестяване на енергия",
+          "example": "zur Energiesparpolitik führen",
+          "example_translation": "да доведе до политика за спестяване на енергия"
+        },
+        {
+          "word": "der Kohlevorrat, -räte",
+          "translation": "запас от въглища",
+          "example": "Die Kohlevorräte befinden sich in Russland, China, den USA.",
+          "example_translation": "Запасите от въглища се намират в Русия, Китай, САЩ."
+        },
+        {
+          "word": "die Förderung, -en",
+          "translation": "добив",
+          "example": "gegenwärtige Förderung",
+          "example_translation": "сегашен добив"
+        },
+        {
+          "word": "der Bedarf",
+          "translation": "нужда, потребност",
+          "example": "den Bedarf decken",
+          "example_translation": "да покрие нуждите"
+        },
+        {
+          "word": "das Vorkommen, -",
+          "translation": "находище, залеж",
+          "example": "Erdöl- und Erdgasvorkommen",
+          "example_translation": "находища на нефт и газ"
+        },
+        {
+          "word": "ausbeuten",
+          "translation": "експлоатирам, добивам",
+          "example": "Etwa 450 Vorkommen werden ausgebeutet.",
+          "example_translation": "Около 450 находища се експлоатират."
+        },
+        {
+          "word": "der Persische Golf",
+          "translation": "Персийският залив",
+          "example": "die Länder des Persischen Golfs",
+          "example_translation": "страните от Персийския залив"
+        },
+        {
+          "word": "das Uranerz",
+          "translation": "уранова руда",
+          "example": "Vorräte an Uranerz",
+          "example_translation": "запаси от уранова руда"
+        }
+      ]
+    },
+    {
+      "id": "mineralisch",
+      "headingId": "mineralisch-heading",
+      "title": "2. Минерални ресурси",
+      "words": [
+        {
+          "word": "die mineralischen Rohstoffe",
+          "translation": "минерални суровини",
+          "example": "über 200 Arten mineralischer Rohstoffe",
+          "example_translation": "над 200 вида минерални суровини"
+        },
+        {
+          "word": "die Nutzungsart, -en",
+          "translation": "вид на използване",
+          "example": "Nach der Nutzungsart unterteilt",
+          "example_translation": "според вида на използване се делят"
+        },
+        {
+          "word": "metallhaltig",
+          "translation": "металносъдържащ",
+          "example": "metallhaltige Erze",
+          "example_translation": "металносъдържащи руди"
+        },
+        {
+          "word": "das Erz, -e",
+          "translation": "руда",
+          "example": "Erze von Schwarz- und Buntmetallen",
+          "example_translation": "руди от черни и цветни метали"
+        },
+        {
+          "word": "die Schwarzmetalle",
+          "translation": "черни метали",
+          "example": "Aus Eisenerz werden Schwarzmetalle hergestellt.",
+          "example_translation": "От железна руда се произвеждат черни метали."
+        },
+        {
+          "word": "die Buntmetalle",
+          "translation": "цветни метали",
+          "example": "Kupfer, Zink, Aluminium – Farbmetalle",
+          "example_translation": "мед, цинк, алуминий – цветни метали"
+        },
+        {
+          "word": "die Edelmetalle",
+          "translation": "благородни метали",
+          "example": "Erze von Edelmetallen",
+          "example_translation": "руди от благородни метали"
+        },
+        {
+          "word": "nichtmetallhaltig",
+          "translation": "неметалносъдържащ",
+          "example": "chemische und Baurohstoffe",
+          "example_translation": "химически и строителни суровини"
+        },
+        {
+          "word": "der Baurohstoff, -e",
+          "translation": "строителна суровина",
+          "example": "nichtmetallhaltige Baurohstoffe",
+          "example_translation": "неметални строителни суровини"
+        },
+        {
+          "word": "unterteilen",
+          "translation": "разделям, подразделям",
+          "example": "in metallhaltige und nichtmetallhaltige unterteilt",
+          "example_translation": "се делят на металносъдържащи и неметални"
+        },
+        {
+          "word": "die Schwerindustrie",
+          "translation": "тежка промишленост",
+          "example": "für die Entwicklung der Schwerindustrie von großer Bedeutung",
+          "example_translation": "от голямо значение за развитието на тежката промишленост"
+        },
+        {
+          "word": "das Eisenerz",
+          "translation": "железна руда",
+          "example": "Aus Eisenerz werden Gusseisen und Stahl hergestellt.",
+          "example_translation": "От железна руда се произвеждат чугун и стомана."
+        },
+        {
+          "word": "das Gusseisen",
+          "translation": "чугун",
+          "example": "Gusseisen, Stahl, Walzstahl",
+          "example_translation": "чугун, стомана, валцована стомана"
+        },
+        {
+          "word": "der Stahl",
+          "translation": "стомана",
+          "example": "Walzstahl",
+          "example_translation": "валцована стомана"
+        },
+        {
+          "word": "die Erzlagerstätte, -n",
+          "translation": "рудно находище",
+          "example": "Die Erzlagerstätten bilden Gürtel.",
+          "example_translation": "Рудните находища образуват пояси."
+        },
+        {
+          "word": "der Gürtel, -",
+          "translation": "пояс",
+          "example": "der Eisengürtel, der Kupfergürtel",
+          "example_translation": "железният пояс, медният пояс"
+        },
+        {
+          "word": "der Eisengürtel",
+          "translation": "железен пояс",
+          "example": "Der Eisengürtel umfasst Brasilien, Indien.",
+          "example_translation": "Железният пояс обхваща Бразилия, Индия."
+        },
+        {
+          "word": "der Kupfergürtel",
+          "translation": "меден пояс",
+          "example": "Der Kupfergürtel erstreckt sich entlang den Kordilleren.",
+          "example_translation": "Медният пояс се простира по Кордилерите."
+        },
+        {
+          "word": "die Kordilleren",
+          "translation": "Кордилери",
+          "example": "entlang den Kordilleren und den Anden",
+          "example_translation": "по Кордилерите и Андите"
+        },
+        {
+          "word": "die Anden",
+          "translation": "Анди",
+          "example": "die Länder entlang den Anden",
+          "example_translation": "страните по Андите"
+        },
+        {
+          "word": "der Zinngürtel",
+          "translation": "калаен пояс",
+          "example": "Der Zinngürtel verläuft an der Pazifischen Küste.",
+          "example_translation": "Калаеният пояс минава по тихоокеанското крайбрежие."
+        },
+        {
+          "word": "der Bauxit, -e",
+          "translation": "боксит",
+          "example": "Vorräte an Bauxiten",
+          "example_translation": "запаси от боксити"
+        },
+        {
+          "word": "das Steinsalz",
+          "translation": "каменна сол",
+          "example": "Steinsalz und Kaliumsalz",
+          "example_translation": "каменна и калиева сол"
+        },
+        {
+          "word": "das Kaliumsalz",
+          "translation": "калиева сол",
+          "example": "Phosphorite, Schwefel",
+          "example_translation": "фосфати, сяра"
+        },
+        {
+          "word": "die Phosphorite",
+          "translation": "фосфати",
+          "example": "Phosphorite in Russland, Algerien, Marokko",
+          "example_translation": "фосфати в Русия, Алжир, Мароко"
+        },
+        {
+          "word": "der Schwefel",
+          "translation": "сяра",
+          "example": "Schwefel in Mexiko, Russland",
+          "example_translation": "сяра в Мексико, Русия"
+        }
+      ]
+    },
+    {
+      "id": "klimatisch",
+      "headingId": "klimatisch-heading",
+      "title": "3. Климатични ресурси",
+      "words": [
+        {
+          "word": "die klimatischen Ressourcen",
+          "translation": "климатични ресурси",
+          "example": "Klimatische Ressourcen nennt man Eigenschaften des Klimas.",
+          "example_translation": "Климатични ресурси се наричат свойствата на климата."
+        },
+        {
+          "word": "die Sonnenenergie",
+          "translation": "слънчева енергия",
+          "example": "Sonnen- und Windenergie",
+          "example_translation": "слънчева и вятърна енергия"
+        },
+        {
+          "word": "die Windenergie",
+          "translation": "вятърна енергия",
+          "example": "unerschöpfliche Windenergie",
+          "example_translation": "неизчерпаема вятърна енергия"
+        },
+        {
+          "word": "der Niederschlag, -schläge",
+          "translation": "валеж",
+          "example": "Niederschläge usw.",
+          "example_translation": "валежи и т.н."
+        },
+        {
+          "word": "unerschöpflich",
+          "translation": "неизчерпаем",
+          "example": "Die klimatischen Ressourcen sind unerschöpflich.",
+          "example_translation": "Климатичните ресурси са неизчерпаеми."
+        },
+        {
+          "word": "der Wendekreis, -e",
+          "translation": "тропик",
+          "example": "zwischen den zwei Wendekreisen",
+          "example_translation": "между двата тропика"
+        },
+        {
+          "word": "die Sonnenstrahlung",
+          "translation": "слънчево греене",
+          "example": "Länder mit der längsten Sonnenstrahlung",
+          "example_translation": "страни с най-продължително слънчево греене"
+        },
+        {
+          "word": "kostengünstig",
+          "translation": "евтин",
+          "example": "kostengünstige und umweltfreundliche Naturressource",
+          "example_translation": "евтин и екологично чист природен ресурс"
+        },
+        {
+          "word": "umweltfreundlich",
+          "translation": "екологично чист",
+          "example": "umweltfreundliche Energie",
+          "example_translation": "екологично чиста енергия"
+        },
+        {
+          "word": "die Küste, -n",
+          "translation": "крайбрежие",
+          "example": "an den Küsten der Nord- und Ostsee",
+          "example_translation": "по крайбрежията на Северно и Балтийско море"
+        },
+        {
+          "word": "die Agrarwirtschaft",
+          "translation": "селско стопанство",
+          "example": "für die Agrarwirtschaft von Bedeutung",
+          "example_translation": "от значение за селското стопанство"
+        },
+        {
+          "word": "die agroklimatischen Ressourcen",
+          "translation": "агроклиматични ресурси",
+          "example": "Sonnenstrahlung, Niederschlagsmengen, Schneedecke",
+          "example_translation": "слънчево греене, валежи, снежна покривка"
+        },
+        {
+          "word": "die Schneedecke, -n",
+          "translation": "снежна покривка",
+          "example": "die Niederschlagsmengen und die Schneedecke",
+          "example_translation": "количеството на валежите и снежната покривка"
+        }
+      ]
+    },
+    {
+      "id": "wasser-boden",
+      "headingId": "wasser-boden-heading",
+      "title": "4. Водни и почвени ресурси",
+      "words": [
+        {
+          "word": "die Wasserressourcen",
+          "translation": "водни ресурси",
+          "example": "alle Gewässer in der Hydrosphäre",
+          "example_translation": "всички водни басейни в хидросферата"
+        },
+        {
+          "word": "die Hydrosphäre",
+          "translation": "хидросфера",
+          "example": "Gewässer in der Hydrosphäre",
+          "example_translation": "води в хидросферата"
+        },
+        {
+          "word": "zugänglich",
+          "translation": "достъпен",
+          "example": "für die Menschen zugänglich und nutzbar",
+          "example_translation": "достъпни и използваеми за хората"
+        },
+        {
+          "word": "nutzbar",
+          "translation": "използваем",
+          "example": "frisches Wasser nutzbar machen",
+          "example_translation": "да се направи прясната вода използваема"
+        },
+        {
+          "word": "die unterirdischen Gewässer",
+          "translation": "подземни води",
+          "example": "Flüsse, Seen und unterirdische Gewässer",
+          "example_translation": "реки, езера и подземни води"
+        },
+        {
+          "word": "unregelmäßig verteilt",
+          "translation": "неравномерно разпределен",
+          "example": "Die Wasserressourcen sind unregelmäßig verteilt.",
+          "example_translation": "Водните ресурси са неравномерно разпределени."
+        },
+        {
+          "word": "das Äquatorialklima",
+          "translation": "екваториален климат",
+          "example": "Regionen mit Äquatorial- und Subpolarklima",
+          "example_translation": "региони с екваториален и субполярен климат"
+        },
+        {
+          "word": "das Subpolarklima",
+          "translation": "субполярен климат",
+          "example": "im Überschuss vorhanden",
+          "example_translation": "в излишък"
+        },
+        {
+          "word": "der Überschuss",
+          "translation": "излишък",
+          "example": "Wasser im Überschuss vorhanden",
+          "example_translation": "вода в излишък"
+        },
+        {
+          "word": "die Bodenressourcen",
+          "translation": "почвени ресурси",
+          "example": "34% der Bodenressourcen sichern 98% der Lebensmittel.",
+          "example_translation": "34% от почвените ресурси осигуряват 98% от храните."
+        },
+        {
+          "word": "die Lebensmittel",
+          "translation": "храни",
+          "example": "98% der Lebensmittel",
+          "example_translation": "98% от храните"
+        },
+        {
+          "word": "das bewaldete Gebiet, -e",
+          "translation": "горист район",
+          "example": "in den bewaldeten Gebieten, Waldsteppen und Steppen",
+          "example_translation": "в гористите райони, лесостепите и степните"
+        },
+        {
+          "word": "die Waldsteppe, -n",
+          "translation": "лесостеп",
+          "example": "in den Waldsteppen",
+          "example_translation": "в лесостепите"
+        },
+        {
+          "word": "die Steppe, -n",
+          "translation": "степ",
+          "example": "in den Steppen",
+          "example_translation": "в степните"
+        },
+        {
+          "word": "die landwirtschaftliche Nutzung",
+          "translation": "земеделско ползване",
+          "example": "für landwirtschaftliche Nutzung ungeeignet",
+          "example_translation": "непригоден за земеделско ползване"
+        },
+        {
+          "word": "ungeeignet",
+          "translation": "непригоден",
+          "example": "für Nutzung ungeeignet",
+          "example_translation": "непригоден за ползване"
+        }
+      ]
+    },
+    {
+      "id": "biogen",
+      "headingId": "biogen-heading",
+      "title": "5. Биогенни ресурси",
+      "words": [
+        {
+          "word": "die biogenen Ressourcen",
+          "translation": "биогенни ресурси",
+          "example": "Zu den biogenen Ressourcen gehören pflanzliche und tierische Organismen.",
+          "example_translation": "Към биогенните ресурси принадлежат растителните и животинските организми."
+        },
+        {
+          "word": "pflanzlich",
+          "translation": "растителен",
+          "example": "pflanzliche Ressourcen",
+          "example_translation": "растителни ресурси"
+        },
+        {
+          "word": "tierisch",
+          "translation": "животински",
+          "example": "tierische Organismen",
+          "example_translation": "животински организми"
+        },
+        {
+          "word": "das Festland",
+          "translation": "суша, континент",
+          "example": "auf dem Festland und im Weltmeer",
+          "example_translation": "на сушата и в световния океан"
+        },
+        {
+          "word": "das Weltmeer",
+          "translation": "световен океан",
+          "example": "im Weltmeer",
+          "example_translation": "в световния океан"
+        },
+        {
+          "word": "die Waldressourcen",
+          "translation": "горски ресурси",
+          "example": "Die größte Bedeutung haben die Waldressourcen.",
+          "example_translation": "Най-голямо значение имат горските ресурси."
+        },
+        {
+          "word": "das Waldgebiet, -e",
+          "translation": "горска площ",
+          "example": "Die größten Waldgebiete befinden sich in Asien, Südamerika.",
+          "example_translation": "Най-големите горски площи са в Азия, Южна Америка."
+        },
+        {
+          "word": "die biologischen Ressourcen",
+          "translation": "биологически ресурси",
+          "example": "Ein Teil der biologischen Ressourcen sind die Fische.",
+          "example_translation": "Част от биологическите ресурси са рибите."
+        },
+        {
+          "word": "der Fischfang",
+          "translation": "улов на риба, риболов",
+          "example": "90% des weltweiten Fischfangs",
+          "example_translation": "90% от световния улов на риба"
+        },
+        {
+          "word": "der Pazifische Ozean",
+          "translation": "Тихи океан",
+          "example": "im Pazifischen und Atlantischen Ozean konzentriert",
+          "example_translation": "концентрирани в Тихия и Атлантическия океан"
+        },
+        {
+          "word": "der Atlantische Ozean",
+          "translation": "Атлантически океан",
+          "example": "Fischfang im Atlantischen Ozean",
+          "example_translation": "улов на риба в Атлантическия океан"
+        },
+        {
+          "word": "konzentriert",
+          "translation": "концентриран",
+          "example": "im Pazifik konzentriert",
+          "example_translation": "концентриран в Тихия океан"
+        }
+      ]
+    }
+  ],
+  "images": {
+    "Abb. 1": [
+      "https://i.imgur.com/T6FKhB6.png"
+    ],
+    "Abb. 2": [
+      "https://i.imgur.com/qzjpKPO.png"
+    ]
+  },
+  "content": "<strong>1 Energetische Ressourcen</strong>\n\nDie energetischen Ressourcen unterliegen ständiger Veränderung in der Menschheitsgeschichte. Im 19. Jahrhundert waren die fossilen Brennstoffe (Kohle, Erdöl, Erdgas) die wichtigsten Energiequellen. Im 20. Jahrhundert stieg der Verbrauch dieser Ressourcen an und führte zur Suche nach alternativen Energiequellen und zur Energiesparpolitik. Die Kohlevorräte betragen weltweit etwa 909 Milliarden Tonnen, die angesichts der gegenwärtigen Förderung den Bedarf für noch circa 155 Jahre decken könnten. Die größten Kohlevorräte befinden sich in Russland, China, den USA, Australien, Südafrika u.a. Auf der Erde existieren über 600 erforschte Erdöl- und Erdgasvorkommen. (Gewöhnlich kommen Erdöl und Erdgas zusammen vor.) Etwa 450 davon werden ausgebeutet. Die größten Erdölvorräte befinden sich in Russland, den USA, den Ländern des Persischen Golfs, den Ländern Nordafrikas usw. Die größten Mengen Erdgas besitzen die Länder Russland, die USA, Kanada, Algerien, der Iran, Großbritannien, Norwegen u.a. Die größten Vorräte an Uranerz sind in Russland, den USA, Kanada, Australien, Brasilien u.a.\n\n<strong>2 Mineralische Ressourcen</strong>\n\nWeltweit werden über 200 Arten mineralischer Rohstoffe genutzt. Nach der Nutzungsart werden sie in metallhaltige (Erze von Schwarz- und Buntmetallen, von seltenen und Edelmetallen) und nichtmetallhaltige (chemische und Baurohstoffe) Ressourcen unterteilt.\n\nDie metallhaltigen mineralischen Ressourcen sind für die Entwicklung der Schwerindustrie von großer Bedeutung. Aus Eisenerz werden Schwarzmetalle hergestellt (Gusseisen, Stahl, Walzstahl), die Farbmetalle (Kupfer, Zink, Aluminium) dienen zur Herstellung von Maschinenteilen. Die Erzlagerstätten bilden Gürtel: Der Eisengürtel umfasst Brasilien, Indien, westafrikanische Länder u.a. Der „Kupfergürtel\" erstreckt sich entlang den Kordilleren und den Anden und umfasst Kanada, die USA, Mexiko und die Länder Zentralamerikas. In Europa umfasst dieser Gürtel Russland und Bulgarien und erstreckt sich weiter zu den Ländern des Nahen und des Mittleren Ostens, nach Indien, China u.a. Der „Zinngürtel\" verläuft an der Pazifischen Küste Asiens und Australiens. Große Vorräte an Bauxiten befinden sich in Australien, Russland, Brasilien, Jamaika, Surinam, Guyana u.a.\n\nDie meistverbreiteten nicht metallhaltigen Mineralien sind das Steinsalz und das Kaliumsalz (Russland, die USA. Kanada), die Phosphorite (die USA, Russland, Algerien, Marokko), der Schwefel (Mexiko, Russland) u.a.\n\n<strong>3 Klimatische Ressourcen</strong>\n\nKlimatische Ressourcen nennt man jene Eigenschaften des Klimas, die wirtschaftlich genutzt werden können (Sonnen- und Windenergie, Niederschläge usw.). Die klimatischen Ressourcen sind unerschöpflich. Die größte Menge Sonnenenergie erhalten die Territorien zwischen den zwei Wendekreisen und die Länder mit der längsten Sonnenstrahlung: Israel, Australien, die USA (Kalifornien. Florida) u.a. Die Windenergie ist eine unerschöpfliche, kostengünstige und umweltfreundliche Naturressource. Meist wird sie an den Küsten (der Nord- und Ostsee u.a.) aufgrund der beständigen und starken Winde gewonnen.\n\nDie Eigenschaften des Klimas, die für die Agrarwirtschaft von Bedeutung sind, werden als agroklimatische Ressourcen bezeichnet: die Sonnenstrahlung, die Niederschlagsmengen und-verteilung, die Schneedecke usw.\n\n<strong>4 Wasserressourcen</strong>\n\nDie Wasserressourcen sind alle Gewässer in der Hydrosphäre, die für die Menschen zugänglich und nutzbar sind. Hochwertige Quellen frischen Wassers sind die Flüsse, die Seen und ein Teil der unterirdischen Gewässer. Die Wasserressourcen sind auf der Erde jedoch sehr unregelmäßig verteilt. In Nordafrika, Mittelasien und im Nahen Osten ist das Wasser knapp, während es in den Regionen mit Äquatorial-und Subpolarklima im Überschuss vorhanden ist.\n\nEtwa 34% der Bodenressourcen sichern 98% der Lebensmittel. Sie befinden sich vorwiegend in den bewaldeten Gebieten, in den Waldsteppen und in den Steppen. Die übrigen Territorien sind für landwirtschaftliche Nutzung ungeeignet.\n\n<strong>5 Biogene Ressourcen</strong>\n\nZu den biogenen Ressourcen gehören die pflanz-lichen und die tierischen Organismen auf dem Festland und im Weltmeer. Die größte Bedeutung unter den pflanzlichen Ressourcen haben die Waldressourcen. Die größten Waldgebiete befinden sich in Asien, Südamerika, Nordamerika; die wenigsten Wälder gibt es in Australien.\n\nEin Teil der biologischen Ressourcen sind die Fische. Etwa 90% des weltweiten Fischfangs sind im Pazifischen und Atlantischen Ozean konzentriert.",
+  "sentences": [
+    {
+      "text": "<strong>1 Energetische Ressourcen</strong>",
+      "translation": "<strong>1 Енергийни ресурси</strong>"
+    },
+    {
+      "text": "Die energetischen Ressourcen unterliegen ständiger Veränderung in der Menschheitsgeschichte. Im 19. Jahrhundert waren die fossilen Brennstoffe (Kohle, Erdöl, Erdgas) die wichtigsten Energiequellen. Im 20. Jahrhundert stieg der Verbrauch dieser Ressourcen an und führte zur Suche nach alternativen Energiequellen und zur Energiesparpolitik. Vgl. (Abb. 1) und (Abb. 2).",
+      "translation": "Енергийните ресурси са подложени на постоянни промени в историята на човечеството. През 19. век най-важните източници на енергия бяха изкопаемите горива (въглища, нефт, природен газ). През 20. век потреблението от тези ресурси нараства и доведе до търсене на алтернативни източници на енергия и политика за спестяване на енергия. Виж (Abb. 1) и (Abb. 2)."
+    },
+    {
+      "text": "Die Kohlevorräte betragen weltweit etwa 909 Milliarden Tonnen, die angesichts der gegenwärtigen Förderung den Bedarf für noch circa 155 Jahre decken könnten. Die größten Kohlevorräte befinden sich in Russland, China, den USA, Australien, Südafrika u.a.",
+      "translation": "Световните запаси от въглища възлизат на около 909 милиарда тона, които при сегашния добив могат да покрият нуждите за още около 155 години. Най-големите запаси от въглища се намират в Русия, Китай, САЩ, Австралия, Южна Африка и др."
+    },
+    {
+      "text": "Auf der Erde existieren über 600 erforschte Erdöl- und Erdgasvorkommen. (Gewöhnlich kommen Erdöl und Erdgas zusammen vor.) Etwa 450 davon werden ausgebeutet. Die größten Erdölvorräte befinden sich in Russland, den USA, den Ländern des Persischen Golfs, den Ländern Nordafrikas usw. Die größten Mengen Erdgas besitzen die Länder Russland, die USA, Kanada, Algerien, der Iran, Großbritannien, Norwegen u.a. Die größten Vorräte an Uranerz sind in Russland, den USA, Kanada, Australien, Brasilien u.a.",
+      "translation": "На Земята съществуват над 600 проучени находища на нефт и природен газ. (Обикновено нефтът и природният газ се срещат заедно.) Около 450 от тях се експлоатират. Най-големите запаси от нефт са в Русия, САЩ, страните от Персийския залив, страните от Северна Африка и др. Най-големите количества природен газ притежават Русия, САЩ, Канада, Алжир, Иран, Великобритания, Норвегия и др. Най-големите запаси от уранова руда са в Русия, САЩ, Канада, Австралия, Бразилия и др."
+    },
+    {
+      "text": "<strong>2 Mineralische Ressourcen</strong>",
+      "translation": "<strong>2 Минерални ресурси</strong>"
+    },
+    {
+      "text": "Weltweit werden über 200 Arten mineralischer Rohstoffe genutzt. Nach der Nutzungsart werden sie in metallhaltige (Erze von Schwarz- und Buntmetallen, von seltenen und Edelmetallen) und nichtmetallhaltige (chemische und Baurohstoffe) Ressourcen unterteilt.",
+      "translation": "По света се използват над 200 вида минерални суровини. Според вида на използване те се делят на металносъдържащи (руди от черни и цветни метали, от редки и благородни метали) и неметалносъдържащи (химически и строителни суровини) ресурси."
+    },
+    {
+      "text": "Die metallhaltigen mineralischen Ressourcen sind für die Entwicklung der Schwerindustrie von großer Bedeutung. Aus Eisenerz werden Schwarzmetalle hergestellt (Gusseisen, Stahl, Walzstahl), die Farbmetalle (Kupfer, Zink, Aluminium) dienen zur Herstellung von Maschinenteilen.",
+      "translation": "Металносъдържащите минерални ресурси са от голямо значение за развитието на тежката промишленост. От железна руда се произвеждат черни метали (чугун, стомана, валцована стомана), цветните метали (мед, цинк, алуминий) служат за производство на машинни части."
+    },
+    {
+      "text": "Die Erzlagerstätten bilden Gürtel: Der Eisengürtel umfasst Brasilien, Indien, westafrikanische Länder u.a. Der „Kupfergürtel\" erstreckt sich entlang den Kordilleren und den Anden und umfasst Kanada, die USA, Mexiko und die Länder Zentralamerikas. In Europa umfasst dieser Gürtel Russland und Bulgarien und erstreckt sich weiter zu den Ländern des Nahen und des Mittleren Ostens, nach Indien, China u.a. Der „Zinngürtel\" verläuft an der Pazifischen Küste Asiens und Australiens. Große Vorräte an Bauxiten befinden sich in Australien, Russland, Brasilien, Jamaika, Surinam, Guyana u.a.",
+      "translation": "Рудните находища образуват пояси: Железният пояс обхваща Бразилия, Индия, западноафрикански страни и др. „Медният пояс\" се простира по Кордилерите и Андите и обхваща Канада, САЩ, Мексико и страните от Централна Америка. В Европа този пояс обхваща Русия и България и се простира до страните от Близкия и Средния изток, до Индия, Китай и др. „Калаеният пояс\" минава по тихоокеанското крайбрежие на Азия и Австралия. Големи запаси от боксити се намират в Австралия, Русия, Бразилия, Ямайка, Суринам, Гвиана и др."
+    },
+    {
+      "text": "Die meistverbreiteten nicht metallhaltigen Mineralien sind das Steinsalz und das Kaliumsalz (Russland, die USA. Kanada), die Phosphorite (die USA, Russland, Algerien, Marokko), der Schwefel (Mexiko, Russland) u.a.",
+      "translation": "Най-разпространените неметални минерали са каменната сол и калиевата сол (Русия, САЩ, Канада), фосфатите (САЩ, Русия, Алжир, Мароко), сярата (Мексико, Русия) и др."
+    },
+    {
+      "text": "<strong>3 Klimatische Ressourcen</strong>",
+      "translation": "<strong>3 Климатични ресурси</strong>"
+    },
+    {
+      "text": "Klimatische Ressourcen nennt man jene Eigenschaften des Klimas, die wirtschaftlich genutzt werden können (Sonnen- und Windenergie, Niederschläge usw.). Die klimatischen Ressourcen sind unerschöpflich.",
+      "translation": "Климатични ресурси се наричат онези свойства на климата, които могат да се използват икономически (слънчева и вятърна енергия, валежи и т.н.). Климатичните ресурси са неизчерпаеми."
+    },
+    {
+      "text": "Die größte Menge Sonnenenergie erhalten die Territorien zwischen den zwei Wendekreisen und die Länder mit der längsten Sonnenstrahlung: Israel, Australien, die USA (Kalifornien. Florida) u.a. Die Windenergie ist eine unerschöpfliche, kostengünstige und umweltfreundliche Naturressource. Meist wird sie an den Küsten (der Nord- und Ostsee u.a.) aufgrund der beständigen und starken Winde gewonnen.",
+      "translation": "Най-голямо количество слънчева енергия получават териториите между двата тропика и страните с най-продължително слънчево греене: Израел, Австралия, САЩ (Калифорния, Флорида) и др. Вятърната енергия е неизчерпаем, евтин и екологично чист природен ресурс. Най-често се добива по крайбрежията (на Северно и Балтийско море и др.) поради постоянните и силни ветрове."
+    },
+    {
+      "text": "Die Eigenschaften des Klimas, die für die Agrarwirtschaft von Bedeutung sind, werden als agroklimatische Ressourcen bezeichnet: die Sonnenstrahlung, die Niederschlagsmengen und-verteilung, die Schneedecke usw.",
+      "translation": "Свойствата на климата, които са от значение за селското стопанство, се наричат агроклиматични ресурси: слънчевото греене, количеството и разпределението на валежите, снежната покривка и т.н."
+    },
+    {
+      "text": "<strong>4 Wasserressourcen</strong>",
+      "translation": "<strong>4 Водни ресурси</strong>"
+    },
+    {
+      "text": "Die Wasserressourcen sind alle Gewässer in der Hydrosphäre, die für die Menschen zugänglich und nutzbar sind. Hochwertige Quellen frischen Wassers sind die Flüsse, die Seen und ein Teil der unterirdischen Gewässer. Die Wasserressourcen sind auf der Erde jedoch sehr unregelmäßig verteilt. In Nordafrika, Mittelasien und im Nahen Osten ist das Wasser knapp, während es in den Regionen mit Äquatorial-und Subpolarklima im Überschuss vorhanden ist.",
+      "translation": "Водните ресурси са всички водни басейни в хидросферата, които са достъпни и използваеми за хората. Висококачествени източници на прясна вода са реките, езерата и част от подземните води. Водните ресурси обаче са много неравномерно разпределени по Земята. В Северна Африка, Средна Азия и Близкия изток водата е оскъдна, докато в регионите с екваториален и субполярен климат тя е в излишък."
+    },
+    {
+      "text": "Etwa 34% der Bodenressourcen sichern 98% der Lebensmittel. Sie befinden sich vorwiegend in den bewaldeten Gebieten, in den Waldsteppen und in den Steppen. Die übrigen Territorien sind für landwirtschaftliche Nutzung ungeeignet.",
+      "translation": "Около 34% от почвените ресурси осигуряват 98% от храните. Те се намират предимно в гористите райони, в лесостепите и степните. Останалите територии са непригодни за земеделско ползване."
+    },
+    {
+      "text": "<strong>5 Biogene Ressourcen</strong>",
+      "translation": "<strong>5 Биогенни ресурси</strong>"
+    },
+    {
+      "text": "Zu den biogenen Ressourcen gehören die pflanz-lichen und die tierischen Organismen auf dem Festland und im Weltmeer. Die größte Bedeutung unter den pflanzlichen Ressourcen haben die Waldressourcen. Die größten Waldgebiete befinden sich in Asien, Südamerika, Nordamerika; die wenigsten Wälder gibt es in Australien.",
+      "translation": "Към биогенните ресурси принадлежат растителните и животинските организми на сушата и в световния океан. Най-голямо значение сред растителните ресурси имат горските ресурси. Най-големите горски площи са в Азия, Южна Америка, Северна Америка; най-малко гори има в Австралия."
+    },
+    {
+      "text": "Ein Teil der biologischen Ressourcen sind die Fische. Etwa 90% des weltweiten Fischfangs sind im Pazifischen und Atlantischen Ozean konzentriert.",
+      "translation": "Част от биологическите ресурси са рибите. Около 90% от световния улов на риба са концентрирани в Тихия и Атлантическия океан."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "1. Verbinden Sie die Ländergruppen mit den Rohstoffen.",
+      "titleBg": "1. Свържете групите страни с суровините.",
+      "type": "matching",
+      "leftLabel": "Ländergruppen",
+      "rightLabel": "Rohstoffe",
+      "leftItems": [
+        {
+          "id": "lg1",
+          "text": "Russland, die USA, Kanada, Algerien, der Iran, Großbritannien, Norwegen, die Niederlande",
+          "textBg": "Русия, САЩ, Канада, Алжир, Иран, Великобритания, Норвегия, Нидерландия"
+        },
+        {
+          "id": "lg2",
+          "text": "Russland, die USA, die Länder des Persischen Golfs, Nigeria, Venezuela",
+          "textBg": "Русия, САЩ, страните от Персийския залив, Нигерия, Венецуела"
+        },
+        {
+          "id": "lg3",
+          "text": "Russland, die USA, China, Australien, Südafrika, Großbritannien, Deutschland, Polen, Indien",
+          "textBg": "Русия, САЩ, Китай, Австралия, Южна Африка, Великобритания, Германия, Полша, Индия"
+        },
+        {
+          "id": "lg4",
+          "text": "Russland, die Länder Nordamerikas, Brasilien, Australien",
+          "textBg": "Русия, страните от Северна Америка, Бразилия, Австралия"
+        }
+      ],
+      "rightItems": [
+        {
+          "id": 1,
+          "text": "Erdöl",
+          "textBg": "нефт"
+        },
+        {
+          "id": 2,
+          "text": "Kohle",
+          "textBg": "въглища"
+        },
+        {
+          "id": 3,
+          "text": "Erdgas",
+          "textBg": "природен газ"
+        },
+        {
+          "id": 4,
+          "text": "Uranerz",
+          "textBg": "уранова руда"
+        }
+      ],
+      "correctPairs": [
+        {
+          "leftId": "lg1",
+          "rightIds": [
+            3
+          ]
+        },
+        {
+          "leftId": "lg2",
+          "rightIds": [
+            1
+          ]
+        },
+        {
+          "leftId": "lg3",
+          "rightIds": [
+            2
+          ]
+        },
+        {
+          "leftId": "lg4",
+          "rightIds": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. Mineralische Ressourcen. Markieren Sie die richtige Aussage.",
+      "titleBg": "2. Минерални ресурси. Отбележете правилното твърдение.",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Mineralische Ressourcen. Markieren Sie die richtige Aussage.",
+          "questionBg": "Минерални ресурси. Отбележете правилното твърдение.",
+          "options": [
+            {
+              "id": "A",
+              "text": "Der „Eisengürtel\" umfasst Australien, Russland, China, Jamaika, Surinam, Guyana und andere Länder.",
+              "textBg": "„Железният пояс\" обхваща Австралия, Русия, Китай, Ямайка, Суринам, Гвиана и други страни.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Wegen ihrer bedeutenden Vorräte an Kupfererzen gehören Kanada, die USA, die Länder Zentralamerikas, Russland, Bulgarien, Indien und China zum sog. „Kupfergürtel\".",
+              "textBg": "Поради значителните запаси от медни руди Канада, САЩ, страните от Централна Америка, Русия, България, Индия и Китай принадлежат към т.нар. „меден пояс\".",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Reich an Zinnerzen sind Brasilien, Indien und viele Länder in Westafrika.",
+              "textBg": "Богати на калаени руди са Бразилия, Индия и много страни в Западна Африка.",
+              "correct": false
+            },
+            {
+              "id": "D",
+              "text": "Große Vorräte an Bauxiten befinden sich in Australien, in der Demokratischen Republik Kongo, in der Ukraine, in Algerien, Tunesien, Marokko, Mexiko u.a.",
+              "textBg": "Големи запаси от боксити се намират в Австралия, ДР Конго, Украйна, Алжир, Тунис, Мароко, Мексико и др.",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. Welche der auf der Karte mit Ziffern gekennzeichneten Territorien verfügen über geringe Bodenressourcen?",
+      "titleBg": "3. Кои от отбелязаните с цифри на картата територии разполагат с малко почвени ресурси?",
+      "type": "question",
+      "answer": "Territorien mit geringen Bodenressourcen sind typischerweise: kalte Zonen (z. B. 2 – Nordkanada/Grönland, 4 – Skandinavien, 6 – Nordsibirien, 10 – Antarktis), Trockengebiete und Wüsten (z. B. 5 – Zentralaustralien, 7 – Zentralasien), Hochgebirge (z. B. 3 – Anden). Mögliche Antwort: 2, 3, 4, 5, 6, 7, 10.",
+      "answerBg": "Териториите с малко почвени ресурси обикновено са: студени зони (напр. 2 – Северна Канада/Гренландия, 4 – Скандинавия, 6 – Северна Сибир, 10 – Антарктида), сухи области и пустини (напр. 5 – Централна Австралия, 7 – Централна Азия), планински райони (напр. 3 – Анди). Възможен отговор: 2, 3, 4, 5, 6, 7, 10."
+    }
+  ]
+}

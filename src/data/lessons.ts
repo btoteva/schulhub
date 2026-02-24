@@ -118,6 +118,7 @@ import lesson3_1 from "./lessons/3-1.json";
 import lesson3_2 from "./lessons/3-2.json";
 import lesson3_3 from "./lessons/3-3.json";
 import lesson3_4 from "./lessons/3-4.json";
+import lesson3_5 from "./lessons/3-5.json";
 import lesson5_7 from "./lessons/5-7.json";
 
 // Combine all lessons into a single array
@@ -137,6 +138,7 @@ export const lessonsData: LessonContent[] = [
   lesson3_2 as LessonContent,
   lesson3_3 as LessonContent,
   lesson3_4 as LessonContent,
+  lesson3_5 as LessonContent,
   lesson5_7 as LessonContent,
 ];
 
