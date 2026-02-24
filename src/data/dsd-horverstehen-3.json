@@ -1,0 +1,112 @@
+{
+  "id": "dsd1-horverstehen-3",
+  "title": "DSD I Modellsatz 3",
+  "titleBg": "DSD I Моделен тест 3",
+  "subtitle": "Hörverstehen Hörtexte",
+  "subtitleBg": "Текстове за слушане",
+  "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Ein Nachmittag in der Stadt",
+      "audioUrl": "https://www.dropbox.com/scl/fi/fgi11rtp1nb24vpbikkt1/3-01-Titel-1.mp3?rlkey=3dh3jgv4ohb18n3yh45389pmo&st=fn9nen0n&dl=1",
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen. Alle Szenen spielen an einem Nachmittag in der Stadt. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Welches Bild passt?",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "szenen": [
+          { "id": 1 },
+          { "id": 2 },
+          { "id": 3 },
+          { "id": 4 },
+          { "id": 5 }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Junge A", "text": "Oh, hier gibt's aber viele - und einer schöner als der andere." },
+            { "speaker": "Junge B", "text": "Mhm, jaa…" },
+            { "speaker": "Junge A", "text": "Guck mal, wie findest du den roten da?" },
+            { "speaker": "Junge B", "text": "Ja, schön, aber der sieht so schwer aus" },
+            { "speaker": "Junge A", "text": "Aber ich muss ihn doch nicht tragen, der hat Rollen. Und der ist groß genug für meine Wanderschuhe…" },
+            { "speaker": "Junge B", "text": "... und deine dicke Jacke." },
+            { "speaker": "Junge A", "text": "Ok, den nehmen wir. Ich freu mich schon aufs Packen." },
+            { "speaker": "Junge B", "text": "Wie lange ist eigentlich dein Urlaub?" }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Junge A", "text": "He, Tim, nimm mal die Tüte, ich will meine Karte in die Tasche tun." },
+            { "speaker": "Junge B", "text": "Sag mal, hast du seit Tagen nix mehr zu Essen gekriegt?" },
+            { "speaker": "Junge A", "text": "Wieso? Hab' doch extra ne kleine Tüte genommen. Mhm...Wann fängt 'n der Film endlich an?" },
+            { "speaker": "Junge B", "text": "Erstmal kommt ja sowieso Werbung." },
+            { "speaker": "Junge A", "text": "Dann geh ich noch mal raus und hol mir noch ´nen Apfelsaft. Soll ich noch was mitbringen?" },
+            { "speaker": "Junge B", "text": "Nee, danke." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Mädchen A", "text": "Lisa, guck dir den mal an!" },
+            { "speaker": "Mädchen B", "text": "Ist der süß! Guck mal, die kleinen Augen! Und ganz weiß… nur das rechte Ohr ist schwarz." },
+            { "speaker": "Mädchen A", "text": "Ja, in den würd' ich mich verlieben. Den möcht' ich sofort mitnehmen." },
+            { "speaker": "Mädchen B", "text": "Das würden deine Eltern aber nicht erlauben." },
+            { "speaker": "Mädchen A", "text": "Ja, stimmt… Mein Vater ist mal von einem gebissen worden. Deshalb geht da gar nix." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Junge A", "text": "Puh, gut, dass wir das noch geschafft haben!" },
+            { "speaker": "Mädchen B", "text": "Ja, da bin ich auch froh. So sind wir schneller zu Hause." },
+            { "speaker": "Junge C", "text": "Und vor allem werden wir nicht so nass. Darauf hab´ ich nämlich überhaupt keine Lust." },
+            { "speaker": "Junge A", "text": "Stimmt. Außerdem bin ich nach dem vielen Laufen auch ziemlich kaputt." },
+            { "speaker": "Mädchen B", "text": "Ach, wir brauchen noch Fahrkarten." },
+            { "speaker": "Junge C", "text": "Bleibt sitzen, ich hol sie schon…" }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Mädchen A", "text": "He, wie wär's denn damit? Das könnten wir Maren mitbringen" },
+            { "speaker": "Mädchen B", "text": "Meinst du, das wär' das Richtige für sie?" },
+            { "speaker": "Mädchen A", "text": "Auf jeden Fall, das gefällt ihr total gut. Das wollte sie letzte Woche schon kaufen." },
+            { "speaker": "Mädchen B", "text": "Prima, dann lass uns das doch nehmen. Blau ist eine gute Farbe für sie." },
+            { "speaker": "Mädchen A", "text": "Ja, aber wie ist das mit der Größe? Passt das?" },
+            { "speaker": "Mädchen B", "text": "Du, Maren ist genau so groß wie ich." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Durchsagen in der Schule",
+      "audioUrl": "https://www.dropbox.com/scl/fi/nbeb6su9wgtpv85tcinin/3-02-Titel-2.mp3?rlkey=rfqqmgv699rjxthxf05a48xb5&st=tdfdthls&dl=1",
+      "aufgaben": [
+        {
+          "id": 6,
+          "text": "Ich bitte um Aufmerksamkeit für eine Durchsage: In der Aula liegt im Augenblick sehr viel Papier und Müll herum. Die Schüler der Klasse 10a, die in der letzten Stunde in der Aula waren, räumen bitte in der nächsten Pause dort wieder auf. Bitte achtet darauf, dass ihr die Aula immer ordentlich hinterlasst. Danke, Ende der Durchsage."
+        },
+        {
+          "id": 7,
+          "text": "Ich bitte um Aufmerksamkeit für eine Durchsage. An alle Basketballspieler: Unser Basketball-Trainer, Herr Ludwig, hat sich vor drei Tagen das Bein gebrochen und liegt jetzt im Krankenhaus. Deshalb fällt das Basketballtraining am Freitag leider aus. Also lasst Eure Sportsachen bitte zu Hause. Danke, Ende der Durchsage."
+        },
+        {
+          "id": 8,
+          "text": "Ich bitte um Aufmerksamkeit für eine Durchsage: Der Fahrradkeller ist wieder offen! Ab Montag dürfen die Fahrräder nicht mehr auf dem Schulhof stehen. Sie stören dort. Ich wiederhole: Ab Montag müssen die Fahrräder in den Keller. Fahrräder, die dann immer noch im Schulhof stehen, werden vom Hausmeister weggebracht. Danke, Ende der Durchsage."
+        },
+        {
+          "id": 9,
+          "text": "Ich bitte um Aufmerksamkeit für eine Durchsage: Alle Schülerinnen und Schüler, die an unserem Sportfest teilnehmen wollen, müssen sich anmelden. Das könnt ihr noch bis Ende dieser Woche im Sekretariat tun. Bei gutem Wetter findet das Fest nächste Woche im Stadtpark statt. Am Mittwochnachmittag bietet Herr Barth zur Vorbereitung ein Training an. Danke, Ende der Durchsage."
+        }
+      ]
+    }
+  ]
+}

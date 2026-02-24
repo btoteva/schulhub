@@ -1,0 +1,128 @@
+{
+  "id": "dsd1-modellsatz3",
+  "title": "DSD I Modellsatz 3",
+  "titleBg": "DSD I Моделен тест 3",
+  "subtitle": "Leseverstehen – Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast insgesamt 60 Minuten Zeit, um die fünf Teile zu bearbeiten. Danach hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext. Der Text hat vier Lücken (Aufgaben 1–4).\nSetze aus der Wortliste (A–G) das richtige Wort in jede Lücke ein.\nEinige Wörter bleiben übrig.",
+      "text": "Andreas Sandberg studiert Geschichte und Arabisch, kommt aus Schweden und ist 26 Jahre alt. Er **startet** (0) mit dem Flugzeug im winterlichen Stockholm und kommt in Köln bei starkem Regen an. Er ist auf dem Weg nach Ägypten. Aber in Köln erwartet ihn eine große Überraschung. Er ist der millionste Reisende dieses Jahres auf dem (1) ________ von Köln-Bonn. Der Flughafenchef Michael Garvens (2) ________ ihn herzlich und schenkt ihm zwei Flugtickets. Außerdem bekommt Andreas Sandberg einen Gutschein für das Dom-Hotel und eine (3) ________ zu einer Führung durch die Altstadt. Andreas Sandberg (4) ________ sich darüber sehr und nimmt die Einladung an. Nun fliegt er erst drei Tage später nach Ägypten weiter.",
+      "wordList": [
+        { "id": "Z", "word": "startet", "wordBg": "започва" },
+        { "id": "A", "word": "begrüßt", "wordBg": "поздравява" },
+        { "id": "B", "word": "Einladung", "wordBg": "покана" },
+        { "id": "C", "word": "Fahrkarte", "wordBg": "билет" },
+        { "id": "D", "word": "Flughafen", "wordBg": "летище" },
+        { "id": "E", "word": "Flugzeug", "wordBg": "самолет" },
+        { "id": "F", "word": "freut", "wordBg": "радва се" },
+        { "id": "G", "word": "gefällt", "wordBg": "харесва" },
+        { "id": "H", "word": "kauft", "wordBg": "купува" }
+      ],
+      "tasks": [
+        { "id": 1, "gap": 1, "correct": "D", "question": "Lücke 1" },
+        { "id": 2, "gap": 2, "correct": "A", "question": "Lücke 2" },
+        { "id": 3, "gap": 3, "correct": "B", "question": "Lücke 3" },
+        { "id": 4, "gap": 4, "correct": "F", "question": "Lücke 4" }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Welche Überschrift passt am besten zum Text? Kreuze an.",
+        "questionBg": "Коя заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          { "id": "A", "text": "Der millionste Fluggast", "correct": true },
+          { "id": "B", "text": "Ein glücklicher Student aus Köln", "correct": false },
+          { "id": "C", "text": "Ein neuer Stadtführer", "correct": false }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "titleBg": "Част 2",
+      "subtitle": "Wer macht mit?",
+      "intro": "Am Schwarzen Brett in der Schule hängen viele Anzeigen für die Schüler.\nLies die Aufgaben (6-9) und die Anzeigen (A-H).\nWelche Anzeige passt zu wem?\n**Schreibe den richtigen Buchstaben (A-H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6-9",
+      "optionsHeading": "Anzeigen A–H",
+      "summaries": [
+        { "id": 0, "text": "Beate hat eine neue Kamera. Sie möchte interessante Bilder machen.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Markus spielt schon Fußball, er möchte aber noch eine andere Sportart machen.", "correct": "B", "isExample": false },
+        { "id": 7, "text": "Christina hat sich einen neuen Computer gekauft. Sie hat aber keine Ahnung, wie man damit arbeitet.", "correct": "H", "isExample": false },
+        { "id": 8, "text": "Melanie hat eine gute Englischnote, aber sie möchte noch mehr Englisch sprechen.", "correct": "E", "isExample": false },
+        { "id": 9, "text": "Sonja findet ihre Schule nicht schön und möchte etwas dagegen tun.", "correct": "G", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Wer fotografiert gern? Langweilig – immer nur Fotos von der Familie und vom Geburtstag? Wir treffen uns und überlegen, was wir fotografieren wollen und wie man es am besten macht. Nächstes Treffen: Samstag 15.00 Uhr vor der Schule." },
+        { "id": "A", "text": "Film auf Englisch! Du lernst gern andere Sprachen? Unsere Gruppe trifft sich alle zwei Wochen und schaut englische Filme. Nächstes Treffen: Freitag um 14.00 Uhr." },
+        { "id": "B", "text": "Wir suchen dich! Du bist gern draußen, bewegst dich viel und bist gern mit vielen Leuten zusammen? Dann mach mit bei unserer neuen Lauf-Gruppe! Immer montags und mittwochs um 16.00 Uhr. Treffpunkt: der Wald hinter der Schule." },
+        { "id": "C", "text": "Wer malt und zeichnet gern? Du bist kreativ und kannst gut zeichnen? Wir wollen ein Poster für die Schule gestalten und alle Schulprojekte mit Bildern vorstellen. Treffpunkt: am Freitag um 16.00 Uhr im Kunstraum." },
+        { "id": "D", "text": "Lust auf Sport? Wir sind zehn Mädchen mit viel Spaß am Fußballspielen und suchen noch jemanden, der auch gern Fußball spielt. Kathrin: 0935/720891. Training immer dienstags um 18.00 Uhr in der Sporthalle." },
+        { "id": "E", "text": "Interesse an Theater? Wir suchen Schüler für ein englisches Theaterstück. Du sprichst gut Englisch und spielst gern Theater? Dann komm zu uns! Nächstes Treffen: Montag um 14.30 Uhr im Raum 205." },
+        { "id": "F", "text": "Computer-Spezialist gesucht! Du sitzt jeden Tag am Computer, hast gute Ideen und weißt, wie man eine Website macht? Wir brauchen Hilfe beim neuen Design der Schulwebsite. Treffen: Freitag um 14.00 Uhr im Computerraum." },
+        { "id": "G", "text": "Farbe für die Schule! Du findest die Schule zu langweilig? Hilf uns, sie schöner zu machen! Wir malen viele bunte Bilder an die Wände. Erstes Treffen: Donnerstag nach der 7. Stunde." },
+        { "id": "H", "text": "Computer-AG! Du weißt nicht, was dein Computer alles kann und wie er richtig funktioniert? Dann lern bei uns alles über den Computer! Jeden Donnerstag von 17.00 bis 19.00 Uhr im Computerraum." }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "titleBg": "Част 3",
+      "subtitle": "Kreativer Unterricht – Wo spielt die Musik?",
+      "intro": "Lies den Text und die Aufgaben (10-14).\nKreuze bei jeder Aufgabe an: richtig oder falsch?",
+      "text": "Wie kann man mehr über Musik lernen? „Wenn man selbst Musik macht\", sagt Paul Rolland, ein Wissenschaftler aus Amerika. Michael ist zwölf Jahre alt und findet den Musikunterricht viel lustiger als den normalen Unterricht. Er geht in eine „Musik-Klasse\". Das Programm dafür hat Rolland für amerikanische High Schools entwickelt.\n\nSeit einigen Jahren wird dieses Programm in einigen deutschen Schulen in der fünften und sechsten Klasse getestet. Michael und seine 28 Mitschüler haben zweimal in der Woche eine Stunde Unterricht mit verschiedenen Instrumenten. Ein Musiklehrer und eine Kollegin von der Musikschule arbeiten dabei im Team.\n\nSchon von der ersten Stunde an in der fünften Klasse spielen die Schüler in einem Orchester und machen ihre eigenen Erfahrungen. Jan findet den Musikunterricht entspannend, fast wie Freizeit. Sven, der gleich alt ist, hört gern klassische Musik, seit er Geige spielt. Die Schüler entwickeln ein besseres Gehör, bessere Konzentration und Aufmerksamkeit für die Mitschüler und lernen, mit den Instrumenten vorsichtig umzugehen.\n\nDie Musik-Klasse zeigt regelmäßig, was sie gelernt hat – vor Mitschülern, Lehrern und Eltern. Lukas sagt stolz, seine Familie komme immer. Michael findet diese Auftritte wichtiger als Fußballspiele, weil sie etwas Besonderes sind. Dafür üben die Schüler auch freiwillig zu Hause. Ab der siebten Klasse haben sie wieder normalen Musikunterricht, und die meisten wollen danach in einer privaten Musikschule weitermachen.",
+      "tasks": [
+        { "id": 10, "statement": "Wer selbst ein Instrument spielt, versteht Musik besser.", "correct": "richtig" },
+        { "id": 11, "statement": "Die Musik-Klasse trifft sich an drei Stunden pro Woche.", "correct": "falsch" },
+        { "id": 12, "statement": "Den Musikunterricht geben zwei Lehrerinnen zusammen.", "correct": "richtig" },
+        { "id": 13, "statement": "Die Musik-Klassen haben viele positive Effekte.", "correct": "richtig" },
+        { "id": 14, "statement": "Nach der sechsten Klasse haben die Schüler Musikunterricht an einer privaten Musikschule.", "correct": "falsch" }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "subtitle": "Ein Schuljahr in Australien",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Nach einem halben Schuljahr an einer Privatschule in England wollte ich eigentlich zurück nach Deutschland. Eine Woche bevor die Schule wieder anfing, fand ich im Internet ein interessantes Schüleraustausch-Programm nach Australien.\n\nMeine Mutter rief bei der Organisation an, um mehr zu erfahren. Man sagte ihr, dass das Schuljahr in Australien schon etwa eine Woche früher begonnen hatte. Wir entschieden, dass ich sofort fliegen sollte, um nicht zu viel vom Schuljahr zu verpassen.\n\nDer Flug war lang (21 Stunden), und ich war so aufgeregt, dass ich kaum schlafen konnte. In Australien holte mich eine Mitarbeiterin der Schule vom Flughafen ab und brachte mich zu meinem Zimmer im Internat. Es war Vormittag, die anderen Schüler waren in der Schule, und ich hatte Zeit zum Auspacken. Am Nachmittag lernte ich meine zukünftigen Mitschüler kennen und fand neue Freunde.\n\nDer Stundenplan in Australien ist anders als das, was ich gewohnt war. Die Schule beginnt um 8.30 Uhr – so hat man genug Zeit für ein gemeinsames Frühstück vorher. Mittwochs ist früher Schluss – für das Basketballtraining. Die Schule bietet eine lange Liste von Freizeitaktivitäten an.\n\nZurzeit sind 43 Schüler aus verschiedenen Ländern hier. Das Leben mit vielen verschiedenen Kulturen ist nicht immer einfach, aber es macht Spaß und man kann viel lernen. Ich finde, meine Zeit in Australien war besonders wertvoll, mein Englisch hat sich stark verbessert, und ich habe neue Erfahrungen gemacht und neue Kulturen kennengelernt.",
+      "questions": [
+        { "id": 15, "question": "Katja flog schnell nach Australien, weil", "options": [ { "id": "A", "text": "es der Wunsch ihrer Mutter war.", "correct": false }, { "id": "B", "text": "der Unterricht dort schon begonnen hatte.", "correct": true }, { "id": "C", "text": "die Organisation es verlangt hatte.", "correct": false } ] },
+        { "id": 16, "question": "Nach ihrer Ankunft fuhr Katja zuerst", "options": [ { "id": "A", "text": "zu einer Mitarbeiterin der Schule.", "correct": false }, { "id": "B", "text": "zu ihrem neuen Zuhause.", "correct": true }, { "id": "C", "text": "zum Schulgebäude.", "correct": false } ] },
+        { "id": 17, "question": "Katja hat ihre neuen Mitschüler", "options": [ { "id": "A", "text": "am Ankunftstag kennen gelernt.", "correct": true }, { "id": "B", "text": "am Abend kennen gelernt.", "correct": false }, { "id": "C", "text": "am nächsten Nachmittag kennen gelernt.", "correct": false } ] },
+        { "id": 18, "question": "Katja hat die Schule gefallen, weil", "options": [ { "id": "A", "text": "der Stundenplan wie in Deutschland war.", "correct": false }, { "id": "B", "text": "der Unterricht später anfing.", "correct": true }, { "id": "C", "text": "die Unterrichtszeit nicht so lange war.", "correct": false } ] },
+        { "id": 19, "question": "Einmal in der Woche ist die Schule früher zu Ende, weil die Schüler", "options": [ { "id": "A", "text": "Freizeit haben.", "correct": false }, { "id": "B", "text": "Hausaufgaben machen.", "correct": false }, { "id": "C", "text": "Sport treiben.", "correct": true } ] },
+        { "id": 20, "question": "Katja fand das Jahr in Australien", "options": [ { "id": "A", "text": "interessant.", "correct": true }, { "id": "B", "text": "schwierig.", "correct": false }, { "id": "C", "text": "sehr einfach.", "correct": false } ] }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "titleBg": "Част 5",
+      "subtitle": "Welche Überschrift passt?",
+      "intro": "Lies die Texte 21-24 und die Überschriften A-H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A-H) in die rechte Spalte.\nVier Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 21-24",
+      "summaries": [
+        { "id": 0, "text": "Die Aktion „Fahr Rad!\" vom Allgemeinen Deutschen Fahrradclub will Schüler und Erwachsene dazu bringen, mit dem Fahrrad zur Schule oder zur Arbeit zu fahren und in der Freizeit Rad zu fahren. Das ist gut für die Umwelt und für die Gesundheit.", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "Christoph Schneider war mit elf Jahren von einer Ölkatastrophe betroffen. Heute ist er 18 und betreibt eine Website zum Umweltschutz. Dafür hat er schon Preise bekommen. Von dem Preisgeld hat er sich einen Laptop gekauft. Werbung auf seiner Website lehnt er ab.", "correct": "A", "isExample": false },
+        { "id": 22, "text": "Die Kinder- und Jugendorganisation „Bekik\" hat in den Herbstferien ein Filmprojekt gemacht. 13 Jugendliche aus verschiedenen Ländern zwischen 14 und 18 Jahren haben das Drehbuch geschrieben, gefilmt und selbst gespielt. Der Film wurde im Jugendzentrum vorgestellt und mit langem Applaus bedacht. Am Ende gab es eine DVD.", "correct": "C", "isExample": false },
+        { "id": 23, "text": "Dominik ist 17 Jahre alt und arbeitet als DJ, wenn die Disco voll ist und die Stimmung gut. Früher war das nur ein Hobby, heute verdient er damit Geld. Am liebsten mag er es, wenn die Leute zu seiner Musik tanzen.", "correct": "F", "isExample": false },
+        { "id": 24, "text": "Ariane war früher die Klassenclownin. Ihr Direktor schlug ihr vor, zum Fernsehen zu gehen. Heute ist sie 20 und hat ihre eigene wöchentliche Sendung. Sie weiß noch nicht, was sie später machen will – vielleicht Schauspielerin werden oder studieren.", "correct": "D", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Mehr Sport statt Autos" },
+        { "id": "A", "text": "Jugendlicher kämpft für Umweltschutz" },
+        { "id": "B", "text": "17-Jähriger DJ hört mit der Schule auf" },
+        { "id": "C", "text": "Filmpremiere ist erfolgreich" },
+        { "id": "D", "text": "Von der Schule vor die Kamera" },
+        { "id": "E", "text": "Schüler gewinnt mit Musik-Website Laptop" },
+        { "id": "F", "text": "Wenn andere feiern, arbeitet er" },
+        { "id": "G", "text": "Fernsehmoderatorin macht Abitur nach" },
+        { "id": "H", "text": "13 Jugendliche für Filmprojekt gesucht" }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,7 @@ type TestItem = {
 
 const MODELLSATZ_1_IDS = ["1", "2", "3"];
 const MODELLSATZ_2_IDS = ["4", "5", "6"];
+const MODELLSATZ_3_IDS = ["7", "8"];
 
 const MODELLSATZ_1_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "1": FaClipboardList,
@@ -29,15 +30,24 @@ const MODELLSATZ_2_ICONS: Record<string, React.ComponentType<{ className?: strin
   "6": FaPenFancy,
 };
 
+const MODELLSATZ_3_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  "7": FaClipboardList,
+  "8": FaHeadphones,
+};
+
 const DSDTestsList: React.FC = () => {
   const { language } = useLanguage();
   const navigate = useNavigate();
   const [modellsatz1Open, setModellsatz1Open] = useState(false);
   const [modellsatz2Open, setModellsatz2Open] = useState(false);
+  const [modellsatz3Open, setModellsatz3Open] = useState(false);
   const tests = testsListData as TestItem[];
   const modellsatz1Tests = tests.filter((t) => MODELLSATZ_1_IDS.includes(t.id));
   const modellsatz2Tests = tests.filter((t) => MODELLSATZ_2_IDS.includes(t.id));
-  const otherTests = tests.filter((t) => !MODELLSATZ_1_IDS.includes(t.id) && !MODELLSATZ_2_IDS.includes(t.id));
+  const modellsatz3Tests = tests.filter((t) => MODELLSATZ_3_IDS.includes(t.id));
+  const otherTests = tests.filter(
+    (t) => !MODELLSATZ_1_IDS.includes(t.id) && !MODELLSATZ_2_IDS.includes(t.id) && !MODELLSATZ_3_IDS.includes(t.id)
+  );
 
   const renderTestLink = (test: TestItem, iconComponent?: React.ComponentType<{ className?: string }>) => {
     const Icon = iconComponent ?? FaFileAlt;
@@ -179,6 +189,41 @@ const DSDTestsList: React.FC = () => {
                 <div className="px-4 pb-4 pt-0 space-y-2 border-t border-amber-500/20">
                   {modellsatz2Tests.map((test) => (
                     <div key={test.id}>{renderTestLink(test, MODELLSATZ_2_ICONS[test.id])}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </li>
+          <li>
+            <div className="rounded-xl border border-amber-500/30 bg-gray-800/50 overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setModellsatz3Open((open) => !open)}
+                className="flex items-center gap-4 w-full p-6 text-left hover:bg-gray-800/70 transition-colors"
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-600/80 flex items-center justify-center overflow-hidden">
+                  <img src="https://i.imgur.com/tf1QyRC.png" alt="" className="w-full h-full object-contain p-1" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-xl font-bold text-white">
+                    {language === "bg" ? "DSD I Моделен тест 3" : "DSD I Modellsatz 3"}
+                  </h2>
+                  <p className="text-gray-400 text-sm mt-1">
+                    {language === "bg"
+                      ? "Части от един изпит: Leseverstehen, Hörverstehen, Schriftliche Kommunikation"
+                      : language === "de"
+                        ? "Teile einer Prüfung: Leseverstehen, Hörverstehen, Schriftliche Kommunikation"
+                        : "Parts of one exam: Reading, Listening, Written communication"}
+                  </p>
+                </div>
+                <span className="flex-shrink-0 text-amber-400">
+                  {modellsatz3Open ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
+                </span>
+              </button>
+              {modellsatz3Open && (
+                <div className="px-4 pb-4 pt-0 space-y-2 border-t border-amber-500/20">
+                  {modellsatz3Tests.map((test) => (
+                    <div key={test.id}>{renderTestLink(test, MODELLSATZ_3_ICONS[test.id])}</div>
                   ))}
                 </div>
               )}

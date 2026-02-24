@@ -243,113 +243,7 @@
       "title": "Teil 3",
       "subtitle": "Mit dem Fahrrad quer durch China",
       "audioUrl": "https://www.dropbox.com/scl/fi/phdfmxlz1zz03wuhbsha8/Teil-3.mp3?rlkey=s34c7asdx6aiw526x3710pp5f&st=26adeq41&dl=1",
-      "intro": "Der Geografielehrer Michael Brühl ist mit seinem Fahrrad in 100 Tagen 5.600 km quer durch ganz China gefahren. Nach seiner Rückkehr wurde er von einem Schülerredakteur interviewt.",
-      "scenes": [
-        {
-          "id": 1,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Hallo Herr Brühl, 5600 km – das klingt nach einem langen Weg. War es denn eine sehr anstrengende Reise?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Klar! Vor allem körperlich bin ich manchmal an meine Grenze gekommen. Zu den weiten Strecken kam auch noch die Höhe von 2.000 Metern hinzu, in der ich mit meinem 55 Kilo schweren Fahrrad unterwegs war. Mit der Zeit wurde meine Kondition zwar immer besser, aber es war auch aus anderen Gründen anstrengend."
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Was meinen Sie denn genau damit?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Also, es war sehr schwierig, weil ich kein Chinesisch spreche und die meisten Chinesen wiederum kein Englisch sprechen. Manchmal hab' ich also mehrere Wochen niemanden getroffen, mit dem ich mich unterhalten konnte. Anstrengend war auch, dass viele Straßen im Moment neu gebaut werden. Das hieß für mich, dass ich auf einer 500 km langen Baustelle an Tausenden von neugierigen Arbeitern vorbeifuhr."
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Waren die Chinesen denn nicht nett?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Doch, doch, im persönlichen Kontakt waren sie immer freundlich. Ich war für sie vielleicht so etwas wie ein „exotischer Vogel\", den sie noch nie gesehen haben."
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Haben Sie auch gefährliche Situationen erlebt?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Jaa, schon. Die freilaufenden Hunde in Tibet zum Beispiel können richtig gefährlich sein. Manchmal sind die Hunde auf mich losgerannt und haben wie wild gebellt. Ich wollte meine Route schon ändern, aber dann hatte ich die Idee mit den Regenschirmen."
-            }
-          ]
-        },
-        {
-          "id": 5,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "„Regenschirme\"?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "<lacht> Ja! Ich hab' zwei Regenschirme gekauft. Ich hab' sie geöffnet und an meinem Fahrrad festgemacht. Damit hatte ich großen Erfolg, denn die Hunde kamen tatsächlich nicht mehr an mich ran. Die meisten von ihnen blieben sogar ängstlich am Straßenrand sitzen."
-            }
-          ]
-        },
-        {
-          "id": 6,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Und war es für Sie sonst nie gefährlich in China?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Naja, der Verkehr in China ist manchmal schon sehr gefährlich. Viele Leute fahren so schnell wie möglich und achten nicht auf Fahrradfahrer. Die Lastwagenfahrer haben es oft eilig und hupen, wenn jemand zu langsam fährt."
-            }
-          ]
-        },
-        {
-          "id": 7,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Aha. Was hat Ihnen denn nun am besten in China gefallen?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Also, landschaftlich war das Bergland wunderbar. Auch die Bevölkerung im flachen Süden Chinas mit ihren bunten Kleidern werde ich nie vergessen."
-            }
-          ]
-        },
-        {
-          "id": 8,
-          "lines": [
-            {
-              "speaker": "Interviewer",
-              "text": "Können Sie China als Reiseland empfehlen?"
-            },
-            {
-              "speaker": "Michael Brühl",
-              "text": "Ja klar, unbedingt! Aber ich würde das nächste Mal nicht mit dem Fahrrad, sondern lieber in einer größeren Gruppe mit einem Touristenführer reisen."
-            }
-          ]
-        }
-      ],
+      "content": "Der Geografielehrer Michael Brühl ist mit seinem Fahrrad in 100 Tagen 5.600 km quer durch ganz China gefahren. Nach seiner Rückkehr wurde er von einem Schülerredakteur interviewt.\n\nHallo Herr Brühl, 5600 km – das klingt nach einem langen Weg. War es denn eine sehr anstrengende Reise?\nKlar! Vor allem körperlich bin ich manchmal an meine Grenze gekommen. Zu den weiten Strecken kam auch noch die Höhe von 2.000 Metern hinzu, in der ich mit meinem 55 Kilo schweren Fahrrad unterwegs war. Mit der Zeit wurde meine Kondition zwar immer besser, aber es war auch aus anderen Gründen anstrengend.\n\nWas meinen Sie denn genau damit?\nAlso, es war sehr schwierig, weil ich kein Chinesisch spreche und die meisten Chinesen wiederum kein Englisch sprechen. Manchmal hab' ich also mehrere Wochen niemanden getroffen, mit dem ich mich unterhalten konnte. Anstrengend war auch, dass viele Straßen im Moment neu gebaut werden. Das hieß für mich, dass ich auf einer 500 km langen Baustelle an Tausenden von neugierigen Arbeitern vorbeifuhr.\n\nWaren die Chinesen denn nicht nett?\nDoch, doch, im persönlichen Kontakt waren sie immer freundlich. Ich war für sie vielleicht so etwas wie ein „exotischer Vogel“, den sie noch nie gesehen haben.\n\nHaben Sie auch gefährliche Situationen erlebt?\nJaa, schon. Die freilaufenden Hunde in Tibet zum Beispiel können richtig gefährlich sein. Manchmal sind die Hunde auf mich losgerannt und haben wie wild gebellt. Ich wollte meine Route schon ändern, aber dann hatte ich die Idee mit den Regenschirmen.\n\n„Regenschirme“?\n<lacht> Ja! Ich hab' zwei Regenschirme gekauft. Ich hab' sie geöffnet und an meinem Fahrrad festgemacht. Damit hatte ich großen Erfolg, denn die Hunde kamen tatsächlich nicht mehr an mich ran. Die meisten von ihnen blieben sogar ängstlich am Straßenrand sitzen.\n\nUnd war es für Sie sonst nie gefährlich in China?\nNaja, der Verkehr in China ist manchmal schon sehr gefährlich. Viele Leute fahren so schnell wie möglich und achten nicht auf Fahrradfahrer. Die Lastwagenfahrer haben es oft eilig und hupen, wenn jemand zu langsam fährt.\n\nAha. Was hat Ihnen denn nun am besten in China gefallen?\nAlso, landschaftlich war das Bergland wunderbar. Auch die Bevölkerung im flachen Süden Chinas mit ihren bunten Kleidern werde ich nie vergessen.\n\nKönnen Sie China als Reiseland empfehlen?\nJa klar, unbedingt! Aber ich würde das nächste Mal nicht mit dem Fahrrad, sondern lieber in einer größeren Gruppe mit einem Touristenführer reisen.",
       "teil3Exercise": {
         "instruction1": "Lies zuerst die Sätze 10-14. Du hast dafür eine Minute Zeit.",
         "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
@@ -439,29 +333,7 @@
       "title": "Teil 5",
       "subtitle": "Fernsehsendungen",
       "audioUrl": "https://www.dropbox.com/scl/fi/vh2cdw8smdl89gvbzjmc2/Teil-5.mp3?rlkey=hpe94ob07dck499wg2nx8wbst&st=rwi23wat&dl=1",
-      "itemLabel": "Nummer",
-      "aufgaben": [
-        {
-          "id": 0,
-          "text": "In dieser Sendung geht es um ein Tier, das verschiedene Tricks kann. Es läuft im Kreis oder stellt sich auf die Hinterbeine. Sein Pfleger gibt ihm Zucker, wenn es gut mitmacht. Das Tier sieht wunderschön aus, ganz weiß, mit wenigen schwarzen Flecken."
-        },
-        {
-          "id": 21,
-          "text": "Aus dieser Sendung kann man viel lernen. Zum Beispiel, warum Milch sauer wird und wie man das selbst machen kann. Ich habe es zu Hause ausprobiert – aber bei mir wurde nicht die Milch sauer, sondern meine Mutter."
-        },
-        {
-          "id": 22,
-          "text": "In dieser Sendung überraschen die Macher Leute zu Hause. Sie bringen viele Handwerker mit und renovieren die ganze Wohnung. Neue Möbel rein, das Badezimmer wird renoviert, die Wände gestrichen – und sie kümmern sich sogar um den Garten."
-        },
-        {
-          "id": 23,
-          "text": "In dieser Sendung erklären die Moderatoren, wie man zum Beispiel einen Computer schneller machen kann. Außerdem kann man lernen, wie man einen Reifen beim Auto wechselt und wie man einen Toaster reparieren kann."
-        },
-        {
-          "id": 24,
-          "text": "In dieser Sendung geht es darum, seltene Dinge zu finden. Zum Beispiel ein bestimmtes Buch, das es nicht mehr zu kaufen gibt. Wenn man so etwas sucht, kann man die Sendung kontaktieren. Und Zuschauer, die das Gesuchte besitzen, können sich melden – dann kann man tauschen."
-        }
-      ],
+      "content": "Nummer 0\n…und das kann viele Tricks, zum Beispiel im Kreis laufen oder die Vorderbeine hochnehmen. Sein Pfleger füttert es immer mit Zucker, wenn es etwas gut gemacht hat und es sieht wunderschön aus, ganz weiß, mit wenigen schwarzen Flecken.\n\nNummer 21\nWenn man sich das anschaut, kann man ganz viel lernen. Zum Beispiel warum Milch sauer wird und wie man das selbst machen kann. Das habe ich dann zuhause auch mal ausprobiert und dann ist meine Mutter sauer geworden und nicht die Milch.\n\nNummer 22\nAlso, die Macher der Sendung überraschen immer Leute in ihrem Haus und nehmen ganz viele Handwerker mit. Die Handwerker machen dann das ganze Haus neu. Also, die stellen neue Möbel rein, renovieren das Badezimmer, streichen die Wände und kümmern sich sogar um den Garten.\n\nNummer 23\nDie Moderatoren haben z. B. erklärt, wie man seinen Computer schneller machen kann. Man konnte aber auch lernen, wie man einen Reifen beim Auto wechselt und wie man einen Toaster reparieren kann.\n\nNummer 24\nWenn man seltene Dinge sucht, z. B. ein bestimmtes Buch, das es nicht mehr zu kaufen gibt oder so, dann kann man sich bei dieser Sendung melden. Andere Zuschauer, die diese Dinge haben, können sich dann ebenfalls melden und können dann die Sachen tauschen.",
       "teil5Exercise": {
         "instruction1": "Am Montag unterhalten sich die Schüler der Klasse 6a darüber, was sie am Wochenende im Fernsehen gesehen haben. Du hörst zuerst ein Beispiel und dann fünf weitere kurze Berichte von Schülern.",
         "instruction2": "Lies zuerst die Liste mit den verschiedenen Titeln der Sendungen (A-H). Du hast dafür 30 Sekunden Zeit.",
