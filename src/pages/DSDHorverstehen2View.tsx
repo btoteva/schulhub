@@ -188,9 +188,6 @@ const DSDHorverstehen2View: React.FC = () => {
                 <div className="space-y-10">
                   {teil.scenes.map((scene) => (
                     <div key={scene.id}>
-                      <h4 className="text-lg font-bold text-amber-300 mb-4">
-                        Szene {scene.id}
-                      </h4>
                       <div className="space-y-3">
                         {scene.lines.map((line, i) => (
                           <p key={i} className="text-gray-200 leading-relaxed">
@@ -226,7 +223,6 @@ const DSDHorverstehen2View: React.FC = () => {
                     <div className="space-y-10">
                       {ex.szenen.map((sz) => (
                         <div key={sz.id} className="border border-gray-600 rounded-xl p-6 bg-gray-900/30">
-                          <p className="text-amber-200 font-semibold mb-2">Szene {sz.id}</p>
                           <p className="text-gray-400 text-sm mb-4">{ex.bildInstruction}</p>
                           <div className="grid grid-cols-3 gap-6">
                             {(["A", "B", "C"] as const).map((opt) => (
@@ -292,7 +288,7 @@ const DSDHorverstehen2View: React.FC = () => {
                             </p>
                             {results.map((r) => (
                               <p key={r.nr} className={r.correct ? "text-emerald-300" : "text-red-300"}>
-                                Szene {r.nr}: {r.correct ? "✓" : `✗ (richtig: ${TEIL1_CORRECT[r.nr]})`}
+                                {r.nr}: {r.correct ? "✓" : `✗ (richtig: ${TEIL1_CORRECT[r.nr]})`}
                               </p>
                             ))}
                           </div>
@@ -302,7 +298,7 @@ const DSDHorverstehen2View: React.FC = () => {
                         <div className="mt-6 p-4 rounded-xl bg-gray-900/50 border border-amber-500/30">
                           <p className="text-amber-200 font-semibold mb-2">Lösungen:</p>
                           {[1, 2, 3, 4, 5].map((nr) => (
-                            <p key={nr} className="text-gray-200">Szene {nr}: {TEIL1_CORRECT[nr]}</p>
+                            <p key={nr} className="text-gray-200">{nr}: {TEIL1_CORRECT[nr]}</p>
                           ))}
                         </div>
                       )}

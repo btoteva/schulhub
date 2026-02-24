@@ -171,9 +171,11 @@ const DSDHorverstehen1View: React.FC = () => {
                 <div className="space-y-10">
                   {teil.scenes.map((scene) => (
                     <div key={scene.id}>
-                      <h4 className="text-lg font-bold text-amber-300 mb-4">
-                        Szene {scene.id}
-                      </h4>
+                      {teil.id !== "teil3" && (
+                        <h4 className="text-lg font-bold text-amber-300 mb-4">
+                          Szene {scene.id}
+                        </h4>
+                      )}
                       <div className="space-y-3">
                         {scene.lines.map((line, i) => (
                           <p key={i} className="text-gray-200 leading-relaxed">
