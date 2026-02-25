@@ -205,6 +205,7 @@ const LessonView: React.FC = () => {
   const [revealedExerciseIds, setRevealedExerciseIds] = useState<Set<number>>(
     new Set(),
   );
+  const [showTitleTranslation, setShowTitleTranslation] = useState(false);
   /** exerciseId -> questionId -> optionId for quiz-type exercises */
   const [exerciseQuizAnswers, setExerciseQuizAnswers] = useState<
     Record<number, Record<number, string>>
@@ -685,13 +686,39 @@ const LessonView: React.FC = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-5xl mx-auto">
-          {/* Lesson Title */}
-          <h1 className="text-5xl font-bold text-center mb-4 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-            {lessonData.title}
-          </h1>
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800 dark:text-gray-300">
-            {lessonData.subtitle}
-          </h2>
+          {/* Lesson Title – click to show/hide translation */}
+          <div className="mb-12">
+            <button
+              type="button"
+              onClick={() => setShowTitleTranslation((prev) => !prev)}
+              className="text-left w-full focus:outline-none focus:ring-2 focus:ring-green-400 rounded"
+            >
+              <h1 className="text-5xl font-bold text-center mb-2 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent cursor-pointer hover:opacity-90">
+                {language === "bg" && lessonData.titleBg ? lessonData.titleBg : lessonData.title}
+              </h1>
+              <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-gray-300 cursor-pointer hover:opacity-90">
+                {language === "bg" && lessonData.subtitleBg ? lessonData.subtitleBg : lessonData.subtitle}
+              </h2>
+            </button>
+            {showTitleTranslation && (
+              <div className="mt-4 p-4 rounded-lg border-l-2 border-green-500 bg-green-50 dark:bg-green-900/20 text-slate-700 dark:text-gray-300 text-center">
+                {(language === "bg" ? lessonData.title : lessonData.titleBg) ? (
+                  <p className="text-lg font-semibold">
+                    {language === "bg" ? lessonData.title : lessonData.titleBg}
+                  </p>
+                ) : null}
+                {(language === "bg" ? lessonData.subtitle : lessonData.subtitleBg) ? (
+                  <p className="text-base mt-1">
+                    {language === "bg" ? lessonData.subtitle : lessonData.subtitleBg}
+                  </p>
+                ) : null}
+                {!(language === "bg" ? lessonData.title : lessonData.titleBg) &&
+                  !(language === "bg" ? lessonData.subtitle : lessonData.subtitleBg) && (
+                  <p className="text-sm text-slate-500 dark:text-gray-400">Няма превод</p>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* Tab Navigation – при test-only урок табовете са винаги видими но неактивни */}
           <div
@@ -1590,6 +1617,33 @@ const LessonView: React.FC = () => {
 
                       {exercise.type === "question" && (
                         <div className="mt-4">
+                          {exercise.taskText && (
+                            <div className="mb-4 p-4 bg-slate-200/50 dark:bg-gray-700/30 rounded-lg border border-slate-300 dark:border-gray-600">
+                              <p className="text-slate-800 dark:text-gray-200 whitespace-pre-wrap">
+                                {exercise.taskText}
+                              </p>
+                              {exercise.taskTextBg && (
+                                <p className="text-slate-600 dark:text-gray-400 text-sm mt-2 whitespace-pre-wrap">
+                                  {exercise.taskTextBg}
+                                </p>
+                              )}
+                            </div>
+                          )}
+                          {"imageUrl" in exercise && (
+                            <div className="mb-4">
+                              {exercise.imageUrl ? (
+                                <img
+                                  src={exercise.imageUrl}
+                                  alt=""
+                                  className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
+                                />
+                              ) : (
+                                <div className="w-full min-h-[200px] rounded-lg border-2 border-dashed border-slate-400 dark:border-gray-500 bg-slate-100 dark:bg-gray-800/50 flex items-center justify-center text-slate-500 dark:text-gray-400 text-sm">
+                                  [ Място за изображение – добавете линк в imageUrl ]
+                                </div>
+                              )}
+                            </div>
+                          )}
                           <button
                             type="button"
                             onClick={() => {
@@ -1682,6 +1736,15 @@ const LessonView: React.FC = () => {
                                       {q.questionBg}
                                     </p>
                                   )}
+                                  {q.image && (
+                                    <div className="mb-4">
+                                      <img
+                                        src={q.image}
+                                        alt=""
+                                        className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
+                                      />
+                                    </div>
+                                  )}
                                   <div className="space-y-2">
                                     {q.options.map((opt) => (
                                       <label
@@ -1712,13 +1775,22 @@ const LessonView: React.FC = () => {
                                           }
                                           className="mt-1"
                                         />
-                                        <span className="text-slate-800 dark:text-gray-200 flex-1">
-                                          {opt.id}) {opt.text}
-                                          {opt.textBg && (
-                                            <span className="text-slate-500 dark:text-gray-500 text-sm block">
-                                              {opt.textBg}
-                                            </span>
+                                        <span className="text-slate-800 dark:text-gray-200 flex-1 flex items-center gap-3 flex-wrap">
+                                          {opt.image && (
+                                            <img
+                                              src={opt.image}
+                                              alt=""
+                                              className="w-14 h-14 object-contain rounded border border-slate-400 dark:border-gray-500 flex-shrink-0"
+                                            />
                                           )}
+                                          <span>
+                                            {opt.id}) {opt.text}
+                                            {opt.textBg && (
+                                              <span className="text-slate-500 dark:text-gray-500 text-sm block">
+                                                {opt.textBg}
+                                              </span>
+                                            )}
+                                          </span>
                                         </span>
                                         <button
                                           type="button"

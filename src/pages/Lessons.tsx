@@ -210,6 +210,12 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "— мин",
               completed: false,
             },
+            {
+              id: 6,
+              title: "17. DIE PEDOSPHÄRE. DIE BIOSPHÄRE",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],

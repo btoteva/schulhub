@@ -1,0 +1,256 @@
+{
+  "id": "3-6",
+  "courseId": 3,
+  "title": "17. DIE PEDOSPHÄRE. DIE BIOSPHÄRE",
+  "titleBg": "17. ПЕДОСФЕРАТА. БИОСФЕРАТА",
+  "subtitle": "",
+  "subtitleBg": "",
+  "dictionary": [
+    {
+      "id": "pedosphaere-boden",
+      "headingId": "pedosphaere-boden-heading",
+      "title": "1. Педосфера и почва",
+      "words": [
+        { "word": "der Boden, Böden", "translation": "почва", "example": "Der Boden ist ein spezifischer natürlicher Körper.", "example_translation": "Почвата е специфично природно тяло." },
+        { "word": "die Pedosphäre", "translation": "педосфера", "example": "Die Bodenschicht bildet die Pedosphäre.", "example_translation": "Почвеният слой образува педосферата." },
+        { "word": "die Erdoberfläche", "translation": "земна повърхност", "example": "auf der Erdoberfläche", "example_translation": "на земната повърхност" },
+        { "word": "die Wechselwirkung, -en", "translation": "взаимодействие", "example": "Wechselwirkung zwischen lebendiger und nicht lebendiger Natur", "example_translation": "взаимодействие между живата и неживата природа" },
+        { "word": "die lebendige Natur", "translation": "жива природа", "example": "zwischen der lebendigen und der nicht lebendigen Natur", "example_translation": "между живата и неживата природа" },
+        { "word": "die nicht lebendige Natur", "translation": "нежива природа", "example": "die nicht lebendige Natur", "example_translation": "неживата природа" },
+        { "word": "entstehen", "translation": "възниквам, образувам се", "example": "infolge der Wechselwirkung entstanden", "example_translation": "възникнал в резултат на взаимодействието" },
+        { "word": "die Fruchtbarkeit", "translation": "плодородие", "example": "Seine wichtigste Eigenschaft ist die Fruchtbarkeit.", "example_translation": "Най-важното му свойство е плодородието." },
+        { "word": "versorgen", "translation": "снабдявам, захранвам", "example": "die Pflanzen mit Nährstoffen versorgen", "example_translation": "да снабдява растенията с хранителни вещества" },
+        { "word": "die Nährstoffe", "translation": "хранителни вещества", "example": "mit Nährstoffen, Wasser, Luft und Wärme versorgen", "example_translation": "да снабдява с хранителни вещества, вода, въздух и топлина" },
+        { "word": "die Bodenschicht, -en", "translation": "почвен слой", "example": "Die Bodenschicht des Planeten bildet die Pedosphäre.", "example_translation": "Почвеният слой на планетата образува педосферата." },
+        { "word": "die Geosphäre, -n", "translation": "геосфера", "example": "eine unterbrochene Geosphäre, genannt Pedosphäre", "example_translation": "прекъсната геосфера, наречена педосфера" },
+        { "word": "unterbrochen", "translation": "прекъснат", "example": "eine einzelne, unterbrochene Geosphäre", "example_translation": "единствена, прекъсната геосфера" }
+      ]
+    },
+    {
+      "id": "bodenbildung",
+      "headingId": "bodenbildung-heading",
+      "title": "2. Образуване на почвата",
+      "words": [
+        { "word": "die Bodenbildung", "translation": "образуване на почвата", "example": "Dieser Vorgang ist die Bodenbildung.", "example_translation": "Този процес е образуването на почвата." },
+        { "word": "der Vorgang, -gänge", "translation": "процес", "example": "Dieser komplizierte Vorgang erfordert die Zusammenwirkung.", "example_translation": "Този сложен процес изисква съвместното действие." },
+        { "word": "die Zusammenwirkung", "translation": "съвместно действие", "example": "die Zusammenwirkung von physikalischen, chemischen und biologischen Prozessen", "example_translation": "съвместното действие на физически, химически и биологични процеси" },
+        { "word": "physikalisch", "translation": "физически", "example": "physikalische Prozesse", "example_translation": "физически процеси" },
+        { "word": "chemisch", "translation": "химически", "example": "chemische Prozesse", "example_translation": "химически процеси" },
+        { "word": "biologisch", "translation": "биологичен", "example": "biologische Prozesse", "example_translation": "биологични процеси" },
+        { "word": "das Gestein, -e", "translation": "скала", "example": "Auf hartem Gestein wie Basalt oder Granit", "example_translation": "Върху твърда скала като базалт или гранит" },
+        { "word": "der Basalt", "translation": "базалт", "example": "hartes Gestein wie Basalt", "example_translation": "твърда скала като базалт" },
+        { "word": "der Granit", "translation": "гранит", "example": "Basalt oder Granit", "example_translation": "базалт или гранит" },
+        { "word": "der Gesteinsgrund", "translation": "скален фундамент", "example": "bei anderem Gesteinsgrund", "example_translation": "при друг скален фундамент" },
+        { "word": "bodenbildend", "translation": "почвообразуващ", "example": "die bodenbildenden Faktoren", "example_translation": "почвообразуващите фактори" },
+        { "word": "der Faktor, -en", "translation": "фактор", "example": "die wichtigsten bodenbildenden Faktoren", "example_translation": "основните почвообразуващи фактори" },
+        { "word": "das Festland", "translation": "суша, континент", "example": "der Einfluss auf das Festland", "example_translation": "влиянието върху сушата" },
+        { "word": "bedingen", "translation": "обуславям", "example": "bedingt das Entstehen von Bodenarten", "example_translation": "обуславя възникването на почвени типове" },
+        { "word": "die Bodenart, -en", "translation": "почвен тип", "example": "vielfältige Bodenarten", "example_translation": "разнообразни почвени типове" }
+      ]
+    },
+    {
+      "id": "aufbau-boden",
+      "headingId": "aufbau-boden-heading",
+      "title": "3. Строеж, състав и свойства на почвата",
+      "words": [
+        { "word": "der Aufbau", "translation": "строеж, структура", "example": "Unter Aufbau des Bodenprofils versteht man die Abfolge der Horizonte.", "example_translation": "Под строеж на почвения профил се разбира последователността на хоризонтите." },
+        { "word": "das Bodenprofil, -e", "translation": "почвен профил", "example": "die Mächtigkeit des Bodenprofils", "example_translation": "мощността на почвения профил" },
+        { "word": "der Bodenhorizont, -e", "translation": "почвен хоризонт", "example": "die vertikale Abfolge der Bodenhorizonte", "example_translation": "вертикалната последователност на почвените хоризонти" },
+        { "word": "vertikal", "translation": "вертикален", "example": "die vertikale Abfolge", "example_translation": "вертикалната последователност" },
+        { "word": "die Abfolge, -n", "translation": "последователност", "example": "die Abfolge der Bodenhorizonte", "example_translation": "последователността на почвените хоризонти" },
+        { "word": "der Bodentyp, -en", "translation": "почвен тип", "example": "In Abhängigkeit vom Bodentyp", "example_translation": "В зависимост от почвения тип" },
+        { "word": "die Mächtigkeit, -en", "translation": "мощност, дебелина", "example": "die Mächtigkeit des Bodenprofils", "example_translation": "мощността на почвения профил" },
+        { "word": "variieren", "translation": "вариирам", "example": "kann variieren", "example_translation": "може да варира" },
+        { "word": "die Schwarzerde", "translation": "чернозем", "example": "Schwarzerde (Tschernosem)", "example_translation": "чернозем" },
+        { "word": "der Tschernosem", "translation": "чернозем", "example": "Schwarzerde (Tschernosem)", "example_translation": "чернозем" },
+        { "word": "die Bleicherde", "translation": "сивозем", "example": "Bleicherde (grau)", "example_translation": "сивозем (сив)" },
+        { "word": "die Braunerde", "translation": "кафява почва", "example": "Braunerde, Waldböden", "example_translation": "кафява почва, горски почви" },
+        { "word": "morphologisch", "translation": "морфологичен", "example": "morphologische Merkmale", "example_translation": "морфологични признаци" },
+        { "word": "der Humusgehalt", "translation": "съдържание на хумус", "example": "der Humusgehalt eines Bodens", "example_translation": "съдържанието на хумус в почвата" },
+        { "word": "bewerten", "translation": "оценявам", "example": "der Humusgehalt wird bewertet", "example_translation": "съдържанието на хумус се оценява" },
+        { "word": "die Grundkomponente, -n", "translation": "основна компонента", "example": "drei Grundkomponenten: feste, flüssige und gasförmige", "example_translation": "три основни компонента: твърда, течна и газообразна" },
+        { "word": "fest", "translation": "твърд", "example": "die feste Komponente", "example_translation": "твърдата компонента" },
+        { "word": "flüssig", "translation": "течен", "example": "flüssige Komponente", "example_translation": "течна компонента" },
+        { "word": "gasförmig", "translation": "газообразен", "example": "gasförmige Komponente", "example_translation": "газообразна компонента" },
+        { "word": "mineralisch", "translation": "минерален", "example": "mineralische und organische Stoffe", "example_translation": "минерални и органични вещества" },
+        { "word": "organisch", "translation": "органичен", "example": "organische Stoffe", "example_translation": "органични вещества" },
+        { "word": "der Mineralstoff, -e", "translation": "минерално вещество", "example": "Die Mineralstoffe machen etwa 80–90% aus.", "example_translation": "Минералните вещества съставляват около 80–90%." },
+        { "word": "die Bodenmasse", "translation": "почвена маса", "example": "der gesamten Bodenmasse", "example_translation": "общата почвена маса" },
+        { "word": "der Humus", "translation": "хумус", "example": "Der Humus bildet den organischen Teil.", "example_translation": "Хумусът образува органичната част." },
+        { "word": "der Kohlenwasserstoff, -e", "translation": "въглеводород", "example": "die Verbindungen des Kohlenwasserstoffs", "example_translation": "въглеводородните съединения" },
+        { "word": "die Vermischung", "translation": "смесване", "example": "infolge der Vermischung der Organismenteilchen", "example_translation": "в резултат на смесването на частиците" },
+        { "word": "das Organismenteilchen", "translation": "частица от организъм", "example": "Vermischung der Organismenteilchen", "example_translation": "смесване на частиците от организми" },
+        { "word": "die Verarbeitung", "translation": "преработка", "example": "Verarbeitung durch die Mikroorganismen", "example_translation": "преработка от микроорганизмите" },
+        { "word": "der Mikroorganismus, -men", "translation": "микроорганизъм", "example": "durch die Mikroorganismen", "example_translation": "от микроорганизмите" },
+        { "word": "der Gehalt", "translation": "съдържание", "example": "Sein Gehalt bestimmt die Fruchtbarkeit.", "example_translation": "Съдържанието му определя плодородието." },
+        { "word": "die Bodenpore, -n", "translation": "почвена пора", "example": "In den Bodenporen ist Bodenluft enthalten.", "example_translation": "В почвените пори се съдържа почвен въздух." },
+        { "word": "die Bodenluft", "translation": "почвен въздух", "example": "Bodenluft und Bodenlösung", "example_translation": "почвен въздух и почвен разтвор" },
+        { "word": "die Bodenlösung", "translation": "почвен разтвор", "example": "dazwischen zirkuliert die Bodenlösung", "example_translation": "между тях циркулира почвеният разтвор" },
+        { "word": "zirkulieren", "translation": "циркулирам", "example": "die Bodenlösung zirkuliert", "example_translation": "почвеният разтвор циркулира" }
+      ]
+    },
+    {
+      "id": "bodentypen",
+      "headingId": "bodentypen-heading",
+      "title": "4. Почвени типове и разпространение",
+      "words": [
+        { "word": "zonal", "translation": "зонален", "example": "Zonale Böden", "example_translation": "зонални почви" },
+        { "word": "azonal", "translation": "азонален", "example": "azonalen Böden", "example_translation": "азонални почви" },
+        { "word": "die Umweltbedingung, -en", "translation": "условие на околната среда", "example": "die vielfältigen Umweltbedingungen", "example_translation": "разнообразните условия на околната среда" },
+        { "word": "gesetzmäßig", "translation": "закономерен", "example": "die gesetzmäßige Verteilung", "example_translation": "закономерното разпределение" },
+        { "word": "der Äquator", "translation": "екватор", "example": "vom Äquator zu den Polen", "example_translation": "от екватора към полюсите" },
+        { "word": "der Pol, -e", "translation": "полюс", "example": "zu den Polen", "example_translation": "към полюсите" },
+        { "word": "lateritisch", "translation": "латеритен", "example": "lateritische Böden", "example_translation": "латеритни почви" },
+        { "word": "der Savannenboden", "translation": "саванна почва", "example": "rotbraune Savannenböden", "example_translation": "червеникаво-кафяви саванни почви" },
+        { "word": "der Wüstenboden", "translation": "пустинна почва", "example": "Wüstenböden", "example_translation": "пустинни почви" },
+        { "word": "der Waldboden", "translation": "горска почва", "example": "Waldböden", "example_translation": "горски почви" },
+        { "word": "der Podsol", "translation": "подзол", "example": "Podsol, Tundrenböden", "example_translation": "подзол, тундрови почви" },
+        { "word": "der Tundrenboden", "translation": "тундрова почва", "example": "Tundrenböden, arktische Böden", "example_translation": "тундрови почви, арктически почви" },
+        { "word": "arktisch", "translation": "арктически", "example": "arktische Böden", "example_translation": "арктически почви" },
+        { "word": "die Höhenstufenzonierung", "translation": "височинна зоналност", "example": "Höhenstufenzonierung", "example_translation": "височинна зоналност" },
+        { "word": "der Aueboden", "translation": "наносна почва", "example": "fruchtbare Aueböden in Flussnähe", "example_translation": "плодородни наносни почви в близост до реки" },
+        { "word": "die Flussnähe", "translation": "близост до река", "example": "Aueböden in Flussnähe", "example_translation": "наносни почви в близост до реки" },
+        { "word": "der Moorboden", "translation": "мочурищна почва", "example": "die Moorböden", "example_translation": "мочурищните почви" },
+        { "word": "versalzen", "translation": "засолен", "example": "die versalzenen Böden", "example_translation": "засолените почви" },
+        { "word": "die Herausbildung", "translation": "формиране", "example": "ihre Herausbildung hängt ab", "example_translation": "тяхното формиране зависи" }
+      ]
+    },
+    {
+      "id": "biosphaere",
+      "headingId": "biosphaere-heading",
+      "title": "5. Биосфера",
+      "words": [
+        { "word": "die Biosphäre", "translation": "биосфера", "example": "Die Biosphäre ist die Erdhülle.", "example_translation": "Биосферата е земната обвивка." },
+        { "word": "die Erdhülle", "translation": "земна обвивка", "example": "die Erdhülle, in der die Lebewesen existieren", "example_translation": "земната обвивка, в която съществуват организмите" },
+        { "word": "das Lebewesen, -", "translation": "жив организъм", "example": "Pflanzen, Tiere, Mikroorganismen – Lebewesen", "example_translation": "растения, животни, микроорганизми – живи организми" },
+        { "word": "existieren", "translation": "съществувам", "example": "in der die Lebewesen existieren", "example_translation": "в която съществуват организмите" },
+        { "word": "bewohnen", "translation": "обитавам", "example": "die Lebewesen bewohnen die Schichten", "example_translation": "организмите обитават слоевете" },
+        { "word": "die Atmosphäre", "translation": "атмосфера", "example": "die Schichten der Atmosphäre", "example_translation": "слоевете на атмосферата" },
+        { "word": "die Hydrosphäre", "translation": "хидросфера", "example": "der Hydrosphäre und der Pedosphäre", "example_translation": "хидросферата и педосферата" },
+        { "word": "die Lithosphäre", "translation": "литосфера", "example": "die oberen Schichten der Lithosphäre", "example_translation": "горните слоеве на литосферата" },
+        { "word": "die Grenzzone, -n", "translation": "гранична зона", "example": "In den äußeren Grenzzonen", "example_translation": "В външните гранични зони" },
+        { "word": "verlaufen", "translation": "протичам", "example": "die in der Biosphäre verlaufenden Prozesse", "example_translation": "процесите, протичащи в биосферата" },
+        { "word": "die Photosynthese", "translation": "фотосинтеза", "example": "Ein grundlegender Prozess ist die Photosynthese.", "example_translation": "Основен процес е фотосинтезата." },
+        { "word": "transportieren", "translation": "пренасям", "example": "Stoffe und Energie transportieren", "example_translation": "пренасям вещества и енергия" },
+        { "word": "umwandeln", "translation": "превръщам", "example": "Stoffe und Energie umwandeln", "example_translation": "превръщам вещества и енергия" },
+        { "word": "der Zerfall", "translation": "разлагане", "example": "der Zerfall der organischen Substanz", "example_translation": "разлагането на органичното вещество" },
+        { "word": "die organische Substanz", "translation": "органично вещество", "example": "Zerfall der organischen Substanz", "example_translation": "разлагане на органичното вещество" },
+        { "word": "die Mineralisierung", "translation": "минерализация", "example": "Die Mineralisierung ist Teil des Kreislaufs.", "example_translation": "Минерализацията е част от кръговрата." },
+        { "word": "der Kreislauf, -läufe", "translation": "кръговрат", "example": "der Kreislauf der chemischen Elemente", "example_translation": "кръговратът на химичните елементи" },
+        { "word": "das chemische Element, -e", "translation": "химичен елемент", "example": "Kreislauf der chemischen Elemente", "example_translation": "кръговрат на химичните елементи" },
+        { "word": "die Materie", "translation": "материя", "example": "von lebendiger zu nicht lebendiger Materie", "example_translation": "от жива към нежива материя" },
+        { "word": "umgekehrt", "translation": "обратно", "example": "und umgekehrt über", "example_translation": "и обратно" }
+      ]
+    }
+  ],
+  "sentences": [
+    {
+      "text": "Der Boden ist ein spezifischer natürlicher Körper, der auf der Erdoberfläche infolge der Wechselwirkung zwischen der lebendigen und der nicht lebendigen Natur entstanden ist. Seine wichtigste Eigenschaft ist die Fruchtbarkeit. Der Boden vermag die Pflanzen mit Nährstoffen, Wasser, Luft und Wärme zu versorgen. Die Bodenschicht des Planeten bildet eine einzelne, unterbrochene Geosphäre, genannt Pedosphäre.",
+      "translation": "Почвата е специфично природно тяло, възникнало на земната повърхност в резултат на взаимодействието между живата и неживата природа. Най-важното ѝ свойство е плодородието – почвата може да снабдява растенията с хранителни вещества, вода, въздух и топлина. Почвеният слой на планетата образува една единствена, прекъсната геосфера, наречена педосфера."
+    },
+    {
+      "text": "<strong>1 Bodenbildung</strong>",
+      "translation": "<strong>1 Образуване на почвата</strong>"
+    },
+    {
+      "text": "Dieser komplizierte Vorgang erfordert die Zusammenwirkung von physikalischen, chemischen und biologischen Prozessen. Auf hartem Gestein wie Basalt oder Granit bildet sich im Laufe von 200-1200 Jahren eine 2,5 cm dicke Bodenschicht heraus. Unter anderen Bedingungen und bei anderem Gesteinsgrund entsteht die Bodenschicht für einige Jahrzehnte. Der unterschiedliche Einfluss der wichtigsten bodenbildenden Faktoren auf das Festland bedingt das Entstehen von vielfältigen Bodenarten. (Abb. 1)",
+      "translation": "Този сложен процес изисква съвместното действие на физически, химически и биологични процеси. Върху твърда скала като базалт или гранит за 200–1200 години се образува почвен слой с дебелина 2,5 cm. При други условия и друг скален фундамент почвеният слой възниква за няколко десетилетия. Различното влияние на основните почвообразуващи фактори върху сушата обуславя възникването на разнообразни почвени типове. (Abb. 1)"
+    },
+    {
+      "text": "<strong>2 Aufbau, Zusammensetzung und Eigenschaften des Bodens</strong>",
+      "translation": "<strong>2 Строеж, състав и свойства на почвата</strong>"
+    },
+    {
+      "text": "Unter <strong>Aufbau</strong> des Bodenprofils versteht man den Charakter und die vertikale Abfolge der Bodenhorizonte. In Abhängigkeit vom Bodentyp kann die Mächtigkeit des Bodenprofils von einigen Centimetern bis zu einigen Metern variieren. Viele Bodentypen werden nach ihrer Farbe benannt: Schwarzerde (Tschernosem), Bleicherde (grau), Braunerde usw. Die Farbe ist eines der wichtigsten morphologischen Merkmale, nach denen der Humusgehalt eines Bodens bewertet wird.",
+      "translation": "Под <strong>строеж</strong> на почвения профил се разбира характерът и вертикалната последователност на почвените хоризонти. В зависимост от почвения тип мощността на почвения профил може да варира от няколко сантиметра до няколко метра. Много почвени типове се наричат по цвета си: чернозем (чернозем), сивозем (сив), кафява почва и т.н. Цветът е един от най-важните морфологични признаци, по които се оценява съдържанието на хумус в почвата."
+    },
+    {
+      "text": "Der Boden besteht aus drei Grundkomponenten: feste, flüssige und gasförmige. Die feste Komponente enthält mineralische und organische Stoffe. Die Mineralstoffe machen etwa 80 + (- 90)% der gesamten Bodenmasse aus. Der Humus und die Verbindungen des Kohlenwasserstoffs bilden den organischen Teil. Er entsteht infolge der Vermischung der Organismenteilchen mit einem Teil der Mineralstoffe und ihrer Verarbeitung durch die Mikroorganismen. Sein Gehalt im Bodenprofil bestimmt die Eigenschaft „Fruchtbarkeit\". In den Bodenporen ist auch Bodenluft enthalten; dazwischen zirkuliert die Bodenlösung.",
+      "translation": "Почвата се състои от три основни компонента: твърда, течна и газообразна. Твърдата компонента съдържа минерални и органични вещества. Минералните вещества съставляват около 80–90% от общата почвена маса. Хумусът и въглеводородните съединения образуват органичната част. Тя възниква в резултат на смесването на частици от организми с част от минералните вещества и тяхната преработка от микроорганизмите. Съдържанието му в почвения профил определя свойството „плодородие“. В почвените пори се съдържа и почвен въздух; между тях циркулира почвеният разтвор."
+    },
+    {
+      "text": "<strong>3 Die wichtigsten Bodentypen und ihre Verbreitung</strong>",
+      "translation": "<strong>3 Основните почвени типове и тяхното разпространение</strong>"
+    },
+    {
+      "text": "Zonale Böden. Die vielfältigen Umweltbedingungen auf dem Planeten bestimmen die gesetzmäßige Verteilung der Bodenarten vom Äquator zu den Polen (lateritische Böden, rotbraune Savannenböden, Wüstenböden, Schwarzerde, Braunerde, Waldböden, Podsol, Tundrenböden, arktische Böden). Außerdem verteilen sich die Böden vom Fuße zu den Gipfeln eines Gebirges (Höhenstufenzonierung).",
+      "translation": "Зонални почви. Разнообразните условия на околната среда на планетата определят закономерното разпределение на почвените типове от екватора към полюсите (латеритни почви, червеникаво-кафяви саванни почви, пустинни почви, чернозем, кафява почва, горски почви, подзол, тундрови почви, арктически почви). Освен това почвите се разпределят от подножието до върховете на планината (височинна зоналност)."
+    },
+    {
+      "text": "Man unterscheidet auch die sog. azonalen Böden: ihre Herausbildung hängt von den lokalen Umweltbedingungen auf dem Festland ab. Azonal sind die fruchtbaren Aueböden in Flussnäbe, die Moorböden und die versalzenen Böden.",
+      "translation": "Разграничават се и т.нар. азонални почви: тяхното формиране зависи от местните условия на околната среда на сушата. Азонални са плодородните наносни почви в близост до реки, мочурищните почви и засолените почви."
+    },
+    {
+      "text": "<strong>4 Die Biosphäre: Umfang, Zusammensetzung, Eigenschaften</strong>",
+      "translation": "<strong>4 Биосферата: обхват, състав, свойства</strong>"
+    },
+    {
+      "text": "<strong>Die Biosphäre</strong> ist die Erdhülle, in der die Lebewesen existieren: Pflanzen, Tiere, Mikroorganismen sowie die Produkte ihrer Tätigkeiten. Auf unserem Planeten bewohnen die Lebewesen die niedrigeren Schichten der Atmosphäre, der Hydrosphäre und der Pedosphäre sowie die oberen Schichten der Lithosphäre. In den äußeren Grenzzonen existieren nur Mikroorganismen.",
+      "translation": "<strong>Биосферата</strong> е земната обвивка, в която съществуват живите организми: растения, животни, микроорганизми както и продуктите от тяхната дейност. На нашата планета организмите обитават долните слоеве на атмосферата, хидросферата и педосферата, както и горните слоеве на литосферата. В външните гранични зони съществуват само микроорганизми."
+    },
+    {
+      "text": "Die in der Biosphäre verlaufenden Prozesse sind kompliziert und spezifisch. Ein grundlegender Prozess, bei dem Stoffe und Energie transportiert und umgewandelt werden, ist die Photosynthese. Ein anderer Prozess ist der Zerfall der organischen Substanz: die Mineralisierung. Die Mineralisierung ist der wichtigste Teil des Kreislaufs der chemischen Elemente und Stoffe. In diesem Kreislauf gehen die Elemente von lebendiger zu nicht lebendiger Materie und umgekehrt über.",
+      "translation": "Процесите, протичащи в биосферата, са сложни и специфични. Основен процес, при който вещества и енергия се пренасят и превръщат, е фотосинтезата. Друг процес е разлагането на органичното вещество: минерализацията. Минерализацията е най-важната част от кръговрата на химичните елементи и вещества. В този кръговрат елементите преминават от жива към нежива материя и обратно."
+    }
+  ],
+  "content": "Der Boden ist ein spezifischer natürlicher Körper, der auf der Erdoberfläche infolge der Wechselwirkung zwischen der lebendigen und der nicht lebendigen Natur entstanden ist. Seine wichtigste Eigenschaft ist die Fruchtbarkeit. Der Boden vermag die Pflanzen mit Nährstoffen, Wasser, Luft und Wärme zu versorgen. Die Bodenschicht des Planeten bildet eine einzelne, unterbrochene Geosphäre, genannt Pedosphäre.\n\n<strong>1 Bodenbildung</strong>\n\nDieser komplizierte Vorgang erfordert die Zusammenwirkung von physikalischen, chemischen und biologischen Prozessen. Auf hartem Gestein wie Basalt oder Granit bildet sich im Laufe von 200-1200 Jahren eine 2,5 cm dicke Bodenschicht heraus. Unter anderen Bedingungen und bei anderem Gesteinsgrund entsteht die Bodenschicht für einige Jahrzehnte. Der unterschiedliche Einfluss der wichtigsten bodenbildenden Faktoren auf das Festland bedingt das Entstehen von vielfältigen Bodenarten. (Abb. 1)\n\n<strong>2 Aufbau, Zusammensetzung und Eigenschaften des Bodens</strong>\n\nUnter <strong>Aufbau</strong> des Bodenprofils versteht man den Charakter und die vertikale Abfolge der Bodenhorizonte. In Abhängigkeit vom Bodentyp kann die Mächtigkeit des Bodenprofils von einigen Centimetern bis zu einigen Metern variieren. Viele Bodentypen werden nach ihrer Farbe benannt: Schwarzerde (Tschernosem), Bleicherde (grau), Braunerde usw. Die Farbe ist eines der wichtigsten morphologischen Merkmale, nach denen der Humusgehalt eines Bodens bewertet wird.\n\nDer Boden besteht aus drei Grundkomponenten: feste, flüssige und gasförmige. Die feste Komponente enthält mineralische und organische Stoffe. Die Mineralstoffe machen etwa 80 + (- 90)% der gesamten Bodenmasse aus. Der Humus und die Verbindungen des Kohlenwasserstoffs bilden den organischen Teil. Er entsteht infolge der Vermischung der Organismenteilchen mit einem Teil der Mineralstoffe und ihrer Verarbeitung durch die Mikroorganismen. Sein Gehalt im Bodenprofil bestimmt die Eigenschaft „Fruchtbarkeit\". In den Bodenporen ist auch Bodenluft enthalten; dazwischen zirkuliert die Bodenlösung.\n\n<strong>3 Die wichtigsten Bodentypen und ihre Verbreitung</strong>\n\nZonale Böden. Die vielfältigen Umweltbedingungen auf dem Planeten bestimmen die gesetzmäßige Verteilung der Bodenarten vom Äquator zu den Polen (lateritische Böden, rotbraune Savannenböden, Wüstenböden, Schwarzerde, Braunerde, Waldböden, Podsol, Tundrenböden, arktische Böden). Außerdem verteilen sich die Böden vom Fuße zu den Gipfeln eines Gebirges (Höhenstufenzonierung).\n\nMan unterscheidet auch die sog. azonalen Böden: ihre Herausbildung hängt von den lokalen Umweltbedingungen auf dem Festland ab. Azonal sind die fruchtbaren Aueböden in Flussnäbe, die Moorböden und die versalzenen Böden.\n\n<strong>4 Die Biosphäre: Umfang, Zusammensetzung, Eigenschaften</strong>\n\n<strong>Die Biosphäre</strong> ist die Erdhülle, in der die Lebewesen existieren: Pflanzen, Tiere, Mikroorganismen sowie die Produkte ihrer Tätigkeiten. Auf unserem Planeten bewohnen die Lebewesen die niedrigeren Schichten der Atmosphäre, der Hydrosphäre und der Pedosphäre sowie die oberen Schichten der Lithosphäre. In den äußeren Grenzzonen existieren nur Mikroorganismen.\n\nDie in der Biosphäre verlaufenden Prozesse sind kompliziert und spezifisch. Ein grundlegender Prozess, bei dem Stoffe und Energie transportiert und umgewandelt werden, ist die Photosynthese. Ein anderer Prozess ist der Zerfall der organischen Substanz: die Mineralisierung. Die Mineralisierung ist der wichtigste Teil des Kreislaufs der chemischen Elemente und Stoffe. In diesem Kreislauf gehen die Elemente von lebendiger zu nicht lebendiger Materie und umgekehrt über.",
+  "images": {
+    "Abb. 1": ["https://i.imgur.com/j2WGFIw.png"]
+  },
+  "resources": [],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "1. Ergänzen Sie die Lücken mit folgenden Wörtern: Nährstoffen, Erdkruste, Struktur, unterbrochene, Fruchtbarkeit.",
+      "titleBg": "1. Допълнете празните места със следните думи: Nährstoffen, Erdkruste, Struktur, unterbrochene, Fruchtbarkeit.",
+      "type": "question",
+      "taskText": "Die Oberflächenschicht der _________ in der sich das Wurzelsystem der Pflanzen entwickelt, heißt Boden. Der Boden hat eine komplizierte Zusammensetzung und _________. Die wichtigste Eigenschaft des Bodens ist seine _________ – er versorgt die Pflanzen mit _________, Wasser, Luft und Wärme. Der Boden bildet die _________ Geosphäre, genannt Bodensphäre oder Pedosphäre.",
+      "taskTextBg": "Повърхностният слой на _________ , в който се развива кореновата система на растенията, се нарича почва. Почвата има сложен състав и _________ . Най-важното свойство на почвата е нейното _________ – тя снабдява растенията с _________ , вода, въздух и топлина. Почвата образува _________ геосфера, наречена почвена сфера или педосфера.",
+      "answer": "Die Oberflächenschicht der Erdkruste in der sich das Wurzelsystem der Pflanzen entwickelt, heißt Boden. Der Boden hat eine komplizierte Zusammensetzung und Struktur. Die wichtigste Eigenschaft des Bodens ist seine Fruchtbarkeit – er versorgt die Pflanzen mit Nährstoffen, Wasser, Luft und Wärme. Der Boden bildet die unterbrochene Geosphäre, genannt Bodensphäre oder Pedosphäre. (Lücken in Reihenfolge: Erdkruste, Struktur, Fruchtbarkeit, Nährstoffen, unterbrochene)",
+      "answerBg": "Повърхностният слой на земната кора, в който се развива кореновата система на растенията, се нарича почва. Почвата има сложен състав и строеж. Най-важното свойство на почвата е нейното плодородие – тя снабдява растенията с хранителни вещества, вода, въздух и топлина. Почвата образува прекъсната геосфера, наречена почвена сфера или педосфера. (Празните места по ред: Erdkruste, Struktur, Fruchtbarkeit, Nährstoffen, unterbrochene)"
+    },
+    {
+      "id": 2,
+      "title": "2. Sehen Sie sich das Bild an und wählen Sie den richtigen Begriff.",
+      "titleBg": "2. Разгледайте изображението и изберете правилния термин.",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Welcher Begriff beschreibt die im Bild dargestellte Erdhülle?",
+          "questionBg": "Кой термин описва показаната на изображението земна обвивка?",
+          "image": "https://i.imgur.com/jHIVag8.png",
+          "options": [
+            { "id": "A", "text": "Pedosphäre", "textBg": "педосфера", "correct": false },
+            { "id": "B", "text": "Atmosphäre", "textBg": "атмосфера", "correct": false },
+            { "id": "C", "text": "Lithosphäre", "textBg": "литосфера", "correct": false },
+            { "id": "D", "text": "Biosphäre", "textBg": "биосфера", "correct": true },
+            { "id": "E", "text": "Hydrosphäre", "textBg": "хидросфера", "correct": false },
+            { "id": "F", "text": "Stratosphäre", "textBg": "стратосфера", "correct": false },
+            { "id": "G", "text": "Naturzone", "textBg": "природна зона", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. Markieren Sie das Verbotszeichen, das dem Bild entspricht.",
+      "titleBg": "3. Отбележете знака, който отговаря на изображението.",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Welches Verbotszeichen passt zu dieser Naturlandschaft?",
+          "questionBg": "Кой знак пасва на тази природна местност?",
+          "image": "https://i.imgur.com/aZ34Aes.png",
+          "options": [
+            { "id": "A", "text": "Verbot: Betreten (No walking)", "textBg": "Забрана: влизане / преминаване", "correct": false, "image": "https://i.imgur.com/B4BBfw2.png" },
+            { "id": "B", "text": "Verbot: Fotografieren (No photography)", "textBg": "Забрана: снимане", "correct": false, "image": "https://i.imgur.com/aRWGELE.png" },
+            { "id": "C", "text": "Verbot: Handy benutzen (No mobile phones)", "textBg": "Забрана: мобилен телефон", "correct": false, "image": "https://i.imgur.com/LKqQdJI.png" },
+            { "id": "D", "text": "Verbot: Abfall wegwerfen (No littering)", "textBg": "Забрана: изхвърляне на отпадъци", "correct": true, "image": "https://i.imgur.com/jRBytVm.png" }
+          ]
+        }
+      ]
+    }
+  ]
+}
