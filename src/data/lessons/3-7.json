@@ -1,0 +1,247 @@
+{
+  "id": "3-7",
+  "courseId": 3,
+  "title": "18. NATURKOMPONENTEN UND NATURKOMPLEXE. NATURZONEN",
+  "titleBg": "18. ПРИРОДНИ КОМПОНЕНТИ И ПРИРОДНИ КОМПЛЕКСИ. ПРИРОДНИ ЗОНИ",
+  "subtitle": "",
+  "dictionary": [
+    {
+      "id": "naturkomponenten-komplex",
+      "headingId": "naturkomponenten-heading",
+      "title": "1. Природни компоненти и природен комплекс",
+      "words": [
+        { "word": "die Naturkomponente, -n", "translation": "природна компонента", "example": "Die Komponenten der Natur sind materielle Körper: Gesteine, Gewässer, Luft, Pflanzen, Tiere, Böden.", "example_translation": "Компонентите на природата са материални тела: скали, води, въздух, растения, животни, почви." },
+        { "word": "das Gestein, -e", "translation": "скала", "example": "Gesteine, Gewässer, Luft, Böden, Pflanzen und Tiere", "example_translation": "скали, води, въздух, почви, растения и животни" },
+        { "word": "das Gewässer, -", "translation": "воден басейн, води", "example": "Gewässer und Luft", "example_translation": "води и въздух" },
+        { "word": "die Luft", "translation": "въздух", "example": "Luft, Böden, Pflanzen", "example_translation": "въздух, почви, растения" },
+        { "word": "der Boden, Böden", "translation": "почва", "example": "Böden, Pflanzen und Tiere", "example_translation": "почви, растения и животни" },
+        { "word": "die Pflanze, -n", "translation": "растение", "example": "Pflanzen und Tiere", "example_translation": "растения и животни" },
+        { "word": "das Tier, -e", "translation": "животно", "example": "Pflanzen und Tiere", "example_translation": "растения и животни" },
+        { "word": "die Wechselwirkung, -en", "translation": "взаимодействие", "example": "Sie befinden sich in ständiger Wechselwirkung.", "example_translation": "Те са в постоянно взаимодействие." },
+        { "word": "beeinflussen", "translation": "влияя, повлиявам", "example": "Jede Komponente beeinflusst alle anderen.", "example_translation": "Всяка компонента влияе върху всички останали." },
+        { "word": "der Naturkomplex, -e", "translation": "природен комплекс", "example": "Dabei entwickeln sich territoriale Naturkomplexe.", "example_translation": "По този начин се развиват териториални природни комплекси." },
+        { "word": "gesetzmäßig", "translation": "закономерен", "example": "eine gesetzmäßige Verbindung von Naturkomponenten", "example_translation": "закономерно свързване на природни компоненти" },
+        { "word": "das Territorium, -rien", "translation": "територия", "example": "auf einem Territorium oder Aquatorium", "example_translation": "на дадена територия или акватория" },
+        { "word": "das Aquatorium, -rien", "translation": "акватория", "example": "auf einem Territorium oder Aquatorium", "example_translation": "на територия или акватория" },
+        { "word": "vollständig", "translation": "пълен", "example": "wird er als vollständiger Naturkomplex bezeichnet", "example_translation": "той се нарича пълен природен комплекс" },
+        { "word": "unvollständig", "translation": "непълен", "example": "entsteht ein unvollständiger Naturkomplex", "example_translation": "възниква непълен природен комплекс" },
+        { "word": "die Wüste, -n", "translation": "пустиня", "example": "hauptsächlich in Wüsten, in den Polargebieten", "example_translation": "главно в пустините, в полярните области" },
+        { "word": "das Polargebiet, -e", "translation": "полярна област", "example": "in den Polargebieten und Hochgebirgen", "example_translation": "в полярните области и високопланинските райони" },
+        { "word": "das Hochgebirge, -", "translation": "висока планина, високопланински район", "example": "in den Hochgebirgen", "example_translation": "във високопланинските райони" },
+        { "word": "die geografische Hülle", "translation": "географска обвивка", "example": "Der größte Naturkomplex ist die geografische Hülle.", "example_translation": "Най-големият природен комплекс е географската обвивка." }
+      ]
+    },
+    {
+      "id": "gesetzmaessigkeiten",
+      "headingId": "gesetzmaessigkeiten-heading",
+      "title": "2. Закономерности на географската обвивка",
+      "words": [
+        { "word": "die Gesetzmäßigkeit, -en", "translation": "закономерност", "example": "Die wichtigsten Gesetzmäßigkeiten der geografischen Hülle", "example_translation": "Най-важните закономерности на географската обвивка" },
+        { "word": "die Ganzheit", "translation": "цялост", "example": "ihre räumliche Ganzheit", "example_translation": "нейната пространствена цялост" },
+        { "word": "die Rhytmik", "translation": "ритмичност", "example": "die Rhytmik, die Zonalität und die Azonalität", "example_translation": "ритмичността, зоналността и азоналността" },
+        { "word": "die Zonalität", "translation": "зоналност", "example": "Die Zonalität ist die wichtigste Gesetzmäßigkeit.", "example_translation": "Зоналността е най-важната закономерност." },
+        { "word": "die Azonalität", "translation": "азоналност", "example": "eine gesetzmäßige Abweichung von der Zonalität", "example_translation": "закономерно отклонение от зоналността" },
+        { "word": "der Austausch", "translation": "обмяна", "example": "der ständige Austausch von Stoffen und Energie", "example_translation": "постоянната обмяна на вещества и енергия" },
+        { "word": "der Stoff, -e", "translation": "вещество", "example": "Austausch von Stoffen und Energie", "example_translation": "обмяна на вещества и енергия" },
+        { "word": "die Energie", "translation": "енергия", "example": "von Stoffen und Energie", "example_translation": "на вещества и енергия" },
+        { "word": "die Wiederholung, -en", "translation": "повторение", "example": "die Wiederholung der Erscheinungen in einem Zeitabstand", "example_translation": "повторението на явленията на времеви интервал" },
+        { "word": "horizontal", "translation": "хоризонтален", "example": "verändern sich horizontal (nach geografischer Breite)", "example_translation": "се променят хоризонтално (по географска ширина)" },
+        { "word": "vertikal", "translation": "вертикален", "example": "und vertikal (nach der Höhenstufe)", "example_translation": "и вертикално (по височинна степен)" },
+        { "word": "die Höhenstufe, -n", "translation": "височинна степен", "example": "nach der Höhenstufe und in die Tiefe", "example_translation": "по височинна степен и в дълбочина" },
+        { "word": "die Abweichung, -en", "translation": "отклонение", "example": "eine gesetzmäßige Abweichung von der Zonalität", "example_translation": "закономерно отклонение от зоналността" },
+        { "word": "die Zusammensetzung, -en", "translation": "състав", "example": "die chemische und mineralische Zusammensetzung des Gesteins", "example_translation": "химическият и минералният състав на скалите" },
+        { "word": "das Relief", "translation": "релеф", "example": "im Charakter des Reliefs", "example_translation": "в характера на релефа" },
+        { "word": "unterirdisch", "translation": "подземен", "example": "seichte unterirdische Gewässer", "example_translation": "плитки подземни води" }
+      ]
+    },
+    {
+      "id": "naturguertel-zonen",
+      "headingId": "naturguertel-heading",
+      "title": "3. Природни пояси и природни зони",
+      "words": [
+        { "word": "der Naturgürtel, -", "translation": "природен пояс", "example": "zur Absonderung von Naturgürteln und -zonen", "example_translation": "до отделяне на природни пояси и зони" },
+        { "word": "die Naturzone, -n", "translation": "природна зона", "example": "Die Naturzonen sind große Naturkomplexe.", "example_translation": "Природните зони са големи природни комплекси." },
+        { "word": "die Feuchtigkeit", "translation": "влажност", "example": "mit ähnlichen Feuchte- und Wärmebedingungen", "example_translation": "с подобни влажностни и топлинни условия" },
+        { "word": "die Wärmebedingung, -en", "translation": "топлинно условие", "example": "ähnliche Wärmebedingungen", "example_translation": "подобни топлинни условия" },
+        { "word": "die Vegetation", "translation": "растителност", "example": "Führend dabei ist jedoch die Vegetation.", "example_translation": "Водеща обаче е растителността." },
+        { "word": "die Bezeichnung, -en", "translation": "наименование, обозначение", "example": "Sie bestimmt die Bezeichnung der Naturzone.", "example_translation": "Тя определя наименованието на природната зона." },
+        { "word": "der Äquator", "translation": "екватор", "example": "Vom Äquator zu den Polen", "example_translation": "От екватора към полюсите" },
+        { "word": "der Pol, -e", "translation": "полюс", "example": "von Äquator zu den Polen wechseln", "example_translation": "от екватора към полюсите се редуват" },
+        { "word": "der Regenwald, -wälder", "translation": "дъждовна гора", "example": "Zone der immerfeuchten tropischen Regenwälder", "example_translation": "зона на вечнозелените тропически дъждовни гори" },
+        { "word": "immerfeucht", "translation": "вечнозелен (за влажни тропици)", "example": "immerfeuchte tropische Regenwälder", "example_translation": "вечнозелени тропически дъждовни гори" },
+        { "word": "die Savanne, -n", "translation": "савана", "example": "Zone der Savannen", "example_translation": "зона на саваните" },
+        { "word": "die Wüste, -n", "translation": "пустиня", "example": "Zone der tropischen Wüsten", "example_translation": "зона на тропическите пустини" },
+        { "word": "der Laubwald, -wälder", "translation": "широколистна гора", "example": "feuchte tropische Laubwälder", "example_translation": "влажни тропически широколистни гори" },
+        { "word": "immergrün", "translation": "вечнозелен", "example": "Zone der immergrünen Wälder und Büsche", "example_translation": "зона на вечнозелените гори и храсти" },
+        { "word": "der Busch, -e", "translation": "храст", "example": "immergrüne Wälder und Büsche", "example_translation": "вечнозелени гори и храсти" },
+        { "word": "die Steppe, -n", "translation": "степ", "example": "Zone der Steppen und Waldsteppen", "example_translation": "зона на степите и лесостепите" },
+        { "word": "die Waldsteppe, -n", "translation": "лесостеп", "example": "Steppen und Waldsteppen", "example_translation": "степи и лесостепи" },
+        { "word": "gemäßigt", "translation": "умерен", "example": "Zone der Wälder im gemäßigten Gürtel", "example_translation": "зона на горите в умерения пояс" },
+        { "word": "der Nadelwald, -wälder", "translation": "иглолистна гора", "example": "Laub- und Nadelwälder", "example_translation": "широколистни и иглолистни гори" },
+        { "word": "die Waldtundra", "translation": "горска тундра", "example": "Zone der Waldtundra und Tundra", "example_translation": "зона на горската тундра и тундрата" },
+        { "word": "die Tundra", "translation": "тундра", "example": "Waldtundra und Tundra", "example_translation": "горска тундра и тундра" },
+        { "word": "die Kältewüste, -n", "translation": "студена пустиня", "example": "Zone der polaren Kältewüsten", "example_translation": "зона на полярните студени пустини" },
+        { "word": "polar", "translation": "полярен", "example": "polare Kältewüsten", "example_translation": "полярни студени пустини" },
+        { "word": "exogen", "translation": "екзогенен", "example": "exogene Prozesse", "example_translation": "екзогенни процеси" },
+        { "word": "die Besonderheit, -en", "translation": "особеност", "example": "Jede Naturzone hat ihre typischen Besonderheiten.", "example_translation": "Всяка природна зона има свои типични особености." }
+      ]
+    }
+  ],
+  "sentences": [
+    { "text": "<strong>1 Naturkomponenten</strong>", "translation": "<strong>1 Природни компоненти</strong>" },
+    { "text": "Die Komponenten der Natur sind materielle Körper: Gesteine, Gewässer, Luft, Pflanzen, Tiere, Böden. Sie dringen ineinander ein und befinden sich in ständiger Wechselwirkung. Jede einzelne Komponente beeinflusst alle anderen und umgekehrt. Dabei entwickeln sich territoriale Naturkomplexe.", "translation": "Компонентите на природата са материални тела: скали, води, въздух, растения, животни, почви. Те проникват една в друга и са в постоянно взаимодействие. Всяка отделна компонента влияе върху всички останали и обратно. По този начин се развиват териториални природни комплекси." },
+    { "text": "<strong>2 Naturkomplex</strong>", "translation": "<strong>2 Природен комплекс</strong>" },
+    { "text": "Der Naturkomplex stellt eine gesetzmäßige Verbindung von Naturkomponenten auf einem Territorium oder Aquatorium dar. Damit ein Naturkomplex entsteht, ist die Wechselwirkung von mindestens zwei Naturkomponenten notwendig. Wenn der Naturkomplex alle Naturkomponenten (Gesteine, Gewässer, Luft, Böden, Pflanzen und Tiere) auf einem bestimmten Territorium umfasst, wird er als vollständiger Naturkomplex bezeichnet. Durch die Kombination weniger Naturkomponenten entsteht ein unvollständiger Naturkomplex. Solche Komplexe existieren hauptsächlich in Wüsten, in den Polargebieten und Hochgebirgen. Der größte und der komplizierteste Naturkomplex auf unserem Planeten ist die geografische Hülle.", "translation": "Природният комплекс представлява закономерно свързване на природни компоненти на дадена територия или акватория. За да възникне природен комплекс, е необходимо взаимодействието на поне две природни компоненти. Когато природният комплекс обхваща всички природни компоненти (скали, води, въздух, почви, растения и животни) на определена територия, той се нарича пълен природен комплекс. От комбинацията на по-малко природни компоненти възниква непълен природен комплекс. Такива комплекси съществуват главно в пустините, в полярните области и високопланинските райони. Най-големият и най-сложният природен комплекс на нашата планета е географската обвивка." },
+    { "text": "<strong>3 Gesetzmäßigkeiten der geografischen Hülle</strong>", "translation": "<strong>3 Закономерности на географската обвивка</strong>" },
+    { "text": "<strong>Die wichtigsten Gesetzmäßigkeiten der geografischen Hülle</strong> sind ihre räumliche Ganzheit, die Rhytmik, die Zonalität und die Azonalität.", "translation": "<strong>Най-важните закономерности на географската обвивка</strong> са нейната пространствена цялост, ритмичността, зоналността и азоналността." },
+    { "text": "<strong>Die Ganzheit</strong> der geografischen Hülle ist auf den ständigen Austausch von Stoffen und Energie zurückzuführen. Jede Naturkomponente in der geografischen Hülle wird von den anderen Komponenten beeinflusst und beeinflusst sie ihrerseits auch.", "translation": "<strong>Цялостта</strong> на географската обвивка се дължи на постоянната обмяна на вещества и енергия. Всяка природна компонента в географската обвивка се влияе от останалите компоненти и от своя страна ги влияе." },
+    { "text": "<strong>Die Rhytmik</strong> stellt die Wiederholung der Erscheinungen und Vorgänge in einem bestimmten Zeitabstand - Tag und Nacht, Monat, Jahreszeit, Jahr, Jahrhundert - dar.", "translation": "<strong>Ритмичността</strong> представлява повторението на явленията и процесите на определени времеви интервали – ден и нощ, месец, годишен сезон, година, век." },
+    { "text": "<strong>Die Zonalität</strong> ist die wichtigste Gesetzmäßigkeit der geografischen Hülle. Die Naturkomponenten und -komplexe verändern sich horizontal (nach geografischer Breite und Länge) und vertikal (nach der Höhenstufe und in die Tiefe).", "translation": "<strong>Зоналността</strong> е най-важната закономерност на географската обвивка. Природните компоненти и комплекси се променят хоризонтално (по географска ширина и дължина) и вертикално (по височинна степен и в дълбочина)." },
+    { "text": "<strong>Die Azonalität</strong> ist eine gesetzmäßige Abweichung von der Zonalität, die durch Unterschiede in der chemischen und mineralischen Zusammensetzung des Gesteins, in seiner Struktur, im Charakter des Reliefs, im Vorhandensein von seichten unterirdischen Gewässern usw. zustande kommt.", "translation": "<strong>Азоналността</strong> е закономерно отклонение от зоналността, обусловено от различия в химическия и минералния състав на скалите, в тяхната структура, в характера на релефа, в наличието на плитки подземни води и т.н." },
+    { "text": "<strong>Naturgürtel und -zonen der Erde</strong>", "translation": "<strong>Природни пояси и зони на Земята</strong>" },
+    { "text": "Das Vorhandensein einer zonalen und azonalen Ordnung in der geografischen Hülle führt zur Absonderung von Naturgürteln und -zonen. Die Naturgürtel stellen Natursysteme mit ähnlichen Feuchte- und Wärmebedingungen dar. Innerhalb der Naturgürtel sondern sich Naturzonen ab. Die Naturzonen sind große Naturkomplexe mit gleichartigen Naturbedingungen, mit ähnlichen Wärmebedingungen, ähnlicher Feuchtigkeit, biologischen Komponenten und exogenen Prozessen, mit gleichartigen Eigenschaften der Gewässer. Jede Naturzone hat ihre typischen Besonderheiten. Führend dabei ist jedoch die Vegetation. Sie bestimmt das Äußere der Naturzone und ihre Bezeichnung. Vom Äquator zu den Polen wechseln folgende Naturzonen ab:", "translation": "Наличието на зонален и азонален ред в географската обвивка води до отделяне на природни пояси и зони. Природните пояси представляват природни системи с подобни влажностни и топлинни условия. В рамките на природните пояси се отделят природни зони. Природните зони са големи природни комплекси с еднакви природни условия, с подобни топлинни условия, подобна влажност, биологични компоненти и екзогенни процеси, с еднакви свойства на водите. Всяка природна зона има свои типични особености. Водеща обаче е растителността. Тя определя външния вид на природната зона и нейното наименование. От екватора към полюсите се редуват следните природни зони:" },
+    { "text": "Zone der immerfeuchten tropischen Regenwälder; Zone der Savannen; Zone der tropischen Wüsten und der feuchten tropischen Laubwälder; Zone der immergrünen Wälder und Büsche; Zone der Steppen und Waldsteppen; Zone der Wälder im gemäßigten Gürtel; Zone der Waldtundra und Tundra; Zone der polaren Kältewüsten. (Abb. 1) (Abb. 2)", "translation": "Зона на вечнозелените тропически дъждовни гори; зона на саваните; зона на тропическите пустини и влажните тропически широколистни гори; зона на вечнозелените гори и храсти; зона на степите и лесостепите; зона на горите в умерения пояс; зона на горската тундра и тундрата; зона на полярните студени пустини." }
+  ],
+  "content": "<strong>1 Naturkomponenten</strong>\n\nDie Komponenten der Natur sind materielle Körper: Gesteine, Gewässer, Luft, Pflanzen, Tiere, Böden. Sie dringen ineinander ein und befinden sich in ständiger Wechselwirkung. Jede einzelne Komponente beeinflusst alle anderen und umgekehrt. Dabei entwickeln sich territoriale Naturkomplexe.\n\n<strong>2 Naturkomplex</strong>\n\nDer Naturkomplex stellt eine gesetzmäßige Verbindung von Naturkomponenten auf einem Territorium oder Aquatorium dar. Damit ein Naturkomplex entsteht, ist die Wechselwirkung von mindestens zwei Naturkomponenten notwendig. Wenn der Naturkomplex alle Naturkomponenten (Gesteine, Gewässer, Luft, Böden, Pflanzen und Tiere) auf einem bestimmten Territorium umfasst, wird er als vollständiger Naturkomplex bezeichnet. Durch die Kombination weniger Naturkomponenten entsteht ein unvollständiger Naturkomplex. Solche Komplexe existieren hauptsächlich in Wüsten, in den Polargebieten und Hochgebirgen. Der größte und der komplizierteste Naturkomplex auf unserem Planeten ist die geografische Hülle.\n\n<strong>3 Gesetzmäßigkeiten der geografischen Hülle</strong>\n\n<strong>Die wichtigsten Gesetzmäßigkeiten der geografischen Hülle</strong> sind ihre räumliche Ganzheit, die Rhytmik, die Zonalität und die Azonalität.\n\n<strong>Die Ganzheit</strong> der geografischen Hülle ist auf den ständigen Austausch von Stoffen und Energie zurückzuführen. Jede Naturkomponente in der geografischen Hülle wird von den anderen Komponenten beeinflusst und beeinflusst sie ihrerseits auch.\n\n<strong>Die Rhytmik</strong> stellt die Wiederholung der Erscheinungen und Vorgänge in einem bestimmten Zeitabstand - Tag und Nacht, Monat, Jahreszeit, Jahr, Jahrhundert - dar.\n\n<strong>Die Zonalität</strong> ist die wichtigste Gesetzmäßigkeit der geografischen Hülle. Die Naturkomponenten und -komplexe verändern sich horizontal (nach geografischer Breite und Länge) und vertikal (nach der Höhenstufe und in die Tiefe).\n\n<strong>Die Azonalität</strong> ist eine gesetzmäßige Abweichung von der Zonalität, die durch Unterschiede in der chemischen und mineralischen Zusammensetzung des Gesteins, in seiner Struktur, im Charakter des Reliefs, im Vorhandensein von seichten unterirdischen Gewässern usw. zustande kommt.\n\n<strong>Naturgürtel und -zonen der Erde</strong>\n\nDas Vorhandensein einer zonalen und azonalen Ordnung in der geografischen Hülle führt zur Absonderung von Naturgürteln und -zonen. Die Naturgürtel stellen Natursysteme mit ähnlichen Feuchte- und Wärmebedingungen dar. Innerhalb der Naturgürtel sondern sich Naturzonen ab. Die Naturzonen sind große Naturkomplexe mit gleichartigen Naturbedingungen, mit ähnlichen Wärmebedingungen, ähnlicher Feuchtigkeit, biologischen Komponenten und exogenen Prozessen, mit gleichartigen Eigenschaften der Gewässer. Jede Naturzone hat ihre typischen Besonderheiten. Führend dabei ist jedoch die Vegetation. Sie bestimmt das Äußere der Naturzone und ihre Bezeichnung. Vom Äquator zu den Polen wechseln folgende Naturzonen ab:\n\nZone der immerfeuchten tropischen Regenwälder\nZone der Savannen\nZone der tropischen Wüsten und der feuchten tropischen Laubwälder\nZone der immergrünen Wälder und Büsche\nZone der Steppen und Waldsteppen\nZone der Wälder im gemäßigten Gürtel\nZone der Waldtundra und Tundra\nZone der polaren Kältewüsten\n\n(Abb. 1) (Abb. 2)",
+  "images": {
+    "Abb. 1": ["https://i.imgur.com/Nx9cGrb.png"],
+    "Abb. 2": ["https://i.imgur.com/huoFl8q.png"]
+  },
+  "resources": [],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "1. Schreiben Sie die Naturkomponenten auf, die einen vollständigen Naturkomplex ausmachen.",
+      "titleBg": "1. Напишете природните компоненти, които изграждат пълен природен комплекс.",
+      "type": "multiselect",
+      "imageUrl": "https://i.imgur.com/mRei5yM.png",
+      "multiselectOptions": [
+        { "id": "gesteine", "text": "Gesteine", "textBg": "Скали", "correct": true },
+        { "id": "sonne", "text": "Sonne", "textBg": "Слънце", "correct": false },
+        { "id": "gewaesser", "text": "Gewässer", "textBg": "Води", "correct": true },
+        { "id": "klima", "text": "Klima", "textBg": "Климат", "correct": false },
+        { "id": "luft", "text": "Luft", "textBg": "Въздух", "correct": true },
+        { "id": "boeden", "text": "Böden", "textBg": "Почви", "correct": true },
+        { "id": "relief", "text": "Relief", "textBg": "Релеф", "correct": false },
+        { "id": "pflanzen", "text": "Pflanzen", "textBg": "Растения", "correct": true },
+        { "id": "vegetation", "text": "Vegetation", "textBg": "Растителност", "correct": false },
+        { "id": "tiere", "text": "Tiere", "textBg": "Животни", "correct": true }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. Welche Art von Zonalität ist auf der Abbildung dargestellt? Wählen Sie die drei fehlenden Naturzonen.",
+      "titleBg": "2. Кой вид зоналност е представен на изображението? Изберете трите липсващи природни зони.",
+      "type": "multiselect",
+      "imageUrl": "https://i.imgur.com/ezCXsjk.png",
+      "multiselectOptions": [
+        { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори", "correct": true },
+        { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните", "correct": false },
+        { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори", "correct": false },
+        { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини", "correct": false },
+        { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти", "correct": false },
+        { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите", "correct": false },
+        { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)", "correct": true },
+        { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата", "correct": true },
+        { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини", "correct": false }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. Welche Naturzonen befinden sich in den folgenden Klimagürteln?",
+      "titleBg": "3. Кои природни зони се намират в следните климатични пояси?",
+      "type": "dropdown",
+      "dropdownItems": [
+        { "id": "eq", "label": "Äquatorialer Gürtel", "labelBg": "Екваториален пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_regen" },
+        { "id": "subeq", "label": "Subäquatorialer Gürtel", "labelBg": "Субекваториален пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_savannen" },
+        { "id": "feucht", "label": "Feuchter Tropengürtel", "labelBg": "Влажен тропически пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_laub" },
+        { "id": "trocken", "label": "Trockener Tropengürtel", "labelBg": "Сух тропически пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_wuesten" },
+        { "id": "subtrop", "label": "Subtropischer Gürtel", "labelBg": "Субтропически пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_immergruen" },
+        { "id": "gemaessigt", "label": "Gemäßigter Gürtel", "labelBg": "Умерен пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_waelder" },
+        { "id": "subpolar", "label": "Subpolarer Gürtel", "labelBg": "Субполярен пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_tundra" },
+        { "id": "polar", "label": "Polarer Gürtel", "labelBg": "Полярен пояс", "options": [
+          { "id": "zone_regen", "text": "Zone der immerfeuchten tropischen Regenwälder", "textBg": "Зона на вечнозелените тропически дъждовни гори" },
+          { "id": "zone_savannen", "text": "Zone der Savannen", "textBg": "Зона на саваните" },
+          { "id": "zone_laub", "text": "Zone der feuchten tropischen Laubwälder", "textBg": "Зона на влажните тропически широколистни гори" },
+          { "id": "zone_wuesten", "text": "Zone der tropischen Wüsten", "textBg": "Зона на тропическите пустини" },
+          { "id": "zone_immergruen", "text": "Zone der immergrünen Wälder und Büsche", "textBg": "Зона на вечнозелените гори и храсти" },
+          { "id": "zone_steppen", "text": "Zone der Steppen und Waldsteppen", "textBg": "Зона на степите и лесостепите" },
+          { "id": "zone_waelder", "text": "Zone der Wälder (Laub- und Nadelwälder)", "textBg": "Зона на горите (широколистни и иглолистни)" },
+          { "id": "zone_tundra", "text": "Zone der Waldtundra und Tundra", "textBg": "Зона на горската тундра и тундрата" },
+          { "id": "zone_polar", "text": "Zone der polaren Kältewüsten", "textBg": "Зона на полярните студени пустини" }
+        ], "correctId": "zone_polar" }
+      ]
+    }
+  ]
+}
+ 

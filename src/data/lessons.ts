@@ -57,6 +57,19 @@ export interface Exercise {
   skeletonParts?: SkeletonPart[];
   /** For type "quiz": multiple-choice questions */
   questions?: TestQuestion[];
+  /** For type "dropdown": rows with label + select options; one correct option per row */
+  dropdownItems?: DropdownExerciseItem[];
+  /** For type "multiselect": choose multiple correct options from a list (e.g. 6 out of 10) */
+  multiselectOptions?: { id: string; text: string; textBg?: string; correct: boolean }[];
+}
+
+/** One row in a dropdown exercise: label (e.g. Klimagürtel) and options with one correct */
+export interface DropdownExerciseItem {
+  id: string;
+  label: string;
+  labelBg?: string;
+  options: { id: string; text: string; textBg?: string }[];
+  correctId: string;
 }
 
 export interface Resource {
@@ -129,6 +142,7 @@ import lesson3_3 from "./lessons/3-3.json";
 import lesson3_4 from "./lessons/3-4.json";
 import lesson3_5 from "./lessons/3-5.json";
 import lesson3_6 from "./lessons/3-6.json";
+import lesson3_7 from "./lessons/3-7.json";
 import lesson5_7 from "./lessons/5-7.json";
 
 // Combine all lessons into a single array
@@ -150,6 +164,7 @@ export const lessonsData: LessonContent[] = [
   lesson3_4 as LessonContent,
   lesson3_5 as LessonContent,
   lesson3_6 as LessonContent,
+  lesson3_7 as LessonContent,
   lesson5_7 as LessonContent,
 ];
 

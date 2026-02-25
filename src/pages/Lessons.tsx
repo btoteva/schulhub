@@ -216,6 +216,12 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "— мин",
               completed: false,
             },
+            {
+              id: 7,
+              title: "18. NATURKOMPONENTEN UND NATURKOMPLEXE. NATURZONEN",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],

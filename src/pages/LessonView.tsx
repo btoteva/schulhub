@@ -210,6 +210,22 @@ const LessonView: React.FC = () => {
   const [exerciseQuizAnswers, setExerciseQuizAnswers] = useState<
     Record<number, Record<number, string>>
   >({});
+  /** exerciseId-itemId -> selected optionId for dropdown-type exercises */
+  const [dropdownSelections, setDropdownSelections] = useState<
+    Record<string, string>
+  >({});
+  /** exerciseIds for which dropdown "Check" was pressed to show correct/incorrect */
+  const [dropdownChecked, setDropdownChecked] = useState<Set<number>>(
+    new Set(),
+  );
+  /** exerciseId -> Set of selected option IDs for multiselect-type exercises */
+  const [multiselectSelections, setMultiselectSelections] = useState<
+    Record<number, Set<string>>
+  >({});
+  /** exerciseIds for which multiselect "Check" was pressed */
+  const [multiselectChecked, setMultiselectChecked] = useState<Set<number>>(
+    new Set(),
+  );
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingAllRef = useRef(false);
   const currentPlayAllIndexRef = useRef(0);
@@ -1558,6 +1574,10 @@ const LessonView: React.FC = () => {
                   onClick={() => {
                     setExerciseQuizAnswers({});
                     setRevealedExerciseIds(new Set());
+                    setDropdownSelections({});
+                    setDropdownChecked(new Set());
+                    setMultiselectSelections({});
+                    setMultiselectChecked(new Set());
                   }}
                   className="px-4 py-2 text-sm font-medium text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg transition-colors"
                 >
@@ -1691,6 +1711,213 @@ const LessonView: React.FC = () => {
                             )}
                         </div>
                       )}
+
+                      {exercise.type === "multiselect" &&
+                        exercise.multiselectOptions &&
+                        exercise.multiselectOptions.length > 0 && (
+                          <div className="mt-4 space-y-4">
+                            {"imageUrl" in exercise && exercise.imageUrl && (
+                              <div className="mb-4">
+                                <img
+                                  src={exercise.imageUrl}
+                                  alt=""
+                                  className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
+                                />
+                              </div>
+                            )}
+                            <p className="text-slate-700 dark:text-gray-300 text-sm mb-3">
+                              {language === "bg"
+                                ? `Изберете ${exercise.multiselectOptions.filter((o) => o.correct).length} правилни отговора от списъка по-долу.`
+                                : `Wählen Sie ${exercise.multiselectOptions.filter((o) => o.correct).length} richtige Antworten aus der Liste.`}
+                            </p>
+                            <div className="space-y-2">
+                              {exercise.multiselectOptions.map((opt) => {
+                                const selected = (
+                                  multiselectSelections[exercise.id] ?? new Set()
+                                ).has(opt.id);
+                                const isChecked =
+                                  multiselectChecked.has(exercise.id);
+                                const isCorrectOption = opt.correct;
+                                const showCorrect =
+                                  isChecked && isCorrectOption && !selected;
+                                const showWrong =
+                                  isChecked && selected && !isCorrectOption;
+                                const showRight =
+                                  isChecked && selected && isCorrectOption;
+                                return (
+                                  <label
+                                    key={opt.id}
+                                    className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
+                                      showRight
+                                        ? "bg-green-900/20 border-green-600/50"
+                                        : showWrong
+                                          ? "bg-red-900/20 border-red-600/50"
+                                          : showCorrect
+                                            ? "bg-green-900/15 border-green-500/40 border-dashed"
+                                            : "bg-slate-100 dark:bg-gray-700/30 border-slate-300 dark:border-gray-600 hover:bg-slate-200 dark:hover:bg-gray-700/50"
+                                    }`}
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      checked={selected}
+                                      onChange={() => {
+                                        setMultiselectSelections((prev) => {
+                                          const current = new Set(
+                                            prev[exercise.id] ?? [],
+                                          );
+                                          if (current.has(opt.id))
+                                            current.delete(opt.id);
+                                          else current.add(opt.id);
+                                          return {
+                                            ...prev,
+                                            [exercise.id]: current,
+                                          };
+                                        });
+                                        setMultiselectChecked((prev) => {
+                                          const next = new Set(prev);
+                                          next.delete(exercise.id);
+                                          return next;
+                                        });
+                                      }}
+                                      className="w-5 h-5 rounded border-slate-400 text-amber-600 focus:ring-amber-500"
+                                    />
+                                    <span className="text-slate-800 dark:text-gray-200">
+                                      {language === "bg" && opt.textBg
+                                        ? opt.textBg
+                                        : opt.text}
+                                    </span>
+                                    {isChecked && (
+                                      <span
+                                        className={`ml-auto text-sm font-semibold ${
+                                          showRight
+                                            ? "text-green-600 dark:text-green-400"
+                                            : showWrong
+                                              ? "text-red-600 dark:text-red-400"
+                                              : showCorrect
+                                                ? "text-green-600 dark:text-green-400"
+                                                : ""
+                                        }`}
+                                      >
+                                        {showRight || showCorrect
+                                          ? "✓"
+                                          : showWrong
+                                            ? "✗"
+                                            : ""}
+                                      </span>
+                                    )}
+                                  </label>
+                                );
+                              })}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setMultiselectChecked((prev) =>
+                                  new Set(prev).add(exercise.id),
+                                )
+                              }
+                              className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                            >
+                              {language === "bg" ? "Провери" : "Prüfen"}
+                            </button>
+                          </div>
+                        )}
+
+                      {exercise.type === "dropdown" &&
+                        exercise.dropdownItems &&
+                        exercise.dropdownItems.length > 0 && (
+                          <div className="mt-4 space-y-4">
+                            <p className="text-slate-700 dark:text-gray-300 text-sm mb-4">
+                              {language === "bg"
+                                ? "Изберете природна зона за всеки климатичен пояс от падащия списък."
+                                : "Wählen Sie die passende Naturzone zu jedem Klimagürtel aus der Liste."}
+                            </p>
+                            {exercise.dropdownItems.map((item) => {
+                              const key = `${exercise.id}-${item.id}`;
+                              const selectedId = dropdownSelections[key] ?? "";
+                              const isChecked = dropdownChecked.has(exercise.id);
+                              const isCorrect =
+                                isChecked && selectedId === item.correctId;
+                              const isWrong =
+                                isChecked &&
+                                selectedId !== "" &&
+                                selectedId !== item.correctId;
+                              return (
+                                <div
+                                  key={item.id}
+                                  className={`flex flex-wrap items-center gap-3 p-3 rounded-lg border ${
+                                    isCorrect
+                                      ? "bg-green-900/20 border-green-600/50"
+                                      : isWrong
+                                        ? "bg-red-900/20 border-red-600/50"
+                                        : "bg-slate-100 dark:bg-gray-700/30 border-slate-300 dark:border-gray-600"
+                                  }`}
+                                >
+                                  <span className="font-medium text-slate-800 dark:text-gray-200 min-w-[140px]">
+                                    {item.label}
+                                    {item.labelBg && (
+                                      <span className="block text-sm text-slate-500 dark:text-gray-400">
+                                        {item.labelBg}
+                                      </span>
+                                    )}
+                                  </span>
+                                  <select
+                                    value={selectedId}
+                                    onChange={(e) => {
+                                      setDropdownSelections((prev) => ({
+                                        ...prev,
+                                        [key]: e.target.value,
+                                      }));
+                                      setDropdownChecked((prev) => {
+                                        const next = new Set(prev);
+                                        next.delete(exercise.id);
+                                        return next;
+                                      });
+                                    }}
+                                    className="flex-1 min-w-[200px] px-3 py-2 rounded-lg border border-slate-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-slate-900 dark:text-gray-200"
+                                  >
+                                    <option value="">
+                                      {language === "bg"
+                                        ? "— изберете —"
+                                        : "— wählen —"}
+                                    </option>
+                                    {item.options.map((opt) => (
+                                      <option key={opt.id} value={opt.id}>
+                                        {language === "bg" && opt.textBg
+                                          ? opt.textBg
+                                          : opt.text}
+                                      </option>
+                                    ))}
+                                  </select>
+                                  {isChecked && (
+                                    <span
+                                      className={`text-sm font-semibold ${
+                                        isCorrect
+                                          ? "text-green-600 dark:text-green-400"
+                                          : "text-red-600 dark:text-red-400"
+                                      }`}
+                                    >
+                                      {isCorrect
+                                        ? "✓"
+                                        : "✗"}
+                                    </span>
+                                  )}
+                                </div>
+                              );
+                            })}
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setDropdownChecked((prev) =>
+                                  new Set(prev).add(exercise.id),
+                                )
+                              }
+                              className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                            >
+                              {language === "bg" ? "Провери" : "Prüfen"}
+                            </button>
+                          </div>
+                        )}
 
                       {exercise.type === "quiz" &&
                         exercise.questions &&
