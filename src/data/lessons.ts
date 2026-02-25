@@ -122,6 +122,16 @@ export interface LessonContent {
   /** Multiple-choice test; when set with testOnly, lesson shows only Test tab */
   test?: LessonTest;
   testOnly?: boolean;
+  /** Table: Verben/Adjektive mit Präpositionen – phrase (DE/BG), sentence (DE/BG), case; with speak buttons */
+  prepositionTable?: PrepositionTableRow[];
+}
+
+export interface PrepositionTableRow {
+  phraseDe: string;
+  phraseBg: string;
+  sentenceDe: string;
+  sentenceBg: string;
+  cas: string;
 }
 
 // Import lesson data from separate JSON files
@@ -144,9 +154,11 @@ import lesson3_5 from "./lessons/3-5.json";
 import lesson3_6 from "./lessons/3-6.json";
 import lesson3_7 from "./lessons/3-7.json";
 import lesson5_7 from "./lessons/5-7.json";
+import lesson1_1 from "./lessons/1-1.json";
 
 // Combine all lessons into a single array
 export const lessonsData: LessonContent[] = [
+  lesson1_1 as LessonContent,
   lesson2_1 as LessonContent,
   lesson2_2 as LessonContent,
   lesson2_3 as LessonContent,
@@ -169,10 +181,11 @@ export const lessonsData: LessonContent[] = [
 ];
 
 // Helper function to get a lesson by course ID and lesson ID
+// lessonId can be full id (e.g. "1-1", "3-7") or just the suffix (e.g. "1", "7")
 export const getLessonById = (
   courseId: number,
   lessonId: string
 ): LessonContent | undefined => {
-  const lessonKey = `${courseId}-${lessonId}`;
+  const lessonKey = lessonId.includes("-") ? lessonId : `${courseId}-${lessonId}`;
   return lessonsData.find((lesson) => lesson.id === lessonKey);
 };

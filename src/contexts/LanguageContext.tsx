@@ -64,6 +64,10 @@ interface Translations {
   stop: string;
   clickForTranslation: string;
   translationToBulgarian: string;
+  verb: string;
+  flashcardPrepositionHint: string;
+  prepositionAndCase: string;
+  showTranslation: string;
   readWord: string;
   readExample: string;
   noWordsInDictionary: string;
@@ -157,6 +161,10 @@ const translations: Record<Language, Translations> = {
     stop: "Спри",
     clickForTranslation: "Кликни за превод",
     translationToBulgarian: "Превод на Български",
+    verb: "Глагол",
+    flashcardPrepositionHint: "От едната страна – глаголът, от другата – предлог и падеж",
+    prepositionAndCase: "Предлог и падеж",
+    showTranslation: "Покажи превод",
     readWord: "Прочитай думата",
     readExample: "Прочитай примера",
     noWordsInDictionary: "Няма думи в речника",
@@ -252,6 +260,10 @@ const translations: Record<Language, Translations> = {
     stop: "Stop",
     clickForTranslation: "Click for translation",
     translationToBulgarian: "Bulgarian Translation",
+    verb: "Verb",
+    flashcardPrepositionHint: "One side: the verb; other side: preposition and case",
+    prepositionAndCase: "Preposition and case",
+    showTranslation: "Show translation",
     readWord: "Read word",
     readExample: "Read example",
     noWordsInDictionary: "No words in dictionary",
@@ -347,6 +359,10 @@ const translations: Record<Language, Translations> = {
     stop: "Stopp",
     clickForTranslation: "Klicken für Übersetzung",
     translationToBulgarian: "Bulgarische Übersetzung",
+    verb: "Verb",
+    flashcardPrepositionHint: "Eine Seite: das Verb; andere Seite: Präposition und Kasus",
+    prepositionAndCase: "Präposition und Kasus",
+    showTranslation: "Übersetzung anzeigen",
     readWord: "Wort vorlesen",
     readExample: "Beispiel vorlesen",
     noWordsInDictionary: "Keine Wörter im Wörterbuch",

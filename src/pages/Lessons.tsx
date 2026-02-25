@@ -43,7 +43,15 @@ const lessonsData: { [key: number]: Band[] } = {
       sections: [
         {
           sectionTitle: "Grundlagen",
-          lessons: [],
+          lessons: [
+            {
+              id: "1-1",
+              number: "1",
+              title: "Verben, Adjektive und Wortgruppen mit Präpositionen",
+              duration: "—",
+              completed: false,
+            },
+          ],
         },
       ],
     },

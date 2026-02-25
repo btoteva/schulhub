@@ -3,12 +3,13 @@ import { createPortal } from "react-dom";
 import { useParams, Link, Navigate } from "react-router-dom";
 import {
   FaArrowLeft,
+  FaArrowUp,
   FaPlay,
   FaPause,
   FaVolumeUp,
   FaTimes,
 } from "react-icons/fa";
-import { getLessonById, type LessonContent, type TestQuestion } from "../data/lessons";
+import { getLessonById, type LessonContent, type TestQuestion, type PrepositionTableRow } from "../data/lessons";
 import { SkeletonDiagram } from "../components/SkeletonDiagram";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -108,6 +109,79 @@ function InteractiveTable({
                   </td>
                 );
               })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// Table: Verben/Adjektive mit Präpositionen – phrase (DE/BG), sentence (DE/BG), case; with speak buttons
+function PrepositionTable({
+  rows,
+  onSpeak,
+}: {
+  rows: PrepositionTableRow[];
+  onSpeak: (text: string) => void;
+}) {
+  const cellClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left align-top";
+  const headerClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-slate-200 dark:bg-gray-700/80 text-slate-800 dark:text-gray-200";
+  return (
+    <div className="overflow-x-auto my-4">
+      <table className="w-full min-w-[700px] border-collapse border border-slate-300 dark:border-gray-600">
+        <thead>
+          <tr>
+            <th className={headerClass}>Фраза (DE / BG)</th>
+            <th className={headerClass}>Изречение (DE / BG)</th>
+            <th className={headerClass}>Клас (Падеж)</th>
+            <th className={headerClass} style={{ width: "90px" }}>🔊</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, ri) => (
+            <tr key={ri} className="text-slate-900 dark:text-gray-300">
+              <td className={cellClass}>
+                <span>{row.phraseDe}</span>
+                <span className="text-slate-500 dark:text-gray-400 text-sm block">/ {row.phraseBg}</span>
+              </td>
+              <td className={cellClass}>
+                <span>{row.sentenceDe}</span>
+                <span className="text-slate-500 dark:text-gray-400 text-sm block mt-1">/ {row.sentenceBg}</span>
+              </td>
+              <td className={cellClass}>
+                <span
+                  className={`inline-block px-2.5 py-1 rounded-md text-sm font-semibold ${
+                    row.cas === "Dativ"
+                      ? "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200"
+                      : row.cas === "Akkusativ"
+                        ? "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200"
+                        : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300"
+                  }`}
+                >
+                  {row.cas}
+                </span>
+              </td>
+              <td className={cellClass}>
+                <div className="flex gap-1">
+                  <button
+                    type="button"
+                    onClick={() => onSpeak(row.phraseDe)}
+                    className="p-2 rounded-lg bg-amber-600/80 hover:bg-amber-500 text-white"
+                    title="Фраза"
+                  >
+                    <FaVolumeUp className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onSpeak(row.sentenceDe)}
+                    className="p-2 rounded-lg bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                    title="Изречение"
+                  >
+                    <FaVolumeUp className="w-4 h-4" />
+                  </button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -226,6 +300,7 @@ const LessonView: React.FC = () => {
   const [multiselectChecked, setMultiselectChecked] = useState<Set<number>>(
     new Set(),
   );
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingAllRef = useRef(false);
   const currentPlayAllIndexRef = useRef(0);
@@ -239,6 +314,13 @@ const LessonView: React.FC = () => {
     return () => {
       window.speechSynthesis.cancel();
     };
+  }, []);
+
+  // Show/hide scroll-to-top button
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Load lesson data dynamically (needed for storage key)
@@ -309,12 +391,67 @@ const LessonView: React.FC = () => {
   }
 
   const dictionaryData = lessonData.dictionary;
+  const prepositionTable = (lessonData as LessonContent).prepositionTable;
 
   // Combine all words from all dictionary sections
   const allWords = dictionaryData.flatMap((section) => section.words);
 
+  // Flashcards: from preposition table (verb on front, preposition + case on back) or from dictionary
+  type FlashcardItem = {
+    word: string;
+    translation: string;
+    example?: string;
+    phraseBg?: string;
+    sentenceBg?: string;
+  };
+  const flashcardItems: FlashcardItem[] =
+    prepositionTable && prepositionTable.length > 0
+      ? prepositionTable.map((row: PrepositionTableRow) => {
+          const withoutCase = row.phraseDe.replace(/\s*\+\s*[DA]\s*$/i, "").trim();
+          const parts = withoutCase.split(/\s+/);
+          const verbOnly = parts.length > 1 ? parts.slice(0, -1).join(" ") : withoutCase;
+          const m = row.phraseDe.match(/\s+(\w+)\s*\+\s*([DA])\s*$/i);
+          const prepCase = m ? `${m[1]} + ${m[2]} (${row.cas})` : row.cas;
+          return {
+            word: verbOnly,
+            translation: prepCase,
+            example: row.sentenceDe,
+            phraseBg: row.phraseBg,
+            sentenceBg: row.sentenceBg,
+          };
+        })
+      : allWords.map((w) => ({
+          word: w.word,
+          translation: w.translation,
+          example: w.example,
+        }));
+
   // Flashcard state
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
+  const [showBulgarianTranslation, setShowBulgarianTranslation] = useState(false);
+  const [wordFontSize, setWordFontSize] = useState(48);
+  const flashcardWordWrapRef = useRef<HTMLDivElement>(null);
+  const flashcardWordRef = useRef<HTMLParagraphElement>(null);
+
+  // Shrink word font so it fits inside the card
+  useEffect(() => {
+    if (activeTab !== "flashcards") return;
+    const run = () => {
+      const wrap = flashcardWordWrapRef.current;
+      const wordEl = flashcardWordRef.current;
+      if (!wrap || !wordEl) return;
+      let size = 48;
+      wordEl.style.fontSize = `${size}px`;
+      if (wrap.clientWidth === 0) return;
+      while (wordEl.scrollWidth > wrap.clientWidth && size > 14) {
+        size -= 2;
+        wordEl.style.fontSize = `${size}px`;
+      }
+      setWordFontSize(size);
+    };
+    const id = requestAnimationFrame(run);
+    return () => cancelAnimationFrame(id);
+  }, [currentFlashcardIndex, flashcardItems[currentFlashcardIndex]?.word, activeTab]);
 
   const toggleFlashcard = (index: number) => {
     const newSet = new Set(flippedCards);
@@ -946,11 +1083,21 @@ const LessonView: React.FC = () => {
           )}
 
           {/* Content Tab */}
-          {!isTestOnlyLesson && activeTab === "content" && lessonData.content && (
+          {!isTestOnlyLesson && activeTab === "content" && (lessonData.content || (lessonData as LessonContent).prepositionTable?.length) && (
             <div>
+              {(lessonData as LessonContent).prepositionTable && (lessonData as LessonContent).prepositionTable!.length > 0 && (
+                <div className={isLight ? "bg-white rounded-xl p-8 border border-slate-200 shadow-sm mb-8" : "bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 mb-8"}>
+                  <PrepositionTable
+                    rows={(lessonData as LessonContent).prepositionTable!}
+                    onSpeak={speakWord}
+                  />
+                </div>
+              )}
+              {sentences.length > 0 && (
+              <>
               {/* Play All + Show/Hide all translations */}
               <div className="mb-6 flex flex-wrap justify-end gap-3">
-                {sentences.length > 0 && (() => {
+                {(() => {
                   const indicesWithTranslation = sentences
                     .map((s, i) => (s.translation ? i : -1))
                     .filter((i) => i >= 0);
@@ -1218,6 +1365,8 @@ const LessonView: React.FC = () => {
                   })()}
                 </div>
               </div>
+              </>
+              )}
             </div>
           )}
 
@@ -1340,7 +1489,7 @@ const LessonView: React.FC = () => {
           {/* Flashcards Tab */}
           {!isTestOnlyLesson && activeTab === "flashcards" && (
             <div className="min-h-[500px] flex flex-col items-center justify-center">
-              {allWords.length === 0 ? (
+              {flashcardItems.length === 0 ? (
                 <p className="text-slate-800 dark:text-gray-400 text-xl">{t.noWordsInDictionary}</p>
               ) : (
                 <>
@@ -1359,27 +1508,50 @@ const LessonView: React.FC = () => {
                     >
                       {/* Front of card - German word */}
                       <div
-                        className="absolute w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 flex flex-col items-center justify-center border-2 border-blue-400 shadow-2xl"
+                        className="absolute w-full h-full bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 flex flex-col items-center justify-center border-2 border-blue-400 shadow-2xl"
                         style={
                           {
                             backfaceVisibility: "hidden",
                           } as React.CSSProperties
                         }
                       >
-                        <p className="text-blue-100 text-sm mb-4">{t.german}</p>
-                        <p
-                          className={`text-4xl font-bold text-white text-center ${getGermanFontFamilyClass()}`}
+                        <p className="text-blue-100 text-sm mb-2 flex-shrink-0">
+                          {prepositionTable?.length ? t.verb : t.german}
+                        </p>
+                        <div
+                          ref={flashcardWordWrapRef}
+                          className="flex-1 flex items-center justify-center min-h-0 min-w-0 w-full overflow-hidden px-2"
                         >
-                          {allWords[currentFlashcardIndex]?.word}
-                        </p>
-                        <p className="text-blue-100/90 text-sm mt-8">
-                          {t.clickForTranslation}
-                        </p>
+                          <p
+                            ref={flashcardWordRef}
+                            className={`font-bold text-white text-center leading-tight break-words max-w-full ${getGermanFontFamilyClass()}`}
+                            style={{ fontSize: wordFontSize }}
+                          >
+                            {flashcardItems[currentFlashcardIndex]?.word}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            speakWord(flashcardItems[currentFlashcardIndex]?.word);
+                          }}
+                          className="flex-shrink-0 mt-2 p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
+                          title={t.readWord}
+                          aria-label={t.readWord}
+                        >
+                          <FaVolumeUp className="w-6 h-6" />
+                        </button>
+                        {!prepositionTable?.length && (
+                          <p className="text-blue-100/90 text-sm mt-2 flex-shrink-0">
+                            {t.clickForTranslation}
+                          </p>
+                        )}
                       </div>
 
-                      {/* Back of card - Bulgarian translation */}
+                      {/* Back of card - preposition+case and example */}
                       <div
-                        className="absolute w-full h-full bg-gradient-to-br from-green-600 to-green-800 rounded-2xl p-8 flex flex-col items-center justify-center border-2 border-green-400 shadow-2xl"
+                        className="absolute w-full h-full bg-gradient-to-br from-green-600 to-green-800 rounded-2xl p-6 flex flex-col items-center justify-center border-2 border-green-400 shadow-2xl"
                         style={
                           {
                             backfaceVisibility: "hidden",
@@ -1387,22 +1559,51 @@ const LessonView: React.FC = () => {
                           } as React.CSSProperties
                         }
                       >
-                        <p className="text-green-100 text-sm mb-4">
-                          {t.translationToBulgarian}
+                        <p className="text-green-100 text-sm mb-2 flex-shrink-0">
+                          {prepositionTable?.length ? t.prepositionAndCase : t.translationToBulgarian}
                         </p>
                         <p
-                          className={`text-4xl font-bold text-white text-center ${getFontFamilyClass()}`}
+                          className={`text-3xl font-bold text-white text-center ${getFontFamilyClass()} flex-shrink-0`}
                         >
-                          {allWords[currentFlashcardIndex]?.translation}
+                          {flashcardItems[currentFlashcardIndex]?.translation}
                         </p>
-                        <p
-                          className={`text-green-100/90 text-sm mt-8 ${getGermanFontFamilyClass()}`}
-                        >
-                          {allWords[currentFlashcardIndex]?.example}
-                        </p>
+                        {flashcardItems[currentFlashcardIndex]?.example && (
+                          <p
+                            className={`text-green-100/90 text-sm mt-4 px-2 overflow-auto max-h-24 ${getGermanFontFamilyClass()}`}
+                          >
+                            {flashcardItems[currentFlashcardIndex]?.example}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
+
+                  {/* Bar outside card: Show translation (toggle) + Bulgarian translation */}
+                  {(flashcardItems[currentFlashcardIndex]?.phraseBg ?? flashcardItems[currentFlashcardIndex]?.translation ?? flashcardItems[currentFlashcardIndex]?.sentenceBg) && (
+                    <div className="w-full max-w-2xl mb-6 flex flex-col items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setShowBulgarianTranslation((prev) => !prev)}
+                        className="px-5 py-2.5 rounded-lg bg-slate-200 dark:bg-gray-600 hover:bg-slate-300 dark:hover:bg-gray-500 text-slate-800 dark:text-gray-200 font-medium transition-colors border border-slate-300 dark:border-gray-500"
+                      >
+                        {showBulgarianTranslation ? t.hideAllTranslations : t.showTranslation}
+                      </button>
+                      {showBulgarianTranslation && (
+                        <div className={`w-full rounded-xl bg-slate-100 dark:bg-gray-700/80 px-6 py-4 text-center ${getFontFamilyClass()} text-slate-800 dark:text-gray-200 space-y-2`}>
+                          {(flashcardItems[currentFlashcardIndex]?.phraseBg ?? flashcardItems[currentFlashcardIndex]?.translation) && (
+                            <p className="text-lg font-medium">
+                              {flashcardItems[currentFlashcardIndex]?.phraseBg ?? flashcardItems[currentFlashcardIndex]?.translation}
+                            </p>
+                          )}
+                          {flashcardItems[currentFlashcardIndex]?.sentenceBg && (
+                            <p className="text-sm text-slate-600 dark:text-gray-400">
+                              {flashcardItems[currentFlashcardIndex]?.sentenceBg}
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {/* Navigation Controls */}
                   <div className="flex items-center justify-center gap-8 mb-8">
@@ -1410,10 +1611,10 @@ const LessonView: React.FC = () => {
                       onClick={() => {
                         const newIndex =
                           currentFlashcardIndex === 0
-                            ? allWords.length - 1
+                            ? flashcardItems.length - 1
                             : currentFlashcardIndex - 1;
                         setCurrentFlashcardIndex(newIndex);
-                        setFlippedCards(new Set()); // Reset flip state
+                        setFlippedCards(new Set());
                       }}
                       className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
                     >
@@ -1421,17 +1622,17 @@ const LessonView: React.FC = () => {
                     </button>
 
                     <div className="text-slate-800 dark:text-gray-400 font-semibold">
-                      {currentFlashcardIndex + 1} / {allWords.length}
+                      {currentFlashcardIndex + 1} / {flashcardItems.length}
                     </div>
 
                     <button
                       onClick={() => {
                         const newIndex =
-                          currentFlashcardIndex === allWords.length - 1
+                          currentFlashcardIndex === flashcardItems.length - 1
                             ? 0
                             : currentFlashcardIndex + 1;
                         setCurrentFlashcardIndex(newIndex);
-                        setFlippedCards(new Set()); // Reset flip state
+                        setFlippedCards(new Set());
                       }}
                       className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
                     >
@@ -1442,7 +1643,7 @@ const LessonView: React.FC = () => {
                   {/* Audio Button */}
                   <button
                     onClick={() =>
-                      speakWord(allWords[currentFlashcardIndex]?.word)
+                      speakWord(flashcardItems[currentFlashcardIndex]?.word)
                     }
                     className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
                   >
@@ -1455,7 +1656,7 @@ const LessonView: React.FC = () => {
                       className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300"
                       style={{
                         width: `${
-                          ((currentFlashcardIndex + 1) / allWords.length) * 100
+                          ((currentFlashcardIndex + 1) / flashcardItems.length) * 100
                         }%`,
                       }}
                     />
@@ -1782,9 +1983,12 @@ const LessonView: React.FC = () => {
                                       className="w-5 h-5 rounded border-slate-400 text-amber-600 focus:ring-amber-500"
                                     />
                                     <span className="text-slate-800 dark:text-gray-200">
-                                      {language === "bg" && opt.textBg
-                                        ? opt.textBg
-                                        : opt.text}
+                                      {opt.text}
+                                      {opt.textBg && (
+                                        <span className="text-slate-500 dark:text-gray-400 text-sm ml-1.5">
+                                          ({opt.textBg})
+                                        </span>
+                                      )}
                                     </span>
                                     {isChecked && (
                                       <span
@@ -2252,6 +2456,19 @@ const LessonView: React.FC = () => {
           </div>,
           document.body,
         )}
+
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-30 w-12 h-12 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg flex items-center justify-center transition-all hover:scale-110"
+          title={language === "bg" ? "Нагоре" : "Nach oben"}
+          aria-label={language === "bg" ? "Нагоре" : "Nach oben"}
+        >
+          <FaArrowUp className="w-5 h-5" />
+        </button>
+      )}
 
       {/* Footer */}
       <footer className="bg-slate-200/80 dark:bg-black/50 text-slate-800 dark:text-gray-500 py-8 border-t border-slate-300 dark:border-gray-800/50 mt-16">

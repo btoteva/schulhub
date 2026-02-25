@@ -18,7 +18,7 @@ import { weeklyProgramAuth } from "../utils/weekly-program-auth";
 
 // Lesson counts based on actual data in Lessons.tsx
 const actualLessonCounts: { [key: number]: number } = {
-  1: 0, // German - 0 lessons
+  1: 1, // German - 1 lesson (Verben, Adjektive mit Präpositionen)
   2: 10, // Biology – HERZ, III (3), Summary, IV (3), V NERVENSYSTEM (2)
   3: 7, // Geography - 7 lessons (3-1 … 3-7)
 };
