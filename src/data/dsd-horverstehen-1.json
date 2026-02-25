@@ -5,6 +5,13 @@
   "subtitle": "Hörverstehen Texte",
   "subtitleBg": "Текстове за слушане",
   "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "vocabulary": [
+    { "word": "umsteigen", "synonyms": "wechseln, umsteigen", "synonymsBg": "пресядам", "synonymsOrExplanation": "in ein anderes Fahrzeug wechseln", "synonymsOrExplanationBg": "пресядам в друг превоз", "wordBg": "пресядам" },
+    { "word": "Strauß", "synonyms": "Blumenstrauß, Bouquet", "synonymsBg": "букет", "synonymsOrExplanation": "Blumenstrauß", "synonymsOrExplanationBg": "букет от цветя", "wordBg": "букет" },
+    { "word": "Vase", "synonyms": "Blumenvase, Gefäß", "synonymsBg": "ваза", "synonymsOrExplanation": "Gefäß für Blumen", "synonymsOrExplanationBg": "съд за цветя", "wordBg": "ваза" },
+    { "word": "Anrufbeantworter", "synonyms": "Mailbox, AB", "synonymsBg": "телефонен секретар", "synonymsOrExplanation": "Gerät für Sprachnachrichten", "synonymsOrExplanationBg": "устройство за гласови съобщения", "wordBg": "телефонен секретар" },
+    { "word": "aufpassen", "synonyms": "achten, vorsichtig sein", "synonymsBg": "внимавам, предпазлив съм", "synonymsOrExplanation": "achten, vorsichtig sein", "synonymsOrExplanationBg": "внимавам, да съм предпазлив", "wordBg": "внимавам" }
+  ],
   "teile": [
     {
       "id": "teil1",

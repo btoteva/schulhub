@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowUp, FaArrowDown } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
+import { useLanguage } from "../contexts/LanguageContext";
 import dsdData from "../data/dsd-modellsatz-3.json";
 
 const STORAGE_KEY = "schulhub-dsd-modellsatz-3";
@@ -16,16 +17,20 @@ interface DSDState {
 }
 
 const DSDModellsatz3View: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
+  const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
   const [answers, setAnswers] = useState<DSDState>({});
   const [showResults, setShowResults] = useState(false);
   const [showAnswerKey, setShowAnswerKey] = useState(false);
   const skipSaveRef = useRef(true);
+  const { t } = useLanguage();
   const data = dsdData as {
     title: string;
     titleBg: string;
     subtitle: string;
     subtitleBg: string;
     leseverstehenInstructions?: string;
+    vocabulary?: Array<{ word: string; synonyms?: string; explanation?: string; synonymsOrExplanation?: string; synonymsBg?: string; explanationBg?: string; synonymsOrExplanationBg?: string; wordBg: string }>;
     teile: Array<{
       id: string;
       title: string;
@@ -163,11 +168,48 @@ const DSDModellsatz3View: React.FC = () => {
           DSD I Тестове
         </Link>
 
-        <header className="mb-12">
+        <header className="mb-8">
           <h1 className={`text-3xl font-bold ${isLight ? "text-amber-600" : "text-amber-400"}`}>{data.title}</h1>
           <p className={isLight ? "text-slate-600 mt-1" : "text-slate-800 dark:text-gray-400 mt-1"}>{data.subtitle}</p>
         </header>
 
+        <div className="flex gap-2 mb-6 border-b border-amber-500/30">
+          <button type="button" onClick={() => setActiveTab("test")} className={`px-4 py-2 font-semibold rounded-t-lg transition-colors ${activeTab === "test" ? "bg-amber-600 text-white" : isLight ? "bg-slate-200 text-slate-700 hover:bg-slate-300" : "bg-gray-700 text-gray-300 hover:bg-gray-600"}`}>{t.vocabularyTestTab}</button>
+          <button type="button" onClick={() => setActiveTab("dictionary")} className={`px-4 py-2 font-semibold rounded-t-lg transition-colors ${activeTab === "dictionary" ? "bg-amber-600 text-white" : isLight ? "bg-slate-200 text-slate-700 hover:bg-slate-300" : "bg-gray-700 text-gray-300 hover:bg-gray-600"}`}>{t.dictionary}</button>
+        </div>
+
+        {activeTab === "dictionary" && (
+          <div className="bg-white dark:bg-gray-800/50 rounded-xl border border-amber-500/30 overflow-hidden">
+            {(!data.vocabulary || data.vocabulary.length === 0) ? <p className="p-8 text-slate-600 dark:text-gray-400">{t.noWordsInDictionary}</p> : (
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead><tr className="bg-amber-600 text-white"><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableWord}</th><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableSynonyms}</th><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableExplanation}</th><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableTranslation}</th></tr></thead>
+                  <tbody>
+                    {data.vocabulary.map((row, idx) => (
+                      <tr key={idx} className={isLight ? "bg-slate-50 hover:bg-slate-100" : "bg-gray-800/50 hover:bg-gray-700/50"}>
+                        <td className="border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-900 dark:text-gray-200 font-medium">{row.word}</td>
+                        <td className={`border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-700 dark:text-gray-300 ${row.synonymsBg ? "cursor-pointer" : ""}`} onClick={() => row.synonymsBg && setVocabularyCellExpanded((v) => (v?.row === idx && v?.col === "synonyms" ? null : { row: idx, col: "synonyms" }))}>
+                          <span>{row.synonyms ?? "—"}</span>
+                          {row.synonymsBg && <span className="block text-xs mt-1 text-slate-500 dark:text-gray-500">{t.clickForTranslation}</span>}
+                          {vocabularyCellExpanded?.row === idx && vocabularyCellExpanded?.col === "synonyms" && row.synonymsBg && <p className="mt-2 text-amber-700 dark:text-amber-300 font-medium">{row.synonymsBg}</p>}
+                        </td>
+                        <td className={`border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-700 dark:text-gray-300 ${(row.explanationBg ?? row.synonymsOrExplanationBg) ? "cursor-pointer" : ""}`} onClick={() => (row.explanationBg ?? row.synonymsOrExplanationBg) && setVocabularyCellExpanded((v) => (v?.row === idx && v?.col === "explanation" ? null : { row: idx, col: "explanation" }))}>
+                          <span>{row.explanation ?? row.synonymsOrExplanation ?? "—"}</span>
+                          {(row.explanationBg ?? row.synonymsOrExplanationBg) && <span className="block text-xs mt-1 text-slate-500 dark:text-gray-500">{t.clickForTranslation}</span>}
+                          {vocabularyCellExpanded?.row === idx && vocabularyCellExpanded?.col === "explanation" && (row.explanationBg ?? row.synonymsOrExplanationBg) && <p className="mt-2 text-amber-700 dark:text-amber-300 font-medium">{row.explanationBg ?? row.synonymsOrExplanationBg}</p>}
+                        </td>
+                        <td className="border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-800 dark:text-gray-200">{row.wordBg}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === "test" && (
+          <>
         {data.leseverstehenInstructions && (
           <p className="mb-8 text-slate-900 dark:text-gray-300 leading-relaxed max-w-3xl">
             {data.leseverstehenInstructions.split(/\*\*(.*?)\*\*/g).map((part, i) =>
@@ -677,6 +719,8 @@ const DSDModellsatz3View: React.FC = () => {
             )}
           </section>
         </div>
+          </>
+        )}
       </main>
     </div>
   );

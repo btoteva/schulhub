@@ -4,6 +4,15 @@
   "titleBg": "DSD I Моделен тест 3",
   "subtitle": "Hörverstehen Hörtexte",
   "subtitleBg": "Текстове за слушане",
+  "vocabulary": [
+    { "word": "Wanderschuhe", "synonyms": "Wanderschuh, Trekking-Schuh", "synonymsBg": "планински обувки", "synonymsOrExplanation": "Schuhe zum Wandern", "synonymsOrExplanationBg": "планински обувки", "wordBg": "планински обувки" },
+    { "word": "Tüte", "synonyms": "Beutel, Tüte", "synonymsBg": "торбичка, пакет", "synonymsOrExplanation": "Papier- oder Plastikbeutel", "synonymsOrExplanationBg": "торбичка, пакет", "wordBg": "торбичка" },
+    { "word": "Durchsage", "synonyms": "Ankündigung, Ansage", "synonymsBg": "обявление, съобщение", "synonymsOrExplanation": "Ankündigung, Ansage", "synonymsOrExplanationBg": "обявление, съобщение", "wordBg": "обявление" },
+    { "word": "Aula", "synonyms": "Foyer, großer Saal", "synonymsBg": "актова зала", "synonymsOrExplanation": "großer Raum in der Schule", "synonymsOrExplanationBg": "актова зала", "wordBg": "актова зала" },
+    { "word": "Sekretariat", "synonyms": "Büro, Verwaltung", "synonymsBg": "секретариат", "synonymsOrExplanation": "Büro in der Schule", "synonymsOrExplanationBg": "секретариат", "wordBg": "секретариат" },
+    { "word": "Hausmeister", "synonyms": "Hausmeister, Portier", "synonymsBg": "домакин, портиер", "synonymsOrExplanation": "Person, die das Gebäude betreut", "synonymsOrExplanationBg": "домакин, портиер", "wordBg": "домакин" },
+    { "word": "Fahrradkeller", "synonyms": "Fahrradraum, Bike-Raum", "synonymsBg": "изба за велосипеди", "synonymsOrExplanation": "Kellerraum für Fahrräder", "synonymsOrExplanationBg": "изба за велосипеди", "wordBg": "изба за велосипеди" }
+  ],
   "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {

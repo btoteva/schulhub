@@ -4,6 +4,16 @@
   "titleBg": "DSD I Моделен тест 2",
   "subtitle": "Hörverstehen Texte",
   "subtitleBg": "Текстове за слушане",
+  "vocabulary": [
+    { "word": "Klamotten", "synonyms": "Kleidung, Sachen, Klamotten", "synonymsBg": "дрехи, облекло", "synonymsOrExplanation": "Kleidung, Sachen zum Anziehen", "synonymsOrExplanationBg": "дрехи, облекло", "wordBg": "дрехи" },
+    { "word": "Blumenladen", "synonyms": "Blumengeschäft, Florist", "synonymsBg": "цветарски магазин", "synonymsOrExplanation": "Geschäft, wo man Blumen kauft", "synonymsOrExplanationBg": "цветарски магазин", "wordBg": "цветарски магазин" },
+    { "word": "Verabredung", "synonyms": "Treffen, Termin", "synonymsBg": "среща, уговорка", "synonymsOrExplanation": "Treffen, das man vereinbart hat", "synonymsOrExplanationBg": "среща, уговорка", "wordBg": "среща" },
+    { "word": "vorbeikommen", "synonyms": "besuchen, kommen", "synonymsBg": "отбивам се, идвам", "synonymsOrExplanation": "besuchen, zu jemandem gehen", "synonymsOrExplanationBg": "отбивам се, идвам", "wordBg": "отбивам се" },
+    { "word": "Saxophon", "synonyms": "Sax, Blasinstrument", "synonymsBg": "саксофон", "synonymsOrExplanation": "Blasinstrument", "synonymsOrExplanationBg": "саксофон", "wordBg": "саксофон" },
+    { "word": "Karate-AG", "synonyms": "Karate-Gruppe, AG", "synonymsBg": "карате секция", "synonymsOrExplanation": "Arbeitsgemeinschaft für Karate", "synonymsOrExplanationBg": "Карате клуб/секция", "wordBg": "карате секция" },
+    { "word": "Mitfahrer", "synonyms": "Beifahrer, Mitfahrgelegenheit", "synonymsBg": "спътник", "synonymsOrExplanation": "Person, die mit im Auto fährt", "synonymsOrExplanationBg": "спътник в колата", "wordBg": "спътник" },
+    { "word": "Lagerfeuer", "synonyms": "Feuer, Lagerfeuer", "synonymsBg": "лагерен огън", "synonymsOrExplanation": "Feuer im Freien", "synonymsOrExplanationBg": "лагерен огън", "wordBg": "лагерен огън" }
+  ],
   "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {

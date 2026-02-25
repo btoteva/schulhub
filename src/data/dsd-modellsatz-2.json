@@ -4,6 +4,18 @@
   "titleBg": "DSD I Моделен тест 2",
   "subtitle": "Leseverstehen – Texte und Aufgaben",
   "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [
+    { "word": "besitzen", "synonyms": "haben, sein Eigen nennen", "synonymsBg": "притежавам, имам", "synonymsOrExplanation": "etwas besitzen, haben", "synonymsOrExplanationBg": "притежавам, имам", "wordBg": "притежавам" },
+    { "word": "unterhaltsam", "synonyms": "amüsant, lustig, macht Spaß", "synonymsBg": "забавен, развлекателен", "synonymsOrExplanation": "amüsant, macht Spaß", "synonymsOrExplanationBg": "забавен, развлекателен", "wordBg": "забавен" },
+    { "word": "Rekord", "synonyms": "Höchstleistung, Bestwert", "synonymsBg": "рекорд", "synonymsOrExplanation": "beste Leistung, Höchstwert", "synonymsOrExplanationBg": "рекорд, най-добър резултат", "wordBg": "рекорд" },
+    { "word": "Zuschauer", "synonyms": "Publikum, Zuschauende", "synonymsBg": "зрители", "synonymsOrExplanation": "Personen, die zuschauen", "synonymsOrExplanationBg": "зрители", "wordBg": "зрители" },
+    { "word": "Jonglieren", "synonyms": "Bälle werfen, Kunststücke", "synonymsBg": "жонглиране", "synonymsOrExplanation": "mit Bällen in der Luft spielen", "synonymsOrExplanationBg": "жонглиране", "wordBg": "жонглиране" },
+    { "word": "Auftritt", "synonyms": "Vorführung, Performance", "synonymsBg": "изпълнение", "synonymsOrExplanation": "Vorführung vor Publikum", "synonymsOrExplanationBg": "изпълнение, появяване на сцена", "wordBg": "изпълнение" },
+    { "word": "Applaus", "synonyms": "Klatschen, Beifall", "synonymsBg": "аплодисменти", "synonymsOrExplanation": "Klatschen als Anerkennung", "synonymsOrExplanationBg": "аплодисменти", "wordBg": "аплодисменти" },
+    { "word": "Triathlon", "synonyms": "Dreikampf, Mehrkampf", "synonymsBg": "триатлон", "synonymsOrExplanation": "Wettkampf: Schwimmen, Radfahren, Laufen", "synonymsOrExplanationBg": "триатлон", "wordBg": "триатлон" },
+    { "word": "Ziellinie", "synonyms": "Ziel, Finish", "synonymsBg": "финална линия", "synonymsOrExplanation": "Linie am Ende des Rennens", "synonymsOrExplanationBg": "финална линия", "wordBg": "финална линия" },
+    { "word": "Mountainbike", "synonyms": "MTB, Geländerad", "synonymsBg": "планинско колело", "synonymsOrExplanation": "Fahrrad für Berge und Gelände", "synonymsOrExplanationBg": "планинско колело", "wordBg": "планинско колело" }
+  ],
   "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {

@@ -4,6 +4,18 @@
   "titleBg": "DSD I Моделен тест 3",
   "subtitle": "Leseverstehen – Texte und Aufgaben",
   "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [
+    { "word": "begrüßt", "synonyms": "willkommen heißen, empfangen", "synonymsBg": "поздравява, приема", "synonymsOrExplanation": "sagt willkommen, empfängt", "synonymsOrExplanationBg": "поздравява, приема", "wordBg": "поздравява" },
+    { "word": "Einladung", "synonyms": "Einladung, Aufforderung", "synonymsBg": "покана", "synonymsOrExplanation": "Aufforderung, jemanden einzuladen", "synonymsOrExplanationBg": "покана", "wordBg": "покана" },
+    { "word": "Flughafen", "synonyms": "Airport, Flugplatz", "synonymsBg": "летище", "synonymsOrExplanation": "Ort, wo Flugzeuge starten und landen", "synonymsOrExplanationBg": "летище", "wordBg": "летище" },
+    { "word": "freut sich", "synonyms": "ist froh, hat Freude", "synonymsBg": "радва се", "synonymsOrExplanation": "ist froh, hat Freude", "synonymsOrExplanationBg": "радва се", "wordBg": "радва се" },
+    { "word": "Schüleraustausch", "synonyms": "Austausch, Auslandsaufenthalt", "synonymsBg": "ученически обмен", "synonymsOrExplanation": "Schüler leben eine Zeit im Ausland", "synonymsOrExplanationBg": "ученически обмен", "wordBg": "ученически обмен" },
+    { "word": "Internat", "synonyms": "Internat, Boardingschule", "synonymsBg": "интернат", "synonymsOrExplanation": "Schule, wo man wohnt", "synonymsOrExplanationBg": "интернат", "wordBg": "интернат" },
+    { "word": "Auftritte", "synonyms": "Vorführungen, Darbietungen", "synonymsBg": "изпълнения", "synonymsOrExplanation": "Vorführungen vor Publikum", "synonymsOrExplanationBg": "изпълнения", "wordBg": "изпълнения" },
+    { "word": "Gehör", "synonyms": "Hören, Ohr", "synonymsBg": "слух", "synonymsOrExplanation": "Fähigkeit zu hören, musikalisches Ohr", "synonymsOrExplanationBg": "слух", "wordBg": "слух" },
+    { "word": "Drehbuch", "synonyms": "Skript, Szenarium", "synonymsBg": "сценарий", "synonymsOrExplanation": "Text für einen Film", "synonymsOrExplanationBg": "сценарий", "wordBg": "сценарий" },
+    { "word": "Preisgeld", "synonyms": "Preis, Gewinn", "synonymsBg": "парична награда", "synonymsOrExplanation": "Geld als Preis gewonnen", "synonymsOrExplanationBg": "парична награда", "wordBg": "парична награда" }
+  ],
   "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast insgesamt 60 Minuten Zeit, um die fünf Teile zu bearbeiten. Danach hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {

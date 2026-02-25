@@ -4,6 +4,17 @@
   "titleBg": "DSD I Моделен тест 1",
   "subtitle": "Leseverstehen – Texte und Aufgaben",
   "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [
+    { "word": "besichtigen", "synonyms": "ansehen, besuchen", "synonymsBg": "разглеждам, посещавам", "synonymsOrExplanation": "etwas ansehen, besichtigen", "synonymsOrExplanationBg": "разглеждам, посещавам", "wordBg": "посещавам, разглеждам" },
+    { "word": "neugierig", "synonyms": "wissbegierig, gespannt", "synonymsBg": "любопитен, нетърпелив", "synonymsOrExplanation": "neugierig auf etwas sein", "synonymsOrExplanationBg": "любопитен, нетърпелив", "wordBg": "любопитен" },
+    { "word": "Früchtebrot", "synonyms": "Früchtbrot, Festtagsbrot", "synonymsBg": "плодов хляб", "synonymsOrExplanation": "süßes Brot mit Trockenfrüchten", "synonymsOrExplanationBg": "сладък хляб с сушени плодове", "wordBg": "плодов хляб" },
+    { "word": "Wissenslücken", "synonyms": "Lücken, fehlendes Wissen", "synonymsBg": "липси в знанията", "synonymsOrExplanation": "fehlendes Wissen", "synonymsOrExplanationBg": "липсващи знания", "wordBg": "липсващи знания" },
+    { "word": "Lernplan", "synonyms": "Lehrplan, Curriculum", "synonymsBg": "учебен план", "synonymsOrExplanation": "Plan für das Lernen", "synonymsOrExplanationBg": "план за учене", "wordBg": "учебен план" },
+    { "word": "Lernpaket", "synonyms": "Aufgabensammlung, Lerneinheit", "synonymsBg": "учебен пакет", "synonymsOrExplanation": "Sammlung von Aufgaben", "synonymsOrExplanationBg": "сбор от задачи", "wordBg": "учебен пакет" },
+    { "word": "Abschlussprüfung", "synonyms": "Abschluss, Prüfung", "synonymsBg": "випускен изпит", "synonymsOrExplanation": "Prüfung am Ende der Schule", "synonymsOrExplanationBg": "изпит в края на училището", "wordBg": "випускен изпит" },
+    { "word": "ertrinken", "synonyms": "im Wasser sterben, untergehen", "synonymsBg": "да се удавя", "synonymsOrExplanation": "im Wasser sterben", "synonymsOrExplanationBg": "да загина във вода", "wordBg": "да се удавя" },
+    { "word": "Schulschwimmen", "synonyms": "Schwimmunterricht, Schulschwimmen", "synonymsBg": "школско плуване", "synonymsOrExplanation": "Schwimmunterricht in der Schule", "synonymsOrExplanationBg": "урок по плуване в училище", "wordBg": "школско плуване" }
+  ],
   "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
     {

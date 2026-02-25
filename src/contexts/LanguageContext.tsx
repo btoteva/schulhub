@@ -71,6 +71,13 @@ interface Translations {
   readWord: string;
   readExample: string;
   noWordsInDictionary: string;
+  vocabularyTableWord: string;
+  vocabularyTableSynonyms: string;
+  vocabularyTableExplanation: string;
+  vocabularyTableTranslation: string;
+  vocabularyTestTab: string;
+  showTeacherText: string;
+  hideTeacherText: string;
   forward: string;
   menu: string;
   resources: string;
@@ -168,6 +175,13 @@ const translations: Record<Language, Translations> = {
     readWord: "Прочитай думата",
     readExample: "Прочитай примера",
     noWordsInDictionary: "Няма думи в речника",
+    vocabularyTableWord: "Дума",
+    vocabularyTableSynonyms: "Синоними",
+    vocabularyTableExplanation: "Тълкуване",
+    vocabularyTableTranslation: "Превод на български",
+    vocabularyTestTab: "Тест",
+    showTeacherText: "Покажи текст за учител",
+    hideTeacherText: "Скрий текст за учител",
     forward: "Напред",
     menu: "Меню",
     resources: "Ресурси",
@@ -267,6 +281,13 @@ const translations: Record<Language, Translations> = {
     readWord: "Read word",
     readExample: "Read example",
     noWordsInDictionary: "No words in dictionary",
+    vocabularyTableWord: "Word",
+    vocabularyTableSynonyms: "Synonyms",
+    vocabularyTableExplanation: "Explanation",
+    vocabularyTableTranslation: "Bulgarian translation",
+    vocabularyTestTab: "Test",
+    showTeacherText: "Show text for teacher",
+    hideTeacherText: "Hide text for teacher",
     forward: "Forward",
     menu: "Menu",
     resources: "Resources",
@@ -366,6 +387,13 @@ const translations: Record<Language, Translations> = {
     readWord: "Wort vorlesen",
     readExample: "Beispiel vorlesen",
     noWordsInDictionary: "Keine Wörter im Wörterbuch",
+    vocabularyTableWord: "Wort",
+    vocabularyTableSynonyms: "Synonyme",
+    vocabularyTableExplanation: "Erklärung",
+    vocabularyTableTranslation: "Bulgarische Übersetzung",
+    vocabularyTestTab: "Test",
+    showTeacherText: "Text für Lehrkraft anzeigen",
+    hideTeacherText: "Text für Lehrkraft ausblenden",
     forward: "Weiter",
     menu: "Menü",
     resources: "Ressourcen",
