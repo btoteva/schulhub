@@ -8,7 +8,7 @@
  */
 
 const PASSWORD_HASH =
-  "d9d57e1313f35c4fa06c0bd706e51ff492047c4a02c04559224ceb21f2c879bc";
+  "b115f2aed27a5197d00eb6ecb1ff211f6bc18f0801546c194cbea47868901781";
 const COOKIE_NAME = "weekly_program_auth";
 const COOKIE_TOKEN = "wp_ok";
 const COOKIE_DAYS = 365;
