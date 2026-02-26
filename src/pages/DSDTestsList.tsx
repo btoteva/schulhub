@@ -17,7 +17,7 @@ type TestItem = {
 
 const MODELLSATZ_1_IDS = ["1", "2", "3"];
 const MODELLSATZ_2_IDS = ["4", "5", "6"];
-const MODELLSATZ_3_IDS = ["7", "8"];
+const MODELLSATZ_3_IDS = ["7", "8", "9"];
 
 const MODELLSATZ_1_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "1": FaClipboardList,
@@ -34,6 +34,7 @@ const MODELLSATZ_2_ICONS: Record<string, React.ComponentType<{ className?: strin
 const MODELLSATZ_3_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "7": FaClipboardList,
   "8": FaHeadphones,
+  "9": FaPenFancy,
 };
 
 const DSDTestsList: React.FC = () => {
@@ -172,7 +173,7 @@ const DSDTestsList: React.FC = () => {
                 </span>
               </button>
               {modellsatz1Open && (
-                <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "border-amber-500/30" : "border-amber-500/20"}`}>
+                <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "bg-white border-amber-500/30" : "bg-gray-800/50 border-amber-500/20"}`}>
                   {modellsatz1Tests.map((test) => (
                     <div key={test.id}>{renderTestLink(test, MODELLSATZ_1_ICONS[test.id])}</div>
                   ))}
@@ -213,7 +214,7 @@ const DSDTestsList: React.FC = () => {
                 </span>
               </button>
               {modellsatz2Open && (
-                <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "border-amber-500/30" : "border-amber-500/20"}`}>
+                <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "bg-white border-amber-500/30" : "bg-gray-800/50 border-amber-500/20"}`}>
                   {modellsatz2Tests.map((test) => (
                     <div key={test.id}>{renderTestLink(test, MODELLSATZ_2_ICONS[test.id])}</div>
                   ))}
@@ -254,7 +255,7 @@ const DSDTestsList: React.FC = () => {
                 </span>
               </button>
               {modellsatz3Open && (
-                <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "border-amber-500/30" : "border-amber-500/20"}`}>
+                <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "bg-white border-amber-500/30" : "bg-gray-800/50 border-amber-500/20"}`}>
                   {modellsatz3Tests.map((test) => (
                     <div key={test.id}>{renderTestLink(test, MODELLSATZ_3_ICONS[test.id])}</div>
                   ))}

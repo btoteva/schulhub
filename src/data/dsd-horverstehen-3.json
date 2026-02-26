@@ -5,13 +5,62 @@
   "subtitle": "Hörverstehen Hörtexte",
   "subtitleBg": "Текстове за слушане",
   "vocabulary": [
-    { "word": "Wanderschuhe", "synonyms": "Wanderschuh, Trekking-Schuh", "synonymsBg": "планински обувки", "synonymsOrExplanation": "Schuhe zum Wandern", "synonymsOrExplanationBg": "планински обувки", "wordBg": "планински обувки" },
-    { "word": "Tüte", "synonyms": "Beutel, Tüte", "synonymsBg": "торбичка, пакет", "synonymsOrExplanation": "Papier- oder Plastikbeutel", "synonymsOrExplanationBg": "торбичка, пакет", "wordBg": "торбичка" },
-    { "word": "Durchsage", "synonyms": "Ankündigung, Ansage", "synonymsBg": "обявление, съобщение", "synonymsOrExplanation": "Ankündigung, Ansage", "synonymsOrExplanationBg": "обявление, съобщение", "wordBg": "обявление" },
-    { "word": "Aula", "synonyms": "Foyer, großer Saal", "synonymsBg": "актова зала", "synonymsOrExplanation": "großer Raum in der Schule", "synonymsOrExplanationBg": "актова зала", "wordBg": "актова зала" },
-    { "word": "Sekretariat", "synonyms": "Büro, Verwaltung", "synonymsBg": "секретариат", "synonymsOrExplanation": "Büro in der Schule", "synonymsOrExplanationBg": "секретариат", "wordBg": "секретариат" },
-    { "word": "Hausmeister", "synonyms": "Hausmeister, Portier", "synonymsBg": "домакин, портиер", "synonymsOrExplanation": "Person, die das Gebäude betreut", "synonymsOrExplanationBg": "домакин, портиер", "wordBg": "домакин" },
-    { "word": "Fahrradkeller", "synonyms": "Fahrradraum, Bike-Raum", "synonymsBg": "изба за велосипеди", "synonymsOrExplanation": "Kellerraum für Fahrräder", "synonymsOrExplanationBg": "изба за велосипеди", "wordBg": "изба за велосипеди" }
+    {
+      "word": "Wanderschuhe",
+      "synonyms": "Wanderschuh, Trekking-Schuh",
+      "synonymsBg": "планински обувки",
+      "synonymsOrExplanation": "Schuhe zum Wandern",
+      "synonymsOrExplanationBg": "планински обувки",
+      "wordBg": "планински обувки"
+    },
+    {
+      "word": "Tüte",
+      "synonyms": "Beutel, Tüte",
+      "synonymsBg": "торбичка, пакет",
+      "synonymsOrExplanation": "Papier- oder Plastikbeutel",
+      "synonymsOrExplanationBg": "торбичка, пакет",
+      "wordBg": "торбичка"
+    },
+    {
+      "word": "Durchsage",
+      "synonyms": "Ankündigung, Ansage",
+      "synonymsBg": "обявление, съобщение",
+      "synonymsOrExplanation": "Ankündigung, Ansage",
+      "synonymsOrExplanationBg": "обявление, съобщение",
+      "wordBg": "обявление"
+    },
+    {
+      "word": "Aula",
+      "synonyms": "Foyer, großer Saal",
+      "synonymsBg": "актова зала",
+      "synonymsOrExplanation": "großer Raum in der Schule",
+      "synonymsOrExplanationBg": "актова зала",
+      "wordBg": "актова зала"
+    },
+    {
+      "word": "Sekretariat",
+      "synonyms": "Büro, Verwaltung",
+      "synonymsBg": "секретариат",
+      "synonymsOrExplanation": "Büro in der Schule",
+      "synonymsOrExplanationBg": "секретариат",
+      "wordBg": "секретариат"
+    },
+    {
+      "word": "Hausmeister",
+      "synonyms": "Hausmeister, Portier",
+      "synonymsBg": "домакин, портиер",
+      "synonymsOrExplanation": "Person, die das Gebäude betreut",
+      "synonymsOrExplanationBg": "домакин, портиер",
+      "wordBg": "домакин"
+    },
+    {
+      "word": "Fahrradkeller",
+      "synonyms": "Fahrradraum, Bike-Raum",
+      "synonymsBg": "изба за велосипеди",
+      "synonymsOrExplanation": "Kellerraum für Fahrräder",
+      "synonymsOrExplanationBg": "изба за велосипеди",
+      "wordBg": "изба за велосипеди"
+    }
   ],
   "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
   "teile": [
@@ -27,68 +76,186 @@
         "instruction3": "Danach hörst du die Szenen noch einmal.",
         "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
         "szenen": [
-          { "id": 1 },
-          { "id": 2 },
-          { "id": 3 },
-          { "id": 4 },
-          { "id": 5 }
+          {
+            "id": 1,
+            "bildA": "https://i.imgur.com/fgIDABX.png",
+            "bildB": "https://i.imgur.com/GOMgPks.png",
+            "bildC": "https://i.imgur.com/b3JSf1U.png"
+          },
+          {
+            "id": 2,
+            "bildA": "https://i.imgur.com/UtyNnSs.png",
+            "bildB": "https://i.imgur.com/Yk6W9yC.png",
+            "bildC": "https://i.imgur.com/Qsck9dQ.png"
+          },
+          {
+            "id": 3,
+            "bildA": "https://i.imgur.com/RPOxkDU.png",
+            "bildB": "https://i.imgur.com/yZrcXjy.png",
+            "bildC": "https://i.imgur.com/fIiIxJO.png"
+          },
+          {
+            "id": 4,
+            "bildA": "https://i.imgur.com/JWCrtLV.png",
+            "bildB": "https://i.imgur.com/t34KXji.png",
+            "bildC": "https://i.imgur.com/6ryQlFV.png"
+          },
+          {
+            "id": 5,
+            "bildA": "https://i.imgur.com/ajewuIb.png",
+            "bildB": "https://i.imgur.com/6BHsAlX.png",
+            "bildC": "https://i.imgur.com/PS1hrGM.png"
+          }
         ]
       },
       "scenes": [
         {
           "id": 1,
           "lines": [
-            { "speaker": "Junge A", "text": "Oh, hier gibt's aber viele - und einer schöner als der andere." },
-            { "speaker": "Junge B", "text": "Mhm, jaa…" },
-            { "speaker": "Junge A", "text": "Guck mal, wie findest du den roten da?" },
-            { "speaker": "Junge B", "text": "Ja, schön, aber der sieht so schwer aus" },
-            { "speaker": "Junge A", "text": "Aber ich muss ihn doch nicht tragen, der hat Rollen. Und der ist groß genug für meine Wanderschuhe…" },
-            { "speaker": "Junge B", "text": "... und deine dicke Jacke." },
-            { "speaker": "Junge A", "text": "Ok, den nehmen wir. Ich freu mich schon aufs Packen." },
-            { "speaker": "Junge B", "text": "Wie lange ist eigentlich dein Urlaub?" }
+            {
+              "speaker": "Junge A",
+              "text": "Oh, hier gibt's aber viele - und einer schöner als der andere."
+            },
+            {
+              "speaker": "Junge B",
+              "text": "Mhm, jaa…"
+            },
+            {
+              "speaker": "Junge A",
+              "text": "Guck mal, wie findest du den roten da?"
+            },
+            {
+              "speaker": "Junge B",
+              "text": "Ja, schön, aber der sieht so schwer aus"
+            },
+            {
+              "speaker": "Junge A",
+              "text": "Aber ich muss ihn doch nicht tragen, der hat Rollen. Und der ist groß genug für meine Wanderschuhe…"
+            },
+            {
+              "speaker": "Junge B",
+              "text": "... und deine dicke Jacke."
+            },
+            {
+              "speaker": "Junge A",
+              "text": "Ok, den nehmen wir. Ich freu mich schon aufs Packen."
+            },
+            {
+              "speaker": "Junge B",
+              "text": "Wie lange ist eigentlich dein Urlaub?"
+            }
           ]
         },
         {
           "id": 2,
           "lines": [
-            { "speaker": "Junge A", "text": "He, Tim, nimm mal die Tüte, ich will meine Karte in die Tasche tun." },
-            { "speaker": "Junge B", "text": "Sag mal, hast du seit Tagen nix mehr zu Essen gekriegt?" },
-            { "speaker": "Junge A", "text": "Wieso? Hab' doch extra ne kleine Tüte genommen. Mhm...Wann fängt 'n der Film endlich an?" },
-            { "speaker": "Junge B", "text": "Erstmal kommt ja sowieso Werbung." },
-            { "speaker": "Junge A", "text": "Dann geh ich noch mal raus und hol mir noch ´nen Apfelsaft. Soll ich noch was mitbringen?" },
-            { "speaker": "Junge B", "text": "Nee, danke." }
+            {
+              "speaker": "Junge A",
+              "text": "He, Tim, nimm mal die Tüte, ich will meine Karte in die Tasche tun."
+            },
+            {
+              "speaker": "Junge B",
+              "text": "Sag mal, hast du seit Tagen nix mehr zu Essen gekriegt?"
+            },
+            {
+              "speaker": "Junge A",
+              "text": "Wieso? Hab' doch extra ne kleine Tüte genommen. Mhm...Wann fängt 'n der Film endlich an?"
+            },
+            {
+              "speaker": "Junge B",
+              "text": "Erstmal kommt ja sowieso Werbung."
+            },
+            {
+              "speaker": "Junge A",
+              "text": "Dann geh ich noch mal raus und hol mir noch ´nen Apfelsaft. Soll ich noch was mitbringen?"
+            },
+            {
+              "speaker": "Junge B",
+              "text": "Nee, danke."
+            }
           ]
         },
         {
           "id": 3,
           "lines": [
-            { "speaker": "Mädchen A", "text": "Lisa, guck dir den mal an!" },
-            { "speaker": "Mädchen B", "text": "Ist der süß! Guck mal, die kleinen Augen! Und ganz weiß… nur das rechte Ohr ist schwarz." },
-            { "speaker": "Mädchen A", "text": "Ja, in den würd' ich mich verlieben. Den möcht' ich sofort mitnehmen." },
-            { "speaker": "Mädchen B", "text": "Das würden deine Eltern aber nicht erlauben." },
-            { "speaker": "Mädchen A", "text": "Ja, stimmt… Mein Vater ist mal von einem gebissen worden. Deshalb geht da gar nix." }
+            {
+              "speaker": "Mädchen A",
+              "text": "Lisa, guck dir den mal an!"
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Ist der süß! Guck mal, die kleinen Augen! Und ganz weiß… nur das rechte Ohr ist schwarz."
+            },
+            {
+              "speaker": "Mädchen A",
+              "text": "Ja, in den würd' ich mich verlieben. Den möcht' ich sofort mitnehmen."
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Das würden deine Eltern aber nicht erlauben."
+            },
+            {
+              "speaker": "Mädchen A",
+              "text": "Ja, stimmt… Mein Vater ist mal von einem gebissen worden. Deshalb geht da gar nix."
+            }
           ]
         },
         {
           "id": 4,
           "lines": [
-            { "speaker": "Junge A", "text": "Puh, gut, dass wir das noch geschafft haben!" },
-            { "speaker": "Mädchen B", "text": "Ja, da bin ich auch froh. So sind wir schneller zu Hause." },
-            { "speaker": "Junge C", "text": "Und vor allem werden wir nicht so nass. Darauf hab´ ich nämlich überhaupt keine Lust." },
-            { "speaker": "Junge A", "text": "Stimmt. Außerdem bin ich nach dem vielen Laufen auch ziemlich kaputt." },
-            { "speaker": "Mädchen B", "text": "Ach, wir brauchen noch Fahrkarten." },
-            { "speaker": "Junge C", "text": "Bleibt sitzen, ich hol sie schon…" }
+            {
+              "speaker": "Junge A",
+              "text": "Puh, gut, dass wir das noch geschafft haben!"
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Ja, da bin ich auch froh. So sind wir schneller zu Hause."
+            },
+            {
+              "speaker": "Junge C",
+              "text": "Und vor allem werden wir nicht so nass. Darauf hab´ ich nämlich überhaupt keine Lust."
+            },
+            {
+              "speaker": "Junge A",
+              "text": "Stimmt. Außerdem bin ich nach dem vielen Laufen auch ziemlich kaputt."
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Ach, wir brauchen noch Fahrkarten."
+            },
+            {
+              "speaker": "Junge C",
+              "text": "Bleibt sitzen, ich hol sie schon…"
+            }
           ]
         },
         {
           "id": 5,
           "lines": [
-            { "speaker": "Mädchen A", "text": "He, wie wär's denn damit? Das könnten wir Maren mitbringen" },
-            { "speaker": "Mädchen B", "text": "Meinst du, das wär' das Richtige für sie?" },
-            { "speaker": "Mädchen A", "text": "Auf jeden Fall, das gefällt ihr total gut. Das wollte sie letzte Woche schon kaufen." },
-            { "speaker": "Mädchen B", "text": "Prima, dann lass uns das doch nehmen. Blau ist eine gute Farbe für sie." },
-            { "speaker": "Mädchen A", "text": "Ja, aber wie ist das mit der Größe? Passt das?" },
-            { "speaker": "Mädchen B", "text": "Du, Maren ist genau so groß wie ich." }
+            {
+              "speaker": "Mädchen A",
+              "text": "He, wie wär's denn damit? Das könnten wir Maren mitbringen"
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Meinst du, das wär' das Richtige für sie?"
+            },
+            {
+              "speaker": "Mädchen A",
+              "text": "Auf jeden Fall, das gefällt ihr total gut. Das wollte sie letzte Woche schon kaufen."
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Prima, dann lass uns das doch nehmen. Blau ist eine gute Farbe für sie."
+            },
+            {
+              "speaker": "Mädchen A",
+              "text": "Ja, aber wie ist das mit der Größe? Passt das?"
+            },
+            {
+              "speaker": "Mädchen B",
+              "text": "Du, Maren ist genau so groß wie ich."
+            }
           ]
         }
       ]
@@ -98,6 +265,55 @@
       "title": "Teil 2",
       "subtitle": "Durchsagen in der Schule",
       "audioUrl": "https://www.dropbox.com/scl/fi/nbeb6su9wgtpv85tcinin/3-02-Titel-2.mp3?rlkey=rfqqmgv699rjxthxf05a48xb5&st=tdfdthls&dl=1",
+      "teil2Exercise": {
+        "instruction1": "Du hörst gleich vier Durchsagen in der Schule.",
+        "instruction2": "Lies zuerst die Aufgaben 6-9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction3": "Höre nun die Durchsagen. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Durchsagen noch einmal.",
+        "tasks": [
+          {
+            "id": 6,
+            "prompt": "In der Aula",
+            "options": [
+              { "id": "A", "text": "ist gerade die Klasse 10a." },
+              { "id": "B", "text": "liegt viel Dreck auf dem Boden." },
+              { "id": "C", "text": "putzen die Putzfrauen nie." }
+            ],
+            "correct": "B"
+          },
+          {
+            "id": 7,
+            "prompt": "Der Basketballkurs",
+            "options": [
+              { "id": "A", "text": "beginnt in drei Tagen." },
+              { "id": "B", "text": "bekommt einen neuen Trainer." },
+              { "id": "C", "text": "findet am Freitag nicht statt." }
+            ],
+            "correct": "C"
+          },
+          {
+            "id": 8,
+            "prompt": "Die Schüler sollen ihre Fahrräder ab Montag",
+            "options": [
+              { "id": "A", "text": "auf den Schulhof stellen." },
+              { "id": "B", "text": "dem Hausmeister geben." },
+              { "id": "C", "text": "in den Fahrradkeller bringen." }
+            ],
+            "correct": "C"
+          },
+          {
+            "id": 9,
+            "prompt": "Das Sportfest ist",
+            "options": [
+              { "id": "A", "text": "am Mittwochnachmittag." },
+              { "id": "B", "text": "am Wochenende." },
+              { "id": "C", "text": "in der nächsten Woche." }
+            ],
+            "correct": "C"
+          }
+        ]
+      },
       "aufgaben": [
         {
           "id": 6,
@@ -115,6 +331,248 @@
           "id": 9,
           "text": "Ich bitte um Aufmerksamkeit für eine Durchsage: Alle Schülerinnen und Schüler, die an unserem Sportfest teilnehmen wollen, müssen sich anmelden. Das könnt ihr noch bis Ende dieser Woche im Sekretariat tun. Bei gutem Wetter findet das Fest nächste Woche im Stadtpark statt. Am Mittwochnachmittag bietet Herr Barth zur Vorbereitung ein Training an. Danke, Ende der Durchsage."
         }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Interview mit Wolfgang vom Schülerradio",
+      "audioUrl": "https://www.dropbox.com/scl/fi/1ypk6k6ijg2h7pp8df1rw/3-03-Spur-3.mp3?rlkey=6scxfd3d662k4p9izin76r625&st=yxm43zkt&dl=1",
+      "teil3Exercise": {
+        "intro": "Am Helmholtz-Gymnasium gibt es ein Schülerradio. Wolfgang ist der Leiter des Teams. Du hörst ein Interview mit Wolfgang.",
+        "instruction1": "Lies zuerst die Sätze 10-14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10-14) an: richtig oder falsch.",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Das Programm des Schülerradios läuft den ganzen Vormittag.", "correct": "falsch" },
+          { "id": 11, "statement": "Die Schüler hatten die Idee für das Schülerradio.", "correct": "falsch" },
+          { "id": 12, "statement": "Das Team des Schülerradios hat ein professionelles Radiostudio.", "correct": "falsch" },
+          { "id": 13, "statement": "Einige Leute sind gegen das Schülerradio.", "correct": "richtig" },
+          { "id": 14, "statement": "Das Team des Schülerradios will alles so lassen, wie es ist.", "correct": "falsch" }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            {
+              "speaker": "Interviewerin",
+              "text": "Helmholtzradio - Seit wann gibt es das Schülerradio?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Seit dem 13. November 1995 machen wir das Radioprogramm in den zwei großen Pausen pro Tag. Die Idee hatten wir zu Beginn des Jahres 1995."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Was ist euer Programm?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Wir spielen in den beiden großen Pausen zehn bis fünfzehn Minuten Musik. Unsere Lehrer wünschen sich mehr Klassik, aber wir spielen nur Musik von heute, also Hits von A bis Z."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Warum sprecht ihr nicht?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Wir würden in den Pausen auch gerne Nachrichten bringen oder Schülern und Lehrern zum Geburtstag gratulieren, doch das ist technisch nicht möglich."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Wer macht mit?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Bei uns machen nur Schüler mit. Ein Lehrer hatte die Idee für das Schülerradio, aber jetzt ist dieser Lehrer nicht mehr an der Schule."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Macht ihr nur Schülerradio?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Nein. Die Schulradio-AG macht auch bei der Produktion eines Schülermagazins mit. Die Sendung kann man freitags in Frankfurt hören. Da gibt es Nachrichten, Veranstaltungstipps, Berichte und Interviews zum Thema Schule."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Habt ihr auch eine Internetseite?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Wir haben schon seit 1996 eine Internetseite. Im Herbst 2001 haben wir das Angebot komplett überarbeitet. Wir informieren auf dieser Seite über unser Team, über die technische Seite von unserer Arbeit. Außerdem kann man dort nachlesen, was wir schon alles gemacht haben."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Was macht ihr noch?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Damit wir wissen, wie die Profis Radio machen, besuchen wir ab und zu andere Radiosender. Und manchmal machen wir Musik bei Partys oder Festen an der Schule."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Welche Technik benutzt ihr?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Wir besitzen das kleinste Studio der Welt, wir haben nur CD-Player, Verstärker und Mischpult. Diese Geräte stehen in einem Schrank, denn wir haben keinen Raum."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Wie finden die Hörer euer Programm?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Die Schüler sind eigentlich sehr zufrieden mit unserem Sender. Der Musikstil gefällt nicht immer allen - aber das ist auch nicht möglich. Viele Lehrer finden es toll, dass wir für das Schulradio arbeiten. Aber es gibt auch Gegner. Sie wollen, dass wir mit dem Radio aufhören. Die meisten Besucher der Schule sind sehr überrascht, dass unsere Schule überhaupt ein Schülerradio hat."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Was macht ihr sonst noch alles?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Bei Demonstrationen machen wir zum Beispiel die Musik, bei Schuldiscos machen wir gute Musik zum Tanzen. Bei der letzten Projektwoche gab es sechs Stunden Schülerradio am Stück, davon eine Stunde live in ganz Frankfurt."
+            },
+            {
+              "speaker": "Interviewerin",
+              "text": "Was ist euer nächstes Ziel?"
+            },
+            {
+              "speaker": "Wolfgang",
+              "text": "Der größte Wunsch der AG ist folgender: Wir brauchen unbedingt mehr Geld für neue Geräte und einen eigenen Raum."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Ein Jahr in Mexiko",
+      "audioUrl": "https://www.dropbox.com/scl/fi/qvhey3y80zd84wjj2dh15/3-04-Spur-4.mp3?rlkey=u8tsy45r9m4htg795yhf5dbxb&st=ujwbwpdq&dl=1",
+      "teil4Exercise": {
+        "intro": "Du hörst einen Bericht im Schülerradio. Kristina erzählt von ihrem Aufenthalt in Mexiko.",
+        "instruction1": "Lies zuerst die Aufgaben 15-20. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun den Bericht. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction4": "Danach hörst du den Bericht noch einmal.",
+        "tasks": [
+          {
+            "id": 15,
+            "prompt": "Kristina wusste vor ihrer Ankunft in Mexiko nur,",
+            "options": [
+              { "id": "A", "text": "dass sie Angst hatte." },
+              { "id": "B", "text": "wie ihre Gastfamilie heißt." },
+              { "id": "C", "text": "dass ihre Gasteltern drei Kinder haben." }
+            ],
+            "correct": "C"
+          },
+          {
+            "id": 16,
+            "prompt": "Am Anfang hatte Kristina Probleme mit",
+            "options": [
+              { "id": "A", "text": "der Gastfamilie." },
+              { "id": "B", "text": "der neuen Schule." },
+              { "id": "C", "text": "der Sprache." }
+            ],
+            "correct": "C"
+          },
+          {
+            "id": 17,
+            "prompt": "Kurz nach Weihnachten",
+            "options": [
+              { "id": "A", "text": "fing für Kristina die beste Zeit an." },
+              { "id": "B", "text": "hatte die Gastschwester Geburtstag." },
+              { "id": "C", "text": "wollte Kristina nach Hause fliegen." }
+            ],
+            "correct": "A"
+          },
+          {
+            "id": 18,
+            "prompt": "In Mexiko hat Kristina gemerkt, dass sie sich",
+            "options": [
+              { "id": "A", "text": "nicht selbstsicher fühlt." },
+              { "id": "B", "text": "nicht verändern will." },
+              { "id": "C", "text": "weiterentwickelt hat." }
+            ],
+            "correct": "C"
+          },
+          {
+            "id": 19,
+            "prompt": "An ihrem letzten Abend in Mexiko",
+            "options": [
+              { "id": "A", "text": "wurde die ganze Nacht gefeiert." },
+              { "id": "B", "text": "konnte niemand schlafen." },
+              { "id": "C", "text": "waren alle sehr traurig." }
+            ],
+            "correct": "C"
+          },
+          {
+            "id": 20,
+            "prompt": "Kristina findet ihr Austauschjahr",
+            "options": [
+              { "id": "A", "text": "war eine wertvolle Erfahrung." },
+              { "id": "B", "text": "war sehr stressig." },
+              { "id": "C", "text": "war verschwendete Zeit." }
+            ],
+            "correct": "A"
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Kristina", "text": "Hallo, ich bin Kristina! Ich erzähl' euch heute von meinem Jahr in Mexiko. Tja, „Ein Jahr Mexiko“ - das hört sich nach einem großen, langen Abenteuer an - und das war es auch." },
+            { "speaker": "Kristina", "text": "Ende August ging's los. Beim Abschied von meiner Familie haben wir alle geweint. Nach etwa zwölf Stunden kam ich dann endlich im Norden Mexikos in Monterrey an. Ich wusste überhaupt nicht, was mich erwarten würde. Ich wusste nur, dass meine Gasteltern drei Kinder haben." },
+            { "speaker": "Kristina", "text": "Zuerst war alles neu für mich. Ich hab' vor lauter Aufregung erst mal nichts verstanden und konnte auch kaum was essen. Das hat sich aber schnell geändert. Ich bin in die Schule gegangen und habe dann ‚ne Menge Leute kennen gelernt. Dadurch haben sich meine Sprachkenntnisse sehr schnell verbessert." },
+            { "speaker": "Kristina", "text": "In den ersten Wochen hatte ich aber trotzdem Heimweh. Ich habe meine Familie und Deutschland sehr vermisst. Das Leben ist einfach ganz anders als bei uns in Deutschland – die Gerüche, die Geräusche, das Essen, ganz einfach die mexikanische Kultur. Meine Gastschwester hat mir aber sehr geholfen und sie wurde nach kurzer Zeit zu meiner besten Freundin. Mit ihr zusammen habe ich mich bald an meine neue Umgebung gewöhnt." },
+            { "speaker": "Kristina", "text": "Ich habe mich wirklich wie zu Hause gefühlt – vor allem kurz nach Weihnachten. Da haben wir alle zusammen meinen 17. Geburtstag gefeiert. Ab dann habe ich angefangen, die Zeit richtig zu genießen und die Monate sind nur so vorbei geflogen." },
+            { "speaker": "Kristina", "text": "Ich habe gemerkt, dass ich mich verändert hatte. Ich wurde viel offener, selbstsicherer und lernte mich wie eine richtige Mexikanerin zu verhalten. Ich fühlte mich wie eine von ihnen." },
+            { "speaker": "Kristina", "text": "Ostern fuhr meine ganze Gastfamilie mit mir nach Mazatlan. Das ist eine wunderschöne Stadt, die direkt am Meer liegt. Dort waren wir den ganzen Tag am Strand. Ich bin richtig braun geworden!" },
+            { "speaker": "Kristina", "text": "Einige Wochen danach fingen schon die Ferien an, und ab dann ging alles ganz schnell. An meinem letzten Abend in Mexiko waren wir sehr traurig und weinten. Keiner von uns konnte schlafen … Am Flughafen war es dann noch schlimmer, weil wir ja wussten, dass dies nun der Abschied war." },
+            { "speaker": "Kristina", "text": "Als ich im Flugzeug saß, wollte ich am liebsten sofort wieder aussteigen. Ich wollte zurück zu meiner Gastschwester, zu den neuen Freunden und… ja, ich hatte einfach Heimweh nach Mexiko. Ich hab' mich aber auch auf meine Eltern und Schulfreunde in Deutschland gefreut. Alles in allem war es vielleicht das beste Jahr meines Lebens – bis jetzt jedenfalls." },
+            { "speaker": "Kristina", "text": "Ich habe so viele Dinge gelernt! Vor allem habe ich gelernt, dass man Probleme besser lösen kann, wenn man offen ist und keine Angst vor neuen Erfahrungen hat. Es ist nicht immer einfach, aber es ist zu schaffen – und es lohnt sich!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Berichte zur Projektwoche",
+      "audioUrl": "https://www.dropbox.com/scl/fi/g5rxlrp8g56240zet89na/3-05-Spur-5.mp3?rlkey=3uhs8nmv8488cmmf5lascja8a&st=kwa7r9aq&dl=1",
+      "teil5Exercise": {
+        "intro": "Im Schülerradio berichten Schüler über die Aktivitäten während der Projektwoche an ihrer Schule.",
+        "instruction1": "Lies zuerst die Liste mit den verschiedenen Aktivitäten (A-H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction2": "Notiere beim Hören zu jedem Bericht den richtigen Buchstaben (A-H).",
+        "instruction3": "Einige Buchstaben bleiben übrig.",
+        "instruction4": "Du hörst die Berichte einmal. Zuerst hörst du ein Beispiel. Der Bericht hat die Nummer 0. Die Lösung ist Z.",
+        "instruction5": "Jetzt hörst du die anderen Berichte.",
+        "activities": [
+          { "id": "Z", "text": "Geschichte erfahren" },
+          { "id": "A", "text": "im Schulgarten arbeiten" },
+          { "id": "B", "text": "die Eingangshalle sauber machen" },
+          { "id": "C", "text": "ein Theaterstück spielen" },
+          { "id": "D", "text": "den Pausenraum schöner machen" },
+          { "id": "E", "text": "einen Schreibkurs besuchen" },
+          { "id": "F", "text": "im Kindergarten mithelfen" },
+          { "id": "G", "text": "Möbel selber machen" },
+          { "id": "H", "text": "gesundes Essen kochen" }
+        ],
+        "taskNumbers": [21, 22, 23, 24],
+        "correctAnswers": { "21": "H", "22": "A", "23": "D", "24": "E" }
+      },
+      "itemLabel": "Nummer",
+      "aufgaben": [
+        { "id": 0, "text": "… mit dem Leben vor 2000 Jahren beschäftigt. Wir haben Modelle gebaut und das Leben in dieser Zeit nachgespielt. Außerdem haben wir verschiedene alte Dörfer und ein Museum besucht. Das war sehr interessant, aber wir sind doch alle froh, dass wir heute leben und nicht vor 2000 Jahren." },
+        { "id": 21, "text": "…mit frischen und natürlichen Lebensmitteln. Das war richtig lecker! Wir haben verschiedenes Obst kennen gelernt und sogar selbst Nudeln gemacht. Kochen ist jedenfalls nicht nur etwas für Mädchen: Auch den Jungen hat es viel Spaß gemacht." },
+        { "id": 22, "text": "… die Wege sauber machen und die Blumen gießen. Wir haben auch Obst, Gemüse und ein paar andere Sachen gepflanzt wie Tomaten und Salat. Wir hoffen, dass den Besuchern der neue Garten hinter unserer Sporthalle gefällt." },
+        { "id": 23, "text": "…während der Projektwoche haben wir den alten Pausenraum schöner gemacht. Wir haben die alten Sofas und Stühle rausgeworfen und neue Teppiche gekauft. Dann haben wir die Wände weiß gestrichen und ein paar Bilder an die Wände gehängt. Der Raum ist richtig schön geworden und gefällt hoffentlich allen Schülern gut." },
+        { "id": 24, "text": "…Texte verfassen macht Spaß – und kann Erholung sein. Wir haben verschiedene Techniken ausprobiert, wie sie die professionellen Schriftsteller nutzen. Wir haben uns auch Zeit für längere Erzählungen genommen. Am Ende ist ein Leseheft mit unseren selbst geschriebenen Geschichten entstanden…" }
       ]
     }
   ]

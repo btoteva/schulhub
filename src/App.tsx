@@ -12,6 +12,7 @@ import DSDHorverstehen2View from './pages/DSDHorverstehen2View';
 import DSDHorverstehen3View from './pages/DSDHorverstehen3View';
 import DSDSchriftliche1View from './pages/DSDSchriftliche1View';
 import DSDSchriftliche2View from './pages/DSDSchriftliche2View';
+import DSDSchriftliche3View from './pages/DSDSchriftliche3View';
 import DSDTestsList from './pages/DSDTestsList';
 
 const App: React.FC = () => {
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path="/german/dsd-horverstehen-3" element={<DSDHorverstehen3View />} />
           <Route path="/german/dsd-schriftliche-1" element={<DSDSchriftliche1View />} />
           <Route path="/german/dsd-schriftliche-2" element={<DSDSchriftliche2View />} />
+          <Route path="/german/dsd-schriftliche-3" element={<DSDSchriftliche3View />} />
         </Routes>
       </div>
     </Router>

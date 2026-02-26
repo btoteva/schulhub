@@ -15,6 +15,7 @@ import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
 import { getLessonById } from "../data/lessons";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useTheme } from "../contexts/ThemeContext";
 
 // Lesson section interface
 interface LessonSection {
@@ -239,18 +240,20 @@ const lessonsData: { [key: number]: Band[] } = {
 
 const Lessons: React.FC = () => {
   const { t, language } = useLanguage();
+  const { theme } = useTheme();
+  const isLight = theme === "light";
   const { courseId } = useParams<{ courseId: string }>();
   const course = coursesData.find((c) => c.id === Number(courseId));
   const bands = lessonsData[Number(courseId)] || [];
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black flex items-center justify-center">
+      <div className={`min-h-screen flex items-center justify-center ${isLight ? "bg-slate-100" : "bg-gradient-to-b from-gray-900 via-gray-950 to-black"}`}>
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className={`text-4xl font-bold mb-4 ${isLight ? "text-slate-800" : "text-white"}`}>
             {t.courseNotFound}
           </h2>
-          <Link to="/" className="text-blue-400 hover:text-blue-300">
+          <Link to="/" className={isLight ? "text-amber-600 hover:text-amber-700" : "text-blue-400 hover:text-blue-300"}>
             {t.returnToHome}
           </Link>
         </div>
@@ -309,14 +312,14 @@ const Lessons: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
+    <div className={isLight ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900" : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black"}>
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 border-b border-gray-800/50">
+      <section className={isLight ? "bg-white/80 border-b border-slate-200 shadow-sm" : "bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 border-b border-gray-800/50"}>
         <div className="container mx-auto px-4 py-12">
           <div className="flex items-center justify-between mb-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+              className={`inline-flex items-center gap-2 transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-gray-300 hover:text-white"}`}
             >
               <FaArrowLeft />
               <span>{t.back}</span>
@@ -326,11 +329,11 @@ const Lessons: React.FC = () => {
           <div className="flex items-center gap-8 mb-6">
             <div className="flex-shrink-0">{getSubjectIcon()}</div>
             <div>
-              <h1 className="text-5xl font-bold text-white mb-3">
+              <h1 className={`text-5xl font-bold mb-3 ${isLight ? "text-slate-800" : "text-white"}`}>
                 {getCourseTitle()}
               </h1>
-              <p className="text-xl text-gray-300 mb-4">{getCourseDesc()}</p>
-              <div className="flex items-center gap-6 text-gray-400">
+              <p className={`text-xl mb-4 ${isLight ? "text-slate-600" : "text-gray-300"}`}>{getCourseDesc()}</p>
+              <div className={`flex items-center gap-6 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
                 <span className="flex items-center gap-2">
                   <FaBook />
                   {actualLessonCount} {t.lessonsCount}
@@ -347,14 +350,14 @@ const Lessons: React.FC = () => {
 
       {/* Lessons List Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-4xl font-bold text-white mb-8">{t.selectLesson}</h2>
+        <h2 className={`text-4xl font-bold mb-8 ${isLight ? "text-slate-800" : "text-white"}`}>{t.selectLesson}</h2>
 
         <div className="max-w-4xl space-y-16">
           {bands.map((band, bandIndex) => (
             <div key={bandIndex}>
               {/* Band Title */}
               <div className="mb-8">
-                <h2 className="text-4xl font-bold text-white border-b-2 border-yellow-500 pb-3 inline-block">
+                <h2 className={`text-4xl font-bold border-b-2 pb-3 inline-block ${isLight ? "text-slate-800 border-amber-500" : "text-white border-yellow-500"}`}>
                   {band.bandTitle}
                 </h2>
               </div>
@@ -364,7 +367,7 @@ const Lessons: React.FC = () => {
                 {band.sections.map((section, sectionIndex) => (
                   <div key={sectionIndex}>
                     {/* Section Title */}
-                    <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-6 uppercase">
+                    <h3 className={`text-2xl font-bold mb-6 uppercase ${course.id === 1 ? "text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500" : course.id === 2 ? "text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500" : "text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500"}`}>
                       {section.sectionTitle}
                     </h3>
 
@@ -373,7 +376,7 @@ const Lessons: React.FC = () => {
                       {section.lessons.map((lesson) => (
                         <div
                           key={lesson.id}
-                          className="group relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-transparent transform hover:scale-[1.02] cursor-pointer"
+                          className={`group relative rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer ${isLight ? "bg-white border border-slate-200 hover:border-amber-400/60" : "bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:border-transparent"}`}
                         >
                           <div
                             className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient()} opacity-0 group-hover:opacity-10 transition-opacity rounded-xl`}
@@ -388,10 +391,10 @@ const Lessons: React.FC = () => {
                               </div>
 
                               <div className="flex-1">
-                                <h4 className="text-2xl font-bold text-white mb-2">
+                                <h4 className={`text-2xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
                                   {lesson.title}
                                 </h4>
-                                <div className="flex items-center gap-4 text-gray-400">
+                                <div className={`flex items-center gap-4 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
                                   <span className="flex items-center gap-1">
                                     <FaClock className="text-sm" />
                                     {lesson.duration}
@@ -507,7 +510,7 @@ const Lessons: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16">
+      <footer className={isLight ? "bg-slate-100 text-slate-500 py-8 border-t border-slate-200 mt-16" : "bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16"}>
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>

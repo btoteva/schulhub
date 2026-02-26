@@ -35,15 +35,18 @@ const DSDModellsatz3View: React.FC = () => {
       id: string;
       title: string;
       titleBg: string;
+      subtitle?: string;
+      intro?: string;
       text?: string;
       wordList?: Array<{ id: string; word: string; wordBg: string }>;
       tasks?: Array<{ id: number; gap?: number; correct: string; question: string } | { id: number; statement: string; correct: string }>;
-      aufgabe5?: { question: string; questionBg: string; options: Array<{ id: string; text: string; correct: boolean }> };
+      aufgabe5?: { question: string; questionBg: string; intro?: string; options: Array<{ id: string; text: string; correct: boolean }> };
       instruction?: string;
       instructionBg?: string;
       persons?: Array<{ id: string; label: string }>;
       emails?: Array<{ id: number; text: string; correct: string }>;
       tableTitle?: string;
+      optionsHeading?: string;
       summaries?: Array<{ id: number; text: string; correct: string; isExample?: boolean }>;
       emailOptions?: Array<{ id: string; text: string }>;
       headlineOptions?: Array<{ id: string; text: string }>;
@@ -326,8 +329,8 @@ const DSDModellsatz3View: React.FC = () => {
                   );
                 })()}
               </p>
-              {teil1.aufgabe5 && (teil1.aufgabe5 as { intro?: string }).intro && (
-                <p className="font-bold text-amber-700 dark:text-amber-200 mt-6 mb-2 whitespace-pre-line">{(teil1.aufgabe5 as { intro: string }).intro}</p>
+              {teil1.aufgabe5 && teil1.aufgabe5.intro && (
+                <p className="font-bold text-amber-700 dark:text-amber-200 mt-6 mb-2 whitespace-pre-line">{teil1.aufgabe5.intro}</p>
               )}
               {teil1.aufgabe5 && (
                 <div className="mt-4 p-6 bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50 rounded-lg">
@@ -375,22 +378,22 @@ const DSDModellsatz3View: React.FC = () => {
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
                 {teil2.title}
-                {(teil2 as { subtitle?: string }).subtitle && `: ${(teil2 as { subtitle: string }).subtitle}`}
+                {teil2.subtitle && `: ${teil2.subtitle}`}
               </h2>
-              {(teil2 as { intro?: string }).intro && (
+              {teil2.intro && (
                 <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">
-                  {(teil2 as { intro: string }).intro.split(/\*\*(.*?)\*\*/g).map((part, i) =>
+                  {teil2.intro.split(/\*\*(.*?)\*\*/g).map((part, i) =>
                     i % 2 === 1 ? <strong key={i} className="text-amber-700 dark:text-amber-200 font-semibold">{part}</strong> : part
                   )}
                 </p>
               )}
-              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil2 as { optionsHeading?: string }).optionsHeading || "E-Mails A–H"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{teil2.optionsHeading || "E-Mails A–H"}</h3>
               <div className="mb-8 space-y-3 text-slate-900 dark:text-gray-300 text-sm">
                 {teil2.emailOptions.map((em) => (
                   <p key={em.id}><strong>{em.id}</strong>: {em.text}</p>
                 ))}
               </div>
-              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil2 as { tableTitle?: string }).tableTitle || "Aufgaben 6–9"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{teil2.tableTitle || "Aufgaben 6–9"}</h3>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
@@ -454,10 +457,10 @@ const DSDModellsatz3View: React.FC = () => {
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
                 {teil3.title}
-                {(teil3 as { subtitle?: string }).subtitle && `: ${(teil3 as { subtitle: string }).subtitle}`}
+                {teil3.subtitle && `: ${teil3.subtitle}`}
               </h2>
-              {(teil3 as { intro?: string }).intro && (
-                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil3 as { intro: string }).intro}</p>
+              {teil3.intro && (
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{teil3.intro}</p>
               )}
               {teil3.text && (
                 <div className="text-slate-900 dark:text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil3.text}</div>
@@ -510,10 +513,10 @@ const DSDModellsatz3View: React.FC = () => {
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
                 {teil4.title}
-                {(teil4 as { subtitle?: string }).subtitle && `: ${(teil4 as { subtitle: string }).subtitle}`}
+                {teil4.subtitle && `: ${teil4.subtitle}`}
               </h2>
-              {(teil4 as { intro?: string }).intro && (
-                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil4 as { intro: string }).intro}</p>
+              {teil4.intro && (
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{teil4.intro}</p>
               )}
               {teil4.text && (
                 <div className="text-slate-900 dark:text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil4.text}</div>
@@ -571,10 +574,10 @@ const DSDModellsatz3View: React.FC = () => {
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
                 {teil5.title}
-                {(teil5 as { subtitle?: string }).subtitle && `: ${(teil5 as { subtitle: string }).subtitle}`}
+                {teil5.subtitle && `: ${teil5.subtitle}`}
               </h2>
-              {(teil5 as { intro?: string }).intro && (
-                <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">{(teil5 as { intro: string }).intro}</p>
+              {teil5.intro && (
+                <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">{teil5.intro}</p>
               )}
               <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">Überschriften A–H</h3>
               <div className="mb-8 space-y-2 text-slate-900 dark:text-gray-300 text-sm">
@@ -582,7 +585,7 @@ const DSDModellsatz3View: React.FC = () => {
                   <p key={h.id}><strong>{h.id}</strong>: {h.text}</p>
                 ))}
               </div>
-              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil5 as { tableTitle?: string }).tableTitle || "Aufgaben 21–24"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{teil5.tableTitle || "Aufgaben 21–24"}</h3>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
@@ -618,7 +621,7 @@ const DSDModellsatz3View: React.FC = () => {
                                   }`}
                                 >
                                   <option value="">–</option>
-                                  {teil5.headlineOptions.filter((h) => h.id !== "Z").map((h) => (
+                                  {(teil5.headlineOptions ?? []).filter((h) => h.id !== "Z").map((h) => (
                                     <option key={h.id} value={h.id}>{h.id}</option>
                                   ))}
                                 </select>
