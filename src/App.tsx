@@ -14,6 +14,7 @@ import DSDSchriftliche1View from './pages/DSDSchriftliche1View';
 import DSDSchriftliche2View from './pages/DSDSchriftliche2View';
 import DSDSchriftliche3View from './pages/DSDSchriftliche3View';
 import DSDTestsList from './pages/DSDTestsList';
+import GermanPodcastView from './pages/GermanPodcastView';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,8 @@ const App: React.FC = () => {
           <Route path="/lessons/:courseId" element={<Lessons />} />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />
+          <Route path="/german/podcast" element={<GermanPodcastView />} />
+          <Route path="/german/podcast/:episodeId" element={<GermanPodcastView />} />
           <Route path="/german/dsd-modellsatz-1" element={<DSDModellsatz1View />} />
           <Route path="/german/dsd-modellsatz-2" element={<DSDHorverstehen1View />} />
           <Route path="/german/dsd-modellsatz-3" element={<DSDModellsatz2View />} />

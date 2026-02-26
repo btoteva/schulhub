@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   FaArrowLeft,
@@ -17,6 +17,9 @@ import { getLessonById } from "../data/lessons";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import DSDTestsListContent from "../components/DSDTestsListContent";
+import { germanPodcasts } from "../data/german-podcasts";
+import { isPodcastListened, togglePodcastListened } from "../utils/podcast-listened";
 
 // Lesson section interface
 interface LessonSection {
@@ -239,6 +242,8 @@ const lessonsData: { [key: number]: Band[] } = {
   ],
 };
 
+type GermanTab = "lessons" | "podcast" | "dsd";
+
 const Lessons: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
@@ -246,6 +251,8 @@ const Lessons: React.FC = () => {
   const { courseId } = useParams<{ courseId: string }>();
   const course = coursesData.find((c) => c.id === Number(courseId));
   const bands = lessonsData[Number(courseId)] || [];
+  const [germanTab, setGermanTab] = useState<GermanTab>("lessons");
+  const [podcastListenedVersion, setPodcastListenedVersion] = useState(0);
 
   if (!course) {
     return (
@@ -349,7 +356,124 @@ const Lessons: React.FC = () => {
         </div>
       </section>
 
-      {/* Lessons List Section */}
+      {/* Tabs: only for German (course 1) – Уроци | Подкаст */}
+      {course.id === 1 && (
+        <section className="container mx-auto px-4 pt-6">
+          <div className="max-w-4xl flex gap-2 border-b border-slate-200 dark:border-gray-700">
+            <button
+              type="button"
+              onClick={() => setGermanTab("lessons")}
+              className={`px-6 py-3 font-semibold rounded-t-lg transition-colors ${
+                germanTab === "lessons"
+                  ? isLight
+                    ? "bg-amber-500/20 text-amber-700 border-b-2 border-amber-500 -mb-[2px]"
+                    : "bg-amber-500/20 text-amber-300 border-b-2 border-amber-400 -mb-[2px]"
+                  : isLight
+                    ? "text-slate-600 hover:bg-slate-100"
+                    : "text-gray-400 hover:bg-gray-800/50"
+              }`}
+            >
+              {t.lessons}
+            </button>
+            <button
+              type="button"
+              onClick={() => setGermanTab("podcast")}
+              className={`px-6 py-3 font-semibold rounded-t-lg transition-colors ${
+                germanTab === "podcast"
+                  ? isLight
+                    ? "bg-green-500/20 text-green-700 border-b-2 border-green-500 -mb-[2px]"
+                    : "bg-green-500/20 text-green-300 border-b-2 border-green-400 -mb-[2px]"
+                  : isLight
+                    ? "text-slate-600 hover:bg-slate-100"
+                    : "text-gray-400 hover:bg-gray-800/50"
+              }`}
+            >
+              {t.podcast}
+            </button>
+            <button
+              type="button"
+              onClick={() => setGermanTab("dsd")}
+              className={`px-6 py-3 font-semibold rounded-t-lg transition-colors ${
+                germanTab === "dsd"
+                  ? isLight
+                    ? "bg-amber-500/20 text-amber-700 border-b-2 border-amber-500 -mb-[2px]"
+                    : "bg-amber-500/20 text-amber-300 border-b-2 border-amber-400 -mb-[2px]"
+                  : isLight
+                    ? "text-slate-600 hover:bg-slate-100"
+                    : "text-gray-400 hover:bg-gray-800/50"
+              }`}
+            >
+              {t.dsdTests}
+            </button>
+          </div>
+        </section>
+      )}
+
+      {/* Tab content: DSD tests (only for German when dsd tab active) */}
+      {course.id === 1 && germanTab === "dsd" && (
+        <section className="container mx-auto px-4 py-8 max-w-3xl">
+          <DSDTestsListContent isLight={isLight} language={language} />
+        </section>
+      )}
+
+      {/* Tab content: Podcast list (only for German when podcast tab active) */}
+      {course.id === 1 && germanTab === "podcast" && (
+        <section className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl space-y-4">
+            {germanPodcasts.map((podcast) => {
+              const listened = isPodcastListened(podcast.spotifyEpisodeId);
+              return (
+                <div
+                  key={podcast.id}
+                  className={`rounded-xl shadow-lg border overflow-hidden flex items-stretch ${isLight ? "bg-white border-slate-200 hover:border-green-400/60" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:border-green-500/40"}`}
+                >
+                  <Link
+                    to={`/german/podcast/${podcast.spotifyEpisodeId}`}
+                    className={`group flex items-center gap-6 p-6 flex-1 min-w-0 transition-all duration-300 hover:shadow-inner`}
+                  >
+                    <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-green-600 flex items-center justify-center text-white group-hover:bg-green-500 transition-colors">
+                      <FaSpotify className="w-8 h-8" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`text-xl font-bold ${isLight ? "text-slate-800 group-hover:text-green-700" : "text-white group-hover:text-green-300"}`}>
+                        {podcast.title}
+                      </h3>
+                      <p className={`text-sm mt-1 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
+                        {podcast.subtitle} · {podcast.duration}
+                        {listened && (
+                          <span className={`inline-flex items-center gap-1 ml-2 ${isLight ? "text-green-600" : "text-green-400"}`}>
+                            <FaCheckCircle className="w-4 h-4" />
+                            {t.podcastListened}
+                          </span>
+                        )}
+                      </p>
+                    </div>
+                    <span className={`flex-shrink-0 font-semibold text-sm ${isLight ? "text-green-600" : "text-green-400"}`}>
+                      {language === "bg" ? "Слушай" : language === "de" ? "Anhören" : "Listen"}
+                    </span>
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      togglePodcastListened(podcast.spotifyEpisodeId);
+                      setPodcastListenedVersion((v) => v + 1);
+                    }}
+                    className={`flex-shrink-0 flex items-center gap-2 px-4 border-l text-sm font-medium ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700" : "border-gray-700 bg-gray-800/50 hover:bg-gray-800 text-gray-300"}`}
+                    title={listened ? t.podcastMarkUnlistened : t.podcastMarkListened}
+                  >
+                    <FaCheckCircle className={`w-5 h-5 shrink-0 ${listened ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`} />
+                    <span className="hidden sm:inline">{listened ? t.podcastMarkUnlistened : t.podcastMarkListened}</span>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      {/* Lessons List Section – shown when no tabs (other courses) or German + lessons tab */}
+      {(!(course.id === 1) || germanTab === "lessons") && (
       <section className="container mx-auto px-4 py-16">
         <h2 className={`text-4xl font-bold mb-8 ${isLight ? "text-slate-800" : "text-white"}`}>{t.selectLesson}</h2>
 
@@ -509,6 +633,7 @@ const Lessons: React.FC = () => {
           ))}
         </div>
       </section>
+      )}
 
       {/* Footer */}
       <footer className={isLight ? "bg-slate-100 text-slate-500 py-8 border-t border-slate-200 mt-16" : "bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16"}>

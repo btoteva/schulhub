@@ -245,15 +245,6 @@ const Home: React.FC = () => {
                     {getCourseLevel(course.level)}
                   </span>
                   <div className="flex gap-2">
-                    {course.id === 1 && (
-                      <Link to="/german/dsd-tests">
-                        <button
-                          className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105 text-sm"
-                        >
-                          {t.dsdTests}
-                        </button>
-                      </Link>
-                    )}
                     <Link to={`/lessons/${course.id}`}>
                       <button
                         className={`bg-gradient-to-r ${getSubjectGradient(

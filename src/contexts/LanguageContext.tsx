@@ -38,6 +38,10 @@ interface Translations {
   weeklyProgramLock: string;
   lessonsCount: string;
   seeMore: string;
+  podcast: string;
+  podcastListened: string;
+  podcastMarkListened: string;
+  podcastMarkUnlistened: string;
   allRightsReserved: string;
 
   // Lessons page
@@ -142,6 +146,10 @@ const translations: Record<Language, Translations> = {
     weeklyProgramLock: "Скрий програмата",
     lessonsCount: "урока",
     seeMore: "Виж повече",
+    podcast: "Подкаст",
+    podcastListened: "Изслушан",
+    podcastMarkListened: "Маркирай като изслушан",
+    podcastMarkUnlistened: "Премахни маркировката",
     allRightsReserved: "Всички права запазени.",
 
     // Lessons page
@@ -248,6 +256,10 @@ const translations: Record<Language, Translations> = {
     weeklyProgramLock: "Hide program",
     lessonsCount: "lessons",
     seeMore: "See More",
+    podcast: "Podcast",
+    podcastListened: "Listened",
+    podcastMarkListened: "Mark as listened",
+    podcastMarkUnlistened: "Mark as not listened",
     allRightsReserved: "All rights reserved.",
 
     // Lessons page
@@ -354,6 +366,10 @@ const translations: Record<Language, Translations> = {
     weeklyProgramLock: "Programm ausblenden",
     lessonsCount: "Lektionen",
     seeMore: "Mehr sehen",
+    podcast: "Podcast",
+    podcastListened: "Gehört",
+    podcastMarkListened: "Als gehört markieren",
+    podcastMarkUnlistened: "Markierung entfernen",
     allRightsReserved: "Alle Rechte vorbehalten.",
 
     // Lessons page
