@@ -159,11 +159,11 @@ const DSDModellsatz1View: React.FC = () => {
     >
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Link
-          to="/"
+          to="/german/dsd-tests"
           className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-400 hover:text-amber-600 dark:text-amber-300"}`}
         >
           <FaArrowLeft />
-          Начало
+          {t.dsdTests}
         </Link>
 
         <header className="mb-8">

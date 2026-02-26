@@ -169,7 +169,7 @@ const DSDModellsatz3View: React.FC = () => {
           className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-400 hover:text-amber-300"}`}
         >
           <FaArrowLeft />
-          DSD I Тестове
+          {t.dsdTests}
         </Link>
 
         <header className="mb-8">

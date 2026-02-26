@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
+import { useLanguage } from "../contexts/LanguageContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 
 const DSDSchriftliche3View: React.FC = () => {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const isLight = theme === "light";
   return (
     <div
@@ -21,7 +23,7 @@ const DSDSchriftliche3View: React.FC = () => {
           className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-400 hover:text-amber-600 dark:text-amber-300"}`}
         >
           <FaArrowLeft />
-          DSD I Тестове
+          {t.dsdTests}
         </Link>
 
         <header className="mb-8">
