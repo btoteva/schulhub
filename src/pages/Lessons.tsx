@@ -16,6 +16,7 @@ import coursesData from "../data/courses.json";
 import { getLessonById } from "../data/lessons";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 
 // Lesson section interface
 interface LessonSection {
@@ -515,6 +516,7 @@ const Lessons: React.FC = () => {
           <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>
       </footer>
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowDown, FaArrowUp, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import horverstehenData from "../data/dsd-horverstehen-1.json";
 
 const DSDHorverstehen1View: React.FC = () => {
@@ -913,20 +914,10 @@ const DSDHorverstehen1View: React.FC = () => {
             Ende Prüfungsteil Hörverstehen
           </p>
         </section>
-
-        <div className="mt-12 flex justify-center pb-8">
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 border-2 border-amber-500/50 text-amber-600 dark:text-amber-400 hover:bg-amber-500/30 hover:border-amber-400 transition-colors"
-            aria-label="Nach oben"
-          >
-            <FaArrowUp className="w-5 h-5" />
-          </button>
-        </div>
           </>
         )}
       </main>
+      <ScrollToTopButton />
     </div>
   );
 };

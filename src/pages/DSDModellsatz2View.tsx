@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowLeft, FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { FaArrowLeft, FaArrowDown } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import dsdData from "../data/dsd-modellsatz-2.json";
 
 const STORAGE_KEY = "schulhub-dsd-modellsatz-2";
@@ -692,16 +693,7 @@ const DSDModellsatz2View: React.FC = () => {
               >
                 Изчисти напредъка
               </button>
-              <button
-                type="button"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="px-6 py-3 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white font-semibold rounded-lg inline-flex items-center gap-2"
-                title="Нагоре"
-              >
-                <FaArrowUp />
-                Нагоре
-              </button>
-            </div>
+              </div>
 
             {showAnswerKey && (
               <div className="mt-8 p-6 bg-slate-200 dark:bg-gray-900/80 rounded-xl border border-amber-500/30 text-left">
@@ -735,6 +727,7 @@ const DSDModellsatz2View: React.FC = () => {
           </>
         )}
       </main>
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaFileAlt, FaChevronDown, FaChevronUp, FaClipboardList, FaHeadphones, FaPenFancy } from "react-icons/fa";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import testsListData from "../data/dsd-tests-list.json";
@@ -268,6 +269,7 @@ const DSDTestsList: React.FC = () => {
           ))}
         </ul>
       </main>
+      <ScrollToTopButton />
     </div>
   );
 };

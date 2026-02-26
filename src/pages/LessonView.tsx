@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import { useParams, Link, Navigate } from "react-router-dom";
 import {
   FaArrowLeft,
-  FaArrowUp,
   FaPlay,
   FaPause,
   FaVolumeUp,
@@ -11,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { getLessonById, type LessonContent, type TestQuestion, type PrepositionTableRow } from "../data/lessons";
 import { SkeletonDiagram } from "../components/SkeletonDiagram";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -300,7 +300,6 @@ const LessonView: React.FC = () => {
   const [multiselectChecked, setMultiselectChecked] = useState<Set<number>>(
     new Set(),
   );
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null);
   const isPlayingAllRef = useRef(false);
   const currentPlayAllIndexRef = useRef(0);
@@ -314,13 +313,6 @@ const LessonView: React.FC = () => {
     return () => {
       window.speechSynthesis.cancel();
     };
-  }, []);
-
-  // Show/hide scroll-to-top button
-  useEffect(() => {
-    const onScroll = () => setShowScrollTop(window.scrollY > 400);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Load lesson data dynamically (needed for storage key)
@@ -2457,18 +2449,7 @@ const LessonView: React.FC = () => {
           document.body,
         )}
 
-      {/* Scroll to top button */}
-      {showScrollTop && (
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-30 w-12 h-12 rounded-full bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg flex items-center justify-center transition-all hover:scale-110"
-          title={language === "bg" ? "Нагоре" : "Nach oben"}
-          aria-label={language === "bg" ? "Нагоре" : "Nach oben"}
-        >
-          <FaArrowUp className="w-5 h-5" />
-        </button>
-      )}
+      <ScrollToTopButton />
 
       {/* Footer */}
       <footer className="bg-slate-200/80 dark:bg-black/50 text-slate-800 dark:text-gray-500 py-8 border-t border-slate-300 dark:border-gray-800/50 mt-16">
