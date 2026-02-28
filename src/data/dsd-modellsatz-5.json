@@ -1,0 +1,135 @@
+{
+  "id": "dsd1-modellsatz4",
+  "title": "DSD I Modellsatz 4",
+  "titleBg": "DSD I Моделен тест 4",
+  "subtitle": "Leseverstehen Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [
+    { "word": "Schulen", "synonyms": "Bildungseinrichtungen", "synonymsBg": "училища", "synonymsOrExplanation": "Ort, wo man lernt", "synonymsOrExplanationBg": "място за учене", "wordBg": "училища" },
+    { "word": "Klasse", "synonyms": "Jahrgangsstufe", "synonymsBg": "клас", "synonymsOrExplanation": "Schuljahr, Jahrgangsstufe", "synonymsOrExplanationBg": "клас, учебна година", "wordBg": "клас" },
+    { "word": "besuchen", "synonyms": "gehen zu, teilnehmen", "synonymsBg": "посещавам", "synonymsOrExplanation": "regelmäßig hingehen", "synonymsOrExplanationBg": "посещавам редовно", "wordBg": "посещавам" },
+    { "word": "Fächer", "synonyms": "Unterrichtsfächer", "synonymsBg": "учебни предмети", "synonymsOrExplanation": "Schulfächer wie Mathematik, Deutsch", "synonymsOrExplanationBg": "учебни предмети като математика, немски", "wordBg": "учебни предмети" },
+    { "word": "helfen", "synonyms": "unterstützen, assistieren", "synonymsBg": "помагам", "synonymsOrExplanation": "jdm. unterstützen", "synonymsOrExplanationBg": "помагам на някого", "wordBg": "помагам" }
+  ],
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext. Der Text hat vier Lücken (Aufgabe 1–4).\nSetze aus der Wortliste (A–H) das richtige Wort in jede Lücke ein.\nEinige Wörter bleiben übrig.",
+      "text": "Auf der ganzen Welt findet man vor allem die (0) **Schulen** in Schweden sehr gut. Warum haben sie mehr Erfolg als Schulen in vielen anderen Ländern? In Schweden bleiben alle Schüler bis zur zehnten (1) ________ zusammen auf einer Schule. Danach können sie ein Gymnasium (2) ________ und dort Abitur machen. Die meisten Schüler machen das auch so. Auch der Unterricht in Schweden ist anders als in anderen Ländern. Die Schüler machen am Anfang der Woche zusammen mit ihren Lehrern einen eigenen Stundenplan. Sie schreiben für alle (3) ________ auf, was sie bis zum Ende der Woche lernen möchten. Die Schüler können allein arbeiten, mit anderen in der Gruppe lernen oder die Lehrer bitten, ihnen zu (4) ________. Am Ende der Woche sprechen Schüler und Lehrer zusammen über ihre Erfolge. Zeugnisse gibt es erst ab der neunten Klasse.",
+      "wordList": [
+        { "id": "Z", "word": "Schulen", "wordBg": "училища" },
+        { "id": "A", "word": "gehen", "wordBg": "отивам" },
+        { "id": "B", "word": "Schüler", "wordBg": "ученици" },
+        { "id": "C", "word": "Fächer", "wordBg": "учебни предмети" },
+        { "id": "D", "word": "helfen", "wordBg": "помагам" },
+        { "id": "E", "word": "fragen", "wordBg": "питам" },
+        { "id": "F", "word": "Klasse", "wordBg": "клас" },
+        { "id": "G", "word": "besuchen", "wordBg": "посещавам" },
+        { "id": "H", "word": "Pause", "wordBg": "почивка" }
+      ],
+      "tasks": [
+        { "id": 1, "gap": 1, "correct": "F", "question": "Lücke 1" },
+        { "id": 2, "gap": 2, "correct": "G", "question": "Lücke 2" },
+        { "id": 3, "gap": 3, "correct": "C", "question": "Lücke 3" },
+        { "id": 4, "gap": 4, "correct": "D", "question": "Lücke 4" }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Welche Überschrift passt am besten zum Text? Kreuze an.",
+        "questionBg": "Коя заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          { "id": "A", "text": "Lehrer mit Ideen", "correct": false },
+          { "id": "B", "text": "Schule ganz anders", "correct": true },
+          { "id": "C", "text": "Schüler als Lehrer", "correct": false }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "titleBg": "Част 2",
+      "subtitle": "Anzeigen im Internet",
+      "intro": "Auf einer Internetseite findest du verschiedene Anzeigen. Welche Anzeige passt zu welchem Wunsch?\nUnten findest du acht kurze Wünsche von Schülern.\nLies die Aufgaben (6-9) und die Anzeigen (A-H). Welche E-Mail passt zu wem?\n**Schreibe den richtigen Buchstaben (A-H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6-9",
+      "optionsHeading": "Anzeigen A–H",
+      "summaries": [
+        { "id": 0, "text": "Du suchst einen Brieffreund, der sich für die Natur interessiert.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Du suchst eine Brieffreundin, mit der du über spannende Videos diskutieren kannst.", "correct": "E", "isExample": false },
+        { "id": 7, "text": "Du kannst kein Instrument spielen, hast aber eine gute Stimme und möchtest in einer Musikgruppe mitmachen.", "correct": "D", "isExample": false },
+        { "id": 8, "text": "Du hast noch freie Zeit, liest gerne und möchtest gerne für andere etwas Gutes tun.", "correct": "H", "isExample": false },
+        { "id": 9, "text": "Deine Oma ist fit und aktiv. Du suchst für sie einen Job, mit dem sie noch ein paar Euro verdienen kann.", "correct": "G", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Hallo! Ich suche Jungen oder Mädchen, ab 16 Jahren, die Lust haben, mir zu schreiben. Meine Hobbys sind Lesen, Briefe schreiben und Musik hören. Mein Lieblingsfach ist Biologie. Ich freue mich auf eure Briefe, gerne mit Bild. Enrico.Schumacher@t-online.de" },
+        { "id": "A", "text": "Hallo! Ich suche Leute, die mir schreiben möchten. Meine Hobbys sind Computerspiele, Tischtennis und Fußball spielen. Bei weiteren Fragen schreibt mir doch einfach. Ich werde alle Briefe beantworten. Schreibt bitte nur auf Deutsch. Tim.Klitzin@yahoo.de" },
+        { "id": "B", "text": "Hallo Musikfreunde! Wolfgang Nideggen singt live. Habe zwei Karten für das Konzert der Musikgruppe BAP am nächsten Samstag in Wuppertal. Wer hat Lust, mich zu begleiten? Natascha.Boeckler@gmx.de" },
+        { "id": "C", "text": "An alle Videofreunde! Ich verkaufe meine alte Filmsammlung! Es sind einige richtig gute Filme dabei! Über den Preis können wir reden. Schreibt mir doch kurz, wenn ihr Interesse habt. Matthias.Koetter@web.org" },
+        { "id": "D", "text": "Hallo, singst du gern? Der Sänger unserer Band ist gerade in eine andere Stadt umgezogen. Wir machen deutschen Pop. Ob Sänger oder Sängerin, wir freuen uns auf dich. info@musikland.de" },
+        { "id": "E", "text": "Hallo Leute! Suche eine Brieffreundin aus der Nähe von Köln oder Krefeld. Ich gehe oft spazieren und sehe gern Videos, über die ich mich mit euch unterhalten möchte. Ich schreibe jedem zurück, der sich bei mir meldet! Christina.Peters@web.de" },
+        { "id": "F", "text": "Hallo Musiker! Wir suchen Leute, die gemeinsam mit uns ein Weihnachtskonzert vorbereiten. Wir möchten unseren Omas und Opas damit eine Freude machen. Spielst du ein Musikinstrument? Dann melde dich. Laura.Varga@duck.de" },
+        { "id": "G", "text": "An alle Eltern! Wir kennen Großeltern, die Zeit und Lust haben, mit euren Kindern zu spielen, Bilderbücher anzusehen und Geschichten zu erzählen. Wenn ihr für wenig Geld jemanden für eure Kinder sucht, dann schreibt uns eine E-Mail! info@grosselternvermittlung.de" },
+        { "id": "H", "text": "Hallo Freunde! Alte Leute sind oft allein. Mit unserem Projekt wollen wir alten Menschen in unserer Stadt helfen. Wenn du Bücher vorlesen und dich mit ihnen unterhalten willst, dann mach doch bei uns mit! info@jungborn.de" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "titleBg": "Част 3",
+      "subtitle": "Viel Sport und gutes Essen",
+      "intro": "Lies den Text und die Aufgaben (10–14).\nKreuze bei jeder Aufgabe \u201Erichtig\u201C oder \u201Efalsch\u201C an.",
+      "text": "Dennis geht samstags meistens aus. Darum schläft er am Sonntag lange. Es kann schon mal drei Uhr nachmittags werden, sagt er. Seine Eltern und seine Schwester haben dann das Frühstück schon lange hinter sich. Er trinkt dann seinen Kaffee beim Frühstück aber gerne allein. Meine Familie sehe ich ja schon sehr oft in der Woche.\n\nDennis verabredet sich für den Nachmittag gern mit Freunden. Vorher erledigt er Hausaufgaben oder übt für die nächste Klassenarbeit. Bei gutem Wetter trifft er sich mit seinen Freunden im Park zum Fußball.\n\nNach dem Spiel geht es bei Dennis sportlich weiter. Wenn er noch Zeit hat, fährt er ins Fitnesscenter: Weil ich oft Rückenschmerzen habe, nehme ich an einem speziellen Training teil.\n\nDie Familie lässt am Sonntag das Mittagessen ausfallen. Dafür wird abends gekocht und warm gegessen. Das Essen am Sonntag schätzt Dennis sehr. Meistens gibt es etwas Leckeres, was meine Mutter gekocht hat. Am Sonntag kocht sie immer etwas Besonderes. Dafür hat sie in der Woche keine Zeit, weil sie berufstätig ist.\n\nAbends bekommt Dennis oft noch Besuch von Freunden. Zusammen schauen sie sich dann meistens Videos an. Comedy oder Action gefallen den Abiturienten am besten. Um elf Uhr liege ich aber wieder im Bett, weil ich am Montag früh raus muss. Zur ersten Stunde!",
+      "tasks": [
+        { "id": 10, "statement": "Wenn Dennis am Wochenende abends weggeht, ist er meistens erst um drei Uhr im Bett.", "correct": "falsch" },
+        { "id": 11, "statement": "Dennis möchte gern öfter mit seiner Familie frühstücken.", "correct": "falsch" },
+        { "id": 12, "statement": "Wenn sich Dennis mit seinen Freunden zum Sport trifft, hat er vorher schon die Schulaufgaben erledigt.", "correct": "richtig" },
+        { "id": 13, "statement": "Wegen seiner Rückenschmerzen geht Dennis nur selten zum Fitnesscenter.", "correct": "falsch" },
+        { "id": 14, "statement": "Dennis' Mutter geht arbeiten und kocht in der Woche deshalb nur einfache Sachen.", "correct": "richtig" }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "subtitle": "Berlinale",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Ich war vor ein paar Wochen bei der Berlinale in Berlin. Die Berlinale, das ist ein internationales Festival für Filme. Über 400 Filme werden dort gezeigt. Und das Tolle ist: Die Berlinale ist ein Filmfest für das Publikum. Nicht nur eingeladene Journalisten, Regisseure und Schauspieler dürfen die Filme sehen, sondern alle Leute, die sich eine Eintrittskarte kaufen.\n\nDas ist aber gar nicht so einfach. Man kann sich Tickets im Vorverkauf kaufen oder am Tag, an dem der Film gezeigt wird. Mit meinem Freund Lukas bin ich schon morgens um neun Uhr zum großen Kino am Potsdamer Platz gegangen – und wir konnten es kaum glauben: Mindestens hundert Menschen standen vor dem Kino und wollten auch Tickets haben, um die Filme mit ihren Lieblingsschauspielern zu sehen.\n\nZwei Stunden haben wir gewartet. Aber es hat sich gelohnt! Am Ende haben wir zwei Karten für den Film Das Spiel bekommen. Für nur zehn Euro. Schüler müssen nämlich nur den halben Preis bezahlen. Dann haben wir erstmal eine Pizza gegessen und sind durch die Stadt gelaufen.\n\nAuf dem Weg zurück haben wir an einer Kreuzung plötzlich Kati Großmann gesehen. Unglaublich! Das ist die Schauspielerin aus dem Film Das Spiel. Ich wollte mit meiner Kamera nur ein Foto machen, aber Lukas ist einfach losgelaufen und hat zu mir gesagt: Los, komm schon Markus, beeil dich. Und dann bin ich auch losgerannt. Lukas hat einfach Hallo zu ihr gesagt und sie gefragt, ob wir eine Unterschrift von ihr bekommen. Ich war ein bisschen nervös. Aber Kati Großmann war eigentlich ganz nett - auch wenn sie kaum etwas gesagt hat. Sie hat nur gelacht, ihren Namen auf unsere Eintrittskarten geschrieben und sich verabschiedet. Dann war die Ampel grün und sie ist weitergegangen.\n\nAm Nachmittag waren wir dann im Kino und haben den Film gesehen. Der ist richtig spannend. Und als wir die Szenen mit Kati Großmann sahen, fanden wir es ganz toll, dass wir sie kurz vorher persönlich kennen gelernt hatten. Wir wollen den Film unbedingt noch einmal mit Freunden anschauen, vielleicht wieder im Kino oder auf DVD.\n\nDie Eintrittskarte werde ich aufheben. Lukas natürlich auch; einfach wegwerfen kommt nicht in Frage! Schließlich ist es eine ganz besondere Eintrittskarte und durch sie werde ich immer wieder an die Berlinale denken.",
+      "questions": [
+        { "id": 15, "question": "Wer einen Film auf der Berlinale sehen wollte, musste", "options": [ { "id": "A", "text": "eine Einladung haben.", "correct": false }, { "id": "B", "text": "Eintritt bezahlen.", "correct": true }, { "id": "C", "text": "Journalist sein.", "correct": false } ] },
+        { "id": 16, "question": "Die Menschen vor dem Kino am Potsdamer Platz", "options": [ { "id": "A", "text": "reservierten Karten im Vorverkauf.", "correct": false }, { "id": "B", "text": "warteten auf ihre Lieblingsschauspieler.", "correct": false }, { "id": "C", "text": "wollten Eintrittskarten kaufen.", "correct": true } ] },
+        { "id": 17, "question": "Auf der Berlinale gab es für Schüler", "options": [ { "id": "A", "text": "besondere Eintrittspreise.", "correct": true }, { "id": "B", "text": "kostenlose Eintrittskarten.", "correct": false }, { "id": "C", "text": "Vorstellungen nur für Schüler.", "correct": false } ] },
+        { "id": 18, "question": "Kati Großmann", "options": [ { "id": "A", "text": "erzählte von ihrem Film.", "correct": false }, { "id": "B", "text": "unterschrieb auf den Eintrittskarten.", "correct": true }, { "id": "C", "text": "verschenkte zwei Eintrittskarten.", "correct": false } ] },
+        { "id": 19, "question": "Markus wollte seine Eintrittskarte", "options": [ { "id": "A", "text": "an Lukas verschenken.", "correct": false }, { "id": "B", "text": "einfach wegwerfen.", "correct": false }, { "id": "C", "text": "für sich behalten.", "correct": true } ] },
+        { "id": 20, "question": "Welche Überschrift passt am besten zum Text? Kreuze an.", "options": [ { "id": "A", "text": "Das besondere Treffen vor dem Film", "correct": true }, { "id": "B", "text": "Der Kampf um die Eintrittskarten", "correct": false }, { "id": "C", "text": "Eine Stadt voller Sehenswürdigkeiten", "correct": false } ] }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "titleBg": "Част 5",
+      "subtitle": "Filmausschnitte",
+      "intro": "Welche Überschrift passt am besten zu den beschriebenen Filmausschnitten?\nLies die Texte 21-24 und die Überschriften A-H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A-H) in die rechte Spalte.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 21-24",
+      "summaries": [
+        { "id": 0, "text": "Die Gruppe durchstreifte den Wald. Max, der Anführer, nahm diesmal nur wenige Jungen auf die Suche nach Essen mit. Die anderen bewachten das Feuer. Seitdem sie auf dieser einsamen Insel waren, versuchen sie verzweifelt, zu überleben. Das Wichtigste nach dem Untergang ihres Schiffes war zunächst, etwas Wasser und etwas zu Essen zu finden. Dann brauchten sie einen Plan für ihre Rettung....", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "Die Uhr schlägt zwölf. Mitternacht. Die Schritte auf dem Gehweg hinter ihm kommen immer näher. Es ist bitterkalt heute Nacht. Keine Sterne, nur der Mond scheint. Gleich erreicht ihn der Fremde. Was will der Fremde von ihm? Etwas Böses? Er fühlt sich wie ein gejagtes Tier. Er sucht andere Menschen, die ihm zu Hilfe kommen könnten. Vergeblich. Schon spürt er den Atem des Verfolgers auf seiner Haut. Er beginnt zu laufen...", "correct": "D", "isExample": false },
+        { "id": 22, "text": "Der Mercedes fuhr sehr schnell um die Ecke. Die Polizei fuhr mit heulender Sirene hinterher. Es war nur ein Zufall, dass die Polizisten das Verbrechen beobachten konnten. Jetzt riefen sie ihre Kollegen zu Hilfe. Durch den dichten Verkehr kamen sie den Tätern nicht näher. Plötzlich gab es einen lauten Knall. Einer der Verbrecher hatte den Mercedes gegen einen Baum gefahren.", "correct": "A", "isExample": false },
+        { "id": 23, "text": "Sie hatte alles versucht: Bei der Polizei gefragt, alte Bekannte besucht, um etwas über das Leben ihrer Mutter herauszufinden. Als sie vier war, war ihre Mutter plötzlich ohne Grund weg und niemand wusste, wohin. Das war nun eine Ewigkeit her. Seit zwei Jahren versuchte sie nun schon, ihre Mutter zu finden - leider ohne Erfolg. Vor zwei Tagen jedoch bekam sie einen Hinweis: In einem kleinen Dorf sollte sie ihre Mutter endlich wieder sehen. Langsam näherte sie sich dem Haus.", "correct": "H", "isExample": false },
+        { "id": 24, "text": "Das kleine Mädchen an der Hand der älteren Frau ist traurig. Warum nur muss sie Frankfurt verlassen und in dieses kleine Dorf gehen? Was soll sie hier? Bei diesem alten Mann? Warum kann sie nicht bei der Tante bleiben? Sie liebt zwar die Berge und die Tiere, aber hier kennt sie niemanden. Schnell erobert das kleine Mädchen jedoch das Herz ihres Großvaters und schließt Freundschaft mit einem Jungen.", "correct": "C", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Kampf ums Überleben" },
+        { "id": "A", "text": "Ein plötzliches Ende" },
+        { "id": "B", "text": "Fahrt ins Glück" },
+        { "id": "C", "text": "Neuer Anfang mit Schwierigkeiten" },
+        { "id": "D", "text": "Angst im Dunkeln" },
+        { "id": "E", "text": "Gelungene Flucht" },
+        { "id": "F", "text": "Ein Leben lang verfolgt" },
+        { "id": "G", "text": "Gefährliche Erinnerung" },
+        { "id": "H", "text": "Wiedersehen nach Jahren" }
+      ]
+    }
+  ]
+}

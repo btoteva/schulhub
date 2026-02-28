@@ -334,7 +334,7 @@ const DSDModellsatz3View: React.FC = () => {
                 <p className="font-bold text-amber-700 dark:text-amber-200 mt-6 mb-2 whitespace-pre-line">{teil1.aufgabe5.intro}</p>
               )}
               {teil1.aufgabe5 && (
-                <div className="mt-4 p-6 bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50 rounded-lg">
+                <div className="mt-4 p-6 bg-slate-100 dark:bg-gray-800/70 rounded-lg text-slate-900 dark:text-gray-200">
                   <p className="font-semibold text-amber-700 dark:text-amber-200 mb-4">{teil1.aufgabe5.question}</p>
                   <div className="space-y-2">
                     {teil1.aufgabe5.options.map((opt) => {
@@ -344,7 +344,7 @@ const DSDModellsatz3View: React.FC = () => {
                       return (
                         <label
                           key={opt.id}
-                          className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer ${
+                          className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer text-slate-900 dark:text-gray-200 ${
                             isCorrect ? "bg-green-900/30" : isWrong ? "bg-red-900/30" : "hover:bg-slate-300 dark:hover:bg-gray-600/50"
                           }`}
                         >
@@ -398,7 +398,7 @@ const DSDModellsatz3View: React.FC = () => {
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
-                    <tr className="bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50">
+                    <tr className="bg-slate-100 dark:bg-gray-700/50">
                       <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-16">Nr.</th>
                       <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200">Zusammenfassung</th>
                       <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-24">Buchstabe</th>
@@ -541,7 +541,7 @@ const DSDModellsatz3View: React.FC = () => {
                           <label
                             key={opt.id}
                             className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer ${
-                              !showResults ? "hover:bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50" : ""
+                              !showResults ? "hover:bg-slate-100 dark:hover:bg-gray-700/50" : ""
                             }`}
                           >
                             <input
@@ -590,7 +590,7 @@ const DSDModellsatz3View: React.FC = () => {
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
-                    <tr className="bg-slate-100 dark:bg-slate-200 dark:bg-gray-700/50">
+                    <tr className="bg-slate-100 dark:bg-gray-700/50">
                       <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-16">Nr.</th>
                       <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200">Text</th>
                       <th className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-left text-amber-700 dark:text-amber-200 w-24">Buchstabe</th>

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowLeft, FaArrowDown } from "react-icons/fa";
+import { FaArrowLeft, FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
-import dsdData from "../data/dsd-modellsatz-2.json";
+import dsdData from "../data/dsd-modellsatz-5.json";
 
-const STORAGE_KEY = "schulhub-dsd-modellsatz-2";
+const STORAGE_KEY = "schulhub-dsd-modellsatz-4";
 
 interface DSDState {
   teil1?: Record<number, string>;
@@ -17,7 +17,7 @@ interface DSDState {
   teil5?: Record<number, string>;
 }
 
-const DSDModellsatz2View: React.FC = () => {
+const DSDModellsatz4View: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
   const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
   const [answers, setAnswers] = useState<DSDState>({});
@@ -36,15 +36,18 @@ const DSDModellsatz2View: React.FC = () => {
       id: string;
       title: string;
       titleBg: string;
+      subtitle?: string;
+      intro?: string;
       text?: string;
       wordList?: Array<{ id: string; word: string; wordBg: string }>;
       tasks?: Array<{ id: number; gap?: number; correct: string; question: string } | { id: number; statement: string; correct: string }>;
-      aufgabe5?: { question: string; questionBg: string; options: Array<{ id: string; text: string; correct: boolean }> };
+      aufgabe5?: { question: string; questionBg: string; intro?: string; options: Array<{ id: string; text: string; correct: boolean }> };
       instruction?: string;
       instructionBg?: string;
       persons?: Array<{ id: string; label: string }>;
       emails?: Array<{ id: number; text: string; correct: string }>;
       tableTitle?: string;
+      optionsHeading?: string;
       summaries?: Array<{ id: number; text: string; correct: string; isExample?: boolean }>;
       emailOptions?: Array<{ id: string; text: string }>;
       headlineOptions?: Array<{ id: string; text: string }>;
@@ -52,7 +55,6 @@ const DSDModellsatz2View: React.FC = () => {
     }>;
   };
 
-  // Load progress from localStorage
   useEffect(() => {
     skipSaveRef.current = true;
     try {
@@ -64,7 +66,6 @@ const DSDModellsatz2View: React.FC = () => {
     } catch {}
   }, []);
 
-  // Save progress
   useEffect(() => {
     if (skipSaveRef.current) {
       skipSaveRef.current = false;
@@ -146,6 +147,11 @@ const DSDModellsatz2View: React.FC = () => {
   };
 
   const { correct, total } = getScore();
+  const hasOnlyTeil1 = data.teile.length === 1;
+  const hasTeil2 = !!teil2?.summaries;
+  const hasTeil3 = !!teil3?.tasks;
+  const hasTeil4 = !!teil4?.questions;
+  const hasTeil5 = !!teil5?.summaries;
   const { theme } = useTheme();
   const isLight = theme === "light";
 
@@ -160,7 +166,7 @@ const DSDModellsatz2View: React.FC = () => {
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <Link
           to="/german/dsd-tests"
-          className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-400 hover:text-amber-600 dark:text-amber-300"}`}
+          className={`inline-flex items-center gap-2 mb-8 ${isLight ? "text-amber-600 hover:text-amber-700" : "text-amber-400 hover:text-amber-300"}`}
         >
           <FaArrowLeft />
           {t.dsdTests}
@@ -168,64 +174,33 @@ const DSDModellsatz2View: React.FC = () => {
 
         <header className="mb-8">
           <h1 className={`text-3xl font-bold ${isLight ? "text-amber-600" : "text-amber-400"}`}>{data.title}</h1>
-          <p className={isLight ? "text-slate-600 mt-1" : "text-gray-400 mt-1"}>{data.subtitle}</p>
+          <p className={isLight ? "text-slate-600 mt-1" : "text-slate-800 dark:text-gray-400 mt-1"}>{data.subtitle}</p>
         </header>
 
         <div className="flex gap-2 mb-6 border-b border-amber-500/30">
-          <button
-            type="button"
-            onClick={() => setActiveTab("test")}
-            className={`px-4 py-2 font-semibold rounded-t-lg transition-colors ${activeTab === "test" ? "bg-amber-600 text-white" : isLight ? "bg-slate-200 text-slate-700 hover:bg-slate-300" : "bg-gray-700 text-gray-300 hover:bg-gray-600"}`}
-          >
-            {t.vocabularyTestTab}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("dictionary")}
-            className={`px-4 py-2 font-semibold rounded-t-lg transition-colors ${activeTab === "dictionary" ? "bg-amber-600 text-white" : isLight ? "bg-slate-200 text-slate-700 hover:bg-slate-300" : "bg-gray-700 text-gray-300 hover:bg-gray-600"}`}
-          >
-            {t.dictionary}
-          </button>
+          <button type="button" onClick={() => setActiveTab("test")} className={`px-4 py-2 font-semibold rounded-t-lg transition-colors ${activeTab === "test" ? "bg-amber-600 text-white" : isLight ? "bg-slate-200 text-slate-700 hover:bg-slate-300" : "bg-gray-700 text-gray-300 hover:bg-gray-600"}`}>{t.vocabularyTestTab}</button>
+          <button type="button" onClick={() => setActiveTab("dictionary")} className={`px-4 py-2 font-semibold rounded-t-lg transition-colors ${activeTab === "dictionary" ? "bg-amber-600 text-white" : isLight ? "bg-slate-200 text-slate-700 hover:bg-slate-300" : "bg-gray-700 text-gray-300 hover:bg-gray-600"}`}>{t.dictionary}</button>
         </div>
 
         {activeTab === "dictionary" && (
           <div className="bg-white dark:bg-gray-800/50 rounded-xl border border-amber-500/30 overflow-hidden">
-            {(!data.vocabulary || data.vocabulary.length === 0) ? (
-              <p className="p-8 text-slate-600 dark:text-gray-400">{t.noWordsInDictionary}</p>
-            ) : (
+            {(!data.vocabulary || data.vocabulary.length === 0) ? <p className="p-8 text-slate-600 dark:text-gray-400">{t.noWordsInDictionary}</p> : (
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-amber-600 text-white">
-                      <th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableWord}</th>
-                      <th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableSynonyms}</th>
-                      <th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableExplanation}</th>
-                      <th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableTranslation}</th>
-                    </tr>
-                  </thead>
+                  <thead><tr className="bg-amber-600 text-white"><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableWord}</th><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableSynonyms}</th><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableExplanation}</th><th className="border border-amber-500/50 px-4 py-3 text-left font-semibold">{t.vocabularyTableTranslation}</th></tr></thead>
                   <tbody>
-                    {data.vocabulary.map((row, idx) => (
+                    {data.vocabulary!.map((row, idx) => (
                       <tr key={idx} className={isLight ? "bg-slate-50 hover:bg-slate-100" : "bg-gray-800/50 hover:bg-gray-700/50"}>
                         <td className="border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-900 dark:text-gray-200 font-medium">{row.word}</td>
-                        <td
-                          className={`border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-700 dark:text-gray-300 ${row.synonymsBg ? "cursor-pointer" : ""}`}
-                          onClick={() => row.synonymsBg && setVocabularyCellExpanded((v) => (v?.row === idx && v?.col === "synonyms" ? null : { row: idx, col: "synonyms" }))}
-                        >
+                        <td className={`border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-700 dark:text-gray-300 ${row.synonymsBg ? "cursor-pointer" : ""}`} onClick={() => row.synonymsBg && setVocabularyCellExpanded((v) => (v?.row === idx && v?.col === "synonyms" ? null : { row: idx, col: "synonyms" }))}>
                           <span>{row.synonyms ?? "—"}</span>
                           {row.synonymsBg && <span className="block text-xs mt-1 text-slate-500 dark:text-gray-500">{t.clickForTranslation}</span>}
-                          {vocabularyCellExpanded?.row === idx && vocabularyCellExpanded?.col === "synonyms" && row.synonymsBg && (
-                            <p className="mt-2 text-amber-700 dark:text-amber-300 font-medium">{row.synonymsBg}</p>
-                          )}
+                          {vocabularyCellExpanded?.row === idx && vocabularyCellExpanded?.col === "synonyms" && row.synonymsBg && <p className="mt-2 text-amber-700 dark:text-amber-300 font-medium">{row.synonymsBg}</p>}
                         </td>
-                        <td
-                          className={`border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-700 dark:text-gray-300 ${(row.explanationBg ?? row.synonymsOrExplanationBg) ? "cursor-pointer" : ""}`}
-                          onClick={() => (row.explanationBg ?? row.synonymsOrExplanationBg) && setVocabularyCellExpanded((v) => (v?.row === idx && v?.col === "explanation" ? null : { row: idx, col: "explanation" }))}
-                        >
+                        <td className={`border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-700 dark:text-gray-300 ${(row.explanationBg ?? row.synonymsOrExplanationBg) ? "cursor-pointer" : ""}`} onClick={() => (row.explanationBg ?? row.synonymsOrExplanationBg) && setVocabularyCellExpanded((v) => (v?.row === idx && v?.col === "explanation" ? null : { row: idx, col: "explanation" }))}>
                           <span>{row.explanation ?? row.synonymsOrExplanation ?? "—"}</span>
                           {(row.explanationBg ?? row.synonymsOrExplanationBg) && <span className="block text-xs mt-1 text-slate-500 dark:text-gray-500">{t.clickForTranslation}</span>}
-                          {vocabularyCellExpanded?.row === idx && vocabularyCellExpanded?.col === "explanation" && (row.explanationBg ?? row.synonymsOrExplanationBg) && (
-                            <p className="mt-2 text-amber-700 dark:text-amber-300 font-medium">{row.explanationBg ?? row.synonymsOrExplanationBg}</p>
-                          )}
+                          {vocabularyCellExpanded?.row === idx && vocabularyCellExpanded?.col === "explanation" && (row.explanationBg ?? row.synonymsOrExplanationBg) && <p className="mt-2 text-amber-700 dark:text-amber-300 font-medium">{row.explanationBg ?? row.synonymsOrExplanationBg}</p>}
                         </td>
                         <td className="border border-slate-300 dark:border-gray-600 px-4 py-3 text-slate-800 dark:text-gray-200">{row.wordBg}</td>
                       </tr>
@@ -280,14 +255,13 @@ const DSDModellsatz2View: React.FC = () => {
 
         {showResults && (
           <div className="mb-8 p-6 bg-amber-900/20 border-2 border-amber-500 rounded-xl">
-            <p className="text-xl font-bold text-amber-600 dark:text-amber-300">
+            <p className="text-xl font-bold text-amber-300">
               Резултат: {correct} / {total}
             </p>
           </div>
         )}
 
         <div className="space-y-12">
-          {/* Teil 1 */}
           {teil1 && (
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
               <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil1.title}</h2>
@@ -355,12 +329,12 @@ const DSDModellsatz2View: React.FC = () => {
                   );
                 })()}
               </p>
-              {teil1.aufgabe5 && (teil1.aufgabe5 as { intro?: string }).intro && (
-                <p className="font-bold text-amber-700 dark:text-amber-200 mt-6 mb-2 whitespace-pre-line">{(teil1.aufgabe5 as { intro: string }).intro}</p>
+              {teil1.aufgabe5 && teil1.aufgabe5.intro && (
+                <p className="font-bold text-amber-700 dark:text-amber-200 mt-6 mb-2 whitespace-pre-line">{teil1.aufgabe5.intro}</p>
               )}
               {teil1.aufgabe5 && (
                 <div className="mt-4 p-6 bg-slate-100 dark:bg-gray-800/70 rounded-lg text-slate-900 dark:text-gray-200">
-                  <p className="font-semibold text-amber-700 dark:text-amber-200 mb-4">Aufgabe 5: {teil1.aufgabe5.question}</p>
+                  <p className="font-semibold text-amber-700 dark:text-amber-200 mb-4">{teil1.aufgabe5.question}</p>
                   <div className="space-y-2">
                     {teil1.aufgabe5.options.map((opt) => {
                       const selected = answers.teil1_aufgabe5 === opt.id;
@@ -399,26 +373,26 @@ const DSDModellsatz2View: React.FC = () => {
             </section>
           )}
 
-          {/* Teil 2: Wer hat die E-Mail geschrieben? */}
           {teil2 && teil2.summaries && teil2.emailOptions && (
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil2.title}</h2>
-              {(teil2 as { intro?: string }).intro && (
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
+                {teil2.title}
+                {teil2.subtitle && `: ${teil2.subtitle}`}
+              </h2>
+              {teil2.intro && (
                 <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">
-                  {(teil2 as { intro: string }).intro.split(/\*\*(.*?)\*\*/g).map((part, i) =>
+                  {teil2.intro.split(/\*\*(.*?)\*\*/g).map((part, i) =>
                     i % 2 === 1 ? <strong key={i} className="text-amber-700 dark:text-amber-200 font-semibold">{part}</strong> : part
                   )}
                 </p>
               )}
-
-              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">E-Mails A–H</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{teil2.optionsHeading || "E-Mails A–H"}</h3>
               <div className="mb-8 space-y-3 text-slate-900 dark:text-gray-300 text-sm">
                 {teil2.emailOptions.map((em) => (
                   <p key={em.id}><strong>{em.id}</strong>: {em.text}</p>
                 ))}
               </div>
-
-              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil2 as { tableTitle?: string }).tableTitle || "Aufgaben 6–9"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{teil2.tableTitle || "Aufgaben 6–9"}</h3>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
@@ -443,7 +417,7 @@ const DSDModellsatz2View: React.FC = () => {
                           <td className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-slate-900 dark:text-gray-200">{row.text}</td>
                           <td className="border border-slate-300 dark:border-gray-600 px-4 py-2">
                             {isExample ? (
-                              <span className="text-amber-600 dark:text-amber-300 font-semibold">{row.correct}</span>
+                              <span className="text-amber-300 font-semibold">{row.correct}</span>
                             ) : (
                               <span className="inline-flex items-center gap-2">
                                 <select
@@ -454,7 +428,7 @@ const DSDModellsatz2View: React.FC = () => {
                                   }`}
                                 >
                                   <option value="">–</option>
-                                  {teil2.emailOptions.filter((em) => em.id !== "Z").map((em) => (
+                                  {teil2.emailOptions!.filter((em) => em.id !== "Z").map((em) => (
                                     <option key={em.id} value={em.id}>{em.id}</option>
                                   ))}
                                 </select>
@@ -478,12 +452,14 @@ const DSDModellsatz2View: React.FC = () => {
             </section>
           )}
 
-          {/* Teil 3 */}
           {teil3 && teil3.tasks && (
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil3.title}</h2>
-              {(teil3 as { intro?: string }).intro && (
-                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil3 as { intro: string }).intro}</p>
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
+                {teil3.title}
+                {teil3.subtitle && `: ${teil3.subtitle}`}
+              </h2>
+              {teil3.intro && (
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{teil3.intro}</p>
               )}
               {teil3.text && (
                 <div className="text-slate-900 dark:text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil3.text}</div>
@@ -519,7 +495,7 @@ const DSDModellsatz2View: React.FC = () => {
                       </div>
                       {showResults && selected && (
                         <span className={`mt-2 block font-semibold ${isCorrect ? "text-green-400" : "text-red-400"}`}>
-                          {isCorrect ? "✓ Верен отговор" : "✗ Грешен отговор"}
+                          {isCorrect ? "✓" : "✗"}
                         </span>
                       )}
                     </div>
@@ -532,12 +508,14 @@ const DSDModellsatz2View: React.FC = () => {
             </section>
           )}
 
-          {/* Teil 4 */}
           {teil4 && teil4.questions && (
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil4.title}</h2>
-              {(teil4 as { intro?: string }).intro && (
-                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{(teil4 as { intro: string }).intro}</p>
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
+                {teil4.title}
+                {teil4.subtitle && `: ${teil4.subtitle}`}
+              </h2>
+              {teil4.intro && (
+                <p className="text-slate-900 dark:text-gray-300 mb-4 whitespace-pre-line">{teil4.intro}</p>
               )}
               {teil4.text && (
                 <div className="text-slate-900 dark:text-gray-300 mb-8 leading-relaxed whitespace-pre-line">{teil4.text}</div>
@@ -555,7 +533,7 @@ const DSDModellsatz2View: React.FC = () => {
                         isCorrect ? "border-green-500 bg-green-900/20" : isWrong ? "border-red-500 bg-red-900/20" : "border-slate-300 dark:border-gray-600"
                       }`}
                     >
-                      <p className="font-semibold text-slate-900 dark:text-white mb-4">{q.id}. {q.question}</p>
+                      <p className="font-semibold text-slate-900 dark:text-gray-200 mb-4">{q.id}. {q.question}</p>
                       <div className="space-y-2">
                         {q.options.map((opt) => (
                           <label
@@ -572,7 +550,7 @@ const DSDModellsatz2View: React.FC = () => {
                               onChange={() => updateAnswer("teil4", q.id, opt.id)}
                               className="w-4 h-4"
                             />
-                            <span>{opt.id}) {opt.text}</span>
+                            <span className="text-slate-900 dark:text-gray-200">{opt.id}) {opt.text}</span>
                             {showResults && selected === opt.id && (
                               <span className={opt.correct ? "text-green-400" : "text-red-400"}>
                                 {opt.correct ? "✓" : "✗"}
@@ -591,22 +569,22 @@ const DSDModellsatz2View: React.FC = () => {
             </section>
           )}
 
-          {/* Teil 5: Welche Überschrift passt? */}
           {teil5 && teil5.summaries && teil5.headlineOptions && (
             <section className="bg-white dark:bg-gray-800/50 rounded-xl p-8 border border-amber-500/30">
-              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">{teil5.title}</h2>
-              {(teil5 as { intro?: string }).intro && (
-                <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">{(teil5 as { intro: string }).intro}</p>
+              <h2 className="text-2xl font-bold text-amber-600 dark:text-amber-400 mb-4">
+                {teil5.title}
+                {teil5.subtitle && `: ${teil5.subtitle}`}
+              </h2>
+              {teil5.intro && (
+                <p className="text-slate-900 dark:text-gray-300 mb-6 whitespace-pre-line">{teil5.intro}</p>
               )}
-
               <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">Überschriften A–H</h3>
               <div className="mb-8 space-y-2 text-slate-900 dark:text-gray-300 text-sm">
                 {teil5.headlineOptions.map((h) => (
                   <p key={h.id}><strong>{h.id}</strong>: {h.text}</p>
                 ))}
               </div>
-
-              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{(teil5 as { tableTitle?: string }).tableTitle || "Aufgaben 21–24"}</h3>
+              <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-200 mb-3">{teil5.tableTitle || "Aufgaben 21–24"}</h3>
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse border border-slate-300 dark:border-gray-600">
                   <thead>
@@ -631,7 +609,7 @@ const DSDModellsatz2View: React.FC = () => {
                           <td className="border border-slate-300 dark:border-gray-600 px-4 py-2 text-slate-900 dark:text-gray-200">{row.text}</td>
                           <td className="border border-slate-300 dark:border-gray-600 px-4 py-2">
                             {isExample ? (
-                              <span className="text-amber-600 dark:text-amber-300 font-semibold">{row.correct}</span>
+                              <span className="text-amber-300 font-semibold">{row.correct}</span>
                             ) : (
                               <span className="inline-flex items-center gap-2">
                                 <select
@@ -642,7 +620,7 @@ const DSDModellsatz2View: React.FC = () => {
                                   }`}
                                 >
                                   <option value="">–</option>
-                                  {teil5.headlineOptions.filter((h) => h.id !== "Z").map((h) => (
+                                  {(teil5.headlineOptions ?? []).filter((h) => h.id !== "Z").map((h) => (
                                     <option key={h.id} value={h.id}>{h.id}</option>
                                   ))}
                                 </select>
@@ -669,11 +647,22 @@ const DSDModellsatz2View: React.FC = () => {
           {/* Ende Leseverstehen */}
           <section className="mt-12 p-6 rounded-xl border-2 border-amber-500/50 bg-amber-900/10">
             <p className="text-amber-700 dark:text-amber-200 font-medium whitespace-pre-line text-center mb-6">
-              Bitte übertrage nun deine Lösungen (1–24) auf das Antwortblatt.
+              {hasOnlyTeil1 && !hasTeil2
+                ? "Übertrage nun deine Lösungen (1–5) auf das Antwortblatt."
+                : data.teile.length > 0
+                  ? "Übertrage nun deine Lösungen (1–24) auf das Antwortblatt."
+                  : "Der Inhalt der fünf Teile wird hier erscheinen."}
               {"\n"}
               Ende Prüfungsteil Leseverstehen
             </p>
             <div className="flex flex-wrap justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => setShowResults((prev) => !prev)}
+                className="px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg"
+              >
+                {showResults ? "Скрий отговорите" : "Провери отговори"}
+              </button>
               <button
                 type="button"
                 onClick={() => {
@@ -693,32 +682,49 @@ const DSDModellsatz2View: React.FC = () => {
               >
                 Изчисти напредъка
               </button>
-              </div>
-
-            {showAnswerKey && (
+              <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="px-6 py-3 bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white font-semibold rounded-lg inline-flex items-center gap-2"
+              >
+                <FaArrowUp />
+                Нагоре
+              </button>
+            </div>
+            {showAnswerKey && data.teile.length > 0 && (
               <div className="mt-8 p-6 bg-slate-200 dark:bg-gray-900/80 rounded-xl border border-amber-500/30 text-left">
-                <h3 className="text-xl font-bold text-amber-400 mb-6">Deutsches Sprachdiplom der KMK DSD I – Leseverstehen Lösungsschlüssel</h3>
+                <h3 className="text-xl font-bold text-amber-600 dark:text-amber-400 mb-6">Deutsches Sprachdiplom der KMK DSD I – Leseverstehen Lösungsschlüssel (Modellsatz 4)</h3>
                 <div className="space-y-5 text-slate-900 dark:text-gray-300 text-sm leading-relaxed">
-                  <div>
-                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 1</p>
-                    <p>1 C &nbsp;&nbsp; 2 F &nbsp;&nbsp; 3 A &nbsp;&nbsp; 4 D &nbsp;&nbsp; 5 B</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 2: Wer hat die E-Mail geschrieben?</p>
-                    <p>6 H &nbsp;&nbsp; 7 D &nbsp;&nbsp; 8 E &nbsp;&nbsp; 9 A</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 3: Pack die Badehose ein</p>
-                    <p>10 falsch &nbsp;&nbsp; 11 falsch &nbsp;&nbsp; 12 richtig &nbsp;&nbsp; 13 richtig &nbsp;&nbsp; 14 richtig</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 4: Schule einmal anders</p>
-                    <p>15 A &nbsp;&nbsp; 16 A &nbsp;&nbsp; 17 A &nbsp;&nbsp; 18 C &nbsp;&nbsp; 19 A &nbsp;&nbsp; 20 A</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 5: Welche Überschrift passt?</p>
-                    <p>21 F &nbsp;&nbsp; 22 B &nbsp;&nbsp; 23 D &nbsp;&nbsp; 24 C</p>
-                  </div>
+                  {teil1 && (
+                    <div>
+                      <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 1</p>
+                      <p>1 F &nbsp;&nbsp; 2 G &nbsp;&nbsp; 3 C &nbsp;&nbsp; 4 D &nbsp;&nbsp; 5 B</p>
+                    </div>
+                  )}
+                  {teil2 && teil2.summaries && (
+                    <div>
+                      <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 2</p>
+                      <p>6 E &nbsp;&nbsp; 7 D &nbsp;&nbsp; 8 H &nbsp;&nbsp; 9 G</p>
+                    </div>
+                  )}
+                  {teil3 && teil3.tasks && (
+                    <div>
+                      <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 3</p>
+                      <p>10 falsch &nbsp;&nbsp; 11 falsch &nbsp;&nbsp; 12 richtig &nbsp;&nbsp; 13 falsch &nbsp;&nbsp; 14 richtig</p>
+                    </div>
+                  )}
+                  {teil4 && teil4.questions && (
+                    <div>
+                      <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 4</p>
+                      <p>15 B &nbsp;&nbsp; 16 C &nbsp;&nbsp; 17 A &nbsp;&nbsp; 18 B &nbsp;&nbsp; 19 C &nbsp;&nbsp; 20 A</p>
+                    </div>
+                  )}
+                  {teil5 && teil5.summaries && (
+                    <div>
+                      <p className="font-semibold text-amber-700 dark:text-amber-200 mb-1">Teil 5</p>
+                      <p>21 D &nbsp;&nbsp; 22 A &nbsp;&nbsp; 23 H &nbsp;&nbsp; 24 C</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -732,4 +738,4 @@ const DSDModellsatz2View: React.FC = () => {
   );
 };
 
-export default DSDModellsatz2View;
+export default DSDModellsatz4View;

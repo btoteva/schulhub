@@ -1,0 +1,212 @@
+{
+  "id": "dsd1-horverstehen-4",
+  "title": "DSD I Modellsatz 4",
+  "titleBg": "DSD I Моделен тест 4",
+  "subtitle": "Hörverstehen Hörtexte",
+  "subtitleBg": "Текстове за слушане",
+  "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "vocabulary": [],
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Sport",
+      "intro": "Du hörst fünf Szenen. Alle Szenen haben mit Sport zu tun.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/vapqgy9ecbthbnmchp21d/4-01-Titel-1.mp3?rlkey=wc0uas35ehzi5b8rm5hwhcgrg&st=lewow3cu&dl=1",
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen aus dem Bereich Sport. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Welches Bild passt?",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild an.",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "correctAnswers": { "1": "A", "2": "C", "3": "B", "4": "A", "5": "C" },
+        "szenen": [
+          { "id": 1, "bildA": "https://i.imgur.com/HMOjI7t.png", "bildB": "https://i.imgur.com/dkXF9AZ.png", "bildC": "https://i.imgur.com/k5fRZes.png" },
+          { "id": 2, "bildA": "https://i.imgur.com/I9fzGKH.png", "bildB": "https://i.imgur.com/cUJcmvD.png", "bildC": "https://i.imgur.com/yvaaeR5.png" },
+          { "id": 3, "bildA": "https://i.imgur.com/rzZ81hB.png", "bildB": "https://i.imgur.com/zyn9yXK.png", "bildC": "https://i.imgur.com/gTwAdQf.png" },
+          { "id": 4, "bildA": "https://i.imgur.com/SZfSUnt.png", "bildB": "https://i.imgur.com/zfz8jxN.png", "bildC": "https://i.imgur.com/j8DsAOV.png" },
+          { "id": 5, "bildA": "https://i.imgur.com/YdHuY9r.png", "bildB": "https://i.imgur.com/iEItV6u.png", "bildC": "https://i.imgur.com/Yl38n84.png" }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Junge", "text": "Bisher läuft's ja ganz gut! Hoffentlich können die bis zum Ende so durchspielen." },
+            { "speaker": "Mädchen", "text": "Ja, ich finde, die anderen sind ganz schön stark." },
+            { "speaker": "Junge", "text": "Gleich gibt's bestimmt Grund zur Freude. Das sieht gut aus!" },
+            { "speaker": "Mädchen", "text": "Jaaaa, jetzt schieß richtig drauf! Dann hat der Torwart keine Chance!" }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Verkäuferin", "text": "Diese hier sind jetzt auch billiger. Die können Sie wirklich gut nehmen. Die sind sehr schwer." },
+            { "speaker": "Kunde", "text": "Gut aussehen tun sie ja schon mal. Kann ich die auch noch im nächsten Winter benutzen?" },
+            { "speaker": "Verkäuferin", "text": "Auf jeden Fall. Wir müssen noch wegen der Größe gucken. Wie groß sind Sie denn?" },
+            { "speaker": "Kunde", "text": "Einen Meter achtzig. Die müssten eigentlich so richtig sein." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Moderator", "text": "Und nun gehen wir noch mal raus zu Uli Blümel. Wie sieht's aus, Uli?" },
+            { "speaker": "Reporterin", "text": "Das Rennen steht jetzt vor der Entscheidung, es ist spannend wie selten." },
+            { "speaker": "Moderator", "text": "Alle erwarten einen Sieg von Steffen Köhlers. Kann er das Rennen für sich entscheiden?" },
+            { "speaker": "Reporterin", "text": "Ja, es sieht gut aus, er liegt jetzt schon einige Meter vor dem Zweiten! Wenn er nicht wieder seinen Schuh verliert, wie beim letzten Rennen, kann ihm keiner den Sieg mehr nehmen." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Mutter", "text": "So, viel Spaß! Ich hol dich dann nachher wieder ab." },
+            { "speaker": "Kind", "text": "Danke. So in zwei Stunden sind wir fertig, denk ich. Hoffentlich kommen die andern bald." },
+            { "speaker": "Mutter", "text": "Guck mal! Da drüben stehen schon Yvonne und Anne. Dann lauf mal zu ihnen rüber." },
+            { "speaker": "Kind", "text": "Oh, Mama, mir fällt grad ein, ich hab' meine Sportschuhe vergessen! So ein Mist!" }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Zuschauer", "text": "Ich finde, die waren heute eigentlich alle gut." },
+            { "speaker": "Zuschauerin", "text": "Ja, es war ein toller Wettkampf. Spannend bis zum Schluss." },
+            { "speaker": "Zuschauer", "text": "Und endlich mal wieder ein richtiger Erfolg! Bisher lief es ja nicht immer so gut." },
+            { "speaker": "Zuschauerin", "text": "Ja, ich glaube, wir sind uns einig, dass sie heute für ihren Sieg wirklich gekämpft haben. Sie haben verdient gewonnen." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Durchsagen im Zug",
+      "intro": "Du hörst vier Durchsagen im Zug.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/mcdu6oxf3e1gu7a9g0bsb/4-02-Titel-2.mp3?rlkey=ihetouvokwg0btof92zw026r8&st=qzrad4cu&dl=1",
+      "teil2Exercise": {
+        "instruction1": "Du hörst gleich vier Durchsagen im Zug.",
+        "instruction2": "Lies zuerst die Aufgaben 6–9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction3": "Höre nun die Durchsagen. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Durchsagen noch einmal.",
+        "tasks": [
+          { "id": 6, "prompt": "Der ICE", "options": [{ "id": "A", "text": "fährt von Frankfurt nach Köln." }, { "id": "B", "text": "hält nicht in Stuttgart." }, { "id": "C", "text": "kommt nicht pünktlich in Frankfurt an." }], "correct": "C" },
+          { "id": 7, "prompt": "Die Bahn nach Düsseldorf", "options": [{ "id": "A", "text": "fällt leider aus." }, { "id": "B", "text": "hält heute an Gleis 5." }, { "id": "C", "text": "kommt pünktlich an." }], "correct": "C" },
+          { "id": 8, "prompt": "Das Zugrestaurant", "options": [{ "id": "A", "text": "hat ein Angebot für 4 Euro." }, { "id": "B", "text": "kann man in Wagen 2 finden." }, { "id": "C", "text": "verkauft Essen für 10 Euro." }], "correct": "A" },
+          { "id": 9, "prompt": "In Dortmund", "options": [{ "id": "A", "text": "hält der Zug heute nicht." }, { "id": "B", "text": "sollen die Reisenden aussteigen." }, { "id": "C", "text": "wartet ein Zug nach Hamm." }], "correct": "B" }
+        ]
+      },
+      "aufgaben": [
+        {
+          "id": 6,
+          "text": "Sehr geehrte Reisende, herzlich willkommen im ICE von Köln nach Stuttgart. Wegen eines Problems ist unser Zug leider 20 Minuten zu spät in Köln abgefahren. Unser nächster Halt ist Frankfurt. Wir erreichen Frankfurt etwa 15 Minuten später. Die Anschlusszüge warten aber auf unseren verspäteten Zug. Wir wünschen Ihnen eine gute Fahrt."
+        },
+        {
+          "id": 7,
+          "text": "Sehr geehrte Reisende, unsere Bahn von Dortmund nach Düsseldorf kommt wie geplant um 14:00 Uhr an. Achtung: Die Bahn hält heute wegen Bauarbeiten nicht an Gleis 5, sondern am Gleis 11. Der Intercity-Express von dort nach Berlin fällt heute leider aus. Reisende nach Berlin nehmen bitte den Zug eine Stunde später."
+        },
+        {
+          "id": 8,
+          "text": "Sehr geehrte Damen und Herren, ich möchte Sie kurz über unser aktuelles Angebot in unserem Zugrestaurant informieren: Wie wäre es mit einem Stück Apfelkuchen und einer großen Tasse Kaffee, zusammen für nur 4 Euro? Eine große Tasse Tee kostet 2 Euro. Sie finden unser Restaurant in Wagen 10. Wir freuen uns auf Ihren Besuch."
+        },
+        {
+          "id": 9,
+          "text": "Sehr geehrte Damen und Herren, wegen eines Problems an unserem Zug fahren wir heute leider nur bis Dortmund. Bitte verlassen Sie in Dortmund den Zug und benutzen Sie für die Weiterfahrt nach Hamm die Busse. Ich wiederhole: unser Zug fährt heute nicht bis Hamm. Reisende steigen bitte in die Busse um. Im Namen der Deutschen Bahn bitte ich Sie um Entschuldigung."
+        }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Interview mit Jan Thiel",
+      "audioUrl": "https://www.dropbox.com/scl/fi/785arzwotdtb70m55jh99/4-03-Titel-3.mp3?rlkey=kfk9ur4oc18m0gelimg45ox9t&st=uy5o48y6&dl=1",
+      "teil3Exercise": {
+        "intro": "Jan Thiel ist Mitglied einer Band. Du hörst gleich ein Interview mit ihm.",
+        "instruction1": "Lies zuerst die Sätze 10–14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10–14) an: richtig oder falsch.",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Die Texte der Band sollen erwachsen klingen.", "correct": "falsch" },
+          { "id": 11, "statement": "Die Gruppe war sich von Anfang an sicher, berühmt zu werden.", "correct": "falsch" },
+          { "id": 12, "statement": "Nach den Konzerten können die Jungen viele Städte kennenlernen.", "correct": "richtig" },
+          { "id": 13, "statement": "Was die Jungen machen, ist zwar anstrengend, macht ihnen aber Freude.", "correct": "richtig" },
+          { "id": 14, "statement": "Die Band gibt ihre Konzerte nur an schulfreien Tagen.", "correct": "richtig" }
+        ]
+      },
+      "content": "Jan, du bist Mitglied in einer erfolgreichen Band. Womit begeistert ihr eigentlich eure Fans?\n\nUnsere Fans können sich vor allem in unseren Texten wiederfinden, weil wir ja auch selber alle noch Jugendliche sind. Es freut mich natürlich sehr, wenn dann ein Fan zu mir kommt und sagt: „Hey, mit dem Song habt ihr genau das ausgedrückt, was ich gerade fühle!“ Wir wollen mit unseren Texten nicht erwachsener klingen, als wir sind, sondern wir wollen einfach nur Dinge sagen, die uns beschäftigen.\n\nHattet ihr denn jemals den Traum, berühmt zu werden?\n\nWir haben das nie erwartet, aber natürlich ist es ein Traum, mit seiner Musik vor vielen Leuten aufzutreten, bekannt zu sein und eigene CDs zu verkaufen, und was gerade mit uns passiert, ist ja auch schon wie ein Traum. Wir reisen viel, treffen viele Leute und können unser liebstes Hobby, die Musik, mit vielen teilen. Das ist einfach das, was wir am liebsten tun!\n\nNach den Konzerten seid ihr natürlich müde. Wird also gleich geschlafen statt gefeiert?\n\nNein, meist essen wir zuerst noch etwas, und danach geht zumindest unser Jüngster in unseren Bus und schläft dort. Manchmal legen wir uns alle hin, weil wir nach so einem Auftritt wirklich müde sind. Aber hin und wieder, wenn wir Lust haben, schauen wir uns noch ein bisschen die Stadt an; denn man hat ja auch nicht jeden Tag die Möglichkeit, in die großen Städte Deutschlands zu kommen. Irgendwann in der Nacht fahren wir dann mit unserem Bus los und kommen am nächsten Morgen in einer neuen Stadt an.\n\nHast du manchmal Angst, der Erfolg könnte möglicherweise auch schnell wieder vorbei sein?\n\nIch habe im Moment nicht die Zeit dafür, mir große Sorgen zu machen. Wir versuchen jetzt, diesen Traum zu leben und zu genießen. Trotz der Arbeit macht uns der Erfolg sehr viel Spaß.\n\nWürdest du die Schule abbrechen, um eine Musikkarriere zu machen?\n\nNein, auf keinen Fall! Wir alle lernen fleißig für die Schule, denn ohne Schulabschluss kann man heute nicht mehr viel machen! Es ist ja auch möglich, dass wir nächstes Jahr nicht mehr spielen können.\n\nWie passen denn Schule und Karriere zusammen?\n\nWir gehen immer nur in den Ferien auf Tour und treten sonst nur am Wochenende auf. Innerhalb der Woche sind wir ganz normale Schüler. Ich zum Beispiel mache bald mein Abitur und lerne deshalb auch in unserem Bus noch für Klausuren."
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Reise nach Australien",
+      "audioUrl": "https://www.dropbox.com/scl/fi/598mo6vlcm5ulws28vc7s/4-04-Titel-4.mp3?rlkey=maf85k3oxb2nzahk1t92wu65u&st=6ryntpoi&dl=1",
+      "teil4Exercise": {
+        "intro": "Du hörst gleich einen Reisebericht von Marco aus Hamburg. Er erzählt seiner Schulklasse von seiner Reise nach Australien.",
+        "instruction1": "Lies zuerst die Aufgaben 15–20. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun die Reportage. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction4": "Danach hörst du die Reportage noch einmal.",
+        "tasks": [
+          { "id": 15, "prompt": "Marco zahlte von seinem eigenen Geld", "options": [{ "id": "A", "text": "das Flugticket." }, { "id": "B", "text": "die Lebensmittel." }, { "id": "C", "text": "die Rundreise." }], "correct": "B" },
+          { "id": 16, "prompt": "Auf dem Flughafen Hamburg", "options": [{ "id": "A", "text": "blieb Marco absolut ruhig." }, { "id": "B", "text": "musste Marcos Freundin weinen." }, { "id": "C", "text": "war der Abschied für Marco schwer." }], "correct": "C" },
+          { "id": 17, "prompt": "Marcos Reisegruppe", "options": [{ "id": "A", "text": "fuhr in einer Stunde um den Ayers Rock." }, { "id": "B", "text": "übernachtete auf dem Ayers Rock." }, { "id": "C", "text": "wanderte um den Ayers Rock." }], "correct": "C" },
+          { "id": 18, "prompt": "Im Hotel von Alice Springs", "options": [{ "id": "A", "text": "gab es kein warmes Essen." }, { "id": "B", "text": "schmeckte das Essen besonders gut." }, { "id": "C", "text": "war es nicht schmutzig." }], "correct": "C" },
+          { "id": 19, "prompt": "Am besten fand Marco", "options": [{ "id": "A", "text": "den Ausflug zum Ayers Rock." }, { "id": "B", "text": "die moderne Hauptstadt Canberra." }, { "id": "C", "text": "die nächtliche Party am Meer." }], "correct": "C" },
+          { "id": 20, "prompt": "Marco bekam einen Sonnenbrand, weil er", "options": [{ "id": "A", "text": "eine sehr schwache Sonnencreme benutzte." }, { "id": "B", "text": "keine Sonnencreme benutzte." }, { "id": "C", "text": "nur selten Sonnencreme benutzte." }], "correct": "A" }
+        ]
+      },
+      "content": "Hallo! Ich wollte euch ja von meiner Reise nach Australien erzählen. Also: Seit ich 5 Jahre alt bin, habe ich schon immer davon geträumt, nach Australien zu reisen. Und jetzt– ein Jahr vor dem Abitur – konnte ich mir meinen Traum endlich erfüllen.\n\nDas Flugticket war ein Geschenk von meinen Eltern. Außerdem schenkte mir mein Onkel Paul, der übrigens auch in Australien lebt, noch eine fünfwöchige Rundreise durch das Land. Für Essen und Trinken habe ich selber Geld gespart.\n\nEine so lange Reise habe ich vorher noch nie gemacht – und jetzt: ganz allein! Für fünf Wochen! Sicher, es war nicht leicht, meine Familie und meine Freundin zurückzulassen. Kein Wunder, dass ich auf dem Flughafen Hamburg als einziger Passagier weinen musste, obwohl ich eigentlich versuchen wollte, cool zu bleiben. Voll peinlich! Als ich dann aber im Flugzeug saß und nach 20 Stunden Flugzeit endlich der Flughafen Sydney unter uns lag, dachte ich kaum noch an zu Hause. Da war ich dann schon sehr aufgeregt!\n\nDie ersten Tage verbrachte ich bei meinem Onkel. Dann begann meine Rundreise mit der Reisegruppe und das Abenteuer ging richtig los. Die erste Tour führte mich direkt in die Wüstenstadt Alice Springs. Auf dem langen Weg dorthin sah man überall Kakteen mit bunten Blüten und eine Menge roten Sand. Kängurus und andere wild lebende Tiere sah ich kaum.\n\nDann ging es weiter mit einer 4-tägigen und 3.000 km langen Busreise zu dem berühmten „Ayers Rock“. Vier Tage im Bus ohne Kühlschrank und Ventilator! Der „Ayers Rock“ ist ein 869 Meter hoher Berg mit einem Durchmesser von 3 Kilometern - mitten im flachen Land!\n\nUm diesen Berg wanderten wir herum, was mehrere Stunden dauerte. Danach holten wir unsere Schlafsäcke und schliefen unter freiem Himmel – ohne Zelt.\n\nAm nächsten Morgen fuhren wir wieder zurück Richtung Alice Springs. Dort angekommen suchten wir uns ein einfaches Zimmer in einem billigen, aber sauberen Hotel. Da bekam ich die erste Dusche seit Tagen! Und sogar warm! Zwar war das Essen im Hotel nicht besonders gut gekocht, aber immer noch viel besser als das trockene Essen, das wir während unseres Ausflugs gegessen haben. Außerdem tat es gut, mal wieder richtig kaltes Wasser zu trinken.\n\nDen Ausflug zum Ayers Rock fand ich schon ziemlich gut. Was mir auch gefallen hat, war die moderne Hauptstadt Canberra mit ihren tollen Museen und dem großen Markt. Aber das war alles nichts gegen die Strandparty am letzten Abend. Die war echt der Höhepunkt meiner Reise.\n\nAllerdings hatte ich gleich zu Beginn der Reise einen ziemlich starken Sonnenbrand, denn meine Sonnencreme war viel zu schwach. Ich wusste zwar, dass es in Australien selten kalt ist, aber dass es so heiß werden kann, hätte ich nicht gedacht. Wenn ihr also mal nach Australien fliegt, schützt euch vor allem vor der Sonne!"
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Sonne und Schönheit",
+      "itemLabel": "Nummer",
+      "audioUrl": "https://www.dropbox.com/scl/fi/x02gm8qtzaesit6335kwn/4-05-Titel-5.mp3?rlkey=w0en2avil094yy44q8lo2ftm9&st=g83rtr1m&dl=1",
+      "teil5Exercise": {
+        "intro": "Über die Sonne, ihre Gefahren und Vorzüge für die Menschen kann man endlos diskutieren. Dazu hat jeder eine eigene Einstellung – fünf Jugendliche stellen ihre Meinung dar. Du hörst gleich fünf kurze Meinungen.",
+        "instruction1": "Lies zuerst die Liste mit den verschiedenen Aussagen (A–H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction2": "Notiere beim Hören zu jedem Bericht den richtigen Buchstaben (A–H).",
+        "instruction3": "Einige Buchstaben bleiben übrig.",
+        "instruction4": "Du hörst den Bericht einmal. Zuerst hörst du ein Beispiel.",
+        "instruction5": "Dieser Bericht hat die Nummer 0. Die Lösung ist Z.",
+        "instruction6": "Jetzt hörst du die anderen Berichte.",
+        "activities": [
+          { "id": "Z", "text": "Ohne Sonne gibt es kein Leben." },
+          { "id": "A", "text": "Blass sein finde ich schöner." },
+          { "id": "B", "text": "Wärme hält jung." },
+          { "id": "C", "text": "Im Schnee sieht man blass aus." },
+          { "id": "D", "text": "In der Sonne fühle ich mich wohl." },
+          { "id": "E", "text": "Sonne kann gefährlich sein." },
+          { "id": "F", "text": "Sonne ist besser als Schnee." },
+          { "id": "G", "text": "Ich bin nicht gern käseweiß." },
+          { "id": "H", "text": "Hitze mag ich nicht." }
+        ],
+        "taskNumbers": [21, 22, 23, 24],
+        "correctAnswers": { "21": "D", "22": "G", "23": "E", "24": "H" }
+      },
+      "aufgaben": [
+        {
+          "id": 0,
+          "text": "Wir Menschen brauchen die Sonne zum Leben. Wir brauchen ihr Licht und ihre Wärme. Ohne Sonne gäbe es nur Nacht, aber keinen hellen Tag. Ohne Sonne gäbe es keine Menschen und Tiere auf der Erde."
+        },
+        {
+          "id": 21,
+          "text": "Ich mag die Sonne und warme Sommertage. Ein freier Tag in der Sonne tut so gut! Am liebsten im Badeanzug. Ich finde es einfach schön, wenn es richtig warm ist."
+        },
+        {
+          "id": 22,
+          "text": "Ich kann mir nicht vorstellen, das ganze Jahr über weiß wie ein Käse durch die Stadt zu laufen. Was sollen denn meine Freunde von mir denken? Deswegen gehe ich regelmäßig ins Freibad oder im Winter ins Solarium."
+        },
+        {
+          "id": 23,
+          "text": "Die meisten Leute denken bei Sonne nur an schöne Haut, aber nicht an schlimme Hautkrankheiten. Und wenn man als junger Mensch zu viel in der Sonne liegt, dann wird die Haut schneller alt und hässlich."
+        },
+        {
+          "id": 24,
+          "text": "Ich persönlich mag den Winter mehr; am liebsten mit viel Schnee. Ein paar Sonnenstrahlen stören mich dabei nicht. Im Sommer ärgert mich die Hitze, die von der Sonne kommt. Außerdem schwitze ich dann so sehr."
+        }
+      ]
+    }
+  ]
+}

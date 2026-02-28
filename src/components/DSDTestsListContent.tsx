@@ -24,6 +24,7 @@ type TestItem = {
 const MODELLSATZ_1_IDS = ["1", "2", "3"];
 const MODELLSATZ_2_IDS = ["4", "5", "6"];
 const MODELLSATZ_3_IDS = ["7", "8", "9"];
+const MODELLSATZ_4_IDS = ["10", "11", "12"];
 
 const MODELLSATZ_1_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   "1": FaClipboardList,
@@ -40,6 +41,11 @@ const MODELLSATZ_3_ICONS: Record<string, React.ComponentType<{ className?: strin
   "8": FaHeadphones,
   "9": FaPenFancy,
 };
+const MODELLSATZ_4_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  "10": FaClipboardList,
+  "11": FaHeadphones,
+  "12": FaPenFancy,
+};
 
 interface DSDTestsListContentProps {
   isLight: boolean;
@@ -50,15 +56,18 @@ const DSDTestsListContent: React.FC<DSDTestsListContentProps> = ({ isLight, lang
   const [modellsatz1Open, setModellsatz1Open] = useState(false);
   const [modellsatz2Open, setModellsatz2Open] = useState(false);
   const [modellsatz3Open, setModellsatz3Open] = useState(false);
+  const [modellsatz4Open, setModellsatz4Open] = useState(false);
   const tests = testsListData as TestItem[];
   const modellsatz1Tests = tests.filter((item) => MODELLSATZ_1_IDS.includes(item.id));
   const modellsatz2Tests = tests.filter((item) => MODELLSATZ_2_IDS.includes(item.id));
   const modellsatz3Tests = tests.filter((item) => MODELLSATZ_3_IDS.includes(item.id));
+  const modellsatz4Tests = tests.filter((item) => MODELLSATZ_4_IDS.includes(item.id));
   const otherTests = tests.filter(
     (test) =>
       !MODELLSATZ_1_IDS.includes(test.id) &&
       !MODELLSATZ_2_IDS.includes(test.id) &&
-      !MODELLSATZ_3_IDS.includes(test.id)
+      !MODELLSATZ_3_IDS.includes(test.id) &&
+      !MODELLSATZ_4_IDS.includes(test.id)
   );
 
   const renderTestLink = (test: TestItem, iconComponent?: React.ComponentType<{ className?: string }>) => {
@@ -250,6 +259,47 @@ const DSDTestsListContent: React.FC<DSDTestsListContentProps> = ({ isLight, lang
               <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "bg-white border-amber-500/30" : "bg-gray-800/50 border-amber-500/20"}`}>
                 {modellsatz3Tests.map((test) => (
                   <div key={test.id}>{renderTestLink(test, MODELLSATZ_3_ICONS[test.id])}</div>
+                ))}
+              </div>
+            )}
+          </div>
+        </li>
+        <li>
+          <div
+            className={
+              isLight
+                ? "rounded-xl border border-amber-500/40 bg-white shadow-sm overflow-hidden"
+                : "rounded-xl border border-amber-500/30 bg-gray-800/50 overflow-hidden"
+            }
+          >
+            <button
+              type="button"
+              onClick={() => setModellsatz4Open((open) => !open)}
+              className={`flex items-center gap-4 w-full p-6 text-left transition-colors ${isLight ? "hover:bg-slate-50" : "hover:bg-gray-800/70"}`}
+            >
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-600/80 flex items-center justify-center overflow-hidden">
+                <img src="https://i.imgur.com/tf1QyRC.png" alt="" className="w-full h-full object-contain p-1" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className={`text-xl font-bold ${isLight ? "text-slate-800" : "text-white"}`}>
+                  {language === "bg" ? "DSD I Моделен тест 4" : "DSD I Modellsatz 4"}
+                </h3>
+                <p className={isLight ? "text-slate-800 text-sm mt-1" : "text-gray-400 text-sm mt-1"}>
+                  {language === "bg"
+                    ? "Части от един изпит: Leseverstehen, Hörverstehen, Schriftliche Kommunikation"
+                    : language === "de"
+                      ? "Teile einer Prüfung: Leseverstehen, Hörverstehen, Schriftliche Kommunikation"
+                      : "Parts of one exam: Reading, Listening, Written communication"}
+                </p>
+              </div>
+              <span className={isLight ? "flex-shrink-0 text-amber-600" : "flex-shrink-0 text-amber-400"}>
+                {modellsatz4Open ? <FaChevronUp className="w-5 h-5" /> : <FaChevronDown className="w-5 h-5" />}
+              </span>
+            </button>
+            {modellsatz4Open && (
+              <div className={`px-4 pb-4 pt-0 space-y-2 border-t ${isLight ? "bg-white border-amber-500/30" : "bg-gray-800/50 border-amber-500/20"}`}>
+                {modellsatz4Tests.map((test) => (
+                  <div key={test.id}>{renderTestLink(test, MODELLSATZ_4_ICONS[test.id])}</div>
                 ))}
               </div>
             )}
