@@ -1,0 +1,329 @@
+{
+  "id": "7-1",
+  "courseId": 2,
+  "title": "VII-1 VISUELLES SINNESSYSTEM",
+  "subtitle": "SINNESSYSTEM. VISUELLES SINNESSYSTEM",
+  "dictionary": [
+    {
+      "id": "nomen",
+      "headingId": "nomen-heading",
+      "title": "🟩 Съществителни (Nomen)",
+      "words": [
+        {"word": "der Reiz, -e", "translation": "дразнител", "example": "Reize aus der Umgebung", "example_translation": "дразнители от околната среда"},
+        {"word": "die Sinneswahrnehmung, -en", "translation": "сетивно възприятие", "example": "Die Sinneswahrnehmung kommt über Sinnessysteme zustande.", "example_translation": "Сетивното възприятие се осъществява чрез сетивни системи."},
+        {"word": "das Sinnessystem, -e", "translation": "сетивна система", "example": "Das visuelle Sinnessystem", "example_translation": "зрителната сетивна система"},
+        {"word": "der Rezeptor, -en", "translation": "рецептор", "example": "Rezeptoren in der Netzhaut", "example_translation": "рецептори в ретината"},
+        {"word": "der Sinnesweg, -e", "translation": "сетивен път", "example": "Auf den Sinneswegen werden Nervenimpulse weitergeleitet.", "example_translation": "По сетивните пътища се предават нервни импулси."},
+        {"word": "die Sinneszone, -n", "translation": "сетивна зона", "example": "die Sinneszone in der Endhirnrinde", "example_translation": "сетивната зона в кората на крайния мозък"},
+        {"word": "die Endhirnrinde, -n", "translation": "кора на крайния мозък", "example": "Sehzentrum in der Endhirnrinde", "example_translation": "зрителен център в кората на крайния мозък"},
+        {"word": "der Nervenimpuls, -e", "translation": "нервен импулс", "example": "Nervenimpulse an die Rinde weitergeleitet", "example_translation": "нервни импулси се предават към кората"},
+        {"word": "die Sensorik", "translation": "сензорика", "example": "allgemeine Sensorik", "example_translation": "обща сензорика"},
+        {"word": "die Oberflächensensorik", "translation": "повърхностна сензорика", "example": "Oberflächen- und Tiefensensorik", "example_translation": "повърхностна и дълбока сензорика"},
+        {"word": "die Tiefensensorik", "translation": "дълбока сензорика", "example": "Tiefensensorik", "example_translation": "дълбока сензорика"},
+        {"word": "die Sinnesmodalität, -en", "translation": "сетивна модалност", "example": "spezialisierte Sinnesmodalitäten", "example_translation": "специализирани сетивни модалности"},
+        {"word": "der visuelle Sinn", "translation": "зрителен смисъл", "example": "Der visuelle Sinn ist die wichtigste Sinneswahrnehmung.", "example_translation": "Зрителното възприятие е най-важната сетивна способност."},
+        {"word": "der Gehörsinn", "translation": "слух", "example": "Gehörsinn, Gleichgewichtssinn", "example_translation": "слух, равновесие"},
+        {"word": "der Gleichgewichtssinn", "translation": "равновесие", "example": "Gleichgewichtssinn, Geruchssinn und Geschmackssinn", "example_translation": "равновесие, обоняние и вкус"},
+        {"word": "der Geruchssinn", "translation": "обоняние", "example": "Geruchssinn und Geschmackssinn", "example_translation": "обоняние и вкус"},
+        {"word": "der Geschmackssinn", "translation": "вкус", "example": "der Geschmackssinn", "example_translation": "вкусът"},
+        {"word": "das Sehorgan, -e", "translation": "зрителен орган", "example": "Das Sehorgan Auge", "example_translation": "зрителният орган око"},
+        {"word": "der Sehnerv, -en", "translation": "зрителен нерв", "example": "Der Sehnerv leitet die visuelle Information weiter.", "example_translation": "Зрителният нерв предава зрителната информация."},
+        {"word": "die Augenhöhle, -n", "translation": "очна орбита", "example": "Das Auge befindet sich in der Augenhöhle.", "example_translation": "Окото се намира в очната орбита."},
+        {"word": "der Augapfel, -", "translation": "очна ябълка", "example": "Der Augapfel ist kugelförmig.", "example_translation": "Очната ябълка е сферична."},
+        {"word": "das Augenlid, -er", "translation": "клепач", "example": "obere und untere Augenlider", "example_translation": "горни и долни клепачи"},
+        {"word": "der Tränenapparat", "translation": "слъзен апарат", "example": "Muskeln, Augenlider und Tränenapparat", "example_translation": "мускули, клепачи и слъзен апарат"},
+        {"word": "die Hülle, -n", "translation": "обвивка", "example": "drei Hüllen (äußere, mittlere und innere)", "example_translation": "три обвивки (външна, средна и вътрешна)"},
+        {"word": "der Glaskörper", "translation": "стъкловидно тяло", "example": "Der Glaskörper füllt das Innere des Augapfels aus.", "example_translation": "Стъкловидното тяло запълва вътрешността на очната ябълка."},
+        {"word": "die Linse, -n", "translation": "леща", "example": "Die Linse bündelt die Lichtstrahlen auf die Netzhaut.", "example_translation": "Лещата събира светлинните лъчи върху ретината."},
+        {"word": "die Augenhaut, -äute", "translation": "очна обвивка", "example": "Äußere Augenhaut", "example_translation": "външна очна обвивка"},
+        {"word": "die Hornhaut", "translation": "роговица", "example": "Der vordere Teil ist durchsichtig und heißt Hornhaut.", "example_translation": "Предната част е прозрачна и се нарича роговица."},
+        {"word": "die Lederhaut", "translation": "бяло на окото, склера", "example": "den restlichen Teil nennt man Lederhaut (Sklera)", "example_translation": "останалата част се нарича бяло на окото (склера)"},
+        {"word": "die Sklera", "translation": "склера", "example": "Lederhaut (Sklera)", "example_translation": "склера"},
+        {"word": "das Bindegewebe", "translation": "съединителна тъкан", "example": "Die Lederhaut besteht aus Bindegewebe.", "example_translation": "Склерата се състои от съединителна тъкан."},
+        {"word": "die mittlere Augenhaut", "translation": "средна очна обвивка", "example": "Die mittlere Hülle (mittlere Augenhaut)", "example_translation": "Средната обвивка (средна очна обвивка)"},
+        {"word": "die Regenbogenhaut", "translation": "ирис, регенбогена обвивка", "example": "Im vorderen Teil befindet sich die Regenbogenhaut (Iris).", "example_translation": "В предната част се намира ириса (регенбогена обвивка)."},
+        {"word": "die Iris", "translation": "ирис", "example": "Die Pigmentzellen in der Iris bestimmen die Augenfarbe.", "example_translation": "Пигментните клетки в ириса определят цвета на очите."},
+        {"word": "die Pigmentzelle, -n", "translation": "пигментна клетка", "example": "Blutgefäße und Pigmentzellen", "example_translation": "кръвоносни съдове и пигментни клетки"},
+        {"word": "die Pupille, -n", "translation": "зеница", "example": "durch die Pupille eintreten die Lichtstrahlen", "example_translation": "през зеницата влизат светлинните лъчи"},
+        {"word": "der Glattmuskel, -n", "translation": "гладък мускул", "example": "Glattmuskeln in der Iris", "example_translation": "гладки мускули в ириса"},
+        {"word": "der Schutzreflex, -e", "translation": "защитен рефлекс", "example": "Das ist ein Schutzreflex der Pupille.", "example_translation": "Това е защитен рефлекс на зеницата."},
+        {"word": "die Brechkraft", "translation": "пречупваща способност", "example": "sie kann ihre Brechkraft ändern", "example_translation": "тя може да променя пречупващата си способност"},
+        {"word": "die Akkommodation", "translation": "акомодация", "example": "Diese Anpassung nennt man Akkommodation.", "example_translation": "Това приспособяване се нарича акомодация."},
+        {"word": "die Netzhaut", "translation": "ретина", "example": "Die Netzhaut ist die lichtempfindliche Innenauskleidung.", "example_translation": "Ретината е светлочувствителната вътрешна обвивка."},
+        {"word": "der Lichtrezeptor, -en", "translation": "светлинен рецептор", "example": "Lichtrezeptoren: Zapfen und Stäbchen", "example_translation": "светлинни рецептори: конуси и пръчици"},
+        {"word": "der Zapfenrezeptor, -en", "translation": "конусен рецептор", "example": "für das Farbsehen sind Zapfenrezeptoren zuständig", "example_translation": "за цветното зрение са отговорни конусните рецептори"},
+        {"word": "das Stäbchen, -", "translation": "пръчица", "example": "für das Hell-Dunkel-Sehen sind Stäbchen zuständig", "example_translation": "за виждането светлина-тъмнина са отговорни пръчиците"},
+        {"word": "der Zapfen, -", "translation": "конус", "example": "Stäbchen und Zapfen", "example_translation": "пръчици и конуси"},
+        {"word": "der gelbe Fleck", "translation": "жълто петно", "example": "Diese Stelle wird gelber Fleck genannt.", "example_translation": "Това място се нарича жълто петно."},
+        {"word": "der blinde Fleck", "translation": "сляпо петно", "example": "weshalb sie blinder Fleck genannt wird", "example_translation": "поради което то се нарича сляпо петно"},
+        {"word": "die Nervenzelle, -n", "translation": "нервна клетка", "example": "Nervenzellen in der Netzhaut", "example_translation": "нервни клетки в ретината"},
+        {"word": "der Fortsatz, -ätze", "translation": "израстък", "example": "deren Fortsätze den Sehnerv bilden", "example_translation": "чиито израстъци образуват зрителния нерв"},
+        {"word": "das Sehpigment, -e", "translation": "зрителен пигмент", "example": "Sehpigmente in den Fotorezeptoren", "example_translation": "зрителни пигменти във фоторецепторите"},
+        {"word": "der Fotorezeptor, -en", "translation": "фоторецептор", "example": "Fotorezeptoren in der Netzhaut", "example_translation": "фоторецептори в ретината"},
+        {"word": "die Sehschwäche", "translation": "слабо зрение", "example": "Der Mangel führt zu Sehschwäche und Blindheit.", "example_translation": "Липсата води до слабо зрение и слепота."},
+        {"word": "die Blindheit", "translation": "слепота", "example": "sogar zur Blindheit", "example_translation": "дори до слепота"},
+        {"word": "das Zwischenhirn", "translation": "междинен мозък", "example": "Der Sehnerv leitet die Information an das Zwischenhirn weiter.", "example_translation": "Зрителният нерв предава информацията към междинния мозък."},
+        {"word": "das Sehzentrum, -ren", "translation": "зрителен център", "example": "Sehzentrum in der Rinde des Endhirns", "example_translation": "зрителен център в кората на крайния мозък"},
+        {"word": "die Schleimhaut, -äute", "translation": "слузница", "example": "Schleimhaut (Konjunktiva)", "example_translation": "слузница (конюнктива)"},
+        {"word": "die Konjunktiva", "translation": "конюнктива", "example": "mit Schleimhaut (Konjunktiva) überzogen", "example_translation": "покрити със слузница (конюнктива)"},
+        {"word": "die Wimper, -n", "translation": "мигла", "example": "Wimpern an den Augenlidern", "example_translation": "мигли по клепачите"},
+        {"word": "die Augenbraue, -n", "translation": "вежда", "example": "Die Augenbraue schützt das Auge vor Schweißtropfen.", "example_translation": "Веждата защитава окото от капки пот."},
+        {"word": "der Schweißtropfen, -", "translation": "капка пот", "example": "Schweißtropfen beim Schwitzen", "example_translation": "капки пот при потене"},
+        {"word": "die Tränendrüse, -n", "translation": "слъзна жлеза", "example": "Die Tränendrüse befindet sich in der Augenhöhle.", "example_translation": "Слъзната жлеза се намира в очната орбита."},
+        {"word": "der Tränensack, -sack", "translation": "слъзна торбичка", "example": "Tränendrüse und Tränensack", "example_translation": "слъзна жлеза и слъзна торбичка"},
+        {"word": "die Tränenflüssigkeit", "translation": "слъзна течност", "example": "Ihr Sekret - die Tränenflüssigkeit", "example_translation": "Секретът ѝ - слъзната течност"},
+        {"word": "die Nasenhöhle, -n", "translation": "носна кухина", "example": "Die Tränen fließen in die Nasenhöhle ab.", "example_translation": "Сълзите оттичат в носната кухина."},
+        {"word": "das Signal, -e", "translation": "сигнал", "example": "Signale aus der Umgebung", "example_translation": "сигнали от околната среда"},
+        {"word": "die Umgebung, -en", "translation": "среда, околност", "example": "aus seiner Umgebung", "example_translation": "от околната си среда"},
+        {"word": "die Fähigkeit, -en", "translation": "способност", "example": "Die Fähigkeit des Organismus", "example_translation": "Способността на организма"},
+        {"word": "der Organismus, -men", "translation": "организъм", "example": "Fähigkeit des Organismus", "example_translation": "способността на организма"},
+        {"word": "die Information, -en", "translation": "информация", "example": "visuelle Information", "example_translation": "зрителна информация"},
+        {"word": "die Rinde, -n", "translation": "кора", "example": "Rinde des Endhirns", "example_translation": "кора на крайния мозък"},
+        {"word": "das Endhirn, -e", "translation": "краен мозък", "example": "Rinde des Endhirns", "example_translation": "кора на крайния мозък"},
+        {"word": "das Blutgefäß, -e", "translation": "кръвоносен съд", "example": "eine Vielzahl von Blutgefäßen", "example_translation": "множество кръвоносни съдове"},
+        {"word": "die Öffnung, -en", "translation": "отвор", "example": "eine Öffnung - die Pupille", "example_translation": "отвор - зеницата"},
+        {"word": "der Lichtstrahl, -en", "translation": "светлинен лъч", "example": "Lichtstrahlen eintreten", "example_translation": "светлинни лъчи влизат"},
+        {"word": "die Helligkeit", "translation": "осветеност", "example": "Bei Helligkeit verengt sie sich.", "example_translation": "При силна светлина тя се стеснява."},
+        {"word": "die Kontraktion, -en", "translation": "съкращение", "example": "Durch die Kontraktion eines Muskels", "example_translation": "Чрез съкращението на мускул"},
+        {"word": "die Fokussierung", "translation": "фокусиране", "example": "Fokussierung weit entfernter Gegenstände", "example_translation": "фокусиране на далечни предмети"},
+        {"word": "die Anpassung, -en", "translation": "приспособяване", "example": "Diese Anpassung nennt man Akkommodation.", "example_translation": "Това приспособяване се нарича акомодация."},
+        {"word": "die Innenauskleidung", "translation": "вътрешна обвивка", "example": "lichtempfindliche Innenauskleidung", "example_translation": "светлочувствителна вътрешна обвивка"},
+        {"word": "das Farbsehen", "translation": "цветно зрение", "example": "für das Farbsehen sind Zapfen zuständig", "example_translation": "за цветното зрение са отговорни конусите"},
+        {"word": "das Hell-Dunkel-Sehen", "translation": "виждане светлина-тъмнина", "example": "für das Hell-Dunkel-Sehen Stäbchen", "example_translation": "за виждането светлина-тъмнина пръчиците"},
+        {"word": "die Austrittsstelle, -n", "translation": "място на излизане", "example": "an seiner Austrittsstelle aus der Netzhaut", "example_translation": "на мястото на излизането му от ретината"},
+        {"word": "die visuelle Wahrnehmung", "translation": "зрително възприятие", "example": "entsteht daraus keine visuelle Wahrnehmung", "example_translation": "от тях не възниква зрително възприятие"},
+        {"word": "das Derivat, -e", "translation": "производно", "example": "Derivate des Vitamins A", "example_translation": "производни на витамин А"},
+        {"word": "das Vitamin A", "translation": "витамин А", "example": "Der Mangel an Vitamin A führt zu Sehschwäche.", "example_translation": "Липсата на витамин А води до слабо зрение."},
+        {"word": "der Mangel", "translation": "липса", "example": "Der Mangel an diesem Vitamin", "example_translation": "Липсата на този витамин"},
+        {"word": "das Abbild, -er", "translation": "образ", "example": "Auf diese Weise wird das Abbild wahrgenommen.", "example_translation": "По този начин се възприема образът."},
+        {"word": "die Substanz, -en", "translation": "субстанция, вещество", "example": "von gelartiger Substanz", "example_translation": "от гелообразна субстанция"},
+        {"word": "die Austrocknung", "translation": "изсъхване", "example": "vor Austrocknung geschützt", "example_translation": "предпазена от изсъхване"},
+        {"word": "der Staubpartikel, -", "translation": "прахова частица", "example": "Staubpartikel werden entfernt", "example_translation": "праховите частици се отстраняват"},
+        {"word": "der Mikroorganismus, -men", "translation": "микроорганизъм", "example": "Mikroorganismen werden entfernt", "example_translation": "микроорганизмите се отстраняват"}
+      ]
+    },
+    {
+      "id": "adjektive",
+      "headingId": "adjektive-heading",
+      "title": "🟦 Прилагателни (Adjektive)",
+      "words": [
+        {"word": "kugelförmig", "translation": "сферичен", "example": "Der Augapfel ist kugelförmig.", "example_translation": "Очната ябълка е сферична."},
+        {"word": "durchsichtig", "translation": "прозрачен", "example": "Die Linse ist durchsichtig.", "example_translation": "Лещата е прозрачна."},
+        {"word": "bikonvex", "translation": "двуизпъкнал", "example": "Die Linse ist bikonvex.", "example_translation": "Лещата е двуизпъкнала."},
+        {"word": "lichtempfindlich", "translation": "светлочувствителен", "example": "lichtempfindliche Innenauskleidung", "example_translation": "светлочувствителна вътрешна обвивка"},
+        {"word": "gelartig", "translation": "гелообразен", "example": "von gelartiger Substanz", "example_translation": "от гелообразна субстанция"},
+        {"word": "visuell", "translation": "зрителен", "example": "visuelle Information", "example_translation": "зрителна информация"}
+      ]
+    },
+    {
+      "id": "verben",
+      "headingId": "verben-heading",
+      "title": "🟧 Глаголи (Verben)",
+      "words": [
+        {"word": "wahrnehmen", "translation": "възприемам", "example": "Reize wahrnehmen", "example_translation": "възприемам дразнители"},
+        {"word": "umwandeln", "translation": "преобразувам", "example": "Information in Nervenimpulse umwandeln", "example_translation": "преобразувам информацията в нервни импулси"},
+        {"word": "weiterleiten", "translation": "предавам, провеждам", "example": "Nervenimpulse weiterleiten", "example_translation": "предавам нервни импулси"},
+        {"word": "verarbeiten", "translation": "обработвам", "example": "Information wird verarbeitet", "example_translation": "информацията се обработва"},
+        {"word": "weiten", "translation": "разширявам", "example": "die Pupille weiten", "example_translation": "разширявам зеницата"},
+        {"word": "verengen", "translation": "стеснявам", "example": "die Pupille verengen", "example_translation": "стеснявам зеницата"},
+        {"word": "absorbieren", "translation": "абсорбирам", "example": "Lichtstrahlen absorbieren", "example_translation": "абсорбирам светлинни лъчи"},
+        {"word": "leiten", "translation": "провеждам, предавам", "example": "Der Sehnerv leitet die Information weiter.", "example_translation": "Зрителният нерв предава информацията."},
+        {"word": "bündeln", "translation": "събирам", "example": "Die Linse bündelt die Lichtstrahlen.", "example_translation": "Лещата събира светлинните лъчи."},
+        {"word": "blinzeln", "translation": "мигам", "example": "durch das Blinzeln der Augenlider", "example_translation": "чрез мигането на клепачите"}
+      ]
+    }
+  ],
+  "images": {
+    "Abb. 1": [
+      "https://i.imgur.com/f9BViV5.png",
+      "https://i.imgur.com/dyC8MDs.png"
+    ],
+    "Abb. 2": [
+      "https://i.imgur.com/rP7yj1D.png",
+      "https://i.imgur.com/sUGUQX2.png"
+    ],
+    "Abb. 3": [
+      "https://i.imgur.com/3FTdRur.png",
+      "https://i.imgur.com/Lq4VVJN.png"
+    ],
+    "Abb. 4": [
+      "https://i.imgur.com/e442bSW.png",
+      "https://i.imgur.com/KkcZau4.png"
+    ]
+  },
+  "content": "<strong>Warum „beobachtet der Mensch mit den Augen aber sieht mit dem Gehirn\"?</strong>\n\nDer Mensch empfängt ständig Signale (Reize) aus seiner Umgebung. Die Fähigkeit des Organismus, Reize wahrzunehmen, heißt Sinneswahrnehmung.\n\n<strong>Die Sinneswahrnehmung kommt über verschiedene Sinnessysteme zustande. Jedes Sinnessystem besteht aus drei Teilen: peripherem Teil - Rezeptoren; leitendem Teil - Sinneswege; und zentralem Teil - die Sinneszone in der Endhirnrinde.</strong>\n\nDie Rezeptoren sind für jedes Sinnessystem spezifisch. Sie wandeln die Information (die Reize) in Nervenimpulse um. Auf den Sinneswegen werden die Nervenimpulse an die Rinde des Endhirns weitergeleitet. Diese Information wird verarbeitet, analysiert und bewusst wahrgenommen.\n\nDie Sinnessysteme unterteilen sich in System der allgemeinen Sensorik (Oberflächen- und Tiefensensorik, Sinneswahrnehmungen von den inneren Organen und vom Herzen) und Systeme für spezialisierte Sinnesmodalitäten (visueller Sinn, Gehörsinn, Gleichgewichtssinn, Geruchssinn und Geschmackssinn).\n\nDer visuelle Sinn ist die wichtigste Sinneswahrnehmung des Menschen. Durch ihn werden über 85% der Information von der Außenwelt wahrgenommen. Über das visuelle Sinnessystem wird Licht wahrgenommen, werden die Formen von Gegenständen und lebenden Organismen registriert, ihre Bewegungen im Raum identifiziert, Farben unterschieden.\n\nDas visuelle Sinnessystem besteht aus dem Sehorgan Auge, dem Sehnerv und den Teilen des Gehirns, an die die visuelle Information gelangt und in denen sie verarbeitet wird.\n\nDas Auge befindet sich in der Augenhöhle. Es besteht aus dem Augapfel und zusätzlichen Organen (Muskeln, Augenlidern und Tränenapparat).\n\n<strong>Der Augapfel</strong>. Er ist kugelförmig und besteht aus drei Hüllen (äußere, mittlere und innere), aus dem Glaskörper und der Linse (Abb. 1). Der vordere Teil der äußeren Hülle (Äußere Augenhaut) ist durchsichtig und heißt Hornhaut und den restlichen Teil nennt man Lederhaut (Sklera) - der weiße Teil des Auges. Die Lederhaut besteht aus Bindegewebe, ist nicht durchsichtig und hat eine Schutzfunktion.\n\nDie mittlere Hülle (mittlere Augenhaut) beinhaltet eine Vielzahl von Blutgefäßen und Pigmentzellen. Im vorderen Teil befindet sich die Regenbogenhaut (Iris). Die Pigmentzellen in ihr bestimmen die Augenfarbe - von hellgrau bis dunkelbraun. In der Mitte der Iris gibt es eine Öffnung die Pupille, durch die die Lichtstrahlen eintreten. In der Iris gibt es Glattmuskeln, die die Pupille weiten und verengen. Bei Helligkeit verengt sie sich und bei schwachem Licht weitet sie sich. Das ist ein Schutzreflex der Pupille.\n\nHinter der Regenbogenhaut liegt die Linse (Abb. 1). Sie ist bikonvex und durchsichtig. Durch die Kontraktion eines an ihr heftenden Muskels kann sie ihre Brechkraft ändern. Auf diese Weise passt sich das Auge auf die Fokussierung sowohl weit entfernter als auch naher Gegenstände an. Diese Anpassung nennt man Akkommodation. Die Linse bündelt die Lichtstrahlen auf die Netzhaut.\n\nDie Netzhaut ist die lichtempfindliche Innenauskleidung des Augapfels. In ihr befinden sich Lichtrezeptoren: für das Farbsehen sind Zapfenrezeptoren zuständig, für das Hell-Dunkel-Sehen dagegen Stäbchen (Abb. 2). Die Stäbchen sind regelmäßig verteilt. Im zentralen Teil der Netzhaut fehlen sie, dort gibt es eine Anhäufung von Zapfenrezeptoren. Diese Stelle wird gelber Fleck genannt. Das ist der Ort des schärfsten Sehens. In der Netzhaut befinden sich auch Nervenzellen, deren Fortsätze den Sehnerv bilden. An seiner Austrittsstelle aus der Netzhaut fehlen die Stäbchen und die Zapfen, weshalb sie blinder Fleck genannt wird. Wenn Lichtstrahlen, widerspiegelt von einem beobachteten Objekt, auf diesen Fleck fallen, entsteht daraus keine visuelle Wahrnehmung.\n\nIn den lichtempfindlichen Zellen der Netzhaut befinden sich Sehpigmente. Sie absorbieren die Lichtstrahlen, die Reize für die Zapfen und Stäbchen sind. Unter der Wirkung der Strahlen entstehen in den Lichtrezeptoren Nervenimpulse, die an die Nervenzellen in der Netzhaut weitergeleitet werden.\n\nDie Sehpigmente sind Stoffe, die Derivate des Vitamins A darstellen. Der Mangel an diesem Vitamin führt zu Sehschwäche und sogar zur Blindheit.\n\nDer Sehnerv leitet die visuelle Information an das Zwischenhirn weiter. Die sich dort befindenden Nervenzellen geben sie weiter an das Sehzentrum in der Rinde des Endhirns. Auf diese Weise wird das Abbild wahrgenommen.\n\nDer Glaskörper füllt das Innere des Augapfels aus. Er ist durchsichtig und von gelartiger Substanz. Die Lichtstrahlen gehen durch ihn hindurch bis zur Netzhaut. Bei Veränderungen in der Länge des Augapfels bekommt man keine klaren Abbilder auf der Netzhaut (Abb. 3).\n\n<strong>Zusätzliche Organe des Auges</strong>\n\nEs gibt insgesamt sechs Muskeln des Augapfels, mit deren Hilfe er sich bewegt.\n\nDie oberen und unteren Augenlider schützen das Auge (Abb. 1). Die Innenseite der Augenlider und der zu sehende Teil der Lederhaut werden mit Schleimhaut (Konjunktiva) überzogen. Auf den äußeren Rändern der Augenlider sind Wimpern, die auch eine Schutzfunktion erfüllen. Die sich über dem oberen Augenlid befindende Augenbraue schützt das Auge vor Schweißtropfen, die beim Schwitzen an den Härchen hängen bleiben und nicht ins Auge tropfen.\n\nDer Tränenapparat umfasst die Tränendrüse und den Tränensack (Abb. 4). Die Tränendrüse befindet sich in der Augenhöhle, oberhalb und seitlich des Augapfels. Ihr Sekret - die Tränenflüssigkeit - wird ständig durch das Blinzeln der Augenlider auf die Hornhaut verteilt. Auf diese Weise wird die Hornhaut vor Austrocknung geschützt, Staubpartikel und Mikroorganismen werden entfernt. Die Tränen fließen andauernd über den Tränensack in die Nasenhöhle ab.",
+  "sentences": [
+    {
+      "text": "<strong>Warum „beobachtet der Mensch mit den Augen aber sieht mit dem Gehirn\"?</strong>",
+      "translation": "Защо „човекът наблюдава с очите, но вижда с мозъка\"?"
+    },
+    {
+      "text": "Der Mensch empfängt ständig Signale (Reize) aus seiner Umgebung. Die Fähigkeit des Organismus, Reize wahrzunehmen, heißt Sinneswahrnehmung.",
+      "translation": "Човекът постоянно приема сигнали (дразнители) от околната си среда. Способността на организма да възприема дразнители се нарича сетивно възприятие."
+    },
+    {
+      "text": "<strong>Die Sinneswahrnehmung kommt über verschiedene Sinnessysteme zustande. Jedes Sinnessystem besteht aus drei Teilen: peripherem Teil - Rezeptoren; leitendem Teil - Sinneswege; und zentralem Teil - die Sinneszone in der Endhirnrinde.</strong>",
+      "translation": "Сетивното възприятие се осъществява чрез различни сетивни системи. Всяка сетивна система се състои от три части: периферна част - рецептори; провеждаща част - сетивни пътища; и централна част - сетивната зона в кората на крайния мозък."
+    },
+    {
+      "text": "Die Rezeptoren sind für jedes Sinnessystem spezifisch. Sie wandeln die Information (die Reize) in Nervenimpulse um. Auf den Sinneswegen werden die Nervenimpulse an die Rinde des Endhirns weitergeleitet. Diese Information wird verarbeitet, analysiert und bewusst wahrgenommen.",
+      "translation": "Рецепторите са специфични за всяка сетивна система. Те преобразуват информацията (дразнителите) в нервни импулси. По сетивните пътища нервните импулси се предават към кората на крайния мозък. Тази информация се обработва, анализира и съзнателно възприема."
+    },
+    {
+      "text": "Die Sinnessysteme unterteilen sich in System der allgemeinen Sensorik (Oberflächen- und Tiefensensorik, Sinneswahrnehmungen von den inneren Organen und vom Herzen) und Systeme für spezialisierte Sinnesmodalitäten (visueller Sinn, Gehörsinn, Gleichgewichtssinn, Geruchssinn und Geschmackssinn).",
+      "translation": "Сетивните системи се подразделят на система на общата сензорика (повърхностна и дълбока сензорика, сетивни възприятия от вътрешните органи и от сърцето) и системи за специализирани сетивни модалности (зрителен смисъл, слух, равновесие, обоняние и вкус)."
+    },
+    {
+      "text": "Der visuelle Sinn ist die wichtigste Sinneswahrnehmung des Menschen. Durch ihn werden über 85% der Information von der Außenwelt wahrgenommen. Über das visuelle Sinnessystem wird Licht wahrgenommen, werden die Formen von Gegenständen und lebenden Organismen registriert, ihre Bewegungen im Raum identifiziert, Farben unterschieden.",
+      "translation": "Зрителното възприятие е най-важната сетивна способност на човека. Чрез него се възприема над 85% от информацията от външния свят. Чрез зрителната система се възприема светлина, се регистрират формите на предметите и живите организми, се идентифицират техните движения в пространството, се разграничават цветовете."
+    },
+    {
+      "text": "Das visuelle Sinnessystem besteht aus dem Sehorgan Auge, dem Sehnerv und den Teilen des Gehirns, an die die visuelle Information gelangt und in denen sie verarbeitet wird.",
+      "translation": "Зрителната система се състои от зрителния орган око, зрителния нерв и частите на мозъка, до които достига зрителната информация и в които тя се обработва."
+    },
+    {
+      "text": "Das Auge befindet sich in der Augenhöhle. Es besteht aus dem Augapfel und zusätzlichen Organen (Muskeln, Augenlidern und Tränenapparat).",
+      "translation": "Окото се намира в очната орбита. Състои се от очната ябълка и допълнителни органи (мускули, клепачи и слъзен апарат)."
+    },
+    {
+      "text": "<strong>Der Augapfel</strong>. Er ist kugelförmig und besteht aus drei Hüllen (äußere, mittlere und innere), aus dem Glaskörper und der Linse (Abb. 1).",
+      "translation": "Очната ябълка. Тя е сферична и се състои от три обвивки (външна, средна и вътрешна), от стъкловидното тяло и лещата (фиг. 1)."
+    },
+    {
+      "text": "Der vordere Teil der äußeren Hülle (Äußere Augenhaut) ist durchsichtig und heißt Hornhaut und den restlichen Teil nennt man Lederhaut (Sklera) - der weiße Teil des Auges. Die Lederhaut besteht aus Bindegewebe, ist nicht durchsichtig und hat eine Schutzfunktion.",
+      "translation": "Предната част на външната обвивка (външна очна обвивка) е прозрачна и се нарича роговица, а останалата част се нарича бяло на окото (склера) - бялата част на окото. Склерата се състои от съединителна тъкан, не е прозрачна и има защитна функция."
+    },
+    {
+      "text": "Die mittlere Hülle (mittlere Augenhaut) beinhaltet eine Vielzahl von Blutgefäßen und Pigmentzellen. Im vorderen Teil befindet sich die Regenbogenhaut (Iris). Die Pigmentzellen in ihr bestimmen die Augenfarbe - von hellgrau bis dunkelbraun.",
+      "translation": "Средната обвивка (средна очна обвивка) съдържа множество кръвоносни съдове и пигментни клетки. В предната част се намира ириса (регенбогена обвивка). Пигментните клетки в нея определят цвета на очите - от светло сиво до тъмнокафяво."
+    },
+    {
+      "text": "In der Mitte der Iris gibt es eine Öffnung die Pupille, durch die die Lichtstrahlen eintreten. In der Iris gibt es Glattmuskeln, die die Pupille weiten und verengen. Bei Helligkeit verengt sie sich und bei schwachem Licht weitet sie sich. Das ist ein Schutzreflex der Pupille.",
+      "translation": "В центъра на ириса има отвор - зеницата, през който влизат светлинните лъчи. В ириса има гладки мускули, които разширяват и стесняват зеницата. При силна светлина тя се стеснява, а при слаба светлина се разширява. Това е защитен рефлекс на зеницата."
+    },
+    {
+      "text": "Hinter der Regenbogenhaut liegt die Linse (Abb. 1). Sie ist bikonvex und durchsichtig. Durch die Kontraktion eines an ihr heftenden Muskels kann sie ihre Brechkraft ändern.",
+      "translation": "Зад ириса се намира лещата (фиг. 1). Тя е двуизпъкнала и прозрачна. Чрез съкращението на мускул, прикрепен към нея, тя може да променя пречупващата си способност."
+    },
+    {
+      "text": "Auf diese Weise passt sich das Auge auf die Fokussierung sowohl weit entfernter als auch naher Gegenstände an. Diese Anpassung nennt man Akkommodation. Die Linse bündelt die Lichtstrahlen auf die Netzhaut.",
+      "translation": "По този начин окото се приспособява за фокусиране както на далечни, така и на близки предмети. Това приспособяване се нарича акомодация. Лещата събира светлинните лъчи върху ретината."
+    },
+    {
+      "text": "Die Netzhaut ist die lichtempfindliche Innenauskleidung des Augapfels. In ihr befinden sich Lichtrezeptoren: für das Farbsehen sind Zapfenrezeptoren zuständig, für das Hell-Dunkel-Sehen dagegen Stäbchen (Abb. 2).",
+      "translation": "Ретината е светлочувствителната вътрешна обвивка на очната ябълка. В нея се намират светлинни рецептори: за цветното зрение са отговорни конусните рецептори, а за виждането светлина-тъмнина - пръчиците (фиг. 2)."
+    },
+    {
+      "text": "Die Stäbchen sind regelmäßig verteilt. Im zentralen Teil der Netzhaut fehlen sie, dort gibt es eine Anhäufung von Zapfenrezeptoren. Diese Stelle wird gelber Fleck genannt. Das ist der Ort des schärfsten Sehens.",
+      "translation": "Пръчиците са равномерно разпределени. В централната част на ретината те отсъстват, там има скупчване на конусни рецептори. Това място се нарича жълто петно. Това е мястото на най-острото зрение."
+    },
+    {
+      "text": "In der Netzhaut befinden sich auch Nervenzellen, deren Fortsätze den Sehnerv bilden. An seiner Austrittsstelle aus der Netzhaut fehlen die Stäbchen und die Zapfen, weshalb sie blinder Fleck genannt wird.",
+      "translation": "В ретината се намират също и нервни клетки, чиито израстъци образуват зрителния нерв. На мястото на излизането му от ретината отсъстват пръчиците и конусите, поради което то се нарича сляпо петно."
+    },
+    {
+      "text": "Wenn Lichtstrahlen, widerspiegelt von einem beobachteten Objekt, auf diesen Fleck fallen, entsteht daraus keine visuelle Wahrnehmung.",
+      "translation": "Когато светлинни лъчи, отразени от наблюдаван обект, паднат върху това петно, от тях не възниква зрително възприятие."
+    },
+    {
+      "text": "In den lichtempfindlichen Zellen der Netzhaut befinden sich Sehpigmente. Sie absorbieren die Lichtstrahlen, die Reize für die Zapfen und Stäbchen sind. Unter der Wirkung der Strahlen entstehen in den Lichtrezeptoren Nervenimpulse, die an die Nervenzellen in der Netzhaut weitergeleitet werden.",
+      "translation": "В светлочувствителните клетки на ретината се намират зрителни пигменти. Те абсорбират светлинните лъчи, които са дразнители за конусите и пръчиците. Под въздействието на лъчите в светлинните рецептори възникват нервни импулси, които се предават към нервните клетки в ретината."
+    },
+    {
+      "text": "Die Sehpigmente sind Stoffe, die Derivate des Vitamins A darstellen. Der Mangel an diesem Vitamin führt zu Sehschwäche und sogar zur Blindheit.",
+      "translation": "Зрителните пигменти са вещества, които представляват производни на витамин А. Липсата на този витамин води до слабо зрение и дори до слепота."
+    },
+    {
+      "text": "Der Sehnerv leitet die visuelle Information an das Zwischenhirn weiter. Die sich dort befindenden Nervenzellen geben sie weiter an das Sehzentrum in der Rinde des Endhirns. Auf diese Weise wird das Abbild wahrgenommen.",
+      "translation": "Зрителният нерв предава зрителната информация към междинния мозък. Нервните клетки там я предават към зрителния център в кората на крайния мозък. По този начин се възприема образът."
+    },
+    {
+      "text": "Der Glaskörper füllt das Innere des Augapfels aus. Er ist durchsichtig und von gelartiger Substanz. Die Lichtstrahlen gehen durch ihn hindurch bis zur Netzhaut. Bei Veränderungen in der Länge des Augapfels bekommt man keine klaren Abbilder auf der Netzhaut (Abb. 3).",
+      "translation": "Стъкловидното тяло запълва вътрешността на очната ябълка. То е прозрачно и от гелообразна субстанция. Светлинните лъчи преминават през него до ретината. При промени в дължината на очната ябълка не се получават ясни образи върху ретината (фиг. 3)."
+    },
+    {
+      "text": "<strong>Zusätzliche Organe des Auges</strong>",
+      "translation": "Допълнителни органи на окото"
+    },
+    {
+      "text": "Es gibt insgesamt sechs Muskeln des Augapfels, mit deren Hilfe er sich bewegt.",
+      "translation": "Общо има шест мускула на очната ябълка, с чиято помощ тя се движи."
+    },
+    {
+      "text": "Die oberen und unteren Augenlider schützen das Auge (Abb. 1). Die Innenseite der Augenlider und der zu sehende Teil der Lederhaut werden mit Schleimhaut (Konjunktiva) überzogen.",
+      "translation": "Горните и долните клепачи защитават окото (фиг. 1). Вътрешната страна на клепачите и видимата част на склерата са покрити със слузница (конюнктива)."
+    },
+    {
+      "text": "Auf den äußeren Rändern der Augenlider sind Wimpern, die auch eine Schutzfunktion erfüllen. Die sich über dem oberen Augenlid befindende Augenbraue schützt das Auge vor Schweißtropfen, die beim Schwitzen an den Härchen hängen bleiben und nicht ins Auge tropfen.",
+      "translation": "По външните ръбове на клепачите са миглите, които също изпълняват защитна функция. Вежта над горния клепач защитава окото от капки пот, които при потене остават по косъма и не капат в окото."
+    },
+    {
+      "text": "Der Tränenapparat umfasst die Tränendrüse und den Tränensack (Abb. 4). Die Tränendrüse befindet sich in der Augenhöhle, oberhalb und seitlich des Augapfels.",
+      "translation": "Слъзният апарат включва слъзната жлеза и слъзната торбичка (фиг. 4). Слъзната жлеза се намира в очната орбита, над и отстрани на очната ябълка."
+    },
+    {
+      "text": "Ihr Sekret - die Tränenflüssigkeit - wird ständig durch das Blinzeln der Augenlider auf die Hornhaut verteilt. Auf diese Weise wird die Hornhaut vor Austrocknung geschützt, Staubpartikel und Mikroorganismen werden entfernt. Die Tränen fließen andauernd über den Tränensack in die Nasenhöhle ab.",
+      "translation": "Секретът ѝ - слъзната течност - се разпределя постоянно чрез мигането на клепачите върху роговицата. По този начин роговицата се предпазва от изсъхване, прахови частици и микроорганизми се отстраняват. Сълзите постоянно оттичат през слъзната торбичка в носната кухина."
+    },
+    {
+      "text": "📘 Das Wichtigste. (Най-важното.)",
+      "translation": "Най-важното."
+    },
+    {
+      "text": "Durch das Sehen erhält der Mensch über 85% der Information über die Umgebung.",
+      "translation": "Чрез зрението човек получава над 85% от информацията за околната среда."
+    },
+    {
+      "text": "Das visuelle Sinnessystem besteht aus den Augen, den leitenden Nervenwegen und der Sehzone in der Endhirnrinde.",
+      "translation": "Зрителната сетивна система се състои от очите, проводни нервни пътища и зрителна зона в кората на крайния мозък."
+    },
+    {
+      "text": "In der Netzhaut befinden sich die visuellen Rezeptorzellen - Stäbchen und Zapfen.",
+      "translation": "В ретината са разположени зрителните рецепторни клетки — пръчици и колбички."
+    },
+    {
+      "text": "Sie werden von den Lichtstrahlen gereizt, die durch die Pupille ins Auge eintreten und durch die Linse fokussiert werden.",
+      "translation": "Те се дразнят от светлинните лъчи, които постъпват в окото през зеницата и се фокусират чрез лещата."
+    },
+    {
+      "text": "Die Lichtstrahlen werden von Sehpigmenten in den Fotorezeptoren absorbiert, was Nervenimpulse erzeugt.",
+      "translation": "Светлинните лъчи се поглъщат от зрителни пигменти във фоторецепторите, което поражда нервни импулси."
+    },
+    {
+      "text": "Die zusätzlichen Organe des Auges sind die Muskeln, die Augenlider und der Tränenapparat.",
+      "translation": "Допълнителните органи на окото са мускулите, клепачите и слъзният апарат."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 0,
+      "title": "Wenden Sie das Gelernte an",
+      "titleBg": "Приложете наученото",
+      "type": "section"
+    },
+    {
+      "id": 1,
+      "title": "Zeichnen Sie ein Schema des Weges der Nervenimpulse im visuellen Sinnessystem.",
+      "titleBg": "Начертайте схема на пътя на нервните импулси в зрителната сетивна система.",
+      "type": "question",
+      "answer": "Auge (Rezeptoren: Zapfen, Stäbchen) → Netzhaut → Sehnerv → Zwischenhirn → Sehzentrum in der Rinde des Endhirns.",
+      "answerBg": "Око (рецептори: конуси, пръчици) → ретина → зрителният нерв → междинен мозък → зрителен център в кората на крайния мозък."
+    },
+    {
+      "id": 2,
+      "title": "Nennen Sie Berufe, bei denen Farbsehstörungen nicht erlaubt sind. Erklären Sie warum.",
+      "titleBg": "Избройте професии, за които не се допускат дефекти в цветното виждане. Обяснете защо.",
+      "type": "question",
+      "answer": "Piloten, Lokführer, Busfahrer, Polizisten, Feuerwehrleute u.a. - weil sie Verkehrssignale (Ampeln), Warnlichter und Farbcodierungen zuverlässig erkennen müssen.",
+      "answerBg": "Пилоти, машинисти, автобусни водачи, полицаи, пожарникари и др. - защото трябва надеждно да разпознават транспортни сигнали (светофари), предупредителни светлини и цветови кодировки."
+    },
+    {
+      "id": 3,
+      "title": "Interpretieren Sie das Sprichwort: „Nachts sind alle Katzen grau\".",
+      "titleBg": "Разтълкувайте пословицата: „Нощем всички котки са сиви\".",
+      "type": "question",
+      "answer": "Bei schwachem Licht funktionieren hauptsächlich die Stäbchen (Hell-Dunkel-Sehen), nicht die Zapfen (Farbsehen). Deshalb werden Farben nicht unterschieden - alles erscheint grau.",
+      "answerBg": "При слаба светлина работят главно пръчиците (виждане светлина-тъмнина), а не конусите (цветно виждане). Затова цветовете не се разграничават - всичко изглежда сиво."
+    }
+  ]
+}

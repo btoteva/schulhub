@@ -181,6 +181,18 @@ const lessonsData: { [key: number]: Band[] } = {
             },
           ],
         },
+        {
+          sectionTitle: "VII SINNESSYSTEM",
+          lessons: [
+            {
+              id: "7-1",
+              number: "12",
+              title: "VII-1 VISUELLES SINNESSYSTEM",
+              duration: "—",
+              completed: false,
+            },
+          ],
+        },
       ],
     },
   ],
