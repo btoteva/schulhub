@@ -4,6 +4,7 @@ import { FaBook, FaGlobe, FaSun, FaMoon } from "react-icons/fa";
 import FontSettings from "./FontSettings";
 import { useLanguage, Language } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useLanguage();
@@ -54,8 +55,10 @@ const LanguageSelector: React.FC = () => {
 };
 
 const Header: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const { user, isAdmin, logout } = useAuth();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 border-b border-slate-300 dark:border-slate-700/50 shadow-2xl backdrop-blur-sm relative z-[200]">
@@ -81,13 +84,29 @@ const Header: React.FC = () => {
               {t.home}
             </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/about"
               className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
             >
               {t.aboutUs}
-            </a>
+            </Link>
 
+            {isAdmin ? (
+              <button
+                type="button"
+                onClick={logout}
+                className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
+              >
+                {t.logout} {user?.username && `(${user.username})`}
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
+              >
+                {t.login}
+              </Link>
+            )}
             <a
               href="https://codepen.io/btoteva/full/xbOGgwE"
               target="_blank"
@@ -123,7 +142,13 @@ const Header: React.FC = () => {
             </div>
           </nav>
 
-          <button className="md:hidden text-slate-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors">
+          <button
+            type="button"
+            className="md:hidden p-2 rounded-lg text-slate-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors touch-manipulation"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={t.menu}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -140,6 +165,88 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile menu overlay + panel */}
+      {mobileMenuOpen && (
+        <>
+          <div
+            className="fixed inset-0 bg-black/50 z-[210] md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <nav
+            className="fixed top-0 right-0 w-full max-w-xs bg-white dark:bg-slate-900 shadow-2xl z-[220] md:hidden flex flex-col min-h-screen px-4 pt-14 pb-6 overflow-y-auto border-l border-slate-200 dark:border-slate-700"
+            style={{ minHeight: "100dvh", height: "100dvh" }}
+            aria-label={t.menu}
+          >
+            <button
+              type="button"
+              className="absolute top-3 right-3 p-2 rounded-lg text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label={language === "bg" ? "Затвори" : language === "de" ? "Schließen" : "Close"}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <Link
+              to="/"
+              className="py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t.home}
+            </Link>
+            <Link
+              to="/about"
+              className="py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t.aboutUs}
+            </Link>
+            {isAdmin ? (
+              <button
+                type="button"
+                onClick={() => { logout(); setMobileMenuOpen(false); }}
+                className="py-3 text-left w-full text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+              >
+                {t.logout} {user?.username && `(${user.username})`}
+              </button>
+            ) : (
+              <Link
+                to="/login"
+                className="py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.login}
+              </Link>
+            )}
+            <a
+              href="https://codepen.io/btoteva/full/xbOGgwE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold flex items-center gap-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-5 h-5 fill-current">
+                <path d="M100 34.2c-.4-2.6-3.3-4-5.3-5.3-3.6-2.4-7.1-4.7-10.7-7.1-8.5-5.7-17.1-11.4-25.6-17.1-2-1.3-4-2.7-6-4-1.4-1-3.3-1-4.8 0-5.7 3.8-11.5 7.7-17.2 11.5L5.2 29C3 30.4.1 31.8 0 34.8c-.1 3.3 0 6.7 0 10v16c0 2.9-.6 6.3 2.1 8.1 6.4 4.4 12.9 8.6 19.4 12.9 8 5.3 16 10.7 24 16 2.2 1.5 4.4 3.1 7.1 1.3 2.3-1.5 4.5-3 6.8-4.5 8.9-5.9 17.8-11.9 26.7-17.8l9.9-6.6c.6-.4 1.3-.8 1.9-1.3 1.4-1 2-2.4 2-4.1V37.3c.1-1.1.2-2.1.1-3.1 0-.1 0 .2 0 0zM54.3 12.3 88 34.8 73 44.9 54.3 32.4zm-8.6 0v20L27.1 44.8 12 34.8zM8.6 42.8 19.3 50 8.6 57.2zm37.1 44.9L12 65.2l15-10.1 18.6 12.5v20.1zM50 60.2 34.8 50 50 39.8 65.2 50zm4.3 27.5v-20l18.6-12.5 15 10.1zm37.1-30.5L80.7 50l10.8-7.2z"></path>
+              </svg>
+              {t.menu}
+            </a>
+            <div className="border-t border-slate-200 dark:border-slate-700 mt-4 pt-4 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => { toggleTheme(); }}
+                className="p-2 rounded-lg text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                title={theme === "dark" ? "Светла тема" : "Тъмна тема"}
+              >
+                {theme === "dark" ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
+              </button>
+              <LanguageSelector />
+              <FontSettings />
+            </div>
+          </nav>
+        </>
+      )}
     </header>
   );
 };

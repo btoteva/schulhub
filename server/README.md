@@ -32,6 +32,10 @@
 - **Frontend** (React) и **API** (Neon) работят в един и същи проект. Папката `api/` в корена на проекта съдържа serverless функциите – Vercel ги разпознава автоматично.
 - В **Vercel Dashboard** → проект → **Settings** → **Environment Variables** добави:
   - `DATABASE_URL` = твоят Neon connection string (същият като в `server/.env`).
+  - За вход като администратор (редакция на „За нас“):
+    - `JWT_SECRET` = произволен дълъг таен низ (напр. генериран с `openssl rand -base64 32`).
+    - `ADMIN_USERNAME` = потребителско име за админ (по подразбиране `admin`).
+    - `ADMIN_PASSWORD` = парола за админ.
 - След деплой:
   - Сайтът е на `https://твой-проект.vercel.app`
   - API: `https://твой-проект.vercel.app/api/health` и `https://твой-проект.vercel.app/api/progress`

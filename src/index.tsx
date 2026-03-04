@@ -5,6 +5,7 @@ import App from "./App";
 import { FontProvider } from "./contexts/FontContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ThemeProvider, getInitialTheme, applyThemeToDocument } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
 
 // Apply saved theme before first paint so background is correct immediately
 applyThemeToDocument(getInitialTheme());
@@ -17,9 +18,11 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <LanguageProvider>
-        <FontProvider>
-          <App />
-        </FontProvider>
+        <AuthProvider>
+          <FontProvider>
+            <App />
+          </FontProvider>
+        </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>
   </React.StrictMode>

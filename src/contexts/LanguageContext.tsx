@@ -84,6 +84,14 @@ interface Translations {
   hideTeacherText: string;
   forward: string;
   menu: string;
+  login: string;
+  logout: string;
+  username: string;
+  password: string;
+  loginButton: string;
+  editAbout: string;
+  saveAbout: string;
+  cancel: string;
   resources: string;
   audioResources: string;
   relaxationAudioDesc: string;
@@ -192,6 +200,14 @@ const translations: Record<Language, Translations> = {
     hideTeacherText: "Скрий текст за учител",
     forward: "Напред",
     menu: "Меню",
+    login: "Вход",
+    logout: "Изход",
+    username: "Потребител",
+    password: "Парола",
+    loginButton: "Вход",
+    editAbout: "Редактирай „За нас“",
+    saveAbout: "Запази",
+    cancel: "Отказ",
     resources: "Ресурси",
     audioResources: "Аудио материали",
     relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
@@ -302,6 +318,14 @@ const translations: Record<Language, Translations> = {
     hideTeacherText: "Hide text for teacher",
     forward: "Forward",
     menu: "Menu",
+    login: "Login",
+    logout: "Logout",
+    username: "Username",
+    password: "Password",
+    loginButton: "Log in",
+    editAbout: "Edit About us",
+    saveAbout: "Save",
+    cancel: "Cancel",
     resources: "Resources",
     audioResources: "Audio Materials",
     relaxationAudioTitle: "Entspannung - Kurt Tepperwein",
@@ -412,6 +436,14 @@ const translations: Record<Language, Translations> = {
     hideTeacherText: "Text für Lehrkraft ausblenden",
     forward: "Weiter",
     menu: "Menü",
+    login: "Anmelden",
+    logout: "Abmelden",
+    username: "Benutzername",
+    password: "Passwort",
+    loginButton: "Anmelden",
+    editAbout: "Über uns bearbeiten",
+    saveAbout: "Speichern",
+    cancel: "Abbrechen",
     resources: "Ressourcen",
     audioResources: "Audiomaterialien",
     relaxationAudioTitle: "Entspannung - Kurt Tepperwein",

@@ -18,6 +18,8 @@ import DSDSchriftliche3View from './pages/DSDSchriftliche3View';
 import DSDSchriftliche4View from './pages/DSDSchriftliche4View';
 import DSDTestsList from './pages/DSDTestsList';
 import GermanPodcastView from './pages/GermanPodcastView';
+import About from './pages/About';
+import Login from './pages/Login';
 
 const App: React.FC = () => {
   return (
@@ -26,6 +28,8 @@ const App: React.FC = () => {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/lessons/:courseId" element={<Lessons />} />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />
