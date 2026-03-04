@@ -89,6 +89,8 @@ interface Translations {
   username: string;
   password: string;
   loginButton: string;
+  register: string;
+  registerButton: string;
   editAbout: string;
   saveAbout: string;
   cancel: string;
@@ -205,6 +207,8 @@ const translations: Record<Language, Translations> = {
     username: "Потребител",
     password: "Парола",
     loginButton: "Вход",
+    register: "Регистрация",
+    registerButton: "Регистрирай се",
     editAbout: "Редактирай „За нас“",
     saveAbout: "Запази",
     cancel: "Отказ",
@@ -323,6 +327,8 @@ const translations: Record<Language, Translations> = {
     username: "Username",
     password: "Password",
     loginButton: "Log in",
+    register: "Register",
+    registerButton: "Sign up",
     editAbout: "Edit About us",
     saveAbout: "Save",
     cancel: "Cancel",
@@ -441,6 +447,8 @@ const translations: Record<Language, Translations> = {
     username: "Benutzername",
     password: "Passwort",
     loginButton: "Anmelden",
+    register: "Registrierung",
+    registerButton: "Registrieren",
     editAbout: "Über uns bearbeiten",
     saveAbout: "Speichern",
     cancel: "Abbrechen",

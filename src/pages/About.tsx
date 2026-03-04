@@ -40,7 +40,7 @@ function getLangContent(content: AboutContent | null, lang: Language): AboutCont
   return content.bg ?? content.en ?? content.de ?? null;
 }
 
-const API_BASE = "";
+const API_BASE = process.env.DEV_API_ORIGIN || "";
 
 type LangKey = keyof AboutContent;
 

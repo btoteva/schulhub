@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 
-const Login: React.FC = () => {
-  const { login } = useAuth();
+const API_BASE = process.env.DEV_API_ORIGIN || "";
+
+const Register: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const navigate = useNavigate();
@@ -20,47 +20,60 @@ const Login: React.FC = () => {
     e.preventDefault();
     setError("");
     setSubmitting(true);
-    const result = await login(username.trim(), password);
-    setSubmitting(false);
-    if (result.ok) {
-      navigate("/about");
-    } else {
-      setError(result.error || (language === "bg" ? "Грешка при вход" : language === "de" ? "Anmeldung fehlgeschlagen" : "Login failed"));
+    try {
+      const res = await fetch(`${API_BASE}/api/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: username.trim(), password }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        navigate("/login");
+        return;
+      }
+      setError(data.error || (language === "bg" ? "Грешка при регистрация" : language === "de" ? "Registrierung fehlgeschlagen" : "Registration failed"));
+    } catch (e) {
+      setError((e as Error).message || "Network error");
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
     <div className={`min-h-screen flex items-center justify-center px-4 ${isLight ? "bg-slate-100" : "bg-slate-900"}`}>
       <div className={`w-full max-w-sm rounded-2xl shadow-xl p-6 ${isLight ? "bg-white border border-slate-200" : "bg-slate-800 border border-slate-700"}`}>
-        <h1 className="text-xl font-bold mb-4 text-center">{t.login}</h1>
+        <h1 className="text-xl font-bold mb-4 text-center">{t.register}</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="username" className="block text-sm font-medium mb-1">
+            <label htmlFor="reg-username" className="block text-sm font-medium mb-1">
               {t.username}
             </label>
             <input
-              id="username"
+              id="reg-username"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               autoComplete="username"
               required
+              minLength={2}
+              maxLength={50}
               className={`w-full px-3 py-2 rounded-lg border ${
                 isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
               }`}
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium mb-1">
+            <label htmlFor="reg-password" className="block text-sm font-medium mb-1">
               {t.password}
             </label>
             <input
-              id="password"
+              id="reg-password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
+              autoComplete="new-password"
               required
+              minLength={6}
               className={`w-full px-3 py-2 rounded-lg border ${
                 isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
               }`}
@@ -72,17 +85,17 @@ const Login: React.FC = () => {
             disabled={submitting}
             className="w-full py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
           >
-            {submitting ? "..." : t.loginButton}
+            {submitting ? "..." : t.registerButton}
           </button>
         </form>
         <p className="mt-4 text-center text-sm">
-          <Link to="/register" className={isLight ? "text-cyan-600 hover:underline" : "text-cyan-400 hover:underline"}>
-            {t.register}
+          <Link to="/login" className={isLight ? "text-cyan-600 hover:underline" : "text-cyan-400 hover:underline"}>
+            ← {t.login}
           </Link>
         </p>
         <p className="mt-2 text-center text-sm">
           <Link to="/" className={isLight ? "text-slate-500 hover:underline" : "text-slate-400 hover:underline"}>
-            ← {t.home}
+            {t.home}
           </Link>
         </p>
       </div>
@@ -90,4 +103,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;

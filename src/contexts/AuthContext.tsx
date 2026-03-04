@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext, useEffect, useCallback, ReactNode } from "react";
 
 const STORAGE_KEY = "schulhub-auth-token";
-const API_BASE = "";
+// In dev, webpack DefinePlugin sets process.env.DEV_API_ORIGIN so API calls go to localhost:3001
+const API_BASE = process.env.DEV_API_ORIGIN || "";
 
 export interface AuthUser {
   username: string;
@@ -65,9 +66,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-      const data = await res.json().catch(() => ({}));
+      const text = await res.text();
+      const data = text ? (() => { try { return JSON.parse(text); } catch { return {}; } })() : {};
       if (!res.ok) {
-        return { ok: false, error: data.error || "Login failed" };
+        const msg = data.error || (res.status === 401 ? "Invalid credentials" : res.status === 503 ? "Login not configured" : `Error ${res.status}`);
+        return { ok: false, error: msg };
       }
       const t = data.token;
       const u = data.user;
@@ -77,7 +80,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       setUser(u);
       return { ok: true };
     } catch (e) {
-      return { ok: false, error: (e as Error).message || "Network error" };
+      return { ok: false, error: (e as Error).message || "Network error (is the server running?)" };
     }
   }, []);
 

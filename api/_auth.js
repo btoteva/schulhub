@@ -27,9 +27,13 @@ function isAdmin(req) {
 }
 
 function createAdminToken(username) {
+  return createToken(username, "admin");
+}
+
+function createToken(sub, role) {
   if (!JWT_SECRET) return null;
   return jwt.sign(
-    { sub: username, role: "admin" },
+    { sub, role },
     JWT_SECRET,
     { expiresIn: "7d" }
   );
@@ -45,6 +49,7 @@ module.exports = {
   verifyToken,
   isAdmin,
   createAdminToken,
+  createToken,
   checkAdminCredentials,
   hasAuthConfigured: !!JWT_SECRET && !!ADMIN_PASSWORD,
 };

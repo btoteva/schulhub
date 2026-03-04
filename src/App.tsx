@@ -20,6 +20,7 @@ import DSDTestsList from './pages/DSDTestsList';
 import GermanPodcastView from './pages/GermanPodcastView';
 import About from './pages/About';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 const App: React.FC = () => {
   return (
@@ -30,6 +31,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/lessons/:courseId" element={<Lessons />} />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />

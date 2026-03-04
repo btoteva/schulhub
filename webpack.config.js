@@ -1,8 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
+  mode: process.env.NODE_ENV || 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -30,6 +32,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.DEV_API_ORIGIN': JSON.stringify(process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : '')
     })
   ],
   devServer: {
@@ -40,6 +45,9 @@ module.exports = {
     port: 3000,
     hot: true,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': { target: 'http://localhost:3001', secure: false }
+    }
   }
 };
