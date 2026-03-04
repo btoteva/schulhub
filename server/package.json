@@ -1,0 +1,17 @@
+{
+  "name": "schulhub-server",
+  "version": "1.0.0",
+  "description": "SchulHub API – Neon PostgreSQL",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
