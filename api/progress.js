@@ -1,5 +1,5 @@
 const { neon } = require("@neondatabase/serverless");
-const { isAdmin } = require("./_auth");
+const { isSuperAdmin } = require("./_auth");
 
 async function ensureTable(sql) {
   await sql`
@@ -60,8 +60,8 @@ module.exports = async function handler(req, res) {
     if (!key || value === undefined) {
       return res.status(400).json({ error: "Missing key or value" });
     }
-    if (key === "schulhub-about" && !isAdmin(req)) {
-      return res.status(403).json({ error: "Admin only" });
+    if (key === "schulhub-about" && !isSuperAdmin(req)) {
+      return res.status(403).json({ error: "Super admin only" });
     }
     try {
       await sql`INSERT INTO schulhub_progress (key, value) VALUES (${key}, ${JSON.stringify(value)}::jsonb) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`;

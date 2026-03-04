@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowDown, FaArrowUp, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import horverstehenData from "../data/dsd-horverstehen-1.json";
 
+const STORAGE_KEY = "schulhub-dsd-horverstehen-1";
+
 const DSDHorverstehen1View: React.FC = () => {
+  const { token } = useAuth();
   const [teil1Bilder, setTeil1Bilder] = useState<Record<number, string>>({});
   const [teil2Answers, setTeil2Answers] = useState<Record<number, string>>({});
   const [teil3Answers, setTeil3Answers] = useState<Record<number, "richtig" | "falsch">>({});
   const [teil4Answers, setTeil4Answers] = useState<Record<number, string>>({});
   const [teil5Answers, setTeil5Answers] = useState<Record<number, string>>({});
+  const skipSaveRef = useRef(true);
   const [showTeil1Answers, setShowTeil1Answers] = useState(false);
   const [showTeil1CheckResult, setShowTeil1CheckResult] = useState(false);
   const teil1CorrectAnswers: Record<number, string> = { 1: "A", 2: "A", 3: "B", 4: "B", 5: "C" };
@@ -105,6 +111,35 @@ const DSDHorverstehen1View: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
   const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
   const [showTeacherTextTeile, setShowTeacherTextTeile] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    if (!token) return;
+    let cancelled = false;
+    getUserProgress(STORAGE_KEY, token).then((val) => {
+      if (cancelled || !val || typeof val !== "object" || Array.isArray(val)) return;
+      const v = val as Record<string, unknown>;
+      if (v.teil1Bilder && typeof v.teil1Bilder === "object") setTeil1Bilder(v.teil1Bilder as Record<number, string>);
+      if (v.teil2Answers && typeof v.teil2Answers === "object") setTeil2Answers(v.teil2Answers as Record<number, string>);
+      if (v.teil3Answers && typeof v.teil3Answers === "object") setTeil3Answers(v.teil3Answers as Record<number, "richtig" | "falsch">);
+      if (v.teil4Answers && typeof v.teil4Answers === "object") setTeil4Answers(v.teil4Answers as Record<number, string>);
+      if (v.teil5Answers && typeof v.teil5Answers === "object") setTeil5Answers(v.teil5Answers as Record<number, string>);
+    });
+    return () => { cancelled = true; };
+  }, [token]);
+
+  useEffect(() => {
+    if (!token || skipSaveRef.current) {
+      skipSaveRef.current = false;
+      return;
+    }
+    setUserProgress(STORAGE_KEY, {
+      teil1Bilder,
+      teil2Answers,
+      teil3Answers,
+      teil4Answers,
+      teil5Answers,
+    }, token);
+  }, [token, teil1Bilder, teil2Answers, teil3Answers, teil4Answers, teil5Answers]);
 
   return (
     <div

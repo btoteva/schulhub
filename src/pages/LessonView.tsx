@@ -14,6 +14,8 @@ import ScrollToTopButton from "../components/ScrollToTopButton";
 import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
+import { useAuth } from "../contexts/AuthContext";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 
 // Extract title before table (e.g. <strong>Title</strong><br/>)
 function extractTitleBeforeTable(html: string): string {
@@ -252,6 +254,7 @@ const LessonView: React.FC = () => {
   } = useFont();
   const { t, language } = useLanguage();
   const { theme } = useTheme();
+  const { token } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
@@ -335,32 +338,29 @@ const LessonView: React.FC = () => {
   // Skip first save after load so we don't overwrite with empty state
   const skipNextExerciseSaveRef = useRef(true);
 
-  // Load saved exercise progress (quiz answers, revealed question IDs) so user can continue later
+  // Load saved exercise progress (quiz answers, revealed question IDs) when logged in
   useEffect(() => {
     if (!courseId || !lessonId) return;
     skipNextExerciseSaveRef.current = true;
     const key = `schulhub-exercise-${courseId}-${lessonId}`;
-    try {
-      const raw = localStorage.getItem(key);
-      if (!raw) return;
-      const data = JSON.parse(raw) as {
-        quizAnswers?: Record<number, Record<number, string>>;
-        revealedIds?: number[];
-      };
-      if (data.quizAnswers && typeof data.quizAnswers === "object") {
-        setExerciseQuizAnswers(data.quizAnswers);
+    if (!token) return;
+    let cancelled = false;
+    getUserProgress(key, token).then((data) => {
+      if (cancelled || !data || typeof data !== "object" || Array.isArray(data)) return;
+      const d = data as { quizAnswers?: Record<number, Record<number, string>>; revealedIds?: number[] };
+      if (d.quizAnswers && typeof d.quizAnswers === "object") {
+        setExerciseQuizAnswers(d.quizAnswers);
       }
-      if (Array.isArray(data.revealedIds)) {
-        setRevealedExerciseIds(new Set(data.revealedIds));
+      if (Array.isArray(d.revealedIds)) {
+        setRevealedExerciseIds(new Set(d.revealedIds));
       }
-    } catch {
-      // ignore invalid stored data
-    }
-  }, [courseId, lessonId]);
+    });
+    return () => { cancelled = true; };
+  }, [courseId, lessonId, token]);
 
-  // Save exercise progress to localStorage when user changes answers (not on first run after load)
+  // Save exercise progress to API when user is logged in and changes answers (not on first run after load)
   useEffect(() => {
-    if (!courseId || !lessonId) return;
+    if (!courseId || !lessonId || !token) return;
     if (skipNextExerciseSaveRef.current) {
       skipNextExerciseSaveRef.current = false;
       return;
@@ -370,12 +370,8 @@ const LessonView: React.FC = () => {
       quizAnswers: exerciseQuizAnswers,
       revealedIds: Array.from(revealedExerciseIds),
     };
-    try {
-      localStorage.setItem(key, JSON.stringify(payload));
-    } catch {
-      // ignore quota / private mode
-    }
-  }, [courseId, lessonId, exerciseQuizAnswers, revealedExerciseIds]);
+    setUserProgress(key, payload, token);
+  }, [courseId, lessonId, token, exerciseQuizAnswers, revealedExerciseIds]);
 
   // If lesson not found, redirect back
   if (!lessonData) {
@@ -1762,20 +1758,26 @@ const LessonView: React.FC = () => {
                       ? "Der Fortschritt wird automatisch gespeichert. Du kannst später weitermachen."
                       : "Progress is saved automatically. You can continue later."}
                 </p>
+                {token && (
                 <button
                   type="button"
                   onClick={() => {
+                    const empty = { quizAnswers: {}, revealedIds: [] };
                     setExerciseQuizAnswers({});
                     setRevealedExerciseIds(new Set());
                     setDropdownSelections({});
                     setDropdownChecked(new Set());
                     setMultiselectSelections({});
                     setMultiselectChecked(new Set());
+                    if (courseId && lessonId) {
+                      setUserProgress(`schulhub-exercise-${courseId}-${lessonId}`, empty, token);
+                    }
                   }}
                   className="px-4 py-2 text-sm font-medium text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg transition-colors"
                 >
                   {t.clearExerciseProgress}
                 </button>
+              )}
               </div>
               {lessonData.exercises.map((exercise) => (
                 <div key={exercise.id}>

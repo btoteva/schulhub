@@ -21,6 +21,10 @@ import GermanPodcastView from './pages/GermanPodcastView';
 import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
+import ProfileEdit from './pages/ProfileEdit';
+import AdminUsers from './pages/AdminUsers';
+import AdminUserEdit from './pages/AdminUserEdit';
 
 const App: React.FC = () => {
   return (
@@ -32,6 +36,10 @@ const App: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/edit" element={<ProfileEdit />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/users/edit/:userId" element={<AdminUserEdit />} />
           <Route path="/lessons/:courseId" element={<Lessons />} />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />

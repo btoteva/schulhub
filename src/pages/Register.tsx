@@ -10,6 +10,7 @@ const Register: React.FC = () => {
   const { theme } = useTheme();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -24,14 +25,17 @@ const Register: React.FC = () => {
       const res = await fetch(`${API_BASE}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: username.trim(), password }),
+        body: JSON.stringify({ username: username.trim(), email: email.trim().toLowerCase(), password }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         navigate("/login");
         return;
       }
-      setError(data.error || (language === "bg" ? "Грешка при регистрация" : language === "de" ? "Registrierung fehlgeschlagen" : "Registration failed"));
+      const msg = data.error;
+      if (msg === "Email already registered") setError(t.emailAlreadyRegistered);
+      else if (msg === "Invalid email format") setError(t.invalidEmail);
+      else setError(msg || (language === "bg" ? "Грешка при регистрация" : language === "de" ? "Registrierung fehlgeschlagen" : "Registration failed"));
     } catch (e) {
       setError((e as Error).message || "Network error");
     } finally {
@@ -57,6 +61,22 @@ const Register: React.FC = () => {
               required
               minLength={2}
               maxLength={50}
+              className={`w-full px-3 py-2 rounded-lg border ${
+                isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+              }`}
+            />
+          </div>
+          <div>
+            <label htmlFor="reg-email" className="block text-sm font-medium mb-1">
+              {t.email}
+            </label>
+            <input
+              id="reg-email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              required
               className={`w-full px-3 py-2 rounded-lg border ${
                 isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
               }`}

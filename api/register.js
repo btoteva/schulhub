@@ -1,9 +1,10 @@
 const bcrypt = require("bcryptjs");
-const { getSql, ensureUsersTable, findUserByUsername, createUser } = require("./_users");
+const { getSql, ensureUsersTable, findUserByUsername, findUserByEmail, createUser } = require("./_users");
 
 const MIN_USERNAME_LEN = 2;
 const MAX_USERNAME_LEN = 50;
 const MIN_PASSWORD_LEN = 6;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -19,11 +20,19 @@ module.exports = async function handler(req, res) {
   if (!sql) {
     return res.status(503).json({ error: "Database not configured" });
   }
-  const { username, password } = req.body || {};
+  const body = typeof req.body === "object" ? req.body : {};
+  const { username, email, password } = body;
   const u = (username || "").trim();
+  const e = (email || "").trim().toLowerCase();
   const p = (password || "").trim();
   if (!u || !p) {
     return res.status(400).json({ error: "Missing username or password" });
+  }
+  if (!e) {
+    return res.status(400).json({ error: "Email is required" });
+  }
+  if (!EMAIL_REGEX.test(e)) {
+    return res.status(400).json({ error: "Invalid email format" });
   }
   if (u.length < MIN_USERNAME_LEN || u.length > MAX_USERNAME_LEN) {
     return res.status(400).json({ error: "Username must be 2–50 characters" });
@@ -33,14 +42,19 @@ module.exports = async function handler(req, res) {
   }
   try {
     await ensureUsersTable(sql);
-    const existing = await findUserByUsername(sql, u);
-    if (existing) {
+    const existingUsername = await findUserByUsername(sql, u);
+    if (existingUsername) {
       return res.status(400).json({ error: "Username already taken" });
     }
+    const existingEmail = await findUserByEmail(sql, e);
+    if (existingEmail) {
+      return res.status(400).json({ error: "Email already registered" });
+    }
     const hash = await bcrypt.hash(p, 10);
-    await createUser(sql, u, hash, "user");
+    await createUser(sql, u, hash, "user", e);
     res.status(201).json({ ok: true });
-  } catch (e) {
-    res.status(500).json({ error: e.message || "Registration failed" });
+  } catch (err) {
+    if (err.code === "23505") return res.status(400).json({ error: "Email already registered" });
+    res.status(500).json({ error: err.message || "Registration failed" });
   }
 };

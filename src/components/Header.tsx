@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBook, FaGlobe, FaSun, FaMoon } from "react-icons/fa";
+import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt } from "react-icons/fa";
 import FontSettings from "./FontSettings";
 import { useLanguage, Language } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -59,6 +59,19 @@ const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { user, isAdmin, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!userMenuOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [userMenuOpen]);
 
   return (
     <header className="bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 border-b border-slate-300 dark:border-slate-700/50 shadow-2xl backdrop-blur-sm relative z-[200]">
@@ -91,14 +104,60 @@ const Header: React.FC = () => {
               {t.aboutUs}
             </Link>
 
-            {isAdmin ? (
-              <button
-                type="button"
-                onClick={logout}
-                className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
-              >
-                {t.logout} {user?.username && `(${user.username})`}
-              </button>
+            {user ? (
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setUserMenuOpen((prev) => !prev)}
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 hover:bg-slate-200/50 dark:hover:bg-slate-700/50 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
+                  aria-expanded={userMenuOpen}
+                  aria-haspopup="true"
+                >
+                  <FaUser className="w-5 h-5" />
+                  <span>{user.username}</span>
+                  <svg className={`w-4 h-4 transition-transform ${userMenuOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {userMenuOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-[300]">
+                    <Link
+                      to="/profile"
+                      className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      onClick={() => setUserMenuOpen(false)}
+                    >
+                      <FaUser className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                      {t.profile}
+                    </Link>
+                    <Link
+                      to="/profile/edit"
+                      className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      onClick={() => setUserMenuOpen(false)}
+                    >
+                      <FaUserEdit className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                      {t.editProfile}
+                    </Link>
+                    {isAdmin && (
+                      <Link
+                        to="/admin/users"
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <FaUsers className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                        {t.manageUsers}
+                      </Link>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => { logout(); setUserMenuOpen(false); }}
+                      className="flex items-center gap-3 w-full px-4 py-2 text-sm text-left text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    >
+                      <FaSignOutAlt className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                      {t.logout}
+                    </button>
+                  </div>
+                )}
+              </div>
             ) : (
               <Link
                 to="/login"
@@ -203,14 +262,47 @@ const Header: React.FC = () => {
             >
               {t.aboutUs}
             </Link>
-            {isAdmin ? (
-              <button
-                type="button"
-                onClick={() => { logout(); setMobileMenuOpen(false); }}
-                className="py-3 text-left w-full text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
-              >
-                {t.logout} {user?.username && `(${user.username})`}
-              </button>
+            {user ? (
+              <>
+                <div className="flex items-center gap-2 py-3 border-b border-slate-200 dark:border-slate-700">
+                  <FaUser className="w-5 h-5 text-slate-600 dark:text-gray-400" />
+                  <span className="font-semibold text-slate-800 dark:text-white">{user.username}</span>
+                </div>
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FaUser className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                  {t.profile}
+                </Link>
+                <Link
+                  to="/profile/edit"
+                  className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <FaUserEdit className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                  {t.editProfile}
+                </Link>
+                {isAdmin && (
+                  <Link
+                    to="/admin/users"
+                    className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <FaUsers className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                    {t.manageUsers}
+                  </Link>
+                )}
+                <button
+                  type="button"
+                  onClick={() => { logout(); setMobileMenuOpen(false); }}
+                  className="flex items-center gap-3 py-3 text-left w-full text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                >
+                  <FaSignOutAlt className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                  {t.logout}
+                </button>
+              </>
             ) : (
               <Link
                 to="/login"

@@ -23,11 +23,20 @@ function verifyToken(req) {
 
 function isAdmin(req) {
   const payload = verifyToken(req);
-  return payload && payload.role === "admin";
+  return payload && (payload.role === "admin" || payload.role === "superadmin");
+}
+
+function isSuperAdmin(req) {
+  const payload = verifyToken(req);
+  return payload && payload.role === "superadmin";
 }
 
 function createAdminToken(username) {
   return createToken(username, "admin");
+}
+
+function createSuperAdminToken(username) {
+  return createToken(username, "superadmin");
 }
 
 function createToken(sub, role) {
@@ -48,7 +57,9 @@ module.exports = {
   getBearerToken,
   verifyToken,
   isAdmin,
+  isSuperAdmin,
   createAdminToken,
+  createSuperAdminToken,
   createToken,
   checkAdminCredentials,
   hasAuthConfigured: !!JWT_SECRET && !!ADMIN_PASSWORD,

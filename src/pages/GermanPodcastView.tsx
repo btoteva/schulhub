@@ -3,22 +3,37 @@ import { Link, useParams } from "react-router-dom";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import { germanPodcasts } from "../data/german-podcasts";
-import { isPodcastListened, togglePodcastListened } from "../utils/podcast-listened";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 
 const GermanPodcastView: React.FC = () => {
   const { episodeId } = useParams<{ episodeId?: string }>();
   const { theme } = useTheme();
+  const { token } = useAuth();
   const isLight = theme === "light";
   const { t, language } = useLanguage();
 
   const episode =
     germanPodcasts.find((p) => p.spotifyEpisodeId === episodeId || p.id === episodeId) ?? germanPodcasts[0];
-  const [listened, setListened] = useState(() => isPodcastListened(episode.spotifyEpisodeId));
+  const [podcastListenedIds, setPodcastListenedIds] = useState<string[]>([]);
+
   useEffect(() => {
-    setListened(isPodcastListened(episode.spotifyEpisodeId));
-  }, [episode.spotifyEpisodeId]);
+    if (!token) {
+      setPodcastListenedIds([]);
+      return;
+    }
+    let cancelled = false;
+    getUserProgress("schulhub-podcast-listened", token).then((data) => {
+      if (cancelled || !data || typeof data !== "object" || Array.isArray(data)) return;
+      const ids = (data as { ids?: string[] }).ids;
+      setPodcastListenedIds(Array.isArray(ids) ? ids : []);
+    });
+    return () => { cancelled = true; };
+  }, [token]);
+
+  const listened = token && podcastListenedIds.includes(episode.spotifyEpisodeId);
 
   const title = episode.title;
   const description =
@@ -75,9 +90,16 @@ const GermanPodcastView: React.FC = () => {
           >
             {language === "bg" ? "Отвори в Spotify" : language === "de" ? "In Spotify öffnen" : "Open in Spotify"}
           </a>
+          {token && (
           <button
             type="button"
-            onClick={() => setListened(togglePodcastListened(episode.spotifyEpisodeId))}
+            onClick={() => {
+              const next = listened
+                ? podcastListenedIds.filter((id) => id !== episode.spotifyEpisodeId)
+                : [...podcastListenedIds, episode.spotifyEpisodeId];
+              setPodcastListenedIds(next);
+              setUserProgress("schulhub-podcast-listened", { ids: next }, token);
+            }}
             className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all ${
               listened
                 ? isLight
@@ -91,6 +113,7 @@ const GermanPodcastView: React.FC = () => {
             <FaCheckCircle className={listened ? "w-5 h-5" : "w-5 h-5 opacity-70"} />
             {listened ? t.podcastMarkUnlistened : t.podcastMarkListened}
           </button>
+        )}
         </div>
       </main>
       <ScrollToTopButton />

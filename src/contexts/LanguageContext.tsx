@@ -87,10 +87,37 @@ interface Translations {
   login: string;
   logout: string;
   username: string;
+  email: string;
+  usernameOrEmail: string;
+  emailAlreadyRegistered: string;
+  invalidEmail: string;
   password: string;
   loginButton: string;
   register: string;
   registerButton: string;
+  profile: string;
+  roleUser: string;
+  roleAdmin: string;
+  loggedInAs: string;
+  manageUsers: string;
+  edit: string;
+  deleteUser: string;
+  changeRole: string;
+  roleUpdated: string;
+  emailUpdated: string;
+  changePassword: string;
+  createUser: string;
+  newPassword: string;
+  createdAt: string;
+  editProfile: string;
+  currentPassword: string;
+  confirmPassword: string;
+  saveProfile: string;
+  passwordChanged: string;
+  passwordMinLength: string;
+  passwordsDoNotMatch: string;
+  invalidUser: string;
+  roleSuperAdmin: string;
   editAbout: string;
   saveAbout: string;
   cancel: string;
@@ -205,10 +232,37 @@ const translations: Record<Language, Translations> = {
     login: "Вход",
     logout: "Изход",
     username: "Потребител",
+    email: "Имейл",
+    usernameOrEmail: "Потребител или имейл",
+    emailAlreadyRegistered: "Този имейл вече е регистриран.",
+    invalidEmail: "Невалиден формат на имейл.",
     password: "Парола",
     loginButton: "Вход",
     register: "Регистрация",
     registerButton: "Регистрирай се",
+    profile: "Профил",
+    roleUser: "Потребител",
+    roleAdmin: "Администратор",
+    loggedInAs: "Влезъл като",
+    manageUsers: "Потребители",
+    edit: "Редактирай",
+    deleteUser: "Изтрий",
+    changeRole: "Роля",
+    roleUpdated: "Ролята е обновена.",
+    emailUpdated: "Имейлът е обновен.",
+    changePassword: "Промени парола",
+    createUser: "Нов потребител",
+    newPassword: "Нова парола",
+    createdAt: "Регистрация",
+    editProfile: "Редактирай профил",
+    currentPassword: "Текуща парола",
+    confirmPassword: "Потвърди новата парола",
+    saveProfile: "Запази",
+    passwordChanged: "Паролата е сменена успешно.",
+    passwordMinLength: "Паролата трябва да е поне 6 символа.",
+    passwordsDoNotMatch: "Паролите не съвпадат.",
+    invalidUser: "Невалиден потребител.",
+    roleSuperAdmin: "Супер администратор",
     editAbout: "Редактирай „За нас“",
     saveAbout: "Запази",
     cancel: "Отказ",
@@ -325,10 +379,37 @@ const translations: Record<Language, Translations> = {
     login: "Login",
     logout: "Logout",
     username: "Username",
+    email: "Email",
+    usernameOrEmail: "Username or email",
+    emailAlreadyRegistered: "This email is already registered.",
+    invalidEmail: "Invalid email format.",
     password: "Password",
     loginButton: "Log in",
     register: "Register",
     registerButton: "Sign up",
+    profile: "Profile",
+    roleUser: "User",
+    roleAdmin: "Administrator",
+    loggedInAs: "Logged in as",
+    manageUsers: "Users",
+    edit: "Edit",
+    deleteUser: "Delete",
+    changeRole: "Role",
+    roleUpdated: "Role updated.",
+    emailUpdated: "Email updated.",
+    changePassword: "Change password",
+    createUser: "Create user",
+    newPassword: "New password",
+    createdAt: "Created",
+    editProfile: "Edit profile",
+    currentPassword: "Current password",
+    confirmPassword: "Confirm new password",
+    saveProfile: "Save",
+    passwordChanged: "Password changed successfully.",
+    passwordMinLength: "Password must be at least 6 characters.",
+    passwordsDoNotMatch: "Passwords do not match.",
+    invalidUser: "Invalid user.",
+    roleSuperAdmin: "Super administrator",
     editAbout: "Edit About us",
     saveAbout: "Save",
     cancel: "Cancel",
@@ -445,10 +526,37 @@ const translations: Record<Language, Translations> = {
     login: "Anmelden",
     logout: "Abmelden",
     username: "Benutzername",
+    email: "E-Mail",
+    usernameOrEmail: "Benutzername oder E-Mail",
+    emailAlreadyRegistered: "Diese E-Mail ist bereits registriert.",
+    invalidEmail: "Ungültiges E-Mail-Format.",
     password: "Passwort",
     loginButton: "Anmelden",
     register: "Registrierung",
     registerButton: "Registrieren",
+    profile: "Profil",
+    roleUser: "Benutzer",
+    roleAdmin: "Administrator",
+    loggedInAs: "Angemeldet als",
+    manageUsers: "Benutzer",
+    edit: "Bearbeiten",
+    deleteUser: "Löschen",
+    changeRole: "Rolle",
+    roleUpdated: "Rolle aktualisiert.",
+    emailUpdated: "E-Mail aktualisiert.",
+    changePassword: "Passwort ändern",
+    createUser: "Benutzer anlegen",
+    newPassword: "Neues Passwort",
+    createdAt: "Registriert",
+    editProfile: "Profil bearbeiten",
+    currentPassword: "Aktuelles Passwort",
+    confirmPassword: "Neues Passwort bestätigen",
+    saveProfile: "Speichern",
+    passwordChanged: "Passwort erfolgreich geändert.",
+    passwordMinLength: "Das Passwort muss mindestens 6 Zeichen haben.",
+    passwordsDoNotMatch: "Die Passwörter stimmen nicht überein.",
+    invalidUser: "Ungültiger Benutzer.",
+    roleSuperAdmin: "Superadministrator",
     editAbout: "Über uns bearbeiten",
     saveAbout: "Speichern",
     cancel: "Abbrechen",

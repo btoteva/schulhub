@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   FaArrowLeft,
@@ -16,10 +16,11 @@ import coursesData from "../data/courses.json";
 import { getLessonById } from "../data/lessons";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
+import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import DSDTestsListContent from "../components/DSDTestsListContent";
 import { germanPodcasts } from "../data/german-podcasts";
-import { isPodcastListened, togglePodcastListened } from "../utils/podcast-listened";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 
 // Lesson section interface
 interface LessonSection {
@@ -259,12 +260,27 @@ type GermanTab = "lessons" | "podcast" | "dsd";
 const Lessons: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
+  const { token } = useAuth();
   const isLight = theme === "light";
   const { courseId } = useParams<{ courseId: string }>();
   const course = coursesData.find((c) => c.id === Number(courseId));
   const bands = lessonsData[Number(courseId)] || [];
   const [germanTab, setGermanTab] = useState<GermanTab>("lessons");
-  const [podcastListenedVersion, setPodcastListenedVersion] = useState(0);
+  const [podcastListenedIds, setPodcastListenedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!token) {
+      setPodcastListenedIds([]);
+      return;
+    }
+    let cancelled = false;
+    getUserProgress("schulhub-podcast-listened", token).then((data) => {
+      if (cancelled || !data || typeof data !== "object" || Array.isArray(data)) return;
+      const ids = (data as { ids?: string[] }).ids;
+      setPodcastListenedIds(Array.isArray(ids) ? ids : []);
+    });
+    return () => { cancelled = true; };
+  }, [token]);
 
   if (!course) {
     return (
@@ -433,7 +449,7 @@ const Lessons: React.FC = () => {
         <section className="container mx-auto px-4 py-8">
           <div className="max-w-4xl space-y-4">
             {germanPodcasts.map((podcast) => {
-              const listened = isPodcastListened(podcast.spotifyEpisodeId);
+              const listened = token && podcastListenedIds.includes(podcast.spotifyEpisodeId);
               return (
                 <div
                   key={podcast.id}
@@ -464,19 +480,24 @@ const Lessons: React.FC = () => {
                       {language === "bg" ? "Слушай" : language === "de" ? "Anhören" : "Listen"}
                     </span>
                   </Link>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      togglePodcastListened(podcast.spotifyEpisodeId);
-                      setPodcastListenedVersion((v) => v + 1);
-                    }}
-                    className={`flex-shrink-0 flex items-center gap-2 px-4 border-l text-sm font-medium ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700" : "border-gray-700 bg-gray-800/50 hover:bg-gray-800 text-gray-300"}`}
-                    title={listened ? t.podcastMarkUnlistened : t.podcastMarkListened}
-                  >
-                    <FaCheckCircle className={`w-5 h-5 shrink-0 ${listened ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`} />
-                    <span className="hidden sm:inline">{listened ? t.podcastMarkUnlistened : t.podcastMarkListened}</span>
-                  </button>
+                  {token && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        const next = listened
+                          ? podcastListenedIds.filter((id) => id !== podcast.spotifyEpisodeId)
+                          : [...podcastListenedIds, podcast.spotifyEpisodeId];
+                        setPodcastListenedIds(next);
+                        setUserProgress("schulhub-podcast-listened", { ids: next }, token);
+                      }}
+                      className={`flex-shrink-0 flex items-center gap-2 px-4 border-l text-sm font-medium ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700" : "border-gray-700 bg-gray-800/50 hover:bg-gray-800 text-gray-300"}`}
+                      title={listened ? t.podcastMarkUnlistened : t.podcastMarkListened}
+                    >
+                      <FaCheckCircle className={`w-5 h-5 shrink-0 ${listened ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`} />
+                      <span className="hidden sm:inline">{listened ? t.podcastMarkUnlistened : t.podcastMarkListened}</span>
+                    </button>
+                  )}
                 </div>
               );
             })}

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowDown } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import dsdData from "../data/dsd-modellsatz-3.json";
 
 const STORAGE_KEY = "schulhub-dsd-modellsatz-3";
@@ -20,16 +22,32 @@ interface DSDState {
 const DSDModellsatz3View: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
   const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
-  const [answers, setAnswers] = useState<DSDState>(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) return JSON.parse(raw) as DSDState;
-    } catch {}
-    return {};
-  });
+  const { token } = useAuth();
+  const [answers, setAnswers] = useState<DSDState>({});
   const [showResults, setShowResults] = useState(false);
   const [showAnswerKey, setShowAnswerKey] = useState(false);
+  const skipSaveRef = useRef(true);
   const { t } = useLanguage();
+
+  useEffect(() => {
+    if (!token) return;
+    let cancelled = false;
+    getUserProgress(STORAGE_KEY, token).then((val) => {
+      if (!cancelled && val && typeof val === "object" && !Array.isArray(val)) {
+        setAnswers(val as DSDState);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [token]);
+
+  useEffect(() => {
+    if (!token || skipSaveRef.current) {
+      skipSaveRef.current = false;
+      return;
+    }
+    setUserProgress(STORAGE_KEY, answers, token);
+  }, [token, answers]);
+
   const data = dsdData as {
     title: string;
     titleBg: string;
@@ -60,13 +78,6 @@ const DSDModellsatz3View: React.FC = () => {
     }>;
   };
 
-  // Save progress when answers change
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
-    } catch {}
-  }, [answers]);
-
   const updateAnswer = (teil: keyof DSDState, taskId: number | "aufgabe5", value: string) => {
     setAnswers((prev) => {
       const next = { ...prev };
@@ -84,7 +95,7 @@ const DSDModellsatz3View: React.FC = () => {
     setAnswers({});
     setShowResults(false);
     setShowAnswerKey(false);
-    localStorage.removeItem(STORAGE_KEY);
+    if (token) setUserProgress(STORAGE_KEY, {}, token);
   };
 
   const teil1 = data.teile.find((t) => t.id === "teil1");
@@ -225,6 +236,7 @@ const DSDModellsatz3View: React.FC = () => {
             >
               {showResults ? "Скрий отговорите" : "Провери отговори"}
             </button>
+            {token && (
             <button
               type="button"
               onClick={clearProgress}
@@ -232,6 +244,7 @@ const DSDModellsatz3View: React.FC = () => {
             >
               Изчисти напредъка
             </button>
+            )}
             <button
               type="button"
               onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" })}
@@ -659,6 +672,7 @@ const DSDModellsatz3View: React.FC = () => {
               >
                 {showAnswerKey ? "Скрий отговорите" : "Покажи отговорите"}
               </button>
+              {token && (
               <button
                 type="button"
                 onClick={clearProgress}
@@ -666,6 +680,7 @@ const DSDModellsatz3View: React.FC = () => {
               >
                 Изчисти напредъка
               </button>
+            )}
               </div>
 
             {showAnswerKey && (

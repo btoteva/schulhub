@@ -22,11 +22,20 @@ export function verifyToken(req) {
 
 export function isAdmin(req) {
   const payload = verifyToken(req);
-  return payload && payload.role === "admin";
+  return payload && (payload.role === "admin" || payload.role === "superadmin");
+}
+
+export function isSuperAdmin(req) {
+  const payload = verifyToken(req);
+  return payload && payload.role === "superadmin";
 }
 
 export function createAdminToken(username) {
   return createToken(username, "admin");
+}
+
+export function createSuperAdminToken(username) {
+  return createToken(username, "superadmin");
 }
 
 export function createToken(sub, role) {

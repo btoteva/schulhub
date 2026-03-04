@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
-const { createAdminToken, createToken, checkAdminCredentials, hasAuthConfigured } = require("./_auth");
-const { getSql, ensureUsersTable, findUserByUsername } = require("./_users");
+const { createSuperAdminToken, createToken, checkAdminCredentials, hasAuthConfigured } = require("./_auth");
+const { getSql, ensureUsersTable, findUserByUsernameOrEmail } = require("./_users");
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -22,9 +22,9 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "Missing username or password" });
   }
   if (checkAdminCredentials(u, p)) {
-    const token = createAdminToken(u);
+    const token = createSuperAdminToken(u);
     if (!token) return res.status(500).json({ error: "Could not create token" });
-    return res.status(200).json({ token, user: { username: u, role: "admin" } });
+    return res.status(200).json({ token, user: { username: u, role: "superadmin" } });
   }
   const sql = getSql();
   if (!sql) {
@@ -32,7 +32,7 @@ module.exports = async function handler(req, res) {
   }
   try {
     await ensureUsersTable(sql);
-    const user = await findUserByUsername(sql, u);
+    const user = await findUserByUsernameOrEmail(sql, u);
     if (!user || !(await bcrypt.compare(p, user.password_hash))) {
       return res.status(401).json({ error: "Invalid credentials" });
     }

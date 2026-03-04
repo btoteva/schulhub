@@ -47,7 +47,7 @@ type LangKey = keyof AboutContent;
 const About: React.FC = () => {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const { token, isAdmin } = useAuth();
+  const { token, isSuperAdmin } = useAuth();
   const isLight = theme === "light";
   const [content, setContent] = useState<AboutContent | null>(null);
   const [loading, setLoading] = useState(true);
@@ -126,7 +126,7 @@ const About: React.FC = () => {
           >
             ← {language === "bg" ? "Начало" : language === "de" ? "Start" : "Home"}
           </Link>
-          {isAdmin && !editing && (
+          {isSuperAdmin && !editing && (
             <button
               type="button"
               onClick={() => setEditing(true)}

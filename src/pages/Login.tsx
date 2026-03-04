@@ -36,7 +36,7 @@ const Login: React.FC = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="username" className="block text-sm font-medium mb-1">
-              {t.username}
+              {t.usernameOrEmail}
             </label>
             <input
               id="username"
