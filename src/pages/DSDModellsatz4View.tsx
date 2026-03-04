@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
@@ -20,10 +20,15 @@ interface DSDState {
 const DSDModellsatz4View: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
   const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
-  const [answers, setAnswers] = useState<DSDState>({});
+  const [answers, setAnswers] = useState<DSDState>(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw) as DSDState;
+    } catch {}
+    return {};
+  });
   const [showResults, setShowResults] = useState(false);
   const [showAnswerKey, setShowAnswerKey] = useState(false);
-  const skipSaveRef = useRef(true);
   const { t } = useLanguage();
   const data = dsdData as {
     title: string;
@@ -55,22 +60,8 @@ const DSDModellsatz4View: React.FC = () => {
     }>;
   };
 
+  // Save progress when answers change
   useEffect(() => {
-    skipSaveRef.current = true;
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as DSDState;
-        setAnswers(parsed);
-      }
-    } catch {}
-  }, []);
-
-  useEffect(() => {
-    if (skipSaveRef.current) {
-      skipSaveRef.current = false;
-      return;
-    }
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
     } catch {}
