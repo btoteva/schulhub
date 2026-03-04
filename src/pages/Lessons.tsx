@@ -10,6 +10,7 @@ import {
   FaTasks,
   FaSpotify,
   FaThLarge,
+  FaClipboardList,
 } from "react-icons/fa";
 import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
@@ -384,54 +385,98 @@ const Lessons: React.FC = () => {
         </div>
       </section>
 
-      {/* Tabs: only for German (course 1) – Уроци | Подкаст */}
+      {/* German sections: Lessons, Podcast, DSD I Tests – cards like Home subject cards */}
       {course.id === 1 && (
-        <section className="container mx-auto px-4 pt-6">
-          <div className="max-w-4xl flex gap-2 border-b border-slate-200 dark:border-gray-700">
+        <section className="container mx-auto px-4 py-12">
+          <h3 className={`text-2xl font-bold mb-8 text-center ${isLight ? "text-slate-800" : "text-white"}`}>
+            {language === "bg" ? "Изберете раздел" : language === "de" ? "Bereich wählen" : "Select section"}
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {/* Lessons card */}
             <button
               type="button"
               onClick={() => setGermanTab("lessons")}
-              className={`px-6 py-3 font-semibold rounded-t-lg transition-colors ${
+              className={`group relative text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] ${
                 germanTab === "lessons"
-                  ? isLight
-                    ? "bg-amber-500/20 text-amber-700 border-b-2 border-amber-500 -mb-[2px]"
-                    : "bg-amber-500/20 text-amber-300 border-b-2 border-amber-400 -mb-[2px]"
-                  : isLight
-                    ? "text-slate-600 hover:bg-slate-100"
-                    : "text-gray-400 hover:bg-gray-800/50"
-              }`}
+                  ? "ring-2 ring-amber-500 ring-offset-2 dark:ring-offset-gray-900"
+                  : ""
+              } ${isLight ? "bg-gradient-to-b from-white to-slate-100 border-slate-200 hover:shadow-2xl" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:shadow-2xl"}`}
             >
-              {t.lessons}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-600 opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative p-6">
+                <div className="mb-4">
+                  <FaBook className="text-5xl text-amber-500 dark:text-amber-400" />
+                </div>
+                <h4 className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
+                  {t.lessons}
+                </h4>
+                <p className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}>
+                  {language === "bg" ? "Уроци и упражнения по немски" : language === "de" ? "Lektionen und Übungen" : "Lessons and exercises"}
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}>
+                    {t.seeMore}
+                  </span>
+                </div>
+              </div>
             </button>
+
+            {/* Podcast card */}
             <button
               type="button"
               onClick={() => setGermanTab("podcast")}
-              className={`px-6 py-3 font-semibold rounded-t-lg transition-colors ${
+              className={`group relative text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] ${
                 germanTab === "podcast"
-                  ? isLight
-                    ? "bg-green-500/20 text-green-700 border-b-2 border-green-500 -mb-[2px]"
-                    : "bg-green-500/20 text-green-300 border-b-2 border-green-400 -mb-[2px]"
-                  : isLight
-                    ? "text-slate-600 hover:bg-slate-100"
-                    : "text-gray-400 hover:bg-gray-800/50"
-              }`}
+                  ? "ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900"
+                  : ""
+              } ${isLight ? "bg-gradient-to-b from-white to-slate-100 border-slate-200 hover:shadow-2xl" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:shadow-2xl"}`}
             >
-              {t.podcast}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative p-6">
+                <div className="mb-4">
+                  <FaSpotify className="text-5xl text-green-500 dark:text-green-400" />
+                </div>
+                <h4 className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
+                  {t.podcast}
+                </h4>
+                <p className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}>
+                  {language === "bg" ? "Подкасти за слушане" : language === "de" ? "Podcasts zum Anhören" : "Podcasts to listen to"}
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className={`text-sm font-semibold ${isLight ? "text-green-600" : "text-green-400"}`}>
+                    {t.seeMore}
+                  </span>
+                </div>
+              </div>
             </button>
+
+            {/* DSD I Tests card */}
             <button
               type="button"
               onClick={() => setGermanTab("dsd")}
-              className={`px-6 py-3 font-semibold rounded-t-lg transition-colors ${
+              className={`group relative text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] ${
                 germanTab === "dsd"
-                  ? isLight
-                    ? "bg-amber-500/20 text-amber-700 border-b-2 border-amber-500 -mb-[2px]"
-                    : "bg-amber-500/20 text-amber-300 border-b-2 border-amber-400 -mb-[2px]"
-                  : isLight
-                    ? "text-slate-600 hover:bg-slate-100"
-                    : "text-gray-400 hover:bg-gray-800/50"
-              }`}
+                  ? "ring-2 ring-amber-500 ring-offset-2 dark:ring-offset-gray-900"
+                  : ""
+              } ${isLight ? "bg-gradient-to-b from-white to-slate-100 border-slate-200 hover:shadow-2xl" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:shadow-2xl"}`}
             >
-              {t.dsdTests}
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative p-6">
+                <div className="mb-4">
+                  <FaClipboardList className="text-5xl text-amber-500 dark:text-amber-400" />
+                </div>
+                <h4 className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
+                  {t.dsdTests}
+                </h4>
+                <p className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}>
+                  {language === "bg" ? "Тестове за подготовка за DSD I" : language === "de" ? "DSD I Prüfungsvorbereitung" : "DSD I exam preparation tests"}
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}>
+                    {t.seeMore}
+                  </span>
+                </div>
+              </div>
             </button>
           </div>
         </section>

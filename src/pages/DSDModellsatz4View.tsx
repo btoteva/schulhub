@@ -27,21 +27,27 @@ const DSDModellsatz4View: React.FC = () => {
   const [showResults, setShowResults] = useState(false);
   const [showAnswerKey, setShowAnswerKey] = useState(false);
   const skipSaveRef = useRef(true);
+  const hasLoadedRef = useRef(false);
   const { t } = useLanguage();
 
   useEffect(() => {
     if (!token) return;
+    hasLoadedRef.current = false;
     let cancelled = false;
-    getUserProgress(STORAGE_KEY, token).then((val) => {
-      if (!cancelled && val && typeof val === "object" && !Array.isArray(val)) {
-        setAnswers(val as DSDState);
-      }
-    });
+    getUserProgress(STORAGE_KEY, token)
+      .then((val) => {
+        if (!cancelled && val !== null && typeof val === "object" && !Array.isArray(val)) {
+          setAnswers(val as DSDState);
+        }
+      })
+      .finally(() => {
+        if (!cancelled) hasLoadedRef.current = true;
+      });
     return () => { cancelled = true; };
   }, [token]);
 
   useEffect(() => {
-    if (!token || skipSaveRef.current) {
+    if (!token || !hasLoadedRef.current || skipSaveRef.current) {
       skipSaveRef.current = false;
       return;
     }

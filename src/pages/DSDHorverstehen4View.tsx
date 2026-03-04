@@ -15,6 +15,7 @@ const DSDHorverstehen4View: React.FC = () => {
   const { t } = useLanguage();
   const { token } = useAuth();
   const skipSaveRef = useRef(true);
+  const hasLoadedRef = useRef(false);
   const isLight = theme === "light";
   const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
   const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
@@ -114,21 +115,26 @@ const DSDHorverstehen4View: React.FC = () => {
 
   useEffect(() => {
     if (!token) return;
+    hasLoadedRef.current = false;
     let cancelled = false;
-    getUserProgress(STORAGE_KEY, token).then((val) => {
-      if (cancelled || !val || typeof val !== "object" || Array.isArray(val)) return;
-      const v = val as Record<string, unknown>;
-      if (v.teil1Bilder && typeof v.teil1Bilder === "object") setTeil1Bilder(v.teil1Bilder as Record<number, string>);
-      if (v.teil2Answers && typeof v.teil2Answers === "object") setTeil2Answers(v.teil2Answers as Record<number, string>);
-      if (v.teil3Answers && typeof v.teil3Answers === "object") setTeil3Answers(v.teil3Answers as Record<number, "richtig" | "falsch">);
-      if (v.teil4Answers && typeof v.teil4Answers === "object") setTeil4Answers(v.teil4Answers as Record<number, string>);
-      if (v.teil5Answers && typeof v.teil5Answers === "object") setTeil5Answers(v.teil5Answers as Record<number, string>);
-    });
+    getUserProgress(STORAGE_KEY, token)
+      .then((val) => {
+        if (cancelled || val === null || typeof val !== "object" || Array.isArray(val)) return;
+        const v = val as Record<string, unknown>;
+        if (v.teil1Bilder && typeof v.teil1Bilder === "object") setTeil1Bilder(v.teil1Bilder as Record<number, string>);
+        if (v.teil2Answers && typeof v.teil2Answers === "object") setTeil2Answers(v.teil2Answers as Record<number, string>);
+        if (v.teil3Answers && typeof v.teil3Answers === "object") setTeil3Answers(v.teil3Answers as Record<number, "richtig" | "falsch">);
+        if (v.teil4Answers && typeof v.teil4Answers === "object") setTeil4Answers(v.teil4Answers as Record<number, string>);
+        if (v.teil5Answers && typeof v.teil5Answers === "object") setTeil5Answers(v.teil5Answers as Record<number, string>);
+      })
+      .finally(() => {
+        if (!cancelled) hasLoadedRef.current = true;
+      });
     return () => { cancelled = true; };
   }, [token]);
 
   useEffect(() => {
-    if (!token || skipSaveRef.current) {
+    if (!token || !hasLoadedRef.current || skipSaveRef.current) {
       skipSaveRef.current = false;
       return;
     }

@@ -9,11 +9,16 @@ export async function getUserProgress(key: string, token: string): Promise<unkno
   if (!token) return null;
   try {
     const res = await fetch(`${API_BASE}/api/me/progress?key=${encodeURIComponent(key)}`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
     });
     if (!res.ok) return null;
-    const data = await res.json();
-    let val = data.value ?? null;
+    const data = await res.json().catch(() => null);
+    if (data == null) return null;
+    let val = data.value;
+    if (val === undefined) return null;
     if (typeof val === "string") {
       try {
         val = JSON.parse(val);
