@@ -1,6 +1,5 @@
-const { neon } = require("@neondatabase/serverless");
 const { verifyToken } = require("../_auth");
-const { getSql, ensureUsersTable, findUserByUsername } = require("../_users");
+const { getSql, ensureUsersTable, ensureUserChildrenTable, findUserByUsername, getUserChild } = require("../_users");
 
 async function ensureWeeklyProgramTable(sql) {
   await sql`
@@ -12,6 +11,15 @@ async function ensureWeeklyProgramTable(sql) {
       PRIMARY KEY (school, class_name)
     )
   `;
+}
+
+function getChildIdFromQuery(req) {
+  const id = req.query && req.query.childId;
+  if (id != null && id !== "") {
+    const n = parseInt(id, 10);
+    if (Number.isInteger(n) && n >= 1) return n;
+  }
+  return null;
 }
 
 module.exports = async function handler(req, res) {
@@ -35,14 +43,28 @@ module.exports = async function handler(req, res) {
   if (!sql) return res.status(500).json({ error: "Database not configured" });
   try {
     await ensureUsersTable(sql);
-    const user = await findUserByUsername(sql, payload.sub);
-    if (!user || !user.school || !user.class_name) {
-      return res.status(404).json({ error: "No program" });
-    }
+    await ensureUserChildrenTable(sql);
     await ensureWeeklyProgramTable(sql);
+    let school = null;
+    let className = null;
+    const childId = getChildIdFromQuery(req);
+    if (childId != null) {
+      const child = await getUserChild(sql, childId, payload.sub);
+      if (!child) return res.status(404).json({ error: "Child not found" });
+      school = child.school;
+      className = child.class_name;
+    } else {
+      const user = await findUserByUsername(sql, payload.sub);
+      if (!user || !user.school || !user.class_name) {
+        return res.status(404).json({ error: "No program" });
+      }
+      school = user.school;
+      className = user.class_name;
+    }
+    if (!school || !className) return res.status(404).json({ error: "No program" });
     const rows = await sql`
       SELECT data FROM schulhub_weekly_program
-      WHERE school = ${user.school} AND class_name = ${user.class_name}
+      WHERE school = ${school} AND class_name = ${className}
       LIMIT 1
     `;
     if (rows.length === 0) return res.status(404).json({ error: "No program" });

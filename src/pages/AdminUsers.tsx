@@ -11,6 +11,7 @@ export interface UserRow {
   username: string;
   email?: string | null;
   role: string;
+  profile_type?: string | null;
   school?: string | null;
   class_name?: string | null;
   created_at: string;
@@ -249,7 +250,7 @@ const AdminUsers: React.FC = () => {
                     <td className="px-4 py-3">
                       <Link
                         to={`/admin/users/edit/${u.id}`}
-                        state={{ username: u.username, email: u.email, role: u.role, school: u.school, class: u.class_name }}
+                        state={{ username: u.username, email: u.email, role: u.role, profile_type: u.profile_type, school: u.school, class: u.class_name }}
                         className="text-cyan-600 dark:text-cyan-400 hover:underline text-sm font-medium"
                       >
                         {t.edit}

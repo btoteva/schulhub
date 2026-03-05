@@ -11,6 +11,7 @@ const ProfileEdit: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const [profileType, setProfileType] = useState<string>("");
   const [school, setSchool] = useState("");
   const [schools, setSchools] = useState<string[]>([]);
   const [grade, setGrade] = useState("");
@@ -38,6 +39,7 @@ const ProfileEdit: React.FC = () => {
   }
 
   useEffect(() => {
+    setProfileType(user.profile_type ?? "");
     setSchool(user.school ?? "");
     const cls = user.class ?? "";
     if (cls) {
@@ -53,7 +55,7 @@ const ProfileEdit: React.FC = () => {
       setGrade("");
       setParallel("");
     }
-  }, [user?.school, user?.class]);
+  }, [user?.profile_type, user?.school, user?.class]);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/schools`)
@@ -81,13 +83,18 @@ const ProfileEdit: React.FC = () => {
         grade.trim() || parallel.trim()
           ? `${grade.trim()}${parallel.trim() ? ` ${parallel.trim()}` : ""}`
           : "";
+      const body: { profile_type?: string | null; school?: string | null; class?: string | null } = {
+        profile_type: profileType === "student" || profileType === "parent" ? profileType : null,
+        school: profileType === "student" ? (school.trim() || null) : null,
+        class: profileType === "student" ? (combinedClass || null) : null,
+      };
       const res = await fetch(`${API_BASE}/api/me`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ school: school.trim() || null, class: combinedClass || null }),
+        body: JSON.stringify(body),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
@@ -155,57 +162,87 @@ const ProfileEdit: React.FC = () => {
         <div className={`rounded-xl border p-6 ${isLight ? "bg-white border-slate-200" : "bg-slate-800 border-slate-700"}`}>
           <h1 className="text-xl font-bold mb-4">{t.editProfile}</h1>
 
-          {user.role !== "superadmin" && (
-            <div className="space-y-4 mb-6">
+          <div className="space-y-4 mb-6">
               <div>
-                <label htmlFor="profile-school" className="block text-sm font-medium mb-1">{t.school}</label>
+                <label htmlFor="profile-type" className="block text-sm font-medium mb-1">{t.profileType}</label>
                 <select
-                  id="profile-school"
-                  value={school}
-                  onChange={(e) => setSchool(e.target.value)}
+                  id="profile-type"
+                  value={profileType}
+                  onChange={(e) => setProfileType(e.target.value)}
                   className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
                 >
-                  <option value="">—</option>
-                  {schoolOptions.map((s) => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
+                  <option value="">{t.profileTypeNone}</option>
+                  <option value="student">{t.profileTypeStudent}</option>
+                  <option value="parent">{t.profileTypeParent}</option>
                 </select>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label htmlFor="profile-grade" className="block text-sm font-medium mb-1">{t.class}</label>
-                  <input
-                    id="profile-grade"
-                    type="number"
-                    min={1}
-                    max={12}
-                    value={grade}
-                    onChange={(e) => setGrade(e.target.value)}
-                    className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="profile-parallel" className="block text-sm font-medium mb-1">{t.parallel}</label>
-                  <input
-                    id="profile-parallel"
-                    type="text"
-                    value={parallel}
-                    onChange={(e) => setParallel(e.target.value)}
-                    maxLength={2}
-                    className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
-                  />
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={handleSaveProfile}
-                disabled={submittingProfile}
-                className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-medium disabled:opacity-50"
-              >
-                {submittingProfile ? "..." : t.saveProfile}
-              </button>
+              {profileType === "student" && (
+                <>
+                  <div>
+                    <label htmlFor="profile-school" className="block text-sm font-medium mb-1">{t.school}</label>
+                    <select
+                      id="profile-school"
+                      value={school}
+                      onChange={(e) => setSchool(e.target.value)}
+                      className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                    >
+                      <option value="">—</option>
+                      {schoolOptions.map((s) => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label htmlFor="profile-grade" className="block text-sm font-medium mb-1">{t.class}</label>
+                      <input
+                        id="profile-grade"
+                        type="number"
+                        min={1}
+                        max={12}
+                        value={grade}
+                        onChange={(e) => setGrade(e.target.value)}
+                        className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="profile-parallel" className="block text-sm font-medium mb-1">{t.parallel}</label>
+                      <input
+                        id="profile-parallel"
+                        type="text"
+                        value={parallel}
+                        onChange={(e) => setParallel(e.target.value)}
+                        maxLength={2}
+                        className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+              {profileType === "parent" && (
+                <p className={`text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>
+                  {language === "bg" ? "Добавяйте и преглеждайте децата си от страницата „Моите деца“." : language === "de" ? "Fügen Sie Ihre Kinder hinzu und sehen Sie sie auf der Seite „Meine Kinder“." : "Add and view your children on the My children page."}
+                  <Link to="/my-children" className="ml-1 font-medium text-cyan-600 dark:text-cyan-400 hover:underline">
+                    {t.myChildren} →
+                  </Link>
+                </p>
+              )}
+              {user.role !== "superadmin" && (
+                <button
+                  type="button"
+                  onClick={handleSaveProfile}
+                  disabled={submittingProfile}
+                  className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-medium disabled:opacity-50"
+                >
+                  {submittingProfile ? "..." : t.saveProfile}
+                </button>
+              )}
+              {user.role === "superadmin" && (
+                <p className={`text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+                  {language === "bg" ? "Типът профил и училище/клас се записват само за потребители от базата." : language === "de" ? "Profiltyp und Schule/Klasse werden nur für Benutzer in der Datenbank gespeichert." : "Profile type and school/class are saved only for database users."}
+                </p>
+              )}
             </div>
-          )}
 
           {showPasswordForm ? (
             <form onSubmit={handleSubmit} className="space-y-4">

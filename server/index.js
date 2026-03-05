@@ -12,7 +12,7 @@ import {
   isAdmin,
   isSuperAdmin,
 } from "./auth.js";
-import { ensureUsersTable, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, deleteUser } from "./users-db.js";
+import { ensureUsersTable, ensureUserChildrenTable, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, deleteUser, listUserChildren, addUserChild, getUserChild, updateUserChild, deleteUserChild } from "./users-db.js";
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -48,6 +48,7 @@ async function initDb() {
       PRIMARY KEY (school, class_name)
     )
   `;
+  await ensureUserChildrenTable(sql);
 }
 
 app.get("/api/health", async (req, res) => {
@@ -119,7 +120,16 @@ app.post("/api/login", async (req, res) => {
     }
     const token = createToken(user.username, user.role);
     if (!token) return res.status(500).json({ error: "Could not create token" });
-    res.json({ token, user: { username: user.username, role: user.role } });
+    res.json({
+      token,
+      user: {
+        username: user.username,
+        role: user.role,
+        profile_type: user.profile_type ?? null,
+        school: user.school ?? null,
+        class: user.class_name ?? null,
+      },
+    });
   } catch (e) {
     res.status(500).json({ error: e.message || "Login failed" });
   }
@@ -161,21 +171,23 @@ app.post("/api/users", async (req, res) => {
   }
 });
 
-// PATCH /api/users – update role, email, school, class and/or password (admin only)
+// PATCH /api/users – update role, email, profile_type, school, class and/or password (admin only)
 app.patch("/api/users", async (req, res) => {
   if (!isAdmin(req)) return res.status(403).json({ error: "Admin only" });
-  const { id, role, email, password, school, class: classParam } = req.body || {};
+  const { id, role, email, password, profile_type: profileTypeParam, school, class: classParam } = req.body || {};
   const uid = typeof id === "number" ? id : parseInt(id, 10);
   if (!Number.isInteger(uid) || uid < 1) return res.status(400).json({ error: "Invalid id" });
   const hasRole = role === "user" || role === "admin";
   const hasPassword = typeof password === "string" && password.length >= MIN_PASSWORD_LEN;
   const emailVal = typeof email === "string" ? email.trim().toLowerCase() : "";
   const hasEmail = emailVal.length > 0;
-  const schoolVal = typeof school === "string" ? school.trim() || null : undefined;
-  const classVal = typeof classParam === "string" ? classParam.trim() || null : undefined;
+  const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : (profileTypeParam === null || profileTypeParam === "" ? null : undefined);
+  const hasProfileType = profileTypeVal !== undefined;
+  const schoolVal = school === undefined ? undefined : (typeof school === "string" ? school.trim() || null : null);
+  const classVal = classParam === undefined ? undefined : (typeof classParam === "string" ? classParam.trim() || null : null);
   const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
   if (hasEmail && !EMAIL_REGEX.test(emailVal)) return res.status(400).json({ error: "Invalid email format" });
-  if (!hasRole && !hasPassword && !hasEmail && !hasSchoolClass) return res.status(400).json({ error: "Provide role, email, school/class and/or password" });
+  if (!hasRole && !hasPassword && !hasEmail && !hasProfileType && !hasSchoolClass) return res.status(400).json({ error: "Provide role, email, profile_type, school/class and/or password" });
   try {
     if (hasEmail) {
       const existing = await findUserByEmail(sql, emailVal);
@@ -183,6 +195,7 @@ app.patch("/api/users", async (req, res) => {
       await updateUserEmail(sql, uid, emailVal);
     }
     if (hasRole) await updateUserRole(sql, uid, role);
+    if (hasProfileType) await updateUserProfileType(sql, uid, profileTypeVal);
     if (hasPassword) {
       const hash = await bcrypt.hash(password, 10);
       await updateUserPassword(sql, uid, hash);
@@ -209,12 +222,12 @@ app.delete("/api/users", async (req, res) => {
   }
 });
 
-// GET /api/me – return username, role, school, class (school/class from DB for non-superadmin)
+// GET /api/me – return username, role, profile_type, school, class
 app.get("/api/me", async (req, res) => {
   const payload = verifyToken(req);
   if (!payload) return res.status(401).json({ error: "Unauthorized" });
   if (payload.role === "superadmin") {
-    return res.json({ username: payload.sub, role: payload.role, school: null, class: null });
+    return res.json({ username: payload.sub, role: payload.role, profile_type: null, school: null, class: null });
   }
   try {
     await ensureUsersTable(sql);
@@ -223,6 +236,7 @@ app.get("/api/me", async (req, res) => {
     res.json({
       username: user.username,
       role: user.role,
+      profile_type: user.profile_type ?? null,
       school: user.school ?? null,
       class: user.class_name ?? null,
     });
@@ -231,13 +245,15 @@ app.get("/api/me", async (req, res) => {
   }
 });
 
-// PATCH /api/me – change own password and/or school, class (body: { newPassword?, school?, class? })
+// PATCH /api/me – change own password, profile_type, school, class (body: { newPassword?, profile_type?, school?, class? })
 app.patch("/api/me", async (req, res) => {
   const payload = verifyToken(req);
   if (!payload) return res.status(401).json({ error: "Unauthorized" });
-  const { newPassword, school, class: classParam } = req.body || {};
-  const schoolVal = typeof school === "string" ? school.trim() || null : undefined;
-  const classVal = typeof classParam === "string" ? classParam.trim() || null : undefined;
+  const { newPassword, profile_type: profileTypeParam, school, class: classParam } = req.body || {};
+  const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : (profileTypeParam === null || profileTypeParam === "" ? null : undefined);
+  const hasProfileType = profileTypeVal !== undefined;
+  const schoolVal = school === undefined ? undefined : (typeof school === "string" ? school.trim() || null : null);
+  const classVal = classParam === undefined ? undefined : (typeof classParam === "string" ? classParam.trim() || null : null);
   const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
   if (newPassword != null && typeof newPassword === "string") {
     if (newPassword.length < MIN_PASSWORD_LEN) {
@@ -251,6 +267,16 @@ app.patch("/api/me", async (req, res) => {
       }
       const hash = await bcrypt.hash(newPassword, 10);
       await updateUserPassword(sql, user.id, hash);
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+  if (hasProfileType && payload.role !== "superadmin") {
+    try {
+      await ensureUsersTable(sql);
+      const user = await findUserByUsername(sql, payload.sub);
+      if (!user) return res.status(401).json({ error: "User not found" });
+      await updateUserProfileType(sql, user.id, profileTypeVal);
     } catch (e) {
       return res.status(500).json({ error: e.message });
     }
@@ -304,22 +330,114 @@ app.post("/api/me/progress", async (req, res) => {
   }
 });
 
-// GET /api/me/weekly-program – current user's weekly program (by school + class); 404 if none
+// GET /api/me/children – list current user's children (parent only)
+app.get("/api/me/children", async (req, res) => {
+  const payload = verifyToken(req);
+  if (!payload) return res.status(401).json({ error: "Unauthorized" });
+  if (payload.role === "superadmin") return res.json({ children: [] });
+  try {
+    await ensureUserChildrenTable(sql);
+    const children = await listUserChildren(sql, payload.sub);
+    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, created_at: c.created_at })) });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// POST /api/me/children – add child (body: { child_name, school, class })
+app.post("/api/me/children", async (req, res) => {
+  const payload = verifyToken(req);
+  if (!payload) return res.status(401).json({ error: "Unauthorized" });
+  if (payload.role === "superadmin") return res.status(403).json({ error: "Not allowed" });
+  const { child_name: childName, school: schoolParam, class: classParam } = req.body || {};
+  const nameVal = (childName != null && String(childName).trim()) ? String(childName).trim() : null;
+  const schoolVal = (schoolParam != null && String(schoolParam).trim()) ? String(schoolParam).trim() : null;
+  const classVal = (classParam != null && String(classParam).trim()) ? String(classParam).trim() : null;
+  if (!nameVal || !schoolVal || !classVal) return res.status(400).json({ error: "child_name, school and class required" });
+  try {
+    await ensureUserChildrenTable(sql);
+    const row = await addUserChild(sql, payload.sub, nameVal, schoolVal, classVal);
+    res.status(201).json({ id: row.id, child_name: row.child_name, school: row.school, class: row.class_name, created_at: row.created_at });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+function getChildIdFromReq(req) {
+  const fromPath = req.params.id != null ? parseInt(req.params.id, 10) : NaN;
+  const fromQuery = req.query.id != null ? parseInt(req.query.id, 10) : NaN;
+  const id = Number.isInteger(fromPath) && fromPath >= 1 ? fromPath : (Number.isInteger(fromQuery) && fromQuery >= 1 ? fromQuery : null);
+  return id;
+}
+
+// PATCH /api/me/children/:id or /api/me/children?id= – update child (body: { child_name?, school?, class? })
+app.patch("/api/me/children/:id?", async (req, res) => {
+  const payload = verifyToken(req);
+  if (!payload) return res.status(401).json({ error: "Unauthorized" });
+  const childId = getChildIdFromReq(req);
+  if (!childId) return res.status(400).json({ error: "Invalid id" });
+  const { child_name: childName, school: schoolParam, class: classParam } = req.body || {};
+  const nameVal = childName != null ? String(childName).trim() : undefined;
+  const schoolVal = schoolParam != null ? String(schoolParam).trim() : undefined;
+  const classVal = classParam != null ? String(classParam).trim() : undefined;
+  try {
+    const child = await getUserChild(sql, childId, payload.sub);
+    if (!child) return res.status(404).json({ error: "Child not found" });
+    await updateUserChild(sql, childId, payload.sub, nameVal ?? child.child_name, schoolVal ?? child.school, classVal ?? child.class_name);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// DELETE /api/me/children/:id or /api/me/children?id=
+app.delete("/api/me/children/:id?", async (req, res) => {
+  const payload = verifyToken(req);
+  if (!payload) return res.status(401).json({ error: "Unauthorized" });
+  const childId = getChildIdFromReq(req);
+  if (!childId) return res.status(400).json({ error: "Invalid id" });
+  try {
+    const child = await getUserChild(sql, childId, payload.sub);
+    if (!child) return res.status(404).json({ error: "Child not found" });
+    await deleteUserChild(sql, childId, payload.sub);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/me/weekly-program – current user's weekly program (by school + class); or ?childId=X for parent viewing child's program
 app.get("/api/me/weekly-program", async (req, res) => {
   const payload = verifyToken(req);
   if (!payload) return res.status(401).json({ error: "Unauthorized" });
   if (payload.role === "superadmin") {
     return res.status(404).json({ error: "No program" });
   }
+  const childIdParam = req.query.childId;
   try {
     await ensureUsersTable(sql);
-    const user = await findUserByUsername(sql, payload.sub);
-    if (!user || !user.school || !user.class_name) {
-      return res.status(404).json({ error: "No program" });
+    await ensureUserChildrenTable(sql);
+    let school = null;
+    let className = null;
+    if (childIdParam != null && childIdParam !== "") {
+      const childId = parseInt(childIdParam, 10);
+      if (!Number.isInteger(childId) || childId < 1) return res.status(400).json({ error: "Invalid childId" });
+      const child = await getUserChild(sql, childId, payload.sub);
+      if (!child) return res.status(404).json({ error: "Child not found" });
+      school = child.school;
+      className = child.class_name;
+    } else {
+      const user = await findUserByUsername(sql, payload.sub);
+      if (!user || !user.school || !user.class_name) {
+        return res.status(404).json({ error: "No program" });
+      }
+      school = user.school;
+      className = user.class_name;
     }
+    if (!school || !className) return res.status(404).json({ error: "No program" });
     const rows = await sql`
       SELECT data FROM schulhub_weekly_program
-      WHERE school = ${user.school} AND class_name = ${user.class_name}
+      WHERE school = ${school} AND class_name = ${className}
       LIMIT 1
     `;
     if (rows.length === 0) return res.status(404).json({ error: "No program" });

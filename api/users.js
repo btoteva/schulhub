@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const { isAdmin } = require("./_auth");
-const { getSql, ensureUsersTable, findUserByUsername, findUserByEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, deleteUser } = require("./_users");
+const { getSql, ensureUsersTable, findUserByUsername, findUserByEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, deleteUser } = require("./_users");
 
 const MIN_USERNAME_LEN = 2;
 const MAX_USERNAME_LEN = 50;
@@ -61,18 +61,20 @@ module.exports = async function handler(req, res) {
   }
   if (req.method === "PATCH") {
     const body = typeof req.body === "object" ? req.body : {};
-    const { id, role, email, password, school, class: classParam } = body;
+    const { id, role, email, password, profile_type: profileTypeParam, school, class: classParam } = body;
     const uid = typeof id === "number" ? id : parseInt(id, 10);
     if (!Number.isInteger(uid) || uid < 1) return res.status(400).json({ error: "Invalid id" });
     const hasRole = role === "user" || role === "admin";
     const hasPassword = typeof password === "string" && password.length >= MIN_PASSWORD_LEN;
     const emailVal = typeof email === "string" ? email.trim().toLowerCase() : "";
     const hasEmail = emailVal.length > 0;
-    const schoolVal = typeof school === "string" ? school.trim() || null : undefined;
-    const classVal = typeof classParam === "string" ? classParam.trim() || null : undefined;
+    const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : (profileTypeParam === null || profileTypeParam === "" ? null : undefined);
+    const hasProfileType = profileTypeVal !== undefined;
+    const schoolVal = school === undefined ? undefined : (typeof school === "string" ? school.trim() || null : null);
+    const classVal = classParam === undefined ? undefined : (typeof classParam === "string" ? classParam.trim() || null : null);
     const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
     if (hasEmail && !EMAIL_REGEX.test(emailVal)) return res.status(400).json({ error: "Invalid email format" });
-    if (!hasRole && !hasPassword && !hasEmail && !hasSchoolClass) return res.status(400).json({ error: "Provide role, email, school/class and/or password" });
+    if (!hasRole && !hasPassword && !hasEmail && !hasProfileType && !hasSchoolClass) return res.status(400).json({ error: "Provide role, email, profile_type, school/class and/or password" });
     try {
       if (hasEmail) {
         const existing = await findUserByEmail(sql, emailVal);
@@ -80,6 +82,7 @@ module.exports = async function handler(req, res) {
         await updateUserEmail(sql, uid, emailVal);
       }
       if (hasRole) await updateUserRole(sql, uid, role);
+      if (hasProfileType) await updateUserProfileType(sql, uid, profileTypeVal);
       if (hasPassword) {
         const hash = await bcrypt.hash(password, 10);
         await updateUserPassword(sql, uid, hash);

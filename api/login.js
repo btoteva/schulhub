@@ -38,7 +38,16 @@ module.exports = async function handler(req, res) {
     }
     const token = createToken(user.username, user.role);
     if (!token) return res.status(500).json({ error: "Could not create token" });
-    res.status(200).json({ token, user: { username: user.username, role: user.role } });
+    res.status(200).json({
+      token,
+      user: {
+        username: user.username,
+        role: user.role,
+        profile_type: user.profile_type ?? null,
+        school: user.school ?? null,
+        class: user.class_name ?? null,
+      },
+    });
   } catch (e) {
     res.status(500).json({ error: e.message || "Login failed" });
   }

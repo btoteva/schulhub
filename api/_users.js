@@ -20,18 +20,32 @@ async function ensureUsersTable(sql) {
   await sql`CREATE UNIQUE INDEX IF NOT EXISTS schulhub_users_email_key ON schulhub_users (email) WHERE email IS NOT NULL`;
   await sql`ALTER TABLE schulhub_users ADD COLUMN IF NOT EXISTS school TEXT`;
   await sql`ALTER TABLE schulhub_users ADD COLUMN IF NOT EXISTS class_name TEXT`;
+  await sql`ALTER TABLE schulhub_users ADD COLUMN IF NOT EXISTS profile_type TEXT`;
+}
+
+async function ensureUserChildrenTable(sql) {
+  await sql`
+    CREATE TABLE IF NOT EXISTS schulhub_user_children (
+      id SERIAL PRIMARY KEY,
+      parent_username TEXT NOT NULL,
+      child_name TEXT NOT NULL,
+      school TEXT NOT NULL,
+      class_name TEXT NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `;
 }
 
 async function findUserByUsername(sql, username) {
   const rows = await sql`
-    SELECT id, username, email, password_hash, role, school, class_name FROM schulhub_users WHERE username = ${username} LIMIT 1
+    SELECT id, username, email, password_hash, role, school, class_name, profile_type FROM schulhub_users WHERE username = ${username} LIMIT 1
   `;
   return rows[0] || null;
 }
 
 async function findUserByEmail(sql, email) {
   const rows = await sql`
-    SELECT id, username, email, password_hash, role, school, class_name FROM schulhub_users WHERE LOWER(TRIM(email)) = LOWER(TRIM(${email})) LIMIT 1
+    SELECT id, username, email, password_hash, role, school, class_name, profile_type FROM schulhub_users WHERE LOWER(TRIM(email)) = LOWER(TRIM(${email})) LIMIT 1
   `;
   return rows[0] || null;
 }
@@ -40,7 +54,7 @@ async function findUserByUsernameOrEmail(sql, identifier) {
   const trimmed = (identifier || "").trim();
   if (!trimmed) return null;
   const rows = await sql`
-    SELECT id, username, email, password_hash, role, school, class_name FROM schulhub_users
+    SELECT id, username, email, password_hash, role, school, class_name, profile_type FROM schulhub_users
     WHERE username = ${trimmed} OR LOWER(TRIM(email)) = LOWER(${trimmed})
     LIMIT 1
   `;
@@ -56,7 +70,7 @@ async function createUser(sql, username, passwordHash, role = "user", email = nu
 
 async function listUsers(sql) {
   const rows = await sql`
-    SELECT id, username, email, role, school, class_name, created_at FROM schulhub_users ORDER BY created_at DESC
+    SELECT id, username, email, role, school, class_name, profile_type, created_at FROM schulhub_users ORDER BY created_at DESC
   `;
   return rows;
 }
@@ -85,8 +99,55 @@ async function updateUserSchoolClass(sql, id, school, className) {
   `;
 }
 
+async function updateUserProfileType(sql, id, profileType) {
+  await sql`
+    UPDATE schulhub_users SET profile_type = ${profileType ?? null} WHERE id = ${id}
+  `;
+}
+
+async function listUserChildren(sql, parentUsername) {
+  const rows = await sql`
+    SELECT id, child_name, school, class_name, created_at FROM schulhub_user_children
+    WHERE parent_username = ${parentUsername}
+    ORDER BY created_at DESC
+  `;
+  return rows;
+}
+
+async function addUserChild(sql, parentUsername, childName, school, className) {
+  const rows = await sql`
+    INSERT INTO schulhub_user_children (parent_username, child_name, school, class_name)
+    VALUES (${parentUsername}, ${childName}, ${school}, ${className})
+    RETURNING id, child_name, school, class_name, created_at
+  `;
+  return rows[0];
+}
+
+async function getUserChild(sql, id, parentUsername) {
+  const rows = await sql`
+    SELECT id, child_name, school, class_name FROM schulhub_user_children
+    WHERE id = ${id} AND parent_username = ${parentUsername}
+    LIMIT 1
+  `;
+  return rows[0] || null;
+}
+
+async function updateUserChild(sql, id, parentUsername, childName, school, className) {
+  await sql`
+    UPDATE schulhub_user_children
+    SET child_name = ${childName}, school = ${school}, class_name = ${className}
+    WHERE id = ${id} AND parent_username = ${parentUsername}
+  `;
+}
+
+async function deleteUserChild(sql, id, parentUsername) {
+  await sql`
+    DELETE FROM schulhub_user_children WHERE id = ${id} AND parent_username = ${parentUsername}
+  `;
+}
+
 async function deleteUser(sql, id) {
   await sql`DELETE FROM schulhub_users WHERE id = ${id}`;
 }
 
-module.exports = { getSql, ensureUsersTable, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, deleteUser };
+module.exports = { getSql, ensureUsersTable, ensureUserChildrenTable, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, deleteUser, listUserChildren, addUserChild, getUserChild, updateUserChild, deleteUserChild };

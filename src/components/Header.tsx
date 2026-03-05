@@ -137,6 +137,16 @@ const Header: React.FC = () => {
                       <FaUserEdit className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
                       {t.editProfile}
                     </Link>
+                    {user.profile_type === "parent" && (
+                      <Link
+                        to="/my-children"
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <FaCalendarAlt className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                        {t.myChildren}
+                      </Link>
+                    )}
                     {isAdmin && (
                       <>
                         <Link
@@ -294,6 +304,16 @@ const Header: React.FC = () => {
                   <FaUserEdit className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
                   {t.editProfile}
                 </Link>
+                {user.profile_type === "parent" && (
+                  <Link
+                    to="/my-children"
+                    className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <FaCalendarAlt className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                    {t.myChildren}
+                  </Link>
+                )}
                 {isAdmin && (
                   <>
                     <Link

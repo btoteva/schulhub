@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { FaCalendarAlt, FaClock } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -22,19 +22,27 @@ const WeeklyProgram: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const [searchParams] = useSearchParams();
+  const childId = searchParams.get("childId");
   const [data, setData] = useState<WeeklyProgramData | null>(null);
   const [loadingProgram, setLoadingProgram] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (!token || !user?.school || !user?.class) {
+    if (!token) {
+      setLoadingProgram(false);
+      setError(true);
+      return;
+    }
+    if (!childId && (!user?.school || !user?.class)) {
       setLoadingProgram(false);
       setError(true);
       return;
     }
     setLoadingProgram(true);
     setError(false);
-    fetch(`${API_BASE}/api/me/weekly-program`, {
+    const url = childId ? `${API_BASE}/api/me/weekly-program?childId=${encodeURIComponent(childId)}` : `${API_BASE}/api/me/weekly-program`;
+    fetch(url, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -47,7 +55,7 @@ const WeeklyProgram: React.FC = () => {
       })
       .catch(() => setError(true))
       .finally(() => setLoadingProgram(false));
-  }, [token, user?.school, user?.class]);
+  }, [token, childId, user?.school, user?.class]);
 
   if (loading) {
     return (
@@ -74,12 +82,12 @@ const WeeklyProgram: React.FC = () => {
       <div className={`min-h-screen ${isLight ? "bg-slate-100 text-slate-900" : "bg-slate-900 text-slate-100"}`}>
         <div className="container mx-auto px-4 py-8 max-w-2xl">
           <Link
-            to="/"
+            to={childId ? "/my-children" : "/"}
             className={`inline-flex items-center gap-2 mb-6 font-semibold ${
               isLight ? "text-slate-700 hover:text-slate-900" : "text-slate-300 hover:text-white"
             }`}
           >
-            ← {t.home}
+            ← {childId ? t.myChildren : t.home}
           </Link>
           <div className={`rounded-xl border p-6 ${isLight ? "bg-white border-slate-200" : "bg-slate-800 border-slate-700"}`}>
             <h1 className="text-xl font-bold mb-4">{t.weeklyProgramTitle}</h1>
@@ -93,14 +101,14 @@ const WeeklyProgram: React.FC = () => {
   return (
     <div className={`min-h-screen ${isLight ? "bg-slate-100 text-slate-900" : "bg-slate-900 text-slate-100"}`}>
       <div className="container mx-auto px-4 py-8">
-        <Link
-          to="/"
-          className={`inline-flex items-center gap-2 mb-6 font-semibold ${
-            isLight ? "text-slate-700 hover:text-slate-900" : "text-slate-300 hover:text-white"
-          }`}
-        >
-          ← {t.home}
-        </Link>
+          <Link
+            to={childId ? "/my-children" : "/"}
+            className={`inline-flex items-center gap-2 mb-6 font-semibold ${
+              isLight ? "text-slate-700 hover:text-slate-900" : "text-slate-300 hover:text-white"
+            }`}
+          >
+            ← {childId ? t.myChildren : t.home}
+          </Link>
         <div className="flex items-center gap-3 mb-8">
           <FaCalendarAlt className="text-4xl text-amber-500 dark:text-amber-400" />
           <h1 className="text-3xl font-bold">{t.weeklyProgramTitle}</h1>

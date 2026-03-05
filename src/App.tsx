@@ -26,6 +26,7 @@ import ProfileEdit from './pages/ProfileEdit';
 import AdminUsers from './pages/AdminUsers';
 import AdminUserEdit from './pages/AdminUserEdit';
 import WeeklyProgram from './pages/WeeklyProgram';
+import MyChildren from './pages/MyChildren';
 import AdminWeeklyPrograms from './pages/AdminWeeklyPrograms';
 
 const App: React.FC = () => {
@@ -40,6 +41,7 @@ const App: React.FC = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<ProfileEdit />} />
+          <Route path="/my-children" element={<MyChildren />} />
           <Route path="/weekly-program" element={<WeeklyProgram />} />
           <Route path="/admin/users" element={<AdminUsers />} />
           <Route path="/admin/weekly-programs" element={<AdminWeeklyPrograms />} />

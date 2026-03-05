@@ -93,7 +93,7 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!token || !user?.school || !user?.class) {
+    if (!token || user?.profile_type !== "student" || !user?.school || !user?.class) {
       setHasWeeklyProgram(false);
       return;
     }
@@ -102,7 +102,7 @@ const Home: React.FC = () => {
       .then((res) => { if (!cancelled) setHasWeeklyProgram(res.ok); })
       .catch(() => { if (!cancelled) setHasWeeklyProgram(false); });
     return () => { cancelled = true; };
-  }, [token, user?.school, user?.class]);
+  }, [token, user?.profile_type, user?.school, user?.class]);
 
   const getSubjectIcon = (id: number) => {
     if (id === 1) {
@@ -255,8 +255,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Weekly Program – only when logged in and program exists for user's school+class */}
-      {user && user.school && user.class && hasWeeklyProgram && (
+      {/* Weekly Program – student: link to own program; parent: link to my children */}
+      {user && user.profile_type === "student" && user.school && user.class && hasWeeklyProgram && (
         <section className="w-full px-4 py-16 border-t border-slate-200 dark:border-gray-800/50">
           <div className="container mx-auto">
             <Link
@@ -270,6 +270,26 @@ const Home: React.FC = () => {
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 mt-1">
                   {t.weeklyProgram}
+                </p>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+      {user && user.profile_type === "parent" && (
+        <section className="w-full px-4 py-16 border-t border-slate-200 dark:border-gray-800/50">
+          <div className="container mx-auto">
+            <Link
+              to="/my-children"
+              className="flex items-center gap-4 p-6 rounded-2xl border-2 border-amber-500/30 bg-amber-500/10 dark:bg-amber-500/5 hover:bg-amber-500/20 dark:hover:bg-amber-500/10 transition-colors"
+            >
+              <FaCalendarAlt className="text-5xl text-amber-500 dark:text-amber-400 shrink-0" />
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
+                  {t.myChildren}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 mt-1">
+                  {t.weeklyProgramForChild}
                 </p>
               </div>
             </Link>

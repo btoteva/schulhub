@@ -153,6 +153,18 @@ interface Translations {
   grade8: string;
   beginnerLevel: string;
   b1Level: string;
+
+  // Profile type & children
+  profileType: string;
+  profileTypeStudent: string;
+  profileTypeParent: string;
+  profileTypeNone: string;
+  myChildren: string;
+  addChild: string;
+  childName: string;
+  weeklyProgramForChild: string;
+  noChildrenYet: string;
+  deleteChild: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -289,6 +301,17 @@ const translations: Record<Language, Translations> = {
       "Медитативна аудиозапис на немски език за релаксация и подготовка преди учене. Помага за концентрация и спокойствие.",
     additionalResources: "Допълнителни ресурси",
     comingSoon: "Очаквайте скоро още полезни материали!",
+
+    profileType: "Тип профил",
+    profileTypeStudent: "Ученик",
+    profileTypeParent: "Родител",
+    profileTypeNone: "— не е избрано",
+    myChildren: "Моите деца",
+    addChild: "Добави дете",
+    childName: "Име на детето",
+    weeklyProgramForChild: "Седмична програма",
+    noChildrenYet: "Все още нямате добавени деца.",
+    deleteChild: "Изтрий",
 
     // Hero descriptions
     biologyDesc: "Изучаване на живота",
@@ -445,6 +468,17 @@ const translations: Record<Language, Translations> = {
     additionalResources: "Additional Resources",
     comingSoon: "More useful materials coming soon!",
 
+    profileType: "Profile type",
+    profileTypeStudent: "Student",
+    profileTypeParent: "Parent",
+    profileTypeNone: "— not selected",
+    myChildren: "My children",
+    addChild: "Add child",
+    childName: "Child's name",
+    weeklyProgramForChild: "Weekly program",
+    noChildrenYet: "You have not added any children yet.",
+    deleteChild: "Delete",
+
     // Hero descriptions
     biologyDesc: "Study of life",
     geographyDesc: "Discover the world",
@@ -599,6 +633,17 @@ const translations: Record<Language, Translations> = {
       "Eine meditative Audioaufnahme auf Deutsch zur Entspannung und Vorbereitung vor dem Lernen. Hilft bei Konzentration und Ruhe.",
     additionalResources: "Zusätzliche Ressourcen",
     comingSoon: "Weitere nützliche Materialien folgen bald!",
+
+    profileType: "Profiltyp",
+    profileTypeStudent: "Schüler",
+    profileTypeParent: "Elternteil",
+    profileTypeNone: "— nicht ausgewählt",
+    myChildren: "Meine Kinder",
+    addChild: "Kind hinzufügen",
+    childName: "Name des Kindes",
+    weeklyProgramForChild: "Wochenprogramm",
+    noChildrenYet: "Sie haben noch keine Kinder hinzugefügt.",
+    deleteChild: "Löschen",
 
     // Hero descriptions
     biologyDesc: "Das Studium des Lebens",

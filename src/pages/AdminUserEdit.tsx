@@ -10,6 +10,7 @@ interface LocationState {
   username?: string;
   email?: string | null;
   role?: string;
+  profile_type?: string | null;
   school?: string | null;
   class?: string | null;
 }
@@ -27,6 +28,7 @@ const AdminUserEdit: React.FC = () => {
   const [currentRole, setCurrentRole] = useState<"user" | "admin">(
     (state?.role === "admin" ? "admin" : "user") as "user" | "admin"
   );
+  const [currentProfileType, setCurrentProfileType] = useState<string>(state?.profile_type ?? "");
   const [currentSchool, setCurrentSchool] = useState(state?.school ?? "");
   const [schools, setSchools] = useState<string[]>([]);
   const [currentGrade, setCurrentGrade] = useState("");
@@ -48,6 +50,7 @@ const AdminUserEdit: React.FC = () => {
   useEffect(() => {
     if (state?.role === "admin" || state?.role === "user") setCurrentRole(state.role);
     setCurrentEmail(state?.email ?? "");
+    setCurrentProfileType(state?.profile_type ?? "");
     setCurrentSchool(state?.school ?? "");
     const cls = state?.class ?? "";
     if (cls) {
@@ -63,7 +66,7 @@ const AdminUserEdit: React.FC = () => {
       setCurrentGrade("");
       setCurrentParallel("");
     }
-  }, [state?.role, state?.email, state?.school, state?.class, userId]);
+  }, [state?.role, state?.email, state?.profile_type, state?.school, state?.class, userId]);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/schools`)
@@ -259,6 +262,23 @@ const AdminUserEdit: React.FC = () => {
               <option value="admin">{t.roleAdmin}</option>
             </select>
           </div>
+          <div className="mb-4">
+            <label htmlFor="edit-profile-type" className="block text-sm font-medium mb-1">
+              {t.profileType}
+            </label>
+            <select
+              id="edit-profile-type"
+              value={currentProfileType}
+              onChange={(e) => setCurrentProfileType(e.target.value)}
+              className={`w-full px-3 py-2 rounded-lg border ${
+                isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+              }`}
+            >
+              <option value="">{t.profileTypeNone}</option>
+              <option value="student">{t.profileTypeStudent}</option>
+              <option value="parent">{t.profileTypeParent}</option>
+            </select>
+          </div>
           <div className="mb-6">
             <label htmlFor="edit-school" className="block text-sm font-medium mb-1">{t.school}</label>
             <select
@@ -314,6 +334,7 @@ const AdminUserEdit: React.FC = () => {
                   headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
                   body: JSON.stringify({
                     id,
+                    profile_type: currentProfileType === "student" || currentProfileType === "parent" ? currentProfileType : null,
                     school: currentSchool.trim() || null,
                     class:
                       currentGrade.trim() || currentParallel.trim()

@@ -43,12 +43,24 @@ const Profile: React.FC = () => {
             {t.loggedInAs} <strong className={isLight ? "text-slate-900" : "text-white"}>{user.username}</strong>
           </p>
           <p className={`text-sm mb-1 ${isLight ? "text-slate-500" : "text-slate-500"}`}>{roleLabel}</p>
-          {(user.school || user.class) && (
+          {user.profile_type && (
+            <p className={`text-sm ${isLight ? "text-slate-500" : "text-slate-500"}`}>
+              {t.profileType}: {user.profile_type === "student" ? t.profileTypeStudent : user.profile_type === "parent" ? t.profileTypeParent : user.profile_type}
+            </p>
+          )}
+          {user.profile_type === "student" && (user.school || user.class) && (
             <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-500"}`}>
               {t.school}: {user.school || "—"} · {t.class}: {user.class || "—"}
             </p>
           )}
-          {!(user.school || user.class) && <div className="mb-6" />}
+          {user.profile_type === "parent" && (
+            <p className="mb-6">
+              <Link to="/my-children" className="text-cyan-600 dark:text-cyan-400 font-medium hover:underline">
+                {t.myChildren} →
+              </Link>
+            </p>
+          )}
+          {(!user.profile_type || (user.profile_type === "student" && !user.school && !user.class)) && <div className="mb-6" />}
           <Link
             to="/profile/edit"
             className={`inline-block mb-4 mr-3 px-4 py-2 rounded-lg font-medium ${

@@ -1,6 +1,6 @@
 const { verifyToken } = require("./_auth");
 const bcrypt = require("bcryptjs");
-const { getSql, ensureUsersTable, findUserByUsername, updateUserPassword, updateUserSchoolClass } = require("./_users");
+const { getSql, ensureUsersTable, findUserByUsername, updateUserPassword, updateUserSchoolClass, updateUserProfileType } = require("./_users");
 
 const MIN_PASSWORD_LEN = 6;
 
@@ -23,6 +23,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({
         username: payload.sub,
         role: payload.role,
+        profile_type: null,
         school: null,
         class: null,
       });
@@ -36,6 +37,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({
         username: user.username,
         role: user.role,
+        profile_type: user.profile_type ?? null,
         school: user.school ?? null,
         class: user.class_name ?? null,
       });
@@ -43,12 +45,26 @@ module.exports = async function handler(req, res) {
       return res.status(500).json({ error: e.message });
     }
   }
-  // PATCH – change own password and/or school, class
+  // PATCH – change own password, profile_type, school, class
   const body = typeof req.body === "object" ? req.body : {};
-  const { newPassword, school, class: classParam } = body;
-  const schoolVal = typeof school === "string" ? school.trim() || null : undefined;
-  const classVal = typeof classParam === "string" ? classParam.trim() || null : undefined;
+  const { newPassword, profile_type: profileTypeParam, school, class: classParam } = body;
+  const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : (profileTypeParam === null || profileTypeParam === "" ? null : undefined);
+  const hasProfileType = profileTypeVal !== undefined;
+  const schoolVal = school === undefined ? undefined : (typeof school === "string" ? school.trim() || null : null);
+  const classVal = classParam === undefined ? undefined : (typeof classParam === "string" ? classParam.trim() || null : null);
   const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
+  if (hasProfileType && payload.role !== "superadmin") {
+    const sql = getSql();
+    if (sql) {
+      try {
+        await ensureUsersTable(sql);
+        const user = await findUserByUsername(sql, payload.sub);
+        if (user) await updateUserProfileType(sql, user.id, profileTypeVal);
+      } catch (e) {
+        return res.status(500).json({ error: e.message });
+      }
+    }
+  }
   if (newPassword != null && typeof newPassword === "string") {
     if (newPassword.length < MIN_PASSWORD_LEN) {
       return res.status(400).json({ error: "New password must be at least 6 characters" });

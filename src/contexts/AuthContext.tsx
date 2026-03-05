@@ -7,6 +7,7 @@ const API_BASE = process.env.DEV_API_ORIGIN || "";
 export interface AuthUser {
   username: string;
   role: string;
+  profile_type?: string | null;
   school?: string | null;
   class?: string | null;
 }
@@ -47,6 +48,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       setUser({
         username: data.username,
         role: data.role,
+        profile_type: data.profile_type ?? null,
         school: data.school ?? null,
         class: data.class ?? null,
       });
@@ -91,6 +93,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           setUser({
             username: data.username,
             role: data.role,
+            profile_type: data.profile_type ?? null,
             school: data.school ?? null,
             class: data.class ?? null,
           });
@@ -133,7 +136,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       if (!t || !u) return { ok: false, error: "Invalid response" };
       localStorage.setItem(STORAGE_KEY, t);
       setToken(t);
-      setUser(u);
+      setUser({
+        username: u.username,
+        role: u.role,
+        profile_type: u.profile_type ?? null,
+        school: u.school ?? null,
+        class: u.class ?? null,
+      });
       setOffline(false);
       return { ok: true };
     } catch (e) {
