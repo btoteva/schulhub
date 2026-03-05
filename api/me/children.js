@@ -1,5 +1,15 @@
 const { verifyToken } = require("../_auth");
-const { getSql, ensureUserChildrenTable, listUserChildren, addUserChild, getUserChild, updateUserChild, deleteUserChild } = require("../_users");
+const { getSql, ensureUserChildrenTable, findUserByEmail, listUserChildren, addUserChild, getUserChild, updateUserChild, deleteUserChild } = require("../_users");
+
+async function resolveChildAccountToUsername(sql, childEmailParam, studentUsernameParam) {
+  const emailVal = childEmailParam != null && String(childEmailParam).trim() ? String(childEmailParam).trim().toLowerCase() : null;
+  const usernameVal = studentUsernameParam != null && String(studentUsernameParam).trim() ? String(studentUsernameParam).trim() : null;
+  if (emailVal && emailVal.includes("@")) {
+    const userByEmail = await findUserByEmail(sql, emailVal);
+    return userByEmail ? userByEmail.username : null;
+  }
+  return usernameVal || null;
+}
 
 function getIdParam(req) {
   const id = (req.query && req.query.id) || (req.query && req.query.childId);
@@ -39,7 +49,7 @@ module.exports = async function handler(req, res) {
     try {
       const children = await listUserChildren(sql, payload.sub);
       return res.status(200).json({
-        children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, created_at: c.created_at })),
+        children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, created_at: c.created_at })),
       });
     } catch (e) {
       return res.status(500).json({ error: e.message });
@@ -47,14 +57,20 @@ module.exports = async function handler(req, res) {
   }
   if (req.method === "POST") {
     const body = typeof req.body === "object" ? req.body : {};
-    const { child_name: childName, school: schoolParam, class: classParam } = body;
+    const { child_name: childName, school: schoolParam, class: classParam, student_username: studentUsernameParam, child_email: childEmailParam } = body;
     const nameVal = childName != null && String(childName).trim() ? String(childName).trim() : null;
-    const schoolVal = schoolParam != null && String(schoolParam).trim() ? String(schoolParam).trim() : null;
-    const classVal = classParam != null && String(classParam).trim() ? String(classParam).trim() : null;
-    if (!nameVal || !schoolVal || !classVal) return res.status(400).json({ error: "child_name, school and class required" });
+    const schoolVal = (schoolParam != null && String(schoolParam).trim()) ? String(schoolParam).trim() : null;
+    const classVal = (classParam != null && String(classParam).trim()) ? String(classParam).trim() : null;
+    if (!nameVal) return res.status(400).json({ error: "child_name required" });
+    let studentUsernameVal = null;
     try {
-      const row = await addUserChild(sql, payload.sub, nameVal, schoolVal, classVal);
-      return res.status(201).json({ id: row.id, child_name: row.child_name, school: row.school, class: row.class_name, created_at: row.created_at });
+      studentUsernameVal = await resolveChildAccountToUsername(sql, childEmailParam, studentUsernameParam);
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+    try {
+      const row = await addUserChild(sql, payload.sub, nameVal, schoolVal, classVal, studentUsernameVal);
+      return res.status(201).json({ id: row.id, child_name: row.child_name, school: row.school, class: row.class_name, student_username: row.student_username ?? null, created_at: row.created_at });
     } catch (e) {
       return res.status(500).json({ error: e.message });
     }
@@ -63,14 +79,18 @@ module.exports = async function handler(req, res) {
   if (!childId) return res.status(400).json({ error: "id or childId required for PATCH/DELETE" });
   if (req.method === "PATCH") {
     const body = typeof req.body === "object" ? req.body : {};
-    const { child_name: childName, school: schoolParam, class: classParam } = body;
+    const { child_name: childName, school: schoolParam, class: classParam, student_username: studentUsernameParam, child_email: childEmailParam } = body;
     try {
       const child = await getUserChild(sql, childId, payload.sub);
       if (!child) return res.status(404).json({ error: "Child not found" });
       const nameVal = childName != null ? String(childName).trim() : child.child_name;
-      const schoolVal = schoolParam != null ? String(schoolParam).trim() : child.school;
-      const classVal = classParam != null ? String(classParam).trim() : child.class_name;
-      await updateUserChild(sql, childId, payload.sub, nameVal, schoolVal, classVal);
+      const schoolVal = schoolParam !== undefined ? (schoolParam != null && String(schoolParam).trim() ? String(schoolParam).trim() : null) : (child.school ?? null);
+      const classVal = classParam !== undefined ? (classParam != null && String(classParam).trim() ? String(classParam).trim() : null) : (child.class_name ?? null);
+      let studentUsernameVal = undefined;
+      if (childEmailParam !== undefined || studentUsernameParam !== undefined) {
+        studentUsernameVal = await resolveChildAccountToUsername(sql, childEmailParam, studentUsernameParam);
+      }
+      await updateUserChild(sql, childId, payload.sub, nameVal, schoolVal, classVal, studentUsernameVal);
       return res.status(200).json({ ok: true });
     } catch (e) {
       return res.status(500).json({ error: e.message });

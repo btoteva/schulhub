@@ -51,8 +51,16 @@ module.exports = async function handler(req, res) {
     if (childId != null) {
       const child = await getUserChild(sql, childId, payload.sub);
       if (!child) return res.status(404).json({ error: "Child not found" });
-      school = child.school;
-      className = child.class_name;
+      if (child.school && child.class_name) {
+        school = child.school;
+        className = child.class_name;
+      } else if (child.student_username) {
+        const linkedUser = await findUserByUsername(sql, child.student_username);
+        if (linkedUser && linkedUser.school && linkedUser.class_name) {
+          school = linkedUser.school;
+          className = linkedUser.class_name;
+        }
+      }
     } else {
       const user = await findUserByUsername(sql, payload.sub);
       if (!user || !user.school || !user.class_name) {

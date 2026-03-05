@@ -1,6 +1,6 @@
 const { verifyToken } = require("./_auth");
 const bcrypt = require("bcryptjs");
-const { getSql, ensureUsersTable, findUserByUsername, updateUserPassword, updateUserSchoolClass, updateUserProfileType } = require("./_users");
+const { getSql, ensureUsersTable, ensureUserChildrenTable, findUserByUsername, updateUserPassword, updateUserSchoolClass, updateUserProfileType, updateUserGender, getParentInfoForStudent } = require("./_users");
 
 const MIN_PASSWORD_LEN = 6;
 
@@ -26,6 +26,7 @@ module.exports = async function handler(req, res) {
         profile_type: null,
         school: null,
         class: null,
+        gender: null,
       });
     }
     const sql = getSql();
@@ -34,22 +35,29 @@ module.exports = async function handler(req, res) {
       await ensureUsersTable(sql);
       const user = await findUserByUsername(sql, payload.sub);
       if (!user) return res.status(401).json({ error: "User not found" });
+      await ensureUserChildrenTable(sql);
+      const parentInfo = await getParentInfoForStudent(sql, user.username);
       return res.status(200).json({
         username: user.username,
         role: user.role,
         profile_type: user.profile_type ?? null,
         school: user.school ?? null,
         class: user.class_name ?? null,
+        gender: user.gender ?? null,
+        parent_username: parentInfo?.parent_username ?? null,
+        parent_gender: parentInfo?.parent_gender ?? null,
       });
     } catch (e) {
       return res.status(500).json({ error: e.message });
     }
   }
-  // PATCH – change own password, profile_type, school, class
+  // PATCH – change own password, profile_type, school, class, gender
   const body = typeof req.body === "object" ? req.body : {};
-  const { newPassword, profile_type: profileTypeParam, school, class: classParam } = body;
+  const { newPassword, profile_type: profileTypeParam, school, class: classParam, gender: genderParam } = body;
   const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : (profileTypeParam === null || profileTypeParam === "" ? null : undefined);
   const hasProfileType = profileTypeVal !== undefined;
+  const genderVal = genderParam === "male" || genderParam === "female" ? genderParam : (genderParam === null || genderParam === "" ? null : undefined);
+  const hasGender = genderVal !== undefined;
   const schoolVal = school === undefined ? undefined : (typeof school === "string" ? school.trim() || null : null);
   const classVal = classParam === undefined ? undefined : (typeof classParam === "string" ? classParam.trim() || null : null);
   const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
@@ -91,6 +99,18 @@ module.exports = async function handler(req, res) {
       const user = await findUserByUsername(sql, payload.sub);
       if (!user) return res.status(401).json({ error: "User not found" });
       await updateUserSchoolClass(sql, user.id, schoolVal ?? null, classVal ?? null);
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+  if (hasGender && payload.role !== "superadmin") {
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    try {
+      await ensureUsersTable(sql);
+      const user = await findUserByUsername(sql, payload.sub);
+      if (!user) return res.status(401).json({ error: "User not found" });
+      await updateUserGender(sql, user.id, genderVal ?? null);
     } catch (e) {
       return res.status(500).json({ error: e.message });
     }

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useParams, useNavigate, useLocation, Navigate as Redirect } from "react-router-dom";
+import { FaSave, FaKey, FaTimes, FaTrashAlt, FaUserPlus, FaEdit } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -13,6 +14,7 @@ interface LocationState {
   profile_type?: string | null;
   school?: string | null;
   class?: string | null;
+  gender?: string | null;
 }
 
 const AdminUserEdit: React.FC = () => {
@@ -21,7 +23,7 @@ const AdminUserEdit: React.FC = () => {
   const location = useLocation();
   const state = location.state as LocationState | null;
   const { user, token, loading: authLoading, isAdmin } = useAuth();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { theme } = useTheme();
   const isLight = theme === "light";
   const [currentEmail, setCurrentEmail] = useState(state?.email ?? "");
@@ -29,6 +31,7 @@ const AdminUserEdit: React.FC = () => {
     (state?.role === "admin" ? "admin" : "user") as "user" | "admin"
   );
   const [currentProfileType, setCurrentProfileType] = useState<string>(state?.profile_type ?? "");
+  const [currentGender, setCurrentGender] = useState<string>(state?.gender ?? "");
   const [currentSchool, setCurrentSchool] = useState(state?.school ?? "");
   const [schools, setSchools] = useState<string[]>([]);
   const [currentGrade, setCurrentGrade] = useState("");
@@ -43,6 +46,16 @@ const AdminUserEdit: React.FC = () => {
   const [savingEmail, setSavingEmail] = useState(false);
   const [savingSchoolClass, setSavingSchoolClass] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [children, setChildren] = useState<{ id: number; child_name: string; school?: string | null; class?: string | null; student_username?: string | null }[]>([]);
+  const [childrenLoading, setChildrenLoading] = useState(false);
+  const [childName, setChildName] = useState("");
+  const [childStudentUsername, setChildStudentUsername] = useState("");
+  const [addingChild, setAddingChild] = useState(false);
+  const [deletingChildId, setDeletingChildId] = useState<number | null>(null);
+  const [editingChildId, setEditingChildId] = useState<number | null>(null);
+  const [editChildName, setEditChildName] = useState("");
+  const [editChildUsername, setEditChildUsername] = useState("");
+  const [savingEditChildId, setSavingEditChildId] = useState<number | null>(null);
 
   const id = userId ? parseInt(userId, 10) : NaN;
   const username = state?.username ?? (isNaN(id) ? "" : `#${id}`);
@@ -51,6 +64,7 @@ const AdminUserEdit: React.FC = () => {
     if (state?.role === "admin" || state?.role === "user") setCurrentRole(state.role);
     setCurrentEmail(state?.email ?? "");
     setCurrentProfileType(state?.profile_type ?? "");
+    setCurrentGender(state?.gender ?? "");
     setCurrentSchool(state?.school ?? "");
     const cls = state?.class ?? "";
     if (cls) {
@@ -66,7 +80,7 @@ const AdminUserEdit: React.FC = () => {
       setCurrentGrade("");
       setCurrentParallel("");
     }
-  }, [state?.role, state?.email, state?.profile_type, state?.school, state?.class, userId]);
+  }, [state?.role, state?.email, state?.profile_type, state?.gender, state?.school, state?.class, userId]);
 
   useEffect(() => {
     fetch(`${API_BASE}/api/schools`)
@@ -74,6 +88,21 @@ const AdminUserEdit: React.FC = () => {
       .then((data) => setSchools(data.schools || []))
       .catch(() => setSchools([]));
   }, []);
+
+  const fetchChildren = useCallback(() => {
+    if (!token || !id || isNaN(id)) return;
+    setChildrenLoading(true);
+    fetch(`${API_BASE}/api/users/children?userId=${id}`, { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => (res.ok ? res.json() : { children: [] }))
+      .then((data) => setChildren(data.children || []))
+      .catch(() => setChildren([]))
+      .finally(() => setChildrenLoading(false));
+  }, [token, id]);
+
+  useEffect(() => {
+    if (currentProfileType === "parent" && token && id && !isNaN(id)) fetchChildren();
+    else setChildren([]);
+  }, [currentProfileType, token, id, fetchChildren]);
 
   const schoolOptions = (() => {
     const list = [...schools];
@@ -163,6 +192,106 @@ const AdminUserEdit: React.FC = () => {
       .finally(() => setSavingRole(false));
   };
 
+  const handleAddChild = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!token || isNaN(id)) return;
+    const nameVal = childName.trim();
+    if (!nameVal) {
+      setError(t.childName + " required");
+      return;
+    }
+    setError("");
+    setAddingChild(true);
+    try {
+      const res = await fetch(`${API_BASE}/api/users/children`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({
+          userId: id,
+          child_name: nameVal,
+          ...(childStudentUsername.trim()
+            ? childStudentUsername.trim().includes("@")
+              ? { child_email: childStudentUsername.trim() }
+              : { student_username: childStudentUsername.trim() }
+            : {}),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setChildName("");
+        setChildStudentUsername("");
+        fetchChildren();
+      } else {
+        setError(data.error || "Failed to add child");
+      }
+    } catch (e) {
+      setError((e as Error).message || "Network error");
+    } finally {
+      setAddingChild(false);
+    }
+  };
+
+  const startEditChild = (c: { id: number; child_name: string; student_username?: string | null }) => {
+    setEditingChildId(c.id);
+    setEditChildName(c.child_name);
+    setEditChildUsername(c.student_username || "");
+  };
+
+  const cancelEditChild = () => {
+    setEditingChildId(null);
+    setEditChildName("");
+    setEditChildUsername("");
+  };
+
+  const handleSaveEditChild = async (childId: number) => {
+    if (!token || isNaN(id)) return;
+    setSavingEditChildId(childId);
+    setError("");
+    try {
+      const body: { userId: number; childId: number; child_name: string; child_email?: string; student_username?: string } = {
+        userId: id,
+        childId,
+        child_name: editChildName.trim(),
+      };
+      if (editChildUsername.trim()) {
+        if (editChildUsername.trim().includes("@")) body.child_email = editChildUsername.trim();
+        else body.student_username = editChildUsername.trim();
+      } else {
+        body.student_username = "";
+      }
+      const res = await fetch(`${API_BASE}/api/users/children`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        cancelEditChild();
+        fetchChildren();
+      } else {
+        setError(data.error || "Failed to update child");
+      }
+    } catch (e) {
+      setError((e as Error).message || "Network error");
+    } finally {
+      setSavingEditChildId(null);
+    }
+  };
+
+  const handleDeleteChild = async (childId: number) => {
+    if (!token || isNaN(id)) return;
+    setDeletingChildId(childId);
+    try {
+      const res = await fetch(`${API_BASE}/api/users/children?userId=${id}&childId=${childId}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) fetchChildren();
+    } finally {
+      setDeletingChildId(null);
+    }
+  };
+
   const handleDelete = () => {
     if (!token || isNaN(id)) return;
     if (!window.confirm(`${t.deleteUser} "${username}"?`)) return;
@@ -240,9 +369,11 @@ const AdminUserEdit: React.FC = () => {
               type="button"
               onClick={handleSaveEmail}
               disabled={savingEmail}
-              className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
+              aria-label={t.saveProfile}
             >
-              {savingEmail ? "..." : t.saveProfile}
+              <FaSave className="w-4 h-4 shrink-0" aria-hidden />
+              <span>{savingEmail ? "..." : t.saveProfile}</span>
             </button>
           </div>
           <div className="mb-4">
@@ -279,83 +410,278 @@ const AdminUserEdit: React.FC = () => {
               <option value="parent">{t.profileTypeParent}</option>
             </select>
           </div>
-          <div className="mb-6">
-            <label htmlFor="edit-school" className="block text-sm font-medium mb-1">{t.school}</label>
+          <div className="mb-4">
+            <label htmlFor="edit-gender" className="block text-sm font-medium mb-1">{t.gender}</label>
             <select
-              id="edit-school"
-              value={currentSchool}
-              onChange={(e) => setCurrentSchool(e.target.value)}
-              className={`w-full px-3 py-2 rounded-lg border mb-2 ${
+              id="edit-gender"
+              value={currentGender}
+              onChange={(e) => setCurrentGender(e.target.value)}
+              className={`w-full px-3 py-2 rounded-lg border ${
                 isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
               }`}
             >
-              <option value="">—</option>
-              {schoolOptions.map((s) => (
-                <option key={s} value={s}>{s}</option>
-              ))}
+              <option value="">{t.genderNone}</option>
+              <option value="male">{t.genderMale}</option>
+              <option value="female">{t.genderFemale}</option>
             </select>
-            <div className="grid grid-cols-2 gap-3 mt-2">
-              <div>
-                <label htmlFor="edit-grade" className="block text-sm font-medium mb-1">{t.class}</label>
-                <input
-                  id="edit-grade"
-                  type="number"
-                  min={1}
-                  max={12}
-                  value={currentGrade}
-                  onChange={(e) => setCurrentGrade(e.target.value)}
-                  className={`w-full px-3 py-2 rounded-lg border ${
-                    isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
-                  }`}
-                />
+          </div>
+          {currentProfileType === "student" && (
+            <div className="mb-6">
+              <label htmlFor="edit-school" className="block text-sm font-medium mb-1">{t.school}</label>
+              <select
+                id="edit-school"
+                value={currentSchool}
+                onChange={(e) => setCurrentSchool(e.target.value)}
+                className={`w-full px-3 py-2 rounded-lg border mb-2 ${
+                  isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                }`}
+              >
+                <option value="">—</option>
+                {schoolOptions.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+              <div className="grid grid-cols-2 gap-3 mt-2">
+                <div>
+                  <label htmlFor="edit-grade" className="block text-sm font-medium mb-1">{t.class}</label>
+                  <input
+                    id="edit-grade"
+                    type="number"
+                    min={1}
+                    max={12}
+                    value={currentGrade}
+                    onChange={(e) => setCurrentGrade(e.target.value)}
+                    className={`w-full px-3 py-2 rounded-lg border ${
+                      isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                    }`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="edit-parallel" className="block text-sm font-medium mb-1">{t.parallel}</label>
+                  <input
+                    id="edit-parallel"
+                    type="text"
+                    value={currentParallel}
+                    onChange={(e) => setCurrentParallel(e.target.value)}
+                    maxLength={2}
+                    className={`w-full px-3 py-2 rounded-lg border ${
+                      isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                    }`}
+                  />
+                </div>
               </div>
-              <div>
-                <label htmlFor="edit-parallel" className="block text-sm font-medium mb-1">{t.parallel}</label>
-                <input
-                  id="edit-parallel"
-                  type="text"
-                  value={currentParallel}
-                  onChange={(e) => setCurrentParallel(e.target.value)}
-                  maxLength={2}
-                  className={`w-full px-3 py-2 rounded-lg border ${
-                    isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
-                  }`}
-                />
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                setSavingSchoolClass(true);
-                setError("");
-                setSuccess("");
-                fetch(`${API_BASE}/api/users`, {
-                  method: "PATCH",
-                  headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+              <button
+                type="button"
+                onClick={() => {
+                  setSavingSchoolClass(true);
+                  setError("");
+                  setSuccess("");
+                  fetch(`${API_BASE}/api/users`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
                   body: JSON.stringify({
                     id,
-                    profile_type: currentProfileType === "student" || currentProfileType === "parent" ? currentProfileType : null,
+                    profile_type: "student",
+                    gender: currentGender === "male" || currentGender === "female" ? currentGender : null,
                     school: currentSchool.trim() || null,
                     class:
-                      currentGrade.trim() || currentParallel.trim()
-                        ? `${currentGrade.trim()}${currentParallel.trim() ? ` ${currentParallel.trim()}` : ""}`
-                        : null,
+                        currentGrade.trim() || currentParallel.trim()
+                          ? `${currentGrade.trim()}${currentParallel.trim() ? ` ${currentParallel.trim()}` : ""}`
+                          : null,
                   }),
-                })
-                  .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
-                  .then(({ ok, data }) => {
-                    if (ok) setSuccess(t.saveProfile);
-                    else setError(data.error || "Update failed");
                   })
-                  .catch(() => setError("Update failed"))
-                  .finally(() => setSavingSchoolClass(false));
-              }}
-              disabled={savingSchoolClass}
-              className="mt-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
-            >
-              {savingSchoolClass ? "..." : t.saveProfile}
-            </button>
-          </div>
+                    .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+                    .then(({ ok, data }) => {
+                      if (ok) setSuccess(t.profileSaved);
+                      else setError(data.error || "Update failed");
+                    })
+                    .catch(() => setError("Update failed"))
+                    .finally(() => setSavingSchoolClass(false));
+                }}
+                disabled={savingSchoolClass}
+                className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
+                aria-label={t.saveProfile}
+              >
+                <FaSave className="w-4 h-4 shrink-0" aria-hidden />
+                <span>{savingSchoolClass ? "..." : t.saveProfile}</span>
+              </button>
+            </div>
+          )}
+          {currentProfileType === "parent" && (
+            <>
+              <div className="mb-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSavingSchoolClass(true);
+                    setError("");
+                    setSuccess("");
+                    fetch(`${API_BASE}/api/users`, {
+                      method: "PATCH",
+                      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                      body: JSON.stringify({
+                      id,
+                      profile_type: "parent",
+                      gender: currentGender === "male" || currentGender === "female" ? currentGender : null,
+                      school: null,
+                      class: null,
+                    }),
+                    })
+                      .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+                      .then(({ ok, data }) => {
+                        if (ok) setSuccess(t.profileSaved);
+                        else setError(data.error || "Update failed");
+                      })
+                      .catch(() => setError("Update failed"))
+                      .finally(() => setSavingSchoolClass(false));
+                  }}
+                  disabled={savingSchoolClass}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
+                  aria-label={t.saveProfile}
+                >
+                  <FaSave className="w-4 h-4 shrink-0" aria-hidden />
+                  <span>{savingSchoolClass ? "..." : t.saveProfile}</span>
+                </button>
+              </div>
+              <div className={`mb-6 rounded-lg border p-4 ${isLight ? "bg-slate-50 border-slate-200" : "bg-slate-800/50 border-slate-700"}`}>
+                <h3 className="text-sm font-semibold mb-3">{t.myChildren}</h3>
+                {childrenLoading ? (
+                  <p className={`text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>...</p>
+                ) : (
+                  <>
+                    <ul className="space-y-2 mb-4">
+                      {children.length === 0 ? (
+                        <li className={`text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+                          {t.noChildrenYet}
+                        </li>
+                      ) : (
+                        children.map((c) => (
+                          <li
+                            key={c.id}
+                            className={`py-2 px-3 rounded-lg ${isLight ? "bg-white border border-slate-200" : "bg-slate-700/50 border border-slate-600"}`}
+                          >
+                            {editingChildId === c.id ? (
+                              <div className="space-y-2">
+                                <div>
+                                  <label className="block text-xs font-medium mb-1">{t.childName}</label>
+                                  <input
+                                    type="text"
+                                    value={editChildName}
+                                    onChange={(e) => setEditChildName(e.target.value)}
+                                    className={`w-full px-3 py-2 rounded-lg border text-sm ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                                  />
+                                </div>
+                                <div>
+                                  <label className="block text-xs font-medium mb-1">{t.studentUsernameInPlatform}</label>
+                                  <input
+                                    type="text"
+                                    value={editChildUsername}
+                                    onChange={(e) => setEditChildUsername(e.target.value)}
+                                    className={`w-full px-3 py-2 rounded-lg border text-sm ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                                    placeholder={language === "bg" ? "напр. angori или email" : "e.g. angori or email"}
+                                  />
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleSaveEditChild(c.id)}
+                                    disabled={savingEditChildId === c.id}
+                                    className="inline-flex items-center gap-1 px-2 py-1.5 rounded bg-cyan-600 hover:bg-cyan-500 text-white text-sm disabled:opacity-50"
+                                  >
+                                    <FaEdit className="w-3.5 h-3.5" />
+                                    {savingEditChildId === c.id ? "..." : (language === "bg" ? "Запази" : "Save")}
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={cancelEditChild}
+                                    className="inline-flex items-center gap-1 px-2 py-1.5 rounded border border-slate-400 text-sm"
+                                  >
+                                    {language === "bg" ? "Отказ" : "Cancel"}
+                                  </button>
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="flex flex-wrap items-center justify-between gap-2">
+                                <div className="text-sm">
+                                  <span className="font-medium">{c.child_name}</span>
+                                  {(c.school && c.class) && (
+                                    <span className={`ml-2 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+                                      {c.school} · {c.class}
+                                    </span>
+                                  )}
+                                  {c.student_username && (
+                                    <span className={`ml-2 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+                                      ({language === "bg" ? "свързан: " : "linked: "}{c.student_username})
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    type="button"
+                                    onClick={() => startEditChild(c)}
+                                    className="p-1.5 rounded text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600"
+                                    aria-label={language === "bg" ? "Редактирай" : "Edit"}
+                                  >
+                                    <FaEdit className="w-4 h-4" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleDeleteChild(c.id)}
+                                    disabled={deletingChildId === c.id}
+                                    className="p-1.5 rounded text-red-500 hover:bg-red-500/10 disabled:opacity-50"
+                                    aria-label={t.deleteChild}
+                                  >
+                                    <FaTrashAlt className="w-4 h-4" />
+                                  </button>
+                                </div>
+                              </div>
+                            )}
+                          </li>
+                        ))
+                      )}
+                    </ul>
+                    <form onSubmit={handleAddChild} className="space-y-3">
+                      <div>
+                        <label htmlFor="admin-child-name" className="block text-sm font-medium mb-1">{t.childName}</label>
+                        <input
+                          id="admin-child-name"
+                          type="text"
+                          value={childName}
+                          onChange={(e) => setChildName(e.target.value)}
+                          className={`w-full px-3 py-2 rounded-lg border text-sm ${
+                            isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                          }`}
+                          placeholder={t.childName}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="admin-child-student-username" className="block text-sm font-medium mb-1">{t.studentUsernameInPlatform}</label>
+                        <input
+                          id="admin-child-student-username"
+                          type="text"
+                          value={childStudentUsername}
+                          onChange={(e) => setChildStudentUsername(e.target.value)}
+                          className={`w-full px-3 py-2 rounded-lg border text-sm ${
+                            isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                          }`}
+                          placeholder={language === "bg" ? "напр. angori или email@example.com" : "e.g. angori or email@example.com"}
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        disabled={addingChild}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
+                        aria-label={t.addChild}
+                      >
+                        <FaUserPlus className="w-4 h-4 shrink-0" aria-hidden />
+                        <span>{addingChild ? "..." : t.addChild}</span>
+                      </button>
+                    </form>
+                  </>
+                )}
+              </div>
+            </>
+          )}
 
           {showPasswordForm ? (
             <form onSubmit={handleSavePassword} className="space-y-4 mb-6">
@@ -385,16 +711,20 @@ const AdminUserEdit: React.FC = () => {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex-1 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
+                  aria-label={t.saveProfile}
                 >
-                  {saving ? "..." : t.saveProfile}
+                  <FaSave className="w-4 h-4 shrink-0" aria-hidden />
+                  <span>{saving ? "..." : t.saveProfile}</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => { setShowPasswordForm(false); setError(""); setNewPassword(""); setConfirmPassword(""); }}
-                  className={`px-4 py-2 rounded-lg border font-medium ${isLight ? "border-slate-300 text-slate-700" : "border-slate-600 text-slate-300"}`}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg border font-medium ${isLight ? "border-slate-300 text-slate-700" : "border-slate-600 text-slate-300"}`}
+                  aria-label={t.cancel}
                 >
-                  {t.cancel}
+                  <FaTimes className="w-4 h-4 shrink-0" aria-hidden />
+                  <span>{t.cancel}</span>
                 </button>
               </div>
             </form>
@@ -402,11 +732,13 @@ const AdminUserEdit: React.FC = () => {
             <button
               type="button"
               onClick={() => { setShowPasswordForm(true); setError(""); setSuccess(""); }}
-              className={`w-full py-3 px-4 rounded-lg font-semibold border-2 mb-6 ${
+              className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold border-2 mb-6 ${
                 isLight ? "border-cyan-600 text-cyan-600 bg-white hover:bg-cyan-50" : "border-cyan-400 text-cyan-400 bg-slate-800 hover:bg-slate-700"
               }`}
+              aria-label={t.changePassword}
             >
-              {t.changePassword}
+              <FaKey className="w-4 h-4 shrink-0" aria-hidden />
+              <span>{t.changePassword}</span>
             </button>
           )}
 
@@ -415,9 +747,11 @@ const AdminUserEdit: React.FC = () => {
             type="button"
             onClick={handleDelete}
             disabled={deleting}
-            className="w-full py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white font-semibold disabled:opacity-50"
+            className="w-full inline-flex items-center justify-center gap-2 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white font-semibold disabled:opacity-50"
+            aria-label={t.deleteUser}
           >
-            {deleting ? "..." : t.deleteUser}
+            <FaTrashAlt className="w-4 h-4 shrink-0" aria-hidden />
+            <span>{deleting ? "..." : t.deleteUser}</span>
           </button>
         </div>
       </div>

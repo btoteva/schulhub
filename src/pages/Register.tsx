@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaUserPlus } from "react-icons/fa";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
@@ -199,9 +200,11 @@ const Register: React.FC = () => {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
+            className="w-full inline-flex items-center justify-center gap-2 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
+            aria-label={t.registerButton}
           >
-            {submitting ? "..." : t.registerButton}
+            <FaUserPlus className="w-4 h-4 shrink-0" aria-hidden />
+            <span>{submitting ? "..." : t.registerButton}</span>
           </button>
         </form>
         <p className="mt-4 text-center text-sm">

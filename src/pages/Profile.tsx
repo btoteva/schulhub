@@ -1,15 +1,22 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { FaUser, FaUserCog, FaCrown } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 
 const Profile: React.FC = () => {
   const { user, loading, logout } = useAuth();
+  const navigate = useNavigate();
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const isLight = theme === "light";
   const isAdmin = user?.role === "admin" || user?.role === "superadmin";
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   if (loading) {
     return (
@@ -24,7 +31,9 @@ const Profile: React.FC = () => {
   }
 
   const roleLabel =
-    user.role === "superadmin" ? t.roleSuperAdmin : user.role === "admin" ? t.roleAdmin : t.roleUser;
+    user.role === "superadmin" ? t.superUser : user.role === "admin" ? t.roleAdmin : t.roleUser;
+  const RoleIcon = user.role === "superadmin" ? FaCrown : user.role === "admin" ? FaUserCog : FaUser;
+  const isSuperAdmin = user.role === "superadmin";
 
   return (
     <div className={`min-h-screen ${isLight ? "bg-slate-100 text-slate-900" : "bg-slate-900 text-slate-100"}`}>
@@ -42,33 +51,52 @@ const Profile: React.FC = () => {
           <p className={`mb-1 ${isLight ? "text-slate-600" : "text-slate-400"}`}>
             {t.loggedInAs} <strong className={isLight ? "text-slate-900" : "text-white"}>{user.username}</strong>
           </p>
-          <p className={`text-sm mb-1 ${isLight ? "text-slate-500" : "text-slate-500"}`}>{roleLabel}</p>
-          {user.profile_type && (
+          <p className={`text-sm mb-1 flex items-center gap-2 ${isLight ? "text-slate-500" : "text-slate-500"}`}>
+            <RoleIcon
+              className={user.role === "superadmin" ? "text-amber-500" : user.role === "admin" ? "text-cyan-500" : "text-slate-500"}
+              aria-hidden
+            />
+            <span>{roleLabel}</span>
+          </p>
+          {!isSuperAdmin && user.gender && (
+            <p className={`text-sm mb-1 ${isLight ? "text-slate-500" : "text-slate-500"}`}>
+              {t.gender}: {user.gender === "female" ? t.genderFemale : user.gender === "male" ? t.genderMale : user.gender}
+            </p>
+          )}
+          {!isSuperAdmin && user.profile_type && (
             <p className={`text-sm ${isLight ? "text-slate-500" : "text-slate-500"}`}>
               {t.profileType}: {user.profile_type === "student" ? t.profileTypeStudent : user.profile_type === "parent" ? t.profileTypeParent : user.profile_type}
             </p>
           )}
-          {user.profile_type === "student" && (user.school || user.class) && (
+          {user.profile_type === "student" && (user.parent_username != null || user.parent_gender != null) && (
+            <p className={`text-sm font-medium mt-2 mb-2 px-3 py-2 rounded-lg ${isLight ? "bg-amber-50 text-amber-800 border border-amber-200" : "bg-amber-900/20 text-amber-200 border border-amber-700"}`}>
+              {user.parent_gender === "female" ? t.momIsHere : user.parent_gender === "male" ? t.dadIsHere : t.parentIsHere}
+            </p>
+          )}
+          {!isSuperAdmin && user.profile_type === "student" && (user.school || user.class) && (
             <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-500"}`}>
               {t.school}: {user.school || "—"} · {t.class}: {user.class || "—"}
             </p>
           )}
-          {user.profile_type === "parent" && (
+          {!isSuperAdmin && user.profile_type === "parent" && (
             <p className="mb-6">
               <Link to="/my-children" className="text-cyan-600 dark:text-cyan-400 font-medium hover:underline">
                 {t.myChildren} →
               </Link>
             </p>
           )}
-          {(!user.profile_type || (user.profile_type === "student" && !user.school && !user.class)) && <div className="mb-6" />}
-          <Link
-            to="/profile/edit"
-            className={`inline-block mb-4 mr-3 px-4 py-2 rounded-lg font-medium ${
-              isLight ? "bg-cyan-600 hover:bg-cyan-500 text-white" : "bg-cyan-600 hover:bg-cyan-500 text-white"
-            }`}
-          >
-            {t.editProfile}
-          </Link>
+          {(!isSuperAdmin && (!user.profile_type || (user.profile_type === "student" && !user.school && !user.class))) && <div className="mb-6" />}
+          {isSuperAdmin && <div className="mb-6" />}
+          {!isSuperAdmin && (
+            <Link
+              to="/profile/edit"
+              className={`inline-block mb-4 mr-3 px-4 py-2 rounded-lg font-medium ${
+                isLight ? "bg-cyan-600 hover:bg-cyan-500 text-white" : "bg-cyan-600 hover:bg-cyan-500 text-white"
+              }`}
+            >
+              {t.editProfile}
+            </Link>
+          )}
           {isAdmin && (
             <>
               <Link
@@ -91,7 +119,7 @@ const Profile: React.FC = () => {
           )}
           <button
             type="button"
-            onClick={logout}
+            onClick={handleLogout}
             className="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 dark:hover:bg-slate-500 font-medium"
           >
             {t.logout}

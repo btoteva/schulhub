@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const { createSuperAdminToken, createToken, checkAdminCredentials, hasAuthConfigured } = require("./_auth");
-const { getSql, ensureUsersTable, findUserByUsernameOrEmail } = require("./_users");
+const { getSql, ensureUsersTable, ensureUserChildrenTable, findUserByUsernameOrEmail, getParentInfoForStudent } = require("./_users");
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -24,7 +24,7 @@ module.exports = async function handler(req, res) {
   if (checkAdminCredentials(u, p)) {
     const token = createSuperAdminToken(u);
     if (!token) return res.status(500).json({ error: "Could not create token" });
-    return res.status(200).json({ token, user: { username: u, role: "superadmin" } });
+    return res.status(200).json({ token, user: { username: u, role: "superadmin", gender: null } });
   }
   const sql = getSql();
   if (!sql) {
@@ -38,6 +38,8 @@ module.exports = async function handler(req, res) {
     }
     const token = createToken(user.username, user.role);
     if (!token) return res.status(500).json({ error: "Could not create token" });
+    await ensureUserChildrenTable(sql);
+    const parentInfo = await getParentInfoForStudent(sql, user.username);
     res.status(200).json({
       token,
       user: {
@@ -46,6 +48,9 @@ module.exports = async function handler(req, res) {
         profile_type: user.profile_type ?? null,
         school: user.school ?? null,
         class: user.class_name ?? null,
+        gender: user.gender ?? null,
+        parent_username: parentInfo?.parent_username ?? null,
+        parent_gender: parentInfo?.parent_gender ?? null,
       },
     });
   } catch (e) {

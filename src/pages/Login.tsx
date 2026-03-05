@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -23,7 +24,7 @@ const Login: React.FC = () => {
     const result = await login(username.trim(), password);
     setSubmitting(false);
     if (result.ok) {
-      navigate("/about");
+      navigate("/");
     } else {
       setError(result.error || (language === "bg" ? "Грешка при вход" : language === "de" ? "Anmeldung fehlgeschlagen" : "Login failed"));
     }
@@ -92,9 +93,11 @@ const Login: React.FC = () => {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
+            className="w-full inline-flex items-center justify-center gap-2 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold disabled:opacity-50"
+            aria-label={t.loginButton}
           >
-            {submitting ? "..." : t.loginButton}
+            <FaSignInAlt className="w-4 h-4 shrink-0" aria-hidden />
+            <span>{submitting ? "..." : t.loginButton}</span>
           </button>
         </form>
         <p className="mt-4 text-center text-sm">

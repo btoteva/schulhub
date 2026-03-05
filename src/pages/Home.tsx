@@ -6,6 +6,9 @@ import {
   FaMicroscope,
   FaGraduationCap,
   FaCalendarAlt,
+  FaUserTie,
+  FaUserNurse,
+  FaUser,
 } from "react-icons/fa";
 import { MdScience, MdLanguage, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
@@ -255,24 +258,59 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Weekly Program – student: link to own program; parent: link to my children */}
-      {user && user.profile_type === "student" && user.school && user.class && hasWeeklyProgram && (
+      {/* Personal section – student: parent message + weekly program */}
+      {user && user.profile_type === "student" && (
         <section className="w-full px-4 py-16 border-t border-slate-200 dark:border-gray-800/50">
-          <div className="container mx-auto">
-            <Link
-              to="/weekly-program"
-              className="flex items-center gap-4 p-6 rounded-2xl border-2 border-amber-500/30 bg-amber-500/10 dark:bg-amber-500/5 hover:bg-amber-500/20 dark:hover:bg-amber-500/10 transition-colors"
+          <div className="container mx-auto max-w-2xl">
+            <div
+              className={`rounded-2xl border-2 p-6 ${
+                isLight
+                  ? "border-amber-500/30 bg-amber-500/10 border-slate-200"
+                  : "border-amber-500/20 bg-amber-500/5 border-gray-700"
+              }`}
             >
-              <FaCalendarAlt className="text-5xl text-amber-500 dark:text-amber-400 shrink-0" />
-              <div>
-                <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
-                  {t.weeklyProgramTitle}
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 mt-1">
-                  {t.weeklyProgram}
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
+                {t.personalSection}
+              </h3>
+              {(user.parent_username != null || user.parent_gender != null) && (
+                <p
+                  className={`mb-4 flex items-center gap-2 text-lg font-medium ${
+                    isLight ? "text-amber-800 dark:text-amber-200" : "text-amber-200"
+                  }`}
+                >
+                  {user.parent_gender === "female" ? (
+                    <FaUserNurse className="shrink-0 text-2xl" aria-hidden />
+                  ) : user.parent_gender === "male" ? (
+                    <FaUserTie className="shrink-0 text-2xl" aria-hidden />
+                  ) : (
+                    <FaUser className="shrink-0 text-2xl opacity-90" aria-hidden />
+                  )}
+                  <span>
+                    {user.parent_gender === "female"
+                      ? t.momIsHere
+                      : user.parent_gender === "male"
+                        ? t.dadIsHere
+                        : t.parentIsHere}
+                  </span>
                 </p>
-              </div>
-            </Link>
+              )}
+              {user.school && user.class && hasWeeklyProgram && (
+                <Link
+                  to="/weekly-program"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-amber-500/20 dark:bg-amber-500/10 hover:bg-amber-500/30 dark:hover:bg-amber-500/20 transition-colors"
+                >
+                  <FaCalendarAlt className="text-4xl text-amber-500 dark:text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-lg font-semibold text-slate-800 dark:text-white">
+                      {t.weeklyProgramTitle}
+                    </span>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+                      {t.weeklyProgram}
+                    </p>
+                  </div>
+                </Link>
+              )}
+            </div>
           </div>
         </section>
       )}

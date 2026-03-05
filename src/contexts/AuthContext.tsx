@@ -10,6 +10,9 @@ export interface AuthUser {
   profile_type?: string | null;
   school?: string | null;
   class?: string | null;
+  gender?: string | null;
+  parent_username?: string | null;
+  parent_gender?: string | null;
 }
 
 interface AuthContextType {
@@ -51,6 +54,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         profile_type: data.profile_type ?? null,
         school: data.school ?? null,
         class: data.class ?? null,
+        gender: data.gender ?? null,
+        parent_username: data.parent_username ?? null,
+        parent_gender: data.parent_gender ?? null,
       });
     } catch {
       // ignore
@@ -96,6 +102,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
             profile_type: data.profile_type ?? null,
             school: data.school ?? null,
             class: data.class ?? null,
+            gender: data.gender ?? null,
+            parent_username: data.parent_username ?? null,
+            parent_gender: data.parent_gender ?? null,
           });
           setOffline(false);
         }
@@ -142,6 +151,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         profile_type: u.profile_type ?? null,
         school: u.school ?? null,
         class: u.class ?? null,
+        gender: u.gender ?? null,
+        parent_username: u.parent_username ?? null,
+        parent_gender: u.parent_gender ?? null,
       });
       setOffline(false);
       return { ok: true };

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt, FaCalendarAlt } from "react-icons/fa";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt, FaCalendarAlt, FaCrown, FaUserCog } from "react-icons/fa";
 import FontSettings from "./FontSettings";
 import { useLanguage, Language } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -58,7 +58,20 @@ const Header: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const { user, isAdmin, logout, offline } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const UserRoleIcon = user?.role === "superadmin" ? FaCrown : user?.role === "admin" ? FaUserCog : FaUser;
+
+  const isUserOnlyPath = (path: string) =>
+    path.startsWith("/profile") || path.startsWith("/admin") || path === "/my-children" || path === "/weekly-program";
+
+  const handleLogout = () => {
+    logout();
+    setUserMenuOpen(false);
+    setMobileMenuOpen(false);
+    if (isUserOnlyPath(location.pathname)) navigate("/");
+  };
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
@@ -113,7 +126,7 @@ const Header: React.FC = () => {
                   aria-expanded={userMenuOpen}
                   aria-haspopup="true"
                 >
-                  <FaUser className="w-5 h-5" />
+                  <UserRoleIcon className={`w-5 h-5 shrink-0 ${user.role === "superadmin" ? "text-amber-500" : user.role === "admin" ? "text-cyan-500" : ""}`} />
                   <span>{user.username}</span>
                   <svg className={`w-4 h-4 transition-transform ${userMenuOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -126,17 +139,19 @@ const Header: React.FC = () => {
                       className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <FaUser className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                      <UserRoleIcon className={`w-4 h-4 shrink-0 ${user.role === "superadmin" ? "text-amber-500" : user.role === "admin" ? "text-cyan-500" : "text-slate-500 dark:text-gray-400"}`} />
                       {t.profile}
                     </Link>
-                    <Link
-                      to="/profile/edit"
-                      className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                      onClick={() => setUserMenuOpen(false)}
-                    >
-                      <FaUserEdit className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
-                      {t.editProfile}
-                    </Link>
+                    {user.role !== "superadmin" && (
+                      <Link
+                        to="/profile/edit"
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <FaUserEdit className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                        {t.editProfile}
+                      </Link>
+                    )}
                     {user.profile_type === "parent" && (
                       <Link
                         to="/my-children"
@@ -169,7 +184,7 @@ const Header: React.FC = () => {
                     )}
                     <button
                       type="button"
-                      onClick={() => { logout(); setUserMenuOpen(false); }}
+                      onClick={handleLogout}
                       className="flex items-center gap-3 w-full px-4 py-2 text-sm text-left text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                     >
                       <FaSignOutAlt className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
@@ -285,7 +300,7 @@ const Header: React.FC = () => {
             {!offline && user ? (
               <>
                 <div className="flex items-center gap-2 py-3 border-b border-slate-200 dark:border-slate-700">
-                  <FaUser className="w-5 h-5 text-slate-600 dark:text-gray-400" />
+                  <UserRoleIcon className={`w-5 h-5 shrink-0 ${user.role === "superadmin" ? "text-amber-500" : user.role === "admin" ? "text-cyan-500" : "text-slate-600 dark:text-gray-400"}`} />
                   <span className="font-semibold text-slate-800 dark:text-white">{user.username}</span>
                 </div>
                 <Link
@@ -293,17 +308,19 @@ const Header: React.FC = () => {
                   className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <FaUser className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                  <UserRoleIcon className={`w-5 h-5 shrink-0 ${user.role === "superadmin" ? "text-amber-500" : user.role === "admin" ? "text-cyan-500" : "text-slate-500 dark:text-gray-400"}`} />
                   {t.profile}
                 </Link>
-                <Link
-                  to="/profile/edit"
-                  className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <FaUserEdit className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
-                  {t.editProfile}
-                </Link>
+                {user.role !== "superadmin" && (
+                  <Link
+                    to="/profile/edit"
+                    className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <FaUserEdit className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                    {t.editProfile}
+                  </Link>
+                )}
                 {user.profile_type === "parent" && (
                   <Link
                     to="/my-children"
@@ -336,7 +353,7 @@ const Header: React.FC = () => {
                 )}
                 <button
                   type="button"
-                  onClick={() => { logout(); setMobileMenuOpen(false); }}
+                  onClick={handleLogout}
                   className="flex items-center gap-3 py-3 text-left w-full text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
                 >
                   <FaSignOutAlt className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />

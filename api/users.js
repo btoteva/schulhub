@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const { isAdmin } = require("./_auth");
-const { getSql, ensureUsersTable, findUserByUsername, findUserByEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, deleteUser } = require("./_users");
+const { getSql, ensureUsersTable, findUserByUsername, findUserByEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, updateUserGender, deleteUser } = require("./_users");
 
 const MIN_USERNAME_LEN = 2;
 const MAX_USERNAME_LEN = 50;
@@ -39,29 +39,34 @@ module.exports = async function handler(req, res) {
     return;
   }
   if (req.method === "POST") {
-    const { username, password, role, school, class: classParam } = req.body || {};
+    const { username, password, email: emailParam, role, profile_type: profileTypeParam } = req.body || {};
     const u = (username || "").trim();
     const p = (password || "").trim();
+    const emailVal = typeof emailParam === "string" ? emailParam.trim().toLowerCase() : "";
     const r = role === "admin" ? "admin" : "user";
-    const schoolVal = typeof school === "string" ? school.trim() || null : null;
-    const classVal = typeof classParam === "string" ? classParam.trim() || null : null;
+    const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : null;
     if (!u || !p) return res.status(400).json({ error: "Missing username or password" });
+    if (!emailVal) return res.status(400).json({ error: "Email is required" });
+    if (!EMAIL_REGEX.test(emailVal)) return res.status(400).json({ error: "Invalid email format" });
     if (u.length < MIN_USERNAME_LEN || u.length > MAX_USERNAME_LEN) return res.status(400).json({ error: "Username must be 2–50 characters" });
     if (p.length < MIN_PASSWORD_LEN) return res.status(400).json({ error: "Password must be at least 6 characters" });
     try {
-      const existing = await findUserByUsername(sql, u);
-      if (existing) return res.status(400).json({ error: "Username already taken" });
+      const existingUsername = await findUserByUsername(sql, u);
+      if (existingUsername) return res.status(400).json({ error: "Username already taken" });
+      const existingEmail = await findUserByEmail(sql, emailVal);
+      if (existingEmail) return res.status(400).json({ error: "Email already registered" });
       const hash = await bcrypt.hash(p, 10);
-      await createUser(sql, u, hash, r, null, schoolVal, classVal);
+      await createUser(sql, u, hash, r, emailVal, null, null, profileTypeVal, null);
       res.status(201).json({ ok: true });
     } catch (e) {
+      if (e.code === "23505") return res.status(400).json({ error: "Email already registered" });
       res.status(500).json({ error: e.message });
     }
     return;
   }
   if (req.method === "PATCH") {
     const body = typeof req.body === "object" ? req.body : {};
-    const { id, role, email, password, profile_type: profileTypeParam, school, class: classParam } = body;
+    const { id, role, email, password, profile_type: profileTypeParam, school, class: classParam, gender: genderParam } = body;
     const uid = typeof id === "number" ? id : parseInt(id, 10);
     if (!Number.isInteger(uid) || uid < 1) return res.status(400).json({ error: "Invalid id" });
     const hasRole = role === "user" || role === "admin";
@@ -70,11 +75,13 @@ module.exports = async function handler(req, res) {
     const hasEmail = emailVal.length > 0;
     const profileTypeVal = profileTypeParam === "student" || profileTypeParam === "parent" ? profileTypeParam : (profileTypeParam === null || profileTypeParam === "" ? null : undefined);
     const hasProfileType = profileTypeVal !== undefined;
+    const genderVal = genderParam === "male" || genderParam === "female" ? genderParam : (genderParam === null || genderParam === "" ? null : undefined);
+    const hasGender = genderVal !== undefined;
     const schoolVal = school === undefined ? undefined : (typeof school === "string" ? school.trim() || null : null);
     const classVal = classParam === undefined ? undefined : (typeof classParam === "string" ? classParam.trim() || null : null);
     const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
     if (hasEmail && !EMAIL_REGEX.test(emailVal)) return res.status(400).json({ error: "Invalid email format" });
-    if (!hasRole && !hasPassword && !hasEmail && !hasProfileType && !hasSchoolClass) return res.status(400).json({ error: "Provide role, email, profile_type, school/class and/or password" });
+    if (!hasRole && !hasPassword && !hasEmail && !hasProfileType && !hasSchoolClass && !hasGender) return res.status(400).json({ error: "Provide role, email, profile_type, school/class, gender and/or password" });
     try {
       if (hasEmail) {
         const existing = await findUserByEmail(sql, emailVal);
@@ -88,6 +95,7 @@ module.exports = async function handler(req, res) {
         await updateUserPassword(sql, uid, hash);
       }
       if (hasSchoolClass) await updateUserSchoolClass(sql, uid, schoolVal ?? null, classVal ?? null);
+      if (hasGender) await updateUserGender(sql, uid, genderVal ?? null);
       res.status(200).json({ ok: true });
     } catch (e) {
       if (e.code === "23505") return res.status(400).json({ error: "Email already registered" });

@@ -113,11 +113,13 @@ interface Translations {
   currentPassword: string;
   confirmPassword: string;
   saveProfile: string;
+  profileSaved: string;
   passwordChanged: string;
   passwordMinLength: string;
   passwordsDoNotMatch: string;
   invalidUser: string;
   roleSuperAdmin: string;
+  superUser: string;
   school: string;
   class: string;
   parallel: string;
@@ -165,6 +167,15 @@ interface Translations {
   weeklyProgramForChild: string;
   noChildrenYet: string;
   deleteChild: string;
+  gender: string;
+  genderMale: string;
+  genderFemale: string;
+  genderNone: string;
+  momIsHere: string;
+  dadIsHere: string;
+  parentIsHere: string;
+  studentUsernameInPlatform: string;
+  personalSection: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -234,7 +245,8 @@ const translations: Record<Language, Translations> = {
     clickForTranslation: "Кликни за превод",
     translationToBulgarian: "Превод на Български",
     verb: "Глагол",
-    flashcardPrepositionHint: "От едната страна – глаголът, от другата – предлог и падеж",
+    flashcardPrepositionHint:
+      "От едната страна – глаголът, от другата – предлог и падеж",
     prepositionAndCase: "Предлог и падеж",
     showTranslation: "Покажи превод",
     readWord: "Прочитай думата",
@@ -263,7 +275,7 @@ const translations: Record<Language, Translations> = {
     profile: "Профил",
     roleUser: "Потребител",
     roleAdmin: "Администратор",
-    loggedInAs: "Влезъл като",
+    loggedInAs: "Влязъл като",
     manageUsers: "Потребители",
     edit: "Редактирай",
     deleteUser: "Изтрий",
@@ -278,11 +290,13 @@ const translations: Record<Language, Translations> = {
     currentPassword: "Текуща парола",
     confirmPassword: "Потвърди новата парола",
     saveProfile: "Запази",
+    profileSaved: "Профилът е запазен.",
     passwordChanged: "Паролата е сменена успешно.",
     passwordMinLength: "Паролата трябва да е поне 6 символа.",
     passwordsDoNotMatch: "Паролите не съвпадат.",
     invalidUser: "Невалиден потребител.",
     roleSuperAdmin: "Супер администратор",
+    superUser: "Суперпотребител",
     school: "Училище",
     class: "Клас",
     parallel: "Паралелка",
@@ -312,6 +326,15 @@ const translations: Record<Language, Translations> = {
     weeklyProgramForChild: "Седмична програма",
     noChildrenYet: "Все още нямате добавени деца.",
     deleteChild: "Изтрий",
+    gender: "Пол",
+    genderMale: "Мъжки",
+    genderFemale: "Женски",
+    genderNone: "— не е избрано",
+    momIsHere: "Мама е тук",
+    dadIsHere: "Тато е тук",
+    parentIsHere: "Родител е тук",
+    personalSection: "Лична секция",
+    studentUsernameInPlatform: "Потребителско име или email в платформата (за свързване с профила на детето)",
 
     // Hero descriptions
     biologyDesc: "Изучаване на живота",
@@ -400,7 +423,8 @@ const translations: Record<Language, Translations> = {
     clickForTranslation: "Click for translation",
     translationToBulgarian: "Bulgarian Translation",
     verb: "Verb",
-    flashcardPrepositionHint: "One side: the verb; other side: preposition and case",
+    flashcardPrepositionHint:
+      "One side: the verb; other side: preposition and case",
     prepositionAndCase: "Preposition and case",
     showTranslation: "Show translation",
     readWord: "Read word",
@@ -444,11 +468,13 @@ const translations: Record<Language, Translations> = {
     currentPassword: "Current password",
     confirmPassword: "Confirm new password",
     saveProfile: "Save",
+    profileSaved: "Profile saved.",
     passwordChanged: "Password changed successfully.",
     passwordMinLength: "Password must be at least 6 characters.",
     passwordsDoNotMatch: "Passwords do not match.",
     invalidUser: "Invalid user.",
     roleSuperAdmin: "Super administrator",
+    superUser: "Super user",
     school: "School",
     class: "Class",
     parallel: "Section",
@@ -478,6 +504,15 @@ const translations: Record<Language, Translations> = {
     weeklyProgramForChild: "Weekly program",
     noChildrenYet: "You have not added any children yet.",
     deleteChild: "Delete",
+    gender: "Gender",
+    genderMale: "Male",
+    genderFemale: "Female",
+    genderNone: "— not selected",
+    momIsHere: "Mom is here",
+    dadIsHere: "Dad is here",
+    parentIsHere: "Parent is here",
+    personalSection: "Personal section",
+    studentUsernameInPlatform: "Username or email (to link with the child's account)",
 
     // Hero descriptions
     biologyDesc: "Study of life",
@@ -566,7 +601,8 @@ const translations: Record<Language, Translations> = {
     clickForTranslation: "Klicken für Übersetzung",
     translationToBulgarian: "Bulgarische Übersetzung",
     verb: "Verb",
-    flashcardPrepositionHint: "Eine Seite: das Verb; andere Seite: Präposition und Kasus",
+    flashcardPrepositionHint:
+      "Eine Seite: das Verb; andere Seite: Präposition und Kasus",
     prepositionAndCase: "Präposition und Kasus",
     showTranslation: "Übersetzung anzeigen",
     readWord: "Wort vorlesen",
@@ -610,11 +646,13 @@ const translations: Record<Language, Translations> = {
     currentPassword: "Aktuelles Passwort",
     confirmPassword: "Neues Passwort bestätigen",
     saveProfile: "Speichern",
+    profileSaved: "Profil gespeichert.",
     passwordChanged: "Passwort erfolgreich geändert.",
     passwordMinLength: "Das Passwort muss mindestens 6 Zeichen haben.",
     passwordsDoNotMatch: "Die Passwörter stimmen nicht überein.",
     invalidUser: "Ungültiger Benutzer.",
     roleSuperAdmin: "Superadministrator",
+    superUser: "Supernutzer",
     school: "Schule",
     class: "Klasse",
     parallel: "Parallelklasse",
@@ -644,6 +682,15 @@ const translations: Record<Language, Translations> = {
     weeklyProgramForChild: "Wochenprogramm",
     noChildrenYet: "Sie haben noch keine Kinder hinzugefügt.",
     deleteChild: "Löschen",
+    gender: "Geschlecht",
+    genderMale: "Männlich",
+    genderFemale: "Weiblich",
+    genderNone: "— nicht ausgewählt",
+    momIsHere: "Mama ist da",
+    dadIsHere: "Papa ist da",
+    parentIsHere: "Elternteil ist da",
+    personalSection: "Persönlicher Bereich",
+    studentUsernameInPlatform: "Benutzername oder E-Mail (um mit dem Konto des Kindes zu verknüpfen)",
 
     // Hero descriptions
     biologyDesc: "Das Studium des Lebens",
