@@ -11,6 +11,8 @@ export interface UserRow {
   username: string;
   email?: string | null;
   role: string;
+  school?: string | null;
+  class_name?: string | null;
   created_at: string;
 }
 
@@ -26,6 +28,17 @@ const AdminUsers: React.FC = () => {
   const [newUsername, setNewUsername] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newRole, setNewRole] = useState<"user" | "admin">("user");
+  const [newSchool, setNewSchool] = useState("");
+  const [schools, setSchools] = useState<string[]>([]);
+  const [newGrade, setNewGrade] = useState("");
+  const [newParallel, setNewParallel] = useState("");
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/schools`)
+      .then((res) => (res.ok ? res.json() : { schools: [] }))
+      .then((data) => setSchools(data.schools || []))
+      .catch(() => setSchools([]));
+  }, []);
 
   const fetchUsers = useCallback(() => {
     if (!token) return;
@@ -61,7 +74,16 @@ const AdminUsers: React.FC = () => {
     fetch(`${API_BASE}/api/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ username: newUsername.trim(), password: newPassword, role: newRole }),
+      body: JSON.stringify({
+        username: newUsername.trim(),
+        password: newPassword,
+        role: newRole,
+        school: newSchool.trim() || null,
+        class:
+          newGrade.trim() || newParallel.trim()
+            ? `${newGrade.trim()}${newParallel.trim() ? ` ${newParallel.trim()}` : ""}`
+            : null,
+      }),
     })
       .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
       .then(({ ok, data }) => {
@@ -69,6 +91,9 @@ const AdminUsers: React.FC = () => {
           setNewUsername("");
           setNewPassword("");
           setNewRole("user");
+          setNewSchool("");
+          setNewGrade("");
+          setNewParallel("");
           fetchUsers();
         } else {
           setError(data.error || "Create failed");
@@ -139,6 +164,40 @@ const AdminUsers: React.FC = () => {
               />
             </div>
             <div>
+              <label className="block text-sm font-medium mb-1">{t.school}</label>
+              <select
+                value={newSchool}
+                onChange={(e) => setNewSchool(e.target.value)}
+                className={`w-40 rounded border px-3 py-2 text-sm ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+              >
+                <option value="">—</option>
+                {schools.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">{t.class}</label>
+              <input
+                type="number"
+                min={1}
+                max={12}
+                value={newGrade}
+                onChange={(e) => setNewGrade(e.target.value)}
+                className={`w-20 rounded border px-3 py-2 text-sm ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">{t.parallel}</label>
+              <input
+                type="text"
+                value={newParallel}
+                onChange={(e) => setNewParallel(e.target.value)}
+                maxLength={2}
+                className={`w-16 rounded border px-3 py-2 text-sm ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+              />
+            </div>
+            <div>
               <label className="block text-sm font-medium mb-1">{t.changeRole}</label>
               <select
                 value={newRole}
@@ -169,6 +228,8 @@ const AdminUsers: React.FC = () => {
                 <tr className={isLight ? "border-b border-slate-200 bg-slate-50" : "border-b border-slate-700 bg-slate-800"}>
                   <th className="px-4 py-3 font-semibold">{t.username}</th>
                   <th className="px-4 py-3 font-semibold hidden sm:table-cell">{t.email}</th>
+                  <th className="px-4 py-3 font-semibold">{t.school}</th>
+                  <th className="px-4 py-3 font-semibold">{t.class}</th>
                   <th className="px-4 py-3 font-semibold">{t.changeRole}</th>
                   <th className="px-4 py-3 font-semibold hidden sm:table-cell">{t.createdAt}</th>
                   <th className="px-4 py-3 font-semibold"></th>
@@ -179,6 +240,8 @@ const AdminUsers: React.FC = () => {
                   <tr key={u.id} className={isLight ? "border-b border-slate-100" : "border-b border-slate-700"}>
                     <td className="px-4 py-3 font-medium">{u.username}</td>
                     <td className="px-4 py-3 text-sm opacity-90 hidden sm:table-cell">{u.email || "—"}</td>
+                    <td className="px-4 py-3 text-sm">{u.school || "—"}</td>
+                    <td className="px-4 py-3 text-sm">{u.class_name || "—"}</td>
                     <td className="px-4 py-3">
                       {u.role === "admin" ? t.roleAdmin : t.roleUser}
                     </td>
@@ -186,7 +249,7 @@ const AdminUsers: React.FC = () => {
                     <td className="px-4 py-3">
                       <Link
                         to={`/admin/users/edit/${u.id}`}
-                        state={{ username: u.username, email: u.email, role: u.role }}
+                        state={{ username: u.username, email: u.email, role: u.role, school: u.school, class: u.class_name }}
                         className="text-cyan-600 dark:text-cyan-400 hover:underline text-sm font-medium"
                       >
                         {t.edit}

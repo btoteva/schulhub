@@ -118,6 +118,14 @@ interface Translations {
   passwordsDoNotMatch: string;
   invalidUser: string;
   roleSuperAdmin: string;
+  school: string;
+  class: string;
+  parallel: string;
+  weeklyProgram: string;
+  weeklyProgramNoData: string;
+  editWeeklyProgram: string;
+  addWeeklyProgram: string;
+  newProgram: string;
   editAbout: string;
   saveAbout: string;
   cancel: string;
@@ -263,6 +271,14 @@ const translations: Record<Language, Translations> = {
     passwordsDoNotMatch: "Паролите не съвпадат.",
     invalidUser: "Невалиден потребител.",
     roleSuperAdmin: "Супер администратор",
+    school: "Училище",
+    class: "Клас",
+    parallel: "Паралелка",
+    weeklyProgram: "Седмична програма",
+    weeklyProgramNoData: "Няма програма за твоето училище и клас.",
+    editWeeklyProgram: "Редактирай седмични програми",
+    addWeeklyProgram: "Добави седмична програма",
+    newProgram: "Нова програма",
     editAbout: "Редактирай „За нас“",
     saveAbout: "Запази",
     cancel: "Отказ",
@@ -410,6 +426,14 @@ const translations: Record<Language, Translations> = {
     passwordsDoNotMatch: "Passwords do not match.",
     invalidUser: "Invalid user.",
     roleSuperAdmin: "Super administrator",
+    school: "School",
+    class: "Class",
+    parallel: "Section",
+    weeklyProgram: "Weekly program",
+    weeklyProgramNoData: "No program for your school and class.",
+    editWeeklyProgram: "Edit weekly programs",
+    addWeeklyProgram: "Add weekly program",
+    newProgram: "New program",
     editAbout: "Edit About us",
     saveAbout: "Save",
     cancel: "Cancel",
@@ -557,6 +581,14 @@ const translations: Record<Language, Translations> = {
     passwordsDoNotMatch: "Die Passwörter stimmen nicht überein.",
     invalidUser: "Ungültiger Benutzer.",
     roleSuperAdmin: "Superadministrator",
+    school: "Schule",
+    class: "Klasse",
+    parallel: "Parallelklasse",
+    weeklyProgram: "Wochenprogramm",
+    weeklyProgramNoData: "Kein Programm für deine Schule und Klasse.",
+    editWeeklyProgram: "Wochenprogramme bearbeiten",
+    addWeeklyProgram: "Wochenprogramm hinzufügen",
+    newProgram: "Neues Programm",
     editAbout: "Über uns bearbeiten",
     saveAbout: "Speichern",
     cancel: "Abbrechen",

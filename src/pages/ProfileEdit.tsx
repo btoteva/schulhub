@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -7,16 +7,21 @@ import { useTheme } from "../contexts/ThemeContext";
 const API_BASE = process.env.DEV_API_ORIGIN || "";
 
 const ProfileEdit: React.FC = () => {
-  const { user, token, loading } = useAuth();
+  const { user, token, loading, refetchUser } = useAuth();
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const [school, setSchool] = useState("");
+  const [schools, setSchools] = useState<string[]>([]);
+  const [grade, setGrade] = useState("");
+  const [parallel, setParallel] = useState("");
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submittingProfile, setSubmittingProfile] = useState(false);
 
   if (loading) {
     return (
@@ -31,6 +36,72 @@ const ProfileEdit: React.FC = () => {
   if (!user) {
     return <Navigate to="/login" replace />;
   }
+
+  useEffect(() => {
+    setSchool(user.school ?? "");
+    const cls = user.class ?? "";
+    if (cls) {
+      const match = cls.match(/^(\d+)\s*(.*)$/);
+      if (match) {
+        setGrade(match[1]);
+        setParallel(match[2] || "");
+      } else {
+        setGrade(cls);
+        setParallel("");
+      }
+    } else {
+      setGrade("");
+      setParallel("");
+    }
+  }, [user?.school, user?.class]);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/schools`)
+      .then((res) => (res.ok ? res.json() : { schools: [] }))
+      .then((data) => setSchools(data.schools || []))
+      .catch(() => setSchools([]));
+  }, []);
+
+  const schoolOptions = (() => {
+    const list = [...schools];
+    if (school && school.trim() && !list.includes(school.trim())) {
+      list.push(school.trim());
+      list.sort((a, b) => a.localeCompare(b));
+    }
+    return list;
+  })();
+
+  const handleSaveProfile = async () => {
+    if (user?.role === "superadmin") return;
+    setError("");
+    setSuccess(false);
+    setSubmittingProfile(true);
+    try {
+      const combinedClass =
+        grade.trim() || parallel.trim()
+          ? `${grade.trim()}${parallel.trim() ? ` ${parallel.trim()}` : ""}`
+          : "";
+      const res = await fetch(`${API_BASE}/api/me`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ school: school.trim() || null, class: combinedClass || null }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        setSuccess(true);
+        refetchUser();
+      } else {
+        setError(data.error || "Error");
+      }
+    } catch (e) {
+      setError((e as Error).message || "Network error");
+    } finally {
+      setSubmittingProfile(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,6 +154,58 @@ const ProfileEdit: React.FC = () => {
         </Link>
         <div className={`rounded-xl border p-6 ${isLight ? "bg-white border-slate-200" : "bg-slate-800 border-slate-700"}`}>
           <h1 className="text-xl font-bold mb-4">{t.editProfile}</h1>
+
+          {user.role !== "superadmin" && (
+            <div className="space-y-4 mb-6">
+              <div>
+                <label htmlFor="profile-school" className="block text-sm font-medium mb-1">{t.school}</label>
+                <select
+                  id="profile-school"
+                  value={school}
+                  onChange={(e) => setSchool(e.target.value)}
+                  className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                >
+                  <option value="">—</option>
+                  {schoolOptions.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label htmlFor="profile-grade" className="block text-sm font-medium mb-1">{t.class}</label>
+                  <input
+                    id="profile-grade"
+                    type="number"
+                    min={1}
+                    max={12}
+                    value={grade}
+                    onChange={(e) => setGrade(e.target.value)}
+                    className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="profile-parallel" className="block text-sm font-medium mb-1">{t.parallel}</label>
+                  <input
+                    id="profile-parallel"
+                    type="text"
+                    value={parallel}
+                    onChange={(e) => setParallel(e.target.value)}
+                    maxLength={2}
+                    className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                  />
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={handleSaveProfile}
+                disabled={submittingProfile}
+                className="px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-medium disabled:opacity-50"
+              >
+                {submittingProfile ? "..." : t.saveProfile}
+              </button>
+            </div>
+          )}
 
           {showPasswordForm ? (
             <form onSubmit={handleSubmit} className="space-y-4">

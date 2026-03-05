@@ -12,7 +12,7 @@ import {
   isAdmin,
   isSuperAdmin,
 } from "./auth.js";
-import { ensureUsersTable, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, deleteUser } from "./users-db.js";
+import { ensureUsersTable, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, deleteUser } from "./users-db.js";
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -39,6 +39,15 @@ async function initDb() {
       PRIMARY KEY (username, key)
     )
   `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS schulhub_weekly_program (
+      school TEXT NOT NULL,
+      class_name TEXT NOT NULL,
+      data JSONB NOT NULL,
+      updated_at TIMESTAMPTZ DEFAULT NOW(),
+      PRIMARY KEY (school, class_name)
+    )
+  `;
 }
 
 app.get("/api/health", async (req, res) => {
@@ -58,10 +67,12 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 app.post("/api/register", async (req, res) => {
   const sql = neon(process.env.DATABASE_URL);
   if (!sql) return res.status(503).json({ error: "Database not configured" });
-  const { username, email, password } = req.body || {};
+  const { username, email, password, school, class: classParam } = req.body || {};
   const u = (username || "").trim();
   const e = (email || "").trim().toLowerCase();
   const p = (password || "").trim();
+  const schoolVal = typeof school === "string" ? school.trim() || null : null;
+  const classVal = typeof classParam === "string" ? classParam.trim() || null : null;
   if (!u || !p) return res.status(400).json({ error: "Missing username or password" });
   if (!e) return res.status(400).json({ error: "Email is required" });
   if (!EMAIL_REGEX.test(e)) return res.status(400).json({ error: "Invalid email format" });
@@ -78,7 +89,7 @@ app.post("/api/register", async (req, res) => {
     const existingEmail = await findUserByEmail(sql, e);
     if (existingEmail) return res.status(400).json({ error: "Email already registered" });
     const hash = await bcrypt.hash(p, 10);
-    await createUser(sql, u, hash, "user", e);
+    await createUser(sql, u, hash, "user", e, schoolVal, classVal);
     res.status(201).json({ ok: true });
   } catch (err) {
     if (err.code === "23505") return res.status(400).json({ error: "Email already registered" });
@@ -126,13 +137,15 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-// POST /api/users – create user (admin only), body: { username, password, role? }
+// POST /api/users – create user (admin only), body: { username, password, role?, school?, class? }
 app.post("/api/users", async (req, res) => {
   if (!isAdmin(req)) return res.status(403).json({ error: "Admin only" });
-  const { username, password, role } = req.body || {};
+  const { username, password, role, school, class: classParam } = req.body || {};
   const u = (username || "").trim();
   const p = (password || "").trim();
   const r = role === "admin" ? "admin" : "user";
+  const schoolVal = typeof school === "string" ? school.trim() || null : null;
+  const classVal = typeof classParam === "string" ? classParam.trim() || null : null;
   if (!u || !p) return res.status(400).json({ error: "Missing username or password" });
   if (u.length < MIN_USERNAME_LEN || u.length > MAX_USERNAME_LEN) return res.status(400).json({ error: "Username must be 2–50 characters" });
   if (p.length < MIN_PASSWORD_LEN) return res.status(400).json({ error: "Password must be at least 6 characters" });
@@ -141,25 +154,28 @@ app.post("/api/users", async (req, res) => {
     const existing = await findUserByUsername(sql, u);
     if (existing) return res.status(400).json({ error: "Username already taken" });
     const hash = await bcrypt.hash(p, 10);
-    await createUser(sql, u, hash, r, null);
+    await createUser(sql, u, hash, r, null, schoolVal, classVal);
     res.status(201).json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
 
-// PATCH /api/users – update role, email and/or password (admin only), body: { id, role?, email?, password? }
+// PATCH /api/users – update role, email, school, class and/or password (admin only)
 app.patch("/api/users", async (req, res) => {
   if (!isAdmin(req)) return res.status(403).json({ error: "Admin only" });
-  const { id, role, email, password } = req.body || {};
+  const { id, role, email, password, school, class: classParam } = req.body || {};
   const uid = typeof id === "number" ? id : parseInt(id, 10);
   if (!Number.isInteger(uid) || uid < 1) return res.status(400).json({ error: "Invalid id" });
   const hasRole = role === "user" || role === "admin";
   const hasPassword = typeof password === "string" && password.length >= MIN_PASSWORD_LEN;
   const emailVal = typeof email === "string" ? email.trim().toLowerCase() : "";
   const hasEmail = emailVal.length > 0;
+  const schoolVal = typeof school === "string" ? school.trim() || null : undefined;
+  const classVal = typeof classParam === "string" ? classParam.trim() || null : undefined;
+  const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
   if (hasEmail && !EMAIL_REGEX.test(emailVal)) return res.status(400).json({ error: "Invalid email format" });
-  if (!hasRole && !hasPassword && !hasEmail) return res.status(400).json({ error: "Provide role, email and/or password" });
+  if (!hasRole && !hasPassword && !hasEmail && !hasSchoolClass) return res.status(400).json({ error: "Provide role, email, school/class and/or password" });
   try {
     if (hasEmail) {
       const existing = await findUserByEmail(sql, emailVal);
@@ -171,6 +187,7 @@ app.patch("/api/users", async (req, res) => {
       const hash = await bcrypt.hash(password, 10);
       await updateUserPassword(sql, uid, hash);
     }
+    if (hasSchoolClass) await updateUserSchoolClass(sql, uid, schoolVal ?? null, classVal ?? null);
     res.json({ ok: true });
   } catch (e) {
     if (e.code === "23505") return res.status(400).json({ error: "Email already registered" });
@@ -192,36 +209,63 @@ app.delete("/api/users", async (req, res) => {
   }
 });
 
-// GET /api/me – same as Vercel api/me.js
-app.get("/api/me", (req, res) => {
+// GET /api/me – return username, role, school, class (school/class from DB for non-superadmin)
+app.get("/api/me", async (req, res) => {
   const payload = verifyToken(req);
   if (!payload) return res.status(401).json({ error: "Unauthorized" });
-  res.json({ username: payload.sub, role: payload.role });
-});
-
-// PATCH /api/me – change own password (body: { newPassword }); only DB users; auth via JWT
-app.patch("/api/me", async (req, res) => {
-  const payload = verifyToken(req);
-  if (!payload) return res.status(401).json({ error: "Unauthorized" });
-  const { newPassword } = req.body || {};
-  if (!newPassword || typeof newPassword !== "string") {
-    return res.status(400).json({ error: "Missing newPassword" });
-  }
-  if (newPassword.length < MIN_PASSWORD_LEN) {
-    return res.status(400).json({ error: "New password must be at least 6 characters" });
+  if (payload.role === "superadmin") {
+    return res.json({ username: payload.sub, role: payload.role, school: null, class: null });
   }
   try {
     await ensureUsersTable(sql);
     const user = await findUserByUsername(sql, payload.sub);
-    if (!user) {
-      return res.status(403).json({ error: "Super admin password is managed in environment" });
-    }
-    const hash = await bcrypt.hash(newPassword, 10);
-    await updateUserPassword(sql, user.id, hash);
-    res.json({ ok: true });
+    if (!user) return res.status(401).json({ error: "User not found" });
+    res.json({
+      username: user.username,
+      role: user.role,
+      school: user.school ?? null,
+      class: user.class_name ?? null,
+    });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
+});
+
+// PATCH /api/me – change own password and/or school, class (body: { newPassword?, school?, class? })
+app.patch("/api/me", async (req, res) => {
+  const payload = verifyToken(req);
+  if (!payload) return res.status(401).json({ error: "Unauthorized" });
+  const { newPassword, school, class: classParam } = req.body || {};
+  const schoolVal = typeof school === "string" ? school.trim() || null : undefined;
+  const classVal = typeof classParam === "string" ? classParam.trim() || null : undefined;
+  const hasSchoolClass = schoolVal !== undefined || classVal !== undefined;
+  if (newPassword != null && typeof newPassword === "string") {
+    if (newPassword.length < MIN_PASSWORD_LEN) {
+      return res.status(400).json({ error: "New password must be at least 6 characters" });
+    }
+    try {
+      await ensureUsersTable(sql);
+      const user = await findUserByUsername(sql, payload.sub);
+      if (!user) {
+        return res.status(403).json({ error: "Super admin password is managed in environment" });
+      }
+      const hash = await bcrypt.hash(newPassword, 10);
+      await updateUserPassword(sql, user.id, hash);
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+  if (hasSchoolClass && payload.role !== "superadmin") {
+    try {
+      await ensureUsersTable(sql);
+      const user = await findUserByUsername(sql, payload.sub);
+      if (!user) return res.status(401).json({ error: "User not found" });
+      await updateUserSchoolClass(sql, user.id, schoolVal ?? null, classVal ?? null);
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+  res.json({ ok: true });
 });
 
 // GET /api/me/progress?key=xxx – current user's progress (auth required)
@@ -253,6 +297,79 @@ app.post("/api/me/progress", async (req, res) => {
       INSERT INTO schulhub_user_progress (username, key, value)
       VALUES (${username}, ${key}, ${JSON.stringify(value)}::jsonb)
       ON CONFLICT (username, key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()
+    `;
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/me/weekly-program – current user's weekly program (by school + class); 404 if none
+app.get("/api/me/weekly-program", async (req, res) => {
+  const payload = verifyToken(req);
+  if (!payload) return res.status(401).json({ error: "Unauthorized" });
+  if (payload.role === "superadmin") {
+    return res.status(404).json({ error: "No program" });
+  }
+  try {
+    await ensureUsersTable(sql);
+    const user = await findUserByUsername(sql, payload.sub);
+    if (!user || !user.school || !user.class_name) {
+      return res.status(404).json({ error: "No program" });
+    }
+    const rows = await sql`
+      SELECT data FROM schulhub_weekly_program
+      WHERE school = ${user.school} AND class_name = ${user.class_name}
+      LIMIT 1
+    `;
+    if (rows.length === 0) return res.status(404).json({ error: "No program" });
+    res.json(rows[0].data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/schools – distinct school names from weekly programs + users (for profile/register dropdown)
+app.get("/api/schools", async (req, res) => {
+  try {
+    const rows = await sql`
+      SELECT DISTINCT school FROM schulhub_weekly_program WHERE school IS NOT NULL AND school != ''
+      UNION
+      SELECT DISTINCT school FROM schulhub_users WHERE school IS NOT NULL AND school != ''
+      ORDER BY school
+    `;
+    res.json({ schools: rows.map((r) => r.school) });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// GET /api/admin/weekly-programs – list all (admin only)
+app.get("/api/admin/weekly-programs", async (req, res) => {
+  if (!isAdmin(req)) return res.status(403).json({ error: "Admin only" });
+  try {
+    const rows = await sql`
+      SELECT school, class_name, data, updated_at FROM schulhub_weekly_program ORDER BY school, class_name
+    `;
+    res.json({ programs: rows.map((r) => ({ school: r.school, class: r.class_name, data: r.data, updated_at: r.updated_at })) });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// PUT /api/admin/weekly-programs – upsert one program (admin only), body: { school, class, data }
+app.put("/api/admin/weekly-programs", async (req, res) => {
+  if (!isAdmin(req)) return res.status(403).json({ error: "Admin only" });
+  const { school, class: classParam, data } = req.body || {};
+  const schoolVal = (school != null && String(school).trim()) ? String(school).trim() : null;
+  const classVal = (classParam != null && String(classParam).trim()) ? String(classParam).trim() : null;
+  if (!schoolVal || !classVal) return res.status(400).json({ error: "school and class required" });
+  if (data == null || typeof data !== "object") return res.status(400).json({ error: "data (object) required" });
+  try {
+    await sql`
+      INSERT INTO schulhub_weekly_program (school, class_name, data)
+      VALUES (${schoolVal}, ${classVal}, ${JSON.stringify(data)}::jsonb)
+      ON CONFLICT (school, class_name) DO UPDATE SET data = EXCLUDED.data, updated_at = NOW()
     `;
     res.json({ ok: true });
   } catch (e) {

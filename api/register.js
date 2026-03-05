@@ -21,10 +21,12 @@ module.exports = async function handler(req, res) {
     return res.status(503).json({ error: "Database not configured" });
   }
   const body = typeof req.body === "object" ? req.body : {};
-  const { username, email, password } = body;
+  const { username, email, password, school, class: classParam } = body;
   const u = (username || "").trim();
   const e = (email || "").trim().toLowerCase();
   const p = (password || "").trim();
+  const schoolVal = typeof school === "string" ? school.trim() || null : null;
+  const classVal = typeof classParam === "string" ? classParam.trim() || null : null;
   if (!u || !p) {
     return res.status(400).json({ error: "Missing username or password" });
   }
@@ -51,7 +53,7 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({ error: "Email already registered" });
     }
     const hash = await bcrypt.hash(p, 10);
-    await createUser(sql, u, hash, "user", e);
+    await createUser(sql, u, hash, "user", e, schoolVal, classVal);
     res.status(201).json({ ok: true });
   } catch (err) {
     if (err.code === "23505") return res.status(400).json({ error: "Email already registered" });

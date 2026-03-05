@@ -25,6 +25,8 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import AdminUsers from './pages/AdminUsers';
 import AdminUserEdit from './pages/AdminUserEdit';
+import WeeklyProgram from './pages/WeeklyProgram';
+import AdminWeeklyPrograms from './pages/AdminWeeklyPrograms';
 
 const App: React.FC = () => {
   return (
@@ -38,9 +40,12 @@ const App: React.FC = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/edit" element={<ProfileEdit />} />
+          <Route path="/weekly-program" element={<WeeklyProgram />} />
           <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/admin/weekly-programs" element={<AdminWeeklyPrograms />} />
           <Route path="/admin/users/edit/:userId" element={<AdminUserEdit />} />
           <Route path="/lessons/:courseId" element={<Lessons />} />
+          <Route path="/lessons/:courseId/section/:sectionName" element={<Lessons />} />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />
           <Route path="/german/podcast" element={<GermanPodcastView />} />

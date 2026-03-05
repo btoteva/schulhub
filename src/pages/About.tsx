@@ -47,7 +47,7 @@ type LangKey = keyof AboutContent;
 const About: React.FC = () => {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const { token, isSuperAdmin } = useAuth();
+  const { token, isSuperAdmin, offline } = useAuth();
   const isLight = theme === "light";
   const [content, setContent] = useState<AboutContent | null>(null);
   const [loading, setLoading] = useState(true);
@@ -58,6 +58,12 @@ const About: React.FC = () => {
 
   useEffect(() => {
     let cancelled = false;
+    if (offline) {
+      setContent(null);
+      setEditDraft({});
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     fetch(`${API_BASE}/api/progress?key=${encodeURIComponent(ABOUT_STORAGE_KEY)}`)
       .then((res) => (res.ok ? res.json() : { value: null }))
@@ -80,10 +86,10 @@ const About: React.FC = () => {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [offline]);
 
   const handleSaveAbout = async () => {
-    if (!token) return;
+    if (!token || offline) return;
     setSaving(true);
     setSaveError("");
     try {
@@ -126,7 +132,7 @@ const About: React.FC = () => {
           >
             ← {language === "bg" ? "Начало" : language === "de" ? "Start" : "Home"}
           </Link>
-          {isSuperAdmin && !editing && (
+          {isSuperAdmin && !offline && !editing && (
             <button
               type="button"
               onClick={() => setEditing(true)}

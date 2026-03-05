@@ -7,14 +7,18 @@ const API_BASE = process.env.DEV_API_ORIGIN || "";
 export interface AuthUser {
   username: string;
   role: string;
+  school?: string | null;
+  class?: string | null;
 }
 
 interface AuthContextType {
   token: string | null;
   user: AuthUser | null;
   loading: boolean;
+  offline: boolean;
   login: (username: string, password: string) => Promise<{ ok: boolean; error?: string }>;
   logout: () => void;
+  refetchUser: () => Promise<void>;
   isAdmin: boolean;
   isSuperAdmin: boolean;
 }
@@ -25,6 +29,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [token, setToken] = useState<string | null>(() => localStorage.getItem(STORAGE_KEY));
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
+   const [offline, setOffline] = useState(false);
 
   const logout = useCallback(() => {
     setToken(null);
@@ -32,11 +37,46 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     localStorage.removeItem(STORAGE_KEY);
   }, []);
 
+  const refetchUser = useCallback(async () => {
+    const t = token;
+    if (!t) return;
+    try {
+      const res = await fetch(`${API_BASE}/api/me`, { headers: { Authorization: `Bearer ${t}` } });
+      if (!res.ok) return;
+      const data = await res.json();
+      setUser({
+        username: data.username,
+        role: data.role,
+        school: data.school ?? null,
+        class: data.class ?? null,
+      });
+    } catch {
+      // ignore
+    }
+  }, [token]);
+
   useEffect(() => {
     if (!token) {
       setUser(null);
       setLoading(false);
-      return;
+      // When not logged in, detect if server is available so we can hide Login in offline mode
+      let cancelled = false;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+      fetch(`${API_BASE}/api/health`, { signal: controller.signal })
+        .then((res) => {
+          clearTimeout(timeoutId);
+          if (!cancelled) setOffline(!res.ok);
+        })
+        .catch(() => {
+          clearTimeout(timeoutId);
+          if (!cancelled) setOffline(true);
+        });
+      return () => {
+        cancelled = true;
+        clearTimeout(timeoutId);
+        controller.abort();
+      };
     }
     let cancelled = false;
     fetch(`${API_BASE}/api/me`, {
@@ -47,10 +87,25 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         return res.json();
       })
       .then((data) => {
-        if (!cancelled) setUser({ username: data.username, role: data.role });
+        if (!cancelled) {
+          setUser({
+            username: data.username,
+            role: data.role,
+            school: data.school ?? null,
+            class: data.class ?? null,
+          });
+          setOffline(false);
+        }
       })
-      .catch(() => {
-        if (!cancelled) logout();
+      .catch((e) => {
+        if (cancelled) return;
+        const msg = (e as Error).message || "";
+        if (msg === "Invalid token") {
+          logout();
+        } else {
+          // Network or server unavailable – enter offline mode but keep UI usable
+          setOffline(true);
+        }
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -79,8 +134,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       localStorage.setItem(STORAGE_KEY, t);
       setToken(t);
       setUser(u);
+      setOffline(false);
       return { ok: true };
     } catch (e) {
+      setOffline(true);
       return { ok: false, error: (e as Error).message || "Network error (is the server running?)" };
     }
   }, []);
@@ -89,8 +146,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     token,
     user,
     loading,
+    offline,
     login,
     logout,
+    refetchUser,
     isAdmin: user?.role === "admin" || user?.role === "superadmin",
     isSuperAdmin: user?.role === "superadmin",
   };

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt } from "react-icons/fa";
+import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt, FaCalendarAlt } from "react-icons/fa";
 import FontSettings from "./FontSettings";
 import { useLanguage, Language } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -57,7 +57,7 @@ const LanguageSelector: React.FC = () => {
 const Header: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme, toggleTheme } = useTheme();
-  const { user, isAdmin, logout } = useAuth();
+  const { user, isAdmin, logout, offline } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
               {t.aboutUs}
             </Link>
 
-            {user ? (
+            {!offline && user ? (
               <div className="relative" ref={userMenuRef}>
                 <button
                   type="button"
@@ -138,14 +138,24 @@ const Header: React.FC = () => {
                       {t.editProfile}
                     </Link>
                     {isAdmin && (
-                      <Link
-                        to="/admin/users"
-                        className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
-                        onClick={() => setUserMenuOpen(false)}
-                      >
-                        <FaUsers className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
-                        {t.manageUsers}
-                      </Link>
+                      <>
+                        <Link
+                          to="/admin/users"
+                          className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                          onClick={() => setUserMenuOpen(false)}
+                        >
+                          <FaUsers className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                          {t.manageUsers}
+                        </Link>
+                        <Link
+                          to="/admin/weekly-programs"
+                          className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                          onClick={() => setUserMenuOpen(false)}
+                        >
+                          <FaCalendarAlt className="w-4 h-4 text-slate-500 dark:text-gray-400 shrink-0" />
+                          {t.editWeeklyProgram}
+                        </Link>
+                      </>
                     )}
                     <button
                       type="button"
@@ -158,14 +168,14 @@ const Header: React.FC = () => {
                   </div>
                 )}
               </div>
-            ) : (
+            ) : !offline ? (
               <Link
                 to="/login"
                 className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
               >
                 {t.login}
               </Link>
-            )}
+            ) : null}
             <a
               href="https://codepen.io/btoteva/full/xbOGgwE"
               target="_blank"
@@ -262,7 +272,7 @@ const Header: React.FC = () => {
             >
               {t.aboutUs}
             </Link>
-            {user ? (
+            {!offline && user ? (
               <>
                 <div className="flex items-center gap-2 py-3 border-b border-slate-200 dark:border-slate-700">
                   <FaUser className="w-5 h-5 text-slate-600 dark:text-gray-400" />
@@ -285,14 +295,24 @@ const Header: React.FC = () => {
                   {t.editProfile}
                 </Link>
                 {isAdmin && (
-                  <Link
-                    to="/admin/users"
-                    className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <FaUsers className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
-                    {t.manageUsers}
-                  </Link>
+                  <>
+                    <Link
+                      to="/admin/users"
+                      className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <FaUsers className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                      {t.manageUsers}
+                    </Link>
+                    <Link
+                      to="/admin/weekly-programs"
+                      className="flex items-center gap-3 py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <FaCalendarAlt className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                      {t.editWeeklyProgram}
+                    </Link>
+                  </>
                 )}
                 <button
                   type="button"
@@ -303,7 +323,7 @@ const Header: React.FC = () => {
                   {t.logout}
                 </button>
               </>
-            ) : (
+            ) : !offline ? (
               <Link
                 to="/login"
                 className="py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
@@ -311,7 +331,7 @@ const Header: React.FC = () => {
               >
                 {t.login}
               </Link>
-            )}
+            ) : null}
             <a
               href="https://codepen.io/btoteva/full/xbOGgwE"
               target="_blank"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -14,6 +14,8 @@ const GermanPodcastView: React.FC = () => {
   const { token } = useAuth();
   const isLight = theme === "light";
   const { t, language } = useLanguage();
+  const location = useLocation();
+  const fromState = (location.state as { fromSection?: string } | undefined) || undefined;
 
   const episode =
     germanPodcasts.find((p) => p.spotifyEpisodeId === episodeId || p.id === episodeId) ?? germanPodcasts[0];
@@ -48,7 +50,11 @@ const GermanPodcastView: React.FC = () => {
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-8">
           <Link
-            to="/lessons/1"
+            to={
+              fromState?.fromSection === "podcast"
+                ? "/lessons/1/section/podcast"
+                : "/lessons/1"
+            }
             className={`inline-flex items-center gap-2 transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-slate-300 hover:text-white"}`}
           >
             <FaArrowLeft />

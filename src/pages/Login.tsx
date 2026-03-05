@@ -5,7 +5,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 
 const Login: React.FC = () => {
-  const { login } = useAuth();
+  const { login, offline } = useAuth();
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const navigate = useNavigate();
@@ -28,6 +28,28 @@ const Login: React.FC = () => {
       setError(result.error || (language === "bg" ? "Грешка при вход" : language === "de" ? "Anmeldung fehlgeschlagen" : "Login failed"));
     }
   };
+
+  if (offline) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center px-4 ${isLight ? "bg-slate-100" : "bg-slate-900"}`}>
+        <div className={`w-full max-w-sm rounded-2xl shadow-xl p-6 ${isLight ? "bg-white border border-slate-200" : "bg-slate-800 border border-slate-700"}`}>
+          <h1 className="text-xl font-bold mb-4 text-center">{t.login}</h1>
+          <p className={isLight ? "text-slate-700 mb-4" : "text-slate-300 mb-4"}>
+            {language === "bg"
+              ? "Офлайн режим – входът не е наличен без работещ сървър."
+              : language === "de"
+              ? "Offline-Modus – Anmeldung ist ohne laufenden Server nicht verfügbar."
+              : "Offline mode – login is not available without a running server."}
+          </p>
+          <p className="mt-2 text-center text-sm">
+            <Link to="/" className={isLight ? "text-slate-500 hover:underline" : "text-slate-400 hover:underline"}>
+              ← {t.home}
+            </Link>
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen flex items-center justify-center px-4 ${isLight ? "bg-slate-100" : "bg-slate-900"}`}>

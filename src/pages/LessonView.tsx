@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import {
   FaArrowLeft,
   FaPlay,
@@ -246,6 +246,8 @@ const LessonView: React.FC = () => {
     courseId: string;
     lessonId: string;
   }>();
+  const location = useLocation();
+  const fromState = (location.state as { fromSection?: string } | undefined) || undefined;
   const {
     getFontSizeValue,
     getFontFamilyClass,
@@ -756,7 +758,11 @@ const LessonView: React.FC = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link
-              to={`/lessons/${courseId}`}
+              to={
+                courseId === "1" && fromState?.fromSection
+                  ? `/lessons/1/section/${fromState.fromSection}`
+                  : `/lessons/${courseId}`
+              }
               className="inline-flex items-center gap-2 text-slate-800 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <FaArrowLeft />

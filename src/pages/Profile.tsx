@@ -42,7 +42,13 @@ const Profile: React.FC = () => {
           <p className={`mb-1 ${isLight ? "text-slate-600" : "text-slate-400"}`}>
             {t.loggedInAs} <strong className={isLight ? "text-slate-900" : "text-white"}>{user.username}</strong>
           </p>
-          <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-500"}`}>{roleLabel}</p>
+          <p className={`text-sm mb-1 ${isLight ? "text-slate-500" : "text-slate-500"}`}>{roleLabel}</p>
+          {(user.school || user.class) && (
+            <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-500"}`}>
+              {t.school}: {user.school || "—"} · {t.class}: {user.class || "—"}
+            </p>
+          )}
+          {!(user.school || user.class) && <div className="mb-6" />}
           <Link
             to="/profile/edit"
             className={`inline-block mb-4 mr-3 px-4 py-2 rounded-lg font-medium ${
@@ -52,14 +58,24 @@ const Profile: React.FC = () => {
             {t.editProfile}
           </Link>
           {isAdmin && (
-            <Link
-              to="/admin/users"
-              className={`inline-block mb-4 px-4 py-2 rounded-lg font-medium ${
-                isLight ? "bg-cyan-600 hover:bg-cyan-500 text-white" : "bg-cyan-600 hover:bg-cyan-500 text-white"
-              }`}
-            >
-              {t.manageUsers}
-            </Link>
+            <>
+              <Link
+                to="/admin/users"
+                className={`inline-block mb-4 mr-3 px-4 py-2 rounded-lg font-medium ${
+                  isLight ? "bg-cyan-600 hover:bg-cyan-500 text-white" : "bg-cyan-600 hover:bg-cyan-500 text-white"
+                }`}
+              >
+                {t.manageUsers}
+              </Link>
+              <Link
+                to="/admin/weekly-programs"
+                className={`inline-block mb-4 px-4 py-2 rounded-lg font-medium ${
+                  isLight ? "bg-amber-600 hover:bg-amber-500 text-white" : "bg-amber-600 hover:bg-amber-500 text-white"
+                }`}
+              >
+                {t.editWeeklyProgram}
+              </Link>
+            </>
           )}
           <button
             type="button"

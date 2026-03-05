@@ -256,17 +256,17 @@ const lessonsData: { [key: number]: Band[] } = {
   ],
 };
 
-type GermanTab = "lessons" | "podcast" | "dsd";
+type GermanSection = "lessons" | "podcast" | "dsd";
 
 const Lessons: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const { token } = useAuth();
   const isLight = theme === "light";
-  const { courseId } = useParams<{ courseId: string }>();
+  const { courseId, sectionName } = useParams<{ courseId: string; sectionName?: string }>();
   const course = coursesData.find((c) => c.id === Number(courseId));
   const bands = lessonsData[Number(courseId)] || [];
-  const [germanTab, setGermanTab] = useState<GermanTab>("lessons");
+  const germanSection = (sectionName === "lessons" || sectionName === "podcast" || sectionName === "dsd" ? sectionName : null) as GermanSection | null;
   const [podcastListenedIds, setPodcastListenedIds] = useState<string[]>([]);
 
   useEffect(() => {
@@ -348,6 +348,11 @@ const Lessons: React.FC = () => {
     0,
   );
 
+  const headerBackTarget =
+    course.id === 1 && germanSection
+      ? "/lessons/1"
+      : "/";
+
   return (
     <div className={isLight ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900" : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black"}>
       {/* Header Section */}
@@ -355,7 +360,7 @@ const Lessons: React.FC = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="flex items-center justify-between mb-8">
             <Link
-              to="/"
+              to={headerBackTarget}
               className={`inline-flex items-center gap-2 transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-gray-300 hover:text-white"}`}
             >
               <FaArrowLeft />
@@ -385,22 +390,16 @@ const Lessons: React.FC = () => {
         </div>
       </section>
 
-      {/* German sections: Lessons, Podcast, DSD I Tests – cards like Home subject cards */}
-      {course.id === 1 && (
+      {/* German sections: Lessons, Podcast, DSD I Tests – cards link to separate pages */}
+      {course.id === 1 && !germanSection && (
         <section className="container mx-auto px-4 py-12">
           <h3 className={`text-2xl font-bold mb-8 text-center ${isLight ? "text-slate-800" : "text-white"}`}>
             {language === "bg" ? "Изберете раздел" : language === "de" ? "Bereich wählen" : "Select section"}
           </h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {/* Lessons card */}
-            <button
-              type="button"
-              onClick={() => setGermanTab("lessons")}
-              className={`group relative text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] ${
-                germanTab === "lessons"
-                  ? "ring-2 ring-amber-500 ring-offset-2 dark:ring-offset-gray-900"
-                  : ""
-              } ${isLight ? "bg-gradient-to-b from-white to-slate-100 border-slate-200 hover:shadow-2xl" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:shadow-2xl"}`}
+            <Link
+              to="/lessons/1/section/lessons"
+              className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-600 opacity-0 group-hover:opacity-10 transition-opacity" />
               <div className="relative p-6">
@@ -419,17 +418,11 @@ const Lessons: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </button>
+            </Link>
 
-            {/* Podcast card */}
-            <button
-              type="button"
-              onClick={() => setGermanTab("podcast")}
-              className={`group relative text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] ${
-                germanTab === "podcast"
-                  ? "ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900"
-                  : ""
-              } ${isLight ? "bg-gradient-to-b from-white to-slate-100 border-slate-200 hover:shadow-2xl" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:shadow-2xl"}`}
+            <Link
+              to="/lessons/1/section/podcast"
+              className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity" />
               <div className="relative p-6">
@@ -448,17 +441,11 @@ const Lessons: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </button>
+            </Link>
 
-            {/* DSD I Tests card */}
-            <button
-              type="button"
-              onClick={() => setGermanTab("dsd")}
-              className={`group relative text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] ${
-                germanTab === "dsd"
-                  ? "ring-2 ring-amber-500 ring-offset-2 dark:ring-offset-gray-900"
-                  : ""
-              } ${isLight ? "bg-gradient-to-b from-white to-slate-100 border-slate-200 hover:shadow-2xl" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:shadow-2xl"}`}
+            <Link
+              to="/lessons/1/section/dsd"
+              className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-10 transition-opacity" />
               <div className="relative p-6">
@@ -477,20 +464,20 @@ const Lessons: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </button>
+            </Link>
           </div>
         </section>
       )}
 
-      {/* Tab content: DSD tests (only for German when dsd tab active) */}
-      {course.id === 1 && germanTab === "dsd" && (
+      {/* Section page: DSD tests */}
+      {course.id === 1 && germanSection === "dsd" && (
         <section className="container mx-auto px-4 py-8 max-w-3xl">
           <DSDTestsListContent isLight={isLight} language={language} />
         </section>
       )}
 
-      {/* Tab content: Podcast list (only for German when podcast tab active) */}
-      {course.id === 1 && germanTab === "podcast" && (
+      {/* Section page: Podcast list */}
+      {course.id === 1 && germanSection === "podcast" && (
         <section className="container mx-auto px-4 py-8">
           <div className="max-w-4xl space-y-4">
             {germanPodcasts.map((podcast) => {
@@ -502,6 +489,7 @@ const Lessons: React.FC = () => {
                 >
                   <Link
                     to={`/german/podcast/${podcast.spotifyEpisodeId}`}
+                    state={{ fromSection: "podcast" }}
                     className={`group flex items-center gap-6 p-6 flex-1 min-w-0 transition-all duration-300 hover:shadow-inner`}
                   >
                     <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-green-600 flex items-center justify-center text-white group-hover:bg-green-500 transition-colors">
@@ -550,8 +538,8 @@ const Lessons: React.FC = () => {
         </section>
       )}
 
-      {/* Lessons List Section – shown when no tabs (other courses) or German + lessons tab */}
-      {(!(course.id === 1) || germanTab === "lessons") && (
+      {/* Lessons List – other courses directly, or German section "lessons" page */}
+      {(!(course.id === 1) || germanSection === "lessons") && (
       <section className="container mx-auto px-4 py-16">
         <h2 className={`text-4xl font-bold mb-8 ${isLight ? "text-slate-800" : "text-white"}`}>{t.selectLesson}</h2>
 
@@ -688,7 +676,14 @@ const Lessons: React.FC = () => {
                               </div>
                             </div>
 
-                            <Link to={`/lessons/${courseId}/${lesson.id}`}>
+                            <Link
+                              to={`/lessons/${courseId}/${lesson.id}`}
+                              state={
+                                course.id === 1 && germanSection === "lessons"
+                                  ? { fromSection: "lessons" }
+                                  : undefined
+                              }
+                            >
                               <button
                                 className={`bg-gradient-to-r ${getSubjectGradient()} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
                               >

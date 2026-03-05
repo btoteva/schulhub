@@ -10,6 +10,8 @@ interface LocationState {
   username?: string;
   email?: string | null;
   role?: string;
+  school?: string | null;
+  class?: string | null;
 }
 
 const AdminUserEdit: React.FC = () => {
@@ -25,6 +27,10 @@ const AdminUserEdit: React.FC = () => {
   const [currentRole, setCurrentRole] = useState<"user" | "admin">(
     (state?.role === "admin" ? "admin" : "user") as "user" | "admin"
   );
+  const [currentSchool, setCurrentSchool] = useState(state?.school ?? "");
+  const [schools, setSchools] = useState<string[]>([]);
+  const [currentGrade, setCurrentGrade] = useState("");
+  const [currentParallel, setCurrentParallel] = useState("");
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -33,6 +39,7 @@ const AdminUserEdit: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [savingRole, setSavingRole] = useState(false);
   const [savingEmail, setSavingEmail] = useState(false);
+  const [savingSchoolClass, setSavingSchoolClass] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   const id = userId ? parseInt(userId, 10) : NaN;
@@ -41,7 +48,38 @@ const AdminUserEdit: React.FC = () => {
   useEffect(() => {
     if (state?.role === "admin" || state?.role === "user") setCurrentRole(state.role);
     setCurrentEmail(state?.email ?? "");
-  }, [state?.role, state?.email, userId]);
+    setCurrentSchool(state?.school ?? "");
+    const cls = state?.class ?? "";
+    if (cls) {
+      const match = cls.match(/^(\d+)\s*(.*)$/);
+      if (match) {
+        setCurrentGrade(match[1]);
+        setCurrentParallel(match[2] || "");
+      } else {
+        setCurrentGrade(cls);
+        setCurrentParallel("");
+      }
+    } else {
+      setCurrentGrade("");
+      setCurrentParallel("");
+    }
+  }, [state?.role, state?.email, state?.school, state?.class, userId]);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/schools`)
+      .then((res) => (res.ok ? res.json() : { schools: [] }))
+      .then((data) => setSchools(data.schools || []))
+      .catch(() => setSchools([]));
+  }, []);
+
+  const schoolOptions = (() => {
+    const list = [...schools];
+    if (currentSchool && currentSchool.trim() && !list.includes(currentSchool.trim())) {
+      list.push(currentSchool.trim());
+      list.sort((a, b) => a.localeCompare(b));
+    }
+    return list;
+  })();
 
   const handleSavePassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -204,7 +242,7 @@ const AdminUserEdit: React.FC = () => {
               {savingEmail ? "..." : t.saveProfile}
             </button>
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label htmlFor="edit-role" className="block text-sm font-medium mb-1">
               {t.changeRole}
             </label>
@@ -220,6 +258,82 @@ const AdminUserEdit: React.FC = () => {
               <option value="user">{t.roleUser}</option>
               <option value="admin">{t.roleAdmin}</option>
             </select>
+          </div>
+          <div className="mb-6">
+            <label htmlFor="edit-school" className="block text-sm font-medium mb-1">{t.school}</label>
+            <select
+              id="edit-school"
+              value={currentSchool}
+              onChange={(e) => setCurrentSchool(e.target.value)}
+              className={`w-full px-3 py-2 rounded-lg border mb-2 ${
+                isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+              }`}
+            >
+              <option value="">—</option>
+              {schoolOptions.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+            <div className="grid grid-cols-2 gap-3 mt-2">
+              <div>
+                <label htmlFor="edit-grade" className="block text-sm font-medium mb-1">{t.class}</label>
+                <input
+                  id="edit-grade"
+                  type="number"
+                  min={1}
+                  max={12}
+                  value={currentGrade}
+                  onChange={(e) => setCurrentGrade(e.target.value)}
+                  className={`w-full px-3 py-2 rounded-lg border ${
+                    isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                  }`}
+                />
+              </div>
+              <div>
+                <label htmlFor="edit-parallel" className="block text-sm font-medium mb-1">{t.parallel}</label>
+                <input
+                  id="edit-parallel"
+                  type="text"
+                  value={currentParallel}
+                  onChange={(e) => setCurrentParallel(e.target.value)}
+                  maxLength={2}
+                  className={`w-full px-3 py-2 rounded-lg border ${
+                    isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"
+                  }`}
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setSavingSchoolClass(true);
+                setError("");
+                setSuccess("");
+                fetch(`${API_BASE}/api/users`, {
+                  method: "PATCH",
+                  headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                  body: JSON.stringify({
+                    id,
+                    school: currentSchool.trim() || null,
+                    class:
+                      currentGrade.trim() || currentParallel.trim()
+                        ? `${currentGrade.trim()}${currentParallel.trim() ? ` ${currentParallel.trim()}` : ""}`
+                        : null,
+                  }),
+                })
+                  .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+                  .then(({ ok, data }) => {
+                    if (ok) setSuccess(t.saveProfile);
+                    else setError(data.error || "Update failed");
+                  })
+                  .catch(() => setError("Update failed"))
+                  .finally(() => setSavingSchoolClass(false));
+              }}
+              disabled={savingSchoolClass}
+              className="mt-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium disabled:opacity-50"
+            >
+              {savingSchoolClass ? "..." : t.saveProfile}
+            </button>
           </div>
 
           {showPasswordForm ? (
