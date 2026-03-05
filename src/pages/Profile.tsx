@@ -68,14 +68,15 @@ const Profile: React.FC = () => {
               {t.profileType}: {user.profile_type === "student" ? t.profileTypeStudent : user.profile_type === "parent" ? t.profileTypeParent : user.profile_type}
             </p>
           )}
-          {user.profile_type === "student" && (user.parent_username != null || user.parent_gender != null) && (
-            <p className={`text-sm font-medium mt-2 mb-2 px-3 py-2 rounded-lg ${isLight ? "bg-amber-50 text-amber-800 border border-amber-200" : "bg-amber-900/20 text-amber-200 border border-amber-700"}`}>
-              {user.parent_gender === "female" ? t.momIsHere : user.parent_gender === "male" ? t.dadIsHere : t.parentIsHere}
-            </p>
-          )}
+          
           {!isSuperAdmin && user.profile_type === "student" && (user.school || user.class) && (
             <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-500"}`}>
               {t.school}: {user.school || "—"} · {t.class}: {user.class || "—"}
+            </p>
+          )}
+          {user.profile_type === "student" && (user.parent_username != null || user.parent_gender != null) && (
+            <p className={`text-sm font-medium mt-2 mb-2 px-3 py-2 rounded-lg ${isLight ? "bg-amber-50 text-amber-800 border border-amber-200" : "bg-amber-900/20 text-amber-200 border border-amber-700"}`}>
+              {user.parent_gender === "female" ? t.momIsHere : user.parent_gender === "male" ? t.dadIsHere : t.parentIsHere}
             </p>
           )}
           {!isSuperAdmin && user.profile_type === "parent" && (
