@@ -1,0 +1,287 @@
+{
+  "id": "7-3",
+  "courseId": 2,
+  "title": "VII-3 DIE HAUT",
+  "titleBg": "VII-3 КОЖАТА",
+  "subtitle": "",
+  "subtitleBg": "",
+  "dictionary": [
+    {
+      "id": "nomen",
+      "headingId": "nomen-heading",
+      "title": "🟩 Съществителни (Nomen)",
+      "words": [
+        {
+          "word": "die Haut, -äute",
+          "translation": "кожа",
+          "example": "Die Haut ist das größte menschliche Organ.",
+          "example_translation": "Кожата е най-големият човешки орган."
+        },
+        {
+          "word": "die Epidermis",
+          "translation": "епдермис, горен слой на кожата",
+          "example": "Die Epidermis (Oberhaut) besteht aus Deckepithel.",
+          "example_translation": "Епдермисът (горната кожа) се състои от покривен епител."
+        },
+        {
+          "word": "die Dermis",
+          "translation": "дерма, долен слой на кожата",
+          "example": "Die Dermis (Lederhaut) besteht aus Bindegewebe.",
+          "example_translation": "Дермата (средната кожа) се състои от съединителна тъкан."
+        },
+        {
+          "word": "die Unterhaut",
+          "translation": "подкожна тъкан",
+          "example": "Unter der Dermis liegt die Unterhaut.",
+          "example_translation": "Под дермата се намира подкожната тъкан."
+        },
+        {
+          "word": "das Fettgewebe",
+          "translation": "мастна тъкан",
+          "example": "Unterhaut bestehend aus Fettgewebe",
+          "example_translation": "подкожна тъкан, състояща се от мастна тъкан"
+        },
+        {
+          "word": "die Hornschicht",
+          "translation": "роговиден слой",
+          "example": "Die äußere Schicht der Epidermis (Hornschicht)",
+          "example_translation": "Външният слой на епдермиса (роговидният слой)"
+        },
+        {
+          "word": "das Melanin",
+          "translation": "меланин",
+          "example": "Die Zellen produzieren das Dunkelpigment Melanin.",
+          "example_translation": "Клетките произвеждат тъмния пигмент меланин."
+        },
+        {
+          "word": "die Schweißdrüse, -n",
+          "translation": "потна жлеза",
+          "example": "Die Schweißdrüsen sind auf dem ganzen Körper verteilt.",
+          "example_translation": "Потните жлези са разпределени по цялото тяло."
+        },
+        {
+          "word": "die Fettdrüse, -n",
+          "translation": "мастна жлеза",
+          "example": "Fettdrüsen (Talgdrüsen)",
+          "example_translation": "мастни жлези (сални жлези)"
+        },
+        {
+          "word": "die Talgdrüse, -n",
+          "translation": "сална жлеза",
+          "example": "Die Fettdrüsen (Talgdrüsen) haben Ausgangskanäle.",
+          "example_translation": "Мастните жлези (салните жлези) имат изходни канали."
+        },
+        {
+          "word": "die Haarwurzel, -n",
+          "translation": "корен на косъма",
+          "example": "In der Dermis befinden sich die Haarwurzeln.",
+          "example_translation": "В дермата се намират корените на космите."
+        },
+        {
+          "word": "die Thermoregulierung",
+          "translation": "терморегулация",
+          "example": "Der Komplex für die Beibehaltung einer konstanten Körpertemperatur heißt Thermoregulierung.",
+          "example_translation": "Комплексът за поддържане на постоянна телесна температура се нарича терморегулация."
+        },
+        {
+          "word": "die Körperhygiene",
+          "translation": "лична хигиена",
+          "example": "Die Einhaltung von Körperhygiene",
+          "example_translation": "Спазването на личната хигиена"
+        },
+        {
+          "word": "die Verbrennung, -en",
+          "translation": "изгаряне",
+          "example": "Die Haut muss vor Verbrennungen geschützt werden.",
+          "example_translation": "Кожата трябва да се предпази от изгаряния."
+        },
+        {
+          "word": "die Akne",
+          "translation": "акне",
+          "example": "Die Akne (Pickel bei Jugendlichen) ist eine Erkrankung der Haut.",
+          "example_translation": "Акнето (пъпките при юношите) е заболяване на кожата."
+        },
+        {
+          "word": "der Dermatologe, -n",
+          "translation": "дерматолог",
+          "example": "Eine Konsultation mit dem Hautarzt (Dermatologen) ist notwendig.",
+          "example_translation": "Консултация с кожния лекар (дерматолог) е необходима."
+        }
+      ]
+    },
+    {
+      "id": "adjektive",
+      "headingId": "adjektive-heading",
+      "title": "🟦 Прилагателни (Adjektive)",
+      "words": [
+        {
+          "word": "schädlich",
+          "translation": "вреден",
+          "example": "schädliche Einwirkungen der Umwelt",
+          "example_translation": "вредни въздействия на околната среда"
+        },
+        {
+          "word": "abgestorben",
+          "translation": "мъртъв, отмърнал",
+          "example": "abgestorbene Zellen",
+          "example_translation": "отмърнали клетки"
+        },
+        {
+          "word": "zuverlässig",
+          "translation": "надежден",
+          "example": "zuverlässiger Schutz",
+          "example_translation": "надеждна защита"
+        },
+        {
+          "word": "krankheitserregend",
+          "translation": "болестотворен",
+          "example": "krankheitserregende Mikroorganismen",
+          "example_translation": "болестотворни микроорганизми"
+        }
+      ]
+    },
+    {
+      "id": "verben",
+      "headingId": "verben-heading",
+      "title": "🟧 Глаголи (Verben)",
+      "words": [
+        {
+          "word": "bedecken",
+          "translation": "покривам",
+          "example": "Die Haut bedeckt den Organismus.",
+          "example_translation": "Кожата покрива организма."
+        },
+        {
+          "word": "schützen",
+          "translation": "защитавам",
+          "example": "schützt vor schädlichen Einwirkungen",
+          "example_translation": "защитава от вредни въздействия"
+        },
+        {
+          "word": "schälen",
+          "translation": "люпя се",
+          "example": "Der äußere Teil schält sich.",
+          "example_translation": "Външната част се люпи."
+        },
+        {
+          "word": "verdrängen",
+          "translation": "изтласквам",
+          "example": "die neu gebildeten Zellen verdrängen die alten",
+          "example_translation": "новообразуваните клетки изтласкват старите"
+        },
+        {
+          "word": "ausscheiden",
+          "translation": "отделям, изхвърлям",
+          "example": "Endprodukte des Stoffwechsels werden ausgeschieden.",
+          "example_translation": "Крайните продукти на обмяната се изхвърлят."
+        }
+      ]
+    }
+  ],
+  "sentences": [
+    {
+      "text": "<strong>Die Haut ist das größte menschliche Organ mit einer Fläche von etwa 2 m². Welche Funktionen erfüllt sie?</strong>",
+      "translation": "<strong>Кожата е най-големият човешки орган с площ от около 2 m². Какви функции изпълнява тя?</strong>"
+    },
+    {
+      "text": "Die Haut bedeckt und schützt den Organismus vor den schädlichen Einwirkungen der Umwelt und ist eines der wichtigsten Sinnesorgane.",
+      "translation": "Кожата покрива и защитава организма от вредните въздействия на околната среда и е един от най-важните сетивни органи."
+    },
+    {
+      "text": "<strong>Die Haut ist die äußerste Hülle des menschlichen Körpers. Sie besteht aus zwei Schichten: einer äußeren Schicht - Epidermis und einer inneren Schicht - Dermis. Unter der Dermis liegt die Unterhaut bestehend aus Fettgewebe (Abb. 1).</strong>",
+      "translation": "<strong>Кожата е най-външната обвивка на човешкото тяло. Тя се състои от два слоя: външен слой – епдермис и вътрешен слой – дерма. Под дермата се намира подкожната тъкан, състояща се от мастна тъкан (Фиг. 1).</strong>"
+    },
+    {
+      "text": "Aufbau der Haut. Die Epidermis (Oberhaut) besteht aus Deckepithel mit unterschiedlicher Dicke in den einzelnen Körperteilen. Am dicksten (etwa 1,4 mm) ist sie im Bereich der Fußsohlen.",
+      "translation": "Устройство на кожата. Епдермисът (горната кожа) се състои от покривен епител с различна дебелина в отделните части на тялото. Най-дебел е (около 1,4 mm) в областта на ходилата."
+    },
+    {
+      "text": "Die äußere Schicht der Epidermis (Hornschicht) setzt sich aus abgestorbenen Zellen zusammen. Sie haben ihre Kerne verloren und das Zytoplasma ist gänzlich durch Hornmaterial ersetzt worden. Die Hornschicht bietet einen zuverlässigen Schutz vor schädlichen Wirkungen der Umwelt (krankheitserregenden Mikroorganismen, physischen und chemischen Faktoren). Auch schützt sie sowohl vor Durchdringung von Wasser als auch vor Wasserverlust. Der äußere Teil dieser Schicht schält sich und deshalb wird er unentwegt aus den tieferen Schichten wiederhergestellt.",
+      "translation": "Външният слой на епдермиса (роговидният слой) се състои от отмърнали клетки. Те са загубили ядрата си и цитоплазмата е напълно заменена с роговидно вещество. Роговидният слой осигурява надеждна защита от вредните въздействия на околната среда (болестотворни микроорганизми, физически и химически фактори). Също така защитава както от проникване на вода, така и от загуба на вода. Външната част на този слой се люпи и затова непрекъснато се възстановява от по-дълбоките слоеве."
+    },
+    {
+      "text": "Die tiefste Schicht enthält zwei Arten von Zellen. Die eine Art Zellen teilen sich ständig, indem die neu gebildeten Zellen die alten in die oberen Schichten verdrängen. Die andere Art Zellen produzieren das Dunkelpigment Melanin. Es nimmt die Ultraviolettstrahlen des Sonnenlichts auf und schützt auf diese Weise die Haut vor ihrer schädlichen Wirkung. Deshalb wird Melanin in der Epidermis abgelagert, wenn man über längere Zeit den Sonnenstrahlen ausgesetzt ist.",
+      "translation": "Най-дълбокият слой съдържа два вида клетки. Единият вид клетки се делят постоянно, като новообразуваните клетки изтласкват старите към горните слоеве. Другият вид клетки произвеждат тъмния пигмент меланин. Той поглъща ултравиолетовите лъчи на слънчевата светлина и по този начин защитава кожата от тяхното вредно въздействие. Затова меланинът се отлага в епдермиса, когато човек е изложен на слънчевите лъчи за по-дълго време."
+    },
+    {
+      "text": "Die Dermis (Lederhaut) besteht vorwiegend aus Bindegewebe. Sie enthält Kollagen- und Elastanfasern. Ihre Anzahl nimmt mit dem Alter ab und die Haut verliert damit ihre Elastizität. Die Dermis ist gut durchblutet, was für die Regelung der Körpertemperatur von Bedeutung ist. In der Dermis und Epidermis befinden sich viele Nervenendungen. Dank ihnen bekommt der menschliche Organismus dauernd Information über die Veränderungen in der Umwelt. Unmittelbar unter der Epidermis bildet die Dermis Maserungen (Papillen). Am besten ausgeprägt sind sie auf der Handfläche und auf den Fingern, wo sie ein ganz persönliches unverwechselbares Muster formen. Das wird in der Gerichtsmedizin und in der Kriminalistik eingesetzt. In unterschiedlicher Tiefe der Dermis befinden sich die Schweiß- und Fettdrüsen sowie auch die Haarwurzeln (Abb. 1).",
+      "translation": "Дермата (средната кожа) се състои предимно от съединителна тъкан. Тя съдържа колагенови и еластинови влакна. Броят им намалява с възрастта и кожата губи еластичността си. Дермата е добре кръвоснабдена, което е важно за регулирането на телесната температура. В дермата и епдермиса се намират много нервни окончания. Благодарение на тях човешкият организъм постоянно получава информация за промените в околната среда. Непосредственно под епдермиса дермата образува релеф (папили). Най-добре изразени са те по дланта и пръстите, където образуват напълно личен, незаменим модел. Това се използва в съдебната медицина и криминалистиката. На различна дълбочина в дермата се намират потните и мастните жлези, както и корените на космите (Фиг. 1)."
+    },
+    {
+      "text": "Die Schweißdrüsen sind auf dem ganzen Körper verteilt. Besonders zahlreich finden sich Schweißdrüsen auf den Handflächen, Fußsohlen, am Unterkörper und in den Achselhöhlen. Sie stellen kleine Röhrchen dar, das eine Ende in ein Knäuel gewickelt, das sich in der Dermis befindet und das andere Ende öffnet sich auf der Hautoberfläche. Das Sekret der Schweißdrüsen ist der Schweiß. Er besteht aus 98% Wasser, aus in ihm aufgelösten Salzen (z.B. NaCl) und aus Endprodukten des Stoffwechsels (Urea u.a.). Die Schweißdrüsen sind für den Wärmehaushalt besonders wichtig.",
+      "translation": "Потните жлези са разпределени по цялото тяло. Особено много потни жлези има по дланите, ходилата, в долната част на тялото и в подмишниците. Те представляват малки тръбички – единият край е навит в кълбо в дермата, а другият се отваря на повърхността на кожата. Секретът на потните жлези е потът. Той се състои от 98% вода, от разтворени в него соли (напр. NaCl) и от крайни продукти на обмяната (урея и др.). Потните жлези са особено важни за топлинния баланс."
+    },
+    {
+      "text": "Die Fettdrüsen (Talgdrüsen) haben Ausgangskanäle, die sich in den Haarsäckchen oder direkt auf der Hautoberfläche öffnen. Ihre Zellen zerstören sich und so wird ein Fettsekret abgesondert, der die Haare und die Epidermis überdeckt und sie auf diese Weise vor Austrocknung und Rissen schützt. Die zerstörten Zellen werden durch Teilung der Zellen aus den tieferen Schichten wiederhergestellt.",
+      "translation": "Мастните жлези (салните жлези) имат изходни канали, които се отварят в космените торбички или директно на повърхността на кожата. Клетките им се разрушават и така се отделя мастен секрет, който покрива космите и епдермиса и по този начин ги защитава от изсушаване и напукване. Разрушените клетки се възстановяват чрез делене на клетките от по-дълбоките слоеве."
+    },
+    {
+      "text": "Die Hautanhangsgebilde sind die Haare und die Nägel. Sie sind Horngebilde der Epidermis. Der ganze Körper mit Ausnahme der Handflächen, Fußsohlen und der Lippen ist mit Haaren bedeckt. Die Haarwurzel befindet sich in einem Säckchen, wo sie wächst und vom Sekret der Fettdrüsen geschmiert wird. In dem erweiterten, unteren Teil des Haares teilen sich die Zellen wodurch das Haar ununterbrochen wächst.",
+      "translation": "Придатъците на кожата са космите и ноктите. Те са роговидни образувания на епдермиса. Цялото тяло с изключение на дланите, ходилата и устните е покрито с косми. Коренът на косъма се намира в торбичка, където расте и се смазва от секрета на мастните жлези. В разширената долна част на косъма клетките се делят, поради което косъмът расте непрекъснато."
+    },
+    {
+      "text": "<strong>Funktionen der Haut.</strong> Die Haut umhüllt den menschlichen Körper und schützt ihn vor krankheitserregenden Mikroorganismen, vor Wasserverlust sowie vom Eindringen von Wasser in den Körper (z.B. beim Baden oder Schwimmen) und vor anderen Faktoren, d.h. sie erfüllt eine Schutzfunktion. Der Teint ist auch eine Schutzreaktion gegen die schädlichen UV-Strahlen. Durch die Wirkung der gesunden UV-Strahlen wird in der Haut Vitamin D gebildet, der vor Rachitis schützt.",
+      "translation": "<strong>Функции на кожата.</strong> Кожата обвива човешкото тяло и го защитава от болестотворни микроорганизми, от загуба на вода, както и от проникване на вода в тялото (напр. при къпане или плуване) и от други фактори, т.е. изпълнява защитна функция. Тенът също е защитна реакция срещу вредните UV лъчи. Под въздействието на полезните UV лъчи в кожата се образува витамин D, който предпазва от рахит."
+    },
+    {
+      "text": "Sinneswahrnehmungen. Durch Rezeptoren nimmt die Haut Sinnesreize von äußeren Faktoren wie Berührung, Druck, Wärme oder Kälte, Schmerz und Jucken auf. Bei Menschen mit Beeinträchtigung des Sehvermögens ist diese sensorische Funktion der Haut sehr stark ausgeprägt.",
+      "translation": "Сетивни възприятия. Чрез рецепторите кожата възприема сетивни дразнители от външни фактори като допир, натиск, топлина или студенина, болка и сърбеж. При хора с увредено зрение тази сензорна функция на кожата е много силно изразена."
+    },
+    {
+      "text": "Die thermoregulierende Funktion der Haut kommt hauptsächlich durch Verdampfung von Wasser (Schweißabsonderung) und durch das Dehnen und Verengen der Blutgefäße zustande. Die Fettschicht unter der Haut ist eine Art Thermoisolierung, die den Wärmeabfluss des Körpers verhindert.",
+      "translation": "Терморегулиращата функция на кожата се осъществява главно чрез изпаряване на вода (отделяне на пот) и чрез разтягане и стесняване на кръвоносните съдове. Мастният слой под кожата е вид термоизолация, която предотвратява топлинните загуби на тялото."
+    },
+    {
+      "text": "Die Haut ist das wichtigste Organ für den Wärmeaustausch mit der Umgebung. Bei Dehnung der Blutgefäße gibt die Körperoberfläche Wärme ab (durch Strahlen, Leitung, Verdampfen und Konvektion) und der Körper wird gekühlt. Wenn sich die Blutgefäße verengen, nimmt die Menge des durch die Gefäße fließenden Blutes ab, und der Organismus erhält die Wärme (Abb. 2).",
+      "translation": "Кожата е най-важният орган за топлообмена с околната среда. При разтягане на кръвоносните съдове повърхността на тялото отдава топлина (чрез излъчване, провеждане, изпаряване и конвекция) и тялото се охлажда. Когато кръвоносните съдове се стеснят, количеството кръв, протичаща през тях, намалява и организъмът запазва топлината (Фиг. 2)."
+    },
+    {
+      "text": "<strong>Der Komplex physikalischer und chemischer Prozesse für die Beibehaltung einer konstanten Körpertemperatur heißt Thermoregulierung.</strong>",
+      "translation": "<strong>Комплексът от физически и химически процеси за поддържане на постоянна телесна температура се нарича терморегулация.</strong>"
+    },
+    {
+      "text": "Die Ausscheidungsfunktion der Haut ist mit der Tätigkeit der Schweißdrüsen verbunden. Mit dem Schweiß werden Endprodukte des Stoffwechsels ausgeschieden. Auf diese Weise unterstützen die Schweißdrüsen die Nierentätigkeit.",
+      "translation": "Изхвърлителната функция на кожата е свързана с дейността на потните жлези. С потта се изхвърлят крайни продукти на обмяната. По този начин потните жлези подпомагат дейността на бъбреците."
+    },
+    {
+      "text": "<strong>Hygiene der Haut</strong>",
+      "translation": "<strong>Хигиена на кожата</strong>"
+    },
+    {
+      "text": "Der unmittelbare Kontakt der Haut mit der Umwelt, das ununterbrochene Schuppen der oberen Epidermis-Schicht, die Ausscheidung von Schweiß und Fettsekret erfordern die Einhaltung von Körperhygiene. Nur die saubere und unbeschädigte Haut ist in der Lage, ihre Hauptfunktionen zu erfüllen. Man sollte nach Möglichkeit Kleidung aus natürlichen Materialien tragen.",
+      "translation": "Директният контакт на кожата с околната среда, непрекъснатото люпене на горния слой на епдермиса, отделянето на пот и мастен секрет изискват спазване на личната хигиена. Само чистата и неповредена кожа е в състояние да изпълнява основните си функции. Възможно е да се носи облекло от естествени материали."
+    },
+    {
+      "text": "Die Einhaltung von Körperhygiene schränkt die Entwicklung von krankheitserregenden Mikroorganismen in der Haut ein (Abb. 3). Beim Schwimmen in verschmutzten Gewässern, beim Benutzen von Hand- und Badetüchern von mehreren Personen, beim Tragen von fremder Kleidung, Schuhen u.a. kann es leicht zu Ansteckung mit Pilzen (Mykosen) kommen.",
+      "translation": "Спазването на личната хигиена ограничава развитието на болестотворни микроорганизми в кожата (Фиг. 3). При плуване в замърсени води, при използване на кърпи и бански кърпи от няколко души, при носене на чужди дрехи, обувки и др. лесно може да настъпи заразяване с гъбички (микози)."
+    },
+    {
+      "text": "Die Haut muss auch vor Verbrennungen geschützt werden. Verbrennungen eines bedeutenden Teils der Haut können zum Tod führen.",
+      "translation": "Кожата трябва да се предпази и от изгаряния. Изгаряния на значителна част от кожата могат да доведат до смърт."
+    },
+    {
+      "text": "Die immer dünner werdende Ozonschicht um die Erde und die Ozonlöcher sind der Grund für das immer häufigere Auftreten des Hautkrebses. Das Risiko erhöht sich auch, wenn man sich für längere Zeit der Wirkung der Sonnenstrahlen, vor allem im Sommer, aussetzt.",
+      "translation": "Все по-тънкият озонов слой около Земята и озоновите дупки са причина за все по-честото появяване на рак на кожата. Рискът се увеличава и когато човек е изложен за по-дълго време на въздействието на слънчевите лъчи, особено през лятото."
+    },
+    {
+      "text": "Die Akne (Pickel bei Jugendlichen) ist eine Erkrankung der Haut, bei der Sekret und abgestorbene verhornte Zellen die Kanäle der Fettdrüsen verstopfen. In dem angesammelten Sekret entwickeln sich Bakterien und es kommt zu Entzündungen. Die Pickel dürfen nicht ausgedrückt werden. Eine Konsultation mit dem Hautarzt (Dermatologen) ist notwendig.",
+      "translation": "Акнето (пъпките при юношите) е заболяване на кожата, при което секретът и отмърналите роговидни клетки запушват каналите на мастните жлези. В натрупания секрет се развиват бактерии и настъпва възпаление. Пъпките не трябва да се изстискват. Необходима е консултация с кожен лекар (дерматолог)."
+    },
+    {
+      "text": "Die Ertüchtigung der Haut unter Wirkung natürlicher Faktoren wie Luft, Sonne und Wasser hat einen großen Einfluss auf ihre Struktur und Funktion.",
+      "translation": "Укрепването на кожата под въздействието на естествени фактори като въздух, слънце и вода оказва голямо влияние върху нейната структура и функция."
+    }
+  ],
+  "images": {
+    "Abb. 1": [
+      "https://i.imgur.com/FHefrHq.png",
+      "https://i.imgur.com/8QylyQp.png"
+    ],
+    "Abb. 2": [
+      "https://i.imgur.com/Zx5XNfn.png",
+      "https://i.imgur.com/sb81gcC.png"
+    ],
+    "Abb. 3": []
+  },
+  "content": "<strong>Die Haut ist das größte menschliche Organ mit einer Fläche von etwa 2 m². Welche Funktionen erfüllt sie?</strong>\n\nDie Haut bedeckt und schützt den Organismus vor den schädlichen Einwirkungen der Umwelt und ist eines der wichtigsten Sinnesorgane.\n\n<strong>Die Haut ist die äußerste Hülle des menschlichen Körpers. Sie besteht aus zwei Schichten: einer äußeren Schicht - Epidermis und einer inneren Schicht - Dermis. Unter der Dermis liegt die Unterhaut bestehend aus Fettgewebe (Abb. 1).</strong>\n\nAufbau der Haut. Die Epidermis (Oberhaut) besteht aus Deckepithel mit unterschiedlicher Dicke in den einzelnen Körperteilen. Am dicksten (etwa 1,4 mm) ist sie im Bereich der Fußsohlen.\n\nDie äußere Schicht der Epidermis (Hornschicht) setzt sich aus abgestorbenen Zellen zusammen. Sie haben ihre Kerne verloren und das Zytoplasma ist gänzlich durch Hornmaterial ersetzt worden. Die Hornschicht bietet einen zuverlässigen Schutz vor schädlichen Wirkungen der Umwelt (krankheitserregenden Mikroorganismen, physischen und chemischen Faktoren). Auch schützt sie sowohl vor Durchdringung von Wasser als auch vor Wasserverlust. Der äußere Teil dieser Schicht schält sich und deshalb wird er unentwegt aus den tieferen Schichten wiederhergestellt.\n\nDie tiefste Schicht enthält zwei Arten von Zellen. Die eine Art Zellen teilen sich ständig, indem die neu gebildeten Zellen die alten in die oberen Schichten verdrängen. Die andere Art Zellen produzieren das Dunkelpigment Melanin. Es nimmt die Ultraviolettstrahlen des Sonnenlichts auf und schützt auf diese Weise die Haut vor ihrer schädlichen Wirkung. Deshalb wird Melanin in der Epidermis abgelagert, wenn man über längere Zeit den Sonnenstrahlen ausgesetzt ist.\n\nDie Dermis (Lederhaut) besteht vorwiegend aus Bindegewebe. Sie enthält Kollagen- und Elastanfasern. Ihre Anzahl nimmt mit dem Alter ab und die Haut verliert damit ihre Elastizität. Die Dermis ist gut durchblutet, was für die Regelung der Körpertemperatur von Bedeutung ist. In der Dermis und Epidermis befinden sich viele Nervenendungen. Dank ihnen bekommt der menschliche Organismus dauernd Information über die Veränderungen in der Umwelt. Unmittelbar unter der Epidermis bildet die Dermis Maserungen (Papillen). Am besten ausgeprägt sind sie auf der Handfläche und auf den Fingern, wo sie ein ganz persönliches unverwechselbares Muster formen. Das wird in der Gerichtsmedizin und in der Kriminalistik eingesetzt. In unterschiedlicher Tiefe der Dermis befinden sich die Schweiß- und Fettdrüsen sowie auch die Haarwurzeln (Abb. 1).\n\nDie Schweißdrüsen sind auf dem ganzen Körper verteilt. Besonders zahlreich finden sich Schweißdrüsen auf den Handflächen, Fußsohlen, am Unterkörper und in den Achselhöhlen. Sie stellen kleine Röhrchen dar, das eine Ende in ein Knäuel gewickelt, das sich in der Dermis befindet und das andere Ende öffnet sich auf der Hautoberfläche. Das Sekret der Schweißdrüsen ist der Schweiß. Er besteht aus 98% Wasser, aus in ihm aufgelösten Salzen (z.B. NaCl) und aus Endprodukten des Stoffwechsels (Urea u.a.). Die Schweißdrüsen sind für den Wärmehaushalt besonders wichtig.\n\nDie Fettdrüsen (Talgdrüsen) haben Ausgangskanäle, die sich in den Haarsäckchen oder direkt auf der Hautoberfläche öffnen. Ihre Zellen zerstören sich und so wird ein Fettsekret abgesondert, der die Haare und die Epidermis überdeckt und sie auf diese Weise vor Austrocknung und Rissen schützt. Die zerstörten Zellen werden durch Teilung der Zellen aus den tieferen Schichten wiederhergestellt.\n\nDie Hautanhangsgebilde sind die Haare und die Nägel. Sie sind Horngebilde der Epidermis. Der ganze Körper mit Ausnahme der Handflächen, Fußsohlen und der Lippen ist mit Haaren bedeckt. Die Haarwurzel befindet sich in einem Säckchen, wo sie wächst und vom Sekret der Fettdrüsen geschmiert wird. In dem erweiterten, unteren Teil des Haares teilen sich die Zellen wodurch das Haar ununterbrochen wächst.\n\n<strong>Funktionen der Haut.</strong> Die Haut umhüllt den menschlichen Körper und schützt ihn vor krankheitserregenden Mikroorganismen, vor Wasserverlust sowie vom Eindringen von Wasser in den Körper (z.B. beim Baden oder Schwimmen) und vor anderen Faktoren, d.h. sie erfüllt eine Schutzfunktion. Der Teint ist auch eine Schutzreaktion gegen die schädlichen UV-Strahlen. Durch die Wirkung der gesunden UV-Strahlen wird in der Haut Vitamin D gebildet, der vor Rachitis schützt.\n\nSinneswahrnehmungen. Durch Rezeptoren nimmt die Haut Sinnesreize von äußeren Faktoren wie Berührung, Druck, Wärme oder Kälte, Schmerz und Jucken auf. Bei Menschen mit Beeinträchtigung des Sehvermögens ist diese sensorische Funktion der Haut sehr stark ausgeprägt.\n\nDie thermoregulierende Funktion der Haut kommt hauptsächlich durch Verdampfung von Wasser (Schweißabsonderung) und durch das Dehnen und Verengen der Blutgefäße zustande. Die Fettschicht unter der Haut ist eine Art Thermoisolierung, die den Wärmeabfluss des Körpers verhindert.\n\nDie Haut ist das wichtigste Organ für den Wärmeaustausch mit der Umgebung. Bei Dehnung der Blutgefäße gibt die Körperoberfläche Wärme ab (durch Strahlen, Leitung, Verdampfen und Konvektion) und der Körper wird gekühlt. Wenn sich die Blutgefäße verengen, nimmt die Menge des durch die Gefäße fließenden Blutes ab, und der Organismus erhält die Wärme (Abb. 2).\n\n<strong>Der Komplex physikalischer und chemischer Prozesse für die Beibehaltung einer konstanten Körpertemperatur heißt Thermoregulierung.</strong>\n\nDie Ausscheidungsfunktion der Haut ist mit der Tätigkeit der Schweißdrüsen verbunden. Mit dem Schweiß werden Endprodukte des Stoffwechsels ausgeschieden. Auf diese Weise unterstützen die Schweißdrüsen die Nierentätigkeit.\n\n<strong>Hygiene der Haut</strong>\n\nDer unmittelbare Kontakt der Haut mit der Umwelt, das ununterbrochene Schuppen der oberen Epidermis-Schicht, die Ausscheidung von Schweiß und Fettsekret erfordern die Einhaltung von Körperhygiene. Nur die saubere und unbeschädigte Haut ist in der Lage, ihre Hauptfunktionen zu erfüllen. Man sollte nach Möglichkeit Kleidung aus natürlichen Materialien tragen.\n\nDie Einhaltung von Körperhygiene schränkt die Entwicklung von krankheitserregenden Mikroorganismen in der Haut ein (Abb. 3). Beim Schwimmen in verschmutzten Gewässern, beim Benutzen von Hand- und Badetüchern von mehreren Personen, beim Tragen von fremder Kleidung, Schuhen u.a. kann es leicht zu Ansteckung mit Pilzen (Mykosen) kommen.\n\nDie Haut muss auch vor Verbrennungen geschützt werden. Verbrennungen eines bedeutenden Teils der Haut können zum Tod führen.\n\nDie immer dünner werdende Ozonschicht um die Erde und die Ozonlöcher sind der Grund für das immer häufigere Auftreten des Hautkrebses. Das Risiko erhöht sich auch, wenn man sich für längere Zeit der Wirkung der Sonnenstrahlen, vor allem im Sommer, aussetzt.\n\nDie Akne (Pickel bei Jugendlichen) ist eine Erkrankung der Haut, bei der Sekret und abgestorbene verhornte Zellen die Kanäle der Fettdrüsen verstopfen. In dem angesammelten Sekret entwickeln sich Bakterien und es kommt zu Entzündungen. Die Pickel dürfen nicht ausgedrückt werden. Eine Konsultation mit dem Hautarzt (Dermatologen) ist notwendig.\n\nDie Ertüchtigung der Haut unter Wirkung natürlicher Faktoren wie Luft, Sonne und Wasser hat einen großen Einfluss auf ihre Struktur und Funktion."
+}

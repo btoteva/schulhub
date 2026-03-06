@@ -200,6 +200,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "—",
               completed: false,
             },
+            {
+              id: "7-3",
+              number: "14",
+              title: "VII-3 DIE HAUT",
+              duration: "—",
+              completed: false,
+            },
           ],
         },
       ],
