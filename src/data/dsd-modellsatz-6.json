@@ -1,0 +1,482 @@
+{
+  "id": "dsd1-modellsatz5",
+  "title": "DSD I Modellsatz 5",
+  "titleBg": "DSD I Моделен тест 5",
+  "subtitle": "Leseverstehen Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [
+    {
+      "word": "verboten",
+      "synonyms": "nicht erlaubt",
+      "synonymsBg": "забранено",
+      "synonymsOrExplanation": "nicht erlaubt",
+      "synonymsOrExplanationBg": "не е позволено",
+      "wordBg": "забранено"
+    },
+    {
+      "word": "Besucher",
+      "synonyms": "Gäste",
+      "synonymsBg": "посетители",
+      "synonymsOrExplanation": "Personen, die etwas besichtigen",
+      "synonymsOrExplanationBg": "хора, които посещават",
+      "wordBg": "посетители"
+    },
+    {
+      "word": "macht",
+      "synonyms": "bereitet",
+      "synonymsBg": "прави",
+      "synonymsOrExplanation": "verursacht, bereitet",
+      "synonymsOrExplanationBg": "причинява, доставя",
+      "wordBg": "прави"
+    },
+    {
+      "word": "Präsentationen",
+      "synonyms": "Vorträge, Vorführungen",
+      "synonymsBg": "презентации",
+      "synonymsOrExplanation": "Vorführungen zu einem Thema",
+      "synonymsOrExplanationBg": "представяния на тема",
+      "wordBg": "презентации"
+    },
+    {
+      "word": "anders",
+      "synonyms": "verschieden",
+      "synonymsBg": "различно",
+      "synonymsOrExplanation": "nicht gleich, unterschiedlich",
+      "synonymsOrExplanationBg": "не същото, различно",
+      "wordBg": "различно"
+    }
+  ],
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast insgesamt 60 Minuten Zeit, um die fünf Teile zu bearbeiten. Danach hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext. Der Text hat vier Lücken (Aufgaben 1–4).\nSetze aus der Wortliste (A–H) das richtige Wort in jede Lücke ein.\nEinige Wörter bleiben übrig.",
+      "text": "„Bitte nicht berühren!“ Jeder, der schon einmal in einem Museum war, kennt diesen Satz. Das Anfassen der Gegenstände im Museum ist oft streng **verboten** (0). In einem Museum für Kinder und Jugendliche in Köln ist das ganz ________ (1). Hier dürfen und sollen die ________ (2) alles anfassen. Durch das Museum führen keine Erwachsenen, sondern Jugendliche. Sie erklären alles und fordern zum Mitmachen auf. Heute ist das die Aufgabe von Bianca und Felix. Sie sind 15 Jahre alt und die Arbeit ________ (3) ihnen großen Spaß. Bianca zeigt zum Beispiel, wie man selber Papier machen kann. In der oberen Etage des Museums gibt es ein Flugzeug mit echten Sitzen und Knöpfen, die man auch ausprobieren darf. Dann fühlt man sich wie bei einem richtigen Start eines Flugzeugs. In Zukunft sind noch mehr _________ (4) zu Natur und Technik geplant, zum Beispiel eine, die den menschlichen Körper erklärt.",
+      "wordList": [
+        {
+          "id": "Z",
+          "word": "verboten",
+          "wordBg": "забранено"
+        },
+        {
+          "id": "A",
+          "word": "Besucher",
+          "wordBg": "посетители"
+        },
+        {
+          "id": "B",
+          "word": "macht",
+          "wordBg": "прави"
+        },
+        {
+          "id": "C",
+          "word": "Kollegen",
+          "wordBg": "колеги"
+        },
+        {
+          "id": "D",
+          "word": "alten",
+          "wordBg": "стари"
+        },
+        {
+          "id": "E",
+          "word": "Präsentationen",
+          "wordBg": "презентации"
+        },
+        {
+          "id": "F",
+          "word": "anders",
+          "wordBg": "различно"
+        },
+        {
+          "id": "G",
+          "word": "Flugzeuge",
+          "wordBg": "самолети"
+        },
+        {
+          "id": "H",
+          "word": "ist",
+          "wordBg": "е"
+        }
+      ],
+      "tasks": [
+        {
+          "id": 1,
+          "gap": 1,
+          "correct": "F",
+          "question": "Lücke 1"
+        },
+        {
+          "id": 2,
+          "gap": 2,
+          "correct": "A",
+          "question": "Lücke 2"
+        },
+        {
+          "id": 3,
+          "gap": 3,
+          "correct": "B",
+          "question": "Lücke 3"
+        },
+        {
+          "id": 4,
+          "gap": 4,
+          "correct": "E",
+          "question": "Lücke 4"
+        }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Aufgabe 5: Welche Überschrift passt am besten zum Text? Kreuze an.",
+        "questionBg": "Коя заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          {
+            "id": "A",
+            "text": "Im Flugzeug-Museum",
+            "correct": false
+          },
+          {
+            "id": "B",
+            "text": "Im Mitmach-Museum",
+            "correct": true
+          },
+          {
+            "id": "C",
+            "text": "Im Papier-Museum",
+            "correct": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "titleBg": "Част 2",
+      "subtitle": "Anzeigen im Internet",
+      "intro": "Auf einer Internetseite findest du verschiedene Anzeigen.\nLies zuerst die Aufgaben (6–9) und dann die Anzeigen (A–H).\nWelche Anzeige passt zu welchem Wunsch?\nSchreibe den richtigen Buchstaben (A–H) in die rechte Spalte.\nDu kannst jeden Buchstaben nur einmal wählen.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6–9",
+      "optionsHeading": "Anzeigen A–H",
+      "summaries": [
+        {
+          "id": 0,
+          "text": "Marie sammelt Ideen, was man alles aus Schokolade machen kann.",
+          "correct": "Z",
+          "isExample": true
+        },
+        {
+          "id": 6,
+          "text": "Marco braucht Tipps, welche Orte er in Hamburg besuchen kann.",
+          "correct": "F",
+          "isExample": false
+        },
+        {
+          "id": 7,
+          "text": "Kathrin möchte wissen, ob ihr Lieblingsschauspieler einen Preis beim Filmfest gewonnen hat.",
+          "correct": "C",
+          "isExample": false
+        },
+        {
+          "id": 8,
+          "text": "Christian kocht gern und sucht nach neuen Rezepten, die er ausprobieren kann.",
+          "correct": "A",
+          "isExample": false
+        },
+        {
+          "id": 9,
+          "text": "Steffi möchte am Wochenende ihre Freundin in München besuchen, hat aber nur wenig Geld für die Reise.",
+          "correct": "G",
+          "isExample": false
+        }
+      ],
+      "emailOptions": [
+        {
+          "id": "Z",
+          "text": "In diesem Forum findet ihr die besten Rezepte zum Kochen und Backen. Verwöhne deine Gäste mit einem leckeren süßen Nachtisch. Alles ganz einfach und schnell."
+        },
+        {
+          "id": "A",
+          "text": "Du bereitest dein Essen gern selber zu, dir fehlen aber neue Ideen und du hast fast immer die gleichen Dinge im Topf? Dann probier mal was Neues! Wir zeigen dir viele Beispiele, wie du dir ganz neue Mahlzeiten zubereiten kannst."
+        },
+        {
+          "id": "B",
+          "text": "Du willst in München studieren, suchst eine Wohnung, hast aber nur wenig Geld? Dann informiere dich bei uns - dem Münchner Studentenwerk! Bei uns findest du billige Wohnungen in der Nähe der Uni."
+        },
+        {
+          "id": "C",
+          "text": "Möchtest du mehr über deine Stars aus Musik und Film erfahren? Dann besuch doch mal unsere Internetseite! Wir haben die neuesten Informationen über alle möglichen Berühmtheiten. Was du dazu schon immer wissen wolltest, findest du bei uns!"
+        },
+        {
+          "id": "D",
+          "text": "Viele Schüler bekommen mittags in der Schule ihr Essen und machen damit verschiedene Erfahrungen. In manchen Schulen ist es lecker und gesund - in anderen ist das nicht so. Schreib deine Erfahrung in unser Forum!"
+        },
+        {
+          "id": "E",
+          "text": "Tipp: In Berlin hat in der Mittagszeit das Café „Multi Kulti“ geöffnet. Dort gibt es gesundes Essen aus vielen verschiedenen Ländern. So etwas bietet nicht jede Stadt! Das Café kann man vom Bahnhof leicht zu Fuß erreichen."
+        },
+        {
+          "id": "F",
+          "text": "Du fährst in eine fremde Stadt und weißt nicht, was es dort alles gibt? Du bist neugierig auf die Menschen und möchtest so viel wie möglich kennen lernen? Informier dich dazu über fast jeden Ort in Deutschland in unserem Forum!"
+        },
+        {
+          "id": "G",
+          "text": "Du willst in eine andere Stadt fahren und das so billig wie möglich? Bei uns gibt es Sonderangebote für Schüler und Studenten, die mal für ein paar Tage verreisen möchten. Wir bieten Ziele in ganz Deutschland!"
+        },
+        {
+          "id": "H",
+          "text": "Ab sofort bei uns im Kino: „Verliebt in eine Ärztin“ - Der neue Film mit den bekannten Schauspielern Heiko Färber und Sarah Schneider! Wir haben besondere Preise für Schüler. Wir freuen uns auf euren Besuch!"
+        }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "titleBg": "Част 3",
+      "subtitle": "Schulsport mal anders",
+      "intro": "Lies den Text und die Aufgaben (10–14).\nKreuze bei jeder Aufgabe (10–14) an: richtig oder falsch?",
+      "text": "So etwas hat es vorher noch nie an einer deutschen Schule gegeben: An der Adenauer-Realschule in Hamm spielen sportbegeisterte Schüler Golf. Golf? Ja, denn die Schule besitzt eine Golfbahn. Einige Schüler bauten vorher monatelang gemeinsam mit ihren Eltern die Golfbahn. Diese ist nun vor ein paar Tagen fertig geworden.\n\nDie Schüler Tim, Charlotte und Caroline warten nun hier auf ihren Lehrer Jens Kneißel. Dieser hatte auch die Idee zur Golfbahn. Zusammen wollen sie heute ein paar Bälle zur Probe auf der Golfbahn schlagen. Herr Kneißel zeigt den anderen Schülern zuerst, wie man beim Schlagen stehen muss. Dann dürfen die Schüler selber ein paar Bälle schlagen. Tim versucht es als erster, trifft aber den Ball erst beim zweiten Schlag. Der Ball geht zwar sehr hoch, dafür aber nicht sehr weit. „Naja“, meint Tim, „bis ich ein guter Golfspieler bin, brauche ich wohl noch etwas Zeit.“\n\nEs hat sich einiges an deutschen Schulen in den letzten Jahren verändert: Im Schulsport gibt es heute viel mehr neue Sportarten als früher. Vieles, was früher nicht möglich war, ist heute ganz normal. Dies zeigen auch andere Beispiele: An der Goethe-Schule in Berlin können Schüler der Klassen fünf bis zehn Yoga lernen - sicher eine gute Idee, um mal etwas ruhiger zu werden. Für die Yoga-Übungen bekommen die Schüler keine Noten, denn Yoga bietet die Schule nur als freiwilligen Kurs nachmittags nach der Schule an.\n\nDie Goethe-Schule bietet sogar noch eine weitere, seltene Sportart an: Bei besonders gutem Wetter findet der Sportunterricht am See statt. Dort können die Schüler Wasserski auf dem See fahren.\n\nSchuldirektor Rüdiger Zicholl freut sich für seine Schüler über die Arbeit einiger Lehrer: „Wenn die Schüler etwas wollen und wir es anbieten können, dann tun wir das auch.“",
+      "tasks": [
+        {
+          "id": 10,
+          "statement": "An der Adenauer-Realschule wird schon lange Golf gespielt.",
+          "correct": "falsch"
+        },
+        {
+          "id": 11,
+          "statement": "Die Idee zum Golfplatz hatten drei Schüler.",
+          "correct": "falsch"
+        },
+        {
+          "id": 12,
+          "statement": "Tim ist ein guter Golfspieler.",
+          "correct": "falsch"
+        },
+        {
+          "id": 13,
+          "statement": "An der Goethe-Schule gibt es Yoga als normales Unterrichtsfach.",
+          "correct": "falsch"
+        },
+        {
+          "id": 14,
+          "statement": "Schuldirektor Zicholl versucht, die Wünsche seiner Schüler zu erfüllen.",
+          "correct": "richtig"
+        }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "subtitle": "Preisausschreiben",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe (15–20) die richtige Lösung an.",
+      "text": "Niko war ein Jahr als Austauschschüler an der Estero-Schule in Florida. Als er dort im April von einem Preisausschreiben zum Thema „Halte deine Umwelt sauber“ erfuhr, wollte er dabei mitmachen. Danach hatte er zwei Wochen Zeit, seine Ideen zu diesem Thema auf Bildern zu präsentieren. Aber Niko setzte sich erst am letzten Abend an den Tisch und arbeitete dann ohne Pause. Erst um vier Uhr früh war er mit seiner Arbeit fertig. Das Ergebnis war ein Bild, das er nur mit Buntstiften malte. Dort stellte Niko ganz ohne Text die aktuellen Umweltprobleme dar. Im Zentrum des Bildes war die Erde zu sehen. An den Seiten rechts und links waren Symbole, die auf diese Probleme hinwiesen.\n\nAn dem Preisausschreiben nahmen ungefähr 50 Schüler aus allen Klassen seiner Schule teil und Niko gewann den ersten Platz unter den Klassen 11 und 12. Da war die Überraschung natürlich groß, als er einen Monat später eine private E-Mail von einer Lehrerin seiner Gastschule bekam. Es war eine Nachricht über seinen Gewinn. Auf der offiziellen Feier im Festsaal der Gastschule erhielten dann alle Gewinner ihre Preise von den Organisatoren des Preisausschreibens. Nikos Klassenlehrer, seine Austauschklasse und seine Gastfamilie waren natürlich auch mit dabei und freuten sich sehr für ihn. Sogar der Direktor der Schule gratulierte ihm persönlich!\n\nNiko bekam für sein Bild 500 US-Dollar Preisgeld und dazu noch Farben, Pinsel und andere Sachen, die man zum Malen braucht. Sein Kunstwerk durfte er wieder mit nach Hause nehmen. Für sein späteres Berufsleben wird der Preis aber leider keine weiteren Vorteile haben, da Niko gerne Medizin studieren möchte. Trotzdem findet Niko, dass sich sein Einsatz für ihn persönlich gelohnt hat. Außerdem ist es ja nie falsch, an Umweltaktionen teilzunehmen.",
+      "questions": [
+        {
+          "id": 15,
+          "question": "Für sein Bild brauchte Niko",
+          "options": [
+            {
+              "id": "A",
+              "text": "eine Nacht.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "vier Stunden.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "zwei Wochen.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "question": "In der Mitte des Bildes sieht man",
+          "options": [
+            {
+              "id": "A",
+              "text": "unseren Planeten.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Umweltprobleme.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Umweltsymbole.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "question": "Teilnehmer an dem Preisausschreiben waren",
+          "options": [
+            {
+              "id": "A",
+              "text": "50 Schüler der Klassen 11 und 12.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "alle Schüler aus Nikos Klasse.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Schüler aus vielen Klassen.",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "question": "Den Gewinn bekam Niko",
+          "options": [
+            {
+              "id": "A",
+              "text": "vom Direktor der Schule.",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "vom Organisator der Aktion.",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "von seinem Klassenlehrer.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "question": "Niko möchte später",
+          "options": [
+            {
+              "id": "A",
+              "text": "Arzt werden.",
+              "correct": true
+            },
+            {
+              "id": "B",
+              "text": "Kunst studieren.",
+              "correct": false
+            },
+            {
+              "id": "C",
+              "text": "Umweltaktionen planen.",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "question": "Welche Überschrift passt am besten?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Schüler fliegt für Umweltaktion in die USA",
+              "correct": false
+            },
+            {
+              "id": "B",
+              "text": "Schüler gewinnt beim Preisausschreiben in den USA",
+              "correct": true
+            },
+            {
+              "id": "C",
+              "text": "Schüler wird zum Wettbewerb in die USA eingeladen",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "titleBg": "Част 5",
+      "subtitle": "Nebenjobs",
+      "intro": "Lies die Texte 21–24 und die Überschriften A–H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A–H) in die rechte Spalte.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 21–24",
+      "summaries": [
+        {
+          "id": 0,
+          "text": "Es ist hart, auch am Samstag früh aufzustehen, wenn alle anderen noch in ihren Betten liegen. Aber die Arbeit ist ganz leicht: Man muss nur mit dem Fahrrad durch alle Straßen in unserem Viertel fahren. Eigentlich müssen sie ja immer in die Briefkästen, aber wenn ich ehrlich bin: Ich werfe sie oft einfach vor die Tür. Die Leser könnten sich beschweren, aber das tut nie jemand…",
+          "correct": "Z",
+          "isExample": true
+        },
+        {
+          "id": 21,
+          "text": "Für mich ist das echt die beste Art, Geld zu verdienen. Ich muss mich nicht besonders anstrengen. Und ich lerne selbst noch etwas dabei. Die Kunden bekomme ich meist von meinen Lehrern. Diese sagen auch immer, dass ich nicht zu wenig Geld pro Stunde nehmen soll… Mir macht es jedenfalls Spaß, weil die meisten meiner „Kunden\" auch alle wirklich nett sind.",
+          "correct": "G",
+          "isExample": false
+        },
+        {
+          "id": 22,
+          "text": "Gut, ein bisschen langweilig ist es schon. Dafür ist es aber eigentlich total einfach: aufmachen, Sachen rein, zukleben, beschriften. Und das immer und immer wieder. Das Verschicken wird dann von anderen Leuten erledigt. Irgendwann macht man das total automatisch. Abends bin ich immer völlig fertig und gehe meist sofort ins Bett, aber man verdient sehr gut dabei.",
+          "correct": "E",
+          "isExample": false
+        },
+        {
+          "id": 23,
+          "text": "Einmal in der Woche gehe ich in den Supermarkt. In der Kühlabteilung gibt es alles, was sie braucht - meistens sind es frische Produkte. Sachen, die sich länger halten, bringt ihre Tochter vorbei, wenn sie einmal im Monat kommt. Am Wichtigsten ist ihr aber, nachher jemanden zum Reden zu haben. Ich bekomme keine feste Bezahlung, aber sie ist immer sehr großzügig.",
+          "correct": "F",
+          "isExample": false
+        },
+        {
+          "id": 24,
+          "text": "Meistens arbeite ich am Wochenende, bei jedem Wetter. Nicht so schön ist es, wenn es regnet. Dann bin ich nicht gut gelaunt und auch die Leute nicht. Macht ja auch keinen Spaß, die ganze Zeit in nassen Kleidern herumzulaufen und das Zuhören fällt dann allen besonders schwer. Aber normalerweise interessieren sich alle für die alten und besonderen Gebäude.",
+          "correct": "A",
+          "isExample": false
+        }
+      ],
+      "headlineOptions": [
+        {
+          "id": "Z",
+          "text": "Zeitungen austragen gehen"
+        },
+        {
+          "id": "A",
+          "text": "Touristengruppen durch die Stadt führen"
+        },
+        {
+          "id": "B",
+          "text": "Im Supermarkt die Regale füllen"
+        },
+        {
+          "id": "C",
+          "text": "Auf kleine Kinder aufpassen"
+        },
+        {
+          "id": "D",
+          "text": "Kleine Berichte für die Zeitung schreiben"
+        },
+        {
+          "id": "E",
+          "text": "Pakete packen in der Fabrik"
+        },
+        {
+          "id": "F",
+          "text": "Einkaufen für eine ältere Frau"
+        },
+        {
+          "id": "G",
+          "text": "Nachhilfeunterricht geben"
+        },
+        {
+          "id": "H",
+          "text": "Helfen auf dem Bauernhof"
+        }
+      ]
+    }
+  ]
+}

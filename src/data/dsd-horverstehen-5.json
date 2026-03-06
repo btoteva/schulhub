@@ -1,0 +1,223 @@
+{
+  "id": "dsd1-horverstehen-5",
+  "title": "DSD I Modellsatz 5",
+  "titleBg": "DSD I Моделен тест 5",
+  "subtitle": "Hörverstehen Hörtexte",
+  "subtitleBg": "Текстове за слушане",
+  "horverstehenInstructions": "",
+  "vocabulary": [],
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Auf Reisen",
+      "intro": "Du hörst fünf Szenen. Alle Szenen haben mit Reisen zu tun.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/ghdw5dssf7mgg21kpzd4r/5-01-AudioTrack-01.mp3?rlkey=73cdqalnjnm0we8tltkfq6bon&st=bo9cly9j&dl=1",
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Frau <ächzend>", "text": "Entschuldigen Sie bitte, mein Koffer ist sehr schwer. Können Sie mir beim Einsteigen helfen?" },
+            { "speaker": "Mann", "text": "Ja klar. Der Koffer ist ja auch sehr groß." },
+            { "speaker": "Frau", "text": "Vielen Dank, das ist sehr nett von Ihnen." },
+            { "speaker": "Frau <anderer Tonfall>", "text": "Benni, lauf jetzt nicht wieder weg!" },
+            { "speaker": "Mann", "text": "Ah! Der Kleine gehört zu Ihnen! Geht er denn schon in die Schule?" },
+            { "speaker": "Frau", "text": "Nein, nein - noch in den Kindergarten." }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Mann", "text": "Aah, endlich…!" },
+            { "speaker": "Frau", "text": "Joa, das hat ganz schön lange gedauert…" },
+            { "speaker": "Mann", "text": "Ich konnte nicht mehr sitzen. Jetzt will ich nur noch nach Hause." },
+            { "speaker": "Frau", "text": "Na, soo schlimm war's doch auch wieder nicht. Der Busfahrer ist doch ganz gut gefahren." },
+            { "speaker": "Mann", "text": "Wenn jetzt nur der Koffer nicht so schwer wäre…" },
+            { "speaker": "Frau", "text": "Ja, du hast Recht, aber wir haben es ja nicht so weit. Komm, los geht's!" }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Mann", "text": "Und? Ist es der Motor?" },
+            { "speaker": "Frau", "text": "Nein, zum Glück nicht. Der Reifen ist platt. Dass das gerade jetzt passieren muss!" },
+            { "speaker": "Mann", "text": "Und dann noch auf der Autobahn! Was machen wir denn jetzt?" },
+            { "speaker": "Frau", "text": "So schlimm ist es ja nicht. Den wechseln wir schnell." },
+            { "speaker": "Mann", "text": "Oh Mist! Ich hab' so was noch nie gemacht…" }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Frau", "text": "Wir müssen uns noch ein Zimmer für heute Nacht suchen. Hast du eine Idee?" },
+            { "speaker": "Mann", "text": "Schade, dass wir unsere Decken und Zelte nicht dabei haben." },
+            { "speaker": "Frau", "text": "Schau mal, da, wie wäre das?" },
+            { "speaker": "Mann", "text": "Nein, das ist bestimmt zu teuer. Aber Andreas wohnt doch hier in der Nähe." },
+            { "speaker": "Frau", "text": "Ja, stimmt. Ruf ihn doch mal an. Bei ihm können wir bestimmt schlafen." }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Frau <pikiert>", "text": "Schlimm, wie sich manche Leute in der Bahn benehmen." },
+            { "speaker": "Mann", "text": "Ja, stimmt. Entweder sie hören so laut Musik, dass man sich nicht mehr unterhalten kann…" },
+            { "speaker": "Frau", "text": "… oder sie legen ihre schmutzigen Schuhe auf den Sitz und lassen ihren Müll liegen." },
+            { "speaker": "Mann", "text": "Guck mal, da drüben – der isst auch noch in der Bahn und schmeißt seinen Dreck auf den Boden." },
+            { "speaker": "Frau", "text": "Ja, aber irgendwie riecht es lecker. Da kriege ich direkt Hunger." }
+          ]
+        }
+      ],
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen. Alle Szenen spielen auf Reisen. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Welches Bild passt?",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "correctAnswers": { "1": "A", "2": "C", "3": "A", "4": "B", "5": "B" },
+        "szenen": [
+          { "id": 1, "bildA": "https://i.imgur.com/kx2HwEd.png", "bildB": "https://i.imgur.com/xrL1dVQ.png", "bildC": "https://i.imgur.com/8gg9aSA.png" },
+          { "id": 2, "bildA": "https://i.imgur.com/rGxRnUV.png", "bildB": "https://i.imgur.com/1YekZOM.png", "bildC": "https://i.imgur.com/iVMn2lM.png" },
+          { "id": 3, "bildA": "https://i.imgur.com/esQDZfd.png", "bildB": "https://i.imgur.com/8pbS2x3.png", "bildC": "https://i.imgur.com/vkYMwTI.png" },
+          { "id": 4, "bildA": "https://i.imgur.com/VXLDqCG.png", "bildB": "https://i.imgur.com/g7lVITV.png", "bildC": "https://i.imgur.com/jo0Qt0T.png" },
+          { "id": 5, "bildA": "https://i.imgur.com/FrTQDGv.png", "bildB": "https://i.imgur.com/HkCzSGX.png", "bildC": "https://i.imgur.com/qVh0gDK.png" }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Radiosendungen",
+      "intro": "Du hörst vier Radiosendungen.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/gp0nh57sgd13hb8v404nd/5-02-AudioTrack-02.mp3?rlkey=9elk21xgoi8xmocp2k0lqn5mz&st=g1ipn23a&dl=1",
+      "teil2Exercise": {
+        "instruction1": "Du hörst gleich Teile von verschiedenen Radiosendungen.",
+        "instruction2": "Lies zuerst die Aufgaben 6-9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction3": "Höre nun die Texte. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Texte noch einmal.",
+        "tasks": [
+          { "id": 6, "prompt": "Bei dem Fußballspiel", "options": [{ "id": "A", "text": "spielt die Hamburger Mannschaft besser." }, { "id": "B", "text": "spielt die Kölner Mannschaft besser." }, { "id": "C", "text": "spielt die Münchner Mannschaft besser." }], "correct": "B" },
+          { "id": 7, "prompt": "Für das Konzert in Bochum", "options": [{ "id": "A", "text": "gibt es noch Karten im Internet." }, { "id": "B", "text": "hat der Radiosender noch Karten." }, { "id": "C", "text": "kann man im Handel noch Karten kaufen." }], "correct": "B" },
+          { "id": 8, "prompt": "Nadine", "options": [{ "id": "A", "text": "hat einen Auftritt im Radio." }, { "id": "B", "text": "ist im Augenblick glücklich." }, { "id": "C", "text": "trifft sich sehr oft mit Maja." }], "correct": "A" },
+          { "id": 9, "prompt": "Claudia und Annkathrin haben im Urlaub Spaß mit", "options": [{ "id": "A", "text": "den Mitschülern." }, { "id": "B", "text": "ihren Eltern." }, { "id": "C", "text": "Stefan." }], "correct": "C" }
+        ]
+      },
+      "aufgaben": [
+        {
+          "id": 6,
+          "text": "Das Spiel wird immer spannender. Die Kölner sind jetzt die bessere Mannschaft und liegen verdient vorne. München spielt jetzt fast schon so schlecht wie letzte Woche in Hamburg. Die Zuschauer in München sind langsam unzufrieden. Ihnen gefällt das Spiel ihrer Mannschaft nicht mehr."
+        },
+        {
+          "id": 7,
+          "text": "Die Deutschland-Tour der Band geht weiter. Am 2. März kommen die Jungs nach Bochum. Über das Internet haben sie schon alle Karten verkauft. Aber wir haben noch Karten für euch. Ihr müsst nur eine Frage beantworten - und die gibt es nach dem nächsten Lied…"
+        },
+        {
+          "id": 8,
+          "text": "Heute geht es bei uns um Freundschaften. Nadine hat in ihrer Klasse eine beste Freundin. Sie heißt Sophia. Aber Sophia ist in letzter Zeit nachmittags viel öfter bei Maja. Natürlich ist Nadine nicht glücklich. Sie ist jetzt bei uns zu Gast und wird selbst erzählen."
+        },
+        {
+          "id": 9,
+          "text": "Heute besprechen wir das neue Buch der Autorin Renate Reich. Es handelt von Claudia und Annkathrin, die Ferien mit ihren Pferden machen. Die beiden sind das erste Mal ohne ihre Eltern weg. Alle ihre Mitschüler wollen das natürlich auch. Im Dorf lernen sie Stefan kennen. Bald werden die drei dicke Freunde. Was dann passiert, könnt ihr gleich hören."
+        }
+      ],
+      "itemLabel": "Aufgabe"
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Interview mit Luisa",
+      "intro": "Du hörst ein Interview mit Luisa über Spanisch als dritte Fremdsprache.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/wuc21upph3bcqayu3arv7/5-03-AudioTrack-03.mp3?rlkey=6brit3sjpvanvlg5vrbs3s5gb&st=p6nh0a01&dl=1",
+      "teil3Exercise": {
+        "intro": "Du hörst gleich ein Interview mit Luisa. Luisa lernt an ihrer Schule Spanisch als dritte Fremdsprache.",
+        "instruction1": "Lies zuerst die Sätze 10–14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10–14) an: richtig oder falsch.",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Im Spanienurlaub hatte Luisa Sprachprobleme.", "correct": "richtig" },
+          { "id": 11, "statement": "Luisa ist mit dem Spanischunterricht sehr zufrieden.", "correct": "richtig" },
+          { "id": 12, "statement": "Luisa lernt Französisch mit einem bestimmten System.", "correct": "richtig" },
+          { "id": 13, "statement": "Luisa spricht in Spanien meistens Englisch oder Französisch.", "correct": "falsch" },
+          { "id": 14, "statement": "Luisa weiß schon, was sie später beruflich machen möchte.", "correct": "falsch" }
+        ]
+      },
+      "content": "Luisa, du hast in der 9. Klasse freiwillig Spanisch als dritte Fremdsprache gewählt! Warum?\n\nLuisa: Ich hatte zwei Gründe: Der erste war, dass ich sehr gut Sprachen lernen kann. Der zweite Grund war, dass Spanischunterricht einfach ein sehr attraktives Angebot war. Außerdem war ich vor zwei Jahren in den Sommerferien in Spanien. Da habe ich kein Wort verstanden. Das soll mir nicht noch mal passieren.\n\nWenn du dich heute noch einmal entscheiden müsstest, würdest du noch einmal Spanisch wählen?\n\nLuisa: Ja klar! Ich würde mich genauso entscheiden, da ich bisher viel gelernt habe und der Unterricht interessant ist. Außerdem reise ich ja gerne und es ist besser, wenn man sich in Fremdsprachen unterhalten kann. Dabei merkt man auch, dass man die Fremdsprache immer besser kann.\n\nDu hast Französisch als zweite Fremdsprache gelernt. Hilft dir das eigentlich beim Spanischlernen?\n\nLuisa: Ja schon, denn Französisch ist auch für mich nicht gerade einfach. Ich muss viel dafür lernen. Ich habe dafür aber ein System entwickelt, wie ich am schnellsten lernen kann - zum Beispiel Vokabeln. Außerdem gibt es Ähnlichkeiten zwischen den beiden Sprachen, z. B. bei der Schreibweise.\n\nDu lernst jetzt seit rund eineinhalb Jahren Spanisch. Kannst du dich mit deinen Spanisch-Kenntnissen in Spanien verständigen oder sprichst du dann doch eher andere Sprachen?\n\nLuisa: Es geht so. Ich kann auf Spanisch nach dem Weg fragen und mich auch mit einem Kellner unterhalten. Es kommt aber vor, dass ich manchmal Englisch oder Französisch sprechen muss, weil mir ein paar Vokabeln fehlen.\n\nIch stelle mir den Spanischunterricht ziemlich einfach vor, da die Teilnahme im neunten Schuljahr freiwillig ist. Stimmt das?\n\nLuisa: Also, Hausaufgaben bekommen wir genauso auf wie in anderen Fächern. Der Unterricht ist eigentlich ganz normal. Der Unterschied ist nur, dass wir im Spanischunterricht besser arbeiten können, weil wir eine kleinere Gruppe sind. Trotzdem müssen wir natürlich auch zu Hause lernen.\n\nOK, die letzte Frage: Denkst du, dass du mit deinen drei Fremdsprachen einen Vorteil bei der Arbeitssuche hättest?\n\nLuisa: Ich habe zwar noch keine Ahnung, was ich einmal werden möchte. Ich glaube aber, dass es immer hilft, Fremdsprachen zu sprechen, vor allem Englisch und Spanisch. Das sind ja die zwei Sprachen, die auf der Welt am meisten gesprochen werden. Deswegen finde ich es toll, dass es dieses Angebot an unserer Schule gibt."
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Keine Angst vor großen Zahlen",
+      "intro": "Du hörst einen Bericht von Matthias, der erfolgreich an der Matheolympiade in Köln teilgenommen hat.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/03yh4mpk5u3oqprmhup7o/5-04-AudioTrack-04.mp3?rlkey=0h15i87mdzrblph0ydrnozfig&st=ri2qqsrm&dl=1",
+      "teil4Exercise": {
+        "intro": "Du hörst gleich einen Bericht von Matthias. Matthias hat in diesem Jahr erfolgreich an der Matheolympiade in Köln teilgenommen und berichtet seiner Klasse davon.",
+        "instruction1": "Lies zuerst die Aufgaben 15–20. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun den Bericht. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction4": "Danach hörst du den Bericht noch einmal.",
+        "tasks": [
+          { "id": 15, "prompt": "Bei der Matheolympiade hatte Matthias", "options": [{ "id": "A", "text": "den zweiten Platz." }, { "id": "B", "text": "ein gutes Ergebnis." }, { "id": "C", "text": "leichte Aufgaben." }], "correct": "B" },
+          { "id": 16, "prompt": "Matthias fühlte sich während der ersten Runde der Matheolympiade", "options": [{ "id": "A", "text": "gut vorbereitet." }, { "id": "B", "text": "schlecht." }, { "id": "C", "text": "sehr unruhig." }], "correct": "C" },
+          { "id": 17, "prompt": "Für die Matheolympiade ist es wichtig,", "options": [{ "id": "A", "text": "auswendig zu lernen." }, { "id": "B", "text": "eigene Ideen zu haben." }, { "id": "C", "text": "Formeln richtig anzuwenden." }], "correct": "B" },
+          { "id": 18, "prompt": "Die Ergebnisse der Matheolympiade hat man", "options": [{ "id": "A", "text": "der Schule telefonisch mitgeteilt." }, { "id": "B", "text": "sofort nach der Klausur bekannt gegeben." }, { "id": "C", "text": "später im Internet veröffentlicht." }], "correct": "C" },
+          { "id": 19, "prompt": "Matthias kommt nach Berlin mit", "options": [{ "id": "A", "text": "einem Schulkameraden." }, { "id": "B", "text": "seinem Mathelehrer." }, { "id": "C", "text": "seiner Mutter." }], "correct": "A" },
+          { "id": 20, "prompt": "Matthias hat an Mathe so viel Spaß, weil", "options": [{ "id": "A", "text": "der Matheunterricht auf dem Gymnasium so gut ist." }, { "id": "B", "text": "er früher eine gute Mathelehrerin hatte." }, { "id": "C", "text": "seine Eltern viel mit ihm gerechnet haben." }], "correct": "B" }
+        ]
+      },
+      "content": "Ihr wisst ja, dass ich vor einem Monat erfolgreich die zweite Runde der Matheolympiade geschafft habe. Ich war unter den besten Schülern der 8. Klassen aller Gymnasien in Köln. Bei der Matheolympiade müssen Schüler der Klassen 5 - 13 ganz schön schwierige Aufgaben lösen. In diesem Jahr haben fast 400 Schüler aus 30 Kölner Gymnasien teilgenommen.\n\nWährend der Arbeit war es total still im Raum. Alle haben nur gerechnet, gezeichnet und radiert. In der ersten Runde der Matheolympiade, die vor drei Monaten stattfand, war ich noch sehr nervös und habe ständig etwas durchgestrichen und an meinem Stift gekaut. Meinem Nachbarn war sogar richtig schlecht. Ich hatte da auch das Gefühl, dass ich nicht richtig vorbereitet war und gar nicht wusste, was mich da erwartet.\n\nIn der zweiten Runde kannte ich mich natürlich schon viel besser aus. Unser Mathelehrer hatte immer wieder gesagt, worauf es ankommt: nicht darauf, dass man viel auswendig lernt, sondern darauf, dass man logisch denkt und eigene Ideen hat. Formeln richtig anwenden reicht nicht. Deswegen habe ich mich in der zweiten Runde auch viel sicherer gefühlt und dann ja tatsächlich auch alle Aufgaben richtig gelöst.\n\nÜbrigens: Mein Vater war sehr aufgeregt. Er hat ständig in der Schule angerufen, um zu erfahren, ob ich es geschafft habe. Dabei gab es die Ergebnisse gar nicht gleich nach der Klausur. Und richtig ruhig wurde er erst, als er eine Woche später die Ergebnisse der Matheolympiade im Internet lesen konnte.\n\nIhr wisst ja, ich bin Erster und damit bei der Endrunde in Berlin dabei. Darauf freue ich mich riesig. Eine Woche Berlin ohne Vater und Mutter mit 200 anderen Schülern aus ganz Deutschland, die von ihren Mathelehrern begleitet werden - das ist schon toll. Das Programm dort ist wirklich super, weil wir auch viel Freizeit haben. Schade nur, dass es von meinen Schulkameraden keiner außer mir nach Berlin geschafft hat.\n\nÜbrigens, die Abschlussfeier in Köln war auch sehr gut. Die ganze Kölner Festhalle war voll. Der Bürgermeister hat sogar zu allen gesprochen und die Organisatoren der Olympiade haben die Preise verteilt. Die drei Besten bekamen Flugtickets nach Berlin, alle anderen Teilnehmer Bücher und ein Mathespiel für den Computer.\n\nJetzt fragt ihr euch sicher, wie es dazu gekommen ist, dass ich soviel Spaß an Mathe habe. Eigentlich rechne ich gern, seit ich denken kann. Meine Eltern haben damit gar nichts zu tun. Schon im Kindergarten fand ich Zahlen interessant. Am wichtigsten aber war meine Mathelehrerin in der Grundschule. Sie hat mit uns sehr viel gerechnet und dabei hat sie immer darauf geachtet, dass wir selbstständig arbeiten, uns gegenseitig Aufgaben stellen und unser Wissen auch anwenden. Auch auf dem Gymnasium ist Mathe mein Lieblingsfach."
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Gäste in verschiedenen Fernsehsendungen",
+      "intro": "Du hörst Gäste in verschiedenen Fernsehsendungen.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/92r9mle73y22u4t9hahe7/5-05-AudioTrack-05.mp3?rlkey=sw292kbcalht6opbmtjddbvf4&st=8geg16fk&dl=1",
+      "aufgaben": [
+        {
+          "id": 0,
+          "text": "Das Gute daran ist, dass man viel an der frischen Luft ist und etwas mit Freunden zusammen machen kann. Es ist toll, dass man nachmittags nach den Hausaufgaben draußen ist. Ich bewege mich gerne und habe oft keine Lust, immer nur vor dem Computer zu sitzen. Dann rufe ich ein paar Freunde an und wir treffen uns im Park. Einer bringt einen Ball mit und wir gehen erst wieder nach Hause, wenn es dunkel ist."
+        },
+        {
+          "id": 21,
+          "text": "Eigentlich sollen sich die Schüler nach dem Mittagessen sofort an den Schreibtisch setzen. Man soll seine Arbeit sofort machen und nicht immer alles auf später verschieben. Ich gebe den Kindern sicher nicht zu viele Aufgaben, aber leider machen einige ihre Aufgaben nicht. Sie spielen lieber Computer oder telefonieren den ganzen Nachmittag. Manche sitzen auch vor dem Computer und holen die Lösungen aus dem Internet. Dabei lernen sie dann aber nichts."
+        },
+        {
+          "id": 22,
+          "text": "Es ist furchtbar! Mein Sohn will nicht einmal mehr zum Mittagessen sein Zimmer verlassen. Den ganzen Tag sitzt er an seinem Schreibtisch und spielt irgendwelche Ballerspiele. Ich möchte, dass er auch mal an der frischen Luft ist und Sport macht. Dann ist er mal mit anderen Jugendlichen zusammen und kann endlich Freunde finden. Außerdem soll er mehr für die Schule statt immer nur vor dem Ding zu sitzen … Seine Noten sind in letzter Zeit ziemlich schlecht."
+        },
+        {
+          "id": 23,
+          "text": "Manchmal erschrecke ich mich richtig. Ich sitze irgendwo und plötzlich fängt neben mir eine Frau zu reden an. Erst denke ich: „Die kenne ich doch gar nicht, was will die von mir?“ Bis ich dann merke, dass sie ein Handy am Ohr hat. Meistens stört es die Leute gar nicht, dass alle ihre Gespräche mithören können. Mich nervt das aber. Es interessiert mich auch überhaupt nicht, was andere am Handy besprechen!"
+        },
+        {
+          "id": 24,
+          "text": "Wer kümmert sich eigentlich mal um uns? Wissen Sie eigentlich, was es bedeutet, für eine Familie mit drei Kindern zu sorgen? Alle wollen satt werden - und gut schmecken soll das Essen ja auch. Der Kleine will natürlich ein Handy, damit seine Freunde ihn überall erreichen können. Für die Schule brauchen die Kinder Sachen für ihre Hausaufgaben. Und die Miete muss auch bezahlt werden. Da weiß ich manchmal wirklich nicht, wo das ganze Geld herkommen soll."
+        }
+      ],
+      "itemLabel": "Nummer",
+      "teil5Exercise": {
+        "intro": "Du hörst gleich vier kurze Aussagen von Gästen in einer Fernsehsendung. Ordne diese Aussagen einem Thema zu.",
+        "instruction1": "Lies zuerst die Liste mit den verschiedenen Themen (A-H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction2": "Notiere beim Hören zu jeder Aussage den richtigen Buchstaben (A-H).",
+        "instruction3": "Einige Buchstaben bleiben übrig.",
+        "instruction4": "Du hörst die Meinungen einmal. Zuerst hörst du ein Beispiel.",
+        "instruction5": "Das Beispiel hat die Nummer 0. Die Lösung ist Z.",
+        "instruction6": "Dann hörst du die anderen Meinungen.",
+        "activities": [
+          { "id": "Z", "text": "Kinder sollen Sport treiben" },
+          { "id": "A", "text": "Ärger mit Computerspielen" },
+          { "id": "B", "text": "Das Problem mit den Hausaufgaben" },
+          { "id": "C", "text": "Kinderkleidung für wenig Geld" },
+          { "id": "D", "text": "Das Telefon ist immer dabei" },
+          { "id": "E", "text": "Alles wird immer teurer" },
+          { "id": "F", "text": "Besser lernen am Computer" },
+          { "id": "G", "text": "Streit wegen schlechter Noten" },
+          { "id": "H", "text": "Wenn das Handy zu teuer wird" }
+        ],
+        "taskNumbers": [0, 21, 22, 23, 24],
+        "correctAnswers": { "0": "Z", "21": "B", "22": "A", "23": "D", "24": "E" }
+      }
+    }
+  ]
+}

@@ -8,10 +8,12 @@ import DSDModellsatz1View from './pages/DSDModellsatz1View';
 import DSDModellsatz2View from './pages/DSDModellsatz2View';
 import DSDModellsatz3View from './pages/DSDModellsatz3View';
 import DSDModellsatz4View from './pages/DSDModellsatz4View';
+import DSDModellsatz5View from './pages/DSDModellsatz5View';
 import DSDHorverstehen1View from './pages/DSDHorverstehen1View';
 import DSDHorverstehen2View from './pages/DSDHorverstehen2View';
 import DSDHorverstehen3View from './pages/DSDHorverstehen3View';
 import DSDHorverstehen4View from './pages/DSDHorverstehen4View';
+import DSDHorverstehen5View from './pages/DSDHorverstehen5View';
 import DSDSchriftliche1View from './pages/DSDSchriftliche1View';
 import DSDSchriftliche2View from './pages/DSDSchriftliche2View';
 import DSDSchriftliche3View from './pages/DSDSchriftliche3View';
@@ -57,9 +59,11 @@ const App: React.FC = () => {
           <Route path="/german/dsd-modellsatz-3" element={<DSDModellsatz2View />} />
           <Route path="/german/dsd-modellsatz-4" element={<DSDModellsatz3View />} />
           <Route path="/german/dsd-modellsatz-5" element={<DSDModellsatz4View />} />
+          <Route path="/german/dsd-modellsatz-6" element={<DSDModellsatz5View />} />
           <Route path="/german/dsd-horverstehen-2" element={<DSDHorverstehen2View />} />
           <Route path="/german/dsd-horverstehen-3" element={<DSDHorverstehen3View />} />
           <Route path="/german/dsd-horverstehen-4" element={<DSDHorverstehen4View />} />
+          <Route path="/german/dsd-horverstehen-5" element={<DSDHorverstehen5View />} />
           <Route path="/german/dsd-schriftliche-1" element={<DSDSchriftliche1View />} />
           <Route path="/german/dsd-schriftliche-2" element={<DSDSchriftliche2View />} />
           <Route path="/german/dsd-schriftliche-3" element={<DSDSchriftliche3View />} />
