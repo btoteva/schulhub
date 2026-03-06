@@ -123,6 +123,18 @@ export async function listUserChildren(sql, parentUsername) {
   return rows;
 }
 
+/** Same as listUserChildren but includes gender from linked student (schulhub_users) when student_username is set */
+export async function listUserChildrenWithGender(sql, parentUsername) {
+  const rows = await sql`
+    SELECT c.id, c.child_name, c.school, c.class_name, c.student_username, c.created_at, u.gender AS student_gender
+    FROM schulhub_user_children c
+    LEFT JOIN schulhub_users u ON u.username = c.student_username
+    WHERE c.parent_username = ${parentUsername}
+    ORDER BY c.created_at DESC
+  `;
+  return rows.map((r) => ({ ...r, gender: r.student_gender ?? null }));
+}
+
 export async function addUserChild(sql, parentUsername, childName, school, className, studentUsername = null) {
   const rows = await sql`
     INSERT INTO schulhub_user_children (parent_username, child_name, school, class_name, student_username)

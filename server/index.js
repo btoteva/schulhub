@@ -12,7 +12,7 @@ import {
   isAdmin,
   isSuperAdmin,
 } from "./auth.js";
-import { ensureUsersTable, ensureUserChildrenTable, findUserById, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, updateUserGender, deleteUser, listUserChildren, addUserChild, getUserChild, updateUserChild, deleteUserChild, getParentInfoForStudent } from "./users-db.js";
+import { ensureUsersTable, ensureUserChildrenTable, findUserById, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, updateUserGender, deleteUser, listUserChildren, listUserChildrenWithGender, addUserChild, getUserChild, updateUserChild, deleteUserChild, getParentInfoForStudent } from "./users-db.js";
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -255,8 +255,8 @@ app.get("/api/users/children", async (req, res) => {
     const target = await findUserById(sql, uid);
     if (!target) return res.status(404).json({ error: "User not found" });
     await ensureUserChildrenTable(sql);
-    const children = await listUserChildren(sql, target.username);
-    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, created_at: c.created_at })) });
+    const children = await listUserChildrenWithGender(sql, target.username);
+    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, gender: c.student_gender ?? null, created_at: c.created_at })) });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -269,8 +269,8 @@ app.get("/api/users/:id/children", async (req, res) => {
     const target = await findUserById(sql, uid);
     if (!target) return res.status(404).json({ error: "User not found" });
     await ensureUserChildrenTable(sql);
-    const children = await listUserChildren(sql, target.username);
-    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, created_at: c.created_at })) });
+    const children = await listUserChildrenWithGender(sql, target.username);
+    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, gender: c.student_gender ?? null, created_at: c.created_at })) });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
@@ -512,8 +512,8 @@ app.get("/api/me/children", async (req, res) => {
   if (payload.role === "superadmin") return res.json({ children: [] });
   try {
     await ensureUserChildrenTable(sql);
-    const children = await listUserChildren(sql, payload.sub);
-    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, created_at: c.created_at })) });
+    const children = await listUserChildrenWithGender(sql, payload.sub);
+    res.json({ children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, gender: c.student_gender ?? null, created_at: c.created_at })) });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }

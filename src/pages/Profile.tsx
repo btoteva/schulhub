@@ -81,7 +81,7 @@ const Profile: React.FC = () => {
           )}
           {!isSuperAdmin && user.profile_type === "parent" && (
             <p className="mb-6">
-              <Link to="/my-children" className="text-cyan-600 dark:text-cyan-400 font-medium hover:underline">
+              <Link to="/my-children?edit=1" className="text-cyan-600 dark:text-cyan-400 font-medium hover:underline">
                 {t.myChildren} →
               </Link>
             </p>

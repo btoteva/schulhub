@@ -26,6 +26,36 @@ const ProfileEdit: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submittingProfile, setSubmittingProfile] = useState(false);
 
+  // NOTE: Hooks must not be conditional. These effects are safe when user is null.
+  useEffect(() => {
+    if (!user) return;
+    if (user.role === "superadmin") return;
+    setProfileType(user.profile_type ?? "");
+    setGender(user.gender ?? "");
+    setSchool(user.school ?? "");
+    const cls = user.class ?? "";
+    if (cls) {
+      const match = cls.match(/^(\d+)\s*(.*)$/);
+      if (match) {
+        setGrade(match[1]);
+        setParallel(match[2] || "");
+      } else {
+        setGrade(cls);
+        setParallel("");
+      }
+    } else {
+      setGrade("");
+      setParallel("");
+    }
+  }, [user?.role, user?.profile_type, user?.gender, user?.school, user?.class]);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/schools`)
+      .then((res) => (res.ok ? res.json() : { schools: [] }))
+      .then((data) => setSchools(data.schools || []))
+      .catch(() => setSchools([]));
+  }, []);
+
   if (loading) {
     return (
       <div className={`min-h-screen flex items-center justify-center ${isLight ? "bg-slate-100 text-slate-900" : "bg-slate-900 text-slate-100"}`}>
@@ -67,33 +97,6 @@ const ProfileEdit: React.FC = () => {
       </div>
     );
   }
-
-  useEffect(() => {
-    setProfileType(user.profile_type ?? "");
-    setGender(user.gender ?? "");
-    setSchool(user.school ?? "");
-    const cls = user.class ?? "";
-    if (cls) {
-      const match = cls.match(/^(\d+)\s*(.*)$/);
-      if (match) {
-        setGrade(match[1]);
-        setParallel(match[2] || "");
-      } else {
-        setGrade(cls);
-        setParallel("");
-      }
-    } else {
-      setGrade("");
-      setParallel("");
-    }
-  }, [user?.profile_type, user?.gender, user?.school, user?.class]);
-
-  useEffect(() => {
-    fetch(`${API_BASE}/api/schools`)
-      .then((res) => (res.ok ? res.json() : { schools: [] }))
-      .then((data) => setSchools(data.schools || []))
-      .catch(() => setSchools([]));
-  }, []);
 
   const schoolOptions = (() => {
     const list = [...schools];
@@ -267,7 +270,7 @@ const ProfileEdit: React.FC = () => {
               {profileType === "parent" && (
                 <p className={`text-sm ${isLight ? "text-slate-600" : "text-slate-400"}`}>
                   {language === "bg" ? "Добавяйте и преглеждайте децата си от страницата „Моите деца“." : language === "de" ? "Fügen Sie Ihre Kinder hinzu und sehen Sie sie auf der Seite „Meine Kinder“." : "Add and view your children on the My children page."}
-                  <Link to="/my-children" className="ml-1 font-medium text-cyan-600 dark:text-cyan-400 hover:underline">
+                  <Link to="/my-children?edit=1" className="ml-1 font-medium text-cyan-600 dark:text-cyan-400 hover:underline">
                     {t.myChildren} →
                   </Link>
                 </p>

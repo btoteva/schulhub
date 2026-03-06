@@ -63,14 +63,20 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const UserRoleIcon = user?.role === "superadmin" ? FaCrown : user?.role === "admin" ? FaUserCog : FaUser;
 
-  const isUserOnlyPath = (path: string) =>
-    path.startsWith("/profile") || path.startsWith("/admin") || path === "/my-children" || path === "/weekly-program";
+  const normalizePath = (path: string) => {
+    if (path !== "/" && path.endsWith("/")) return path.slice(0, -1);
+    return path;
+  };
+  const isUserOnlyPath = (path: string) => {
+    const p = normalizePath(path);
+    return p.startsWith("/profile") || p.startsWith("/admin") || p.startsWith("/my-children") || p.startsWith("/weekly-program");
+  };
 
   const handleLogout = () => {
     logout();
     setUserMenuOpen(false);
     setMobileMenuOpen(false);
-    if (isUserOnlyPath(location.pathname)) navigate("/");
+    if (isUserOnlyPath(location.pathname)) navigate("/", { replace: true });
   };
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);

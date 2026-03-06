@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { FaCalendarAlt, FaUserPlus, FaTrashAlt, FaEdit } from "react-icons/fa";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
+import { FaCalendarAlt, FaUserPlus, FaTrashAlt, FaEdit, FaUserTie, FaHeart, FaUser } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 
 const API_BASE = process.env.DEV_API_ORIGIN || "";
 
-type ChildRow = { id: number; child_name: string; school?: string | null; class?: string | null; student_username?: string | null; created_at?: string };
+type ChildRow = { id: number; child_name: string; school?: string | null; class?: string | null; student_username?: string | null; gender?: string | null; created_at?: string };
 
 const MyChildren: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const editMode = searchParams.get("edit") === "1";
   const { user, token, loading } = useAuth();
   const { t, language } = useLanguage();
   const { theme } = useTheme();
@@ -174,51 +176,53 @@ const MyChildren: React.FC = () => {
     <div className={`min-h-screen ${isLight ? "bg-slate-100 text-slate-900" : "bg-slate-900 text-slate-100"}`}>
       <div className="container mx-auto px-4 py-8 max-w-2xl">
         <Link
-          to="/"
+          to={editMode ? "/profile" : "/"}
           className={`inline-flex items-center gap-2 mb-6 font-semibold ${isLight ? "text-slate-700 hover:text-slate-900" : "text-slate-300 hover:text-white"}`}
         >
-          ← {t.home}
+          ← {editMode ? t.profile : t.home}
         </Link>
         <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
           <FaUserPlus className="text-cyan-500" />
           {t.myChildren}
         </h1>
 
-        <div className={`rounded-xl border p-4 mb-6 ${isLight ? "bg-white border-slate-200" : "bg-slate-800 border-slate-700"}`}>
-          <h2 className="font-semibold mb-3">{t.addChild}</h2>
-          <form onSubmit={handleAddChild} className="space-y-3">
-            {error && !editingId && <p className="text-red-500 text-sm">{error}</p>}
-            <div>
-              <label className="block text-sm font-medium mb-1">{t.childName}</label>
-              <input
-                type="text"
-                value={childName}
-                onChange={(e) => setChildName(e.target.value)}
-                className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
-                placeholder={language === "bg" ? "Име" : "Name"}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">{t.studentUsernameInPlatform}</label>
-              <input
-                type="text"
-                value={studentUsername}
-                onChange={(e) => setStudentUsername(e.target.value)}
-                className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
-                placeholder={language === "bg" ? "напр. angori или email@example.com" : "e.g. angori or email@example.com"}
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-medium disabled:opacity-50"
-              aria-label={t.addChild}
-            >
-              <FaUserPlus className="w-4 h-4 shrink-0" aria-hidden />
-              <span>{submitting ? "..." : t.addChild}</span>
-            </button>
-          </form>
-        </div>
+        {editMode && (
+          <div className={`rounded-xl border p-4 mb-6 ${isLight ? "bg-white border-slate-200" : "bg-slate-800 border-slate-700"}`}>
+            <h2 className="font-semibold mb-3">{t.addChild}</h2>
+            <form onSubmit={handleAddChild} className="space-y-3">
+              {error && !editingId && <p className="text-red-500 text-sm">{error}</p>}
+              <div>
+                <label className="block text-sm font-medium mb-1">{t.childName}</label>
+                <input
+                  type="text"
+                  value={childName}
+                  onChange={(e) => setChildName(e.target.value)}
+                  className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                  placeholder={language === "bg" ? "Име" : "Name"}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">{t.studentUsernameInPlatform}</label>
+                <input
+                  type="text"
+                  value={studentUsername}
+                  onChange={(e) => setStudentUsername(e.target.value)}
+                  className={`w-full px-3 py-2 rounded-lg border ${isLight ? "border-slate-300 bg-white text-slate-900" : "border-slate-600 bg-slate-700 text-white"}`}
+                  placeholder={language === "bg" ? "напр. angori или email@example.com" : "e.g. angori or email@example.com"}
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-medium disabled:opacity-50"
+                aria-label={t.addChild}
+              >
+                <FaUserPlus className="w-4 h-4 shrink-0" aria-hidden />
+                <span>{submitting ? "..." : t.addChild}</span>
+              </button>
+            </form>
+          </div>
+        )}
 
         <div className={`rounded-xl border ${isLight ? "bg-white border-slate-200" : "bg-slate-800 border-slate-700"}`}>
           <h2 className="font-semibold p-4 border-b border-slate-200 dark:border-slate-600">{t.myChildren}</h2>
@@ -230,7 +234,7 @@ const MyChildren: React.FC = () => {
             <ul className="divide-y divide-slate-200 dark:divide-slate-600">
               {children.map((c) => (
                 <li key={c.id} className="p-4">
-                  {editingId === c.id ? (
+                  {editMode && editingId === c.id ? (
                     <div className="space-y-3">
                       {error && <p className="text-red-500 text-sm">{error}</p>}
                       <div>
@@ -272,56 +276,74 @@ const MyChildren: React.FC = () => {
                       </div>
                     </div>
                   ) : (
-                    <>
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                          <span className="font-medium">{c.child_name}</span>
-                          {(c.school && c.class) && (
-                            <span className={`ml-2 text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
-                              {c.school} · {c.class}
-                            </span>
-                          )}
-                          {c.student_username && (
-                            <span className={`ml-2 text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
-                              ({language === "bg" ? "свързан: " : "linked: "}{c.student_username})
-                            </span>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <button
-                            type="button"
-                            onClick={() => startEdit(c)}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-400 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm"
-                            aria-label={language === "bg" ? "Редактирай" : "Edit"}
-                          >
-                            <FaEdit className="w-4 h-4 shrink-0" />
-                            <span>{language === "bg" ? "Редактирай" : "Edit"}</span>
-                          </button>
-                          <Link
-                            to={`/weekly-program?childId=${c.id}`}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-300 font-medium hover:bg-amber-500/30"
-                          >
-                            <FaCalendarAlt /> {t.weeklyProgramForChild}
-                          </Link>
-                          <button
-                            type="button"
-                            onClick={() => handleDelete(c.id)}
-                            disabled={deletingId === c.id}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-red-500/50 text-red-600 dark:text-red-400 hover:bg-red-500/10 disabled:opacity-50 text-sm"
-                            aria-label={t.deleteChild}
-                          >
-                            <FaTrashAlt className="w-4 h-4 shrink-0" aria-hidden />
-                            <span>{t.deleteChild}</span>
-                          </button>
-                        </div>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {c.gender === "male" ? (
+                          <FaUserTie className="shrink-0 text-lg text-slate-600 dark:text-slate-400" aria-hidden />
+                        ) : c.gender === "female" ? (
+                          <FaHeart className="shrink-0 text-lg text-rose-500 dark:text-rose-400" aria-hidden />
+                        ) : (
+                          <FaUser className="shrink-0 text-lg text-slate-500 dark:text-slate-400" aria-hidden />
+                        )}
+                        <span className="font-medium">{c.child_name}</span>
+                        {(c.school && c.class) && (
+                          <span className={`text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+                            {c.school} · {c.class}
+                          </span>
+                        )}
+                        {c.student_username && (
+                          <span className={`text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+                            ({language === "bg" ? "свързан: " : "linked: "}{c.student_username})
+                          </span>
+                        )}
                       </div>
-                    </>
+                      <div className="flex items-center gap-2">
+                        {editMode && (
+                          <>
+                            <button
+                              type="button"
+                              onClick={() => startEdit(c)}
+                              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-400 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm"
+                              aria-label={language === "bg" ? "Редактирай" : "Edit"}
+                            >
+                              <FaEdit className="w-4 h-4 shrink-0" />
+                              <span>{language === "bg" ? "Редактирай" : "Edit"}</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleDelete(c.id)}
+                              disabled={deletingId === c.id}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-red-500/50 text-red-600 dark:text-red-400 hover:bg-red-500/10 disabled:opacity-50 text-sm"
+                              aria-label={t.deleteChild}
+                            >
+                              <FaTrashAlt className="w-4 h-4 shrink-0" aria-hidden />
+                              <span>{t.deleteChild}</span>
+                            </button>
+                          </>
+                        )}
+                        <Link
+                          to={`/weekly-program?childId=${c.id}`}
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-300 font-medium hover:bg-amber-500/30"
+                        >
+                          <FaCalendarAlt /> {t.weeklyProgramForChild}
+                        </Link>
+                      </div>
+                    </div>
                   )}
                 </li>
               ))}
             </ul>
           )}
         </div>
+
+        {!editMode && (
+          <p className={`mt-4 text-sm ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+            {language === "bg" ? "За добавяне или редакция на деца: " : language === "de" ? "Zum Hinzufügen oder Bearbeiten: " : "To add or edit children: "}
+            <Link to="/profile" className="text-cyan-600 dark:text-cyan-400 font-medium hover:underline">
+              {t.profile}
+            </Link>
+          </p>
+        )}
       </div>
     </div>
   );

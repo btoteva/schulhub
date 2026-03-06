@@ -4,7 +4,7 @@ const {
   ensureUserChildrenTable,
   findUserById,
   findUserByEmail,
-  listUserChildren,
+  listUserChildrenWithGender,
   addUserChild,
   getUserChild,
   updateUserChild,
@@ -60,7 +60,7 @@ module.exports = async function handler(req, res) {
   }
   if (req.method === "GET") {
     try {
-      const children = await listUserChildren(sql, target.username);
+      const children = await listUserChildrenWithGender(sql, target.username);
       return res.status(200).json({
         children: children.map((c) => ({
           id: c.id,
@@ -68,6 +68,7 @@ module.exports = async function handler(req, res) {
           school: c.school,
           class: c.class_name,
           student_username: c.student_username ?? null,
+          gender: c.student_gender ?? null,
           created_at: c.created_at,
         })),
       });

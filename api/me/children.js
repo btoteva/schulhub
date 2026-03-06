@@ -1,5 +1,5 @@
 const { verifyToken } = require("../_auth");
-const { getSql, ensureUserChildrenTable, findUserByEmail, listUserChildren, addUserChild, getUserChild, updateUserChild, deleteUserChild } = require("../_users");
+const { getSql, ensureUserChildrenTable, findUserByEmail, listUserChildrenWithGender, addUserChild, getUserChild, updateUserChild, deleteUserChild } = require("../_users");
 
 async function resolveChildAccountToUsername(sql, childEmailParam, studentUsernameParam) {
   const emailVal = childEmailParam != null && String(childEmailParam).trim() ? String(childEmailParam).trim().toLowerCase() : null;
@@ -47,9 +47,9 @@ module.exports = async function handler(req, res) {
   }
   if (req.method === "GET") {
     try {
-      const children = await listUserChildren(sql, payload.sub);
+      const children = await listUserChildrenWithGender(sql, payload.sub);
       return res.status(200).json({
-        children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, created_at: c.created_at })),
+        children: children.map((c) => ({ id: c.id, child_name: c.child_name, school: c.school, class: c.class_name, student_username: c.student_username ?? null, gender: c.student_gender ?? null, created_at: c.created_at })),
       });
     } catch (e) {
       return res.status(500).json({ error: e.message });

@@ -7,7 +7,7 @@ import {
   FaGraduationCap,
   FaCalendarAlt,
   FaUserTie,
-  FaUserNurse,
+  FaHeart,
   FaUser,
 } from "react-icons/fa";
 import { MdScience, MdLanguage, MdPublic } from "react-icons/md";
@@ -22,7 +22,7 @@ const API_BASE = process.env.DEV_API_ORIGIN || "";
 // Lesson counts based on actual data in Lessons.tsx
 const actualLessonCounts: { [key: number]: number } = {
   1: 1, // German - 1 lesson (Verben, Adjektive mit Präpositionen)
-  2: 10, // Biology – HERZ, III (3), Summary, IV (3), V NERVENSYSTEM (2)
+  2: 11, // Biology – HERZ, III (3), Summary, IV (3), V NERVENSYSTEM (2), VII (2)
   3: 7, // Geography - 7 lessons (3-1 … 3-7)
 };
 
@@ -279,7 +279,7 @@ const Home: React.FC = () => {
                   }`}
                 >
                   {user.parent_gender === "female" ? (
-                    <FaUserNurse className="shrink-0 text-2xl" aria-hidden />
+                    <FaHeart className="shrink-0 text-2xl" aria-hidden />
                   ) : user.parent_gender === "male" ? (
                     <FaUserTie className="shrink-0 text-2xl" aria-hidden />
                   ) : (

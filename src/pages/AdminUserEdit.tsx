@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, useParams, useNavigate, useLocation, Navigate as Redirect } from "react-router-dom";
-import { FaSave, FaKey, FaTimes, FaTrashAlt, FaUserPlus, FaEdit } from "react-icons/fa";
+import { FaSave, FaKey, FaTimes, FaTrashAlt, FaUserPlus, FaEdit, FaUserTie, FaHeart, FaUser } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
@@ -22,7 +22,7 @@ const AdminUserEdit: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const state = location.state as LocationState | null;
-  const { user, token, loading: authLoading, isAdmin } = useAuth();
+  const { user, token, loading: authLoading, isAdmin, refetchUser } = useAuth();
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const isLight = theme === "light";
@@ -46,7 +46,7 @@ const AdminUserEdit: React.FC = () => {
   const [savingEmail, setSavingEmail] = useState(false);
   const [savingSchoolClass, setSavingSchoolClass] = useState(false);
   const [deleting, setDeleting] = useState(false);
-  const [children, setChildren] = useState<{ id: number; child_name: string; school?: string | null; class?: string | null; student_username?: string | null }[]>([]);
+  const [children, setChildren] = useState<{ id: number; child_name: string; school?: string | null; class?: string | null; student_username?: string | null; gender?: string | null }[]>([]);
   const [childrenLoading, setChildrenLoading] = useState(false);
   const [childName, setChildName] = useState("");
   const [childStudentUsername, setChildStudentUsername] = useState("");
@@ -178,6 +178,7 @@ const AdminUserEdit: React.FC = () => {
     setSavingRole(true);
     setError("");
     setSuccess("");
+    const isEditingSelf = state?.username && user?.username && state.username === user.username;
     fetch(`${API_BASE}/api/users`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
@@ -187,6 +188,11 @@ const AdminUserEdit: React.FC = () => {
         if (!res.ok) throw new Error("Update failed");
         setCurrentRole(newRole);
         setSuccess(t.roleUpdated);
+        if (isEditingSelf) {
+          refetchUser().then(() => {
+            if (newRole === "user") navigate("/", { replace: true });
+          });
+        }
       })
       .catch(() => setError("Update failed"))
       .finally(() => setSavingRole(false));
@@ -602,7 +608,14 @@ const AdminUserEdit: React.FC = () => {
                               </div>
                             ) : (
                               <div className="flex flex-wrap items-center justify-between gap-2">
-                                <div className="text-sm">
+                                <div className="text-sm flex items-center gap-2">
+                                  {c.gender === "male" ? (
+                                    <FaUserTie className="w-5 h-5 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden />
+                                  ) : c.gender === "female" ? (
+                                    <FaHeart className="w-5 h-5 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden />
+                                  ) : (
+                                    <FaUser className="w-5 h-5 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden />
+                                  )}
                                   <span className="font-medium">{c.child_name}</span>
                                   {(c.school && c.class) && (
                                     <span className={`ml-2 ${isLight ? "text-slate-500" : "text-slate-400"}`}>

@@ -193,6 +193,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "—",
               completed: false,
             },
+            {
+              id: "7-2",
+              number: "13",
+              title: "VII-2 ANDERE SINNESSYSTEME",
+              duration: "—",
+              completed: false,
+            },
           ],
         },
       ],

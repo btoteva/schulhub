@@ -156,6 +156,7 @@ import lesson3_7 from "./lessons/3-7.json";
 import lesson5_7 from "./lessons/5-7.json";
 import lesson1_1 from "./lessons/1-1.json";
 import lesson7_1 from "./lessons/7-1.json";
+import lesson7_2 from "./lessons/7-2.json";
 
 // Combine all lessons into a single array
 export const lessonsData: LessonContent[] = [
@@ -180,6 +181,7 @@ export const lessonsData: LessonContent[] = [
   lesson3_7 as LessonContent,
   lesson5_7 as LessonContent,
   lesson7_1 as LessonContent,
+  lesson7_2 as LessonContent,
 ];
 
 // Helper function to get a lesson by course ID and lesson ID
