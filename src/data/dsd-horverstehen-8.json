@@ -1,0 +1,192 @@
+{
+  "id": "dsd1-horverstehen-8",
+  "title": "DSD I Modellsatz 8",
+  "titleBg": "DSD I Моделен тест 8",
+  "subtitle": "Hörverstehen Hörtexte",
+  "subtitleBg": "Текстове за слушане",
+  "audioUrl": "https://www.auslandsschulwesen.de/SharedDocs/Downloads/DE/DSD/DSDI/Modellsaetze/A2-B1_8/audio_datei.mp3?__blob=publicationFile&v=2",
+  "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "vocabulary": [],
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Alltagsszenen",
+      "intro": "Du hörst fünf Szenen aus dem Alltag.",
+      "audioUrl": "",
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen. Es sind Szenen aus dem Alltag verschiedener Personen. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Welches Bild passt?",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild an (A oder B oder C).",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "correctAnswers": { "1": "B", "2": "C", "3": "B", "4": "A", "5": "C" },
+        "szenen": [
+          { "id": 1, "bildA": "https://i.imgur.com/iX6uC7C.png", "bildB": "https://i.imgur.com/zf05SDO.png", "bildC": "https://i.imgur.com/zefmptw.png" },
+          { "id": 2, "bildA": "https://i.imgur.com/e2BLw1v.png", "bildB": "https://i.imgur.com/cydlA4x.png", "bildC": "https://i.imgur.com/L8ZP8Zo.png" },
+          { "id": 3, "bildA": "https://i.imgur.com/BMYb52o.png", "bildB": "https://i.imgur.com/GI24J58.png", "bildC": "https://i.imgur.com/yGQoUU5.png" },
+          { "id": 4, "bildA": "https://i.imgur.com/Zv4eGEz.png", "bildB": "https://i.imgur.com/w6pNlHN.png", "bildC": "https://i.imgur.com/aykfOaS.png" },
+          { "id": 5, "bildA": "https://i.imgur.com/582TKtg.png", "bildB": "https://i.imgur.com/WUXq3X0.png", "bildC": "https://i.imgur.com/ksRd59b.png" }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Mutter", "text": "Rainer! Kannst du denn nicht aufpassen? Unser Rasen braucht das Wasser und nicht der von unseren Nachbarn." },
+            { "speaker": "Rainer", "text": "Ich mache doch gar nichts. Das bisschen Wasser ist doch nicht schlimm." },
+            { "speaker": "Mutter", "text": "Ich möchte aber keinen Ärger mit unseren Nachbarn kriegen." },
+            { "speaker": "Rainer", "text": "Ärger? Wegen der paar Tropfen Wasser?" },
+            { "speaker": "Mutter", "text": "Komm, gib mir den Schlauch. Ich gieße den Garten lieber selber." }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Vater", "text": "Wie oft habe ich dir das schon gesagt: Du sollst fragen, wenn du etwas haben möchtest. Man greift nicht über den ganzen Tisch nach der Marmelade." },
+            { "speaker": "Gunter", "text": "Aber es sieht doch niemand. Wir haben doch keinen Besuch." },
+            { "speaker": "Vater", "text": "Ich sehe das. Und mich stört es. Sag was, und ich reiche dir die Marmelade." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Mädchen", "text": "Immer muss ich Geschirr spülen. Heute bist du an der Reihe." },
+            { "speaker": "Junge", "text": "Ich kann jetzt nicht. Ich muss Kartoffeln schälen. Es ist schon spät. Mama kommt in einer Stunde von der Arbeit und dann muss der Topf auf dem Herd stehen." },
+            { "speaker": "Mädchen", "text": "Ich kann ja Kartoffeln schälen. Komm, wir tauschen die Plätze." },
+            { "speaker": "Junge", "text": "Heute nicht. Ich bin fast fertig. Vielleicht morgen." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Junge A", "text": "Peter, hör auf zu lesen. Lass uns ins Wasser gehen." },
+            { "speaker": "Junge B", "text": "Nein, ich mag jetzt aber nicht." },
+            { "speaker": "Junge A", "text": "Jetzt steh' doch endlich auf, es ist soooo heiß!" },
+            { "speaker": "Junge B", "text": "Lass uns noch ein bisschen warten. Es sind jetzt so viele Leute im Wasser. Da kann man nicht mal richtig schwimmen." },
+            { "speaker": "Junge A", "text": "Du hast Recht, dann warten wir noch ein bisschen." }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Vater", "text": "Sandra, jetzt ist aber gut. Geht es auch etwas leiser?" },
+            { "speaker": "Tochter", "text": "Was ist los, wieso muss ich immer leise sein?" },
+            { "speaker": "Vater", "text": "Mensch Sandra, sieh doch mal her, deine kleine Schwester kann nicht einschlafen!" },
+            { "speaker": "Tochter", "text": "Ach, entschuldige Papa, das habe ich nicht gewusst." },
+            { "speaker": "Vater", "text": "Du kannst doch deine Kopfhörer aufsetzen." },
+            { "speaker": "Tochter", "text": "Alles klar, das mache ich gleich." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Helden des Alltags",
+      "intro": "Zu Gast bei Sonja Sommerfeld und Gerd Freese sind Personen, die anderen durch eine besondere Tat sehr geholfen haben: Helden des Alltags.",
+      "audioUrl": "",
+      "teil2Exercise": {
+        "instruction1": "Du hörst gleich vier Ankündigungen von Gesprächspartnern im Radio.",
+        "instruction2": "Lies zuerst die Aufgaben 6–9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction3": "Höre nun die Ankündigungen. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Ankündigungen noch einmal.",
+        "tasks": [
+          { "id": 6, "prompt": "Der Hund Bello hat", "options": [{ "id": "A", "text": "Marleen vor dem Ertrinken gerettet." }, { "id": "B", "text": "mit Marleen einen Mann gerettet." }, { "id": "C", "text": "Marleen vor einem Mann gerettet." }], "correct": "B" },
+          { "id": 7, "prompt": "Katharina Lenz hat den Rucksack", "options": [{ "id": "A", "text": "auf eine Parkbank gelegt." }, { "id": "B", "text": "dem Besitzer zurückgegeben." }, { "id": "C", "text": "zur Polizei gebracht." }], "correct": "C" },
+          { "id": 8, "prompt": "Herr Hempel", "options": [{ "id": "A", "text": "hat einem Mann das Leben gerettet." }, { "id": "B", "text": "hat ein Foto für die Zeitung gemacht." }, { "id": "C", "text": "war in einem brennenden Haus." }], "correct": "C" },
+          { "id": 9, "prompt": "Herr Pfeiffer hat im Bus", "options": [{ "id": "A", "text": "einem alten Mann geholfen." }, { "id": "B", "text": "dem Busfahrer geholfen." }, { "id": "C", "text": "den Jugendlichen geholfen." }], "correct": "A" }
+        ]
+      },
+      "aufgaben": [
+        { "id": 6, "text": "Ich begrüße ganz herzlich die kleine Marleen aus Bonn. Sie ist eigentlich ein ganz normales Mädchen. Aber letzte Woche hat die Bonner Zeitung über sie berichtet: „Achtjähriges Mädchen rettet mit ihrem Hund Bello einen Mann vor dem Ertrinken im Rhein!“ – Herzlich willkommen Marleen und Bello. Wir sind gespannt auf eure Geschichte!" },
+        { "id": 7, "text": "Bei uns zu Gast ist heute auch eine Studentin aus Heidelberg. Das ist ihre Geschichte: An einem Wochenende fährt sie mit dem Fahrrad am Fluss entlang und plötzlich entdeckt sie auf einer Parkbank einen Rucksack. Da kein Besitzer in der Nähe zu sehen ist, öffnet sie den Rucksack und findet darin ein Portmonee mit viel Geld. Ohne zu überlegen, bringt sie alles zur nächsten Polizeistation. Herzlich willkommen Katharina Lenz!" },
+        { "id": 8, "text": "Als nächstes begrüße ich den Hausmeister Volker Hempel aus Duisburg. Sie kennen vielleicht sein Foto aus der Zeitung: ein brennendes Haus im Hintergrund und der Hund, den er gerettet hat, auf dem Arm. Was für ein Mann! Er wird uns jetzt erzählen, wie er bei dem Brand sein Leben riskiert hat. Seien Sie gespannt auf seine Geschichte! Herr Hempel – Ich begrüße Sie herzlich!" },
+        { "id": 9, "text": "Und hier die Geschichte von unserem letzten Gast, Herrn Pfeiffer aus Frankfurt: An einem Abend fährt er mit dem Bus nach Hause. Dort bemerkt er, wie mehrere Jugendliche einen alten Mann beleidigen. Der Busfahrer sieht nichts und Herr Pfeifer ist der Einzige, der dem Mann hilft. Hören wir nun die ganze Geschichte. Guten Abend, Herr Pfeiffer!" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Katrin in den USA",
+      "intro": "Katrin hat ein Stipendium für einen Aufenthalt in den USA bekommen. Du hörst gleich ein Interview mit ihr.",
+      "audioUrl": "",
+      "content": "Hallo Katrin, du warst in Amerika, erzähl' uns etwas darüber!\n\nIch hatte ein Stipendium bekommen und bin vor einem Jahr in die USA geflogen. Mit meiner ersten Gastfamilie hatte ich leider sehr viele Probleme, aber nach nur drei Wochen hab' ich dann eine neue Familie gefunden. Meine neuen Gasteltern waren total nett, sie heißen Debby und Craig und haben einen Hund, der Austin heißt.\n\nWie war das Essen in Amerika?\n\nSchnellimbiss ist typisch für Amerika. Man trifft sich oft mit Freunden und geht dann zusammen essen. In vielen Familien, die ich kennen gelernt habe, wird nur ganz selten gekocht. Ich hatte aber Glück, weil meine Gasteltern gern selbst gekocht haben.\n\nUnd wie war die Schule?\n\nDie Schule hat mir gut gefallen und sogar richtig Spaß gemacht. Ich hab' auch schnell viele Leute kennen gelernt. Ein Schultag hatte immer vier Doppelstunden und eine Mittagspause. Man hatte jeden Tag dieselben Kurse und zum Halbjahr konnte man dann neue Kurse wählen. Ich hatte ein halbes Jahr lang Englisch, Mathe, Politik und Biologie und im zweiten Halbjahr konnte ich frei wählen. In Amerika ist es in der Schule besonders wichtig, seine Hausaufgaben zu machen und sie pünktlich abzugeben.\n\nWelche Freizeitmöglichkeiten gab es dort?\n\nIn der Schule gab es verschiedene Arbeitsgemeinschaften wie Theater- oder Fotokurse und je nach Jahreszeit gab es zum Beispiel Beachball, Schwimmen oder auch Fußball im Angebot.\n\nUnd was hast du gemacht?\n\nIch habe im Winter zusammen mit ein paar Mädchen aus meiner Schule nur zum Spaß Hallen-Fußball gespielt. Im Frühling wollte ich dann Fußball in der Schule spielen. Dann hab' ich mir aber kurz vor dem ersten Spiel beim Training das Bein gebrochen. Deswegen konnte ich dort nicht mehr mitspielen.\n\nHattest du irgendwann Heimweh?\n\nBesonders am Anfang, als ich noch in der ersten Familie war, hatte ich großes Heimweh. Ich habe mich sehr allein gefühlt, weil ich zu der Zeit auch noch keine Freunde hatte.\n\nWirst du deine Freunde und deine Gastfamilie bald wiedersehen?\n\nJa, ich hab' auch schon mehrere Einladungen. Ich fahre in den Herbstferien wieder dorthin. Darauf freue ich mich total, weil ich alle so sehr vermisse!\n\nUnd wie hat es dir insgesamt gefallen?\n\nInsgesamt war es nicht so leicht, wie ich zuerst gedacht habe. Aber man lernt sehr viel über sich selbst und über andere Menschen. Man lernt, offener zu sein und sich anzupassen. Das war eine ganz wichtige und schöne Erfahrung für mich.",
+      "teil3Exercise": {
+        "intro": "Katrin hat ein Stipendium für einen Aufenthalt in den USA bekommen. Du hörst gleich ein Interview mit ihr.",
+        "instruction1": "Lies zuerst die Sätze 10–14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10–14) an: richtig oder falsch.",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Katrin hat sich bei ihrer zweiten Gastfamilie wohl gefühlt.", "correct": "richtig" },
+          { "id": 11, "statement": "In Katrins Gastfamilie wurde selten gekocht.", "correct": "falsch" },
+          { "id": 12, "statement": "Katrin hat das ganze Jahr über dieselben Kurse gehabt.", "correct": "falsch" },
+          { "id": 13, "statement": "Im Frühling hat Katrin in der Schule Fußball gespielt.", "correct": "falsch" },
+          { "id": 14, "statement": "Katrin hat ihre Freunde und ihre Gastfamilie nach Deutschland eingeladen.", "correct": "falsch" }
+        ]
+      }
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Praktikum bei der Zeitung",
+      "intro": "Du hörst einen Bericht im Schülerradio. Maria erzählt von ihrem Praktikum in einer Zeitungsredaktion.",
+      "audioUrl": "",
+      "content": "„Weißt du schon, was du später mal werden willst?“ Wer kennt diese Frage nicht? „Ich weiß es nicht“, antworte ich meistens. Zum Glück gibt es heutzutage Praktika, bei denen man als Schüler einen Einblick in die Arbeitswelt bekommt. Die meisten suchen in Bereichen, die ihnen gefallen. Und da ich gern lese und schreibe, habe ich mich bei einer bekannten Kölner Zeitung beworben. Schon wenige Tage später hatte ich die Zusage für ein Praktikum.\n\nNach vier Monaten war es endlich soweit, mein Praktikum begann. Vor Aufregung hatte ich in der Nacht vorher kaum geschlafen und überhörte fast den Wecker. Ich wusste nicht, welche Aufgaben mich erwarten und ob ich gut zurechtkommen würde. Tausend Fragen rasten mir durch den Kopf, als ich um kurz vor 10 Uhr vor dem Eingang der Zeitungsredaktion stand.\n\nAls ich reinkam, wurde ich sofort von einer Sekretärin begrüßt. Irgendwie hatte ich mir die Redaktion anders vorgestellt: Durcheinander schreiende Menschen, klingelnde Telefone. Doch hier war alles ruhig. Außer der Sekretärin war noch kein Mensch dort, weil die Redakteure am Tag vorher bis spät in die Nacht gearbeitet hatten.\n\nZuerst bekam ich einen Zettel mit dem aktuellen Tagesablauf in der Redaktion. Eine Stunde später saß ich dann mit den anderen Kollegen in der Konferenz, in der jeden Tag besprochen wird, was am nächsten Tag in der Zeitung steht. Ich sagte zwar nichts, hörte aber interessiert zu. Nach der Konferenz verteilte der Chefredakteur dann die einzelnen Aufträge.\n\nMeine Aufgabe für den ersten Tag war schon recht interessant. Ich sollte mit einem Fotografen auf die Straße gehen und allein eine Umfrage machen. Ich machte mich also auf den Weg in die Altstadt. Nachdem ich vergeblich versucht hatte, mit fünf Menschen ins Gespräch zu kommen, wurde mir und dem Fotografen klar, dass das für den ersten Tag zu schwierig war. Wir brauchten Unterstützung, ein weiterer Mitarbeiter der Redaktion kam dazu, um uns zu helfen. Trotzdem hatten wir nach einer Stunde gerade mal eine Person! Anschließend durfte ich nach Hause gehen. Der erste Tag war also nicht so erfolgreich.\n\nJetzt sind schon zwei Wochen vergangen. Mittlerweile habe ich mich in der Redaktion gut eingelebt, kenne die meisten Kollegen und weiß, wie alles läuft. Ich bin sehr gespannt auf das, was mich noch erwartet. Hoffentlich darf ich bald eigene Texte schreiben! Mein Selbstbewusstsein ist zwar nicht gerade das größte zwischen all den Profis, die schon seit Jahren recherchieren und schreiben, und trotzdem fühle ich mich wohl.\n\nEs gibt aber auch negative Seiten dieses Berufes. Die Redakteure arbeiten unter Zeitdruck. Das ist ganz schön anstrengend! Und manchmal müssen sie Artikel zu Themen schreiben, die sie gar nicht interessieren. Dass es ein anstrengender Beruf ist, erlebe ich in meiner Praktikumszeit selbst, denn manchmal bin ich noch mit meinen Aufgaben ziemlich überfordert. Aber wer weiß, vielleicht wird das mein Traumberuf?",
+      "teil4Exercise": {
+        "intro": "Du hörst einen Bericht im Schülerradio. Maria erzählt von ihrem Praktikum in einer Zeitungsredaktion.",
+        "instruction1": "Lies zuerst die Aufgaben 15–20. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun den Bericht. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction4": "Danach hörst du den Bericht noch einmal.",
+        "tasks": [
+          { "id": 15, "prompt": "Am Morgen ihres ersten Praktikumstages", "options": [{ "id": "A", "text": "kannte Maria schon einige der neuen Aufgaben." }, { "id": "B", "text": "verschlief Maria vor Aufregung den Termin." }, { "id": "C", "text": "war Maria sehr unsicher und nervös." }], "correct": "C" },
+          { "id": 16, "prompt": "Als Maria in der Redaktion ankam,", "options": [{ "id": "A", "text": "arbeiteten alle Redakteure schon." }, { "id": "B", "text": "war sie von der Ruhe überrascht." }, { "id": "C", "text": "wurde sie vom Chef begrüßt." }], "correct": "B" },
+          { "id": 17, "prompt": "In der täglichen Konferenz wird auch besprochen,", "options": [{ "id": "A", "text": "welche Aufgaben der Chefredakteur übernimmt." }, { "id": "B", "text": "wer welchen Auftrag haben möchte." }, { "id": "C", "text": "worüber in der Zeitung berichtet wird." }], "correct": "C" },
+          { "id": 18, "prompt": "Am ersten Tag sollte Maria", "options": [{ "id": "A", "text": "auf der Straße Leute zu einem Thema befragen." }, { "id": "B", "text": "einem Mitarbeiter aus der Redaktion helfen." }, { "id": "C", "text": "einen Fotografen interviewen." }], "correct": "A" },
+          { "id": 19, "prompt": "Nachdem zwei Wochen vergangen sind,", "options": [{ "id": "A", "text": "darf Maria selbst Texte schreiben." }, { "id": "B", "text": "kennt Maria sich in der Redaktion gut aus." }, { "id": "C", "text": "recherchiert Maria fast wie ein Profi." }], "correct": "B" },
+          { "id": 20, "prompt": "Wenn man Redakteur werden will, muss man", "options": [{ "id": "A", "text": "ein Praktikum bei einer Zeitung machen." }, { "id": "B", "text": "sich für viele Themen interessieren." }, { "id": "C", "text": "viel Stress aushalten können." }], "correct": "C" }
+        ]
+      }
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Kurznachrichten: Aktuelles aus der Woche",
+      "intro": "Du hörst fünf Kurznachrichten.",
+      "audioUrl": "",
+      "itemLabel": "Nummer",
+      "teil5Exercise": {
+        "intro": "Du hörst gleich fünf Kurznachrichten aus der Woche.",
+        "instruction1": "Lies zuerst die Liste mit den verschiedenen Überschriften (A–H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction2": "Notiere beim Hören zu jeder Nachricht den richtigen Buchstaben (A–H).",
+        "instruction3": "Vier Buchstaben bleiben übrig. Du hörst die Nachrichten nur einmal. Zuerst hörst du ein Beispiel. Diese Nachricht hat die Nummer 0.",
+        "instruction4": "Die Lösung ist Z.",
+        "instruction5": "Jetzt hörst du die anderen Kurznachrichten.",
+        "instruction6": "",
+        "activities": [
+          { "id": "Z", "text": "Bewölkt und nicht sehr warm" },
+          { "id": "A", "text": "Eltern helfen bei Hausaufgaben" },
+          { "id": "B", "text": "Fotoausstellung für Profis" },
+          { "id": "C", "text": "Schnelles Fahren wird bestraft" },
+          { "id": "D", "text": "Freier Eintritt beim Sport" },
+          { "id": "E", "text": "Teures Lernen nach der Schule" },
+          { "id": "F", "text": "Sport treiben für wenig Geld" },
+          { "id": "G", "text": "Gefahr im Straßenverkehr" },
+          { "id": "H", "text": "Viel Geld für alte Technik" }
+        ],
+        "taskNumbers": [0, 21, 22, 23, 24],
+        "correctAnswers": { "0": "Z", "21": "G", "22": "H", "23": "D", "24": "E" }
+      },
+      "aufgaben": [
+        { "id": 0, "text": "Dichte Wolken und Nebel sorgen heute in weiten Teilen Deutschlands für schlechtes Wetter. Im Raum Berlin scheint immerhin zeitweise die Sonne, was am Nachmittag auch westlich des Rheins der Fall ist. Bei mäßigem Wind liegen die Höchstwerte zwischen zwei und sieben Grad." },
+        { "id": 21, "text": "Überrascht waren zwei Polizisten bei der Kontrolle eines Autos. Am Steuer – auf dem Schoß seines Vaters – saß ein fünfjähriger Junge. Der Vater hatte seinem Sohn erlaubt, das Auto zu lenken. Die Polizei stoppte die riskante Fahrt. Für den Vater wird es teuer: Ihn erwartet jetzt eine Strafe in Höhe von 450 Euro." },
+        { "id": 22, "text": "Ein Sammler von Antiquitäten hat für 336 000 Euro einen der ersten Fotoapparate der Welt, eine alte Kamera der Marke „Leica“, auf einer Auktion in Wien gekauft. Es ist der höchste Preis, der je bei einer Auktion für eine Kleinbildkamera gezahlt wurde. Bei der Kamera handelt es sich um ein Modell aus dem Jahr 1923." },
+        { "id": 23, "text": "Kostenlose Eintrittskarten für Schüler: Bei den Basketball-Meisterschaften sollen 1200 Eintrittskarten verlost werden. Schüler können es sich normalerweise nicht leisten, ein solches Sportereignis anzusehen. Durch diese Aktion sollen mehr Jugendliche diese Sportart besser kennen lernen. Die Veranstalter hoffen, dass sich dann auch viele für Basketball begeistern." },
+        { "id": 24, "text": "In Deutschland gibt es immer mehr Institute, die am Nachmittag Hausaufgabenhilfe anbieten. Hier werden Eltern beraten, und die Schüler bekommen Hilfe beim Lernen. Auch wenn damit teilweise hohe Kosten verbunden sind, nehmen viele Eltern dies gern in Kauf, um ihren Kindern bessere Berufschancen zu ermöglichen." }
+      ]
+    }
+  ]
+}

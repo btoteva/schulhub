@@ -7,4 +7,6 @@
 {"id":"15","title":"DSD I Modellsatz 6","titleBg":"DSD I Моделен тест 6","description":"Leseverstehen Texte und Aufgaben","descriptionBg":"Четене с разбиране – текстове и задачи","available":true,"route":"dsd-modellsatz-7"},
 {"id":"16","title":"DSD I Modellsatz 6","titleBg":"DSD I Моделен тест 6","description":"Hörverstehen Hörtexte","descriptionBg":"Текстове за слушане","available":true,"route":"dsd-horverstehen-6"},
 {"id":"17","title":"DSD I Modellsatz 7","titleBg":"DSD I Моделен тест 7","description":"Leseverstehen Texte und Aufgaben","descriptionBg":"Четене с разбиране – текстове и задачи","available":true,"route":"dsd-modellsatz-8"},
-{"id":"18","title":"DSD I Modellsatz 7","titleBg":"DSD I Моделен тест 7","description":"Hörverstehen Hörtexte","descriptionBg":"Текстове за слушане","available":true,"route":"dsd-horverstehen-7"}]
+{"id":"18","title":"DSD I Modellsatz 7","titleBg":"DSD I Моделен тест 7","description":"Hörverstehen Hörtexte","descriptionBg":"Текстове за слушане","available":true,"route":"dsd-horverstehen-7"},
+{"id":"19","title":"DSD I Modellsatz 8","titleBg":"DSD I Моделен тест 8","description":"Leseverstehen Texte und Aufgaben","descriptionBg":"Четене с разбиране – текстове и задачи","available":true,"route":"dsd-modellsatz-9"},
+{"id":"20","title":"DSD I Modellsatz 8","titleBg":"DSD I Моделен тест 8","description":"Hörverstehen Hörtexte","descriptionBg":"Текстове за слушане","available":true,"route":"dsd-horverstehen-8"}]

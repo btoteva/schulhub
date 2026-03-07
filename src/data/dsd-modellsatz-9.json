@@ -1,0 +1,176 @@
+{
+  "id": "dsd1-modellsatz8",
+  "title": "DSD I Modellsatz 8",
+  "titleBg": "DSD I Моделен тест 8",
+  "subtitle": "Leseverstehen Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [],
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext. Der Text hat vier Lücken (Aufgaben 1–4).\nSetze aus der Wortliste (A–H) das richtige Wort in jede Lücke ein.\nEinige Wörter bleiben übrig.",
+      "text": "Kennst du eigentlich Alexander Graham Bell? Das ist der (0) **Erfinder** des Telefons.\nBell war Lehrer an der Universität und machte mit seinen (1) ________ viele akustische Experimente. Dabei entwickelte er ein neues Gerät. Er probierte es mit seinem Assistenten aus.\nBells erste (2) ________ am neuen Gerät waren: „Watson, kommen Sie her, ich brauche Ihre Hilfe.“ Bell hatte sich nämlich gerade heißen Kaffee über die Hose geschüttet. Das war das (3) ________ Telefongespräch der Welt.\nAls sein Telefon auf der Weltausstellung 1876 in Philadelphia zu sehen war, zeigten die Besucher kein Interesse. Niemand wusste damals, wie wichtig die Erfindung für die (4) ________ war. Nur der damalige Kaiser von Brasilien erkannte die Bedeutung des Apparats und war sofort fasziniert. Das war der Beginn seines Erfolgs. Er baute die Bell Telephone Company auf und wurde ein reicher Mann.",
+      "wordList": [
+        { "id": "Z", "word": "Erfinder", "wordBg": "изобретател" },
+        { "id": "A", "word": "Zukunft", "wordBg": "бъдеще" },
+        { "id": "B", "word": "Worte", "wordBg": "думи" },
+        { "id": "C", "word": "Universität", "wordBg": "университет" },
+        { "id": "D", "word": "neuste", "wordBg": "най-нов" },
+        { "id": "E", "word": "Studenten", "wordBg": "студенти" },
+        { "id": "F", "word": "Grüße", "wordBg": "поздрави" },
+        { "id": "G", "word": "erste", "wordBg": "първи" },
+        { "id": "H", "word": "Kindern", "wordBg": "деца" }
+      ],
+      "tasks": [
+        { "id": 1, "gap": 1, "correct": "E", "question": "Lücke 1" },
+        { "id": 2, "gap": 2, "correct": "B", "question": "Lücke 2" },
+        { "id": 3, "gap": 3, "correct": "G", "question": "Lücke 3" },
+        { "id": 4, "gap": 4, "correct": "A", "question": "Lücke 4" }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Aufgabe 5: Welche Überschrift passt am besten zum Text? Kreuze an!",
+        "questionBg": "Коя заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          { "id": "A", "text": "Die Anfänge des Telefons", "correct": false },
+          { "id": "B", "text": "Die Bedeutung des Telefons", "correct": false },
+          { "id": "C", "text": "Die Zukunft des Telefons", "correct": true }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "titleBg": "Част 2",
+      "subtitle": "Urlaubsreisen für Jugendliche",
+      "intro": "Bald sind Sommerferien und einige Schüler wollen dieses Jahr ohne ihre Eltern Urlaub machen. Sie suchen in verschiedenen Reisemagazinen nach passenden Angeboten.\nLies die Aufgaben (6–9) und die Angebote (A–H). Was passt zusammen?\n**Schreibe den richtigen Buchstaben (A–H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6–9",
+      "optionsHeading": "Angebote A–H",
+      "summaries": [
+        { "id": 0, "text": "Marco und David wollen etwas Spannendes erleben.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Marie und Svenja möchten eine andere Sprache als Englisch lernen. Am liebsten Spanisch.", "correct": "C", "isExample": false },
+        { "id": 7, "text": "Jan hat schlechte Noten im Fach Englisch. Er möchte aber in den Ferien nicht nur lernen, sondern auch Spaß haben.", "correct": "A", "isExample": false },
+        { "id": 8, "text": "Mareike und Björn möchten fit bleiben, die meiste Zeit im Freien verbringen und vor allem die Sonne genießen.", "correct": "G", "isExample": false },
+        { "id": 9, "text": "Christoph und Matthias sind gute Schwimmer und wollen in diesem Jahr unbedingt surfen lernen.", "correct": "F", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Ein großes Abenteuer! Diese Ferien in Österreich werdet ihr nie vergessen! Ihr wohnt mit anderen Jugendlichen in einem Jugendhotel und wir organisieren für euch viele Abenteuer: Wildwasserfahrt, Kletterpark, Höhlenwanderung und vieles mehr. Interessiert? Telefon: 089/345793" },
+        { "id": "A", "text": "Sprachferien in England. Ihr wohnt alleine oder zu zweit in einer englischen Familie und lernt so nicht nur die Sprache, sondern auch das Leben in England kennen. Natürlich gibt es auch Unterricht in der Gruppe, viele interessante Ausflüge und zum Abschluss eine Riesenparty. Infos unter: englischinengland@sprachbad.de" },
+        { "id": "B", "text": "Du interessierst dich für alles, was im Wasser lebt? Dann bist du bei uns genau richtig! Wir nehmen dich mit an die Ostsee. Hier kannst du spannende Tiere und Pflanzen entdecken. Außerdem bieten wir Strandwanderungen und Bootstouren an. Wichtig: Du musst gut schwimmen können! Infos: www.wasserwelt.de" },
+        { "id": "C", "text": "Lernen in der Sonne: Ihr wollt die Sprache des Landes, die Kultur und Leute kennen lernen, aber nicht auf die Sonne, das Meer und den Spaß verzichten? Kein Problem! Wir nehmen euch mit an die spanische Küste. Dort könnt ihr all das haben. Interessiert? Dann schreibt eine Mail an: spanisch@sprachenwelt.de" },
+        { "id": "D", "text": "Englisch ist nicht alles! Du interessierst dich für fremde Sprachen und Kulturen und willst mal was anderes erleben? Dann mach mit bei unserem deutsch-polnischen Jugendaustausch! Hier lernst du Land, Leute und eine neue Sprache kennen und hast jede Menge Spaß dabei! Infos: www.ferieninpolen.de" },
+        { "id": "E", "text": "Ferien auf der Insel – du bewegst dich im Wasser wie ein Fisch und möchtest nun auch noch andere Wassersportarten kennen lernen? Wir bieten dir einen tollen Urlaub mit Unterricht bei erfahrenen Wassersportlern. Und das alles auf einer schönen Nordseeinsel! Schreibe schnell eine E-Mail an: oceanfun@nordsee.de" },
+        { "id": "F", "text": "Camping in Spanien: Du bist gerne in der Natur und magst Sport? Du möchtest gemeinsam mit anderen Jugendlichen den Schulstress vergessen? Dann komm mit in die unberührte Natur Spaniens und erlebe einen heißen Sommer! Tel: 02235/443277" },
+        { "id": "G", "text": "Dein Abitur ist in Gefahr, weil du in Englisch oder Französisch große Schwierigkeiten hast? Das muss nicht sein. Unsere Ganztagsintensivkurse unter Leitung von muttersprachlichen Lehrern garantieren schnellen Erfolg." },
+        { "id": "H", "text": "Du bist total gestresst und brauchst neue Energie für den Unterricht? In unserem Sport-Studio findest du alles, was dir dabei hilft. Bei uns ist es schöner als in der Natur! Nähere Informationen unter: 0234/7755432" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "titleBg": "Част 3",
+      "subtitle": "Freundschaft auf Entfernung",
+      "intro": "Lies den Text und die Aufgaben (10–14).\nKreuze bei jeder Aufgabe an: richtig oder falsch?",
+      "text": "Hallo, ich heiße Peter und möchte euch von meinem Freund Georg erzählen. Wir sind schon seit vielen Jahren befreundet. Das Besondere an unserer Freundschaft ist, dass wir 1.000 Kilometer voneinander weg leben. Georgs Vater arbeitet jetzt nämlich in einer Stadt in Norddeutschland und hat die ganze Familie mitgenommen.\n\nAls ich erfahren habe, dass Georg wegzieht, dachte ich: „Das war's – vorbei mit der Freundschaft.“ Aber ich habe mich geirrt! Wie wir das geschafft haben? Das will ich euch erzählen:\n\nAm Anfang haben wir viel telefoniert. Das fanden unsere Eltern nicht so gut, weil es sehr teuer war. Georg hat vorgeschlagen, dass wir über das Internet telefonieren können. Er hat einen eigenen Computer in seinem Zimmer. Ich habe keinen, aber mein Vater hat mir erlaubt, seinen Computer zu benutzen. Seitdem können wir miteinander sprechen und uns dabei auf dem Bildschirm sehen. Das machen wir fast jeden Tag. Manchmal spielen wir auch gemeinsam Videospiele im Internet.\n\nIn den Sommerferien haben wir uns sogar richtig getroffen. Wir haben uns beide zu einer Jugendfreizeit angemeldet. Die Freizeit fand mitten in Deutschland in den Bergen statt. Ich hätte lieber Urlaub am Meer gemacht, aber so musste jeder von uns nur 500 Kilometer fahren. Wir haben tolle Ausflüge gemacht und lustige Spiele gespielt. Aber das Beste war natürlich, dass wir wieder zusammen waren. Nächstes Jahr machen wir das wieder. Bis dahin heißt es: Durchhalten! Aber wir schaffen das, da bin ich mir sicher.",
+      "tasks": [
+        { "id": 10, "statement": "Georgs Vater lebt von seiner Familie getrennt.", "correct": "falsch" },
+        { "id": 11, "statement": "Peter hat gedacht, dass die Freundschaft zu Ende ist.", "correct": "richtig" },
+        { "id": 12, "statement": "Peter hat einen Computer von seinem Vater bekommen.", "correct": "falsch" },
+        { "id": 13, "statement": "Peter und Georg haben immer noch viel Kontakt.", "correct": "richtig" },
+        { "id": 14, "statement": "Peter und Georg haben die Ferien am Meer verbracht.", "correct": "falsch" }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Im letzten Jahr gründeten vier Schüler eines Aachener Gymnasiums eine Firma und nannten sie PLAN-R. Das „R“ steht dabei für „Rosen“. In ihrer Schülerfirma verkaufen sie ökologisch angebaute Rosen. Die Idee dazu kam ihnen, als ein Klassenkamerad über einen solchen Rosenanbau in seiner türkischen Heimat berichtete. Daraufhin fingen sie an, Rosen aus der Türkei nach Deutschland zu importieren und sie in Aachen zu verkaufen. Schon bald machte ihre Firma Gewinne.\n\nMit dem Projekt „JUNIOR-Unternehmen“ unterstützt die deutsche Wirtschaft Jungunternehmer, also junge Besitzer von Firmen: Jährlich bekommen diese Firmen auf einer besonderen Veranstaltung die Möglichkeit, sich selbst und ihre Arbeit einem breiten Publikum vorzustellen. In diesem Jahr war PLAN-R als eine von 10 Schülerfirmen dabei. Dafür hatten sie vorher einen Wettbewerb gegen viele andere Schülerfirmen gewonnen.\n\nAm Tag der Veranstaltung hatten die Aachener Schüler viel an ihren Ausstellungstischen zu tun, bis endlich um 12 Uhr mittags die Leitung des Projekts „JUNIOR-Unternehmen“ die Veranstaltung offiziell eröffnete. Für die vier Schüler war natürlich die Vorstellung ihrer Rosensorten ein Höhepunkt der Veranstaltung. Auf der Bühne machten sie in einigen gespielten Szenen Werbung für ihre Rosen. Darauf hatten sie sich gut vorbereitet. Plakate, Power-Points oder einen Film wollten sie bewusst nicht einsetzen. Das kleine Theaterstück hat den Zuschauern sehr gut gefallen. Und am besten fanden alle, dass die Schüler Rosen ins Publikum warfen. Dafür gab es am Ende viel Lob und Applaus.\n\nNach der Aktion auf der Bühne waren an ihrem Stand, der toll mit Blumen geschmückt war, sehr viele Menschen. Sie wollten gerne die Schüler persönlich kennen lernen und mehr über ihre Firma und deren Produkte erfahren. Auch die Leiterin der Veranstaltung war von der Präsentation beeindruckt. Sie versprach, für die Veranstaltung im nächsten Jahr Rosen bei ihnen zu bestellen.\n\nNach dem anstrengenden Tag waren die Schüler überzeugt: Die Veranstaltung hat sich gelohnt. Sie konnten viele Kontakte zu anderen jungen Firmen knüpfen und neue Kunden von ihrem Produkt überzeugen. Als nächsten Schritt wollen sie außer den Rosen noch andere Blumen wie Nelken oder Tulpen anbieten und ihr Geschäft damit ausbauen.",
+      "questions": [
+        {
+          "id": 15,
+          "question": "PLAN-R ist eine Schülerfirma, die Rosen",
+          "options": [
+            { "id": "A", "text": "an Schulen in Aachen verkauft.", "correct": false },
+            { "id": "B", "text": "aus der Türkei holt.", "correct": true },
+            { "id": "C", "text": "in Deutschland ökologisch anbaut.", "correct": false }
+          ]
+        },
+        {
+          "id": 16,
+          "question": "Das Projekt „JUNIOR-Unternehmen“",
+          "options": [
+            { "id": "A", "text": "ist ein Wettbewerb an deutschen Schulen.", "correct": false },
+            { "id": "B", "text": "macht Firmen von jungen Unternehmern bekannt.", "correct": true },
+            { "id": "C", "text": "wird von einer Schülerfirma geleitet.", "correct": false }
+          ]
+        },
+        {
+          "id": 17,
+          "question": "Während der Vorstellung der Schülerfirma",
+          "options": [
+            { "id": "A", "text": "kamen einige Zuschauer auf die Bühne.", "correct": false },
+            { "id": "B", "text": "konnte das Publikum einen Film sehen.", "correct": false },
+            { "id": "C", "text": "spielten die Schüler auf der Bühne Theater.", "correct": true }
+          ]
+        },
+        {
+          "id": 18,
+          "question": "Gleich nach der Präsentation",
+          "options": [
+            { "id": "A", "text": "bestellte die Leiterin der Veranstaltung Rosen.", "correct": false },
+            { "id": "B", "text": "kamen viele Besucher zum Rosenstand.", "correct": true },
+            { "id": "C", "text": "verkauften die Schüler viele Rosen.", "correct": false }
+          ]
+        },
+        {
+          "id": 19,
+          "question": "In Zukunft wollen die Schüler",
+          "options": [
+            { "id": "A", "text": "ihr Angebot vergrößern.", "correct": true },
+            { "id": "B", "text": "selbst Blumen anbauen.", "correct": false },
+            { "id": "C", "text": "weitere Rosensorten verkaufen.", "correct": false }
+          ]
+        },
+        {
+          "id": 20,
+          "question": "Welche Überschrift passt am besten?",
+          "options": [
+            { "id": "A", "text": "Blumenausstellung eröffnet", "correct": false },
+            { "id": "B", "text": "Erfolg für Schülerfirma", "correct": true },
+            { "id": "C", "text": "Jungunternehmer helfen Schülern", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "titleBg": "Част 5",
+      "subtitle": "Anzeigen",
+      "intro": "Lies die Texte 21–24 und die Überschriften A–H. Was passt zusammen?\n**Schreibe den richtigen Buchstaben (A–H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen. Einige Buchstaben bleiben übrig.",
+      "tableTitle": "Texte 21–24",
+      "summaries": [
+        { "id": 0, "text": "Unsere Tiere haben besonders viel Platz und können sich frei bewegen. Das ist uns sehr wichtig. Außerdem bekommen sie nur gesundes Futter ohne chemische Zusätze. Zusammen mit einem erfahrenen Mitarbeiter kümmerst du dich um unsere frischen Produkte, die wir zweimal wöchentlich auf dem Markt verkaufen.", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "Interessierst du dich für das, was in deiner Umgebung passiert? Wer bei uns ein Praktikum macht, sollte vielseitig interessiert sein und gern schreiben. Wir suchen junge Menschen, die unsere Mitarbeiter bei Interviews und Recherchen unterstützen. Könntest du dir zum Beispiel vorstellen, den Bürgermeister zu interviewen? Du solltest dich hier bei uns in Köln gut auskennen und auch, wenn du wenig Zeit hast, konzentriert und fehlerfrei arbeiten können.", "correct": "E", "isExample": false },
+        { "id": 22, "text": "Du interessierst dich für Tiere und möchtest dich für sie einsetzen? Du versuchst schon lange, die Leute darüber zu informieren, dass es vielen Tieren sehr schlecht geht? Bei uns hast du die Möglichkeit, über Tiere zu berichten, denen es nicht gut geht. Du solltest Erfahrungen im Verfassen von Texten haben und dabei sicher in der Rechtschreibung sein. Wir erwarten von dir Computerkenntnisse, und es wäre gut, wenn du fotografieren könntest.", "correct": "H", "isExample": false },
+        { "id": 23, "text": "Bei uns lernst du die neuesten Produkte der Damen- und Herrenbekleidung kennen und wenn du einen guten Geschmack hast, dann wird es dir bei uns gefallen. Du informierst dich im Fernsehen und in Zeitschriften über aktuelle Trends und hast außerdem einen guten Blick für Menschen? Du bist offen und freundlich, so dass du die Kunden, die zu uns kommen, gut beraten kannst? Dann passt du in unser Team!", "correct": "A", "isExample": false },
+        { "id": 24, "text": "Angst vor unseren Tieren darfst du nicht haben, denn bei uns hast du jeden Tag mit ihnen zu tun. Wir setzen uns aktiv für den Tierschutz ein und kümmern uns hier zum Beispiel um Hunde und Katzen, Vögel und Kaninchen, aber auch um Hamster. Bis zu 100 Tiere können bei uns wohnen. Deine Aufgabe ist es, Tiere zu pflegen, die krank sind oder neu zu uns gekommen sind und deshalb besonders viel Aufmerksamkeit brauchen.", "correct": "F", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Der Biobauernhof" },
+        { "id": "A", "text": "Im Modegeschäft" },
+        { "id": "B", "text": "Im Fernsehstudio" },
+        { "id": "C", "text": "Beim Tierarzt" },
+        { "id": "D", "text": "In der Redaktion einer Modezeitschrift" },
+        { "id": "E", "text": "Bei der Stadtzeitung" },
+        { "id": "F", "text": "Im Tierheim" },
+        { "id": "G", "text": "Im Büro des Bürgermeisters" },
+        { "id": "H", "text": "Bei der Zeitung eines Tierschutzvereins" }
+      ]
+    }
+  ]
+}
