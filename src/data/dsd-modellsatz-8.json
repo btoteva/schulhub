@@ -1,0 +1,128 @@
+{
+  "id": "dsd1-modellsatz7",
+  "title": "DSD I Modellsatz 7",
+  "titleBg": "DSD I Моделен тест 7",
+  "subtitle": "Leseverstehen Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [],
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext.\nDer Text hat vier Lücken (Aufgabe 1–4).\nSetze aus der Wortliste (A–H) das richtige Wort in jede Lücke ein.\nEinige Wörter bleiben übrig.",
+      "text": "Gold ist teuer und wertvoll. Wir machen daraus (0) **Schmuck** oder Geldstücke. Und wer sehr reich ist, hat oft auch viel Gold. Ihr könnt jeden Tag in den (1) __________ den aktuellen Goldpreis hören. Aber wer entscheidet eigentlich, wie hoch der Goldpreis ist? Und wann findet das statt? Die (2) ______ finden wir in Englands Hauptstadt London. Dort (3) ______ sich zweimal täglich fünf Mitarbeiter von fünf großen Banken. Sie machen den Tagespreis für Gold. Ob der Goldpreis steigt oder fällt, hängt natürlich auch davon ab, wie viele Menschen Gold kaufen oder verkaufen wollen. Besonders billig konnte man zum Beispiel nach dem 10. September 2009 Gold kaufen. Damals kosteten 31,1 Gramm Gold weniger als 1000 US-Dollar! Ein Jahr später musste man für dieselbe Menge schon 1247 US-Dollar (4) ________.\n\nZu Prüfungszwecken überarbeitet nach GEOlino, Woher weiß man eigentlich… wie wertvoll Gold ist…\nhttp://www.geo.de/GEOlino/mensch/71517.html",
+      "wordList": [
+        { "id": "Z", "word": "Schmuck", "wordBg": "бижу/украшение" },
+        { "id": "A", "word": "Antworten", "wordBg": "отговори" },
+        { "id": "B", "word": "Aufgaben", "wordBg": "задачи" },
+        { "id": "C", "word": "kaufen", "wordBg": "купувам" },
+        { "id": "D", "word": "Nachrichten", "wordBg": "новини" },
+        { "id": "E", "word": "arbeiten", "wordBg": "работя" },
+        { "id": "F", "word": "treffen", "wordBg": "срещам се" },
+        { "id": "G", "word": "bezahlen", "wordBg": "плащам" },
+        { "id": "H", "word": "Zeitungen", "wordBg": "вестници" }
+      ],
+      "tasks": [
+        { "id": 1, "gap": 1, "correct": "D", "question": "Lücke 1" },
+        { "id": 2, "gap": 2, "correct": "A", "question": "Lücke 2" },
+        { "id": 3, "gap": 3, "correct": "F", "question": "Lücke 3" },
+        { "id": 4, "gap": 4, "correct": "G", "question": "Lücke 4" }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Welche Überschrift passt am besten zum Text? Kreuze an.",
+        "questionBg": "Коя заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          { "id": "A", "text": "Warum kaufen Menschen Gold?", "correct": false },
+          { "id": "B", "text": "Wann verkaufen Banken Gold?", "correct": false },
+          { "id": "C", "text": "Wie entsteht der Preis von Gold?", "correct": true }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "titleBg": "Част 2",
+      "subtitle": "Angebote am Schwarzen Brett",
+      "intro": "Auf der nächsten Seite findest du acht Angebote am Schwarzen Brett.\nLies die Aufgaben (6–9) und die Angebote (A–H).\nWelches Angebot passt zu wem?\n**Schreibe den richtigen Buchstaben (A–H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen.\nVier Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6–9",
+      "optionsHeading": "Angebote A–H",
+      "summaries": [
+        { "id": 0, "text": "Maike sucht einen leichten Job mit Tieren.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Felix hat schon lange Gitarrenunterricht und möchte in einer Schülerband mitmachen.", "correct": "F", "isExample": false },
+        { "id": 7, "text": "Jutta ist eine begeisterte Hobbyfotografin und hat tolle Ideen, wie eine perfekte Schule aussehen sollte.", "correct": "D", "isExample": false },
+        { "id": 8, "text": "Alexander ärgert sich jeden Tag über den Schmutz in seiner Schule und möchte aktiv etwas dagegen tun.", "correct": "H", "isExample": false },
+        { "id": 9, "text": "Katrin hat Probleme in Englisch und Deutsch und braucht dringend Nachhilfe, weil sie die Klasse nicht wiederholen möchte.", "correct": "B", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Hilfe! Wer kümmert sich für die Zeit meines Krankenhausaufenthalts (wahrscheinlich vier Wochen) um meine Siamkatze? Moni ist stubenrein und gar nicht ängstlich. Du kannst sie also auch zu dir nach Hause nehmen. Ich zahle pro Tag drei Euro." },
+        { "id": "A", "text": "Wir halten die schönsten Momente eurer Schulabschlussfeier in Bild und Ton fest und unterlegen sie auf Wunsch mit Musik. Ein lebendiges Video oder eine attraktive Fotoserie macht diesen einmaligen Abend unvergesslich. Wir erfüllen auch eure individuellen Wünsche. Fotostudio Anton Müller." },
+        { "id": "B", "text": "Rettungsaktion „Von Schülern für Schüler“. Wir bieten Unterstützung in allen Fächern. Wer Hilfe braucht, bekommt sie zu kleinen Preisen, wer Hilfe anbietet, muss beim Müllsammeln in den Pausen nicht mehr mitmachen. Anfragen bei Anja Weber Klasse 11a." },
+        { "id": "C", "text": "Du möchtest ein Musikinstrument erlernen? Wie wäre es mit Gitarre? Ich gebe Unterricht für Anfänger. Du brauchst eine eigene Gitarre. Die ersten beiden Stunden sind eine Sonderaktion und kostenlos. Anmeldung bei Herrn Blomberg." },
+        { "id": "D", "text": "Für das diesjährige Schulfest suchen wir spannende Präsentationen zum Thema „So stelle ich mir meine Schule vor“ als Video, Powerpoint oder mit Bildern und Plakaten. Einsendeschluss ist der 1. September. Als Preise gibt es Konzertkarten und wertvolle Musik-CDs. Informationen bei Thomas Schmidt, 12b." },
+        { "id": "E", "text": "Das geht uns alle an. Die Müllberge in unseren Städten wachsen. Warum ist das so? Antworten gibt der preisgekrönte Film „Das Müllproblem“. Er zeigt die schlimmen Folgen der Verschmutzung für unsere Erde. Eintritt frei. Samstag, 10 Uhr, in der Aula." },
+        { "id": "F", "text": "Bei uns ist noch ein Platz frei. Wenn du gut Gitarre, Saxophon oder Bass spielst und dreimal in der Woche und auch an den Wochenenden zum Üben Zeit hast, melde dich bei Matthias Schreck in der 9c." },
+        { "id": "G", "text": "Professionelle Hilfe in allen naturwissenschaftlichen Fächern und in Musik durch erfahrene Lehrer. Systematische Vorbereitung auf das schriftliche und mündliche Abitur. Probeklausuren sind Teil der Vorbereitung. Interessenten melden sich bitte unter www.abitur.de" },
+        { "id": "H", "text": "Gefällt euch das? Überall Müll, dreckige Wände, Essensreste unter den Bänken! Wenn euch das auch stört, kommt am Samstag um 11 Uhr zu unserem monatlichen Aktionstag: „Saubere Schule“. Wir treffen uns vor dem Sekretariat. Zum Dank spielt unsere Schülerband für euch in der Sporthalle!" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "titleBg": "Част 3",
+      "subtitle": "Das Lieblingsgemüse der Deutschen",
+      "intro": "Lies den Text und die Aufgaben 10–14.\nKreuze bei jeder Aufgabe „richtig“ oder „falsch“ an.",
+      "text": "Fragt man im Ausland nach dem Lieblingsgemüse der Deutschen, ist die Antwort „Kartoffeln“. Das ist zwar richtig, aber von April bis Juni ist Spargel der Star unter den Gemüsesorten. Die Römer haben den Spargel nach Mitteleuropa gebracht. Sie kannten nur grünen Spargel, er war schon damals sehr beliebt. Seitdem wird Spargel in Mitteleuropa als Gemüse, aber auch als Mittel gegen Krankheiten angebaut.\n\nIn Deutschland isst man vor allem weißen Spargel. Der Anbau von Spargel ist schwieriger als der Anbau anderer Gemüsesorten, weil er unter der Erde wächst. Er wird auch „Weißes Gold“ genannt, denn Spargel ist viel teurer als andere Gemüsearten.\n\nSobald weißer Spargel mit Licht in Berührung kommt, wird er violett. Es reichen Temperaturen von zwölf Grad, damit er wachsen kann. Durch Wärme wächst der Spargel aber schneller. Viele Bauern haben deshalb Heizanlagen für warmes Wasser, um das beliebte Gemüse möglichst früh zu ernten. So kann der Spargel schon Anfang April verkauft werden, allerdings ist er dann besonders teuer.\n\nDas Geheimnis des Spargels ist seine Frische: Er sollte wenige Tage nach der Ernte gegessen werden, sonst wird die Qualität schlechter. Gegen Ende Juni ist die Spargelzeit in Deutschland vorbei, aber in den Supermärkten gibt es das ganze Jahr über ausländischen Spargel.",
+      "tasks": [
+        { "id": 10, "statement": "Das typisch deutsche Gemüse ist für Ausländer der Spargel.", "correct": "falsch" },
+        { "id": 11, "statement": "Die Römer haben Spargel in Mitteleuropa kennen gelernt.", "correct": "falsch" },
+        { "id": 12, "statement": "In der Sonne verändert weißer Spargel seine Farbe.", "correct": "richtig" },
+        { "id": 13, "statement": "Für den ersten Spargel im Jahr muss man viel bezahlen.", "correct": "richtig" },
+        { "id": 14, "statement": "Spargel kann man in Deutschland zu jeder Jahreszeit kaufen.", "correct": "richtig" }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Der vierzehnjährige Milo lebt im „Dartmoor-Tierpark“. Seine Eltern haben vor zwei Jahren nämlich einen Zoo gekauft. Die Familie suchte damals ein Haus. In einer Zeitungsanzeige fanden sie eins – allerdings nur in Kombination mit einem Zoo! „Warum eigentlich nicht?“, dachten Milos Eltern, die immer für Abenteuer zu haben sind. Eigentlich konnten sie sich das gar nicht leisten, aber die Bank gab ihnen einen günstigen Kredit.\n\n„Etwas verrückt war das schon“, sagt Milos Vater. So ein Zoo erfordert nämlich viele Kenntnisse. Er besorgte sich Fachliteratur, um dann feststellen zu müssen, dass ihre Lektüre zu viel Fachwissen verlangte. Über das Internet nahm er Kontakt zu zwei Fachleuten auf, mit denen er vor Ort alle Fragen klärte. Dazu gehörte auch die Sauberkeit. „Ein Zoo muss sauber sein und deshalb müssen unsere Mitarbeiter viele Vorschriften beachten“, erklärt Milos Vater, der gerade dabei ist, das Futter für die Tiere vorzubereiten. Das ist seine Hauptaufgabe. Dann zeigt uns Milo das Besucherzentrum. Dort gibt es Informationstafeln, die die Familie interessant gestaltet hat.\n\nBesonders spannend für Milo war es, als es einmal plötzlich keinen Strom mehr gab. Man möchte sich nicht vorstellen, was passieren könnte, wenn ein Tiger ausbrechen und frei herumlaufen würde. Zum Glück gibt es für solche Fälle spezielle Batterien, die Strom produzieren. Die Zoomitarbeiter mussten damals diese Art der Stromversorgung kontrollieren und hatten deshalb viel zu tun.\n\nIm Zoo gibt es auch andere Probleme. Zum Beispiel mit dem Geld: Die Eintrittspreise wurden mehrmals erhöht, weil Tierfutter teuer ist. Und nach der Renovierung des Besucherzentrums im letzten Jahr war die Kasse leer. Dabei hatte die Familie sich so auf eine Woche Badeurlaub auf Mallorca gefreut! Die Eltern haben aber versprochen, dass es nächstes Jahr klappt. Dennoch – Milo liebt „seinen“ Zoo und kann sich kein anderes Leben mehr vorstellen!",
+      "questions": [
+        { "id": 15, "question": "Milos Eltern haben einen Zoo gekauft, weil", "options": [ { "id": "A", "text": "sie gerne einen Zoo haben wollten.", "correct": false }, { "id": "B", "text": "der Zoo besonders günstig war.", "correct": false }, { "id": "C", "text": "er zu dem neuen Haus gehörte.", "correct": true } ] },
+        { "id": 16, "question": "Was man bei einem Zoo alles beachten muss, erfuhr Milos Vater", "options": [ { "id": "A", "text": "aus Büchern.", "correct": false }, { "id": "B", "text": "von Experten.", "correct": true }, { "id": "C", "text": "aus dem Internet.", "correct": false } ] },
+        { "id": 17, "question": "Milos Vater kümmert sich vor allem darum, dass", "options": [ { "id": "A", "text": "die Tiere etwas zu fressen bekommen.", "correct": true }, { "id": "B", "text": "der Zoo immer sauber bleibt.", "correct": false }, { "id": "C", "text": "die Besucher etwas über die Tiere lernen.", "correct": false } ] },
+        { "id": 18, "question": "Bei einem Stromausfall", "options": [ { "id": "A", "text": "ist schon einmal ein Tiger ausgebrochen.", "correct": false }, { "id": "B", "text": "muss man auf die Tiere besonders aufpassen.", "correct": false }, { "id": "C", "text": "gibt es Strom aus einer anderen Quelle.", "correct": true } ] },
+        { "id": 19, "question": "Wegen der hohen Kosten", "options": [ { "id": "A", "text": "ist der Eintritt in den Zoo teurer geworden.", "correct": true }, { "id": "B", "text": "kann die Familie dieses Jahr nur eine Woche Urlaub machen.", "correct": false }, { "id": "C", "text": "kann das Besucherzentrum nicht renoviert werden.", "correct": false } ] },
+        { "id": 20, "question": "Welche Überschrift passt am besten?", "options": [ { "id": "A", "text": "Schutz für wilde Tiere", "correct": false }, { "id": "B", "text": "Im Zoo zu Hause", "correct": true }, { "id": "C", "text": "Ausflug in den Zoo", "correct": false } ] }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "titleBg": "Част 5",
+      "subtitle": "Ferienerlebnisse",
+      "intro": "Lies die Texte 21–24 und die Überschriften A–H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A–H) in die rechte Spalte.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Texte 21–24",
+      "summaries": [
+        { "id": 0, "text": "Ich liebe es, mit Freunden oder mit meinen Eltern eine Fahrradtour zu machen. Deshalb war das Ferienangebot für Radfreunde genau das richtige für mich. Ich habe so viel gelernt! Zum Beispiel, was man machen muss, wenn ein Reifen kaputt ist. Und natürlich auch, wie man sich auf der Straße verhalten muss. Das Beste war aber, dass ich viele neue Leute kennengelernt habe, die das gleiche Hobby haben wie ich.", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "Es war wirklich anstrengend, aber ich will ja auch richtig gut werden! Wir mussten jeden Morgen um acht Uhr aufstehen. Nach dem Frühstück sind wir dann um einen ziemlich großen See gelaufen. Nach dem Laufen ging es richtig mit dem Training los. Und am Nachmittag haben wir dann ein kleines Turnier gemacht. Das war ganz schön schwierig, denn dort waren nur wirklich gute Spieler.", "correct": "B", "isExample": false },
+        { "id": 22, "text": "So ein bisschen unsicher war ich vorher schon. Ich kannte niemanden und musste alleine in ein fremdes Land reisen. Da ich wenig verstanden habe, wusste ich nicht, ob alles gut geht. Aber dann habe ich schnell Freunde gefunden, mit denen ich viel unternommen habe, vor allem Ausflüge. Beim Sprechen bin ich jetzt viel sicherer und wenn ich eine Zeitung aufschlage, verstehe ich auch mehr, weil ich mehr Wörter kenne. Das Lernen hat sich gelohnt und meine Noten sind jetzt auch besser.", "correct": "H", "isExample": false },
+        { "id": 23, "text": "Diese Ferien waren ein richtiges Abenteuer! Wir sind zuerst mit dem Bus gefahren und dann ging es weiter zu Fuß. Wir hatten alles dabei, denn einkaufen konnten wir dort natürlich nicht! Zwischen den Bäumen haben wir dann unsere Zelte aufgebaut. Morgens sind wir immer davon aufgewacht, dass die Vögel so laut gesungen haben. Es war wirklich toll, einmal so lange weg von der Stadt zu sein. Aber nach einer Woche war ich dann richtig froh, dass ich wieder in meinem Bett schlafen konnte.", "correct": "E", "isExample": false },
+        { "id": 24, "text": "Auf einer Bühne stehen und Theater spielen wollte ich schon als Kind immer mal gerne. Ich weiß nur nicht genau, ob ich so viel Text auf einmal behalten könnte… Aber was wir in den Sommerferien zusammengestellt haben, war auch eine tolle Vorstellung. Manche haben geturnt, es gab ein paar Clowns, die die Leute zum Lachen gebracht haben, andere haben Tricks vorgeführt. Ich habe Kunststücke auf meinem Fahrrad gezeigt. Dafür musste ich schon ganz schön lange üben. Leider hatten wir keine Tiere dabei – Löwen hätten mir gefallen.", "correct": "G", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Rund ums Fahrrad" },
+        { "id": "A", "text": "Ferien auf der Theaterbühne" },
+        { "id": "B", "text": "Trainingslager für Sportler" },
+        { "id": "C", "text": "Im Bus durch den Wald" },
+        { "id": "D", "text": "Sportfest am See" },
+        { "id": "E", "text": "Ferien im Wald" },
+        { "id": "F", "text": "Ohne Sprachkenntnisse ins Ausland" },
+        { "id": "G", "text": "Zirkus zum Mitmachen" },
+        { "id": "H", "text": "Sprachen lernen einmal anders" }
+      ]
+    }
+  ]
+}

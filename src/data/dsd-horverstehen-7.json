@@ -1,0 +1,199 @@
+{
+  "id": "dsd1-horverstehen-7",
+  "title": "DSD I Modellsatz 7",
+  "titleBg": "DSD I Моделен тест 7",
+  "subtitle": "Hörverstehen Hörtexte",
+  "subtitleBg": "Текстове за слушане",
+  "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "vocabulary": [],
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Alltagsszenen",
+      "intro": "Du hörst fünf Szenen aus dem Alltag.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/620bxxy5gkwen1qktfe5f/7-01-Track-1.mp3?rlkey=o26rhh6nogbs70f51pq44oj10&st=il1w2jp4&dl=1",
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen. Sie spielen im Alltag verschiedener Personen. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Welches Bild passt? Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "correctAnswers": { "1": "A", "2": "C", "3": "A", "4": "B", "5": "C" },
+        "szenen": [
+          { "id": 1, "bildA": "https://i.imgur.com/tX3RCnv.png", "bildB": "https://i.imgur.com/vHwBFKq.png", "bildC": "https://i.imgur.com/Ec2K6yr.png" },
+          { "id": 2, "bildA": "https://i.imgur.com/D5pSuBr.png", "bildB": "https://i.imgur.com/3JMASAE.png", "bildC": "https://i.imgur.com/4BYPu8o.png" },
+          { "id": 3, "bildA": "https://i.imgur.com/i0IDurD.png", "bildB": "https://i.imgur.com/wQVGZAY.png", "bildC": "https://i.imgur.com/yUqXqX2.png" },
+          { "id": 4, "bildA": "https://i.imgur.com/GYGr94r.png", "bildB": "https://i.imgur.com/wxJVvnY.png", "bildC": "https://i.imgur.com/zgwqwYd.png" },
+          { "id": 5, "bildA": "https://i.imgur.com/fD6qLqj.png", "bildB": "https://i.imgur.com/KQKIc4m.png", "bildC": "https://i.imgur.com/M6bJVr9.png" }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Mann", "text": "Entschuldigung, darf ich kurz stören?" },
+            { "speaker": "Frau", "text": "Ja, selbstverständlich. Was gibt es denn?" },
+            { "speaker": "Mann", "text": "Sie lesen gerade eine interessante Zeitung, kann ich vielleicht einen Teil davon haben?" },
+            { "speaker": "Frau", "text": "Ja, Sie können gerne den Sportteil haben." },
+            { "speaker": "Mann", "text": "Danke, das ist sehr nett. Und die Zeit bis zum Essen vergeht auch schneller. Ich habe großen Hunger!" },
+            { "speaker": "Frau", "text": "Keine Sorge, das Essen kommt bald. Man kann es schon riechen." }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Frau", "text": "Schauen Sie, dies finde ich auch wunderschön!" },
+            { "speaker": "Mann", "text": "Wirklich? Das Bild mit dem Mann, der einen Hut trägt, hat mir besser gefallen. Was gefällt Ihnen denn an diesem hier so sehr?" },
+            { "speaker": "Frau", "text": "Ich mag die Formen besonders. Was denken Sie?" },
+            { "speaker": "Mann", "text": "Ach, wissen Sie, Berge und Wiesen z. B. finde ich viel schöner. Da träume ich vom Urlaub. Aber so ein Bild habe ich hier noch nicht gesehen. Bilder mit Obst gefallen mir nicht so." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Vater", "text": "Das hat richtig Spaß gemacht, Badminton zu spielen, oder?" },
+            { "speaker": "Sohn", "text": "Ja, finde ich auch. Aber es ist gut, dass wir jetzt eine Pause machen." },
+            { "speaker": "Vater", "text": "Ich bin auch ganz schön müde, und es ist richtig heiß heute." },
+            { "speaker": "Sohn", "text": "Das stimmt, Papa. Hast du vielleicht noch etwas zu trinken? Ich habe Durst." },
+            { "speaker": "Vater", "text": "Leider nein, guck, meine Flasche ist schon leer. Und wo ist deine?" },
+            { "speaker": "Sohn", "text": "In meinem Rucksack ist sie nicht. Ich habe sie wohl zu Hause in der Küche vergessen…" },
+            { "speaker": "Vater", "text": "Dann lass uns gucken gehen, ob wir in der Nähe einen Supermarkt finden." },
+            { "speaker": "Sohn", "text": "Das ist eine gute Idee." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Frau", "text": "Hier ist es wirklich wunderschön, Hermann!" },
+            { "speaker": "Mann", "text": "Ja, Dorothea, ein nettes Café. Möchtest du noch etwas?" },
+            { "speaker": "Frau", "text": "Nach dem Eis kann ich nichts mehr essen. Aber einen Kaffee vielleicht noch?" },
+            { "speaker": "Mann", "text": "Eine gute Idee. Wo ist denn der Kellner?" },
+            { "speaker": "Frau", "text": "Im Moment kann ich ihn nicht sehen. Aber die Herren da drüben am Tisch haben vor ein paar Minuten auch noch etwas bestellt." },
+            { "speaker": "Mann", "text": "Ah, ich sehe den Kellner, da sitzt er ja!" }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Junge 1", "text": "Was spielen wir denn jetzt?" },
+            { "speaker": "Junge 2", "text": "Lasst uns doch Fußball spielen!" },
+            { "speaker": "Junge 1", "text": "Ja, aber wir haben doch gar keinen Ball." },
+            { "speaker": "Junge 2", "text": "Was? Du hast doch sonst immer einen dabei." },
+            { "speaker": "Junge 1", "text": "Das stimmt, heute aber leider nicht." },
+            { "speaker": "Junge 2", "text": "Schade… Aber schau mal, da am Tor liegt einer. Bestimmt hat den jemand vergessen." },
+            { "speaker": "Junge 1", "text": "Super, ich hol ihn!" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Nachrichten auf dem Anrufbeantworter",
+      "intro": "Du hörst vier Nachrichten auf dem Anrufbeantworter.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/dr0lr67l3bgz924j7177o/7-02-Track-2.mp3?rlkey=ikvzbw59mcj6vk6h56lozntih&st=j9sbfjmx&dl=1",
+      "teil2Exercise": {
+        "instruction1": "Du hörst gleich vier Nachrichten auf dem Anrufbeantworter.",
+        "instruction2": "Lies zuerst die Aufgaben 6–9. Du hast dafür eine Minute Zeit.",
+        "instruction3": "Höre nun die Nachrichten. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Nachrichten noch einmal.",
+        "tasks": [
+          { "id": 6, "prompt": "Die Mutter möchte, dass Peter", "options": [{ "id": "A", "text": "sich um ein Geschenk für seine Oma kümmert." }, { "id": "B", "text": "einen Strauß Tulpen für seine Oma kauft." }, { "id": "C", "text": "seiner Oma zum Geburtstag gratuliert." }], "correct": "B" },
+          { "id": 7, "prompt": "Herr Meyer", "options": [{ "id": "A", "text": "kann sein Auto aus der Werkstatt abholen." }, { "id": "B", "text": "muss neue Winterreifen bestellen." }, { "id": "C", "text": "soll die Werkstatt noch einmal anrufen." }], "correct": "A" },
+          { "id": 8, "prompt": "Frau Diestel", "options": [{ "id": "A", "text": "fragt nach ihren Blutergebnissen." }, { "id": "B", "text": "wird am Freitag noch einmal anrufen." }, { "id": "C", "text": "braucht einen neuen Termin." }], "correct": "C" },
+          { "id": 9, "prompt": "Sabrina", "options": [{ "id": "A", "text": "hat morgen keinen Tanzkurs." }, { "id": "B", "text": "ist krank und bleibt morgen zu Hause." }, { "id": "C", "text": "bringt Anna Ballettschuhe mit." }], "correct": "A" }
+        ]
+      },
+      "aufgaben": [
+        { "id": 6, "text": "Hallo Peter, hier ist Mama, ich habe Oma jetzt auch zum Geburtstag gratuliert. Du warst ja heute Morgen der Erste. Das Geschenk habe ich schon, aber es fehlen uns noch die Blumen. Hol ihr also bitte noch einen großen Blumenstrauß, sie mag besonders gelbe Tulpen. Der Blumenladen ist gleich um die Ecke in der Schillerstraße." },
+        { "id": 7, "text": "Guten Tag Herr Meyer, hier spricht die Autowerkstatt Herrmann. Ihr Wagen ist repariert und steht zum Abholen in unserer Werkstatt bereit. Wir haben heute noch bis 18 Uhr und morgen wieder ab 7:30 Uhr geöffnet. Die neuen Winterreifen, die Sie bestellt haben, haben wir bereits montiert. Wenn noch etwas unklar ist, rufen Sie uns an." },
+        { "id": 8, "text": "Guten Tag Dr. Hempelmann, hier spricht Claudia Diestel. Ich rufe an wegen der Blutuntersuchung nächste Woche Montag. Leider muss ich an diesem Tag zu einer Konferenz und kann nicht kommen. Kann ich auch am Freitag kommen? Ich habe ab 10 Uhr Zeit. Bitte rufen Sie mich kurz zu Hause zurück. Vielen Dank." },
+        { "id": 9, "text": "Hallo Anna, Sabrina hier. Ich bin gerade in der Schule und lese auf unserem Plan, dass unsere Tanzlehrerin, Frau Wittenberg, krank ist und morgen nicht kommt. Deshalb fällt unser Kurs aus. Kannst du mir bitte trotzdem morgen meine Ballettschuhe mitbringen?" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Interview mit der Fußballspielerin Alexandra Müller",
+      "intro": "Du hörst ein Interview mit der Fußballspielerin Alexandra Müller. Sie spielt Fußball in der deutschen Nationalmannschaft. Im Interview mit der Schülerzeitung erzählt sie von ihrer Karriere.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/tljmfyieeqvf3ftcqthtg/7-03-Track-3.mp3?rlkey=wp8kfq375hftkzp8ixfp4rajg&st=h6y89zp0&dl=1",
+      "teil3Exercise": {
+        "intro": "Du hörst ein Interview mit der Fußballspielerin Alexandra Müller. Sie spielt Fußball in der deutschen Nationalmannschaft. Im Interview mit der Schülerzeitung erzählt sie von ihrer Karriere.",
+        "instruction1": "Lies zuerst die Sätze 10–14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10–14) an: richtig oder falsch?",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Alexandra ist die erfahrenste Spielerin in ihrer Mannschaft.", "correct": "falsch" },
+          { "id": 11, "statement": "Neben ihrer Fußballkarriere studiert Alexandra Sportmedizin.", "correct": "falsch" },
+          { "id": 12, "statement": "Alexandra wünscht sich, dass die Frauen im Fußball besser bezahlt werden.", "correct": "richtig" },
+          { "id": 13, "statement": "Alexandra spricht von der langen Tradition des Frauenfußballs.", "correct": "falsch" },
+          { "id": 14, "statement": "Alexandra ist traurig, dass sie das Angebot des französischen Vereins abgelehnt hat.", "correct": "falsch" }
+        ]
+      },
+      "content": "Alexandra, du bist erst 19 Jahre alt und spielst schon in der Nationalmannschaft. Wir erwischen dich gerade kurz vor dem Training – du hast einen ziemlich vollen Terminkalender.\n\nJa, manchmal ist es ganz schön stressig.\n\nIn den letzten Jahren bist du Junioren-Europameisterin und -Weltmeisterin geworden, du hast den „Goldenen Ball“ und den „Goldenen Schuh“ gewonnen. Eine unglaubliche Karriere!\n\nDas stimmt. Ich habe überhaupt nicht damit gerechnet und wollte mich nur gut entwickeln. Ich hatte das Glück, mit vielen erfahrenen Spielerinnen in einer Mannschaft zu spielen. So konnte ich gezielt an meinen Schwachstellen arbeiten und mich stark verbessern.\n\nViele deiner Kolleginnen haben Nebenjobs oder studieren. Wie sieht das bei dir aus?\n\nIch mache gerade ein Jahrespraktikum in einer Praxis für Sportmedizin. Das ist eine Art Vorbereitung auf ein Studium. Später möchte ich gerne Sportmedizin studieren.\n\nBist du neidisch auf deine männlichen Kollegen, die nach ihrer Karriere nicht mehr arbeiten müssen, weil sie durch den Fußball schon genug verdient haben?\n\nNein, neidisch bin ich nicht. Aber es ist natürlich schade, dass wir Frauen nicht so viel Geld bekommen. Es wäre schön, wenn sich dies in Zukunft ändern würde. Ich glaube aber ehrlich gesagt nicht, dass das passieren wird. Frauenfußball ist nun mal nicht so populär.\n\nWas denkst du, warum der Frauenfußball nicht so populär ist?\n\nNa ja, die Medien berichten viel mehr über Männerfußball, weil Männerfußball eine lange Tradition hat. Und Frauenfußball gibt es auch noch nicht so lange. Außerdem werden die Spiele der Männer im Fernsehen gezeigt und über die Spiele der Frauen gibt es oft nur kurze Berichte.\n\nDu bist in Witten geboren und hast in verschiedenen Vereinen in Deutschland gespielt. Erst in Recklinghausen und jetzt in Duisburg. Stimmt es, dass du ein Angebot von einem französischen Verein abgelehnt hast, um in deiner Heimat zu bleiben?\n\nJa, das ist richtig. Ich bin ein Familienmensch und noch sehr jung. Eine neue Sprache, ein neues Land, das wäre für mich zu früh gewesen. Ich glaube nicht, dass das gut gegangen wäre. Es war definitiv die richtige Entscheidung, in der Heimat zu bleiben. Ich bin hier sehr glücklich, aber in ein paar Jahren könnte ich mir schon vorstellen, ins Ausland zu gehen.\n\nVielen Dank für das Gespräch und viel Erfolg für die Zukunft.\n\nDanke!"
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Ich bin der König der Tiere",
+      "intro": "Du hörst einen Bericht im Schülerradio. Louis erzählt von seiner Rolle als Löwe.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/af2nfxtgpkzk1bludjalx/7-04-Track-4.mp3?rlkey=gfoxvgdz6rd609c2n0b704gwt&st=l9dgyipb&dl=1",
+      "teil4Exercise": {
+        "intro": "Du hörst einen Bericht im Schülerradio. Louis erzählt von seiner Rolle als Löwe.",
+        "instruction1": "Lies zuerst die Aufgaben 15–20. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun den Bericht. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction4": "Danach hörst du den Bericht noch einmal.",
+        "tasks": [
+          { "id": 15, "prompt": "Um die Rolle als „Leo“ zu bekommen, musste Louis", "options": [{ "id": "A", "text": "sich auf eine Zeitungsanzeige bewerben." }, { "id": "B", "text": "besser als die anderen Jungen sein." }, { "id": "C", "text": "dem Produzenten etwas vorspielen." }], "correct": "A" },
+          { "id": 16, "prompt": "Seit Louis Auftritte hat,", "options": [{ "id": "A", "text": "hat er keine Zeit mehr für Hobbys." }, { "id": "B", "text": "trainiert er viermal in der Woche." }, { "id": "C", "text": "sieht er seine neuen Freunde seltener." }], "correct": "C" },
+          { "id": 17, "prompt": "Wenn Louis auf der Bühne steht,", "options": [{ "id": "A", "text": "vertraut er den anderen Kollegen." }, { "id": "B", "text": "schaut er gern ins Publikum." }, { "id": "C", "text": "ist er immer sehr aufgeregt." }], "correct": "A" },
+          { "id": 18, "prompt": "Louis kann nicht jeden Tag auf der Bühne spielen, weil", "options": [{ "id": "A", "text": "so viel Arbeit für Jugendliche nicht erlaubt ist." }, { "id": "B", "text": "die anderen fünf Jungen das auch gerne machen." }, { "id": "C", "text": "es nur zweimal die Woche eine Aufführung gibt." }], "correct": "A" },
+          { "id": 19, "prompt": "Louis freut sich immer, wenn", "options": [{ "id": "A", "text": "die Schminke wieder entfernt werden kann." }, { "id": "B", "text": "die Zuschauer ihm am Ende gratulieren." }, { "id": "C", "text": "er nach der Arbeit endlich ins Bett kann." }], "correct": "A" },
+          { "id": 20, "prompt": "Wegen der Musical-Arbeit ist Louis", "options": [{ "id": "A", "text": "zu Hause manchmal wütend geworden." }, { "id": "B", "text": "in der Schule selbstbewusster geworden." }, { "id": "C", "text": "bei seinen Mitschülern beliebter geworden." }], "correct": "B" }
+        ]
+      },
+      "content": "Hallo, mein Name ist Louis. Ich bin 14 Jahre alt. Seit zwei Jahren spiele ich den jungen Löwen „Leo“ im Musical „König der Tiere“. Wie ich dazu gekommen bin? Ich habe eine Anzeige in der Zeitung gesehen und meine Bewerbungsunterlagen an den Produzenten geschickt. Außer mir haben sich nur fünf Jungen beworben. Wir wurden alle genommen und sollten uns bei der Rolle abwechseln. Wir mussten nicht einmal vorspielen! Danach durften wir alle zum Probetraining und konnten selbst entscheiden, ob wir wirklich Löwe werden wollen. Schon eine Woche später kam ich dann in die „Löwenschule“. Die anderen Löwen und ich sollten dort singen und tanzen lernen. Wir hatten viermal pro Woche Training! Da habe ich die anderen Jungen gut kennengelernt und neue Freunde gefunden. Nach sechs Monaten waren wir bereit für die Aufführungen. Ich war froh, als es mit den Auftritten losging. Zur Löwenschule müssen wir seitdem nur noch einmal pro Woche. Es ist schade, dass ich die anderen Löwen nicht mehr so oft sehe. Aber dafür habe ich jetzt etwas mehr Zeit, sodass ich dienstags zum Fußballtraining gehen kann. Vorher hatte ich gar keine Zeit für Hobbys! Als ich zum ersten Mal auf die Bühne musste und die Zuschauer sah, war ich furchtbar aufgeregt. Aber sobald ich angefangen habe zu spielen, habe ich das alles vergessen. Mittlerweile bin ich gar nicht mehr nervös. Außerdem muss ich mich so sehr konzentrieren, dass ich gar keine Zeit habe, ins Publikum zu schauen. Manche Sachen sind sogar etwas gefährlich. Es gibt da einen Tanz, bei dem mich zwei Leute hochheben, und ich muss auf ihren Händen stehen. Aber weil ich den anderen Schauspielern vertraue, ist das kein Problem. Außer mir gibt es, wie gesagt, noch fünf andere Jungen, die „Leo“ spielen. Wir wechseln uns ab. Ich bin leider nur zweimal pro Woche dabei. Es gibt nämlich eine gesetzliche Arbeitsregelung für Jugendliche: Sie dürfen nicht zu lange und nicht zu oft arbeiten. Das Musical hat zwei Teile. Der junge Löwe tritt immer nur im ersten Teil auf. Danach werde ich abgeschminkt und nach Hause gefahren. Dann muss ich sofort ins Bett. Das ist immer ein bisschen schade. Aber ich bin immer froh, wenn die Schminke wieder ab ist. Die juckt nämlich im Gesicht. Im zweiten Teil des Stücks ist „Leo“ erwachsen und wird von einem erwachsenen Mann gespielt. Wie die Zuschauer zum Schluss applaudieren, habe ich nur einmal, bei der Premiere, miterleben dürfen. Das war toll! Was mir auch gut gefällt: Beim Musical kann ich Sachen machen, die ich sonst nicht darf. Manchmal muss ich spielen, dass ich richtig wütend bin. Dann kann ich ganz laut schreien, das geht zu Hause nicht. In der Schule spreche ich nicht über meine Arbeit. Dann würden nämlich alle denken, dass ich mich beliebt machen will. Aber die Rolle hat mich schon selbstsicherer gemacht. Wenn ich zum Beispiel vor der Klasse etwas vortragen muss, macht mir das jetzt nichts mehr aus. Dann bin ich mutig wie ein Löwe!"
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Was ich an meiner Familie gut finde",
+      "intro": "Du hörst gleich vier kurze Aussagen von Schülern über ihr Familienleben.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/zr9erwpz2n8cbtp8zmqmh/7-05-Track-5.mp3?rlkey=ilq4w7xkplqxrz20lypwokdyu&st=9q77kk0h&dl=1",
+      "itemLabel": "Nummer",
+      "teil5Exercise": {
+        "intro": "Du hörst gleich vier kurze Aussagen von Schülern über ihr Familienleben.",
+        "instruction1": "Lies zuerst die Liste mit den verschiedenen Aussagen (A–H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction2": "Notiere beim Hören zu jeder Aussage (Nummer 21–24) den richtigen Buchstaben (A–H).",
+        "instruction3": "Vier Buchstaben bleiben übrig.",
+        "instruction4": "Du hörst die Aussagen nur einmal. Zuerst hörst du ein Beispiel.",
+        "instruction5": "Das Beispiel hat die Nummer 0. Die Lösung ist Z.",
+        "instruction6": "Jetzt hörst du die anderen Aussagen.",
+        "activities": [
+          { "id": "Z", "text": "Regeln vereinbaren" },
+          { "id": "A", "text": "Gemeinsam essen" },
+          { "id": "B", "text": "Mit der Familie Sport treiben" },
+          { "id": "C", "text": "Gemeinsam kreativ sein" },
+          { "id": "D", "text": "Gemeinsam etwas unternehmen" },
+          { "id": "E", "text": "Geburtstage feiern" },
+          { "id": "F", "text": "Mit der Familie planen" },
+          { "id": "G", "text": "Vorbild sein" },
+          { "id": "H", "text": "Gemeinsam arbeiten" }
+        ],
+        "taskNumbers": [0, 21, 22, 23, 24],
+        "correctAnswers": { "0": "Z", "21": "F", "22": "G", "23": "A", "24": "D" }
+      },
+      "aufgaben": [
+        { "id": 0, "text": "Wir diskutieren gemeinsam mit unseren Eltern darüber, wie hoch unser Taschengeld sein sollte, wie lange wir am Computer sitzen dürfen und wen wir zu unseren Geburtstagen einladen. Was wir festlegen, ist Gesetz. Alle akzeptieren das, auch wenn das nicht immer leichtfällt." },
+        { "id": 21, "text": "Einmal im Monat setzen sich meine Eltern, meine ältere Schwester und ich zusammen, um über Geburtstage, Ferien und die freien Wochenenden zu sprechen. Wir diskutieren z.B., wohin es im nächsten Urlaub gehen soll." },
+        { "id": 22, "text": "Unsere Eltern geben sich Mühe, uns durch ihr Verhalten den richtigen Weg zu zeigen. Sie leben gesund. Sie rauchen nicht, treiben Sport und sind viel an der frischen Luft. Ich finde es auch toll, dass sie sich für die Umwelt engagieren." },
+        { "id": 23, "text": "Wir sitzen fast immer zum Frühstück und Abendbrot zusammen. Das ist gemütlich. Morgens stehen wir zehn Minuten früher auf, und abends sitzen wir zwei Stunden am Tisch. Jeder erzählt, was er tagsüber bei der Arbeit oder in der Schule erlebt hat." },
+        { "id": 24, "text": "Die Wochenenden gehören der Familie. Meine Eltern nehmen sich viel Zeit für uns Kinder. Wir gehen alle zusammen ins Kino oder machen Ausflüge. Manchmal gehen meine Mutter und meine Schwester auch alleine einkaufen, und ich gehe mit meinem Vater ins Stadion." }
+      ]
+    }
+  ]
+}

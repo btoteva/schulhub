@@ -10,12 +10,14 @@ import DSDModellsatz3View from './pages/DSDModellsatz3View';
 import DSDModellsatz4View from './pages/DSDModellsatz4View';
 import DSDModellsatz5View from './pages/DSDModellsatz5View';
 import DSDModellsatz6View from './pages/DSDModellsatz6View';
+import DSDModellsatz7View from './pages/DSDModellsatz7View';
 import DSDHorverstehen1View from './pages/DSDHorverstehen1View';
 import DSDHorverstehen2View from './pages/DSDHorverstehen2View';
 import DSDHorverstehen3View from './pages/DSDHorverstehen3View';
 import DSDHorverstehen4View from './pages/DSDHorverstehen4View';
 import DSDHorverstehen5View from './pages/DSDHorverstehen5View';
 import DSDHorverstehen6View from './pages/DSDHorverstehen6View';
+import DSDHorverstehen7View from './pages/DSDHorverstehen7View';
 import DSDSchriftliche1View from './pages/DSDSchriftliche1View';
 import DSDSchriftliche2View from './pages/DSDSchriftliche2View';
 import DSDSchriftliche3View from './pages/DSDSchriftliche3View';
@@ -63,11 +65,13 @@ const App: React.FC = () => {
           <Route path="/german/dsd-modellsatz-5" element={<DSDModellsatz4View />} />
           <Route path="/german/dsd-modellsatz-6" element={<DSDModellsatz5View />} />
           <Route path="/german/dsd-modellsatz-7" element={<DSDModellsatz6View />} />
+          <Route path="/german/dsd-modellsatz-8" element={<DSDModellsatz7View />} />
           <Route path="/german/dsd-horverstehen-2" element={<DSDHorverstehen2View />} />
           <Route path="/german/dsd-horverstehen-3" element={<DSDHorverstehen3View />} />
           <Route path="/german/dsd-horverstehen-4" element={<DSDHorverstehen4View />} />
           <Route path="/german/dsd-horverstehen-5" element={<DSDHorverstehen5View />} />
           <Route path="/german/dsd-horverstehen-6" element={<DSDHorverstehen6View />} />
+          <Route path="/german/dsd-horverstehen-7" element={<DSDHorverstehen7View />} />
           <Route path="/german/dsd-schriftliche-1" element={<DSDSchriftliche1View />} />
           <Route path="/german/dsd-schriftliche-2" element={<DSDSchriftliche2View />} />
           <Route path="/german/dsd-schriftliche-3" element={<DSDSchriftliche3View />} />
