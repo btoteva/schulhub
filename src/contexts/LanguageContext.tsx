@@ -58,6 +58,7 @@ interface Translations {
   flashcards: string;
   exercises: string;
   clearExerciseProgress: string;
+  clearDsdProgress: string;
   dsdTests: string;
   test: string;
   playAll: string;
@@ -234,6 +235,7 @@ const translations: Record<Language, Translations> = {
     flashcards: "Флаш-карти",
     exercises: "Упражнения",
     clearExerciseProgress: "Изчисти напредъка за този урок",
+    clearDsdProgress: "Изчисти напредъка",
     dsdTests: "DSD I Тестове",
     test: "Тест",
     playAll: "Пусни всички",
@@ -412,6 +414,7 @@ const translations: Record<Language, Translations> = {
     flashcards: "Flashcards",
     exercises: "Exercises",
     clearExerciseProgress: "Clear progress for this lesson",
+    clearDsdProgress: "Clear progress",
     dsdTests: "DSD I Tests",
     test: "Test",
     playAll: "Play All",
@@ -590,6 +593,7 @@ const translations: Record<Language, Translations> = {
     flashcards: "Lernkarten",
     exercises: "Übungen",
     clearExerciseProgress: "Fortschritt für diese Lektion zurücksetzen",
+    clearDsdProgress: "Fortschritt zurücksetzen",
     dsdTests: "DSD I Tests",
     test: "Test",
     playAll: "Alle abspielen",

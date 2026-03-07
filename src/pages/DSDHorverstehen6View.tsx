@@ -173,6 +173,25 @@ const DSDHorverstehen6View: React.FC = () => {
     };
   }, [token, teil1Bilder, teil2Answers, teil3Answers, teil4Answers, teil5Answers]);
 
+  const clearProgress = () => {
+    setTeil1Bilder({});
+    setTeil2Answers({});
+    setTeil3Answers({});
+    setTeil4Answers({});
+    setTeil5Answers({});
+    setShowTeil1Answers(false);
+    setShowTeil1CheckResult(false);
+    setShowTeil2Answers(false);
+    setShowTeil2CheckResult(false);
+    setShowTeil3Answers(false);
+    setShowTeil3CheckResult(false);
+    setShowTeil4Answers(false);
+    setShowTeil4CheckResult(false);
+    setShowTeil5Answers(false);
+    setShowTeil5CheckResult(false);
+    if (token) setUserProgress(STORAGE_KEY, {}, token);
+  };
+
   return (
     <div
       className={
@@ -202,6 +221,18 @@ const DSDHorverstehen6View: React.FC = () => {
             isLight={isLight}
             language={language}
           />
+        )}
+
+        {token && (
+          <div className="flex flex-wrap gap-3 mb-8 items-center">
+            <button
+              type="button"
+              onClick={clearProgress}
+              className="px-4 py-2 text-amber-700 dark:text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg font-semibold"
+            >
+              {t.clearDsdProgress}
+            </button>
+          </div>
         )}
 
         {teile.length > 0 ? (
