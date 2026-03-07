@@ -1,0 +1,218 @@
+{
+  "id": "dsd1-horverstehen-6",
+  "title": "DSD I Modellsatz 6",
+  "titleBg": "DSD I Моделен тест 6",
+  "subtitle": "Hörverstehen Hörtexte",
+  "subtitleBg": "Текстове за слушане",
+  "horverstehenInstructions": "Der Prüfungsteil Hörverstehen besteht aus fünf Teilen. Alle Arbeitsanweisungen und Pausen sind auf der CD enthalten. In den Pausen sollst du die Aufgaben lösen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Nach dem Abspielen der CD hast du 10 Minuten Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "vocabulary": [],
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "subtitle": "Alltagsszenen",
+      "intro": "Du hörst fünf Szenen aus dem Alltag.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/0066o20sdjyolnnq2q4as/6-01-AudioTrack-01.mp3?rlkey=ydg3215hy0pz0tn7rdq989gh2&st=z3y8uz0s&dl=1",
+      "teil1Exercise": {
+        "instruction1": "Du hörst gleich fünf Szenen. Sie spielen im Alltag verschiedener Personen. Zu jeder Szene gibt es drei Bilder.",
+        "question": "Wo finden die Szenen statt? Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
+        "instruction2": "Kreuze beim Hören zu jeder Szene das richtige Bild (A oder B oder C) an.",
+        "instruction3": "Danach hörst du die Szenen noch einmal.",
+        "bildInstruction": "Sieh dir zuerst die Bilder an. Du hast dafür 6 Sekunden Zeit.",
+        "correctAnswers": { "1": "A", "2": "B", "3": "C", "4": "A", "5": "C" },
+        "szenen": [
+          { "id": 1, "bildA": "https://i.imgur.com/YRF5DwR.png", "bildB": "https://i.imgur.com/kMJpNYT.png", "bildC": "https://i.imgur.com/NzjAXPO.png" },
+          { "id": 2, "bildA": "https://i.imgur.com/yQUxPri.png", "bildB": "https://i.imgur.com/1LUGKGM.png", "bildC": "https://i.imgur.com/deFsfNz.png" },
+          { "id": 3, "bildA": "https://i.imgur.com/RuiDEUu.png", "bildB": "https://i.imgur.com/ERHpPoe.png", "bildC": "https://i.imgur.com/R0zGi72.png" },
+          { "id": 4, "bildA": "https://i.imgur.com/L1ccTtD.png", "bildB": "https://i.imgur.com/uwnz6Cg.png", "bildC": "https://i.imgur.com/AErEeMf.png" },
+          { "id": 5, "bildA": "https://i.imgur.com/Ui8IzvB.png", "bildB": "https://i.imgur.com/cCMpxOM.png", "bildC": "https://i.imgur.com/pO6mYN6.png" }
+        ]
+      },
+      "scenes": [
+        {
+          "id": 1,
+          "lines": [
+            { "speaker": "Mann", "text": "Ach, hallo! Lange nicht gesehen!" },
+            { "speaker": "Frau", "text": "Stimmt! Bringt nicht sonst immer Ihre Frau die Kinder zum Kindergarten?" },
+            { "speaker": "Mann", "text": "Ja, eigentlich schon, aber heute ist sie krank." },
+            { "speaker": "Frau", "text": "Oh je, die Arme. Dann müssen ja auch Sie heute einkaufen, oder?" },
+            { "speaker": "Mann", "text": "Ja, wenn ich meinen Sohn hier abgegeben habe, gehe ich sofort zum Supermarkt." }
+          ]
+        },
+        {
+          "id": 2,
+          "lines": [
+            { "speaker": "Frau", "text": "Sag mal, ist das nicht ein bisschen wenig?" },
+            { "speaker": "Mann", "text": "Ich habe nur was Kleines genommen, weil ich doch heute Abend noch zu einem Arbeitsessen bei meinem Chef gehe." },
+            { "speaker": "Frau", "text": "Wie du meinst. Aber die Pizza ist echt lecker." },
+            { "speaker": "Mann", "text": "Ja stimmt, das sieht auch wirklich gut aus. Wie schade, das würde ich auch gerne essen." }
+          ]
+        },
+        {
+          "id": 3,
+          "lines": [
+            { "speaker": "Mädchen 1", "text": "Guck mal, da drüben ist ja der Peter." },
+            { "speaker": "Mädchen 2", "text": "Ach ja, ich sehe ihn. Aber wo ist seine kleine Schwester? Er bringt sie sonst immer zum Kindergarten." },
+            { "speaker": "Mädchen 1", "text": "Du meinst Monika?" },
+            { "speaker": "Mädchen 2", "text": "Nein, Peters Schwester heißt doch Lisa." },
+            { "speaker": "Mädchen 1", "text": "Stimmt, Lisa heißt sie. Vielleicht ist sie krank." }
+          ]
+        },
+        {
+          "id": 4,
+          "lines": [
+            { "speaker": "Mädchen", "text": "Entschuldigung? Wie viel kosten diese Äpfel hier?" },
+            { "speaker": "Mann", "text": "Also, ein Kilo kostet 2 Euro, zwei Kilo kosten 3 Euro." },
+            { "speaker": "Mädchen", "text": "Oh, ich glaube, so viel passt nicht mehr in meinen Fahrradkorb. Kann ich auch nur einen Apfel kaufen?" },
+            { "speaker": "Mann", "text": "Nur einen Apfel? Hmm… Weißt du was, such dir einen aus und den schenk ich dir dann." },
+            { "speaker": "Mädchen", "text": "Oh, vielen Dank!" }
+          ]
+        },
+        {
+          "id": 5,
+          "lines": [
+            { "speaker": "Junge 1", "text": "Mann, was für ein Spiel!" },
+            { "speaker": "Junge 2", "text": "Oh ja, denen haben wir's aber eben gezeigt! Sollen wir gleich noch ins Kino gehen?" },
+            { "speaker": "Junge 1", "text": "Ach, ich weiß nicht. Ich bin noch total müde vom Spiel. Lass uns doch einfach noch nebenan eine Pizza essen und dann nach Hause gehen." },
+            { "speaker": "Junge 2", "text": "Na gut, das find' ich zwar etwas langweilig, aber ich bin dabei." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "subtitle": "Nachrichten auf dem Anrufbeantworter",
+      "intro": "Du hörst vier Nachrichten auf dem Anrufbeantworter.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/fo52l5mfw7kjl2otdlhb8/6-02-AudioTrack-02.mp3?rlkey=jffyy2el4ova5zmp1g1xofinu&st=c8krcx5r&dl=1",
+      "teil2Exercise": {
+        "instruction1": "Wenn man nicht zu Hause ist und jemand anruft, dann kann er eine Nachricht auf den Anrufbeantworter sprechen. Du hörst gleich vier Nachrichten auf dem Anrufbeantworter.",
+        "instruction2": "Lies zuerst die Aufgaben 6–9. Du hast dafür 60 Sekunden Zeit.",
+        "instruction3": "Höre nun die Nachrichten. Löse die Aufgaben beim Hören.",
+        "instruction4": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction5": "Danach hörst du die Nachrichten noch einmal.",
+        "tasks": [
+          { "id": 6, "prompt": "Phillip ruft Laura an, weil er", "options": [{ "id": "A", "text": "ihr Fotos schicken will." }, { "id": "B", "text": "noch ihre Fotos hat." }, { "id": "C", "text": "seine Fotos zeigen will." }], "correct": "C" },
+          { "id": 7, "prompt": "Dr. Lörmann", "options": [{ "id": "A", "text": "hat am Dienstag keine Zeit." }, { "id": "B", "text": "kann den Termin nicht verschieben." }, { "id": "C", "text": "ruft am Mittwoch noch einmal an." }], "correct": "A" },
+          { "id": 8, "prompt": "Die Großeltern", "options": [{ "id": "A", "text": "besuchen am Wochenende Jens' Eltern." }, { "id": "B", "text": "rufen Jens noch einmal an." }, { "id": "C", "text": "trinken sonntags mit Jens Kaffee." }], "correct": "A" },
+          { "id": 9, "prompt": "Sebastian soll", "options": [{ "id": "A", "text": "anrufen, wenn er Hilfe bei den Hausaufgaben braucht." }, { "id": "B", "text": "schnell bei den Hausaufgaben helfen." }, { "id": "C", "text": "sich melden, wenn er ein Problem in Mathe hat." }], "correct": "B" }
+        ]
+      },
+      "aufgaben": [
+        {
+          "id": 6,
+          "text": "Ja, hallo Laura! Hier ist Phillip! Ich wollte nur mal wissen, was du so machst und wie es dir geht. Ich hab' gestern Fotos von unseren letzten Sommerferien gefunden und da musste ich an dich denken. Wenn du Lust hast, meld' dich doch mal - dann können wir uns beide die Fotos mal in Ruhe ansehen."
+        },
+        {
+          "id": 7,
+          "text": "Guten Tag, Frau Rinke! Hier spricht Dr. Lörmann. Sie haben ja bei uns einen Termin am Dienstag - wegen Ihres Beins. Leider müssen wir diesen Termin verschieben. Ich hoffe, Sie können auch am Mittwoch zur gleichen Zeit? Bitte rufen Sie uns noch mal an und sagen Sie uns, ob Sie auch am Mittwoch Zeit haben. Vielen Dank."
+        },
+        {
+          "id": 8,
+          "text": "Hallo Jens, hier ist Mama! Du meldest dich ja gar nicht mehr. Also: Oma und Opa kommen am Sonntag zum Kaffeetrinken vorbei. Kommst du auch? Du weißt doch: Oma und Opa würden sich soo freuen! Die sehen dich ja kaum noch. Also, ruf doch mal zurück und sag, ob du am Sonntag Zeit hast!"
+        },
+        {
+          "id": 9,
+          "text": "Hallo Sebastian! Ich mache gerade Hausaufgaben für Mathe. Also, ich kann das hier nicht! Das ist viel zu schwierig! Du bist doch immer so gut in Mathe. Kannst du mir vielleicht dabei helfen? Ich hab' hier wirklich große Probleme. Ruf' doch bitte ganz schnell zurück! Danke!"
+        }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "subtitle": "Interview mit Sonja",
+      "intro": "Sonja ist 17 Jahre alt und hat gerade eine Ausbildung zur Goldschmiedin abgeschlossen. Eine Goldschmiedin stellt Schmuckstücke aus Gold her. Im Interview erzählt sie, warum sie ihren Beruf so mag.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/ux323vkap21vj7kmylpfd/6-03-AudioTrack-03.mp3?rlkey=4ee2dy27jgjqbb5t9wv1io1mf&st=i4pp83r2&dl=1",
+      "teil3Exercise": {
+        "intro": "Sonja ist 17 Jahre alt und hat gerade eine Ausbildung zur Goldschmiedin abgeschlossen. Eine Goldschmiedin stellt Schmuckstücke aus Gold her. Im Interview erzählt sie, warum sie ihren Beruf so mag.",
+        "instruction1": "Lies zuerst die Sätze 10–14. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun das Interview. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe (10–14) an: richtig oder falsch?",
+        "instruction4": "Danach hörst du das Interview noch einmal.",
+        "tasks": [
+          { "id": 10, "statement": "Sonja begann ihre Lehre als Goldschmiedin ohne Kenntnisse über den Beruf.", "correct": "falsch" },
+          { "id": 11, "statement": "Wenn Sonjas Arbeitstag beginnt, bespricht sie mit den Kunden, was zu tun ist.", "correct": "falsch" },
+          { "id": 12, "statement": "Putzen und Saubermachen sind nicht Sonjas Lieblingsbeschäftigungen.", "correct": "richtig" },
+          { "id": 13, "statement": "Sonja rät, sich bei der Stellensuche bei den Betrieben persönlich vorzustellen.", "correct": "richtig" },
+          { "id": 14, "statement": "Sonja träumt davon, einen eigenen Betrieb zu besitzen.", "correct": "falsch" }
+        ]
+      },
+      "content": "Sonja, warum hast du eine Ausbildung als Goldschmiedin begonnen?\n\nAlso, Goldschmiedin war schon immer mein absoluter Traumberuf. Es ist einfach genau das Richtige für mich! Ich hab' schon vorher ein passendes Praktikum gemacht. Ja, und dabei wurde mir klar, dass ich Goldschmiedin werden wollte. Es ist ein sehr kreativer Beruf. Man kann mit den Händen arbeiten und am Ende sieht man das Ergebnis.\n\nWie sieht dein Tag als Goldschmiedin aus?\n\nJa, so um neun Uhr morgens fange ich an. Ich setze mich immer zuerst mit den Kollegen zusammen und wir besprechen, was zu tun ist. Dann legen wir auch schon los. Ich kümmere mich zum Beispiel um Kunden, die in den Laden kommen, um etwas aus Gold anfertigen zu lassen. Man bespricht mit dem Kunden, wie das Stück hinterher aussehen soll. Dann suche ich mir die Materialien zusammen, setze mich an meinen Arbeitstisch und fange an. Bei einem einfachen Stück dauert es vielleicht nur einen Tag bis es fertig ist. Bei schwierigeren Arbeiten kann es aber auch schon mal mehrere Wochen dauern.\n\nWas machst du eigentlich am liebsten?\n\nJa, hm, ich sitze zwar gerne an meinem Arbeitstisch und arbeite an einem Schmuckstück. Aber die Bedienung der Kunden macht mir mehr Spaß.\n\nGibt es denn gar nichts, was du blöd findest an deinem Beruf?\n\nNaja, ein paar nervige Dinge gibt es schon. Aber die gehören einfach zum Job - wie zum Beispiel die Werkstatt sauber zu machen und das Werkzeug zu putzen.\n\nWie viele Bewerbungen hast du für deine Ausbildung geschrieben?\n\nOoh, pfff, das weiß ich gar nicht mehr so genau. Es ist auf jeden Fall schwierig, eine Ausbildungsstelle in diesem Beruf zu bekommen. Es gibt einfach zu wenige Betriebe, die in diesem Beruf ausbilden. Ich habe damals sämtliche Goldbetriebe in der Umgebung angeschrieben, bin zu vielen auch persönlich vorbeigegangen oder habe angerufen.\n\nWas empfiehlst du für Bewerbungen?\n\nIch glaube, es ist gut, bei den Betrieben direkt vorbeizugehen und nicht nur anzurufen oder Bewerbungen loszuschicken. Denn so kann man sich gleich persönlich vorstellen.\n\nWas willst du eigentlich nach deiner Ausbildung machen?\n\nAlso, ich möchte am liebsten weiter hier in dem Betrieb arbeiten. Ich bin hier sehr glücklich. Vielleicht möchte ich irgendwann auch eine Prüfung zur Meisterin machen. Von einem eigenen Betrieb träume ich allerdings im Moment noch nicht. Mal sehen, was ich in ein paar Jahren machen werde…"
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "subtitle": "Freunde aus der ganzen Welt",
+      "intro": "Die 15-jährige Katrin aus Berlin hat über eine Internetzeitschrift Brieffreunde aus aller Welt gesucht. Hier erzählt sie von ihren Erfahrungen.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/r90chmcdzn4bs09bdmqma/6-04-AudioTrack-04.mp3?rlkey=g4yk74mwntwes9ylw9lk6l4f1&st=hmlk31sf&dl=1",
+      "teil4Exercise": {
+        "intro": "Du hörst eine Reportage im Schülerradio. Katrin erzählt von ihren E-Mail-Freundschaften aus der ganzen Welt.",
+        "instruction1": "Lies zuerst die Aufgaben 15–20. Du hast dafür eine Minute Zeit.",
+        "instruction2": "Höre nun die Reportage. Löse die Aufgaben beim Hören.",
+        "instruction3": "Kreuze bei jeder Aufgabe die richtige Lösung (A oder B oder C) an.",
+        "instruction4": "Danach hörst du die Reportage noch einmal.",
+        "tasks": [
+          { "id": 15, "prompt": "Die meisten Leute schreiben", "options": [{ "id": "A", "text": "in den ersten beiden Tagen." }, { "id": "B", "text": "nicht mehr als eine E-Mail." }, { "id": "C", "text": "sehr lange und sehr viel." }], "correct": "B" },
+          { "id": 16, "prompt": "Katrin erfährt von ihren Brieffreunden,", "options": [{ "id": "A", "text": "wie überall Weihnachten gefeiert wird." }, { "id": "B", "text": "wo sie ihre Partys feiern." }, { "id": "C", "text": "welche Feste bei ihnen gefeiert werden." }], "correct": "C" },
+          { "id": 17, "prompt": "Katrins E-Mail-Freunde wollen wissen,", "options": [{ "id": "A", "text": "welche Hobbys Katrin hat." }, { "id": "B", "text": "wie Katrins Schule aussieht." }, { "id": "C", "text": "wohin Katrin nach der Schule geht." }], "correct": "A" },
+          { "id": 18, "prompt": "Katrin schreibt ihren Brieffreunden vor allem über", "options": [{ "id": "A", "text": "das Land, in dem sie lebt." }, { "id": "B", "text": "ihre Freunde und Bekannten." }, { "id": "C", "text": "ihre privaten Probleme." }], "correct": "A" },
+          { "id": 19, "prompt": "Katrin glaubt, dass viele Jugendliche wenig schreiben, weil sie", "options": [{ "id": "A", "text": "das Wörterbuch nicht benutzen können." }, { "id": "B", "text": "keine Fehler machen wollen." }, { "id": "C", "text": "nur ein paar Wörter kennen." }], "correct": "B" },
+          { "id": 20, "prompt": "Katrin schreibt an ihre Brieffreundin in den USA", "options": [{ "id": "A", "text": "lieber auf Englisch." }, { "id": "B", "text": "manchmal auf Spanisch." }, { "id": "C", "text": "nicht nur auf Deutsch." }], "correct": "C" }
+        ]
+      },
+      "content": "„Gerade habe ich wieder eine E-Mail von Marina aus Kroatien bekommen. Sie fragt mich, ob sie mich besuchen kann, wenn sie mal nach Deutschland kommt. Ich habe Marina noch nie vorher gesehen. Wir kennen uns nur durch das Internet. Aber ich freue mich schon auf ein Treffen mit ihr!\n\nWie ich Marina kennen gelernt habe? Das war so: Zufällig habe ich eines Tages eine Internetseite gefunden, auf der man neue Freunde aus aller Welt finden konnte. Ich habe mich sofort bei den Brieffreundschaften eingetragen. Schon zwei Tage später bekam ich die ersten E-Mails. Jetzt kenne ich schon einige Jugendliche aus der ganzen Welt. Am Anfang habe ich von vielen Leuten Briefe bekommen, aber von den meisten habe ich nach der ersten E-Mail nie wieder etwas gehört. Ich freue mich immer, wenn ich einen langen Brief bekomme - aber das ist selten.\n\nIch habe sehr viel von meinen neuen Brieffreunden gelernt. Ich kenne jetzt verschiedene Schulsysteme und weiß so Einiges über die verschiedenen Länder. In manchen Ländern wird zum Beispiel kein Weihnachten gefeiert. Dafür feiern die Menschen dort ganz andere Feste, die hier nicht jeder kennt. Ich finde all diese Briefe sehr interessant, weil ich so viele neue Dinge erfahre. Auch über die einzelnen Schulnoten haben wir uns unterhalten und oft gelacht. In Deutschland freuen sich die Schüler über eine 1; in anderen Ländern ist aber eine 5 oder 6 die beste Note. Bei uns sind das dagegen die schlechtesten Noten.\n\nMeine E-Mailfreunde fragen mich oft, wie bei mir ein typischer Schultag aussieht, was ich in meiner Freizeit gerne mache und wie ich lebe. Vieles ist bei uns gleich. So trifft man sich eigentlich in jedem Land nach der Schule mit seinen Freunden und macht etwas mit ihnen.\n\nÜber private Probleme schreibe ich mit meinen Brieffreunden eigentlich nie. Ich kenne diese Leute ja alle auch kaum - und sie kennen mich auch fast gar nicht. Manchmal erzähle ich ein bisschen über meine Freunde und Bekannten, aber auch das ist selten. Am meisten erzähle ich eigentlich über Deutschland und über den typisch deutschen Alltag.\n\nIch finde es schade, dass viele schon so schnell aufgegeben haben, mir zu schreiben. Vielleicht ist es ihnen zu anstrengend, ein paar Wörter in einem Wörterbuch nachzuschauen. Wahrscheinlich haben sie aber einfach Angst, dass sie Fehler machen beim Schreiben. Das kenne ich nämlich von mir selber. Eine meiner Brieffreundinnen kommt aus den USA und manchmal schreiben wir auf Deutsch und manchmal auf Englisch. Wenn ich dann auf Englisch schreibe, ist das für mich viel anstrengender als wenn ich auf Deutsch schreibe. Ich kann auch ein ganz kleines bisschen Spanisch - aber das reicht noch nicht zum Briefe schreiben. Naja, ich freue mich auf jeden Fall immer über neue E-Mails. Und wer weiß, vielleicht treffe ich auch mal einige meiner Brieffreunde auch persönlich.“"
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "subtitle": "Buchvorstellungen",
+      "intro": "Du hörst fünf Buchvorstellungen. Zu jeder Vorstellung (Nummer 0 und Aufgaben 21–24) passt ein Buch. Ordne zu.",
+      "audioUrl": "https://www.dropbox.com/scl/fi/gb2eyr6poy9dz53k5ibxd/6-05-AudioTrack-05.mp3?rlkey=bg7y2jc1ors87w4iebds64kap&st=mu5f5gi6&dl=1",
+      "itemLabel": "Nummer",
+      "teil5Exercise": {
+        "intro": "Am Montag unterhalten sich die Schüler der Klasse 6a über ihre Lieblingsbücher und einige stellen der Klasse ein Buch vor. Du hörst gleich vier kurze Berichte von Schülern.",
+        "instruction1": "Lies zuerst die Liste mit den verschiedenen Buchtiteln (A–H). Du hast dafür 30 Sekunden Zeit.",
+        "instruction2": "Notiere beim Hören zu jedem Bericht den richtigen Buchstaben (A–H).",
+        "instruction3": "Vier Buchstaben bleiben übrig.",
+        "instruction4": "Achtung! Du hörst die Berichte nur einmal. Zuerst hörst du ein Beispiel.",
+        "instruction5": "Das Beispiel hat die Nummer 0. Die Lösung ist Z.",
+        "instruction6": "Jetzt hörst du die anderen Berichte.",
+        "activities": [
+          { "id": "Z", "text": "Neue Freunde im Tennisclub" },
+          { "id": "A", "text": "Alles über Pferdepflege" },
+          { "id": "B", "text": "Auf dem Ponyhof" },
+          { "id": "C", "text": "Eine Party mit Eltern und Freunden" },
+          { "id": "D", "text": "Eine verrückte Fahrt in die Zukunft" },
+          { "id": "E", "text": "Ein Fest am Wochenende" },
+          { "id": "F", "text": "Geheimnis des dunklen Hauses" },
+          { "id": "G", "text": "Reise in die Vergangenheit" },
+          { "id": "H", "text": "Und sie reiten in die Dunkelheit" }
+        ],
+        "taskNumbers": [21, 22, 23, 24],
+        "correctAnswers": { "21": "B", "22": "F", "23": "D", "24": "E" }
+      },
+      "aufgaben": [
+        {
+          "id": 0,
+          "text": "Beim Tennistraining trifft er dann Carola. Die hat - genau wie er - auch einen Tennislehrer und spielt immer auf dem Platz nebenan. Da fand ich die Geschichte dann total spannend, weil ich ja auch neue Freunde suche…"
+        },
+        {
+          "id": 21,
+          "text": "…und die Mädchen rennen sofort zu den Pferden und wollen reiten. Jede hat direkt ein Lieblingspony, aber kurze Zeit später müssen sie schon wieder rein, weil es auf dem Hof immer um sieben Uhr Abendessen gibt…"
+        },
+        {
+          "id": 22,
+          "text": "Auf einmal ist alles total dunkel im Gebäude… Soo dunkel, dass man seine eigene Hand nicht mehr sehen kann. Die Jugendlichen gehen langsam vorwärts, aber sie finden einfach keine Tür mehr und auch keine Lampe…"
+        },
+        {
+          "id": 23,
+          "text": "Dann geht die große Fahrt los! Sie wollen mit einer Zeitmaschine hundert Jahre weiter reisen. Natürlich sind alle total gespannt, wie ihr Dorf dann aussieht. Dann wurde es plötzlich völlig dunkel…"
+        },
+        {
+          "id": 24,
+          "text": "Kaum sind die Eltern abgefahren, geht die Party im Haus auch schon los… Die haben dann ein total tolles Wochenende im eigenen Haus. Später laden sie noch Freunde ein und bringen alles durcheinander. Am Sonntagabend kommen dann die Eltern wieder…"
+        }
+      ]
+    }
+  ]
+}

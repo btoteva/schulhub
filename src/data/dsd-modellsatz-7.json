@@ -1,0 +1,129 @@
+{
+  "id": "dsd1-modellsatz6",
+  "title": "DSD I Modellsatz 6",
+  "titleBg": "DSD I Моделен тест 6",
+  "subtitle": "Leseverstehen Texte und Aufgaben",
+  "subtitleBg": "Четене с разбиране – текстове и задачи",
+  "vocabulary": [],
+  "leseverstehenInstructions": "Der Prüfungsteil Leseverstehen besteht aus fünf Teilen. Notiere deine Lösungen zuerst auf den Aufgabenblättern. Du hast **insgesamt 60 Minuten** Zeit, um die fünf Teile zu bearbeiten. Danach hast du **10 Minuten** Zeit, um deine Lösungen auf das Antwortblatt zu übertragen.",
+  "teile": [
+    {
+      "id": "teil1",
+      "title": "Teil 1",
+      "titleBg": "Част 1",
+      "instruction": "Du findest unten einen kurzen Lesetext.\nDer Text hat vier Lücken (Aufgabe 1–4).\nSetze aus der Wortliste (A–H) das richtige Wort in jede Lücke ein. Einige Wörter bleiben übrig.",
+      "text": "Im (0) **Winter** wird es in Europa kälter und die Tage werden kürzer. Die meisten Vögel sind schon in wärmere Länder geflogen. Alle Tiere, die bleiben, müssen eine andere Möglichkeit finden, nicht zu verhungern. Einige Tiere, zum Beispiel Bären, (1) ________ das nur, wenn sie in den Wintermonaten schlafen. In der kalten Winterzeit hält ihr dickes Fell sie warm. Aber nicht nur das, denn sie bereiten sich schon im Sommer und (2) ________ auf die Winterzeit vor. In diesen Monaten fressen sie sehr viel und haben deshalb den ganzen Winter über keinen (3) ________. Sie suchen sich auch einen warmen Platz zum Schlafen. Während sie schlafen, atmen sie kaum und sparen damit Energie. Wenn es im Frühling wieder (4) ________ wird, wachen sie auf und kommen aus ihren Höhlen hervor.",
+      "wordList": [
+        { "id": "Z", "word": "Winter", "wordBg": "зима" },
+        { "id": "A", "word": "Herbst", "wordBg": "есен" },
+        { "id": "B", "word": "dunkel", "wordBg": "тъмно" },
+        { "id": "C", "word": "fressen", "wordBg": "ям" },
+        { "id": "D", "word": "Hunger", "wordBg": "глад" },
+        { "id": "E", "word": "Frühling", "wordBg": "пролет" },
+        { "id": "F", "word": "können", "wordBg": "мога" },
+        { "id": "G", "word": "Schlaf", "wordBg": "сън" },
+        { "id": "H", "word": "hell", "wordBg": "светло" }
+      ],
+      "tasks": [
+        { "id": 1, "gap": 1, "correct": "F", "question": "Lücke 1" },
+        { "id": 2, "gap": 2, "correct": "A", "question": "Lücke 2" },
+        { "id": 3, "gap": 3, "correct": "D", "question": "Lücke 3" },
+        { "id": 4, "gap": 4, "correct": "H", "question": "Lücke 4" }
+      ],
+      "aufgabe5": {
+        "intro": "Achtung!\nWähle jetzt noch eine passende Überschrift zum Text aus!",
+        "question": "Welche Überschrift passt am besten zum Text? Kreuze an.",
+        "questionBg": "Коя заглавие пасва най-добре на текста? Отбележи.",
+        "options": [
+          { "id": "A", "text": "Bären in der Winterzeit", "correct": true },
+          { "id": "B", "text": "Immer weniger Bären im Winter", "correct": false },
+          { "id": "C", "text": "Was die Bären im Winter fressen", "correct": false }
+        ]
+      }
+    },
+    {
+      "id": "teil2",
+      "title": "Teil 2",
+      "titleBg": "Част 2",
+      "subtitle": "Anzeigen am Schwarzen Brett",
+      "intro": "Auf der nächsten Seite findest du acht kurze Anzeigen am Schwarzen Brett.\nLies die Aufgaben (6–9) und die Anzeigen (A–H).\nWelche Anzeige passt zu wem?\n**Schreibe den richtigen Buchstaben (A–H) in die rechte Spalte.**\nDu kannst jeden Buchstaben nur einmal wählen.\nVier Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 6–9",
+      "optionsHeading": "Anzeigen A–H",
+      "summaries": [
+        { "id": 0, "text": "Annette möchte am liebsten im medizinischen Bereich arbeiten.", "correct": "Z", "isExample": true },
+        { "id": 6, "text": "Sven ist schon sehr gut in Mathe, möchte aber noch mehr dazulernen.", "correct": "E", "isExample": false },
+        { "id": 7, "text": "Philipp macht der Umgang mit kleinen Kindern viel Spaß. Die Kleinen mögen ihn und er ist gern mit ihnen zusammen.", "correct": "A", "isExample": false },
+        { "id": 8, "text": "Anita möchte eine Ausbildung machen. Sie kann gut organisieren und wünscht sich einen Job im Büro.", "correct": "B", "isExample": false },
+        { "id": 9, "text": "Kai weiß noch nicht genau, was er machen möchte. Er möchte vor dem Studium noch gerne ein Jahr lang etwas für andere Menschen tun.", "correct": "F", "isExample": false }
+      ],
+      "emailOptions": [
+        { "id": "Z", "text": "Das Ausbildungszentrum „Äskulap“ bietet Kurse für Krankengymnastik an. Die Teilnehmerinnen und Teilnehmer werden nach erfolgreichem Abschluss anerkannte Krankengymnasten sein." },
+        { "id": "A", "text": "Wer will während der Sommerferien bei uns mitarbeiten? Wir suchen für unsere „wilde Gruppe“ einen fröhlichen Praktikanten oder eine Praktikantin. Die Kinder sind zwischen 3 und 6 Jahren alt und freuen sich auf dich!" },
+        { "id": "B", "text": "Unsere Schule bietet Ihnen Kurse mit Abschluss als geprüfte/r Sekretär/in. Damit haben Sie später vielfältige Chancen – nicht nur im Sekretariat, sondern auch in vielen anderen Bereichen. Haben Sie Interesse? Rufen Sie uns an!" },
+        { "id": "C", "text": "Du bist gut in Mathe und bringst Kindern gern etwas bei? Dann arbeite mit bei unserer Hausaufgaben-Betreuung! Wir suchen noch dringend jemanden für die Sommerferien, der dann unseren Schülern Nachhilfe in Mathe gibt!" },
+        { "id": "D", "text": "Du hast großes Interesse an Tieren, Menschen und Natur? Dann mach ein „Freiwilliges Ökologisches Jahr“! Bei uns kannst du viel lernen. Unser Bauernhof produziert ökologische Lebensmittel und sucht noch Praktikanten." },
+        { "id": "E", "text": "Wir laden dazu ein, sich auf diesen Internetseiten über das Institut für Mathematik an unserer Universität zu informieren. Die Professoren und Mitarbeiter des Instituts geben Auskunft über alle aktuellen mathematischen Fachgebiete." },
+        { "id": "F", "text": "Du hast noch keine Pläne für die berufliche Zukunft? Das „Freiwillige Soziale Jahr“ bietet jungen Menschen zwischen 15 und 20 Jahren eine Chance, sich selbst kennenzulernen und anderen zu helfen. Hier könnt ihr ein Jahr lang viele neue Erfahrungen in sozialen Berufen machen." },
+        { "id": "G", "text": "Unsere Organisation sucht noch Leute, die kleine Gruppen auf Ausflügen betreuen. Besonders dringend suchen wir noch Unterstützung für unsere Ausflüge für Kinder im Alter von 8 bis 10 Jahren." },
+        { "id": "H", "text": "Du arbeitest gern mit anderen Menschen zusammen, möchtest aber keinen Bürojob haben? Dann schau doch mal bei uns vorbei! Wir brauchen noch Kellner für unser Restaurant!" }
+      ]
+    },
+    {
+      "id": "teil3",
+      "title": "Teil 3",
+      "titleBg": "Част 3",
+      "subtitle": "Gorillas im Dschungel",
+      "intro": "Lies den Text und die Aufgaben 10–14.\nKreuze bei jeder Aufgabe „richtig“ oder „falsch“ an.",
+      "text": "Gorillas sind seltene Tiere. Und es ist sehr schwierig, die wenigen Gorillas, die es noch gibt, zu schützen. Es gibt nur noch etwa 700 Gorillas auf der Welt. In den Ländern, in denen sie leben, herrscht oft Krieg. Darunter leidet auch der Tourismus in diesen Ländern.\n\nFür Touristen sind Gorillas etwas ganz Besonderes. Fotosafaris sind z. B. sehr beliebt: Bis zu 500 € zahlen Touristen dafür, dass Parkranger, also Mitarbeiter der Nationalparks, sie durch den dichten Dschungel zu den Gorillas führen. Die Parkranger führen die Touristen gern, weil sie mit dem Geld den Schutz der Gorillas finanzieren.\n\nWegen der Kriege sind Fotosafaris aber selten geworden. Die Gefahr für das Leben der Touristen ist einfach zu groß. Außerdem sind viele Parkranger aus Angst geflohen. Zurück bleiben die Gorillas, die nun ohne den Schutz der Parkranger leben müssen. Die Soldaten kümmern sich natürlich nicht um die Affen. Außerdem wird der Lebensraum der Gorillas immer kleiner, denn immer mehr Menschen fliehen vor dem Krieg in den Dschungel. Diese Menschen müssen dort ihre Familien ernähren. Dazu brauchen sie natürlich Land; deswegen fällen sie viele Bäume.\n\nAber in diesem Jahr gibt es zum Glück gute Nachrichten: Fast 200 der geflohenen Parkranger sind zurückgekommen. Sie ziehen wieder durch den Wald und notieren Zahl und Größe der Gorillafamilien. Die beste Nachricht aber ist, dass sieben Gorillababys geboren wurden. Vielleicht gibt es ja nächstes Jahr wieder so gute Nachrichten.",
+      "tasks": [
+        { "id": 10, "statement": "Wegen der Gorillas herrscht seit Jahren Krieg.", "correct": "falsch" },
+        { "id": 11, "statement": "Der Tourismus schadet dem Schutz der Gorillas.", "correct": "falsch" },
+        { "id": 12, "statement": "Manche Soldaten schützen Gorillas, die allein gelassen wurden.", "correct": "falsch" },
+        { "id": 13, "statement": "In der Heimat der Gorillas müssen immer mehr Menschen im Dschungel leben.", "correct": "richtig" },
+        { "id": 14, "statement": "Die Parkranger helfen bei der Geburt von Gorillababys.", "correct": "falsch" }
+      ]
+    },
+    {
+      "id": "teil4",
+      "title": "Teil 4",
+      "titleBg": "Част 4",
+      "subtitle": "Minipraktikum bei der Müllabfuhr",
+      "intro": "Lies den Text und die Aufgaben 15–20.\nKreuze bei jeder Aufgabe die richtige Lösung an.",
+      "text": "Mareike ist eine Schülerin aus Wuppertal. Für ein Minipraktikum arbeitet sie einen Tag im Januar bei der Müllabfuhr. Hier berichtet sie von dieser Erfahrung.\n\nMein Wecker klingelt an diesem Morgen schon um halb fünf. Nicht weil ich immer so früh aufstehe, sondern weil ich heute um 5:45 Uhr in der Stadtmitte sein muss. Zuerst denke ich noch, dass mein Wecker kaputt ist, aber dann fällt es mir wieder ein: Heute werde ich einen Tag lang bei der Müllabfuhr Wuppertal arbeiten.\n\nIch wundere mich, dass ich nicht müde bin, denn sonst schlafe ich um diese Zeit noch. Aber heute bin ich wohl zu aufgeregt. Auch beim Frühstück mag ich nichts essen. In der Zentrale der Müllabfuhr angekommen, folge ich ein paar Männern in orangefarbenen Müllanzügen. Natürlich bekomme auch ich einen solchen Müllanzug. Ein Blick in den Spiegel bringt mich zum Lachen, denn ich sehe darin aus wie eine kleine, dicke Frau in Orange. Besonders schön finde ich das nicht.\n\nUm halb sieben fahren wir los und ich freue mich, neue Leute kennen zu lernen: Thomas, Harald und Dirk. Sie sind für heute meine Arbeitskollegen. Seit mehr als zehn Jahren arbeiten sie schon als Team zusammen. Thomas arbeitet sogar schon zwanzig Jahre bei der Müllabfuhr.\n\nSchnell sagen mir meine Arbeitskollegen, was ich machen muss. Das Leeren der Mülltonnen macht zuerst noch Spaß, nach ein paar Stunden ist es aber ziemlich anstrengend. Das Beste ist aber: Ich darf hinten auf dem Müllwagen im Stehen mitfahren. Darauf habe ich gewartet, und ich kann nur sagen: Es hat mir genauso viel Spaß gemacht, wie ich es mir vorgestellt habe! Immer wenn der Wagen voll ist, fahren wir zur „Müllverbrennungsanlage“. Dort verbrennt man den Müll in einem großen Ofen.\n\nNach dem Feierabend denke ich noch einmal über den Tag nach. Der Tag hat zwar Spaß gemacht, aber ich möchte später trotzdem nicht bei der Müllabfuhr arbeiten. Das ist mir einfach zu anstrengend. Gut, dass an diesem Tag Thomas, Harald und Dirk dabei waren. Wir sind nach diesem einen Tag zwar nicht befreundet, aber ohne meine drei Kollegen hätte ich das alles nicht geschafft.",
+      "questions": [
+        { "id": 15, "question": "An diesem Morgen", "options": [ { "id": "A", "text": "fühlt sich Mareike ziemlich müde.", "correct": false }, { "id": "B", "text": "hat Mareike großen Hunger.", "correct": false }, { "id": "C", "text": "ist Mareike etwas nervös.", "correct": true } ] },
+        { "id": 16, "question": "Mareike lacht, als sie in den Spiegel schaut, weil", "options": [ { "id": "A", "text": "ihr der Anzug zu klein ist.", "correct": false }, { "id": "B", "text": "sie heute besonders schön aussieht.", "correct": false }, { "id": "C", "text": "sie so komisch aussieht.", "correct": true } ] },
+        { "id": 17, "question": "Thomas, Harald und Dirk", "options": [ { "id": "A", "text": "arbeiten heute mit Mareike zusammen.", "correct": true }, { "id": "B", "text": "freuen sich auf ihre neue Arbeitskollegin.", "correct": false }, { "id": "C", "text": "sind seit zwanzig Jahren ein Team.", "correct": false } ] },
+        { "id": 18, "question": "Den größten Spaß hat Mareike, als sie", "options": [ { "id": "A", "text": "auf dem Müllwagen im Stehen fahren darf.", "correct": true }, { "id": "B", "text": "die Mülltonnen ausleert.", "correct": false }, { "id": "C", "text": "zur Müllverbrennungsanlage fährt.", "correct": false } ] },
+        { "id": 19, "question": "Mareike hat diesen Tag durchgehalten, weil sie", "options": [ { "id": "A", "text": "Hilfe von den Kollegen hatte.", "correct": true }, { "id": "B", "text": "neue Freunde gefunden hat.", "correct": false }, { "id": "C", "text": "Spaß beim Arbeiten hatte.", "correct": false } ] },
+        { "id": 20, "question": "Welche Überschrift passt am besten?", "options": [ { "id": "A", "text": "Die erste Frau bei der Müllabfuhr", "correct": false }, { "id": "B", "text": "Ein anstrengender Tag mit den Müllmännern", "correct": true }, { "id": "C", "text": "Arbeit bei der Müllverbrennungsanlage", "correct": false } ] }
+      ]
+    },
+    {
+      "id": "teil5",
+      "title": "Teil 5",
+      "titleBg": "Част 5",
+      "subtitle": "Museumsbesuche",
+      "intro": "Lies die Texte 21–24 und die Überschriften A–H. Was passt zusammen?\nSchreibe den richtigen Buchstaben (A–H) in die rechte Spalte.\nEinige Buchstaben bleiben übrig.",
+      "tableTitle": "Aufgaben 21–24",
+      "summaries": [
+        { "id": 0, "text": "Ich fand das Museum toll. Es gab so viele Zelte, Häuser und andere Bauten – und überall konnte man hinein gehen und sehen, wie man dort lebt, wohnt und arbeitet. Es gab sogar ein echtes Feuer! In einem Kasten waren Werkzeuge und Schmuck. Auf großen Tafeln waren viele Zeichnungen, die erklärt wurden, und in einem kleinen Kino gab es einen Film über das Leben dieser Menschen.", "correct": "Z", "isExample": true },
+        { "id": 21, "text": "Erst fand ich es total langweilig, dass wir ins Museum gehen sollten. Ich hatte einfach keine Lust auf diese bunten Gemälde, vor denen die Erwachsenen ewig stehen. Als ob ich bei diesen paar Strichen und Punkten etwas erkennen könnte! Aber wir durften auch selbst zeichnen, und eine Frau hat uns Tipps gegeben. Ich stellte fest, dass ich viel mehr kann als ich dachte!", "correct": "A", "isExample": false },
+        { "id": 22, "text": "Das Museum war riesig und dort gab es aus allen Zeiten etwas. Auf einer Etage gab es kleine Roboter, die von alleine laufen konnten. In einem anderen Raum waren nur kleinere Sachen aus Holz. Aber am besten hat mir der große Saal gefallen: Den hatten sie mit Tieren aus Stoff gefüllt. In einer Werkstatt konnte man schließlich zugucken, wie diese Tiere in Handarbeit hergestellt und bemalt werden.", "correct": "G", "isExample": false },
+        { "id": 23, "text": "Eigentlich sagt man ja, das ist nur etwas für Jungen. Aber meine Freundinnen und ich haben uns stundenlang dort umgeguckt. Man konnte fast alles selber ausprobieren, ein- und ausschalten und sogar selber benutzen. Was dieses Museum wohl für eine Stromrechnung hat? Auf Bildern konnte man sehen, wie solche Geräte aufgebaut sind und wie sie funktionieren. Toll, was der Mensch sich so alles ausdenkt. Gerade zuhause wird ja Vieles dadurch einfacher!", "correct": "F", "isExample": false },
+        { "id": 24, "text": "Das könnt ihr euch gar nicht vorstellen: Es gab sie in allen Formen und Größen! Es gab sie sogar in Form von Tieren und Menschen. Es gab sie in hell, in dunkel, mit Milch oder mit Nüssen. Von der Pflanze bis zum fertigen Produkt konnte man sich anschauen, wie so etwas hergestellt wird. Aber das Tollste war: Man durfte so viel probieren, wie man wollte.", "correct": "B", "isExample": false }
+      ],
+      "headlineOptions": [
+        { "id": "Z", "text": "Interessantes über fremde Völker und Kulturen" },
+        { "id": "A", "text": "Kinderprogramm in der Gemäldegalerie" },
+        { "id": "B", "text": "Die Kunst Schokolade herzustellen" },
+        { "id": "C", "text": "Energiesparen im Haushalt der Zukunft" },
+        { "id": "D", "text": "Figuren aus Stein herstellen" },
+        { "id": "E", "text": "Kunst aus Pflanzen bestaunen" },
+        { "id": "F", "text": "Moderne Technik, die alle begeistert" },
+        { "id": "G", "text": "Spielzeug aus verschiedenen Jahrhunderten" },
+        { "id": "H", "text": "Tiere lehren uns die Geschichte der Natur" }
+      ]
+    }
+  ]
+}
