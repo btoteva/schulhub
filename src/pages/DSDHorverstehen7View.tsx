@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaHeadphones, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useAuth } from "../contexts/AuthContext";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import ProgressFeedback from "../components/ProgressFeedback";
 import horverstehenData from "../data/dsd-horverstehen-7.json";
+
+const STORAGE_KEY = "schulhub-dsd-horverstehen-7";
 
 type TeilData = {
   id: string;
@@ -76,7 +81,13 @@ type TeilData = {
 const DSDHorverstehen7View: React.FC = () => {
   const { theme } = useTheme();
   const { t, language } = useLanguage();
+  const { token } = useAuth();
+  const skipSaveRef = useRef(true);
+  const hasLoadedRef = useRef(false);
+  const savedFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isLight = theme === "light";
+  const [isLoadingProgress, setIsLoadingProgress] = useState(false);
+  const [savedFeedbackText, setSavedFeedbackText] = useState<string | null>(null);
   const data = horverstehenData as {
     title: string;
     titleBg: string;
@@ -103,6 +114,65 @@ const DSDHorverstehen7View: React.FC = () => {
   const [showTeil5Answers, setShowTeil5Answers] = useState(false);
   const teile = data.teile ?? [];
 
+  useEffect(() => {
+    if (!token) return;
+    hasLoadedRef.current = false;
+    setIsLoadingProgress(true);
+    let cancelled = false;
+    getUserProgress(STORAGE_KEY, token)
+      .then((val) => {
+        if (cancelled || val === null || typeof val !== "object" || Array.isArray(val)) return;
+        const v = val as Record<string, unknown>;
+        if (v.teil1Bilder && typeof v.teil1Bilder === "object") setTeil1Bilder(v.teil1Bilder as Record<number, string>);
+        if (v.teil2Answers && typeof v.teil2Answers === "object") setTeil2Answers(v.teil2Answers as Record<number, string>);
+        if (v.teil3Answers && typeof v.teil3Answers === "object") setTeil3Answers(v.teil3Answers as Record<number, "richtig" | "falsch">);
+        if (v.teil4Answers && typeof v.teil4Answers === "object") setTeil4Answers(v.teil4Answers as Record<number, string>);
+        if (v.teil5Answers && typeof v.teil5Answers === "object") setTeil5Answers(v.teil5Answers as Record<number, string>);
+      })
+      .finally(() => {
+        if (!cancelled) {
+          hasLoadedRef.current = true;
+          setIsLoadingProgress(false);
+        }
+      });
+    return () => { cancelled = true; };
+  }, [token]);
+
+  useEffect(() => {
+    return () => {
+      if (savedFeedbackTimeoutRef.current) clearTimeout(savedFeedbackTimeoutRef.current);
+    };
+  }, []);
+
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (!token || !hasLoadedRef.current || skipSaveRef.current) {
+      skipSaveRef.current = false;
+      return;
+    }
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    saveTimeoutRef.current = setTimeout(() => {
+      setUserProgress(STORAGE_KEY, {
+        teil1Bilder,
+        teil2Answers,
+        teil3Answers,
+        teil4Answers,
+        teil5Answers,
+      }, token);
+      const msg = language === "bg" ? "Запазено" : language === "de" ? "Gespeichert" : "Saved";
+      setSavedFeedbackText(msg);
+      if (savedFeedbackTimeoutRef.current) clearTimeout(savedFeedbackTimeoutRef.current);
+      savedFeedbackTimeoutRef.current = setTimeout(() => {
+        setSavedFeedbackText(null);
+        savedFeedbackTimeoutRef.current = null;
+      }, 2500);
+      saveTimeoutRef.current = null;
+    }, 400);
+    return () => {
+      if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    };
+  }, [token, teil1Bilder, teil2Answers, teil3Answers, teil4Answers, teil5Answers]);
+
   return (
     <div
       className={
@@ -124,6 +194,15 @@ const DSDHorverstehen7View: React.FC = () => {
           <h1 className={`text-3xl font-bold ${isLight ? "text-amber-600" : "text-amber-400"}`}>{data.title}</h1>
           <p className={isLight ? "text-slate-600 mt-1" : "text-gray-400 mt-1"}>{data.subtitle}</p>
         </header>
+
+        {token && (
+          <ProgressFeedback
+            isLoading={isLoadingProgress}
+            savedText={savedFeedbackText}
+            isLight={isLight}
+            language={language}
+          />
+        )}
 
         {teile.length > 0 ? (
           <>

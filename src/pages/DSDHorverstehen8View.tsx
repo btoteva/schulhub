@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaHeadphones, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useAuth } from "../contexts/AuthContext";
+import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import ProgressFeedback from "../components/ProgressFeedback";
 import horverstehenData from "../data/dsd-horverstehen-8.json";
+
+const AUDIO_PROGRESS_KEY = "schulhub-dsd-horverstehen-8-audio";
+const ANSWERS_STORAGE_KEY = "schulhub-dsd-horverstehen-8-answers";
+
+function formatTime(seconds: number): string {
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
 
 type TeilData = {
   id: string;
@@ -76,7 +88,19 @@ type TeilData = {
 const DSDHorverstehen8View: React.FC = () => {
   const { theme } = useTheme();
   const { t, language } = useLanguage();
+  const { token } = useAuth();
   const isLight = theme === "light";
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const savedPositionRef = useRef<number | null>(null);
+  const saveFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const skipSaveAnswersRef = useRef(true);
+  const hasLoadedAnswersRef = useRef(false);
+  const savedAnswersFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isLoadingPosition, setIsLoadingPosition] = useState(false);
+  const [savedAtText, setSavedAtText] = useState<string | null>(null);
+  const [isLoadingAnswers, setIsLoadingAnswers] = useState(false);
+  const [savedAnswersFeedbackText, setSavedAnswersFeedbackText] = useState<string | null>(null);
+
   const data = horverstehenData as {
     title: string;
     titleBg: string;
@@ -85,8 +109,66 @@ const DSDHorverstehen8View: React.FC = () => {
     audioUrl?: string;
     teile?: TeilData[];
   };
-
   const hasGlobalAudio = !!data.audioUrl;
+
+  useEffect(() => {
+    if (!token || !hasGlobalAudio) return;
+    setIsLoadingPosition(true);
+    getUserProgress(AUDIO_PROGRESS_KEY, token).then((progress) => {
+      const val = progress as { position?: number } | null;
+      const pos = typeof val?.position === "number" ? val.position : null;
+      if (pos == null || pos < 0) {
+        setIsLoadingPosition(false);
+        return;
+      }
+      const el = audioRef.current;
+      if (el && el.readyState >= 1) {
+        el.currentTime = pos;
+      } else {
+        savedPositionRef.current = pos;
+      }
+      setIsLoadingPosition(false);
+    }).catch(() => setIsLoadingPosition(false));
+  }, [token, hasGlobalAudio]);
+
+  useEffect(() => {
+    return () => {
+      if (saveFeedbackTimeoutRef.current) clearTimeout(saveFeedbackTimeoutRef.current);
+      if (savedAnswersFeedbackTimeoutRef.current) clearTimeout(savedAnswersFeedbackTimeoutRef.current);
+    };
+  }, []);
+
+  const applySavedPosition = () => {
+    const pos = savedPositionRef.current;
+    if (typeof pos === "number" && pos > 0 && audioRef.current) {
+      audioRef.current.currentTime = pos;
+      savedPositionRef.current = null;
+    }
+  };
+
+  const saveAudioPosition = () => {
+    if (!token || !audioRef.current || audioRef.current.currentTime <= 0) return;
+    const position = audioRef.current.currentTime;
+    setUserProgress(AUDIO_PROGRESS_KEY, { position }, token);
+    const timeStr = formatTime(position);
+    const msg =
+      language === "bg" ? `Запазено при ${timeStr}` : language === "de" ? `Gespeichert bei ${timeStr}` : `Saved at ${timeStr}`;
+    setSavedAtText(msg);
+    if (saveFeedbackTimeoutRef.current) clearTimeout(saveFeedbackTimeoutRef.current);
+    saveFeedbackTimeoutRef.current = setTimeout(() => {
+      setSavedAtText(null);
+      saveFeedbackTimeoutRef.current = null;
+    }, 2500);
+  };
+
+  const handleAudioPause = () => {
+    saveAudioPosition();
+  };
+
+  const handleAudioSeeked = () => {
+    saveAudioPosition();
+  };
+
   const [showTeacherTextTeile, setShowTeacherTextTeile] = useState<Record<string, boolean>>({});
   const [teil1Bilder, setTeil1Bilder] = useState<Record<number, string>>({});
   const [showTeil1CheckResult, setShowTeil1CheckResult] = useState(false);
@@ -104,6 +186,59 @@ const DSDHorverstehen8View: React.FC = () => {
   const [showTeil5CheckResult, setShowTeil5CheckResult] = useState(false);
   const [showTeil5Answers, setShowTeil5Answers] = useState(false);
   const teile = data.teile ?? [];
+
+  useEffect(() => {
+    if (!token) return;
+    hasLoadedAnswersRef.current = false;
+    setIsLoadingAnswers(true);
+    let cancelled = false;
+    getUserProgress(ANSWERS_STORAGE_KEY, token)
+      .then((val) => {
+        if (cancelled || val === null || typeof val !== "object" || Array.isArray(val)) return;
+        const v = val as Record<string, unknown>;
+        if (v.teil1Bilder && typeof v.teil1Bilder === "object") setTeil1Bilder(v.teil1Bilder as Record<number, string>);
+        if (v.teil2Answers && typeof v.teil2Answers === "object") setTeil2Answers(v.teil2Answers as Record<number, string>);
+        if (v.teil3Answers && typeof v.teil3Answers === "object") setTeil3Answers(v.teil3Answers as Record<number, "richtig" | "falsch">);
+        if (v.teil4Answers && typeof v.teil4Answers === "object") setTeil4Answers(v.teil4Answers as Record<number, string>);
+        if (v.teil5Answers && typeof v.teil5Answers === "object") setTeil5Answers(v.teil5Answers as Record<number, string>);
+      })
+      .finally(() => {
+        if (!cancelled) {
+          hasLoadedAnswersRef.current = true;
+          setIsLoadingAnswers(false);
+        }
+      });
+    return () => { cancelled = true; };
+  }, [token]);
+
+  const saveAnswersTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (!token || !hasLoadedAnswersRef.current || skipSaveAnswersRef.current) {
+      skipSaveAnswersRef.current = false;
+      return;
+    }
+    if (saveAnswersTimeoutRef.current) clearTimeout(saveAnswersTimeoutRef.current);
+    saveAnswersTimeoutRef.current = setTimeout(() => {
+      setUserProgress(ANSWERS_STORAGE_KEY, {
+        teil1Bilder,
+        teil2Answers,
+        teil3Answers,
+        teil4Answers,
+        teil5Answers,
+      }, token);
+      const msg = language === "bg" ? "Запазено" : language === "de" ? "Gespeichert" : "Saved";
+      setSavedAnswersFeedbackText(msg);
+      if (savedAnswersFeedbackTimeoutRef.current) clearTimeout(savedAnswersFeedbackTimeoutRef.current);
+      savedAnswersFeedbackTimeoutRef.current = setTimeout(() => {
+        setSavedAnswersFeedbackText(null);
+        savedAnswersFeedbackTimeoutRef.current = null;
+      }, 2500);
+      saveAnswersTimeoutRef.current = null;
+    }, 400);
+    return () => {
+      if (saveAnswersTimeoutRef.current) clearTimeout(saveAnswersTimeoutRef.current);
+    };
+  }, [token, teil1Bilder, teil2Answers, teil3Answers, teil4Answers, teil5Answers]);
 
   return (
     <div
@@ -127,17 +262,44 @@ const DSDHorverstehen8View: React.FC = () => {
           <p className={isLight ? "text-slate-600 mt-1" : "text-gray-400 mt-1"}>{data.subtitle}</p>
         </header>
 
+        {token && (
+          <ProgressFeedback
+            isLoading={isLoadingAnswers}
+            savedText={savedAnswersFeedbackText}
+            isLight={isLight}
+            language={language}
+          />
+        )}
+
         {hasGlobalAudio && (
           <div className={`sticky top-0 z-20 mb-6 -mx-4 px-4 py-3 rounded-xl shadow-lg ${isLight ? "bg-amber-50 border border-amber-200" : "bg-amber-900/30 border border-amber-700/50"}`}>
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap mb-2">
               <p className={`flex items-center gap-2 font-medium shrink-0 ${isLight ? "text-amber-700" : "text-amber-300"}`}>
                 <FaHeadphones className="text-lg" />
                 {language === "bg" ? "Аудио (Teil 1–5)" : language === "de" ? "Audio (Teil 1–5)" : "Audio (Part 1–5)"}
               </p>
-              <audio controls className="flex-1 min-w-0 max-w-full" src={data.audioUrl}>
+              <audio
+                ref={audioRef}
+                controls
+                className="flex-1 min-w-0 max-w-full"
+                src={data.audioUrl}
+                onLoadedMetadata={applySavedPosition}
+                onPause={handleAudioPause}
+                onSeeked={handleAudioSeeked}
+              >
                 {language === "bg" ? "Браузърът ви не поддържа аудио." : language === "de" ? "Ihr Browser unterstützt kein Audio." : "Your browser does not support audio."}
               </audio>
             </div>
+            {(token && isLoadingPosition) || savedAtText ? (
+              <div className={`mt-2 px-3 py-2 rounded-lg text-base font-medium ${isLight ? "bg-white/90 text-slate-800 shadow-sm" : "bg-black/50 text-white"}`}>
+                {token && isLoadingPosition && (
+                  <span>{language === "bg" ? "Зарежда…" : language === "de" ? "Lade…" : "Loading…"}</span>
+                )}
+                {savedAtText && (
+                  <span className={isLight ? "text-emerald-700" : "text-emerald-300"}>{savedAtText}</span>
+                )}
+              </div>
+            ) : null}
           </div>
         )}
 

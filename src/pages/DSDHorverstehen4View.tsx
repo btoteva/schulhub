@@ -5,6 +5,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import ProgressFeedback from "../components/ProgressFeedback";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import horverstehenData from "../data/dsd-horverstehen-4.json";
 
@@ -12,11 +13,14 @@ const STORAGE_KEY = "schulhub-dsd-horverstehen-4";
 
 const DSDHorverstehen4View: React.FC = () => {
   const { theme } = useTheme();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { token } = useAuth();
   const skipSaveRef = useRef(true);
   const hasLoadedRef = useRef(false);
+  const savedFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isLight = theme === "light";
+  const [isLoadingProgress, setIsLoadingProgress] = useState(false);
+  const [savedFeedbackText, setSavedFeedbackText] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"test" | "dictionary">("test");
   const [vocabularyCellExpanded, setVocabularyCellExpanded] = useState<{ row: number; col: "synonyms" | "explanation" } | null>(null);
   const [showTeacherTextTeile, setShowTeacherTextTeile] = useState<Record<string, boolean>>({});
@@ -116,6 +120,7 @@ const DSDHorverstehen4View: React.FC = () => {
   useEffect(() => {
     if (!token) return;
     hasLoadedRef.current = false;
+    setIsLoadingProgress(true);
     let cancelled = false;
     getUserProgress(STORAGE_KEY, token)
       .then((val) => {
@@ -128,23 +133,47 @@ const DSDHorverstehen4View: React.FC = () => {
         if (v.teil5Answers && typeof v.teil5Answers === "object") setTeil5Answers(v.teil5Answers as Record<number, string>);
       })
       .finally(() => {
-        if (!cancelled) hasLoadedRef.current = true;
+        if (!cancelled) {
+          hasLoadedRef.current = true;
+          setIsLoadingProgress(false);
+        }
       });
     return () => { cancelled = true; };
   }, [token]);
 
   useEffect(() => {
+    return () => {
+      if (savedFeedbackTimeoutRef.current) clearTimeout(savedFeedbackTimeoutRef.current);
+    };
+  }, []);
+
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
     if (!token || !hasLoadedRef.current || skipSaveRef.current) {
       skipSaveRef.current = false;
       return;
     }
-    setUserProgress(STORAGE_KEY, {
-      teil1Bilder,
-      teil2Answers,
-      teil3Answers,
-      teil4Answers,
-      teil5Answers,
-    }, token);
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    saveTimeoutRef.current = setTimeout(() => {
+      setUserProgress(STORAGE_KEY, {
+        teil1Bilder,
+        teil2Answers,
+        teil3Answers,
+        teil4Answers,
+        teil5Answers,
+      }, token);
+      const msg = language === "bg" ? "Запазено" : language === "de" ? "Gespeichert" : "Saved";
+      setSavedFeedbackText(msg);
+      if (savedFeedbackTimeoutRef.current) clearTimeout(savedFeedbackTimeoutRef.current);
+      savedFeedbackTimeoutRef.current = setTimeout(() => {
+        setSavedFeedbackText(null);
+        savedFeedbackTimeoutRef.current = null;
+      }, 2500);
+      saveTimeoutRef.current = null;
+    }, 400);
+    return () => {
+      if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    };
   }, [token, teil1Bilder, teil2Answers, teil3Answers, teil4Answers, teil5Answers]);
 
   return (
@@ -178,6 +207,15 @@ const DSDHorverstehen4View: React.FC = () => {
             </p>
           )}
         </header>
+
+        {token && (
+          <ProgressFeedback
+            isLoading={isLoadingProgress}
+            savedText={savedFeedbackText}
+            isLight={isLight}
+            language={language}
+          />
+        )}
 
         <div className="flex gap-2 mb-6 border-b border-amber-500/30">
           <button

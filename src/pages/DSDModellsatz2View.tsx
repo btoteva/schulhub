@@ -5,6 +5,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import ProgressFeedback from "../components/ProgressFeedback";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import dsdData from "../data/dsd-modellsatz-2.json";
 
@@ -28,11 +29,16 @@ const DSDModellsatz2View: React.FC = () => {
   const [showAnswerKey, setShowAnswerKey] = useState(false);
   const skipSaveRef = useRef(true);
   const hasLoadedRef = useRef(false);
-  const { t } = useLanguage();
+  const savedFeedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { t, language } = useLanguage();
+  const [isLoadingProgress, setIsLoadingProgress] = useState(false);
+  const [savedFeedbackText, setSavedFeedbackText] = useState<string | null>(null);
 
   useEffect(() => {
     if (!token) return;
     hasLoadedRef.current = false;
+    setIsLoadingProgress(true);
     let cancelled = false;
     getUserProgress(STORAGE_KEY, token)
       .then((val) => {
@@ -41,17 +47,40 @@ const DSDModellsatz2View: React.FC = () => {
         }
       })
       .finally(() => {
-        if (!cancelled) hasLoadedRef.current = true;
+        if (!cancelled) {
+          hasLoadedRef.current = true;
+          setIsLoadingProgress(false);
+        }
       });
     return () => { cancelled = true; };
   }, [token]);
+
+  useEffect(() => {
+    return () => {
+      if (savedFeedbackTimeoutRef.current) clearTimeout(savedFeedbackTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (!token || !hasLoadedRef.current || skipSaveRef.current) {
       skipSaveRef.current = false;
       return;
     }
-    setUserProgress(STORAGE_KEY, answers, token);
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    saveTimeoutRef.current = setTimeout(() => {
+      setUserProgress(STORAGE_KEY, answers, token);
+      const msg = language === "bg" ? "Запазено" : language === "de" ? "Gespeichert" : "Saved";
+      setSavedFeedbackText(msg);
+      if (savedFeedbackTimeoutRef.current) clearTimeout(savedFeedbackTimeoutRef.current);
+      savedFeedbackTimeoutRef.current = setTimeout(() => {
+        setSavedFeedbackText(null);
+        savedFeedbackTimeoutRef.current = null;
+      }, 2500);
+      saveTimeoutRef.current = null;
+    }, 400);
+    return () => {
+      if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    };
   }, [token, answers]);
 
   const data = dsdData as {
@@ -176,6 +205,15 @@ const DSDModellsatz2View: React.FC = () => {
           <h1 className={`text-3xl font-bold ${isLight ? "text-amber-600" : "text-amber-400"}`}>{data.title}</h1>
           <p className={isLight ? "text-slate-600 mt-1" : "text-gray-400 mt-1"}>{data.subtitle}</p>
         </header>
+
+        {token && (
+          <ProgressFeedback
+            isLoading={isLoadingProgress}
+            savedText={savedFeedbackText}
+            isLight={isLight}
+            language={language}
+          />
+        )}
 
         <div className="flex gap-2 mb-6 border-b border-amber-500/30">
           <button
