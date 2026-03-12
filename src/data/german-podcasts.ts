@@ -5,6 +5,8 @@ export interface GermanPodcastItem {
   duration: string;
   spotifyEpisodeId: string;
   spotifyUrl: string;
+  /** Direct MP3/audio URL (e.g. from RSS). When set, our player with volume control is used. */
+  audioUrl?: string;
 }
 
 export const germanPodcasts: GermanPodcastItem[] = [

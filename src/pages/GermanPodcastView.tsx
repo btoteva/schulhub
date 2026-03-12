@@ -4,9 +4,33 @@ import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
+import { useAudioVolume } from "../contexts/AudioVolumeContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import ControlledAudio from "../components/ControlledAudio";
 import { germanPodcasts } from "../data/german-podcasts";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
+
+const API_BASE = process.env.DEV_API_ORIGIN || "";
+
+function normalizeTitle(t: string) {
+  return t
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function findAudioUrlForTitle(
+  episodes: { title: string; audioUrl: string }[],
+  episodeTitle: string
+): string | null {
+  const want = normalizeTitle(episodeTitle);
+  for (const e of episodes) {
+    if (normalizeTitle(e.title) === want) return e.audioUrl;
+    if (normalizeTitle(e.title).includes(want) || want.includes(normalizeTitle(e.title)))
+      return e.audioUrl;
+  }
+  return null;
+}
 
 const GermanPodcastView: React.FC = () => {
   const { episodeId } = useParams<{ episodeId?: string }>();
@@ -14,12 +38,20 @@ const GermanPodcastView: React.FC = () => {
   const { token } = useAuth();
   const isLight = theme === "light";
   const { t, language } = useLanguage();
+  const { volume, setVolume } = useAudioVolume();
   const location = useLocation();
   const fromState = (location.state as { fromSection?: string } | undefined) || undefined;
+
+  const volumeLabel =
+    language === "bg" ? "Сила на звука" : language === "de" ? "Lautstärke" : "Volume";
 
   const episode =
     germanPodcasts.find((p) => p.spotifyEpisodeId === episodeId || p.id === episodeId) ?? germanPodcasts[0];
   const [podcastListenedIds, setPodcastListenedIds] = useState<string[]>([]);
+  const [feedEpisodes, setFeedEpisodes] = useState<{ title: string; audioUrl: string }[]>([]);
+
+  const directAudioUrl =
+    episode.audioUrl ?? (feedEpisodes.length ? findAudioUrlForTitle(feedEpisodes, episode.title) : null);
 
   useEffect(() => {
     if (!token) {
@@ -34,6 +66,18 @@ const GermanPodcastView: React.FC = () => {
     });
     return () => { cancelled = true; };
   }, [token]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`${API_BASE}/api/podcast-feed`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled || !data || !Array.isArray(data.episodes)) return;
+        setFeedEpisodes(data.episodes);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
 
   const listened = token && podcastListenedIds.includes(episode.spotifyEpisodeId);
 
@@ -73,10 +117,53 @@ const GermanPodcastView: React.FC = () => {
 
         <p className={`text-lg mb-6 ${isLight ? "text-slate-600" : "text-slate-300"}`}>{description}</p>
 
+        {directAudioUrl ? (
+          <>
+            <div className={`rounded-xl overflow-hidden shadow-xl p-4 sm:p-6 mb-6 ${isLight ? "bg-slate-100 border border-slate-200" : "bg-slate-800/50 border border-slate-600"}`}>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4">
+                <label className="text-sm font-medium shrink-0" htmlFor="podcast-volume">
+                  {volumeLabel}
+                </label>
+                <input
+                  id="podcast-volume"
+                  type="range"
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  value={volume}
+                  onChange={(e) => setVolume(parseFloat(e.target.value))}
+                  className="flex-1 min-w-0 h-2 rounded-full appearance-none bg-slate-200 dark:bg-slate-600 accent-emerald-600"
+                />
+                <span className="text-sm tabular-nums shrink-0 w-10">
+                  {Math.round(volume * 100)}%
+                </span>
+              </div>
+              <ControlledAudio
+                src={directAudioUrl}
+                className="w-full"
+                controlsList="nodownload"
+              >
+                {language === "bg" ? "Браузърът ви не поддържа аудио." : language === "de" ? "Ihr Browser unterstützt kein Audio." : "Your browser does not support audio."}
+              </ControlledAudio>
+            </div>
+            <p className={`text-sm mb-3 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
+              {language === "bg" ? "Или пусни в Spotify:" : language === "de" ? "Oder in Spotify abspielen:" : "Or play in Spotify:"}
+            </p>
+          </>
+        ) : (
+          <p className={`text-sm mb-3 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
+            {language === "bg"
+              ? "Вграденият плеър няма регулатор за звук. За да намалите силата на звука, използвайте тонколоните на устройството или отворете епизода в Spotify (бутон по-долу)."
+              : language === "de"
+                ? "Der eingebettete Player hat keine Lautstärkeregelung. Stellen Sie die Lautstärke am Gerät ein oder öffnen Sie die Episode in Spotify (Button unten)."
+                : "The embedded player has no volume control. Use your device volume or open the episode in Spotify (button below)."}
+          </p>
+        )}
+
         {/* Spotify embed */}
         <div className="rounded-xl overflow-hidden shadow-xl bg-[#1a1a1a] p-4 sm:p-6 mb-8">
           <iframe
-            title="Easy German: Mit dem Gewürzschlüsselanhänger um die Welt"
+            title="Easy German Podcast"
             src={`https://open.spotify.com/embed/episode/${episode.spotifyEpisodeId}?utm_source=generator&theme=0`}
             width="100%"
             height="232"

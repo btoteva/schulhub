@@ -67,6 +67,7 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [volumeOpen, setVolumeOpen] = useState(false);
   const volumeRef = useRef<HTMLDivElement>(null);
+  const volumeRefMobile = useRef<HTMLDivElement>(null);
   const UserRoleIcon = user?.role === "superadmin" ? FaCrown : user?.role === "admin" ? FaUserCog : FaUser;
 
   const normalizePath = (path: string) => {
@@ -101,9 +102,10 @@ const Header: React.FC = () => {
   useEffect(() => {
     if (!volumeOpen) return;
     const handleClickOutside = (e: MouseEvent) => {
-      if (volumeRef.current && !volumeRef.current.contains(e.target as Node)) {
-        setVolumeOpen(false);
-      }
+      const target = e.target as Node;
+      const inDesktop = volumeRef.current?.contains(target);
+      const inMobile = volumeRefMobile.current?.contains(target);
+      if (!inDesktop && !inMobile) setVolumeOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -270,6 +272,13 @@ const Header: React.FC = () => {
                     <p className="text-xs text-slate-500 dark:text-gray-500 mt-1">
                       {Math.round(volume * 100)}%
                     </p>
+                    <p className="text-[10px] text-slate-400 dark:text-gray-500 mt-2 leading-tight">
+                      {language === "bg"
+                        ? "Не важи за подкасти (Spotify). За тях – тонколоните на устройството или отваряне в Spotify."
+                        : language === "de"
+                          ? "Gilt nicht für Podcasts (Spotify). Dort: Gerätelautstärke oder in Spotify öffnen."
+                          : "Does not apply to podcasts (Spotify). Use device volume or open in Spotify."}
+                    </p>
                   </div>
                 )}
               </div>
@@ -290,13 +299,52 @@ const Header: React.FC = () => {
             </div>
           </nav>
 
-          <button
-            type="button"
-            className="md:hidden p-2 rounded-lg text-slate-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors touch-manipulation"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            aria-expanded={mobileMenuOpen}
-            aria-label={t.menu}
-          >
+          <div className="flex items-center gap-1 md:hidden">
+            <div className="relative" ref={volumeRefMobile}>
+              <button
+                type="button"
+                onClick={() => setVolumeOpen((prev) => !prev)}
+                className="p-2 rounded-lg text-slate-800 dark:text-white hover:text-amber-500 dark:hover:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                title={volumeLabel[language] ?? volumeLabel.en}
+                aria-label={volumeLabel[language] ?? volumeLabel.en}
+                aria-expanded={volumeOpen}
+              >
+                <FaVolumeUp className="w-6 h-6" />
+              </button>
+              {volumeOpen && (
+                <div className="absolute top-full right-0 mt-2 w-52 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 z-[300]">
+                  <p className="text-sm font-medium text-slate-700 dark:text-gray-300 mb-2">
+                    {volumeLabel[language] ?? volumeLabel.en}
+                  </p>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.05}
+                    value={volume}
+                    onChange={(e) => setVolume(parseFloat(e.target.value))}
+                    className="w-full h-3 rounded-full appearance-none bg-slate-200 dark:bg-slate-600 accent-amber-500"
+                  />
+                  <p className="text-sm text-slate-600 dark:text-gray-400 mt-1">
+                    {Math.round(volume * 100)}%
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-gray-500 mt-2 leading-tight">
+                    {language === "bg"
+                      ? "Не важи за подкасти (Spotify)."
+                      : language === "de"
+                        ? "Gilt nicht für Podcasts (Spotify)."
+                        : "Does not apply to podcasts (Spotify)."}
+                  </p>
+                </div>
+              )}
+            </div>
+            <button
+              type="button"
+              className="p-2 rounded-lg text-slate-800 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors touch-manipulation"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-expanded={mobileMenuOpen}
+              aria-label={t.menu}
+            >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -310,7 +358,8 @@ const Header: React.FC = () => {
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
-          </button>
+            </button>
+          </div>
         </div>
       </div>
 
