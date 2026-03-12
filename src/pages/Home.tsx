@@ -23,7 +23,7 @@ const API_BASE = process.env.DEV_API_ORIGIN || "";
 const actualLessonCounts: { [key: number]: number } = {
   1: 1, // German - 1 lesson (Verben, Adjektive mit Präpositionen)
   2: 11, // Biology – HERZ, III (3), Summary, IV (3), V NERVENSYSTEM (2), VII (2)
-  3: 7, // Geography - 7 lessons (3-1 … 3-7)
+  3: 8, // Geography - 8 lessons (3-1 … 3-8)
 };
 
 const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {

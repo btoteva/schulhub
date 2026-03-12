@@ -263,6 +263,12 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "— мин",
               completed: false,
             },
+            {
+              id: 8,
+              title: "25. ZAHL, VERTEILUNG UND WANDERUNGSBEWEGUNGEN DER WELTBEVÖLKERUNG",
+              duration: "—",
+              completed: false,
+            },
           ],
         },
       ],
