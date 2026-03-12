@@ -7,6 +7,8 @@ import { useAuth } from "../contexts/AuthContext";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import ProgressFeedback from "../components/ProgressFeedback";
+import ControlledAudio from "../components/ControlledAudio";
+import { useAudioVolume } from "../contexts/AudioVolumeContext";
 import horverstehenData from "../data/dsd-horverstehen-8.json";
 
 const AUDIO_PROGRESS_KEY = "schulhub-dsd-horverstehen-8-audio";
@@ -89,6 +91,7 @@ const DSDHorverstehen8View: React.FC = () => {
   const { theme } = useTheme();
   const { t, language } = useLanguage();
   const { token } = useAuth();
+  const { volume } = useAudioVolume();
   const isLight = theme === "light";
   const audioRef = useRef<HTMLAudioElement>(null);
   const savedPositionRef = useRef<number | null>(null);
@@ -138,12 +141,18 @@ const DSDHorverstehen8View: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const el = audioRef.current;
+    if (el) el.volume = volume;
+  }, [volume]);
+
   const applySavedPosition = () => {
     const pos = savedPositionRef.current;
     if (typeof pos === "number" && pos > 0 && audioRef.current) {
       audioRef.current.currentTime = pos;
       savedPositionRef.current = null;
     }
+    if (audioRef.current) audioRef.current.volume = volume;
   };
 
   const saveAudioPosition = () => {
@@ -372,9 +381,9 @@ const DSDHorverstehen8View: React.FC = () => {
                       <FaHeadphones />
                       {language === "bg" ? "Аудио" : language === "de" ? "Audio" : "Audio"}
                     </p>
-                    <audio controls className="w-full max-w-md" src={teil.audioUrl}>
+                    <ControlledAudio className="w-full max-w-md" src={teil.audioUrl}>
                       {language === "bg" ? "Браузърът ви не поддържа аудио." : language === "de" ? "Ihr Browser unterstützt kein Audio." : "Your browser does not support audio."}
-                    </audio>
+                    </ControlledAudio>
                   </div>
                 )}
                 {teil.scenes && teil.scenes.length > 0 && (!hasGlobalAudio || showTeacherTextTeile[teil.id]) && (

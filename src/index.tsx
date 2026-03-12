@@ -6,6 +6,7 @@ import { FontProvider } from "./contexts/FontContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ThemeProvider, getInitialTheme, applyThemeToDocument } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
+import { AudioVolumeProvider } from "./contexts/AudioVolumeContext";
 
 // Apply saved theme before first paint so background is correct immediately
 applyThemeToDocument(getInitialTheme());
@@ -19,9 +20,11 @@ root.render(
     <ThemeProvider>
       <LanguageProvider>
         <AuthProvider>
-          <FontProvider>
-            <App />
-          </FontProvider>
+          <AudioVolumeProvider>
+            <FontProvider>
+              <App />
+            </FontProvider>
+          </AudioVolumeProvider>
         </AuthProvider>
       </LanguageProvider>
     </ThemeProvider>

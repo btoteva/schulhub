@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt, FaCalendarAlt, FaCrown, FaUserCog } from "react-icons/fa";
+import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt, FaCalendarAlt, FaCrown, FaUserCog, FaVolumeUp } from "react-icons/fa";
 import FontSettings from "./FontSettings";
 import { useLanguage, Language } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
+import { useAudioVolume } from "../contexts/AudioVolumeContext";
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useLanguage();
@@ -54,13 +55,18 @@ const LanguageSelector: React.FC = () => {
   );
 };
 
+const volumeLabel: Record<string, string> = { bg: "Сила на звука", en: "Volume", de: "Lautstärke" };
+
 const Header: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const { user, isAdmin, logout, offline } = useAuth();
+  const { volume, setVolume } = useAudioVolume();
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [volumeOpen, setVolumeOpen] = useState(false);
+  const volumeRef = useRef<HTMLDivElement>(null);
   const UserRoleIcon = user?.role === "superadmin" ? FaCrown : user?.role === "admin" ? FaUserCog : FaUser;
 
   const normalizePath = (path: string) => {
@@ -91,6 +97,17 @@ const Header: React.FC = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [userMenuOpen]);
+
+  useEffect(() => {
+    if (!volumeOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (volumeRef.current && !volumeRef.current.contains(e.target as Node)) {
+        setVolumeOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [volumeOpen]);
 
   return (
     <header className="bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 border-b border-slate-300 dark:border-slate-700/50 shadow-2xl backdrop-blur-sm relative z-[200]">
@@ -225,6 +242,37 @@ const Header: React.FC = () => {
             </a>
 
             <div className="border-l border-slate-300 dark:border-gray-700 pl-4 flex items-center gap-2">
+              <div className="relative" ref={volumeRef}>
+                <button
+                  type="button"
+                  onClick={() => setVolumeOpen((prev) => !prev)}
+                  className="p-2 rounded-lg text-slate-600 hover:text-amber-500 hover:bg-slate-200 dark:text-gray-300 dark:hover:text-amber-400 dark:hover:bg-slate-700 transition-colors"
+                  title={volumeLabel[language] ?? volumeLabel.en}
+                  aria-label={volumeLabel[language] ?? volumeLabel.en}
+                  aria-expanded={volumeOpen}
+                >
+                  <FaVolumeUp className="w-5 h-5" />
+                </button>
+                {volumeOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 p-3 z-[300]">
+                    <p className="text-xs font-medium text-slate-600 dark:text-gray-400 mb-2">
+                      {volumeLabel[language] ?? volumeLabel.en}
+                    </p>
+                    <input
+                      type="range"
+                      min={0}
+                      max={1}
+                      step={0.05}
+                      value={volume}
+                      onChange={(e) => setVolume(parseFloat(e.target.value))}
+                      className="w-full h-2 rounded-full appearance-none bg-slate-200 dark:bg-slate-600 accent-amber-500"
+                    />
+                    <p className="text-xs text-slate-500 dark:text-gray-500 mt-1">
+                      {Math.round(volume * 100)}%
+                    </p>
+                  </div>
+                )}
+              </div>
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-lg text-slate-600 hover:text-amber-500 hover:bg-slate-200 dark:text-gray-300 dark:hover:text-amber-400 dark:hover:bg-slate-700 transition-colors"
@@ -387,17 +435,37 @@ const Header: React.FC = () => {
               </svg>
               {t.menu}
             </a>
-            <div className="border-t border-slate-200 dark:border-slate-700 mt-4 pt-4 flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => { toggleTheme(); }}
-                className="p-2 rounded-lg text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-                title={theme === "dark" ? "Светла тема" : "Тъмна тема"}
-              >
-                {theme === "dark" ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
-              </button>
-              <LanguageSelector />
-              <FontSettings />
+            <div className="border-t border-slate-200 dark:border-slate-700 mt-4 pt-4 space-y-3">
+              <div className="flex items-center gap-3">
+                <FaVolumeUp className="w-5 h-5 text-slate-500 dark:text-gray-400 shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-medium text-slate-600 dark:text-gray-400 mb-1">
+                    {volumeLabel[language] ?? volumeLabel.en}
+                  </p>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.05}
+                    value={volume}
+                    onChange={(e) => setVolume(parseFloat(e.target.value))}
+                    className="w-full h-2 rounded-full appearance-none bg-slate-200 dark:bg-slate-600 accent-amber-500"
+                  />
+                  <p className="text-xs text-slate-500 dark:text-gray-500">{Math.round(volume * 100)}%</p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => { toggleTheme(); }}
+                  className="p-2 rounded-lg text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+                  title={theme === "dark" ? "Светла тема" : "Тъмна тема"}
+                >
+                  {theme === "dark" ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}
+                </button>
+                <LanguageSelector />
+                <FontSettings />
+              </div>
             </div>
           </nav>
         </>

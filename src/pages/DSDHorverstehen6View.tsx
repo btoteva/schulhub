@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import ProgressFeedback from "../components/ProgressFeedback";
+import ControlledAudio from "../components/ControlledAudio";
 import horverstehenData from "../data/dsd-horverstehen-6.json";
 
 const STORAGE_KEY = "schulhub-dsd-horverstehen-6";
@@ -266,9 +267,9 @@ const DSDHorverstehen6View: React.FC = () => {
                         {showTeacherTextTeile[teil.id] ? <FaEyeSlash className="text-lg" /> : <FaEye className="text-lg" />}
                       </button>
                     </div>
-                    <audio controls className="w-full max-w-md" src={teil.audioUrl}>
+                    <ControlledAudio className="w-full max-w-md" src={teil.audioUrl}>
                       {language === "bg" ? "Браузърът ви не поддържа аудио." : language === "de" ? "Ihr Browser unterstützt kein Audio." : "Your browser does not support audio."}
-                    </audio>
+                    </ControlledAudio>
                   </div>
                 )}
                 {teil.scenes && teil.scenes.length > 0 && (showTeacherTextTeile[teil.id] || !teil.audioUrl) && (

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { FaVolumeUp } from "react-icons/fa";
 
-function speakText(text: string, lang: string = "de-DE") {
+function speakText(text: string, lang: string = "de-DE", volume: number = 1) {
   if (!text.trim()) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text.trim());
   u.lang = lang;
   u.rate = 0.9;
+  u.volume = Math.max(0, Math.min(1, volume));
   window.speechSynthesis.speak(u);
 }
 
@@ -27,6 +28,7 @@ interface SkeletonDiagramProps {
   titleBg?: string;
   imageUrl?: string;
   parts: SkeletonPart[];
+  volume?: number;
 }
 
 export function SkeletonDiagram({
@@ -34,6 +36,7 @@ export function SkeletonDiagram({
   titleBg,
   imageUrl,
   parts,
+  volume = 1,
 }: SkeletonDiagramProps) {
   const [revealedIds, setRevealedIds] = useState<Set<string>>(new Set());
 
@@ -126,7 +129,7 @@ export function SkeletonDiagram({
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        speakText(bone.de);
+                        speakText(bone.de, "de-DE", volume);
                       }}
                       className="absolute bottom-2 right-2 z-10 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
                       title="Чети на глас"

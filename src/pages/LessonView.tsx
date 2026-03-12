@@ -15,6 +15,7 @@ import { useFont } from "../contexts/FontContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
+import { useAudioVolume } from "../contexts/AudioVolumeContext";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 
 // Extract title before table (e.g. <strong>Title</strong><br/>)
@@ -257,6 +258,7 @@ const LessonView: React.FC = () => {
   const { t, language } = useLanguage();
   const { theme } = useTheme();
   const { token } = useAuth();
+  const { volume } = useAudioVolume();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
@@ -624,6 +626,7 @@ const LessonView: React.FC = () => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "de-DE";
     utterance.rate = 0.9;
+    utterance.volume = volume;
 
     utterance.onboundary = (event: SpeechSynthesisEvent) => {
       if (event.name === "word") {
@@ -683,6 +686,7 @@ const LessonView: React.FC = () => {
     const utterance = new SpeechSynthesisUtterance(plainText);
     utterance.lang = "de-DE"; // German language
     utterance.rate = 0.9; // Slightly slower for better comprehension
+    utterance.volume = volume;
 
     utterance.onboundary = (event: SpeechSynthesisEvent) => {
       if (event.name === "word") {
@@ -1833,6 +1837,7 @@ const LessonView: React.FC = () => {
                           <SkeletonDiagram
                             imageUrl={exercise.skeletonImageUrl}
                             parts={exercise.skeletonParts}
+                            volume={volume}
                           />
                         )}
 

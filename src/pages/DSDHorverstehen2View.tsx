@@ -15,6 +15,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import ProgressFeedback from "../components/ProgressFeedback";
+import ControlledAudio from "../components/ControlledAudio";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import horverstehenData from "../data/dsd-horverstehen-2.json";
 
@@ -331,13 +332,12 @@ const DSDHorverstehen2View: React.FC = () => {
                       {showTeacherTextTeile[teil.id] ? <FaEyeSlash className="text-lg" /> : <FaEye className="text-lg" />}
                     </button>
                   </div>
-                  <audio
-                    controls
+                  <ControlledAudio
                     className="w-full max-w-2xl"
                     src={teil.audioUrl}
                   >
                     Вашият браузър не поддържа възпроизвеждане на аудио.
-                  </audio>
+                  </ControlledAudio>
                 </div>
               )}
 
