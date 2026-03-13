@@ -3,10 +3,18 @@ export interface GermanPodcastItem {
   title: string;
   subtitle: string;
   duration: string;
-  spotifyEpisodeId: string;
-  spotifyUrl: string;
+  spotifyEpisodeId?: string;
+  spotifyUrl?: string;
   /** Direct MP3/audio URL (e.g. from RSS). When set, our player with volume control is used. */
   audioUrl?: string;
+  /** Publication date (e.g. from RSS pubDate). */
+  pubDate?: string;
+  /** Link to episode page (e.g. from RSS link). */
+  link?: string;
+  /** Episode/series image (e.g. from itunes:image href). */
+  imageUrl?: string;
+  /** Short description or summary (e.g. from itunes:summary or description). */
+  description?: string;
 }
 
 export const germanPodcasts: GermanPodcastItem[] = [

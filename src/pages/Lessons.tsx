@@ -535,14 +535,15 @@ const Lessons: React.FC = () => {
               </Link>
             </div>
             {germanPodcasts.map((podcast) => {
-              const listened = token && podcastListenedIds.includes(podcast.spotifyEpisodeId);
+              const episodeRouteId = podcast.spotifyEpisodeId ?? podcast.id;
+              const listened = token && podcastListenedIds.includes(episodeRouteId);
               return (
                 <div
                   key={podcast.id}
                   className={`rounded-xl shadow-lg border overflow-hidden flex items-stretch ${isLight ? "bg-white border-slate-200 hover:border-green-400/60" : "bg-gradient-to-b from-gray-800 to-gray-900 border-gray-700 hover:border-green-500/40"}`}
                 >
                   <Link
-                    to={`/german/podcast/${podcast.spotifyEpisodeId}`}
+                    to={`/german/podcast/${episodeRouteId}`}
                     state={{ fromSection: "podcast" }}
                     className={`group flex items-center gap-6 p-6 flex-1 min-w-0 transition-all duration-300 hover:shadow-inner`}
                   >
@@ -573,8 +574,8 @@ const Lessons: React.FC = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         const next = listened
-                          ? podcastListenedIds.filter((id) => id !== podcast.spotifyEpisodeId)
-                          : [...podcastListenedIds, podcast.spotifyEpisodeId];
+                          ? podcastListenedIds.filter((id) => id !== episodeRouteId)
+                          : [...podcastListenedIds, episodeRouteId];
                         setPodcastListenedIds(next);
                         setUserProgress("schulhub-podcast-listened", { ids: next }, token);
                       }}
