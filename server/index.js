@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { neon } from "@neondatabase/serverless";
 import bcrypt from "bcryptjs";
+import https from "https";
 import {
   createSuperAdminToken,
   createToken,
@@ -51,12 +52,90 @@ async function initDb() {
   await ensureUserChildrenTable(sql);
 }
 
+// Simple in-memory cache for Easy German podcast RSS
+let easyGermanRssCache = {
+  items: null,
+  fetchedAt: 0,
+};
+
+async function fetchEasyGermanRssXml() {
+  const rssUrl = "https://easygerman.libsyn.com/rss";
+  return new Promise((resolve, reject) => {
+    https
+      .get(rssUrl, (res) => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`RSS request failed with status ${res.statusCode}`));
+          res.resume();
+          return;
+        }
+        let data = "";
+        res.setEncoding("utf8");
+        res.on("data", (chunk) => {
+          data += chunk;
+        });
+        res.on("end", () => resolve(data));
+      })
+      .on("error", (err) => reject(err));
+  });
+}
+
+function parseEasyGermanRss(xml) {
+  const items = [];
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match;
+  while ((match = itemRegex.exec(xml)) !== null) {
+    const itemXml = match[1];
+    const getTag = (tag) => {
+      const m = new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i").exec(itemXml);
+      return m ? m[1].trim() : null;
+    };
+    const getAttr = (tag, attr) => {
+      const m = new RegExp(`<${tag}[^>]*${attr}="([^"]+)"[^>]*>`, "i").exec(itemXml);
+      return m ? m[1] : null;
+    };
+
+    const title = getTag("title");
+    const link = getTag("link");
+    const pubDate = getTag("pubDate");
+    const audioUrl = getAttr("enclosure", "url");
+
+    if (!title || !audioUrl) continue;
+
+    items.push({
+      id: link || audioUrl,
+      title,
+      link: link || null,
+      audioUrl,
+      pubDate: pubDate || null,
+    });
+  }
+  return items;
+}
+
 app.get("/api/health", async (req, res) => {
   try {
     const r = await sql`SELECT 1 as ok`;
     res.json({ status: "ok", db: r[0]?.ok === 1 ? "connected" : "error" });
   } catch (e) {
     res.status(500).json({ status: "error", message: e.message });
+  }
+});
+
+// GET /api/easy-german-podcast-feed – returns list of episodes from Easy German RSS
+app.get("/api/easy-german-podcast-feed", async (req, res) => {
+  try {
+    const now = Date.now();
+    const oneHour = 60 * 60 * 1000;
+    if (easyGermanRssCache.items && now - easyGermanRssCache.fetchedAt < oneHour) {
+      return res.json({ episodes: easyGermanRssCache.items });
+    }
+
+    const xml = await fetchEasyGermanRssXml();
+    const episodes = parseEasyGermanRss(xml).slice(0, 100);
+    easyGermanRssCache = { items: episodes, fetchedAt: now };
+    res.json({ episodes });
+  } catch (e) {
+    res.status(500).json({ error: e.message || "Failed to load Easy German RSS" });
   }
 });
 

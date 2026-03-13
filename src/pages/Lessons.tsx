@@ -394,6 +394,11 @@ const Lessons: React.FC = () => {
               <h1 className={`text-5xl font-bold mb-3 ${isLight ? "text-slate-800" : "text-white"}`}>
                 {getCourseTitle()}
               </h1>
+              {course.id === 1 && germanSection === "podcast" && (
+                <p className={`text-2xl font-semibold mb-1 ${isLight ? "text-green-700" : "text-green-300"}`}>
+                  {language === "bg" ? "Подкасти" : language === "de" ? "Podcasts" : "Podcasts"}
+                </p>
+              )}
               <p className={`text-xl mb-4 ${isLight ? "text-slate-600" : "text-gray-300"}`}>{getCourseDesc()}</p>
               <div className={`flex items-center gap-6 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
                 <span className="flex items-center gap-2">
@@ -500,6 +505,35 @@ const Lessons: React.FC = () => {
       {course.id === 1 && germanSection === "podcast" && (
         <section className="container mx-auto px-4 py-8">
           <div className="max-w-4xl space-y-4">
+            <div className="flex flex-wrap gap-2 mb-2">
+              <span
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold border ${
+                  isLight
+                    ? "border-green-500 text-green-800 bg-green-50"
+                    : "border-green-400 text-green-100 bg-green-900/60"
+                }`}
+              >
+                {language === "bg"
+                  ? "Подбрани епизоди (курс)"
+                  : language === "de"
+                    ? "Ausgewählte Episoden (Kurs)"
+                    : "Selected episodes (course)"}
+              </span>
+              <Link
+                to="/german/podcasts/all"
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border ${
+                  isLight
+                    ? "border-emerald-500/70 text-emerald-800 bg-emerald-50 hover:bg-emerald-100"
+                    : "border-emerald-400/70 text-emerald-100 bg-emerald-900/40 hover:bg-emerald-800/60"
+                }`}
+              >
+                {language === "bg"
+                  ? "Всички епизоди (RSS)"
+                  : language === "de"
+                    ? "Alle Episoden (RSS)"
+                    : "All episodes (RSS)"}
+              </Link>
+            </div>
             {germanPodcasts.map((podcast) => {
               const listened = token && podcastListenedIds.includes(podcast.spotifyEpisodeId);
               return (
