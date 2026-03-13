@@ -2173,7 +2173,7 @@ const LessonView: React.FC = () => {
                                   }`}
                                 >
                                   <div className="flex items-start gap-2 mb-1">
-                                    <p className="font-bold text-lg text-white">
+                                    <p className="font-bold text-lg text-slate-900 dark:text-white">
                                       {q.id}. {q.question}
                                     </p>
                                     <button
@@ -2264,8 +2264,8 @@ const LessonView: React.FC = () => {
                                     <p
                                       className={`mt-3 text-sm font-semibold ${
                                         isCorrect
-                                          ? "text-green-400"
-                                          : "text-red-400"
+                                          ? "text-green-600 dark:text-green-400"
+                                          : "text-red-600 dark:text-red-400"
                                       }`}
                                     >
                                       {isCorrect
@@ -2277,7 +2277,7 @@ const LessonView: React.FC = () => {
                               );
                             })}
                             <div className="text-center p-4 bg-slate-200 dark:bg-gray-800/80 rounded-xl">
-                              <p className="text-lg text-white">
+                              <p className="text-lg text-slate-900 dark:text-white">
                                 Резултат:{" "}
                                 {exercise.questions.filter(
                                   (q) =>
