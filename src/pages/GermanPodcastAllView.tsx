@@ -65,7 +65,7 @@ const GermanPodcastAllView: React.FC = () => {
       <main className="container mx-auto px-4 py-8 max-w-5xl">
         <div className="mb-8 flex items-center justify-between gap-4">
           <Link
-            to="/lessons/1/section/podcast"
+            to="/lessons/1"
             className={`inline-flex items-center gap-2 transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-slate-300 hover:text-white"}`}
           >
             <FaArrowLeft />
@@ -127,48 +127,6 @@ const GermanPodcastAllView: React.FC = () => {
               </p>
             </>
           )}
-        </div>
-
-        {/* Tabs / chips */}
-        <div className="mb-6 flex flex-wrap gap-2">
-          <Link
-            to="/lessons/1/section/podcast"
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border ${
-              isLight
-                ? "border-green-500/70 text-green-700 bg-green-50 hover:bg-green-100"
-                : "border-green-400/70 text-green-200 bg-green-900/40 hover:bg-green-800/60"
-            }`}
-          >
-            <img src={SPOTIFY_ICON_URL} alt="Spotify" className="w-4 h-4 object-contain" />
-            {language === "bg"
-              ? "Подбрани епизоди (курс)"
-              : language === "de"
-              ? "Ausgewählte Episoden (Kurs)"
-              : "Selected episodes (course)"}
-          </Link>
-          <span
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold border ${
-              fromFeed
-                ? isLight
-                  ? "border-emerald-500 text-emerald-800 bg-emerald-50"
-                  : "border-emerald-400 text-emerald-100 bg-emerald-900/60"
-                : isLight
-                  ? "border-slate-400 text-slate-600 bg-slate-100"
-                  : "border-slate-500 text-slate-400 bg-slate-800/60"
-            }`}
-          >
-            {fromFeed
-              ? (language === "bg"
-                  ? "От feed (RSS)"
-                  : language === "de"
-                  ? "Aus Feed (RSS)"
-                  : "From feed (RSS)")
-              : (language === "bg"
-                  ? "Подбрани епизоди (офлайн)"
-                  : language === "de"
-                  ? "Ausgewählte Episoden (Offline)"
-                  : "Selected episodes (offline)")}
-          </span>
         </div>
 
         {loading && (
@@ -257,6 +215,20 @@ const GermanPodcastAllView: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 type="button"
+                onClick={() => setPage(1)}
+                disabled={currentPage <= 1}
+                className={`px-3 py-1 rounded-md border text-xs font-medium ${
+                  currentPage <= 1
+                    ? "opacity-40 cursor-default"
+                    : isLight
+                    ? "border-slate-300 text-slate-700 hover:bg-slate-100"
+                    : "border-slate-600 text-slate-100 hover:bg-slate-800"
+                }`}
+              >
+                {language === "bg" ? "Първа" : language === "de" ? "Erste" : "First"}
+              </button>
+              <button
+                type="button"
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage <= 1}
                 className={`px-3 py-1 rounded-md border text-xs font-medium ${
@@ -285,6 +257,20 @@ const GermanPodcastAllView: React.FC = () => {
                 }`}
               >
                 {language === "bg" ? "Напред" : language === "de" ? "Weiter" : "Next"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setPage(totalPages)}
+                disabled={currentPage >= totalPages}
+                className={`px-3 py-1 rounded-md border text-xs font-medium ${
+                  currentPage >= totalPages
+                    ? "opacity-40 cursor-default"
+                    : isLight
+                    ? "border-slate-300 text-slate-700 hover:bg-slate-100"
+                    : "border-slate-600 text-slate-100 hover:bg-slate-800"
+                }`}
+              >
+                {language === "bg" ? "Последна" : language === "de" ? "Letzte" : "Last"}
               </button>
             </div>
           </div>
@@ -369,6 +355,20 @@ const GermanPodcastAllView: React.FC = () => {
             <div className="flex items-center gap-2">
               <button
                 type="button"
+                onClick={() => setPage(1)}
+                disabled={currentPage <= 1}
+                className={`px-3 py-1 rounded-md border text-xs font-medium ${
+                  currentPage <= 1
+                    ? "opacity-40 cursor-default"
+                    : isLight
+                    ? "border-slate-300 text-slate-700 hover:bg-slate-100"
+                    : "border-slate-600 text-slate-100 hover:bg-slate-800"
+                }`}
+              >
+                {language === "bg" ? "Първа" : language === "de" ? "Erste" : "First"}
+              </button>
+              <button
+                type="button"
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={currentPage <= 1}
                 className={`px-3 py-1 rounded-md border text-xs font-medium ${
@@ -397,6 +397,20 @@ const GermanPodcastAllView: React.FC = () => {
                 }`}
               >
                 {language === "bg" ? "Напред" : language === "de" ? "Weiter" : "Next"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setPage(totalPages)}
+                disabled={currentPage >= totalPages}
+                className={`px-3 py-1 rounded-md border text-xs font-medium ${
+                  currentPage >= totalPages
+                    ? "opacity-40 cursor-default"
+                    : isLight
+                    ? "border-slate-300 text-slate-700 hover:bg-slate-100"
+                    : "border-slate-600 text-slate-100 hover:bg-slate-800"
+                }`}
+              >
+                {language === "bg" ? "Последна" : language === "de" ? "Letzte" : "Last"}
               </button>
             </div>
           </div>

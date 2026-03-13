@@ -446,7 +446,7 @@ const Lessons: React.FC = () => {
             </Link>
 
             <Link
-              to="/lessons/1/section/podcast"
+              to="/german/podcasts/all"
               className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity" />

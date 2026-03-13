@@ -67,10 +67,8 @@ const GermanPodcastView: React.FC = () => {
         <div className="mb-8">
           <Link
             to={
-              fromState?.fromAllList
+              fromState?.fromAllList || fromState?.fromSection === "podcast"
                 ? "/german/podcasts/all"
-                : fromState?.fromSection === "podcast"
-                ? "/lessons/1/section/podcast"
                 : "/lessons/1"
             }
             className={`inline-flex items-center gap-2 transition-colors ${isLight ? "text-slate-600 hover:text-slate-900" : "text-slate-300 hover:text-white"}`}

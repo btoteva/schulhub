@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Lessons from './pages/Lessons';
@@ -56,6 +56,7 @@ const App: React.FC = () => {
           <Route path="/admin/weekly-programs" element={<AdminWeeklyPrograms />} />
           <Route path="/admin/users/edit/:userId" element={<AdminUserEdit />} />
           <Route path="/lessons/:courseId" element={<Lessons />} />
+          <Route path="/lessons/1/section/podcast" element={<Navigate to="/german/podcasts/all" replace />} />
           <Route path="/lessons/:courseId/section/:sectionName" element={<Lessons />} />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />
