@@ -262,7 +262,7 @@ const LessonView: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
-  >("content");
+  >(lessonId === "2-izhodno" ? "exercises" : "content");
   const [testAnswers, setTestAnswers] = useState<Record<number, string>>({});
   const [testSubmitted, setTestSubmitted] = useState(false);
   const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
@@ -1760,6 +1760,15 @@ const LessonView: React.FC = () => {
           {/* Exercises Tab */}
           {!isTestOnlyLesson && activeTab === "exercises" && lessonData.exercises && (
             <div className="space-y-8">
+              {lessonId === "2-izhodno" && (
+                <div className="flex justify-center mb-6">
+                  <img
+                    src="/images/biologie-gesundheit-cover.png"
+                    alt="Biologie und Gesundheitserziehung"
+                    className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
+                  />
+                </div>
+              )}
               <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-slate-300 dark:border-gray-600">
                 <p className="text-slate-800 dark:text-gray-400 text-sm">
                   {language === "bg"

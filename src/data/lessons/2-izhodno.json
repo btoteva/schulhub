@@ -1,0 +1,265 @@
+{
+  "id": "2-izhodno",
+  "courseId": 2,
+  "title": "Einstiegsniveau",
+  "subtitle": "Kontrolle und Bewertung. Überprüfung des Ausgangsniveaus.",
+  "titleBg": "Изходно равнище",
+  "subtitleBg": "Проверка на изходното равнище. Контрол и оценка.",
+  "content": "",
+  "dictionary": [],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "Frage 1–15: Wählen Sie die richtige Antwort (A, B, C oder D).",
+      "titleBg": "Въпрос 1–15: Изберете верния отговор (А, Б, В или Г).",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Das Epithelgewebe hat:",
+          "questionBg": "Епителната тъкан има:",
+          "options": [
+            { "id": "A", "text": "Kontraktionsfunktion", "textBg": "съкратителна функция", "correct": false },
+            { "id": "B", "text": "Sekretionsfunktion", "textBg": "секреторна функция", "correct": true },
+            { "id": "C", "text": "Transportfunktion", "textBg": "транспортна функция", "correct": false },
+            { "id": "D", "text": "Stützfunktion", "textBg": "опорна функция", "correct": false }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Welche Aussage über den Brustkorb ist richtig?",
+          "questionBg": "Кое твърдение за гръдния кош е вярно?",
+          "options": [
+            { "id": "A", "text": "Er besteht aus 12 Rippen.", "textBg": "Изграден е от 12 ребра.", "correct": false },
+            { "id": "B", "text": "Alle Rippen sind mit dem Brustbein verbunden.", "textBg": "Всички ребра се свързват с гръдната кост.", "correct": false },
+            { "id": "C", "text": "Er hat zylindrische Form.", "textBg": "Има цилиндрична форма.", "correct": false },
+            { "id": "D", "text": "Er umfasst 12 Brustwirbel.", "textBg": "Включва 12 гръдни прешлена.", "correct": true }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Fibrinogen ist ein Protein, das:",
+          "questionBg": "Фибриногенът е белтък, който:",
+          "options": [
+            { "id": "A", "text": "an der Blutgerinnung beteiligt ist", "textBg": "участва в кръвосъсирването", "correct": true },
+            { "id": "B", "text": "an der Immunabwehr beteiligt ist", "textBg": "участва в имунната защита", "correct": false },
+            { "id": "C", "text": "unlöslich und faserig ist", "textBg": "е неразтворим и нишковиден", "correct": false },
+            { "id": "D", "text": "im Blutserum vorkommt", "textBg": "се среща в кръвния серум", "correct": false }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "In den linken Vorhof münden:",
+          "questionBg": "В лявото предсърдие се вливат:",
+          "options": [
+            { "id": "A", "text": "die Herzkranzarterien", "textBg": "венечните артерии", "correct": false },
+            { "id": "B", "text": "obere und untere Hohlvene", "textBg": "горната и долната куха вена", "correct": false },
+            { "id": "C", "text": "die Lungenvenen", "textBg": "белодробните вени", "correct": true },
+            { "id": "D", "text": "die Lungenarterie", "textBg": "белодробната артерия", "correct": false }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Die Bauchspeicheldrüse produziert Verdauungssaft, der enthält:",
+          "questionBg": "Задстомашната жлеза изработва смилателен сок, който съдържа:",
+          "options": [
+            { "id": "A", "text": "das Enzym Trypsin", "textBg": "ензима трипсин", "correct": true },
+            { "id": "B", "text": "das Enzym Pepsin", "textBg": "ензима пепсин", "correct": false },
+            { "id": "C", "text": "Salzsäure", "textBg": "солна киселина", "correct": false },
+            { "id": "D", "text": "Gallensäuren", "textBg": "жлъчни киселини", "correct": false }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "Die Filtration ist ein Prozess, der stattfindet in:",
+          "questionBg": "Филтрацията е процес, който протича в:",
+          "options": [
+            { "id": "A", "text": "dem gewundenen Kanälchen des Nephrons", "textBg": "извитото каналче на нефрона", "correct": false },
+            { "id": "B", "text": "dem Kapillarknäuel mit Kapsel", "textBg": "капилярното клъбце с капсула", "correct": true },
+            { "id": "C", "text": "den Harnleitern", "textBg": "пикочопроводите", "correct": false },
+            { "id": "D", "text": "der Harnblase", "textBg": "пикочния мехур", "correct": false }
+          ]
+        },
+        {
+          "id": 7,
+          "question": "Die Schweißdrüsen sind verteilt:",
+          "questionBg": "Потните жлези са разположени:",
+          "options": [
+            { "id": "A", "text": "gleichmäßig über den ganzen Körper", "textBg": "равномерно по цялото тяло", "correct": false },
+            { "id": "B", "text": "ungleichmäßig über den ganzen Körper", "textBg": "неравномерно по цялото тяло", "correct": true },
+            { "id": "C", "text": "in der Epidermis der Haut", "textBg": "в епидермиса на кожата", "correct": false },
+            { "id": "D", "text": "am ganzen Körper außer Handflächen und Fußsohlen", "textBg": "по цялото тяло с изключение на дланите и ходилата", "correct": false }
+          ]
+        },
+        {
+          "id": 8,
+          "question": "Die Plazenta ist ein Organ, das:",
+          "questionBg": "Плацентата е орган, който:",
+          "options": [
+            { "id": "A", "text": "keine Viren, Bakterien, Gifte und Alkohol zum Fötus durchlässt", "textBg": "не пропуска вируси, бактерии, токсини и алкохол в плода", "correct": false },
+            { "id": "B", "text": "zu Beginn des zweiten Monats der Embryonalentwicklung entsteht", "textBg": "се образува в началото на втория месец на зародишното развитие", "correct": false },
+            { "id": "C", "text": "Fruchtwasser sezerniert", "textBg": "секретира околоплодна течност", "correct": false },
+            { "id": "D", "text": "den Blutkreislauf von Mutter und Fötus verbindet", "textBg": "свързва кръвообращението на майката и плода", "correct": true }
+          ]
+        },
+        {
+          "id": 9,
+          "question": "Die Funktionen des Zwischenhirns stehen in Zusammenhang mit:",
+          "questionBg": "Функциите на междинния мозък са свързани със:",
+          "options": [
+            { "id": "A", "text": "dem Gleichgewicht", "textBg": "равновесието", "correct": false },
+            { "id": "B", "text": "der Thermoregulation", "textBg": "терморегулацията", "correct": true },
+            { "id": "C", "text": "der Schmerzunterdrückung", "textBg": "потискане на болката", "correct": false },
+            { "id": "D", "text": "Sehen und Hören", "textBg": "зрението и слуха", "correct": false }
+          ]
+        },
+        {
+          "id": 10,
+          "question": "Adrenalin ist ein Hormon, das ausgeschüttet wird von:",
+          "questionBg": "Адреналинът е хормон, който се отделя от:",
+          "options": [
+            { "id": "A", "text": "der Hypophyse", "textBg": "хипофизата", "correct": false },
+            { "id": "B", "text": "der Schilddrüse", "textBg": "щитовидната жлеза", "correct": false },
+            { "id": "C", "text": "der Bauchspeicheldrüse", "textBg": "задстомашната жлеза", "correct": false },
+            { "id": "D", "text": "den Nebennieren", "textBg": "надбъбречните жлези", "correct": true }
+          ]
+        },
+        {
+          "id": 11,
+          "question": "Für exokrine Drüsen gilt: 1) Sie geben ihr Sekret ins Blut ab; 2) Sie geben ihr Sekret in Hohlorgane ab; 3) Sie geben ihr Sekret an die Körperoberfläche ab; 4) Sie bilden und geben Hormone ab.",
+          "questionBg": "За жлезите с външна секреция е вярно, че: 1) отделят секрета си в кръвта; 2) отделят секрета си в кухи органи; 3) отделят секрета си на повърхността на тялото; 4) образуват и отделят хормони.",
+          "options": [
+            { "id": "A", "text": "nur 1 und 2", "textBg": "само 1 и 2", "correct": false },
+            { "id": "B", "text": "nur 2 und 3", "textBg": "само 2 и 3", "correct": true },
+            { "id": "C", "text": "1, 2 und 3", "textBg": "1, 2 и 3", "correct": false },
+            { "id": "D", "text": "2, 3 und 4", "textBg": "2, 3 и 4", "correct": false }
+          ]
+        },
+        {
+          "id": 12,
+          "question": "Die Rückresorption ist ein Prozess der: 1) Filtration des Blutplasmas; 2) Bildung von Primärharn; 3) Bildung von Sekundärharn; 4) Rückführung nützlicher Stoffe.",
+          "questionBg": "Обратното всмукване е процес на: 1) филтрация на кръвната плазма; 2) образуване на първична урина; 3) образуване на вторична урина; 4) връщане на полезни вещества.",
+          "options": [
+            { "id": "A", "text": "1 und 2", "textBg": "1 и 2", "correct": false },
+            { "id": "B", "text": "1 und 3", "textBg": "1 и 3", "correct": false },
+            { "id": "C", "text": "2 und 4", "textBg": "2 и 4", "correct": false },
+            { "id": "D", "text": "3 und 4", "textBg": "3 и 4", "correct": true }
+          ]
+        },
+        {
+          "id": 13,
+          "question": "Die thermoregulatorische Funktion der Haut wird ausgeübt durch: 1) Schweißabsonderung; 2) Verdunstung von Wasser; 3) Talgsekretion; 4) Kollagenfasern.",
+          "questionBg": "Терморегулаторната функция на кожата се осъществява чрез: 1) потоотделянето; 2) изпарението на вода; 3) мастната секреция; 4) колагеновите влакна.",
+          "options": [
+            { "id": "A", "text": "nur 1 und 2", "textBg": "само 1 и 2", "correct": true },
+            { "id": "B", "text": "nur 1 und 3", "textBg": "само 1 и 3", "correct": false },
+            { "id": "C", "text": "1, 2 und 3", "textBg": "1, 2 и 3", "correct": false },
+            { "id": "D", "text": "1, 2 und 4", "textBg": "1, 2 и 4", "correct": false }
+          ]
+        },
+        {
+          "id": 14,
+          "question": "Die Hormone des Hypophysenvorderlappens steuern: 1) die Tätigkeit der Keimdrüsen; 2) die Rückresorption in den Nephronen; 3) die Tätigkeit der Schilddrüse; 4) die Tätigkeit der Nebennierenrinde.",
+          "questionBg": "Хормоните от предния дял на хипофизата контролират: 1) дейността на половите жлези; 2) обратното всмукване в нефроните; 3) дейността на щитовидната жлеза; 4) дейността на кората на надбъбречните жлези.",
+          "options": [
+            { "id": "A", "text": "nur 1 und 3", "textBg": "само 1 и 3", "correct": false },
+            { "id": "B", "text": "nur 1 und 4", "textBg": "само 1 и 4", "correct": false },
+            { "id": "C", "text": "1, 3 und 4", "textBg": "1, 3 и 4", "correct": true },
+            { "id": "D", "text": "2, 3 und 4", "textBg": "2, 3 и 4", "correct": false }
+          ]
+        },
+        {
+          "id": 15,
+          "question": "Für Thrombozyten gilt: 1) Sie sind kernlose Formelemente. 2) Sie haben die Form bikonkaver Scheiben. 3) Sie sind wichtig für die Blutgerinnung. 4) Sie sind eine Art spezialisierte Leukozyten.",
+          "questionBg": "За тромбоцитите са верни твърденията: 1) Те са формени елементи без ядро. 2) Имат форма на двойновдлъбнати дискове. 3) Имат значение за съсирването на кръвта. 4) Те са вид специализирани левкоцити.",
+          "options": [
+            { "id": "A", "text": "1 und 2", "textBg": "1 и 2", "correct": false },
+            { "id": "B", "text": "1 und 3", "textBg": "1 и 3", "correct": true },
+            { "id": "C", "text": "2 und 3", "textBg": "2 и 3", "correct": false },
+            { "id": "D", "text": "3 und 4", "textBg": "3 и 4", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Frage 16: Passende Wörter in die Aussagen",
+      "titleBg": "Напишете в тетрадките си подходящите думи от предложените в скобите, за да получите верни твърдения.",
+      "type": "dropdown",
+      "dropdownItems": [
+        {
+          "id": "q16_1",
+          "label": "Die Oberflächenempfindlichkeit gehört zur … Empfindlichkeit.",
+          "labelBg": "Повърхностната сетивност се отнася към … сетивност.",
+          "options": [
+            { "id": "obshta", "text": "allgemeinen", "textBg": "общата" },
+            { "id": "spets", "text": "spezialisierten", "textBg": "специализираната" }
+          ],
+          "correctId": "obshta"
+        },
+        {
+          "id": "q16_2",
+          "label": "Die Hornhaut ist Teil der … Hülle des Augapfels.",
+          "labelBg": "Роговицата е част от … обвивка на очната ябълка.",
+          "options": [
+            { "id": "sredna", "text": "mittleren", "textBg": "средната" },
+            { "id": "vanshna", "text": "äußeren", "textBg": "външната" }
+          ],
+          "correctId": "vanshna"
+        },
+        {
+          "id": "q16_3",
+          "label": "Die Stäbchen sind Rezeptoren für …",
+          "labelBg": "Пръчиците са рецептори за …",
+          "options": [
+            { "id": "svetlo", "text": "Hell-Dunkel-Sehen", "textBg": "светло и тъмно виждане" },
+            { "id": "tsvetno", "text": "Farbensehen", "textBg": "цветно виждане" }
+          ],
+          "correctId": "svetlo"
+        },
+        {
+          "id": "q16_4",
+          "label": "Die Taschenklappen verhindern, dass das Blut in die … zurückfließt.",
+          "labelBg": "Полулунните клапи не позволяват на кръвта да се връща в …",
+          "options": [
+            { "id": "kameri", "text": "Herzkammern", "textBg": "камерите" },
+            { "id": "predsardia", "text": "Vorhöfe", "textBg": "предсърдията" }
+          ],
+          "correctId": "kameri"
+        },
+        {
+          "id": "q16_5",
+          "label": "Das Längenwachstum der Knochen erfolgt durch …",
+          "labelBg": "Нарастването на костите на дължина става чрез …",
+          "options": [
+            { "id": "hrushalni", "text": "Knorpelwachstumsplatten", "textBg": "хрущялни пластинки" },
+            { "id": "nadkostnitsa", "text": "die Knochenhaut", "textBg": "надкостницата" }
+          ],
+          "correctId": "hrushalni"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Frage 17: Reflexbogen",
+      "titleBg": "Пречертайте схемата в тетрадките си и напишете срещу всяка от цифрите (от 1 до 5) съответстващата част от рефлексната дъга.",
+      "type": "question",
+      "imageUrl": "/images/reflexbogen.png",
+      "taskText": "Zeichnen Sie das Schema in Ihre Hefte und schreiben Sie bei jeder Ziffer (1 bis 5) den entsprechenden Teil des Reflexbogens.",
+      "taskTextBg": "Пречертайте схемата в тетрадките си и напишете срещу всяка от цифрите (от 1 до 5) съответстващата част от рефлексната дъга: рецептор, аферентен неврон, върху свързващ неврон / интерневрон, еферентен неврон, ефектор.",
+      "answer": "1 – Rezeptor; 2 – afferente Nervenbahn; 3 – Schaltneuron (Interneuron); 4 – efferente Nervenbahn; 5 – Effektor.",
+      "answerBg": "1 – рецептор; 2 – аферентен неврон; 3 – върху свързващ неврон (интерневрон); 4 – еферентен неврон; 5 – ефектор (или съответните латински/немски термини по учебника)."
+    },
+    {
+      "id": 4,
+      "title": "Frage 18: Analyse der Diagramme",
+      "titleBg": "Анализирайте диаграмите и обяснете различията в процентното съотношение на причините за преждевременна смърт в Европа и в Африка.",
+      "type": "question",
+      "imageUrl": "/images/ursachen-fruehtod-europa-afrika.png",
+      "taskText": "Analysieren Sie die Diagramme und erklären Sie die Unterschiede in der prozentualen Verteilung der Ursachen vorzeitigen Todes in Europa und in Afrika.",
+      "taskTextBg": "Анализирайте диаграмите (Причини за преждевременна смърт в Европа / в Африка) и обяснете различията в процентното съотношение на причините за преждевременна смърт в двата региона. В Европа водещи са сърдечносъдовите заболявания и ракът; в Африка – заразните и паразитните болести и заболяванията, свързани с раждането. Други причинители включват недохранване, нервни разстройства, диабет, цироза на черния дроб, белодробни и бъбречни заболявания, вродени малформации.",
+      "answer": "In Europa sind Herz-Kreislauf-Erkrankungen (ca. 52 %) und Krebs (ca. 19 %) führend; in Afrika Infektions- und Parasitenkrankheiten (ca. 62 %) und geburtsbedingte Erkrankungen (ca. 8 %). Die Unterschiede hängen mit Entwicklungsstand, Zugang zur Gesundheitsversorgung, Prävention und Hygiene zusammen.",
+      "answerBg": "В Европа основни причини са сърдечносъдовите заболявания (около 52%) и ракът (около 19%); в Африка – заразните и паразитни болести (около 62%) и заболявания, свързани с раждането (около 8%). Разликите се дължат на нивото на икономическо развитие, достъп до здравеопазване, превенция и лечение, хигиена и епидемиологична обстановка."
+    }
+  ]
+}

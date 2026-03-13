@@ -22,7 +22,7 @@ const API_BASE = process.env.DEV_API_ORIGIN || "";
 // Lesson counts based on actual data in Lessons.tsx
 const actualLessonCounts: { [key: number]: number } = {
   1: 1, // German - 1 lesson (Verben, Adjektive mit Präpositionen)
-  2: 11, // Biology – HERZ, III (3), Summary, IV (3), V NERVENSYSTEM (2), VII (2)
+  2: 12, // Biology – Преговор (1), HERZ, III (3), Summary, IV (3), V (2), VII (2)
   3: 8, // Geography - 8 lessons (3-1 … 3-8)
 };
 

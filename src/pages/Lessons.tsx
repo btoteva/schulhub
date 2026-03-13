@@ -209,6 +209,18 @@ const lessonsData: { [key: number]: Band[] } = {
             },
           ],
         },
+        {
+          sectionTitle: "Преговор",
+          lessons: [
+            {
+              id: "2-izhodno",
+              number: "15",
+              title: "Изходно равнище",
+              duration: "—",
+              completed: false,
+            },
+          ],
+        },
       ],
     },
   ],
@@ -630,11 +642,19 @@ const Lessons: React.FC = () => {
 
                           <div className="relative p-6 flex items-center justify-between">
                             <div className="flex items-center gap-6 flex-1">
-                              <div
-                                className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}
-                              >
-                                {lesson.number ?? lesson.id}
-                              </div>
+                              {Number(courseId) === 2 && lesson.id === "2-izhodno" ? (
+                                <img
+                                  src="/images/biologie-gesundheit-cover.png"
+                                  alt=""
+                                  className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
+                                />
+                              ) : (
+                                <div
+                                  className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}
+                                >
+                                  {lesson.number ?? lesson.id}
+                                </div>
+                              )}
 
                               <div className="flex-1">
                                 <h4 className={`text-2xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
