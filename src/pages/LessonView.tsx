@@ -262,7 +262,7 @@ const LessonView: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
-  >(lessonId === "2-izhodno" ? "exercises" : "content");
+  >((lessonId === "2-izhodno" || lessonId === "2-izhodno-2") ? "exercises" : "content");
   const [testAnswers, setTestAnswers] = useState<Record<number, string>>({});
   const [testSubmitted, setTestSubmitted] = useState(false);
   const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
@@ -1763,8 +1763,17 @@ const LessonView: React.FC = () => {
               {lessonId === "2-izhodno" && (
                 <div className="flex justify-center mb-6">
                   <img
-                    src="/images/biologie-gesundheit-cover.png"
+                    src="https://i.imgur.com/IDqeG2K.png"
                     alt="Biologie und Gesundheitserziehung"
+                    className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
+                  />
+                </div>
+              )}
+              {lessonId === "2-izhodno-2" && (
+                <div className="flex justify-center mb-6">
+                  <img
+                    src="https://i.imgur.com/wPlxdZC.png"
+                    alt="Der menschliche Organismus – Struktur und Lebensprozesse"
                     className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
                   />
                 </div>

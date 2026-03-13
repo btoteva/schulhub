@@ -219,6 +219,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "—",
               completed: false,
             },
+            {
+              id: "2-izhodno-2",
+              number: "16",
+              title: "Изходно равнище – Човешкият организъм",
+              duration: "—",
+              completed: false,
+            },
           ],
         },
       ],
@@ -644,7 +651,13 @@ const Lessons: React.FC = () => {
                             <div className="flex items-center gap-6 flex-1">
                               {Number(courseId) === 2 && lesson.id === "2-izhodno" ? (
                                 <img
-                                  src="/images/biologie-gesundheit-cover.png"
+                                  src="https://i.imgur.com/IDqeG2K.png"
+                                  alt=""
+                                  className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
+                                />
+                              ) : Number(courseId) === 2 && lesson.id === "2-izhodno-2" ? (
+                                <img
+                                  src="https://i.imgur.com/wPlxdZC.png"
                                   alt=""
                                   className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
                                 />

@@ -1,0 +1,225 @@
+{
+  "id": "2-izhodno-2",
+  "courseId": 2,
+  "title": "Einstiegsniveau – Der menschliche Organismus",
+  "subtitle": "Struktur und Lebensprozesse. Kontrolle und Bewertung.",
+  "titleBg": "Изходно равнище – Човешкият организъм",
+  "subtitleBg": "Структура и жизнени процеси. Контрол и оценка.",
+  "content": "",
+  "dictionary": [],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "Frage 1–12: Wählen Sie die richtige Antwort (A, B, C oder D).",
+      "titleBg": "Въпрос 1–12: Изберете верния отговор (А, Б, В или Г).",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Jede Zelle enthält drei Hauptstrukturen:",
+          "questionBg": "Всяка клетка съдържа три основни структури:",
+          "options": [
+            { "id": "A", "text": "Zellmembran, Zytoplasma, Zellkern", "textBg": "клетъчна мембрана, цитоплазма, клетъчно ядро", "correct": true },
+            { "id": "B", "text": "Zellmembran, Zytoplasma, Erbsubstanz", "textBg": "клетъчна мембрана, цитоплазма, наследствено вещество", "correct": false },
+            { "id": "C", "text": "Zellwand, Organellen, Zellkern", "textBg": "клетъчна стена, органели, клетъчно ядро", "correct": false },
+            { "id": "D", "text": "Zellwand, Zytoplasma, Erbsubstanz", "textBg": "клетъчна стена, цитоплазма, наследствено вещество", "correct": false }
+          ]
+        },
+        {
+          "id": 2,
+          "question": "Welche Zuordnung „Zellstruktur – Funktion“ ist richtig?",
+          "questionBg": "Кое от изброените съответствия „клетъчна структура – функции“ е вярно?",
+          "options": [
+            { "id": "A", "text": "Zellmembran – selektive Durchlässigkeit", "textBg": "клетъчна мембрана – избирателна пропускливост", "correct": true },
+            { "id": "B", "text": "Zellkern – Proteinsynthese", "textBg": "ядро – синтез на белтъци", "correct": false },
+            { "id": "C", "text": "Ribosomen – Aufzeichnung, Speicherung und Weitergabe der Erbinformation", "textBg": "рибозоми – запис, съхранение и предаване на наследствената информация", "correct": false },
+            { "id": "D", "text": "Zellwand – verleiht allen Zellen Form und schützt sie vor mechanischen Einflüssen", "textBg": "клетъчна стена – придава форма на всички клетки и ги защитава от механични въздействия", "correct": false }
+          ]
+        },
+        {
+          "id": 3,
+          "question": "Welches Vitamin reguliert die Ablagerung von Kalziumsalzen in den Knochen?",
+          "questionBg": "Кой витамин регулира отлагането на калциеви соли в костите?",
+          "options": [
+            { "id": "A", "text": "Vitamin A", "textBg": "витамин А", "correct": false },
+            { "id": "B", "text": "Vitamin B", "textBg": "витамин В", "correct": false },
+            { "id": "C", "text": "Vitamin C", "textBg": "витамин С", "correct": false },
+            { "id": "D", "text": "Vitamin D", "textBg": "витамин D", "correct": true }
+          ]
+        },
+        {
+          "id": 4,
+          "question": "Der Abbau von Eiweißen beginnt im Magen unter der Wirkung des Enzyms:",
+          "questionBg": "Разграждането на белтъците започва в стомаха, под въздействието на ензима:",
+          "options": [
+            { "id": "A", "text": "Trypsin", "textBg": "трипсин", "correct": false },
+            { "id": "B", "text": "Pepsin", "textBg": "пепсин", "correct": true },
+            { "id": "C", "text": "Lipase", "textBg": "липаза", "correct": false },
+            { "id": "D", "text": "Amylase", "textBg": "амилаза", "correct": false }
+          ]
+        },
+        {
+          "id": 5,
+          "question": "Die Bauchspeicheldrüse produziert Verdauungssaft, der enthält:",
+          "questionBg": "Задстомашната жлеза изработва смилателен сок, който съдържа:",
+          "options": [
+            { "id": "A", "text": "das Enzym Trypsin", "textBg": "ензима трипсин", "correct": true },
+            { "id": "B", "text": "das Enzym Pepsin", "textBg": "ензима пепсин", "correct": false },
+            { "id": "C", "text": "Salzsäure", "textBg": "солна киселина", "correct": false },
+            { "id": "D", "text": "Gallensäure", "textBg": "жлъчна киселина", "correct": false }
+          ]
+        },
+        {
+          "id": 6,
+          "question": "Das Protein Fibrinogen:",
+          "questionBg": "Белтъкът фибриноген:",
+          "options": [
+            { "id": "A", "text": "ist an der Blutgerinnung beteiligt", "textBg": "участва в кръвосъсирването", "correct": true },
+            { "id": "B", "text": "ist an der Immunabwehr beteiligt", "textBg": "участва в имунната защита", "correct": false },
+            { "id": "C", "text": "ist unlöslich und faserig", "textBg": "е неразтворим и нишковиден", "correct": false },
+            { "id": "D", "text": "kommt im Blutserum vor", "textBg": "се среща в кръвния серум", "correct": false }
+          ]
+        },
+        {
+          "id": 7,
+          "question": "Welche Blutzellen und Moleküle üben die Immunabwehr aus?",
+          "questionBg": "Кои кръвни клетки и молекули осъществяват имунната защита?",
+          "options": [
+            { "id": "A", "text": "Lymphozyten und Antikörper", "textBg": "лимфоцити и антитела", "correct": true },
+            { "id": "B", "text": "Erythrozyten und Antikörper", "textBg": "еритроцити и антитела", "correct": false },
+            { "id": "C", "text": "Lymphozyten und Antigene", "textBg": "лимфоцити и антигени", "correct": false },
+            { "id": "D", "text": "Erythrozyten und Antigene", "textBg": "еритроцити и антигени", "correct": false }
+          ]
+        },
+        {
+          "id": 8,
+          "question": "Welche Aussage über das Hormon Adrenalin ist richtig?",
+          "questionBg": "Кое от твърденията е вярно за хормона адреналин?",
+          "options": [
+            { "id": "A", "text": "Es wird von der Nebennierenrinde ausgeschüttet.", "textBg": "Отделя се от кората на надбъбречните жлези.", "correct": false },
+            { "id": "B", "text": "Es ist als Stresshormon bekannt.", "textBg": "Известен е като хормон на стреса.", "correct": true },
+            { "id": "C", "text": "Es senkt Herzaktivität, Atmung und Blutzuckerspiegel.", "textBg": "Понижава сърдечната дейност, дишането, съдържанието на глюкоза в кръвта.", "correct": false },
+            { "id": "D", "text": "Es erhöht die Durchblutung von Haut und Verdauungssystem.", "textBg": "Повишава притока на кръв към кожата и храносмилателната система.", "correct": false }
+          ]
+        },
+        {
+          "id": 9,
+          "question": "Vitamine sind:",
+          "questionBg": "Витамините са:",
+          "options": [
+            { "id": "A", "text": "Beteiligte an der Hormonregulation", "textBg": "участници в хормоналната регулация", "correct": false },
+            { "id": "B", "text": "Energiequelle für die Zellen", "textBg": "източник на енергия за клетките", "correct": false },
+            { "id": "C", "text": "notwendig für die Aktivierung oder Synthese von Enzymen", "textBg": "необходими за активирането или синтезата на ензими", "correct": true },
+            { "id": "D", "text": "Baumaterial für Zellstrukturen", "textBg": "материал за изграждане на клетъчни структури", "correct": false }
+          ]
+        },
+        {
+          "id": 10,
+          "question": "Diabetes insipidus beruht auf:",
+          "questionBg": "Беззахарният диабет се дължи на:",
+          "options": [
+            { "id": "A", "text": "erhöhter Insulinsekretion der Bauchspeicheldrüse", "textBg": "увеличена секреция на инсулин от задстомашната жлеза", "correct": false },
+            { "id": "B", "text": "verminderter Insulinsekretion der Bauchspeicheldrüse", "textBg": "намалена секреция на инсулин от задстомашната жлеза", "correct": false },
+            { "id": "C", "text": "erhöhter Sekretion des antidiuretischen Hormons der Hypophyse", "textBg": "увеличена секреция на антидиуретичен хормон от хипофизата", "correct": false },
+            { "id": "D", "text": "verminderter Sekretion des antidiuretischen Hormons der Hypophyse", "textBg": "намалена секреция на антидиуретичен хормон от хипофизата", "correct": true }
+          ]
+        },
+        {
+          "id": 11,
+          "question": "Welche der genannten chemischen Verbindungen sind am Aufbau der Knochen beteiligt? 1. Wasser 2. Kalziumphosphat 3. Kalziumkarbonat 4. Organische Stoffe",
+          "questionBg": "Кои от изброените химични съединения участват в състава на костите? 1. вода 2. калциев фосфат 3. калциев карбонат 4. органични вещества",
+          "options": [
+            { "id": "A", "text": "nur 1 und 3", "textBg": "само 1 и 3", "correct": false },
+            { "id": "B", "text": "nur 2 und 3", "textBg": "само 2 и 3", "correct": false },
+            { "id": "C", "text": "nur 3 und 4", "textBg": "само 3 и 4", "correct": false },
+            { "id": "D", "text": "1, 2, 3 und 4", "textBg": "1, 2, 3 и 4", "correct": true }
+          ]
+        },
+        {
+          "id": 12,
+          "question": "Welche der genannten chemischen Verbindungen enthält der Endharn eines gesunden Menschen? 1. Wasser und Salze 2. Wasser und Glukose 3. Harnstoff und Harnsäure 4. Harnstoff und Aminosäuren",
+          "questionBg": "Кои от изброените химични съединения съдържа крайната урина на здрав човек? 1. вода и соли 2. вода и глюкоза 3. урея и пикочна киселина 4. урея и аминокиселини",
+          "options": [
+            { "id": "A", "text": "1 und 3", "textBg": "1 и 3", "correct": true },
+            { "id": "B", "text": "2 und 3", "textBg": "2 и 3", "correct": false },
+            { "id": "C", "text": "2 und 4", "textBg": "2 и 4", "correct": false },
+            { "id": "D", "text": "1, 3 und 4", "textBg": "1, 3 и 4", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Frage 13–15: Wählen Sie die richtige Antwort.",
+      "titleBg": "Въпрос 13–15: Изберете верния отговор.",
+      "type": "quiz",
+      "questions": [
+        {
+          "id": 13,
+          "question": "Für die Zelle in der Abbildung gilt: 1. Die mit 1 bezeichnete Struktur ist die Zellmembran. 2. Die mit 2 bezeichnete Struktur ist das Zytoplasma. 3. Die mit 3 bezeichnete Struktur ist ein Mitochondrium. 4. Die mit 4 bezeichnete Struktur ist der Zellkern.",
+          "questionBg": "За клетката на фигурата е вярно, че: 1. означената с 1 структура е клетъчна мембрана 2. означената с 2 структура е цитоплазма 3. означената с 3 структура е митохондрий 4. означената с 4 структура е клетъчно ядро",
+          "image": "https://i.imgur.com/upBy6KS.png",
+          "options": [
+            { "id": "A", "text": "nur 1 und 2", "textBg": "само 1 и 2", "correct": false },
+            { "id": "B", "text": "nur 1 und 4", "textBg": "само 1 и 4", "correct": false },
+            { "id": "C", "text": "nur 1, 2 und 3", "textBg": "само 1, 2 и 3", "correct": false },
+            { "id": "D", "text": "1, 2, 3 und 4", "textBg": "1, 2, 3 и 4", "correct": true }
+          ]
+        },
+        {
+          "id": 14,
+          "question": "Bestimmen Sie die richtige Zuordnung zwischen Zelltypen und ihren Funktionen. 1. Nervenzellen – Signalleitung 2. Muskelzellen – Kontraktion 3. Erythrozyten – Sauerstofftransport 4. Epithelzellen – Beteiligung an Immunreaktionen",
+          "questionBg": "Определете вярното съответствие между различни клетки и техните функции. 1. нервни клетки – провеждане на сигнали 2. мускулни клетки – съкращение 3. еритроцити – пренос на кислород 4. епителни клетки – участие в имунните реакции",
+          "options": [
+            { "id": "A", "text": "nur 1 und 4", "textBg": "само 1 и 4", "correct": false },
+            { "id": "B", "text": "1, 2 und 3", "textBg": "1, 2 и 3", "correct": true },
+            { "id": "C", "text": "1, 2 und 4", "textBg": "1, 2 и 4", "correct": false },
+            { "id": "D", "text": "2, 3 und 4", "textBg": "2, 3 и 4", "correct": false }
+          ]
+        },
+        {
+          "id": 15,
+          "question": "Für Thrombozyten gilt: 1. Sie sind kernlose Formelemente. 2. Sie haben die Form bikonkaver Scheiben. 3. Sie sind wichtig für die Blutgerinnung. 4. Sie entstehen in Lymphknoten und Milz.",
+          "questionBg": "За тромбоцитите са верни твърденията: 1. Те са формени елементи без ядро. 2. Имат форма на двойновдлъбнати дискове. 3. Имат значение за съсирването на кръвта. 4. Образуват се в лимфните възли и слезката.",
+          "options": [
+            { "id": "A", "text": "nur 1 und 2", "textBg": "само 1 и 2", "correct": false },
+            { "id": "B", "text": "nur 1 und 3", "textBg": "само 1 и 3", "correct": true },
+            { "id": "C", "text": "1, 2 und 3", "textBg": "1, 2 и 3", "correct": false },
+            { "id": "D", "text": "1, 3 und 4", "textBg": "1, 3 и 4", "correct": false }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Frage 16: Experiment mit Knochen",
+      "titleBg": "Въпрос 16: Експеримент с кост",
+      "type": "question",
+      "taskText": "Peter tauchte ein Schlüsselbein eines Säugetiers in Essig. Nach 24 Stunden nahm er den Knochen heraus. Er war sehr biegsam – beim Versuch, ihn zu biegen, kehrte er in seine ursprüngliche Form zurück. Erklären Sie das Ergebnis. Was beweist das Experiment?",
+      "taskTextBg": "Петър потопил в оцет ключица от бозайник. След 24 часа извадил костта. Тя се оказала много гъвкава – при опит да бъде извита, тя отново връщала първоначалната си форма. Обяснете получения резултат. Какво доказва експериментът, който е направил Петър?",
+      "answer": "Essig löst die Mineralsalze (Kalziumverbindungen) aus dem Knochen. Übrig bleibt vor allem organische Substanz (Kollagen), die dem Knochen Elastizität verleiht. Das Experiment zeigt, dass anorganische Salze dem Knochen Festigkeit geben.",
+      "answerBg": "Оцетът разтваря минералните соли (калциевите съединения) от костта. Остава предимно органично вещество (колаген), което придава еластичност. Експериментът доказва, че неорганичните соли придават на костта твърдост."
+    },
+    {
+      "id": 4,
+      "title": "Frage 17: Antibiotikum und Joghurt",
+      "titleBg": "Въпрос 17: Антибиотик и кисело мляко",
+      "type": "question",
+      "taskText": "Wegen Komplikationen nach einer Viruserkrankung verschrieb der Arzt dem Patienten ein Antibiotikum. Zusätzlich empfahl er die Einnahme von viel Joghurt. Erklären Sie, warum das Antibiotikum verschrieben wurde. Warum empfiehlt der Arzt die Einnahme von Joghurt?",
+      "taskTextBg": "Поради усложнения след прекарано вирусно заболяване лекар предписал на пациент антибиотик. В допълнение му препоръчал да приема голямо количество кисело мляко. Обяснете причините, поради които е предписан антибиотикът. Защо лекарят препоръчва прием на кисело мляко?",
+      "answer": "Das Antibiotikum bekämpft bakterielle Sekundärinfektionen. Joghurt enthält Milchsäurebakterien (Probiotika), die die durch das Antibiotikum geschädigte Darmflora wieder aufbauen.",
+      "answerBg": "Антибиотикът се предписва срещу бактериални вторични инфекции. Киселото мляко съдържа млечнокиселинни бактерии (пробиотици), които възстановяват увредената от антибиотика храносмилателна флора."
+    },
+    {
+      "id": 5,
+      "title": "Frage 18: Regulation des Blutzuckers",
+      "titleBg": "Въпрос 18: Регулация на кръвната захар",
+      "type": "question",
+      "taskText": "Betrachten Sie die Abbildung. Schreiben Sie die Bezeichnungen der Hormone und des Organs (1, 2, 3) auf. Wie beeinflusst das mit 1 bezeichnete Hormon den Blutzucker nach dem Essen? Wie beeinflusst das mit 2 bezeichnete Hormon den Blutzucker beim Fasten?",
+      "taskTextBg": "Наблюдавайте фигурата. Напишете наименованията на хормоните и органа, означени с 1, 2 и 3. Хормонът, означен с 1, влияе върху кръвната захар след хранене – как? Хормонът, означен с 2, влияе при гладуване – как?",
+      "imageUrl": "/images/glukose-regulation.png",
+      "answer": "1 – Insulin (oder Bauchspeicheldrüse); 2 – Glukagon; 3 – Bauchspeicheldrüse. Hormon 1 (Insulin) senkt nach dem Essen den Blutzucker (Förderung der Glukoseaufnahme in die Zellen, Umwandlung in Glykogen). Hormon 2 (Glukagon) erhöht beim Fasten den Blutzucker (Glykogenabbau in der Leber).",
+      "answerBg": "1 – инсулин (или задстомашна жлеза); 2 – глюкагон; 3 – задстомашна жлеза. Хормон 1 след хранене понижава кръвната захар (усвояване в клетките, превръщане в гликоген). Хормон 2 при гладуване повишава кръвната захар (разграждане на гликоген в черния дроб)."
+    }
+  ]
+}
