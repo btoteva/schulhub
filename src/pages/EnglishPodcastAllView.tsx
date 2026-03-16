@@ -16,8 +16,6 @@ interface EnglishPodcastEpisode {
   description?: string | null;
 }
 
-const API_BASE = process.env.DEV_API_ORIGIN || "";
-
 const EnglishPodcastAllView: React.FC = () => {
   const { theme } = useTheme();
   const isLight = theme === "light";
@@ -53,23 +51,52 @@ const EnglishPodcastAllView: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/api/easy-english-podcast-feed`);
+      const res = await fetch("https://feeds.fireside.fm/easyenglish/rss", {
+        method: "GET",
+        headers: { Accept: "application/xml, text/xml, */*" },
+      });
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
       }
-      const data = await res.json();
-      const eps = Array.isArray(data.episodes) ? data.episodes : [];
-      setEpisodes(
-        eps.map((e: any) => ({
-          id: String(e.id ?? e.audioUrl ?? e.link ?? Math.random()),
-          title: String(e.title ?? ""),
-          link: typeof e.link === "string" ? e.link : null,
-          audioUrl: String(e.audioUrl ?? ""),
-          pubDate: typeof e.pubDate === "string" ? e.pubDate : null,
-          duration: typeof e.duration === "string" ? e.duration : null,
-          description: typeof e.description === "string" ? e.description : null,
-        })),
-      );
+      const xml = await res.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(xml, "text/xml");
+      const channelEl = doc.querySelector("channel");
+      if (!channelEl) {
+        throw new Error("Invalid Easy English feed");
+      }
+      const items = Array.from(channelEl.getElementsByTagName("item"));
+      const parsed: EnglishPodcastEpisode[] = items.map((item, index) => {
+        const getText = (tag: string) => {
+          const el = item.getElementsByTagName(tag)[0];
+          return el && el.textContent ? el.textContent.trim() : "";
+        };
+        const getAttr = (tag: string, attr: string) => {
+          const el = item.getElementsByTagName(tag)[0];
+          return el ? el.getAttribute(attr) ?? "" : "";
+        };
+        const title = getText("title") || `Episode ${index + 1}`;
+        const link = getText("link") || "";
+        const pubDate = getText("pubDate") || "";
+        const audioUrl = getAttr("enclosure", "url") || "";
+        const duration =
+          getText("itunes:duration") || getText("duration") || "";
+        const description =
+          getText("description") ||
+          getText("content:encoded") ||
+          getText("itunes:summary") ||
+          "";
+        return {
+          id: link || audioUrl || `easyenglish-${index}`,
+          title,
+          link: link || null,
+          audioUrl,
+          pubDate: pubDate || null,
+          duration: duration || null,
+          description: description || null,
+        };
+      });
+      setEpisodes(parsed);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to load Easy English RSS");
       setEpisodes([]);
