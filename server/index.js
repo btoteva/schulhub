@@ -58,8 +58,36 @@ let easyGermanRssCache = {
   fetchedAt: 0,
 };
 
+// Simple in-memory cache for Easy English podcast RSS
+let easyEnglishRssCache = {
+  items: null,
+  fetchedAt: 0,
+};
+
 async function fetchEasyGermanRssXml() {
   const rssUrl = "https://easygerman.libsyn.com/rss";
+  return new Promise((resolve, reject) => {
+    https
+      .get(rssUrl, (res) => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`RSS request failed with status ${res.statusCode}`));
+          res.resume();
+          return;
+        }
+        let data = "";
+        res.setEncoding("utf8");
+        res.on("data", (chunk) => {
+          data += chunk;
+        });
+        res.on("end", () => resolve(data));
+      })
+      .on("error", (err) => reject(err));
+  });
+}
+
+async function fetchEasyEnglishRssXml() {
+  // Easy English podcast RSS, hosted on Fireside
+  const rssUrl = "https://feeds.fireside.fm/easyenglish/rss";
   return new Promise((resolve, reject) => {
     https
       .get(rssUrl, (res) => {
@@ -112,6 +140,48 @@ function parseEasyGermanRss(xml) {
   return items;
 }
 
+function parseEasyEnglishRss(xml) {
+  const items = [];
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match;
+  while ((match = itemRegex.exec(xml)) !== null) {
+    const itemXml = match[1];
+    const getTag = (tag) => {
+      const m = new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i").exec(itemXml);
+      return m ? m[1].trim() : null;
+    };
+    const getAttr = (tag, attr) => {
+      const m = new RegExp(`<${tag}[^>]*${attr}="([^"]+)"[^>]*>`, "i").exec(itemXml);
+      return m ? m[1] : null;
+    };
+
+    const title = getTag("title");
+    const link = getTag("link");
+    const pubDate = getTag("pubDate");
+    const audioUrl = getAttr("enclosure", "url");
+    const itunesDuration = getTag("itunes:duration") || getTag("duration");
+    const description =
+      getTag("description") ||
+      getTag("content:encoded") ||
+      getTag("itunes:summary");
+    const imageUrl = getAttr("itunes:image", "href");
+
+    if (!title || !audioUrl) continue;
+
+    items.push({
+      id: link || audioUrl,
+      title,
+      link: link || null,
+      audioUrl,
+      pubDate: pubDate || null,
+      duration: itunesDuration || null,
+      description: description || null,
+      imageUrl: imageUrl || null,
+    });
+  }
+  return items;
+}
+
 app.get("/api/health", async (req, res) => {
   try {
     const r = await sql`SELECT 1 as ok`;
@@ -136,6 +206,24 @@ app.get("/api/easy-german-podcast-feed", async (req, res) => {
     res.json({ episodes });
   } catch (e) {
     res.status(500).json({ error: e.message || "Failed to load Easy German RSS" });
+  }
+});
+
+// GET /api/easy-english-podcast-feed – returns list of episodes from Easy English RSS
+app.get("/api/easy-english-podcast-feed", async (req, res) => {
+  try {
+    const now = Date.now();
+    const oneHour = 60 * 60 * 1000;
+    if (easyEnglishRssCache.items && now - easyEnglishRssCache.fetchedAt < oneHour) {
+      return res.json({ episodes: easyEnglishRssCache.items });
+    }
+
+    const xml = await fetchEasyEnglishRssXml();
+    const episodes = parseEasyEnglishRss(xml).slice(0, 100);
+    easyEnglishRssCache = { items: episodes, fetchedAt: now };
+    res.json({ episodes });
+  } catch (e) {
+    res.status(500).json({ error: e.message || "Failed to load Easy English RSS" });
   }
 });
 

@@ -487,6 +487,7 @@ const Lessons: React.FC = () => {
               </div>
             </Link>
 
+
             <Link
               to="/lessons/1/section/dsd"
               className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"

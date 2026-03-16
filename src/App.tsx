@@ -27,6 +27,8 @@ import DSDSchriftliche4View from './pages/DSDSchriftliche4View';
 import DSDTestsList from './pages/DSDTestsList';
 import GermanPodcastView from './pages/GermanPodcastView';
 import GermanPodcastAllView from './pages/GermanPodcastAllView';
+import EnglishPodcastAllView from './pages/EnglishPodcastAllView';
+import EnglishPodcastView from './pages/EnglishPodcastView';
 import About from './pages/About';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -63,6 +65,8 @@ const App: React.FC = () => {
           <Route path="/german/podcast" element={<GermanPodcastView />} />
           <Route path="/german/podcast/:episodeId" element={<GermanPodcastView />} />
           <Route path="/german/podcasts/all" element={<GermanPodcastAllView />} />
+          <Route path="/english/podcasts/all" element={<EnglishPodcastAllView />} />
+          <Route path="/english/podcast" element={<EnglishPodcastView />} />
           <Route path="/german/dsd-modellsatz-1" element={<DSDModellsatz1View />} />
           <Route path="/german/dsd-modellsatz-2" element={<DSDHorverstehen1View />} />
           <Route path="/german/dsd-modellsatz-3" element={<DSDModellsatz2View />} />

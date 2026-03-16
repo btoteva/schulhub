@@ -79,7 +79,7 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
 };
 
 const Home: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { theme } = useTheme();
   const { user, token } = useAuth();
   const isLight = theme === "light";
@@ -255,6 +255,56 @@ const Home: React.FC = () => {
               </div>
             </div>
           ))}
+
+          {/* English card – styled like a course, placed next to German */}
+          <div className="group relative bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 dark:border-gray-700 hover:border-transparent transform hover:scale-105">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-indigo-500 to-cyan-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+
+            <div className="relative p-8">
+              <div className="mb-6">
+                <MdLanguage className="text-6xl text-blue-400 mx-auto mb-4" />
+              </div>
+
+              <div className="flex items-center justify-end mb-4">
+                <span className="text-slate-700 dark:text-gray-400 text-sm flex items-center gap-1">
+                  <FaBook className="text-sm" />
+                  {/* No fixed lessons; treat as ongoing podcast */}
+                  0 {t.lessonsCount}
+                </span>
+              </div>
+
+              <h4 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">
+                English
+              </h4>
+
+              <p className="text-slate-800 dark:text-gray-400 mb-6 leading-relaxed">
+                Learn English with easy, everyday conversations from the Easy English podcast.
+              </p>
+
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <span className="text-orange-400 font-semibold flex items-center gap-2">
+                  <FaGraduationCap className="text-sm" />
+                  {language === "bg"
+                    ? "Всички степени"
+                    : language === "de"
+                    ? "Alle Niveaus"
+                    : "All levels"}
+                </span>
+                <div className="flex gap-2">
+                  <Link to="/english/podcasts/all">
+                    <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                      {t.seeMore}
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Shine effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
+            </div>
+          </div>
         </div>
       </section>
 
