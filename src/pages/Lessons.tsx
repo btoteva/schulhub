@@ -284,13 +284,8 @@ const lessonsData: { [key: number]: Band[] } = {
             },
             {
               id: 8,
-              title: "25. ZAHL, VERTEILUNG UND WANDERUNGSBEWEGUNGEN DER WELTBEVÖLKERUNG",
-              duration: "—",
-              completed: false,
-            },
-            {
-              id: 9,
-              title: "23. ZAHL, VERTEILUNG UND WANDERUNGS-BEWEGUNGEN DER WELTBEVÖLKERUNG",
+              title:
+                "23. ZAHL, VERTEILUNG UND WANDERUNGSBEWEGUNGEN DER WELTBEVÖLKERUNG",
               duration: "—",
               completed: false,
             },
@@ -308,10 +303,19 @@ const Lessons: React.FC = () => {
   const { theme } = useTheme();
   const { token } = useAuth();
   const isLight = theme === "light";
-  const { courseId, sectionName } = useParams<{ courseId: string; sectionName?: string }>();
+  const { courseId, sectionName } = useParams<{
+    courseId: string;
+    sectionName?: string;
+  }>();
   const course = coursesData.find((c) => c.id === Number(courseId));
   const bands = lessonsData[Number(courseId)] || [];
-  const germanSection = (sectionName === "lessons" || sectionName === "podcast" || sectionName === "dsd" ? sectionName : null) as GermanSection | null;
+  const germanSection = (
+    sectionName === "lessons" ||
+    sectionName === "podcast" ||
+    sectionName === "dsd"
+      ? sectionName
+      : null
+  ) as GermanSection | null;
   const [podcastListenedIds, setPodcastListenedIds] = useState<string[]>([]);
 
   useEffect(() => {
@@ -321,21 +325,35 @@ const Lessons: React.FC = () => {
     }
     let cancelled = false;
     getUserProgress("schulhub-podcast-listened", token).then((data) => {
-      if (cancelled || !data || typeof data !== "object" || Array.isArray(data)) return;
+      if (cancelled || !data || typeof data !== "object" || Array.isArray(data))
+        return;
       const ids = (data as { ids?: string[] }).ids;
       setPodcastListenedIds(Array.isArray(ids) ? ids : []);
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [token]);
 
   if (!course) {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${isLight ? "bg-slate-100" : "bg-gradient-to-b from-gray-900 via-gray-950 to-black"}`}>
+      <div
+        className={`min-h-screen flex items-center justify-center ${isLight ? "bg-slate-100" : "bg-gradient-to-b from-gray-900 via-gray-950 to-black"}`}
+      >
         <div className="text-center">
-          <h2 className={`text-4xl font-bold mb-4 ${isLight ? "text-slate-800" : "text-white"}`}>
+          <h2
+            className={`text-4xl font-bold mb-4 ${isLight ? "text-slate-800" : "text-white"}`}
+          >
             {t.courseNotFound}
           </h2>
-          <Link to="/" className={isLight ? "text-amber-600 hover:text-amber-700" : "text-blue-400 hover:text-blue-300"}>
+          <Link
+            to="/"
+            className={
+              isLight
+                ? "text-amber-600 hover:text-amber-700"
+                : "text-blue-400 hover:text-blue-300"
+            }
+          >
             {t.returnToHome}
           </Link>
         </div>
@@ -394,14 +412,24 @@ const Lessons: React.FC = () => {
   );
 
   const headerBackTarget =
-    course.id === 1 && germanSection
-      ? "/lessons/1"
-      : "/";
+    course.id === 1 && germanSection ? "/lessons/1" : "/";
 
   return (
-    <div className={isLight ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900" : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black"}>
+    <div
+      className={
+        isLight
+          ? "min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-50 text-slate-900"
+          : "min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black"
+      }
+    >
       {/* Header Section */}
-      <section className={isLight ? "bg-white/80 border-b border-slate-200 shadow-sm" : "bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 border-b border-gray-800/50"}>
+      <section
+        className={
+          isLight
+            ? "bg-white/80 border-b border-slate-200 shadow-sm"
+            : "bg-gradient-to-br from-gray-800/50 via-gray-900/50 to-gray-950/50 border-b border-gray-800/50"
+        }
+      >
         <div className="container mx-auto px-4 py-12">
           <div className="flex items-center justify-between mb-8">
             <Link
@@ -416,16 +444,30 @@ const Lessons: React.FC = () => {
           <div className="flex items-center gap-8 mb-6">
             <div className="flex-shrink-0">{getSubjectIcon()}</div>
             <div>
-              <h1 className={`text-5xl font-bold mb-3 ${isLight ? "text-slate-800" : "text-white"}`}>
+              <h1
+                className={`text-5xl font-bold mb-3 ${isLight ? "text-slate-800" : "text-white"}`}
+              >
                 {getCourseTitle()}
               </h1>
               {course.id === 1 && germanSection === "podcast" && (
-                <p className={`text-2xl font-semibold mb-1 ${isLight ? "text-green-700" : "text-green-300"}`}>
-                  {language === "bg" ? "Подкасти" : language === "de" ? "Podcasts" : "Podcasts"}
+                <p
+                  className={`text-2xl font-semibold mb-1 ${isLight ? "text-green-700" : "text-green-300"}`}
+                >
+                  {language === "bg"
+                    ? "Подкасти"
+                    : language === "de"
+                      ? "Podcasts"
+                      : "Podcasts"}
                 </p>
               )}
-              <p className={`text-xl mb-4 ${isLight ? "text-slate-600" : "text-gray-300"}`}>{getCourseDesc()}</p>
-              <div className={`flex items-center gap-6 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
+              <p
+                className={`text-xl mb-4 ${isLight ? "text-slate-600" : "text-gray-300"}`}
+              >
+                {getCourseDesc()}
+              </p>
+              <div
+                className={`flex items-center gap-6 ${isLight ? "text-slate-500" : "text-gray-400"}`}
+              >
                 <span className="flex items-center gap-2">
                   <FaBook />
                   {actualLessonCount} {t.lessonsCount}
@@ -443,8 +485,14 @@ const Lessons: React.FC = () => {
       {/* German sections: Lessons, Podcast, DSD I Tests – cards link to separate pages */}
       {course.id === 1 && !germanSection && (
         <section className="container mx-auto px-4 py-12">
-          <h3 className={`text-2xl font-bold mb-8 text-center ${isLight ? "text-slate-800" : "text-white"}`}>
-            {language === "bg" ? "Изберете раздел" : language === "de" ? "Bereich wählen" : "Select section"}
+          <h3
+            className={`text-2xl font-bold mb-8 text-center ${isLight ? "text-slate-800" : "text-white"}`}
+          >
+            {language === "bg"
+              ? "Изберете раздел"
+              : language === "de"
+                ? "Bereich wählen"
+                : "Select section"}
           </h3>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <Link
@@ -456,14 +504,24 @@ const Lessons: React.FC = () => {
                 <div className="mb-4">
                   <FaBook className="text-5xl text-amber-500 dark:text-amber-400" />
                 </div>
-                <h4 className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
+                <h4
+                  className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                >
                   {t.lessons}
                 </h4>
-                <p className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}>
-                  {language === "bg" ? "Уроци и упражнения по немски" : language === "de" ? "Lektionen und Übungen" : "Lessons and exercises"}
+                <p
+                  className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}
+                >
+                  {language === "bg"
+                    ? "Уроци и упражнения по немски"
+                    : language === "de"
+                      ? "Lektionen und Übungen"
+                      : "Lessons and exercises"}
                 </p>
                 <div className="mt-4 flex items-center gap-2">
-                  <span className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}>
+                  <span
+                    className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}
+                  >
                     {t.seeMore}
                   </span>
                 </div>
@@ -479,20 +537,29 @@ const Lessons: React.FC = () => {
                 <div className="mb-4">
                   <FaSpotify className="text-5xl text-green-500 dark:text-green-400" />
                 </div>
-                <h4 className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
+                <h4
+                  className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                >
                   {t.podcast}
                 </h4>
-                <p className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}>
-                  {language === "bg" ? "Подкасти за слушане" : language === "de" ? "Podcasts zum Anhören" : "Podcasts to listen to"}
+                <p
+                  className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}
+                >
+                  {language === "bg"
+                    ? "Подкасти за слушане"
+                    : language === "de"
+                      ? "Podcasts zum Anhören"
+                      : "Podcasts to listen to"}
                 </p>
                 <div className="mt-4 flex items-center gap-2">
-                  <span className={`text-sm font-semibold ${isLight ? "text-green-600" : "text-green-400"}`}>
+                  <span
+                    className={`text-sm font-semibold ${isLight ? "text-green-600" : "text-green-400"}`}
+                  >
                     {t.seeMore}
                   </span>
                 </div>
               </div>
             </Link>
-
 
             <Link
               to="/lessons/1/section/dsd"
@@ -503,14 +570,24 @@ const Lessons: React.FC = () => {
                 <div className="mb-4">
                   <FaClipboardList className="text-5xl text-amber-500 dark:text-amber-400" />
                 </div>
-                <h4 className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
+                <h4
+                  className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                >
                   {t.dsdTests}
                 </h4>
-                <p className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}>
-                  {language === "bg" ? "Тестове за подготовка за DSD I" : language === "de" ? "DSD I Prüfungsvorbereitung" : "DSD I exam preparation tests"}
+                <p
+                  className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}
+                >
+                  {language === "bg"
+                    ? "Тестове за подготовка за DSD I"
+                    : language === "de"
+                      ? "DSD I Prüfungsvorbereitung"
+                      : "DSD I exam preparation tests"}
                 </p>
                 <div className="mt-4 flex items-center gap-2">
-                  <span className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}>
+                  <span
+                    className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}
+                  >
                     {t.seeMore}
                   </span>
                 </div>
@@ -562,7 +639,8 @@ const Lessons: React.FC = () => {
             </div>
             {germanPodcasts.map((podcast) => {
               const episodeRouteId = podcast.spotifyEpisodeId ?? podcast.id;
-              const listened = token && podcastListenedIds.includes(episodeRouteId);
+              const listened =
+                token && podcastListenedIds.includes(episodeRouteId);
               return (
                 <div
                   key={podcast.id}
@@ -577,21 +655,33 @@ const Lessons: React.FC = () => {
                       <FaSpotify className="w-8 h-8" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className={`text-xl font-bold ${isLight ? "text-slate-800 group-hover:text-green-700" : "text-white group-hover:text-green-300"}`}>
+                      <h3
+                        className={`text-xl font-bold ${isLight ? "text-slate-800 group-hover:text-green-700" : "text-white group-hover:text-green-300"}`}
+                      >
                         {podcast.title}
                       </h3>
-                      <p className={`text-sm mt-1 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
+                      <p
+                        className={`text-sm mt-1 ${isLight ? "text-slate-500" : "text-gray-400"}`}
+                      >
                         {podcast.subtitle} · {podcast.duration}
                         {listened && (
-                          <span className={`inline-flex items-center gap-1 ml-2 ${isLight ? "text-green-600" : "text-green-400"}`}>
+                          <span
+                            className={`inline-flex items-center gap-1 ml-2 ${isLight ? "text-green-600" : "text-green-400"}`}
+                          >
                             <FaCheckCircle className="w-4 h-4" />
                             {t.podcastListened}
                           </span>
                         )}
                       </p>
                     </div>
-                    <span className={`flex-shrink-0 font-semibold text-sm ${isLight ? "text-green-600" : "text-green-400"}`}>
-                      {language === "bg" ? "Слушай" : language === "de" ? "Anhören" : "Listen"}
+                    <span
+                      className={`flex-shrink-0 font-semibold text-sm ${isLight ? "text-green-600" : "text-green-400"}`}
+                    >
+                      {language === "bg"
+                        ? "Слушай"
+                        : language === "de"
+                          ? "Anhören"
+                          : "Listen"}
                     </span>
                   </Link>
                   {token && (
@@ -600,16 +690,32 @@ const Lessons: React.FC = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         const next = listened
-                          ? podcastListenedIds.filter((id) => id !== episodeRouteId)
+                          ? podcastListenedIds.filter(
+                              (id) => id !== episodeRouteId,
+                            )
                           : [...podcastListenedIds, episodeRouteId];
                         setPodcastListenedIds(next);
-                        setUserProgress("schulhub-podcast-listened", { ids: next }, token);
+                        setUserProgress(
+                          "schulhub-podcast-listened",
+                          { ids: next },
+                          token,
+                        );
                       }}
                       className={`flex-shrink-0 flex items-center gap-2 px-4 border-l text-sm font-medium ${isLight ? "border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700" : "border-gray-700 bg-gray-800/50 hover:bg-gray-800 text-gray-300"}`}
-                      title={listened ? t.podcastMarkUnlistened : t.podcastMarkListened}
+                      title={
+                        listened
+                          ? t.podcastMarkUnlistened
+                          : t.podcastMarkListened
+                      }
                     >
-                      <FaCheckCircle className={`w-5 h-5 shrink-0 ${listened ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`} />
-                      <span className="hidden sm:inline">{listened ? t.podcastMarkUnlistened : t.podcastMarkListened}</span>
+                      <FaCheckCircle
+                        className={`w-5 h-5 shrink-0 ${listened ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`}
+                      />
+                      <span className="hidden sm:inline">
+                        {listened
+                          ? t.podcastMarkUnlistened
+                          : t.podcastMarkListened}
+                      </span>
                     </button>
                   )}
                 </div>
@@ -621,190 +727,210 @@ const Lessons: React.FC = () => {
 
       {/* Lessons List – other courses directly, or German section "lessons" page */}
       {(!(course.id === 1) || germanSection === "lessons") && (
-      <section className="container mx-auto px-4 py-16">
-        <h2 className={`text-4xl font-bold mb-8 ${isLight ? "text-slate-800" : "text-white"}`}>{t.selectLesson}</h2>
+        <section className="container mx-auto px-4 py-16">
+          <h2
+            className={`text-4xl font-bold mb-8 ${isLight ? "text-slate-800" : "text-white"}`}
+          >
+            {t.selectLesson}
+          </h2>
 
-        <div className="max-w-4xl space-y-16">
-          {bands.map((band, bandIndex) => (
-            <div key={bandIndex}>
-              {/* Band Title */}
-              <div className="mb-8">
-                <h2 className={`text-4xl font-bold border-b-2 pb-3 inline-block ${isLight ? "text-slate-800 border-amber-500" : "text-white border-yellow-500"}`}>
-                  {band.bandTitle}
-                </h2>
-              </div>
+          <div className="max-w-4xl space-y-16">
+            {bands.map((band, bandIndex) => (
+              <div key={bandIndex}>
+                {/* Band Title */}
+                <div className="mb-8">
+                  <h2
+                    className={`text-4xl font-bold border-b-2 pb-3 inline-block ${isLight ? "text-slate-800 border-amber-500" : "text-white border-yellow-500"}`}
+                  >
+                    {band.bandTitle}
+                  </h2>
+                </div>
 
-              {/* Sections in this band */}
-              <div className="space-y-12">
-                {band.sections.map((section, sectionIndex) => (
-                  <div key={sectionIndex}>
-                    {/* Section Title */}
-                    <h3 className={`text-2xl font-bold mb-6 uppercase ${course.id === 1 ? "text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500" : course.id === 2 ? "text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500" : "text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500"}`}>
-                      {section.sectionTitle}
-                    </h3>
+                {/* Sections in this band */}
+                <div className="space-y-12">
+                  {band.sections.map((section, sectionIndex) => (
+                    <div key={sectionIndex}>
+                      {/* Section Title */}
+                      <h3
+                        className={`text-2xl font-bold mb-6 uppercase ${course.id === 1 ? "text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500" : course.id === 2 ? "text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500" : "text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500"}`}
+                      >
+                        {section.sectionTitle}
+                      </h3>
 
-                    {/* Lessons in this section */}
-                    <div className="grid gap-4">
-                      {section.lessons.map((lesson) => (
-                        <div
-                          key={lesson.id}
-                          className={`group relative rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer ${isLight ? "bg-white border border-slate-200 hover:border-amber-400/60" : "bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:border-transparent"}`}
-                        >
+                      {/* Lessons in this section */}
+                      <div className="grid gap-4">
+                        {section.lessons.map((lesson) => (
                           <div
-                            className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient()} opacity-0 group-hover:opacity-10 transition-opacity rounded-xl`}
-                          ></div>
+                            key={lesson.id}
+                            className={`group relative rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer ${isLight ? "bg-white border border-slate-200 hover:border-amber-400/60" : "bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:border-transparent"}`}
+                          >
+                            <div
+                              className={`absolute inset-0 bg-gradient-to-br ${getSubjectGradient()} opacity-0 group-hover:opacity-10 transition-opacity rounded-xl`}
+                            ></div>
 
-                          <div className="relative p-6 flex items-center justify-between">
-                            <div className="flex items-center gap-6 flex-1">
-                              {Number(courseId) === 2 && lesson.id === "2-izhodno" ? (
-                                <img
-                                  src="https://i.imgur.com/IDqeG2K.png"
-                                  alt=""
-                                  className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
-                                />
-                              ) : Number(courseId) === 2 && lesson.id === "2-izhodno-2" ? (
-                                <img
-                                  src="https://i.imgur.com/wPlxdZC.png"
-                                  alt=""
-                                  className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
-                                />
-                              ) : (
-                                <div
-                                  className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}
-                                >
-                                  {lesson.number ?? lesson.id}
-                                </div>
-                              )}
+                            <div className="relative p-6 flex items-center justify-between">
+                              <div className="flex items-center gap-6 flex-1">
+                                {Number(courseId) === 2 &&
+                                lesson.id === "2-izhodno" ? (
+                                  <img
+                                    src="https://i.imgur.com/IDqeG2K.png"
+                                    alt=""
+                                    className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
+                                  />
+                                ) : Number(courseId) === 2 &&
+                                  lesson.id === "2-izhodno-2" ? (
+                                  <img
+                                    src="https://i.imgur.com/wPlxdZC.png"
+                                    alt=""
+                                    className="w-14 h-20 sm:w-16 sm:h-24 object-cover rounded-lg shadow-md flex-shrink-0"
+                                  />
+                                ) : (
+                                  <div
+                                    className={`w-16 h-16 rounded-full bg-gradient-to-br ${getSubjectGradient()} flex items-center justify-center text-white text-2xl font-bold`}
+                                  >
+                                    {lesson.number ?? lesson.id}
+                                  </div>
+                                )}
 
-                              <div className="flex-1">
-                                <h4 className={`text-2xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}>
-                                  {lesson.title}
-                                </h4>
-                                <div className={`flex items-center gap-4 ${isLight ? "text-slate-500" : "text-gray-400"}`}>
-                                  <span className="flex items-center gap-1">
-                                    <FaClock className="text-sm" />
-                                    {lesson.duration}
-                                  </span>
-                                  {(() => {
-                                    const lessonContent = getLessonById(
-                                      Number(courseId),
-                                      String(lesson.id),
-                                    );
-                                    const hasVideo =
-                                      lessonContent?.resources?.some(
-                                        (r: { type?: string }) =>
-                                          r.type === "youtube-video",
-                                      );
-                                    const hasPodcast =
-                                      lessonContent?.resources?.some(
-                                        (r: { type?: string }) =>
-                                          r.type === "spotify-podcast",
-                                      );
-                                    const hasExercises =
-                                      (lessonContent?.exercises?.length ?? 0) >
-                                      0;
-                                    const hasFlashcards =
-                                      (lessonContent?.dictionary?.flatMap(
-                                        (s: { words?: unknown[] }) =>
-                                          s.words ?? [],
-                                      ).length ?? 0) > 0;
-                                    return (
-                                      <>
-                                        {hasVideo && (
-                                          <span
-                                            className="flex items-center gap-1"
-                                            title={
-                                              language === "bg"
-                                                ? "Видео"
-                                                : "Video"
-                                            }
-                                          >
-                                            <FaVideo className="text-sm text-red-400" />
-                                          </span>
-                                        )}
-                                        {hasPodcast && (
-                                          <span
-                                            className="flex items-center gap-1"
-                                            title={
-                                              language === "bg"
-                                                ? "Подкаст (Spotify)"
-                                                : "Podcast (Spotify)"
-                                            }
-                                          >
-                                            <FaSpotify className="text-sm text-green-500" />
-                                          </span>
-                                        )}
-                                        {hasExercises && (
-                                          <span
-                                            className="flex items-center gap-1"
-                                            title={
-                                              language === "bg"
-                                                ? "Упражнения"
-                                                : "Übungen"
-                                            }
-                                          >
-                                            <FaTasks className="text-sm text-amber-400" />
-                                          </span>
-                                        )}
-                                        {hasFlashcards && (
-                                          <span
-                                            className="flex items-center gap-1"
-                                            title={
-                                              language === "bg"
-                                                ? "Флаш-карти"
-                                                : "Lernkarten"
-                                            }
-                                          >
-                                            <FaThLarge className="text-sm text-cyan-400" />
-                                          </span>
-                                        )}
-                                      </>
-                                    );
-                                  })()}
-                                  {lesson.completed && (
-                                    <span className="flex items-center gap-1 text-green-400">
-                                      <FaCheckCircle className="text-sm" />
-                                      {t.completed}
+                                <div className="flex-1">
+                                  <h4
+                                    className={`text-2xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                                  >
+                                    {lesson.title}
+                                  </h4>
+                                  <div
+                                    className={`flex items-center gap-4 ${isLight ? "text-slate-500" : "text-gray-400"}`}
+                                  >
+                                    <span className="flex items-center gap-1">
+                                      <FaClock className="text-sm" />
+                                      {lesson.duration}
                                     </span>
-                                  )}
+                                    {(() => {
+                                      const lessonContent = getLessonById(
+                                        Number(courseId),
+                                        String(lesson.id),
+                                      );
+                                      const hasVideo =
+                                        lessonContent?.resources?.some(
+                                          (r: { type?: string }) =>
+                                            r.type === "youtube-video",
+                                        );
+                                      const hasPodcast =
+                                        lessonContent?.resources?.some(
+                                          (r: { type?: string }) =>
+                                            r.type === "spotify-podcast",
+                                        );
+                                      const hasExercises =
+                                        (lessonContent?.exercises?.length ??
+                                          0) > 0;
+                                      const hasFlashcards =
+                                        (lessonContent?.dictionary?.flatMap(
+                                          (s: { words?: unknown[] }) =>
+                                            s.words ?? [],
+                                        ).length ?? 0) > 0;
+                                      return (
+                                        <>
+                                          {hasVideo && (
+                                            <span
+                                              className="flex items-center gap-1"
+                                              title={
+                                                language === "bg"
+                                                  ? "Видео"
+                                                  : "Video"
+                                              }
+                                            >
+                                              <FaVideo className="text-sm text-red-400" />
+                                            </span>
+                                          )}
+                                          {hasPodcast && (
+                                            <span
+                                              className="flex items-center gap-1"
+                                              title={
+                                                language === "bg"
+                                                  ? "Подкаст (Spotify)"
+                                                  : "Podcast (Spotify)"
+                                              }
+                                            >
+                                              <FaSpotify className="text-sm text-green-500" />
+                                            </span>
+                                          )}
+                                          {hasExercises && (
+                                            <span
+                                              className="flex items-center gap-1"
+                                              title={
+                                                language === "bg"
+                                                  ? "Упражнения"
+                                                  : "Übungen"
+                                              }
+                                            >
+                                              <FaTasks className="text-sm text-amber-400" />
+                                            </span>
+                                          )}
+                                          {hasFlashcards && (
+                                            <span
+                                              className="flex items-center gap-1"
+                                              title={
+                                                language === "bg"
+                                                  ? "Флаш-карти"
+                                                  : "Lernkarten"
+                                              }
+                                            >
+                                              <FaThLarge className="text-sm text-cyan-400" />
+                                            </span>
+                                          )}
+                                        </>
+                                      );
+                                    })()}
+                                    {lesson.completed && (
+                                      <span className="flex items-center gap-1 text-green-400">
+                                        <FaCheckCircle className="text-sm" />
+                                        {t.completed}
+                                      </span>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
+
+                              <Link
+                                to={`/lessons/${courseId}/${lesson.id}`}
+                                state={
+                                  course.id === 1 && germanSection === "lessons"
+                                    ? { fromSection: "lessons" }
+                                    : undefined
+                                }
+                              >
+                                <button
+                                  className={`bg-gradient-to-r ${getSubjectGradient()} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
+                                >
+                                  {t.start}
+                                </button>
+                              </Link>
                             </div>
 
-                            <Link
-                              to={`/lessons/${courseId}/${lesson.id}`}
-                              state={
-                                course.id === 1 && germanSection === "lessons"
-                                  ? { fromSection: "lessons" }
-                                  : undefined
-                              }
-                            >
-                              <button
-                                className={`bg-gradient-to-r ${getSubjectGradient()} text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105`}
-                              >
-                                {t.start}
-                              </button>
-                            </Link>
+                            {/* Shine effect */}
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl">
+                              <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
+                            </div>
                           </div>
-
-                          {/* Shine effect */}
-                          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl">
-                            <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* Footer */}
-      <footer className={isLight ? "bg-slate-100 text-slate-500 py-8 border-t border-slate-200 mt-16" : "bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16"}>
+      <footer
+        className={
+          isLight
+            ? "bg-slate-100 text-slate-500 py-8 border-t border-slate-200 mt-16"
+            : "bg-black/50 text-gray-500 py-8 border-t border-gray-800/50 mt-16"
+        }
+      >
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2026 SchulHub. {t.allRightsReserved}</p>
         </div>
