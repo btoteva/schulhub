@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube, FaPencilAlt } from "react-icons/fa";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const EnglishCourseSelection: React.FC = () => {
@@ -27,7 +27,7 @@ const EnglishCourseSelection: React.FC = () => {
         </p>
 
         {/* Selection Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Lessons Option */}
           <div
             onClick={() => navigate("/english/lessons")}
@@ -41,9 +41,36 @@ const EnglishCourseSelection: React.FC = () => {
                 {t.lessons}
               </h2>
               <p className="text-gray-500 dark:text-gray-400 mb-6 flex-grow">
-                {t.englishLessonsDesc} {t.englishVideoSource}
+                {t.englishLessonsDesc}
+              </p>
+              <p className="text-gray-500 dark:text-gray-400 mb-6 flex-grow">
+                {t.englishVideoSource}
               </p>
               <span className="inline-block px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-colors">
+                {t.start}
+              </span>
+            </div>
+          </div>
+
+          {/* Grammar Option (New) */}
+          <div
+            onClick={() => navigate("/english/grammar")}
+            className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden cursor-pointer transform transition-all hover:scale-105 hover:shadow-2xl border-t-8 border-green-500 group"
+          >
+            <div className="p-8 flex flex-col items-center text-center h-full">
+              <div className="w-24 h-24 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6 text-green-600 dark:text-green-400 group-hover:bg-green-200 dark:group-hover:bg-green-900/50 transition-colors">
+                <FaPencilAlt className="h-10 w-10" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">
+                {t.englishGrammarTitle}
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                {t.englishGrammarSubtitle}
+              </p>
+              <p className="text-gray-500 dark:text-gray-400 mb-6 flex-grow text-sm">
+                {t.englishGrammarSource}
+              </p>
+              <span className="inline-block px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold transition-colors">
                 {t.start}
               </span>
             </div>

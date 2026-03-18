@@ -143,6 +143,10 @@ interface Translations {
   additionalResources: string;
   comingSoon: string;
   englishVideoSource: string;
+  englishGrammarTitle: string;
+  englishGrammarSubtitle: string;
+  englishGrammarSource: string;
+  viewOnYoutubePlaylist: string;
 
   // Hero descriptions
   biologyDesc: string;
@@ -331,6 +335,10 @@ const translations: Record<Language, Translations> = {
     additionalResources: "Допълнителни ресурси",
     comingSoon: "Очаквайте скоро още полезни материали!",
     englishVideoSource: "Видео уроци от YouTube канала Easy English",
+    englishGrammarTitle: "Lessong",
+    englishGrammarSubtitle: "Grammar & Vocabulary",
+    englishGrammarSource: "Video lessons from Easy English YouTube channel",
+    viewOnYoutubePlaylist: "Виж целия плейлист в YouTube",
 
     profileType: "Тип профил",
     profileTypeStudent: "Ученик",
@@ -370,7 +378,7 @@ const translations: Record<Language, Translations> = {
       "Опознайте света, континентите, климатите и географските особености.",
     englishCourseTitle: "Английски език",
     englishCourseDesc: "Учете английски език с интерактивни уроци и подкасти.",
-    englishLessonsDesc: "Структурирани уроци по граматика и лексика.",
+    englishLessonsDesc: "Super Easy English",
     englishPodcastsDesc: "Аудио записи за слушане и упражняване на слуха.",
 
     // Course levels/grades
@@ -520,6 +528,10 @@ const translations: Record<Language, Translations> = {
     additionalResources: "Additional Resources",
     comingSoon: "More useful materials coming soon!",
     englishVideoSource: "Video lessons from Easy English YouTube channel",
+    englishGrammarTitle: "Lessong",
+    englishGrammarSubtitle: "Grammar & Vocabulary",
+    englishGrammarSource: "Video lessons from Easy English YouTube channel",
+    viewOnYoutubePlaylist: "View full playlist on YouTube",
 
     profileType: "Profile type",
     profileTypeStudent: "Student",
@@ -559,7 +571,7 @@ const translations: Record<Language, Translations> = {
       "Discover the world, continents, climates, and geographical features.",
     englishCourseTitle: "English Language",
     englishCourseDesc: "Learn English with interactive lessons and podcasts.",
-    englishLessonsDesc: "Structured lessons on grammar and vocabulary.",
+    englishLessonsDesc: "Super Easy English",
     englishPodcastsDesc:
       "Audio recordings for listening and practicing hearing.",
 
@@ -710,6 +722,10 @@ const translations: Record<Language, Translations> = {
     additionalResources: "Zusätzliche Ressourcen",
     comingSoon: "Weitere nützliche Materialien folgen bald!",
     englishVideoSource: "Videolektionen vom YouTube-Kanal Easy English",
+    englishGrammarTitle: "Lessong",
+    englishGrammarSubtitle: "Grammar & Vocabulary",
+    englishGrammarSource: "Video lessons from Easy English YouTube channel",
+    viewOnYoutubePlaylist: "Ganze Playlist auf YouTube ansehen",
 
     profileType: "Profiltyp",
     profileTypeStudent: "Schüler",
@@ -750,7 +766,7 @@ const translations: Record<Language, Translations> = {
     englishCourseTitle: "Englische Sprache",
     englishCourseDesc:
       "Lernen Sie Englisch mit interaktiven Lektionen und Podcasts.",
-    englishLessonsDesc: "Strukturierte Lektionen zu Grammatik und Wortschatz.",
+    englishLessonsDesc: "Super Easy English",
     englishPodcastsDesc:
       "Audioaufnahmen zum Zuhören und Üben des Hörverstehens.",
 

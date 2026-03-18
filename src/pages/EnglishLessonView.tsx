@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { FaArrowLeft, FaCheckCircle } from "react-icons/fa";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
 import englishLessonsData from "../data/english-lessons.json";
+import englishGrammarData from "../data/english-grammar-lessons.json";
 
 const EnglishLessonView: React.FC = () => {
   const { lessonId } = useParams<{ lessonId: string }>();
+  const location = useLocation();
   const { t } = useLanguage();
   const { theme } = useTheme();
   const { token } = useAuth();
   const isLight = theme === "light";
   const [watchedIds, setWatchedIds] = useState<string[]>([]);
 
-  const lesson = englishLessonsData.find((l) => l.id === lessonId);
+  // Determine if we are in the grammar section based on the URL
+  const isGrammar = location.pathname.includes("/english/grammar");
+  const storageKey = isGrammar
+    ? "schulhub-english-grammar-watched"
+    : "schulhub-english-watched";
+  const backLink = isGrammar ? "/english/grammar" : "/english/lessons";
+
+  // Search for the lesson in both datasets or specific based on section
+  const lesson = isGrammar
+    ? englishGrammarData.find((l) => l.id === lessonId)
+    : englishLessonsData.find((l) => l.id === lessonId);
+
   const watched = token && lesson && watchedIds.includes(lesson.id);
 
   useEffect(() => {
@@ -24,7 +37,7 @@ const EnglishLessonView: React.FC = () => {
       return;
     }
     let cancelled = false;
-    getUserProgress("schulhub-english-watched", token).then((data) => {
+    getUserProgress(storageKey, token).then((data) => {
       if (cancelled || !data || typeof data !== "object" || Array.isArray(data))
         return;
       const ids = (data as { ids?: string[] }).ids;
@@ -33,7 +46,7 @@ const EnglishLessonView: React.FC = () => {
     return () => {
       cancelled = true;
     };
-  }, [token]);
+  }, [token, storageKey]);
 
   const toggleWatched = () => {
     if (!token || !lesson) return;
@@ -41,7 +54,7 @@ const EnglishLessonView: React.FC = () => {
       ? watchedIds.filter((id) => id !== lesson.id)
       : [...watchedIds, lesson.id];
     setWatchedIds(next);
-    setUserProgress("schulhub-english-watched", { ids: next }, token);
+    setUserProgress(storageKey, { ids: next }, token);
   };
 
   return (
@@ -55,7 +68,7 @@ const EnglishLessonView: React.FC = () => {
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="flex justify-between items-center mb-8">
           <Link
-            to="/english/lessons"
+            to={backLink}
             className={`inline-flex items-center gap-2 ${isLight ? "text-blue-600 hover:text-blue-700" : "text-blue-400 hover:text-blue-300"}`}
           >
             <FaArrowLeft />
@@ -74,7 +87,7 @@ const EnglishLessonView: React.FC = () => {
               <p
                 className={`mt-2 text-lg ${isLight ? "text-slate-600" : "text-gray-400"}`}
               >
-                {t.englishVideoSource}
+                {isGrammar ? t.englishGrammarSource : t.englishVideoSource}
               </p>
             </header>
             <div className="w-full max-w-4xl mx-auto mb-8">

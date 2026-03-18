@@ -36,6 +36,7 @@ import EnglishPodcastAllView from "./pages/EnglishPodcastAllView";
 import EnglishPodcastView from "./pages/EnglishPodcastView";
 import EnglishCourseSelection from "./pages/EnglishCourseSelection";
 import EnglishLessons from "./pages/EnglishLessons";
+import EnglishGrammarLessons from "./pages/EnglishGrammarLessons";
 import EnglishLessonView from "./pages/EnglishLessonView";
 import About from "./pages/About";
 import Login from "./pages/Login";
@@ -93,12 +94,14 @@ const App: React.FC = () => {
             path="/english/podcasts"
             element={<Navigate to="/english/podcasts/all" replace />}
           />
-          <Route
-            path="/english/lessons"
-            element={<EnglishLessons />}
-          />
+          <Route path="/english/lessons" element={<EnglishLessons />} />
           <Route
             path="/english/lessons/:lessonId"
+            element={<EnglishLessonView />}
+          />
+          <Route path="/english/grammar" element={<EnglishGrammarLessons />} />
+          <Route
+            path="/english/grammar/:lessonId"
             element={<EnglishLessonView />}
           />
           <Route
