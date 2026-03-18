@@ -8,7 +8,12 @@ import {
   FaVolumeUp,
   FaTimes,
 } from "react-icons/fa";
-import { getLessonById, type LessonContent, type TestQuestion, type PrepositionTableRow } from "../data/lessons";
+import {
+  getLessonById,
+  type LessonContent,
+  type TestQuestion,
+  type PrepositionTableRow,
+} from "../data/lessons";
 import { SkeletonDiagram } from "../components/SkeletonDiagram";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import { useFont } from "../contexts/FontContext";
@@ -64,12 +69,16 @@ function InteractiveTable({
       return next;
     });
   };
-  const cellClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left align-top";
-  const headerClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-slate-200 dark:bg-gray-700/80 text-slate-800 dark:text-gray-200";
+  const cellClass =
+    "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left align-top";
+  const headerClass =
+    "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-slate-200 dark:bg-gray-700/80 text-slate-800 dark:text-gray-200";
   return (
     <div className="overflow-x-auto my-4">
       {title && (
-        <p className="text-emerald-600 dark:text-emerald-400 font-bold mb-3">{title}</p>
+        <p className="text-emerald-600 dark:text-emerald-400 font-bold mb-3">
+          {title}
+        </p>
       )}
       <table className="w-full min-w-[700px] border-collapse border border-slate-300 dark:border-gray-600">
         <tbody>
@@ -83,7 +92,11 @@ function InteractiveTable({
                 return (
                   <td
                     key={ci}
-                    className={isHeader ? headerClass : `${cellClass} text-slate-900 dark:text-gray-300 cursor-pointer hover:bg-slate-100 dark:hover:bg-gray-700/50 group relative`}
+                    className={
+                      isHeader
+                        ? headerClass
+                        : `${cellClass} text-slate-900 dark:text-gray-300 cursor-pointer hover:bg-slate-100 dark:hover:bg-gray-700/50 group relative`
+                    }
                     onClick={() => !isHeader && toggleCell(key)}
                   >
                     <div className="space-y-2">
@@ -128,8 +141,10 @@ function PrepositionTable({
   rows: PrepositionTableRow[];
   onSpeak: (text: string) => void;
 }) {
-  const cellClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left align-top";
-  const headerClass = "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-slate-200 dark:bg-gray-700/80 text-slate-800 dark:text-gray-200";
+  const cellClass =
+    "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left align-top";
+  const headerClass =
+    "border border-slate-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-slate-200 dark:bg-gray-700/80 text-slate-800 dark:text-gray-200";
   return (
     <div className="overflow-x-auto my-4">
       <table className="w-full min-w-[700px] border-collapse border border-slate-300 dark:border-gray-600">
@@ -138,7 +153,9 @@ function PrepositionTable({
             <th className={headerClass}>Фраза (DE / BG)</th>
             <th className={headerClass}>Изречение (DE / BG)</th>
             <th className={headerClass}>Клас (Падеж)</th>
-            <th className={headerClass} style={{ width: "90px" }}>🔊</th>
+            <th className={headerClass} style={{ width: "90px" }}>
+              🔊
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -146,11 +163,15 @@ function PrepositionTable({
             <tr key={ri} className="text-slate-900 dark:text-gray-300">
               <td className={cellClass}>
                 <span>{row.phraseDe}</span>
-                <span className="text-slate-500 dark:text-gray-400 text-sm block">/ {row.phraseBg}</span>
+                <span className="text-slate-500 dark:text-gray-400 text-sm block">
+                  / {row.phraseBg}
+                </span>
               </td>
               <td className={cellClass}>
                 <span>{row.sentenceDe}</span>
-                <span className="text-slate-500 dark:text-gray-400 text-sm block mt-1">/ {row.sentenceBg}</span>
+                <span className="text-slate-500 dark:text-gray-400 text-sm block mt-1">
+                  / {row.sentenceBg}
+                </span>
               </td>
               <td className={cellClass}>
                 <span
@@ -248,7 +269,8 @@ const LessonView: React.FC = () => {
     lessonId: string;
   }>();
   const location = useLocation();
-  const fromState = (location.state as { fromSection?: string } | undefined) || undefined;
+  const fromState =
+    (location.state as { fromSection?: string } | undefined) || undefined;
   const {
     getFontSizeValue,
     getFontFamilyClass,
@@ -262,7 +284,11 @@ const LessonView: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
-  >((lessonId === "2-izhodno" || lessonId === "2-izhodno-2") ? "exercises" : "content");
+  >(
+    lessonId === "2-izhodno" || lessonId === "2-izhodno-2"
+      ? "exercises"
+      : "content",
+  );
   const [testAnswers, setTestAnswers] = useState<Record<number, string>>({});
   const [testSubmitted, setTestSubmitted] = useState(false);
   const [currentSpeaking, setCurrentSpeaking] = useState<number | null>(null);
@@ -329,7 +355,8 @@ const LessonView: React.FC = () => {
   const isTestOnlyLesson = !!(
     lessonData &&
     ((lessonData as LessonContent).testOnly === true ||
-      ((lessonData as LessonContent).test && (lessonData as LessonContent).id === "2-2-summary"))
+      ((lessonData as LessonContent).test &&
+        (lessonData as LessonContent).id === "2-2-summary"))
   );
   useEffect(() => {
     if (isTestOnlyLesson) {
@@ -350,8 +377,12 @@ const LessonView: React.FC = () => {
     if (!token) return;
     let cancelled = false;
     getUserProgress(key, token).then((data) => {
-      if (cancelled || !data || typeof data !== "object" || Array.isArray(data)) return;
-      const d = data as { quizAnswers?: Record<number, Record<number, string>>; revealedIds?: number[] };
+      if (cancelled || !data || typeof data !== "object" || Array.isArray(data))
+        return;
+      const d = data as {
+        quizAnswers?: Record<number, Record<number, string>>;
+        revealedIds?: number[];
+      };
       if (d.quizAnswers && typeof d.quizAnswers === "object") {
         setExerciseQuizAnswers(d.quizAnswers);
       }
@@ -359,7 +390,9 @@ const LessonView: React.FC = () => {
         setRevealedExerciseIds(new Set(d.revealedIds));
       }
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [courseId, lessonId, token]);
 
   // Save exercise progress to API when user is logged in and changes answers (not on first run after load)
@@ -399,9 +432,12 @@ const LessonView: React.FC = () => {
   const flashcardItems: FlashcardItem[] =
     prepositionTable && prepositionTable.length > 0
       ? prepositionTable.map((row: PrepositionTableRow) => {
-          const withoutCase = row.phraseDe.replace(/\s*\+\s*[DA]\s*$/i, "").trim();
+          const withoutCase = row.phraseDe
+            .replace(/\s*\+\s*[DA]\s*$/i, "")
+            .trim();
           const parts = withoutCase.split(/\s+/);
-          const verbOnly = parts.length > 1 ? parts.slice(0, -1).join(" ") : withoutCase;
+          const verbOnly =
+            parts.length > 1 ? parts.slice(0, -1).join(" ") : withoutCase;
           const m = row.phraseDe.match(/\s+(\w+)\s*\+\s*([DA])\s*$/i);
           const prepCase = m ? `${m[1]} + ${m[2]} (${row.cas})` : row.cas;
           return {
@@ -420,7 +456,8 @@ const LessonView: React.FC = () => {
 
   // Flashcard state
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
-  const [showBulgarianTranslation, setShowBulgarianTranslation] = useState(false);
+  const [showBulgarianTranslation, setShowBulgarianTranslation] =
+    useState(false);
   const [wordFontSize, setWordFontSize] = useState(48);
   const flashcardWordWrapRef = useRef<HTMLDivElement>(null);
   const flashcardWordRef = useRef<HTMLParagraphElement>(null);
@@ -443,7 +480,11 @@ const LessonView: React.FC = () => {
     };
     const id = requestAnimationFrame(run);
     return () => cancelAnimationFrame(id);
-  }, [currentFlashcardIndex, flashcardItems[currentFlashcardIndex]?.word, activeTab]);
+  }, [
+    currentFlashcardIndex,
+    flashcardItems[currentFlashcardIndex]?.word,
+    activeTab,
+  ]);
 
   const toggleFlashcard = (index: number) => {
     const newSet = new Set(flippedCards);
@@ -549,8 +590,7 @@ const LessonView: React.FC = () => {
         />
       );
     }
-    const isHighlighting =
-      currentSpeaking === index && highlightInfo !== null;
+    const isHighlighting = currentSpeaking === index && highlightInfo !== null;
     if (isHighlighting && highlightInfo) {
       return (
         <span
@@ -572,21 +612,22 @@ const LessonView: React.FC = () => {
           const strongMatch = segment.match(/^<strong>(.*?)<\/strong>$/s);
           if (strongMatch) {
             return (
-              <strong
-                key={segIdx}
-                className="font-bold text-green-400"
-              >
+              <strong key={segIdx} className="font-bold text-green-400">
                 {strongMatch[1]}
               </strong>
             );
           }
-          const plainText = segment.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+          const plainText = segment
+            .replace(/<[^>]+>/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
           if (!plainText) return <span key={segIdx}>{segment}</span>;
           const tokens = plainText.split(/(\s+)/);
           return (
             <React.Fragment key={segIdx}>
               {tokens.map((token, i) => {
-                if (/^\s+$/.test(token)) return <span key={`${segIdx}-${i}`}>{token}</span>;
+                if (/^\s+$/.test(token))
+                  return <span key={`${segIdx}-${i}`}>{token}</span>;
                 const hasTranslation = findWordTranslation(token) !== null;
                 return hasTranslation ? (
                   <span
@@ -845,10 +886,14 @@ const LessonView: React.FC = () => {
               className="text-left w-full focus:outline-none focus:ring-2 focus:ring-green-400 rounded"
             >
               <h1 className="text-5xl font-bold text-center mb-2 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent cursor-pointer hover:opacity-90">
-                {language === "bg" && lessonData.titleBg ? lessonData.titleBg : lessonData.title}
+                {language === "bg" && lessonData.titleBg
+                  ? lessonData.titleBg
+                  : lessonData.title}
               </h1>
               <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-gray-300 cursor-pointer hover:opacity-90">
-                {language === "bg" && lessonData.subtitleBg ? lessonData.subtitleBg : lessonData.subtitle}
+                {language === "bg" && lessonData.subtitleBg
+                  ? lessonData.subtitleBg
+                  : lessonData.subtitle}
               </h2>
             </button>
             {showTitleTranslation && (
@@ -858,15 +903,25 @@ const LessonView: React.FC = () => {
                     {language === "bg" ? lessonData.title : lessonData.titleBg}
                   </p>
                 ) : null}
-                {(language === "bg" ? lessonData.subtitle : lessonData.subtitleBg) ? (
+                {(
+                  language === "bg"
+                    ? lessonData.subtitle
+                    : lessonData.subtitleBg
+                ) ? (
                   <p className="text-base mt-1">
-                    {language === "bg" ? lessonData.subtitle : lessonData.subtitleBg}
+                    {language === "bg"
+                      ? lessonData.subtitle
+                      : lessonData.subtitleBg}
                   </p>
                 ) : null}
                 {!(language === "bg" ? lessonData.title : lessonData.titleBg) &&
-                  !(language === "bg" ? lessonData.subtitle : lessonData.subtitleBg) && (
-                  <p className="text-sm text-slate-500 dark:text-gray-400">Няма превод</p>
-                )}
+                  !(language === "bg"
+                    ? lessonData.subtitle
+                    : lessonData.subtitleBg) && (
+                    <p className="text-sm text-slate-500 dark:text-gray-400">
+                      Няма превод
+                    </p>
+                  )}
               </div>
             )}
           </div>
@@ -959,7 +1014,9 @@ const LessonView: React.FC = () => {
                     <div className="bg-gradient-to-r from-violet-700 to-purple-800 text-white rounded-xl px-6 py-4 mb-8">
                       <h3 className="text-2xl font-bold">{testData.title}</h3>
                       {testData.titleBg && (
-                        <p className="text-violet-200 text-sm mt-1">{testData.titleBg}</p>
+                        <p className="text-violet-200 text-sm mt-1">
+                          {testData.titleBg}
+                        </p>
                       )}
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
@@ -967,7 +1024,10 @@ const LessonView: React.FC = () => {
                         const selected = testAnswers[q.id];
                         const correctOption = q.options.find((o) => o.correct);
                         const isAnswered = selected !== undefined;
-                        const isCorrect = selected && correctOption && selected === correctOption.id;
+                        const isCorrect =
+                          selected &&
+                          correctOption &&
+                          selected === correctOption.id;
                         return (
                           <div
                             key={q.id}
@@ -987,7 +1047,10 @@ const LessonView: React.FC = () => {
                                   className="w-full max-h-64 object-contain cursor-pointer"
                                   title="Отвори в нов прозорец"
                                   onClick={() =>
-                                    window.open((q as TestQuestion).image!, "_blank")
+                                    window.open(
+                                      (q as TestQuestion).image!,
+                                      "_blank",
+                                    )
                                   }
                                 />
                               </div>
@@ -1006,14 +1069,18 @@ const LessonView: React.FC = () => {
                               </button>
                             </div>
                             {q.questionBg && (
-                              <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">{q.questionBg}</p>
+                              <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">
+                                {q.questionBg}
+                              </p>
                             )}
                             <div className="space-y-2">
                               {q.options.map((opt) => (
                                 <label
                                   key={opt.id}
                                   className={`flex items-start gap-3 p-3 rounded-lg cursor-pointer transition-all ${
-                                    isAnswered && selected === opt.id && !opt.correct
+                                    isAnswered &&
+                                    selected === opt.id &&
+                                    !opt.correct
                                       ? "bg-red-700/30"
                                       : !isAnswered
                                         ? "hover:bg-slate-200 dark:hover:bg-gray-700/50"
@@ -1026,14 +1093,19 @@ const LessonView: React.FC = () => {
                                     value={opt.id}
                                     checked={selected === opt.id}
                                     onChange={() =>
-                                      setTestAnswers((prev) => ({ ...prev, [q.id]: opt.id }))
+                                      setTestAnswers((prev) => ({
+                                        ...prev,
+                                        [q.id]: opt.id,
+                                      }))
                                     }
                                     className="mt-1"
                                   />
                                   <span className="text-slate-800 dark:text-gray-200 flex-1">
                                     {opt.id}) {opt.text}
                                     {opt.textBg && (
-                                      <span className="text-slate-500 dark:text-gray-500 text-sm block">{opt.textBg}</span>
+                                      <span className="text-slate-500 dark:text-gray-500 text-sm block">
+                                        {opt.textBg}
+                                      </span>
                                     )}
                                   </span>
                                   <button
@@ -1056,7 +1128,9 @@ const LessonView: React.FC = () => {
                                   isCorrect ? "text-green-400" : "text-red-400"
                                 }`}
                               >
-                                {isCorrect ? "✓ Верен отговор" : "✗ Грешен отговор"}
+                                {isCorrect
+                                  ? "✓ Верен отговор"
+                                  : "✗ Грешен отговор"}
                               </p>
                             )}
                           </div>
@@ -1068,7 +1142,9 @@ const LessonView: React.FC = () => {
                         Резултат:{" "}
                         {
                           testData.questions.filter(
-                            (q) => testAnswers[q.id] === q.options.find((o) => o.correct)?.id,
+                            (q) =>
+                              testAnswers[q.id] ===
+                              q.options.find((o) => o.correct)?.id,
                           ).length
                         }{" "}
                         / {testData.questions.length}
@@ -1081,292 +1157,329 @@ const LessonView: React.FC = () => {
           )}
 
           {/* Content Tab */}
-          {!isTestOnlyLesson && activeTab === "content" && (lessonData.content || (lessonData as LessonContent).prepositionTable?.length) && (
-            <div>
-              {(lessonData as LessonContent).prepositionTable && (lessonData as LessonContent).prepositionTable!.length > 0 && (
-                <div className={isLight ? "bg-white rounded-xl p-8 border border-slate-200 shadow-sm mb-8" : "bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 mb-8"}>
-                  <PrepositionTable
-                    rows={(lessonData as LessonContent).prepositionTable!}
-                    onSpeak={speakWord}
-                  />
-                </div>
-              )}
-              {sentences.length > 0 && (
-              <>
-              {/* Play All + Show/Hide all translations */}
-              <div className="mb-6 flex flex-wrap justify-end gap-3">
-                {(() => {
-                  const indicesWithTranslation = sentences
-                    .map((s, i) => (s.translation ? i : -1))
-                    .filter((i) => i >= 0);
-                  const allExpanded =
-                    indicesWithTranslation.length > 0 &&
-                    indicesWithTranslation.every((i) =>
-                      expandedSentences.has(i),
-                    );
-                  return (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (allExpanded) {
-                          setExpandedSentences(new Set());
-                        } else {
-                          setExpandedSentences(
-                            new Set(indicesWithTranslation),
-                          );
-                        }
-                      }}
-                      className="flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white border border-slate-300 dark:border-gray-600"
+          {!isTestOnlyLesson &&
+            activeTab === "content" &&
+            (lessonData.content ||
+              (lessonData as LessonContent).prepositionTable?.length) && (
+              <div>
+                {(lessonData as LessonContent).prepositionTable &&
+                  (lessonData as LessonContent).prepositionTable!.length >
+                    0 && (
+                    <div
+                      className={
+                        isLight
+                          ? "bg-white rounded-xl p-8 border border-slate-200 shadow-sm mb-8"
+                          : "bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700 mb-8"
+                      }
                     >
-                      {allExpanded ? (
-                        <span>{t.hideAllTranslations}</span>
-                      ) : (
-                        <span>{t.showAllTranslations}</span>
-                      )}
-                    </button>
-                  );
-                })()}
-                <button
-                  onClick={togglePlayAll}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 ${
-                    isPlayingAll
-                      ? "bg-red-600 hover:bg-red-700"
-                      : "bg-gradient-to-r from-green-500 to-emerald-600 hover:shadow-lg"
-                  }`}
-                >
-                  {isPlayingAll ? (
-                    <>
-                      <FaPause />
-                      <span>{t.pause}</span>
-                    </>
-                  ) : (
-                    <>
-                      <FaPlay />
-                      <span>{t.playAll}</span>
-                    </>
+                      <PrepositionTable
+                        rows={(lessonData as LessonContent).prepositionTable!}
+                        onSpeak={speakWord}
+                      />
+                    </div>
                   )}
-                </button>
-              </div>
-
-              {/* Content with individual sentence buttons */}
-              <div
-                className={
-                  isLight
-                    ? "bg-white rounded-xl p-8 border border-slate-200 shadow-sm"
-                    : "bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700"
-                }
-              >
-                <div
-                  className={
-                    isLight
-                      ? "prose prose-slate max-w-none space-y-1"
-                      : "prose prose-invert max-w-none space-y-1"
-                  }
-                >
-                  {(() => {
-                    const wichtigsteIndex = sentences.findIndex((s) =>
-                      s.text.includes("📘 Das Wichtigste."),
-                    );
-                    const regularSentences =
-                      wichtigsteIndex === -1
-                        ? sentences
-                        : sentences.slice(0, wichtigsteIndex);
-                    const wichtigsteSentences =
-                      wichtigsteIndex === -1
-                        ? []
-                        : sentences.slice(wichtigsteIndex);
-
-                    const shownFigures = new Set<string>();
-                    const renderSentence = (
-                      sentenceObj: { text: string; translation: string },
-                      index: number,
-                    ) => {
-                      const figureMatches = [
-                        ...sentenceObj.text.matchAll(
-                          /\(Abb\.\s*(\d+)\)/g,
-                        ),
-                      ];
-                      const figureKeys = [
-                        ...new Set(
-                          figureMatches.map((m) => `Abb. ${m[1]}`),
-                        ),
-                      ].filter((key) => {
-                        if (shownFigures.has(key)) return false;
-                        shownFigures.add(key);
-                        return true;
-                      });
-
-                      const isSectionHeading = /^[📘💡]/.test(
-                        sentenceObj.text.trim(),
-                      );
-                      const isKeyQuestion = sentenceObj.text
-                        .trim()
-                        .endsWith("?");
-                      const isDefinition =
-                        /heißt\s+\w+\.|wird.*genannt|bezeichnet\s+man\s+als/i.test(
-                          sentenceObj.text,
-                        );
-                      const isImportant = isKeyQuestion || isDefinition;
-                      const isTableContent = sentenceObj.text.includes("<table");
-
-                      return (
-                        <div key={index} className="space-y-1">
-                          <div
-                            className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
-                              currentSpeaking === index
-                                ? "bg-green-100 dark:bg-green-900/30 border-l-4 border-green-500 mt-6 mb-2"
-                                : isSectionHeading
-                                  ? "bg-gradient-to-r from-emerald-100 to-teal-50 dark:from-emerald-900/50 dark:to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
-                                  : isImportant
-                                    ? "bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/40 dark:to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
-                                    : "hover:bg-slate-100 dark:hover:bg-gray-800/50"
-                            }`}
-                            onClick={() => toggleExpandedSentence(index)}
-                          >
-                            {!isTableContent && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                speakSentence(sentenceObj, index);
-                              }}
-                              className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110 ${
-                                currentSpeaking === index
-                                  ? "bg-red-600 hover:bg-red-700 animate-pulse"
-                                  : "bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg"
-                              }`}
-                              title={
-                                currentSpeaking === index ? t.stop : t.listen
+                {sentences.length > 0 && (
+                  <>
+                    {/* Play All + Show/Hide all translations */}
+                    <div className="mb-6 flex flex-wrap justify-end gap-3">
+                      {(() => {
+                        const indicesWithTranslation = sentences
+                          .map((s, i) => (s.translation ? i : -1))
+                          .filter((i) => i >= 0);
+                        const allExpanded =
+                          indicesWithTranslation.length > 0 &&
+                          indicesWithTranslation.every((i) =>
+                            expandedSentences.has(i),
+                          );
+                        return (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (allExpanded) {
+                                setExpandedSentences(new Set());
+                              } else {
+                                setExpandedSentences(
+                                  new Set(indicesWithTranslation),
+                                );
                               }
-                            >
-                              {currentSpeaking === index ? (
-                                <FaPause className="text-white text-sm" />
-                              ) : (
-                                <FaVolumeUp className="text-white text-sm" />
-                              )}
-                            </button>
+                            }}
+                            className="flex items-center gap-2 px-5 py-3 rounded-lg font-semibold transition-all bg-slate-200 dark:bg-gray-700 hover:bg-slate-300 dark:hover:bg-gray-600 text-slate-900 dark:text-white border border-slate-300 dark:border-gray-600"
+                          >
+                            {allExpanded ? (
+                              <span>{t.hideAllTranslations}</span>
+                            ) : (
+                              <span>{t.showAllTranslations}</span>
                             )}
-                            <div className={`flex-1 ${isTableContent ? "min-w-0" : ""}`}>
-                              {isTableContent ? (
-                                <div className="w-full">
-                                  {renderSentenceWithWordTooltips(
-                                    sentenceObj.text,
-                                    index,
-                                    sentenceObj.translation,
-                                  )}
-                                </div>
-                              ) : (
-                              <p
-                                className={`leading-relaxed ${getGermanFontFamilyClass()} ${
-                                  isSectionHeading
-                                    ? "text-2xl text-emerald-700 dark:text-emerald-400 font-bold"
-                                    : getGermanFontSizeValue()
-                                } ${
-                                  isImportant && !isSectionHeading
-                                    ? "text-amber-800 dark:text-amber-200 font-semibold"
-                                    : !isSectionHeading
-                                      ? "text-slate-900 dark:text-gray-300"
-                                      : ""
-                                } [&_strong]:font-bold [&_strong]:text-green-600 [&_strong]:dark:text-green-400`}
-                              >
-                                {renderSentenceWithWordTooltips(
-                                  sentenceObj.text,
-                                  index,
-                                )}
-                              </p>
-                              )}
-                            </div>
-                          </div>
+                          </button>
+                        );
+                      })()}
+                      <button
+                        onClick={togglePlayAll}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 ${
+                          isPlayingAll
+                            ? "bg-red-600 hover:bg-red-700"
+                            : "bg-gradient-to-r from-green-500 to-emerald-600 hover:shadow-lg"
+                        }`}
+                      >
+                        {isPlayingAll ? (
+                          <>
+                            <FaPause />
+                            <span>{t.pause}</span>
+                          </>
+                        ) : (
+                          <>
+                            <FaPlay />
+                            <span>{t.playAll}</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
 
-                          {expandedSentences.has(index) &&
-                            sentenceObj.translation &&
-                            !(isTableContent && sentenceObj.translation.includes("<table")) && (
-                              <div className={`animate-in overflow-x-auto ${sentenceObj.translation.includes("<table") ? "mt-4" : "ml-14 pl-4 border-l-2 border-green-500 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg"}`}>
-                                {sentenceObj.translation.includes("<table") ? (
-                                  <div
-                                    className="[&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-slate-300 [&_table]:dark:border-gray-600 [&_th]:bg-slate-200 [&_th]:dark:bg-gray-700/80 [&_th]:border [&_th]:border-slate-300 [&_th]:dark:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-slate-800 [&_th]:dark:text-gray-200 [&_td]:border [&_td]:border-slate-300 [&_td]:dark:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-slate-900 [&_td]:dark:text-gray-300"
-                                    dangerouslySetInnerHTML={{
-                                      __html: sentenceObj.translation,
-                                    }}
-                                  />
-                                ) : (
-                                  <p
-                                    className={`text-slate-800 dark:text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-600 [&_strong]:dark:text-green-400 [&_strong]:text-lg`}
-                                    dangerouslySetInnerHTML={{
-                                      __html: sentenceObj.translation,
-                                    }}
-                                  ></p>
-                                )}
-                              </div>
-                            )}
+                    {/* Content with individual sentence buttons */}
+                    <div
+                      className={
+                        isLight
+                          ? "bg-white rounded-xl p-8 border border-slate-200 shadow-sm"
+                          : "bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700"
+                      }
+                    >
+                      <div
+                        className={
+                          isLight
+                            ? "prose prose-slate max-w-none space-y-1"
+                            : "prose prose-invert max-w-none space-y-1"
+                        }
+                      >
+                        {(() => {
+                          const wichtigsteIndex = sentences.findIndex((s) =>
+                            s.text.includes("📘 Das Wichtigste."),
+                          );
+                          const regularSentences =
+                            wichtigsteIndex === -1
+                              ? sentences
+                              : sentences.slice(0, wichtigsteIndex);
+                          const wichtigsteSentences =
+                            wichtigsteIndex === -1
+                              ? []
+                              : sentences.slice(wichtigsteIndex);
 
-                          {figureKeys.map(
-                            (figureKey) =>
-                              lessonData.images?.[figureKey]?.length > 0 && (
+                          const shownFigures = new Set<string>();
+                          const renderSentence = (
+                            sentenceObj: { text: string; translation: string },
+                            index: number,
+                          ) => {
+                            const figureMatches = [
+                              ...sentenceObj.text.matchAll(
+                                /\(Abb\.\s*(\d+)\)/g,
+                              ),
+                            ];
+                            const figureKeys = [
+                              ...new Set(
+                                figureMatches.map((m) => `Abb. ${m[1]}`),
+                              ),
+                            ].filter((key) => {
+                              if (shownFigures.has(key)) return false;
+                              shownFigures.add(key);
+                              return true;
+                            });
+
+                            const isSectionHeading = /^[📘💡]/.test(
+                              sentenceObj.text.trim(),
+                            );
+                            const isKeyQuestion = sentenceObj.text
+                              .trim()
+                              .endsWith("?");
+                            const isDefinition =
+                              /heißt\s+\w+\.|wird.*genannt|bezeichnet\s+man\s+als/i.test(
+                                sentenceObj.text,
+                              );
+                            const isImportant = isKeyQuestion || isDefinition;
+                            const isTableContent =
+                              sentenceObj.text.includes("<table");
+
+                            return (
+                              <div key={index} className="space-y-1">
                                 <div
-                                  key={figureKey}
-                                  className="ml-14 mt-4 mb-6"
+                                  className={`flex items-start gap-3 p-3 rounded-lg transition-all cursor-pointer ${
+                                    currentSpeaking === index
+                                      ? "bg-green-100 dark:bg-green-900/30 border-l-4 border-green-500 mt-6 mb-2"
+                                      : isSectionHeading
+                                        ? "bg-gradient-to-r from-emerald-100 to-teal-50 dark:from-emerald-900/50 dark:to-teal-900/40 border-b-2 border-emerald-500 mt-6 mb-2"
+                                        : isImportant
+                                          ? "bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/40 dark:to-yellow-900/30 border-2 border-amber-500/50 shadow-lg"
+                                          : "hover:bg-slate-100 dark:hover:bg-gray-800/50"
+                                  }`}
+                                  onClick={() => toggleExpandedSentence(index)}
                                 >
-                                  <p className="text-green-600 dark:text-green-400 font-semibold mb-3">
-                                    {figureKey}:
-                                  </p>
-                                  <div className="flex gap-4 flex-wrap">
-                                    {lessonData.images[figureKey].map(
-                                      (imgUrl: string, imgIndex: number) => (
-                                        <img
-                                          key={imgIndex}
-                                          src={imgUrl}
-                                          alt={`${figureKey} - Схема ${imgIndex + 1}`}
-                                          className="max-w-[48%] h-auto rounded-lg border border-slate-300 dark:border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
-                                          onClick={() =>
-                                            window.open(imgUrl, "_blank")
-                                          }
-                                        />
-                                      ),
+                                  {!isTableContent && (
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        speakSentence(sentenceObj, index);
+                                      }}
+                                      className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110 ${
+                                        currentSpeaking === index
+                                          ? "bg-red-600 hover:bg-red-700 animate-pulse"
+                                          : "bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-lg"
+                                      }`}
+                                      title={
+                                        currentSpeaking === index
+                                          ? t.stop
+                                          : t.listen
+                                      }
+                                    >
+                                      {currentSpeaking === index ? (
+                                        <FaPause className="text-white text-sm" />
+                                      ) : (
+                                        <FaVolumeUp className="text-white text-sm" />
+                                      )}
+                                    </button>
+                                  )}
+                                  <div
+                                    className={`flex-1 ${isTableContent ? "min-w-0" : ""}`}
+                                  >
+                                    {isTableContent ? (
+                                      <div className="w-full">
+                                        {renderSentenceWithWordTooltips(
+                                          sentenceObj.text,
+                                          index,
+                                          sentenceObj.translation,
+                                        )}
+                                      </div>
+                                    ) : (
+                                      <p
+                                        className={`leading-relaxed ${getGermanFontFamilyClass()} ${
+                                          isSectionHeading
+                                            ? "text-2xl text-emerald-700 dark:text-emerald-400 font-bold"
+                                            : getGermanFontSizeValue()
+                                        } ${
+                                          isImportant && !isSectionHeading
+                                            ? "text-amber-800 dark:text-amber-200 font-semibold"
+                                            : !isSectionHeading
+                                              ? "text-slate-900 dark:text-gray-300"
+                                              : ""
+                                        } [&_strong]:font-bold [&_strong]:text-green-600 [&_strong]:dark:text-green-400`}
+                                      >
+                                        {renderSentenceWithWordTooltips(
+                                          sentenceObj.text,
+                                          index,
+                                        )}
+                                      </p>
                                     )}
                                   </div>
                                 </div>
-                              ),
-                          )}
-                        </div>
-                      );
-                    };
 
-                    return (
-                      <>
-                        {regularSentences.map((sentence, index) =>
-                          renderSentence(sentence, index),
-                        )}
+                                {expandedSentences.has(index) &&
+                                  sentenceObj.translation &&
+                                  !(
+                                    isTableContent &&
+                                    sentenceObj.translation.includes("<table")
+                                  ) && (
+                                    <div
+                                      className={`animate-in overflow-x-auto ${sentenceObj.translation.includes("<table") ? "mt-4" : "ml-14 pl-4 border-l-2 border-green-500 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg"}`}
+                                    >
+                                      {sentenceObj.translation.includes(
+                                        "<table",
+                                      ) ? (
+                                        <div
+                                          className="[&_table]:w-full [&_table]:min-w-[700px] [&_table]:border-collapse [&_table]:border [&_table]:border-slate-300 [&_table]:dark:border-gray-600 [&_th]:bg-slate-200 [&_th]:dark:bg-gray-700/80 [&_th]:border [&_th]:border-slate-300 [&_th]:dark:border-gray-600 [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:font-semibold [&_th]:text-slate-800 [&_th]:dark:text-gray-200 [&_td]:border [&_td]:border-slate-300 [&_td]:dark:border-gray-600 [&_td]:px-4 [&_td]:py-3 [&_td]:text-slate-900 [&_td]:dark:text-gray-300"
+                                          dangerouslySetInnerHTML={{
+                                            __html: sentenceObj.translation,
+                                          }}
+                                        />
+                                      ) : (
+                                        <p
+                                          className={`text-slate-800 dark:text-gray-200 ${getFontFamilyClass()} ${getFontSizeValue()} [&_strong]:font-black [&_strong]:text-green-600 [&_strong]:dark:text-green-400 [&_strong]:text-lg`}
+                                          dangerouslySetInnerHTML={{
+                                            __html: sentenceObj.translation,
+                                          }}
+                                        ></p>
+                                      )}
+                                    </div>
+                                  )}
 
-                        {wichtigsteSentences.length > 0 && (
-                          <div className="mt-8 rounded-xl overflow-hidden border border-amber-900/60 shadow-lg">
-                            <div className="bg-[#B0302E] px-6 py-4 flex items-center gap-3">
-                              <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FDD47E] flex items-center justify-center text-[#B0302E] font-bold text-lg border-2 border-[#B0302E]">
-                                !
-                              </span>
-                              <h3 className="text-2xl font-bold text-white">
-                                {language === "bg" && wichtigsteSentences[0].translation
-                                  ? wichtigsteSentences[0].translation.replace(/^📘\s*/, "").trim()
-                                  : wichtigsteSentences[0].text.replace(/^📘\s*/, "").replace(/\s*\([^)]*\)\.?$/, "").trim() || "Най-важното"}
-                              </h3>
-                            </div>
-                            <div className="p-6 bg-sky-100 dark:bg-sky-900/30 space-y-2">
-                              {wichtigsteSentences.slice(1).map((sentence, i) => {
-                                const index = i + 1 + wichtigsteIndex;
-                                return renderSentence(sentence, index);
-                              })}
-                            </div>
-                          </div>
-                        )}
+                                {figureKeys.map((figureKey) => {
+                                  const imagesForKey =
+                                    lessonData.images?.[figureKey];
 
-                      </>
-                    );
-                  })()}
-                </div>
+                                  if (!imagesForKey?.length) return null;
+
+                                  return (
+                                    <div
+                                      key={figureKey}
+                                      className="ml-14 mt-4 mb-6"
+                                    >
+                                      <p className="text-green-600 dark:text-green-400 font-semibold mb-3">
+                                        {figureKey}:
+                                      </p>
+                                      <div className="flex gap-4 flex-wrap">
+                                        {imagesForKey.map(
+                                          (
+                                            imgUrl: string,
+                                            imgIndex: number,
+                                          ) => (
+                                            <img
+                                              key={imgIndex}
+                                              src={imgUrl}
+                                              alt={`${figureKey} - Схема ${imgIndex + 1}`}
+                                              className="max-w-[48%] h-auto rounded-lg border border-slate-300 dark:border-gray-600 shadow-lg hover:border-green-500 transition-colors cursor-pointer"
+                                              onClick={() =>
+                                                window.open(imgUrl, "_blank")
+                                              }
+                                            />
+                                          ),
+                                        )}
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            );
+                          };
+
+                          return (
+                            <>
+                              {regularSentences.map((sentence, index) =>
+                                renderSentence(sentence, index),
+                              )}
+
+                              {wichtigsteSentences.length > 0 && (
+                                <div className="mt-8 rounded-xl overflow-hidden border border-amber-900/60 shadow-lg">
+                                  <div className="bg-[#B0302E] px-6 py-4 flex items-center gap-3">
+                                    <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FDD47E] flex items-center justify-center text-[#B0302E] font-bold text-lg border-2 border-[#B0302E]">
+                                      !
+                                    </span>
+                                    <h3 className="text-2xl font-bold text-white">
+                                      {language === "bg" &&
+                                      wichtigsteSentences[0].translation
+                                        ? wichtigsteSentences[0].translation
+                                            .replace(/^📘\s*/, "")
+                                            .trim()
+                                        : wichtigsteSentences[0].text
+                                            .replace(/^📘\s*/, "")
+                                            .replace(/\s*\([^)]*\)\.?$/, "")
+                                            .trim() || "Най-важното"}
+                                    </h3>
+                                  </div>
+                                  <div className="p-6 bg-sky-100 dark:bg-sky-900/30 space-y-2">
+                                    {wichtigsteSentences
+                                      .slice(1)
+                                      .map((sentence, i) => {
+                                        const index = i + 1 + wichtigsteIndex;
+                                        return renderSentence(sentence, index);
+                                      })}
+                                  </div>
+                                </div>
+                              )}
+                            </>
+                          );
+                        })()}
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
-              </>
-              )}
-            </div>
-          )}
+            )}
 
           {/* Dictionary Tab */}
           {!isTestOnlyLesson && activeTab === "dictionary" && (
@@ -1488,21 +1601,29 @@ const LessonView: React.FC = () => {
           {!isTestOnlyLesson && activeTab === "flashcards" && (
             <div className="min-h-[500px] flex flex-col items-center justify-center">
               {flashcardItems.length === 0 ? (
-                <p className="text-slate-800 dark:text-gray-400 text-xl">{t.noWordsInDictionary}</p>
+                <p className="text-slate-800 dark:text-gray-400 text-xl">
+                  {t.noWordsInDictionary}
+                </p>
               ) : (
                 <>
                   <div className="perspective w-full max-w-2xl mb-8">
                     <div
                       className="relative w-full h-80 cursor-pointer transition-transform duration-500 transform-gpu"
                       onClick={() => toggleFlashcard(currentFlashcardIndex)}
-                      style={
-                        {
-                          transformStyle: "preserve-3d",
-                          transform: flippedCards.has(currentFlashcardIndex)
-                            ? "rotateY(180deg)"
-                            : "rotateY(0deg)",
-                        } as React.CSSProperties
-                      }
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleFlashcard(currentFlashcardIndex);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      style={{
+                        transformStyle: "preserve-3d",
+                        transform: flippedCards.has(currentFlashcardIndex)
+                          ? "rotateY(180deg)"
+                          : "rotateY(0deg)",
+                      }}
                     >
                       {/* Front of card - German word */}
                       <div
@@ -1532,7 +1653,9 @@ const LessonView: React.FC = () => {
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation();
-                            speakWord(flashcardItems[currentFlashcardIndex]?.word);
+                            speakWord(
+                              flashcardItems[currentFlashcardIndex]?.word,
+                            );
                           }}
                           className="flex-shrink-0 mt-2 p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
                           title={t.readWord}
@@ -1558,7 +1681,9 @@ const LessonView: React.FC = () => {
                         }
                       >
                         <p className="text-green-100 text-sm mb-2 flex-shrink-0">
-                          {prepositionTable?.length ? t.prepositionAndCase : t.translationToBulgarian}
+                          {prepositionTable?.length
+                            ? t.prepositionAndCase
+                            : t.translationToBulgarian}
                         </p>
                         <p
                           className={`text-3xl font-bold text-white text-center ${getFontFamilyClass()} flex-shrink-0`}
@@ -1577,25 +1702,42 @@ const LessonView: React.FC = () => {
                   </div>
 
                   {/* Bar outside card: Show translation (toggle) + Bulgarian translation */}
-                  {(flashcardItems[currentFlashcardIndex]?.phraseBg ?? flashcardItems[currentFlashcardIndex]?.translation ?? flashcardItems[currentFlashcardIndex]?.sentenceBg) && (
+                  {(flashcardItems[currentFlashcardIndex]?.phraseBg ??
+                    flashcardItems[currentFlashcardIndex]?.translation ??
+                    flashcardItems[currentFlashcardIndex]?.sentenceBg) && (
                     <div className="w-full max-w-2xl mb-6 flex flex-col items-center gap-3">
                       <button
                         type="button"
-                        onClick={() => setShowBulgarianTranslation((prev) => !prev)}
+                        onClick={() =>
+                          setShowBulgarianTranslation((prev) => !prev)
+                        }
                         className="px-5 py-2.5 rounded-lg bg-slate-200 dark:bg-gray-600 hover:bg-slate-300 dark:hover:bg-gray-500 text-slate-800 dark:text-gray-200 font-medium transition-colors border border-slate-300 dark:border-gray-500"
                       >
-                        {showBulgarianTranslation ? t.hideAllTranslations : t.showTranslation}
+                        {showBulgarianTranslation
+                          ? t.hideAllTranslations
+                          : t.showTranslation}
                       </button>
                       {showBulgarianTranslation && (
-                        <div className={`w-full rounded-xl bg-slate-100 dark:bg-gray-700/80 px-6 py-4 text-center ${getFontFamilyClass()} text-slate-800 dark:text-gray-200 space-y-2`}>
-                          {(flashcardItems[currentFlashcardIndex]?.phraseBg ?? flashcardItems[currentFlashcardIndex]?.translation) && (
+                        <div
+                          className={`w-full rounded-xl bg-slate-100 dark:bg-gray-700/80 px-6 py-4 text-center ${getFontFamilyClass()} text-slate-800 dark:text-gray-200 space-y-2`}
+                        >
+                          {(flashcardItems[currentFlashcardIndex]?.phraseBg ??
+                            flashcardItems[currentFlashcardIndex]
+                              ?.translation) && (
                             <p className="text-lg font-medium">
-                              {flashcardItems[currentFlashcardIndex]?.phraseBg ?? flashcardItems[currentFlashcardIndex]?.translation}
+                              {flashcardItems[currentFlashcardIndex]
+                                ?.phraseBg ??
+                                flashcardItems[currentFlashcardIndex]
+                                  ?.translation}
                             </p>
                           )}
-                          {flashcardItems[currentFlashcardIndex]?.sentenceBg && (
+                          {flashcardItems[currentFlashcardIndex]
+                            ?.sentenceBg && (
                             <p className="text-sm text-slate-600 dark:text-gray-400">
-                              {flashcardItems[currentFlashcardIndex]?.sentenceBg}
+                              {
+                                flashcardItems[currentFlashcardIndex]
+                                  ?.sentenceBg
+                              }
                             </p>
                           )}
                         </div>
@@ -1654,7 +1796,9 @@ const LessonView: React.FC = () => {
                       className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300"
                       style={{
                         width: `${
-                          ((currentFlashcardIndex + 1) / flashcardItems.length) * 100
+                          ((currentFlashcardIndex + 1) /
+                            flashcardItems.length) *
+                          100
                         }%`,
                       }}
                     />
@@ -1708,12 +1852,18 @@ const LessonView: React.FC = () => {
                               loading="eager"
                             ></iframe>
                             <a
-                              href={resource.embedUrl.replace("/embed/", "/").replace(/\?.*$/, "")}
+                              href={resource.embedUrl
+                                .replace("/embed/", "/")
+                                .replace(/\?.*$/, "")}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-block mt-3 text-sm text-green-400 hover:text-green-300 underline"
                             >
-                              {language === "bg" ? "Отвори в Spotify" : language === "de" ? "In Spotify öffnen" : "Open in Spotify"}
+                              {language === "bg"
+                                ? "Отвори в Spotify"
+                                : language === "de"
+                                  ? "In Spotify öffnen"
+                                  : "Open in Spotify"}
                             </a>
                           </div>
                         )}
@@ -1739,7 +1889,11 @@ const LessonView: React.FC = () => {
                               rel="noopener noreferrer"
                               className="inline-block mt-3 text-sm text-green-400 hover:text-green-300 underline"
                             >
-                              {language === "bg" ? "Отвори в YouTube" : language === "de" ? "Auf YouTube öffnen" : "Open on YouTube"}
+                              {language === "bg"
+                                ? "Отвори в YouTube"
+                                : language === "de"
+                                  ? "Auf YouTube öffnen"
+                                  : "Open on YouTube"}
                             </a>
                           </div>
                         )}
@@ -1751,706 +1905,747 @@ const LessonView: React.FC = () => {
                   <h3 className="text-2xl font-bold text-slate-500 dark:text-gray-500 mb-4">
                     {t.resources}
                   </h3>
-                  <p className="text-slate-500 dark:text-gray-500 italic">{t.comingSoon}</p>
+                  <p className="text-slate-500 dark:text-gray-500 italic">
+                    {t.comingSoon}
+                  </p>
                 </div>
               )}
             </div>
           )}
 
           {/* Exercises Tab */}
-          {!isTestOnlyLesson && activeTab === "exercises" && lessonData.exercises && (
-            <div className="space-y-8">
-              {lessonId === "2-izhodno" && (
-                <div className="flex justify-center mb-6">
-                  <img
-                    src="https://i.imgur.com/IDqeG2K.png"
-                    alt="Biologie und Gesundheitserziehung"
-                    className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
-                  />
+          {!isTestOnlyLesson &&
+            activeTab === "exercises" &&
+            lessonData.exercises && (
+              <div className="space-y-8">
+                {lessonId === "2-izhodno" && (
+                  <div className="flex justify-center mb-6">
+                    <img
+                      src="https://i.imgur.com/IDqeG2K.png"
+                      alt="Biologie und Gesundheitserziehung"
+                      className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
+                    />
+                  </div>
+                )}
+                {lessonId === "2-izhodno-2" && (
+                  <div className="flex justify-center mb-6">
+                    <img
+                      src="https://i.imgur.com/wPlxdZC.png"
+                      alt="Der menschliche Organismus – Struktur und Lebensprozesse"
+                      className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-slate-300 dark:border-gray-600">
+                  <p className="text-slate-800 dark:text-gray-400 text-sm">
+                    {language === "bg"
+                      ? "Напредъкът се запазва автоматично. Можеш да продължиш по-късно."
+                      : language === "de"
+                        ? "Der Fortschritt wird automatisch gespeichert. Du kannst später weitermachen."
+                        : "Progress is saved automatically. You can continue later."}
+                  </p>
+                  {token && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const empty = { quizAnswers: {}, revealedIds: [] };
+                        setExerciseQuizAnswers({});
+                        setRevealedExerciseIds(new Set());
+                        setDropdownSelections({});
+                        setDropdownChecked(new Set());
+                        setMultiselectSelections({});
+                        setMultiselectChecked(new Set());
+                        if (courseId && lessonId) {
+                          setUserProgress(
+                            `schulhub-exercise-${courseId}-${lessonId}`,
+                            empty,
+                            token,
+                          );
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg transition-colors"
+                    >
+                      {t.clearExerciseProgress}
+                    </button>
+                  )}
                 </div>
-              )}
-              {lessonId === "2-izhodno-2" && (
-                <div className="flex justify-center mb-6">
-                  <img
-                    src="https://i.imgur.com/wPlxdZC.png"
-                    alt="Der menschliche Organismus – Struktur und Lebensprozesse"
-                    className="max-w-[200px] w-full h-auto object-cover rounded-xl shadow-lg border border-slate-200 dark:border-gray-600"
-                  />
-                </div>
-              )}
-              <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-slate-300 dark:border-gray-600">
-                <p className="text-slate-800 dark:text-gray-400 text-sm">
-                  {language === "bg"
-                    ? "Напредъкът се запазва автоматично. Можеш да продължиш по-късно."
-                    : language === "de"
-                      ? "Der Fortschritt wird automatisch gespeichert. Du kannst später weitermachen."
-                      : "Progress is saved automatically. You can continue later."}
-                </p>
-                {token && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    const empty = { quizAnswers: {}, revealedIds: [] };
-                    setExerciseQuizAnswers({});
-                    setRevealedExerciseIds(new Set());
-                    setDropdownSelections({});
-                    setDropdownChecked(new Set());
-                    setMultiselectSelections({});
-                    setMultiselectChecked(new Set());
-                    if (courseId && lessonId) {
-                      setUserProgress(`schulhub-exercise-${courseId}-${lessonId}`, empty, token);
-                    }
-                  }}
-                  className="px-4 py-2 text-sm font-medium text-amber-200 bg-amber-900/50 hover:bg-amber-800/50 border border-amber-600/50 rounded-lg transition-colors"
-                >
-                  {t.clearExerciseProgress}
-                </button>
-              )}
-              </div>
-              {lessonData.exercises.map((exercise) => (
-                <div key={exercise.id}>
-                  {exercise.type === "section" ? (
-                    <div className="bg-gradient-to-r from-violet-700 to-purple-800 text-white rounded-t-xl px-6 py-4 border-2 border-violet-800 border-b-0 shadow-lg">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-2xl font-bold">{exercise.title}</h3>
-                        <button
-                          type="button"
-                          onClick={() => speakWord(exercise.title)}
-                          className="p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
-                          title="Чети на глас"
-                        >
-                          <FaVolumeUp className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                      {exercise.titleBg && (
-                        <p className="text-violet-200 text-sm mt-1">
-                          {exercise.titleBg}
-                        </p>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-blue-500/30">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-300">
-                          {exercise.title}
-                        </h3>
-                        <button
-                          type="button"
-                          onClick={() => speakWord(exercise.title)}
-                          className="p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
-                          title="Чети заглавие на глас"
-                        >
-                          <FaVolumeUp className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                      {exercise.titleBg && (
-                        <p className="text-slate-800 dark:text-gray-400 mb-4 text-sm">
-                          {exercise.titleBg}
-                        </p>
-                      )}
-
-                      {exercise.type === "skeleton" &&
-                        exercise.skeletonParts &&
-                        exercise.skeletonParts.length > 0 && (
-                          <SkeletonDiagram
-                            imageUrl={exercise.skeletonImageUrl}
-                            parts={exercise.skeletonParts}
-                            volume={volume}
-                          />
-                        )}
-
-                      {exercise.type === "question" && (
-                        <div className="mt-4">
-                          {exercise.taskText && (
-                            <div className="mb-4 p-4 bg-slate-200/50 dark:bg-gray-700/30 rounded-lg border border-slate-300 dark:border-gray-600">
-                              <p className="text-slate-800 dark:text-gray-200 whitespace-pre-wrap">
-                                {exercise.taskText}
-                              </p>
-                              {exercise.taskTextBg && (
-                                <p className="text-slate-600 dark:text-gray-400 text-sm mt-2 whitespace-pre-wrap">
-                                  {exercise.taskTextBg}
-                                </p>
-                              )}
-                            </div>
-                          )}
-                          {"imageUrl" in exercise && (
-                            <div className="mb-4">
-                              {exercise.imageUrl ? (
-                                <img
-                                  src={exercise.imageUrl}
-                                  alt=""
-                                  className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
-                                />
-                              ) : (
-                                <div className="w-full min-h-[200px] rounded-lg border-2 border-dashed border-slate-400 dark:border-gray-500 bg-slate-100 dark:bg-gray-800/50 flex items-center justify-center text-slate-500 dark:text-gray-400 text-sm">
-                                  [ Място за изображение – добавете линк в imageUrl ]
-                                </div>
-                              )}
-                            </div>
-                          )}
+                {lessonData.exercises.map((exercise) => (
+                  <div key={exercise.id}>
+                    {exercise.type === "section" ? (
+                      <div className="bg-gradient-to-r from-violet-700 to-purple-800 text-white rounded-t-xl px-6 py-4 border-2 border-violet-800 border-b-0 shadow-lg">
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-2xl font-bold">
+                            {exercise.title}
+                          </h3>
                           <button
                             type="button"
-                            onClick={() => {
-                              setRevealedExerciseIds((prev) => {
-                                const next = new Set(prev);
-                                if (next.has(exercise.id)) next.delete(exercise.id);
-                                else next.add(exercise.id);
-                                return next;
-                              });
-                            }}
-                            className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                            onClick={() => speakWord(exercise.title)}
+                            className="p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
+                            title="Чети на глас"
                           >
-                            {revealedExerciseIds.has(exercise.id)
-                              ? "Скрий отговор"
-                              : "Покажи отговор"}
+                            <FaVolumeUp className="w-3.5 h-3.5" />
                           </button>
-                          {revealedExerciseIds.has(exercise.id) &&
-                            (exercise.answer || exercise.answerBg) && (
-                              <div className="mt-4 p-4 bg-green-900/30 border border-green-600/50 rounded-lg space-y-2">
-                                {exercise.answer && (
-                                  <p className="text-slate-800 dark:text-gray-200 flex items-center gap-2">
-                                    <span className="text-cyan-400 font-semibold">
-                                      DE:{" "}
-                                    </span>
-                                    {exercise.answer}
-                                    <button
-                                      type="button"
-                                      onClick={() => speakWord(exercise.answer!)}
-                                      className="p-1 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
-                                      title="Чети отговор на глас"
-                                    >
-                                      <FaVolumeUp className="w-3 h-3" />
-                                    </button>
-                                  </p>
-                                )}
-                                {exercise.answerBg && (
-                                  <p className="text-slate-900 dark:text-gray-300 text-sm">
-                                    <span className="text-green-400 font-semibold">
-                                      БГ:{" "}
-                                    </span>
-                                    {exercise.answerBg}
-                                  </p>
-                                )}
-                              </div>
-                            )}
                         </div>
-                      )}
+                        {exercise.titleBg && (
+                          <p className="text-violet-200 text-sm mt-1">
+                            {exercise.titleBg}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-blue-500/30">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-300">
+                            {exercise.title}
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={() => speakWord(exercise.title)}
+                            className="p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                            title="Чети заглавие на глас"
+                          >
+                            <FaVolumeUp className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                        {exercise.titleBg && (
+                          <p className="text-slate-800 dark:text-gray-400 mb-4 text-sm">
+                            {exercise.titleBg}
+                          </p>
+                        )}
 
-                      {exercise.type === "multiselect" &&
-                        exercise.multiselectOptions &&
-                        exercise.multiselectOptions.length > 0 && (
-                          <div className="mt-4 space-y-4">
-                            {"imageUrl" in exercise && exercise.imageUrl && (
-                              <div className="mb-4">
-                                <img
-                                  src={exercise.imageUrl}
-                                  alt=""
-                                  className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
-                                />
+                        {exercise.type === "skeleton" &&
+                          exercise.skeletonParts &&
+                          exercise.skeletonParts.length > 0 && (
+                            <SkeletonDiagram
+                              imageUrl={exercise.skeletonImageUrl}
+                              parts={exercise.skeletonParts}
+                              volume={volume}
+                            />
+                          )}
+
+                        {exercise.type === "question" && (
+                          <div className="mt-4">
+                            {exercise.taskText && (
+                              <div className="mb-4 p-4 bg-slate-200/50 dark:bg-gray-700/30 rounded-lg border border-slate-300 dark:border-gray-600">
+                                <p className="text-slate-800 dark:text-gray-200 whitespace-pre-wrap">
+                                  {exercise.taskText}
+                                </p>
+                                {exercise.taskTextBg && (
+                                  <p className="text-slate-600 dark:text-gray-400 text-sm mt-2 whitespace-pre-wrap">
+                                    {exercise.taskTextBg}
+                                  </p>
+                                )}
                               </div>
                             )}
-                            <p className="text-slate-700 dark:text-gray-300 text-sm mb-3">
-                              {language === "bg"
-                                ? `Изберете ${exercise.multiselectOptions.filter((o) => o.correct).length} правилни отговора от списъка по-долу.`
-                                : `Wählen Sie ${exercise.multiselectOptions.filter((o) => o.correct).length} richtige Antworten aus der Liste.`}
-                            </p>
-                            <div className="space-y-2">
-                              {exercise.multiselectOptions.map((opt) => {
-                                const selected = (
-                                  multiselectSelections[exercise.id] ?? new Set()
-                                ).has(opt.id);
-                                const isChecked =
-                                  multiselectChecked.has(exercise.id);
-                                const isCorrectOption = opt.correct;
-                                const showCorrect =
-                                  isChecked && isCorrectOption && !selected;
-                                const showWrong =
-                                  isChecked && selected && !isCorrectOption;
-                                const showRight =
-                                  isChecked && selected && isCorrectOption;
+                            {"imageUrl" in exercise && (
+                              <div className="mb-4">
+                                {exercise.imageUrl ? (
+                                  <img
+                                    src={exercise.imageUrl}
+                                    alt=""
+                                    className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
+                                  />
+                                ) : (
+                                  <div className="w-full min-h-[200px] rounded-lg border-2 border-dashed border-slate-400 dark:border-gray-500 bg-slate-100 dark:bg-gray-800/50 flex items-center justify-center text-slate-500 dark:text-gray-400 text-sm">
+                                    [ Място за изображение – добавете линк в
+                                    imageUrl ]
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setRevealedExerciseIds((prev) => {
+                                  const next = new Set(prev);
+                                  if (next.has(exercise.id))
+                                    next.delete(exercise.id);
+                                  else next.add(exercise.id);
+                                  return next;
+                                });
+                              }}
+                              className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                            >
+                              {revealedExerciseIds.has(exercise.id)
+                                ? "Скрий отговор"
+                                : "Покажи отговор"}
+                            </button>
+                            {revealedExerciseIds.has(exercise.id) &&
+                              (exercise.answer || exercise.answerBg) && (
+                                <div className="mt-4 p-4 bg-green-900/30 border border-green-600/50 rounded-lg space-y-2">
+                                  {exercise.answer && (
+                                    <p className="text-slate-800 dark:text-gray-200 flex items-center gap-2">
+                                      <span className="text-cyan-400 font-semibold">
+                                        DE:{" "}
+                                      </span>
+                                      {exercise.answer}
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          speakWord(exercise.answer!)
+                                        }
+                                        className="p-1 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                        title="Чети отговор на глас"
+                                      >
+                                        <FaVolumeUp className="w-3 h-3" />
+                                      </button>
+                                    </p>
+                                  )}
+                                  {exercise.answerBg && (
+                                    <p className="text-slate-900 dark:text-gray-300 text-sm">
+                                      <span className="text-green-400 font-semibold">
+                                        БГ:{" "}
+                                      </span>
+                                      {exercise.answerBg}
+                                    </p>
+                                  )}
+                                </div>
+                              )}
+                          </div>
+                        )}
+
+                        {exercise.type === "multiselect" &&
+                          exercise.multiselectOptions &&
+                          exercise.multiselectOptions.length > 0 && (
+                            <div className="mt-4 space-y-4">
+                              {"imageUrl" in exercise && exercise.imageUrl && (
+                                <div className="mb-4">
+                                  <img
+                                    src={exercise.imageUrl}
+                                    alt=""
+                                    className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
+                                  />
+                                </div>
+                              )}
+                              <p className="text-slate-700 dark:text-gray-300 text-sm mb-3">
+                                {language === "bg"
+                                  ? `Изберете ${exercise.multiselectOptions.filter((o) => o.correct).length} правилни отговора от списъка по-долу.`
+                                  : `Wählen Sie ${exercise.multiselectOptions.filter((o) => o.correct).length} richtige Antworten aus der Liste.`}
+                              </p>
+                              <div className="space-y-2">
+                                {exercise.multiselectOptions.map((opt) => {
+                                  const selected = (
+                                    multiselectSelections[exercise.id] ??
+                                    new Set()
+                                  ).has(opt.id);
+                                  const isChecked = multiselectChecked.has(
+                                    exercise.id,
+                                  );
+                                  const isCorrectOption = opt.correct;
+                                  const showCorrect =
+                                    isChecked && isCorrectOption && !selected;
+                                  const showWrong =
+                                    isChecked && selected && !isCorrectOption;
+                                  const showRight =
+                                    isChecked && selected && isCorrectOption;
+                                  return (
+                                    <label
+                                      key={opt.id}
+                                      className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
+                                        showRight
+                                          ? "bg-green-900/20 border-green-600/50"
+                                          : showWrong
+                                            ? "bg-red-900/20 border-red-600/50"
+                                            : showCorrect
+                                              ? "bg-green-900/15 border-green-500/40 border-dashed"
+                                              : "bg-slate-100 dark:bg-gray-700/30 border-slate-300 dark:border-gray-600 hover:bg-slate-200 dark:hover:bg-gray-700/50"
+                                      }`}
+                                    >
+                                      <input
+                                        type="checkbox"
+                                        checked={selected}
+                                        onChange={() => {
+                                          setMultiselectSelections((prev) => {
+                                            const current = new Set(
+                                              prev[exercise.id] ?? [],
+                                            );
+                                            if (current.has(opt.id))
+                                              current.delete(opt.id);
+                                            else current.add(opt.id);
+                                            return {
+                                              ...prev,
+                                              [exercise.id]: current,
+                                            };
+                                          });
+                                          setMultiselectChecked((prev) => {
+                                            const next = new Set(prev);
+                                            next.delete(exercise.id);
+                                            return next;
+                                          });
+                                        }}
+                                        className="w-5 h-5 rounded border-slate-400 text-amber-600 focus:ring-amber-500"
+                                      />
+                                      <span className="text-slate-800 dark:text-gray-200">
+                                        {opt.text}
+                                        {opt.textBg && (
+                                          <span className="text-slate-500 dark:text-gray-400 text-sm ml-1.5">
+                                            ({opt.textBg})
+                                          </span>
+                                        )}
+                                      </span>
+                                      {isChecked && (
+                                        <span
+                                          className={`ml-auto text-sm font-semibold ${
+                                            showRight
+                                              ? "text-green-600 dark:text-green-400"
+                                              : showWrong
+                                                ? "text-red-600 dark:text-red-400"
+                                                : showCorrect
+                                                  ? "text-green-600 dark:text-green-400"
+                                                  : ""
+                                          }`}
+                                        >
+                                          {showRight || showCorrect
+                                            ? "✓"
+                                            : showWrong
+                                              ? "✗"
+                                              : ""}
+                                        </span>
+                                      )}
+                                    </label>
+                                  );
+                                })}
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setMultiselectChecked((prev) =>
+                                    new Set(prev).add(exercise.id),
+                                  )
+                                }
+                                className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                              >
+                                {language === "bg" ? "Провери" : "Prüfen"}
+                              </button>
+                            </div>
+                          )}
+
+                        {exercise.type === "dropdown" &&
+                          exercise.dropdownItems &&
+                          exercise.dropdownItems.length > 0 && (
+                            <div className="mt-4 space-y-4">
+                              <p className="text-slate-700 dark:text-gray-300 text-sm mb-4">
+                                {language === "bg"
+                                  ? "Изберете природна зона за всеки климатичен пояс от падащия списък."
+                                  : "Wählen Sie die passende Naturzone zu jedem Klimagürtel aus der Liste."}
+                              </p>
+                              {exercise.dropdownItems.map((item) => {
+                                const key = `${exercise.id}-${item.id}`;
+                                const selectedId =
+                                  dropdownSelections[key] ?? "";
+                                const isChecked = dropdownChecked.has(
+                                  exercise.id,
+                                );
+                                const isCorrect =
+                                  isChecked && selectedId === item.correctId;
+                                const isWrong =
+                                  isChecked &&
+                                  selectedId !== "" &&
+                                  selectedId !== item.correctId;
                                 return (
-                                  <label
-                                    key={opt.id}
-                                    className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer ${
-                                      showRight
+                                  <div
+                                    key={item.id}
+                                    className={`flex flex-wrap items-center gap-3 p-3 rounded-lg border ${
+                                      isCorrect
                                         ? "bg-green-900/20 border-green-600/50"
-                                        : showWrong
+                                        : isWrong
                                           ? "bg-red-900/20 border-red-600/50"
-                                          : showCorrect
-                                            ? "bg-green-900/15 border-green-500/40 border-dashed"
-                                            : "bg-slate-100 dark:bg-gray-700/30 border-slate-300 dark:border-gray-600 hover:bg-slate-200 dark:hover:bg-gray-700/50"
+                                          : "bg-slate-100 dark:bg-gray-700/30 border-slate-300 dark:border-gray-600"
                                     }`}
                                   >
-                                    <input
-                                      type="checkbox"
-                                      checked={selected}
-                                      onChange={() => {
-                                        setMultiselectSelections((prev) => {
-                                          const current = new Set(
-                                            prev[exercise.id] ?? [],
-                                          );
-                                          if (current.has(opt.id))
-                                            current.delete(opt.id);
-                                          else current.add(opt.id);
-                                          return {
-                                            ...prev,
-                                            [exercise.id]: current,
-                                          };
-                                        });
-                                        setMultiselectChecked((prev) => {
+                                    <span className="font-medium text-slate-800 dark:text-gray-200 min-w-[140px]">
+                                      {item.label}
+                                      {item.labelBg && (
+                                        <span className="block text-sm text-slate-500 dark:text-gray-400">
+                                          {item.labelBg}
+                                        </span>
+                                      )}
+                                    </span>
+                                    <select
+                                      value={selectedId}
+                                      onChange={(e) => {
+                                        setDropdownSelections((prev) => ({
+                                          ...prev,
+                                          [key]: e.target.value,
+                                        }));
+                                        setDropdownChecked((prev) => {
                                           const next = new Set(prev);
                                           next.delete(exercise.id);
                                           return next;
                                         });
                                       }}
-                                      className="w-5 h-5 rounded border-slate-400 text-amber-600 focus:ring-amber-500"
-                                    />
-                                    <span className="text-slate-800 dark:text-gray-200">
-                                      {opt.text}
-                                      {opt.textBg && (
-                                        <span className="text-slate-500 dark:text-gray-400 text-sm ml-1.5">
-                                          ({opt.textBg})
-                                        </span>
-                                      )}
-                                    </span>
+                                      className="flex-1 min-w-[200px] px-3 py-2 rounded-lg border border-slate-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-slate-900 dark:text-gray-200"
+                                    >
+                                      <option value="">
+                                        {language === "bg"
+                                          ? "— изберете —"
+                                          : "— wählen —"}
+                                      </option>
+                                      {item.options.map((opt) => (
+                                        <option key={opt.id} value={opt.id}>
+                                          {language === "bg" && opt.textBg
+                                            ? opt.textBg
+                                            : opt.text}
+                                        </option>
+                                      ))}
+                                    </select>
                                     {isChecked && (
                                       <span
-                                        className={`ml-auto text-sm font-semibold ${
-                                          showRight
+                                        className={`text-sm font-semibold ${
+                                          isCorrect
                                             ? "text-green-600 dark:text-green-400"
-                                            : showWrong
-                                              ? "text-red-600 dark:text-red-400"
-                                              : showCorrect
-                                                ? "text-green-600 dark:text-green-400"
-                                                : ""
+                                            : "text-red-600 dark:text-red-400"
                                         }`}
                                       >
-                                        {showRight || showCorrect
-                                          ? "✓"
-                                          : showWrong
-                                            ? "✗"
-                                            : ""}
+                                        {isCorrect ? "✓" : "✗"}
                                       </span>
                                     )}
-                                  </label>
+                                  </div>
                                 );
                               })}
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setDropdownChecked((prev) =>
+                                    new Set(prev).add(exercise.id),
+                                  )
+                                }
+                                className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                              >
+                                {language === "bg" ? "Провери" : "Prüfen"}
+                              </button>
                             </div>
-                            <button
-                              type="button"
-                              onClick={() =>
-                                setMultiselectChecked((prev) =>
-                                  new Set(prev).add(exercise.id),
-                                )
-                              }
-                              className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
-                            >
-                              {language === "bg" ? "Провери" : "Prüfen"}
-                            </button>
-                          </div>
-                        )}
+                          )}
 
-                      {exercise.type === "dropdown" &&
-                        exercise.dropdownItems &&
-                        exercise.dropdownItems.length > 0 && (
-                          <div className="mt-4 space-y-4">
-                            <p className="text-slate-700 dark:text-gray-300 text-sm mb-4">
-                              {language === "bg"
-                                ? "Изберете природна зона за всеки климатичен пояс от падащия списък."
-                                : "Wählen Sie die passende Naturzone zu jedem Klimagürtel aus der Liste."}
-                            </p>
-                            {exercise.dropdownItems.map((item) => {
-                              const key = `${exercise.id}-${item.id}`;
-                              const selectedId = dropdownSelections[key] ?? "";
-                              const isChecked = dropdownChecked.has(exercise.id);
-                              const isCorrect =
-                                isChecked && selectedId === item.correctId;
-                              const isWrong =
-                                isChecked &&
-                                selectedId !== "" &&
-                                selectedId !== item.correctId;
-                              return (
-                                <div
-                                  key={item.id}
-                                  className={`flex flex-wrap items-center gap-3 p-3 rounded-lg border ${
-                                    isCorrect
-                                      ? "bg-green-900/20 border-green-600/50"
-                                      : isWrong
-                                        ? "bg-red-900/20 border-red-600/50"
-                                        : "bg-slate-100 dark:bg-gray-700/30 border-slate-300 dark:border-gray-600"
-                                  }`}
-                                >
-                                  <span className="font-medium text-slate-800 dark:text-gray-200 min-w-[140px]">
-                                    {item.label}
-                                    {item.labelBg && (
-                                      <span className="block text-sm text-slate-500 dark:text-gray-400">
-                                        {item.labelBg}
-                                      </span>
-                                    )}
-                                  </span>
-                                  <select
-                                    value={selectedId}
-                                    onChange={(e) => {
-                                      setDropdownSelections((prev) => ({
-                                        ...prev,
-                                        [key]: e.target.value,
-                                      }));
-                                      setDropdownChecked((prev) => {
-                                        const next = new Set(prev);
-                                        next.delete(exercise.id);
-                                        return next;
-                                      });
-                                    }}
-                                    className="flex-1 min-w-[200px] px-3 py-2 rounded-lg border border-slate-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-slate-900 dark:text-gray-200"
+                        {exercise.type === "quiz" &&
+                          exercise.questions &&
+                          exercise.questions.length > 0 && (
+                            <div className="mt-6 space-y-6">
+                              {exercise.questions.map((q) => {
+                                const selected =
+                                  exerciseQuizAnswers[exercise.id]?.[q.id];
+                                const correctOption = q.options.find(
+                                  (o) => o.correct,
+                                );
+                                const isAnswered = selected !== undefined;
+                                const isCorrect =
+                                  selected &&
+                                  correctOption &&
+                                  selected === correctOption.id;
+                                return (
+                                  <div
+                                    key={q.id}
+                                    className={`p-5 rounded-xl border-2 ${
+                                      isAnswered
+                                        ? isCorrect
+                                          ? "bg-green-900/20 border-green-600"
+                                          : "bg-red-900/20 border-red-600"
+                                        : "bg-slate-100 dark:bg-gray-800/50 border-slate-300 dark:border-gray-600"
+                                    }`}
                                   >
-                                    <option value="">
-                                      {language === "bg"
-                                        ? "— изберете —"
-                                        : "— wählen —"}
-                                    </option>
-                                    {item.options.map((opt) => (
-                                      <option key={opt.id} value={opt.id}>
-                                        {language === "bg" && opt.textBg
-                                          ? opt.textBg
-                                          : opt.text}
-                                      </option>
-                                    ))}
-                                  </select>
-                                  {isChecked && (
-                                    <span
-                                      className={`text-sm font-semibold ${
-                                        isCorrect
-                                          ? "text-green-600 dark:text-green-400"
-                                          : "text-red-600 dark:text-red-400"
-                                      }`}
+                                    <div className="flex items-start gap-2 mb-1">
+                                      <p className="font-bold text-lg text-slate-900 dark:text-white">
+                                        {q.id}. {q.question}
+                                      </p>
+                                      <button
+                                        type="button"
+                                        onClick={() => speakWord(q.question)}
+                                        className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                        title="Чети въпрос на глас"
+                                      >
+                                        <FaVolumeUp className="w-3.5 h-3.5" />
+                                      </button>
+                                    </div>
+                                    {q.questionBg && (
+                                      <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">
+                                        {q.questionBg}
+                                      </p>
+                                    )}
+                                    {q.image && (
+                                      <div className="mb-4">
+                                        <img
+                                          src={q.image}
+                                          alt=""
+                                          className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
+                                        />
+                                      </div>
+                                    )}
+                                    <div className="space-y-2">
+                                      {q.options.map((opt) => (
+                                        <label
+                                          key={opt.id}
+                                          className={`flex items-start gap-3 p-3 rounded-lg cursor-pointer transition-all ${
+                                            isAnswered &&
+                                            selected === opt.id &&
+                                            !opt.correct
+                                              ? "bg-red-700/30"
+                                              : !isAnswered
+                                                ? "hover:bg-slate-200 dark:hover:bg-gray-700/50"
+                                                : ""
+                                          } ${selected === opt.id ? "ring-2 ring-cyan-400" : ""}`}
+                                        >
+                                          <input
+                                            type="radio"
+                                            name={`quiz-${exercise.id}-q-${q.id}`}
+                                            value={opt.id}
+                                            checked={selected === opt.id}
+                                            onChange={() =>
+                                              setExerciseQuizAnswers(
+                                                (prev) => ({
+                                                  ...prev,
+                                                  [exercise.id]: {
+                                                    ...(prev[exercise.id] ||
+                                                      {}),
+                                                    [q.id]: opt.id,
+                                                  },
+                                                }),
+                                              )
+                                            }
+                                            className="mt-1"
+                                          />
+                                          <span className="text-slate-800 dark:text-gray-200 flex-1 flex items-center gap-3 flex-wrap">
+                                            {opt.image && (
+                                              <img
+                                                src={opt.image}
+                                                alt=""
+                                                className="w-14 h-14 object-contain rounded border border-slate-400 dark:border-gray-500 flex-shrink-0"
+                                              />
+                                            )}
+                                            <span>
+                                              {opt.id}) {opt.text}
+                                              {opt.textBg && (
+                                                <span className="text-slate-500 dark:text-gray-500 text-sm block">
+                                                  {opt.textBg}
+                                                </span>
+                                              )}
+                                            </span>
+                                          </span>
+                                          <button
+                                            type="button"
+                                            onClick={(e) => {
+                                              e.preventDefault();
+                                              speakWord(opt.text);
+                                            }}
+                                            className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
+                                            title="Чети отговор на глас"
+                                          >
+                                            <FaVolumeUp className="w-3.5 h-3.5" />
+                                          </button>
+                                        </label>
+                                      ))}
+                                    </div>
+                                    {isAnswered && (
+                                      <p
+                                        className={`mt-3 text-sm font-semibold ${
+                                          isCorrect
+                                            ? "text-green-600 dark:text-green-400"
+                                            : "text-red-600 dark:text-red-400"
+                                        }`}
+                                      >
+                                        {isCorrect
+                                          ? "✓ Верен отговор"
+                                          : "✗ Грешен отговор"}
+                                      </p>
+                                    )}
+                                  </div>
+                                );
+                              })}
+                              <div className="text-center p-4 bg-slate-200 dark:bg-gray-800/80 rounded-xl">
+                                <p className="text-lg text-slate-900 dark:text-white">
+                                  Резултат:{" "}
+                                  {
+                                    exercise.questions.filter(
+                                      (q) =>
+                                        exerciseQuizAnswers[exercise.id]?.[
+                                          q.id
+                                        ] ===
+                                        q.options.find((o) => o.correct)?.id,
+                                    ).length
+                                  }{" "}
+                                  / {exercise.questions.length}
+                                </p>
+                              </div>
+                            </div>
+                          )}
+
+                        {exercise.type === "matching" && (
+                          <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                              {/* Left Items */}
+                              <div className="space-y-3">
+                                <p className="text-slate-900 dark:text-gray-300 font-semibold mb-3">
+                                  {(exercise as { leftLabel?: string })
+                                    .leftLabel ?? "Граници на плочи"}
+                                  :
+                                </p>
+                                {exercise.leftItems?.map((item) => {
+                                  const isSelected = selectedLeft === item.id;
+                                  return (
+                                    <div
+                                      key={item.id}
+                                      onClick={() => {
+                                        setSelectedLeft(
+                                          isSelected ? null : item.id,
+                                        );
+                                        setSelectedRights(new Set());
+                                        setMatchingFeedback(null);
+                                      }}
+                                      className={`relative px-6 py-4 pr-12 rounded-lg cursor-pointer transition-all transform hover:scale-105 ${
+                                        isSelected
+                                          ? "bg-yellow-600 border-2 border-yellow-300 scale-105"
+                                          : "bg-blue-600 hover:bg-blue-500 border border-transparent"
+                                      } text-white`}
                                     >
-                                      {isCorrect
-                                        ? "✓"
-                                        : "✗"}
-                                    </span>
-                                  )}
+                                      <p className="font-semibold">
+                                        {item.text}
+                                      </p>
+                                      {item.textBg && (
+                                        <p className="text-sm text-blue-100">
+                                          {item.textBg}
+                                        </p>
+                                      )}
+                                      <button
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          speakWord(item.text);
+                                        }}
+                                        className="absolute top-2 right-2 p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
+                                        title="Чети на глас"
+                                      >
+                                        <FaVolumeUp className="w-3.5 h-3.5" />
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+
+                              {/* Right Items */}
+                              <div className="space-y-3">
+                                <p className="text-slate-900 dark:text-gray-300 font-semibold mb-3">
+                                  {(exercise as { rightLabel?: string })
+                                    .rightLabel ?? "Процеси"}
+                                  :
+                                </p>
+                                {exercise.rightItems?.map((item) => {
+                                  const isSelected = selectedRights.has(
+                                    item.id,
+                                  );
+                                  const correspondingPair =
+                                    exercise.correctPairs?.find(
+                                      (p) => p.leftId === selectedLeft,
+                                    );
+                                  const isCorrect =
+                                    correspondingPair?.rightIds.includes(
+                                      item.id,
+                                    );
+
+                                  return (
+                                    <div
+                                      key={item.id}
+                                      onClick={() => {
+                                        if (!selectedLeft) return;
+
+                                        const newSet = new Set(selectedRights);
+                                        if (newSet.has(item.id)) {
+                                          newSet.delete(item.id);
+                                        } else {
+                                          newSet.add(item.id);
+                                        }
+                                        setSelectedRights(newSet);
+
+                                        // Check if all correct matches are selected
+                                        if (
+                                          newSet.size ===
+                                            correspondingPair?.rightIds
+                                              .length &&
+                                          Array.from(newSet).every((id) =>
+                                            correspondingPair?.rightIds.includes(
+                                              id,
+                                            ),
+                                          )
+                                        ) {
+                                          setMatchingFeedback("correct");
+                                        } else {
+                                          setMatchingFeedback(null);
+                                        }
+                                      }}
+                                      className={`relative px-6 py-4 pr-12 rounded-lg transition-all transform ${
+                                        !selectedLeft
+                                          ? "cursor-not-allowed opacity-50"
+                                          : "cursor-pointer hover:scale-105"
+                                      } ${
+                                        isSelected
+                                          ? isCorrect
+                                            ? "bg-green-600 border-2 border-green-300 scale-105"
+                                            : "bg-red-600 border-2 border-red-300 scale-105"
+                                          : "bg-emerald-600 hover:bg-emerald-500 border border-transparent"
+                                      } text-white`}
+                                    >
+                                      <p className="font-semibold">
+                                        {item.text}
+                                      </p>
+                                      {item.textBg && (
+                                        <p className="text-sm text-emerald-100">
+                                          {item.textBg}
+                                        </p>
+                                      )}
+                                      <button
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          speakWord(item.text);
+                                        }}
+                                        className="absolute top-2 right-2 p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
+                                        title="Чети на глас"
+                                      >
+                                        <FaVolumeUp className="w-3.5 h-3.5" />
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+
+                            {matchingFeedback === "correct" && (
+                              <div className="bg-green-900/30 border-2 border-green-500 text-green-300 p-4 rounded-lg text-center font-semibold">
+                                ✅ Правилно! Тази граница съответства на
+                                избраните процеси.
+                              </div>
+                            )}
+
+                            {selectedLeft &&
+                              matchingFeedback !== "correct" &&
+                              selectedRights.size > 0 && (
+                                <div className="text-slate-800 dark:text-gray-400 text-center p-4">
+                                  Кликнете на процесите които съответстват на "
+                                  {
+                                    exercise.leftItems?.find(
+                                      (i) => i.id === selectedLeft,
+                                    )?.textBg
+                                  }
+                                  "
                                 </div>
-                              );
-                            })}
+                              )}
+
                             <button
-                              type="button"
-                              onClick={() =>
-                                setDropdownChecked((prev) =>
-                                  new Set(prev).add(exercise.id),
-                                )
-                              }
-                              className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-colors"
+                              onClick={() => {
+                                setSelectedLeft(null);
+                                setSelectedRights(new Set());
+                                setMatchingFeedback(null);
+                              }}
+                              className="mt-4 px-6 py-2 bg-slate-600 dark:bg-gray-600 hover:bg-slate-700 dark:hover:bg-gray-700 text-white rounded-lg transition-colors"
                             >
-                              {language === "bg" ? "Провери" : "Prüfen"}
+                              Нова задача
                             </button>
                           </div>
                         )}
-
-                      {exercise.type === "quiz" &&
-                        exercise.questions &&
-                        exercise.questions.length > 0 && (
-                          <div className="mt-6 space-y-6">
-                            {exercise.questions.map((q) => {
-                              const selected =
-                                exerciseQuizAnswers[exercise.id]?.[q.id];
-                              const correctOption = q.options.find(
-                                (o) => o.correct,
-                              );
-                              const isAnswered = selected !== undefined;
-                              const isCorrect =
-                                selected &&
-                                correctOption &&
-                                selected === correctOption.id;
-                              return (
-                                <div
-                                  key={q.id}
-                                  className={`p-5 rounded-xl border-2 ${
-                                    isAnswered
-                                      ? isCorrect
-                                        ? "bg-green-900/20 border-green-600"
-                                        : "bg-red-900/20 border-red-600"
-                                      : "bg-slate-100 dark:bg-gray-800/50 border-slate-300 dark:border-gray-600"
-                                  }`}
-                                >
-                                  <div className="flex items-start gap-2 mb-1">
-                                    <p className="font-bold text-lg text-slate-900 dark:text-white">
-                                      {q.id}. {q.question}
-                                    </p>
-                                    <button
-                                      type="button"
-                                      onClick={() => speakWord(q.question)}
-                                      className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
-                                      title="Чети въпрос на глас"
-                                    >
-                                      <FaVolumeUp className="w-3.5 h-3.5" />
-                                    </button>
-                                  </div>
-                                  {q.questionBg && (
-                                    <p className="text-slate-800 dark:text-gray-400 text-sm mb-4">
-                                      {q.questionBg}
-                                    </p>
-                                  )}
-                                  {q.image && (
-                                    <div className="mb-4">
-                                      <img
-                                        src={q.image}
-                                        alt=""
-                                        className="max-w-full h-auto rounded-lg border border-slate-300 dark:border-gray-600"
-                                      />
-                                    </div>
-                                  )}
-                                  <div className="space-y-2">
-                                    {q.options.map((opt) => (
-                                      <label
-                                        key={opt.id}
-                                        className={`flex items-start gap-3 p-3 rounded-lg cursor-pointer transition-all ${
-                                          isAnswered &&
-                                          selected === opt.id &&
-                                          !opt.correct
-                                            ? "bg-red-700/30"
-                                            : !isAnswered
-                                              ? "hover:bg-slate-200 dark:hover:bg-gray-700/50"
-                                              : ""
-                                        } ${selected === opt.id ? "ring-2 ring-cyan-400" : ""}`}
-                                      >
-                                        <input
-                                          type="radio"
-                                          name={`quiz-${exercise.id}-q-${q.id}`}
-                                          value={opt.id}
-                                          checked={selected === opt.id}
-                                          onChange={() =>
-                                            setExerciseQuizAnswers((prev) => ({
-                                              ...prev,
-                                              [exercise.id]: {
-                                                ...(prev[exercise.id] || {}),
-                                                [q.id]: opt.id,
-                                              },
-                                            }))
-                                          }
-                                          className="mt-1"
-                                        />
-                                        <span className="text-slate-800 dark:text-gray-200 flex-1 flex items-center gap-3 flex-wrap">
-                                          {opt.image && (
-                                            <img
-                                              src={opt.image}
-                                              alt=""
-                                              className="w-14 h-14 object-contain rounded border border-slate-400 dark:border-gray-500 flex-shrink-0"
-                                            />
-                                          )}
-                                          <span>
-                                            {opt.id}) {opt.text}
-                                            {opt.textBg && (
-                                              <span className="text-slate-500 dark:text-gray-500 text-sm block">
-                                                {opt.textBg}
-                                              </span>
-                                            )}
-                                          </span>
-                                        </span>
-                                        <button
-                                          type="button"
-                                          onClick={(e) => {
-                                            e.preventDefault();
-                                            speakWord(opt.text);
-                                          }}
-                                          className="flex-shrink-0 p-1.5 rounded-md bg-cyan-600/80 hover:bg-cyan-500 text-white"
-                                          title="Чети отговор на глас"
-                                        >
-                                          <FaVolumeUp className="w-3.5 h-3.5" />
-                                        </button>
-                                      </label>
-                                    ))}
-                                  </div>
-                                  {isAnswered && (
-                                    <p
-                                      className={`mt-3 text-sm font-semibold ${
-                                        isCorrect
-                                          ? "text-green-600 dark:text-green-400"
-                                          : "text-red-600 dark:text-red-400"
-                                      }`}
-                                    >
-                                      {isCorrect
-                                        ? "✓ Верен отговор"
-                                        : "✗ Грешен отговор"}
-                                    </p>
-                                  )}
-                                </div>
-                              );
-                            })}
-                            <div className="text-center p-4 bg-slate-200 dark:bg-gray-800/80 rounded-xl">
-                              <p className="text-lg text-slate-900 dark:text-white">
-                                Резултат:{" "}
-                                {exercise.questions.filter(
-                                  (q) =>
-                                    exerciseQuizAnswers[exercise.id]?.[q.id] ===
-                                    q.options.find((o) => o.correct)?.id,
-                                ).length}{" "}
-                                / {exercise.questions.length}
-                              </p>
-                            </div>
-                          </div>
-                        )}
-
-                      {exercise.type === "matching" && (
-                    <div>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-                        {/* Left Items */}
-                        <div className="space-y-3">
-                          <p className="text-slate-900 dark:text-gray-300 font-semibold mb-3">
-                            {(exercise as { leftLabel?: string }).leftLabel ?? "Граници на плочи"}:
-                          </p>
-                          {exercise.leftItems?.map((item) => {
-                            const isSelected = selectedLeft === item.id;
-                            return (
-                              <div
-                                key={item.id}
-                                onClick={() => {
-                                  setSelectedLeft(isSelected ? null : item.id);
-                                  setSelectedRights(new Set());
-                                  setMatchingFeedback(null);
-                                }}
-                                className={`relative px-6 py-4 pr-12 rounded-lg cursor-pointer transition-all transform hover:scale-105 ${
-                                  isSelected
-                                    ? "bg-yellow-600 border-2 border-yellow-300 scale-105"
-                                    : "bg-blue-600 hover:bg-blue-500 border border-transparent"
-                                } text-white`}
-                              >
-                                <p className="font-semibold">{item.text}</p>
-                                {item.textBg && (
-                                  <p className="text-sm text-blue-100">
-                                    {item.textBg}
-                                  </p>
-                                )}
-                                <button
-                                  type="button"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    speakWord(item.text);
-                                  }}
-                                  className="absolute top-2 right-2 p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
-                                  title="Чети на глас"
-                                >
-                                  <FaVolumeUp className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        {/* Right Items */}
-                        <div className="space-y-3">
-                          <p className="text-slate-900 dark:text-gray-300 font-semibold mb-3">
-                            {(exercise as { rightLabel?: string }).rightLabel ?? "Процеси"}:
-                          </p>
-                          {exercise.rightItems?.map((item) => {
-                            const isSelected = selectedRights.has(item.id);
-                            const correspondingPair =
-                              exercise.correctPairs?.find(
-                                (p) => p.leftId === selectedLeft,
-                              );
-                            const isCorrect =
-                              correspondingPair?.rightIds.includes(item.id);
-
-                            return (
-                              <div
-                                key={item.id}
-                                onClick={() => {
-                                  if (!selectedLeft) return;
-
-                                  const newSet = new Set(selectedRights);
-                                  if (newSet.has(item.id)) {
-                                    newSet.delete(item.id);
-                                  } else {
-                                    newSet.add(item.id);
-                                  }
-                                  setSelectedRights(newSet);
-
-                                  // Check if all correct matches are selected
-                                  if (
-                                    newSet.size ===
-                                      correspondingPair?.rightIds.length &&
-                                    Array.from(newSet).every((id) =>
-                                      correspondingPair?.rightIds.includes(id),
-                                    )
-                                  ) {
-                                    setMatchingFeedback("correct");
-                                  } else {
-                                    setMatchingFeedback(null);
-                                  }
-                                }}
-                                className={`relative px-6 py-4 pr-12 rounded-lg transition-all transform ${
-                                  !selectedLeft
-                                    ? "cursor-not-allowed opacity-50"
-                                    : "cursor-pointer hover:scale-105"
-                                } ${
-                                  isSelected
-                                    ? isCorrect
-                                      ? "bg-green-600 border-2 border-green-300 scale-105"
-                                      : "bg-red-600 border-2 border-red-300 scale-105"
-                                    : "bg-emerald-600 hover:bg-emerald-500 border border-transparent"
-                                } text-white`}
-                              >
-                                <p className="font-semibold">{item.text}</p>
-                                {item.textBg && (
-                                  <p className="text-sm text-emerald-100">
-                                    {item.textBg}
-                                  </p>
-                                )}
-                                <button
-                                  type="button"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    speakWord(item.text);
-                                  }}
-                                  className="absolute top-2 right-2 p-1.5 rounded-md bg-white/20 hover:bg-white/30 text-white"
-                                  title="Чети на глас"
-                                >
-                                  <FaVolumeUp className="w-3.5 h-3.5" />
-                                </button>
-                              </div>
-                            );
-                          })}
-                        </div>
                       </div>
-
-                      {matchingFeedback === "correct" && (
-                        <div className="bg-green-900/30 border-2 border-green-500 text-green-300 p-4 rounded-lg text-center font-semibold">
-                          ✅ Правилно! Тази граница съответства на избраните
-                          процеси.
-                        </div>
-                      )}
-
-                      {selectedLeft &&
-                        matchingFeedback !== "correct" &&
-                        selectedRights.size > 0 && (
-                          <div className="text-slate-800 dark:text-gray-400 text-center p-4">
-                            Кликнете на процесите които съответстват на "
-                            {
-                              exercise.leftItems?.find(
-                                (i) => i.id === selectedLeft,
-                              )?.textBg
-                            }
-                            "
-                          </div>
-                        )}
-
-                      <button
-                        onClick={() => {
-                          setSelectedLeft(null);
-                          setSelectedRights(new Set());
-                          setMatchingFeedback(null);
-                        }}
-                        className="mt-4 px-6 py-2 bg-slate-600 dark:bg-gray-600 hover:bg-slate-700 dark:hover:bg-gray-700 text-white rounded-lg transition-colors"
-                      >
-                        Нова задача
-                      </button>
-                    </div>
-                  )}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
         </div>
       </main>
 

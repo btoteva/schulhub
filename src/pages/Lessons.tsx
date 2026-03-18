@@ -10,6 +10,7 @@ import {
   FaTasks,
   FaSpotify,
   FaThLarge,
+  FaHeadphones,
   FaClipboardList,
 } from "react-icons/fa";
 import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
@@ -535,20 +536,7 @@ const Lessons: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity" />
               <div className="relative p-6">
                 <div className="mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-12 w-12 text-green-500 dark:text-green-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                    />
-                  </svg>
+                  <FaHeadphones className="h-12 w-12 text-green-500 dark:text-green-400" />
                 </div>
                 <h4
                   className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}

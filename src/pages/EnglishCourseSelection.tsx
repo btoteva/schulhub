@@ -29,7 +29,8 @@ const EnglishCourseSelection: React.FC = () => {
         {/* Selection Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Lessons Option */}
-          <div
+          <button
+            type="button"
             onClick={() => navigate("/english/lessons")}
             className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden cursor-pointer transform transition-all hover:scale-105 hover:shadow-2xl border-t-8 border-blue-500 group"
           >
@@ -50,10 +51,11 @@ const EnglishCourseSelection: React.FC = () => {
                 {t.start}
               </span>
             </div>
-          </div>
+          </button>
 
           {/* Grammar Option (New) */}
-          <div
+          <button
+            type="button"
             onClick={() => navigate("/english/grammar")}
             className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden cursor-pointer transform transition-all hover:scale-105 hover:shadow-2xl border-t-8 border-green-500 group"
           >
@@ -74,10 +76,11 @@ const EnglishCourseSelection: React.FC = () => {
                 {t.start}
               </span>
             </div>
-          </div>
+          </button>
 
           {/* Podcast Option */}
-          <div
+          <button
+            type="button"
             onClick={() => navigate("/english/podcasts")}
             className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden cursor-pointer transform transition-all hover:scale-105 hover:shadow-2xl border-t-8 border-purple-500 group"
           >
@@ -109,7 +112,7 @@ const EnglishCourseSelection: React.FC = () => {
                 {t.listen}
               </span>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
