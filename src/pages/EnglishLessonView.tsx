@@ -71,6 +71,11 @@ const EnglishLessonView: React.FC = () => {
               >
                 {lesson.title}
               </h1>
+              <p
+                className={`mt-2 text-lg ${isLight ? "text-slate-600" : "text-gray-400"}`}
+              >
+                {t.englishVideoSource}
+              </p>
             </header>
             <div className="w-full max-w-4xl mx-auto mb-8">
               <div className="aspect-w-16 aspect-h-9">
@@ -103,12 +108,12 @@ const EnglishLessonView: React.FC = () => {
                         ? "bg-slate-200 hover:bg-slate-300 text-slate-700"
                         : "bg-gray-700 hover:bg-gray-600 text-gray-300"
                   }`}
-                  title={watched ? "Mark as not watched" : "Mark as watched"}
+                  title={watched ? t.markAsNotWatched : t.markAsWatched}
                 >
                   <FaCheckCircle
                     className={`w-5 h-5 shrink-0 ${watched ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`}
                   />
-                  <span>{watched ? "Watched" : "Mark as watched"}</span>
+                  <span>{watched ? t.watched : t.markAsWatched}</span>
                 </button>
               </div>
             )}

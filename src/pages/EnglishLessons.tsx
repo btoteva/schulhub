@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowLeft, FaBook, FaGraduationCap, FaClock, FaYoutube, FaCheckCircle } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaBook,
+  FaGraduationCap,
+  FaClock,
+  FaYoutube,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
@@ -70,9 +77,14 @@ const EnglishLessons: React.FC = () => {
                 {t.englishCourseTitle}
               </h1>
               <p
-                className={`text-xl mb-4 ${isLight ? "text-slate-600" : "text-gray-300"}`}
+                className={`text-xl mb-2 ${isLight ? "text-slate-600" : "text-gray-300"}`}
               >
                 {t.englishLessonsDesc}
+              </p>
+              <p
+                className={`text-lg mb-4 ${isLight ? "text-slate-500" : "text-gray-400"}`}
+              >
+                {t.englishVideoSource}
               </p>
               <div
                 className={`flex items-center gap-6 ${isLight ? "text-slate-500" : "text-gray-400"}`}
@@ -164,11 +176,13 @@ const EnglishLessons: React.FC = () => {
                           setUserProgress(
                             "schulhub-english-watched",
                             { ids: next },
-                            token
+                            token,
                           );
                         }}
                         className={`flex-shrink-0 flex items-center gap-2 px-4 py-3 rounded-r-lg text-sm font-medium ${isLight ? "bg-slate-50 hover:bg-slate-100 text-slate-700" : "bg-gray-800/50 hover:bg-gray-800 text-gray-300"}`}
-                        title={watched ? 'Mark as not watched' : 'Mark as watched'}
+                        title={
+                          watched ? "Mark as not watched" : "Mark as watched"
+                        }
                       >
                         <FaCheckCircle
                           className={`w-5 h-5 shrink-0 ${watched ? (isLight ? "text-green-600" : "text-green-400") : "opacity-40"}`}

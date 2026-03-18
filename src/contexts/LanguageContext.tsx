@@ -44,6 +44,9 @@ interface Translations {
   podcastMarkListened: string;
   podcastMarkUnlistened: string;
   allRightsReserved: string;
+  watched: string;
+  markAsWatched: string;
+  markAsNotWatched: string;
 
   // Lessons page
   back: string;
@@ -139,6 +142,7 @@ interface Translations {
   relaxationAudioTitle: string;
   additionalResources: string;
   comingSoon: string;
+  englishVideoSource: string;
 
   // Hero descriptions
   biologyDesc: string;
@@ -226,6 +230,9 @@ const translations: Record<Language, Translations> = {
     podcastMarkListened: "Маркирай като изслушан",
     podcastMarkUnlistened: "Премахни маркировката",
     allRightsReserved: "Всички права запазени.",
+    watched: "Изгледан",
+    markAsWatched: "Маркирай като изгледан",
+    markAsNotWatched: "Премахни маркировката",
 
     // Lessons page
     back: "Назад",
@@ -323,6 +330,7 @@ const translations: Record<Language, Translations> = {
       "Медитативна аудиозапис на немски език за релаксация и подготовка преди учене. Помага за концентрация и спокойствие.",
     additionalResources: "Допълнителни ресурси",
     comingSoon: "Очаквайте скоро още полезни материали!",
+    englishVideoSource: "Видео уроци от YouTube канала Easy English",
 
     profileType: "Тип профил",
     profileTypeStudent: "Ученик",
@@ -411,6 +419,9 @@ const translations: Record<Language, Translations> = {
     podcastMarkListened: "Mark as listened",
     podcastMarkUnlistened: "Mark as not listened",
     allRightsReserved: "All rights reserved.",
+    watched: "Watched",
+    markAsWatched: "Mark as watched",
+    markAsNotWatched: "Mark as not watched",
 
     // Lessons page
     back: "Back",
@@ -508,6 +519,7 @@ const translations: Record<Language, Translations> = {
       "A meditative audio recording in German for relaxation and preparation before learning. Helps with concentration and calmness.",
     additionalResources: "Additional Resources",
     comingSoon: "More useful materials coming soon!",
+    englishVideoSource: "Video lessons from Easy English YouTube channel",
 
     profileType: "Profile type",
     profileTypeStudent: "Student",
@@ -597,6 +609,9 @@ const translations: Record<Language, Translations> = {
     podcastMarkListened: "Als gehört markieren",
     podcastMarkUnlistened: "Markierung entfernen",
     allRightsReserved: "Alle Rechte vorbehalten.",
+    watched: "Angesehen",
+    markAsWatched: "Als angesehen markieren",
+    markAsNotWatched: "Markierung entfernen",
 
     // Lessons page
     back: "Zurück",
@@ -694,6 +709,7 @@ const translations: Record<Language, Translations> = {
       "Eine meditative Audioaufnahme auf Deutsch zur Entspannung und Vorbereitung vor dem Lernen. Hilft bei Konzentration und Ruhe.",
     additionalResources: "Zusätzliche Ressourcen",
     comingSoon: "Weitere nützliche Materialien folgen bald!",
+    englishVideoSource: "Videolektionen vom YouTube-Kanal Easy English",
 
     profileType: "Profiltyp",
     profileTypeStudent: "Schüler",
