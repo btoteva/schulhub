@@ -38,7 +38,8 @@ const EnglishPodcastAllView: React.FC = () => {
     }
     let cancelled = false;
     getUserProgress("schulhub-podcast-listened", token).then((data) => {
-      if (cancelled || !data || typeof data !== "object" || Array.isArray(data)) return;
+      if (cancelled || !data || typeof data !== "object" || Array.isArray(data))
+        return;
       const ids = (data as { ids?: string[] }).ids;
       setPodcastListenedIds(Array.isArray(ids) ? ids : []);
     });
@@ -73,7 +74,7 @@ const EnglishPodcastAllView: React.FC = () => {
         };
         const getAttr = (tag: string, attr: string) => {
           const el = item.getElementsByTagName(tag)[0];
-          return el ? el.getAttribute(attr) ?? "" : "";
+          return el ? (el.getAttribute(attr) ?? "") : "";
         };
         const title = getText("title") || `Episode ${index + 1}`;
         const link = getText("link") || "";
@@ -98,7 +99,9 @@ const EnglishPodcastAllView: React.FC = () => {
       });
       setEpisodes(parsed);
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Failed to load Easy English RSS");
+      setError(
+        e instanceof Error ? e.message : "Failed to load Easy English RSS",
+      );
       setEpisodes([]);
     } finally {
       setLoading(false);
@@ -143,13 +146,21 @@ const EnglishPodcastAllView: React.FC = () => {
         : "Here you can browse episodes of Easy English – a podcast for learning English with everyday conversations.";
 
   return (
-    <div className={isLight ? "min-h-screen bg-slate-50 text-slate-900" : "min-h-screen bg-slate-900 text-slate-100"}>
+    <div
+      className={
+        isLight
+          ? "min-h-screen bg-slate-50 text-slate-900"
+          : "min-h-screen bg-slate-900 text-slate-100"
+      }
+    >
       <main className="container mx-auto px-4 py-8 max-w-5xl">
         <div className="mb-8 flex items-center justify-between gap-4">
           <Link
-            to="/"
+            to="/english"
             className={`inline-flex items-center gap-2 transition-colors ${
-              isLight ? "text-slate-600 hover:text-slate-900" : "text-slate-300 hover:text-white"
+              isLight
+                ? "text-slate-600 hover:text-slate-900"
+                : "text-slate-300 hover:text-white"
             }`}
           >
             <FaArrowLeft />
@@ -158,12 +169,20 @@ const EnglishPodcastAllView: React.FC = () => {
         </div>
 
         <div className="mb-6">
-          <h1 className={`text-3xl font-bold mb-2 ${isLight ? "text-slate-900" : "text-white"}`}>{titleText}</h1>
-          <p className={isLight ? "text-slate-600" : "text-slate-300"}>{descriptionText}</p>
+          <h1
+            className={`text-3xl font-bold mb-2 ${isLight ? "text-slate-900" : "text-white"}`}
+          >
+            {titleText}
+          </h1>
+          <p className={isLight ? "text-slate-600" : "text-slate-300"}>
+            {descriptionText}
+          </p>
         </div>
 
         {loading && (
-          <p className={`mb-4 flex items-center gap-2 ${isLight ? "text-slate-600" : "text-slate-300"}`}>
+          <p
+            className={`mb-4 flex items-center gap-2 ${isLight ? "text-slate-600" : "text-slate-300"}`}
+          >
             <FaSyncAlt className="animate-spin" />
             {language === "bg"
               ? "Зареждане на списъка от RSS..."
@@ -173,7 +192,9 @@ const EnglishPodcastAllView: React.FC = () => {
           </p>
         )}
         {error && (
-          <div className={`mb-4 flex flex-wrap items-center gap-2 ${isLight ? "text-amber-700" : "text-amber-300"}`}>
+          <div
+            className={`mb-4 flex flex-wrap items-center gap-2 ${isLight ? "text-amber-700" : "text-amber-300"}`}
+          >
             <span>
               {language === "bg"
                 ? "Feed не е наличен."
@@ -189,7 +210,11 @@ const EnglishPodcastAllView: React.FC = () => {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-sm font-medium"
             >
               <FaSyncAlt className={loading ? "animate-spin" : ""} />
-              {language === "bg" ? "Опитай отново" : language === "de" ? "Erneut versuchen" : "Retry"}
+              {language === "bg"
+                ? "Опитай отново"
+                : language === "de"
+                  ? "Erneut versuchen"
+                  : "Retry"}
             </button>
           </div>
         )}
@@ -258,7 +283,11 @@ const EnglishPodcastAllView: React.FC = () => {
                       : "border-slate-600 text-slate-100 hover:bg-slate-800"
                 }`}
               >
-                {language === "bg" ? "Първа" : language === "de" ? "Erste" : "First"}
+                {language === "bg"
+                  ? "Първа"
+                  : language === "de"
+                    ? "Erste"
+                    : "First"}
               </button>
               <button
                 type="button"
@@ -272,7 +301,11 @@ const EnglishPodcastAllView: React.FC = () => {
                       : "border-slate-600 text-slate-100 hover:bg-slate-800"
                 }`}
               >
-                {language === "bg" ? "Назад" : language === "de" ? "Zurück" : "Prev"}
+                {language === "bg"
+                  ? "Назад"
+                  : language === "de"
+                    ? "Zurück"
+                    : "Prev"}
               </button>
               <span className="text-xs tabular-nums">
                 {currentPage}/{totalPages}
@@ -289,7 +322,11 @@ const EnglishPodcastAllView: React.FC = () => {
                       : "border-slate-600 text-slate-100 hover:bg-slate-800"
                 }`}
               >
-                {language === "bg" ? "Напред" : language === "de" ? "Weiter" : "Next"}
+                {language === "bg"
+                  ? "Напред"
+                  : language === "de"
+                    ? "Weiter"
+                    : "Next"}
               </button>
               <button
                 type="button"
@@ -303,7 +340,11 @@ const EnglishPodcastAllView: React.FC = () => {
                       : "border-slate-600 text-slate-100 hover:bg-slate-800"
                 }`}
               >
-                {language === "bg" ? "Последна" : language === "de" ? "Letzte" : "Last"}
+                {language === "bg"
+                  ? "Последна"
+                  : language === "de"
+                    ? "Letzte"
+                    : "Last"}
               </button>
             </div>
           </div>
@@ -336,15 +377,23 @@ const EnglishPodcastAllView: React.FC = () => {
                     {ep.title}
                   </h3>
                   {ep.pubDate && (
-                    <p className={`text-xs ${isLight ? "text-slate-500" : "text-slate-400"}`}>{ep.pubDate}</p>
+                    <p
+                      className={`text-xs ${isLight ? "text-slate-500" : "text-slate-400"}`}
+                    >
+                      {ep.pubDate}
+                    </p>
                   )}
                   {ep.link && (
-                    <p className={`text-[11px] mt-0.5 ${isLight ? "text-slate-400" : "text-slate-500"}`}>
+                    <p
+                      className={`text-[11px] mt-0.5 ${isLight ? "text-slate-400" : "text-slate-500"}`}
+                    >
                       {ep.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                     </p>
                   )}
                   {token && podcastListenedIds.includes(ep.id) && (
-                    <p className={`mt-1 text-xs inline-flex items-center gap-1 ${isLight ? "text-emerald-600" : "text-emerald-400"}`}>
+                    <p
+                      className={`mt-1 text-xs inline-flex items-center gap-1 ${isLight ? "text-emerald-600" : "text-emerald-400"}`}
+                    >
                       <FaCheckCircle className="w-4 h-4" />
                       {t.podcastListened}
                     </p>
@@ -361,7 +410,11 @@ const EnglishPodcastAllView: React.FC = () => {
                       ? podcastListenedIds.filter((id) => id !== ep.id)
                       : [...podcastListenedIds, ep.id];
                     setPodcastListenedIds(next);
-                    setUserProgress("schulhub-podcast-listened", { ids: next }, token);
+                    setUserProgress(
+                      "schulhub-podcast-listened",
+                      { ids: next },
+                      token,
+                    );
                   }}
                   className={`flex-shrink-0 flex items-center gap-2 px-4 border-l text-sm font-medium ${
                     isLight
@@ -369,7 +422,9 @@ const EnglishPodcastAllView: React.FC = () => {
                       : "border-gray-700 bg-gray-800/50 hover:bg-gray-800 text-gray-300"
                   }`}
                   title={
-                    podcastListenedIds.includes(ep.id) ? t.podcastMarkUnlistened : t.podcastMarkListened
+                    podcastListenedIds.includes(ep.id)
+                      ? t.podcastMarkUnlistened
+                      : t.podcastMarkListened
                   }
                 >
                   <FaCheckCircle
@@ -382,7 +437,9 @@ const EnglishPodcastAllView: React.FC = () => {
                     }`}
                   />
                   <span className="hidden sm:inline">
-                    {podcastListenedIds.includes(ep.id) ? t.podcastMarkUnlistened : t.podcastMarkListened}
+                    {podcastListenedIds.includes(ep.id)
+                      ? t.podcastMarkUnlistened
+                      : t.podcastMarkListened}
                   </span>
                 </button>
               )}
@@ -395,4 +452,3 @@ const EnglishPodcastAllView: React.FC = () => {
 };
 
 export default EnglishPodcastAllView;
-

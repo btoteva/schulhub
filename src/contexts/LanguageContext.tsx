@@ -28,6 +28,7 @@ interface Translations {
   germanSubject: string;
   biologySubject: string;
   geographySubject: string;
+  englishSubject: string;
   selectSubject: string;
   discoverPath: string;
   weeklyProgramTitle: string;
@@ -151,6 +152,10 @@ interface Translations {
   biologyCourseDesc: string;
   geographyCourseTitle: string;
   geographyCourseDesc: string;
+  englishCourseTitle: string;
+  englishCourseDesc: string;
+  englishLessonsDesc: string;
+  englishPodcastsDesc: string;
 
   // Course levels/grades
   grade8: string;
@@ -205,6 +210,7 @@ const translations: Record<Language, Translations> = {
     germanSubject: "Немски",
     biologySubject: "Биология",
     geographySubject: "География",
+    englishSubject: "Английски",
     selectSubject: "Изберете предмет и тема за преглед",
     discoverPath: "Открийте своя път към знанието",
     weeklyProgramTitle: "Седмична програма",
@@ -336,7 +342,8 @@ const translations: Record<Language, Translations> = {
     dadIsHere: "Тато е тук",
     parentIsHere: "Родител е тук",
     personalSection: "Лична секция",
-    studentUsernameInPlatform: "Потребителско име или email в платформата (за свързване с профила на детето)",
+    studentUsernameInPlatform:
+      "Потребителско име или email в платформата (за свързване с профила на детето)",
 
     // Hero descriptions
     biologyDesc: "Изучаване на живота",
@@ -353,6 +360,10 @@ const translations: Record<Language, Translations> = {
     geographyCourseTitle: "География",
     geographyCourseDesc:
       "Опознайте света, континентите, климатите и географските особености.",
+    englishCourseTitle: "Английски език",
+    englishCourseDesc: "Учете английски език с интерактивни уроци и подкасти.",
+    englishLessonsDesc: "Структурирани уроци по граматика и лексика.",
+    englishPodcastsDesc: "Аудио записи за слушане и упражняване на слуха.",
 
     // Course levels/grades
     grade8: "8 клас",
@@ -384,6 +395,7 @@ const translations: Record<Language, Translations> = {
     germanSubject: "German",
     biologySubject: "Biology",
     geographySubject: "Geography",
+    englishSubject: "English",
     selectSubject: "Select a subject and topic to review",
     discoverPath: "Discover your path to knowledge",
     weeklyProgramTitle: "Weekly program",
@@ -515,7 +527,8 @@ const translations: Record<Language, Translations> = {
     dadIsHere: "Dad is here",
     parentIsHere: "Parent is here",
     personalSection: "Personal section",
-    studentUsernameInPlatform: "Username or email (to link with the child's account)",
+    studentUsernameInPlatform:
+      "Username or email (to link with the child's account)",
 
     // Hero descriptions
     biologyDesc: "Study of life",
@@ -532,6 +545,11 @@ const translations: Record<Language, Translations> = {
     geographyCourseTitle: "Geography",
     geographyCourseDesc:
       "Discover the world, continents, climates, and geographical features.",
+    englishCourseTitle: "English Language",
+    englishCourseDesc: "Learn English with interactive lessons and podcasts.",
+    englishLessonsDesc: "Structured lessons on grammar and vocabulary.",
+    englishPodcastsDesc:
+      "Audio recordings for listening and practicing hearing.",
 
     // Course levels/grades
     grade8: "Grade 8",
@@ -563,6 +581,7 @@ const translations: Record<Language, Translations> = {
     germanSubject: "Deutsch",
     biologySubject: "Biologie",
     geographySubject: "Geographie",
+    englishSubject: "Englisch",
     selectSubject: "Wählen Sie ein Fach und Thema",
     discoverPath: "Entdecken Sie Ihren Weg zum Wissen",
     weeklyProgramTitle: "Wochenprogramm",
@@ -694,7 +713,8 @@ const translations: Record<Language, Translations> = {
     dadIsHere: "Papa ist da",
     parentIsHere: "Elternteil ist da",
     personalSection: "Persönlicher Bereich",
-    studentUsernameInPlatform: "Benutzername oder E-Mail (um mit dem Konto des Kindes zu verknüpfen)",
+    studentUsernameInPlatform:
+      "Benutzername oder E-Mail (um mit dem Konto des Kindes zu verknüpfen)",
 
     // Hero descriptions
     biologyDesc: "Das Studium des Lebens",
@@ -711,6 +731,12 @@ const translations: Record<Language, Translations> = {
     geographyCourseTitle: "Geographie",
     geographyCourseDesc:
       "Entdecken Sie die Welt, Kontinente, Klimazonen und geografische Besonderheiten.",
+    englishCourseTitle: "Englische Sprache",
+    englishCourseDesc:
+      "Lernen Sie Englisch mit interaktiven Lektionen und Podcasts.",
+    englishLessonsDesc: "Strukturierte Lektionen zu Grammatik und Wortschatz.",
+    englishPodcastsDesc:
+      "Audioaufnahmen zum Zuhören und Üben des Hörverstehens.",
 
     // Course levels/grades
     grade8: "Klasse 8",

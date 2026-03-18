@@ -1,44 +1,52 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Lessons from './pages/Lessons';
-import LessonView from './pages/LessonView';
-import DSDModellsatz1View from './pages/DSDModellsatz1View';
-import DSDModellsatz2View from './pages/DSDModellsatz2View';
-import DSDModellsatz3View from './pages/DSDModellsatz3View';
-import DSDModellsatz4View from './pages/DSDModellsatz4View';
-import DSDModellsatz5View from './pages/DSDModellsatz5View';
-import DSDModellsatz6View from './pages/DSDModellsatz6View';
-import DSDModellsatz7View from './pages/DSDModellsatz7View';
-import DSDModellsatz8View from './pages/DSDModellsatz8View';
-import DSDHorverstehen1View from './pages/DSDHorverstehen1View';
-import DSDHorverstehen2View from './pages/DSDHorverstehen2View';
-import DSDHorverstehen3View from './pages/DSDHorverstehen3View';
-import DSDHorverstehen4View from './pages/DSDHorverstehen4View';
-import DSDHorverstehen5View from './pages/DSDHorverstehen5View';
-import DSDHorverstehen6View from './pages/DSDHorverstehen6View';
-import DSDHorverstehen7View from './pages/DSDHorverstehen7View';
-import DSDHorverstehen8View from './pages/DSDHorverstehen8View';
-import DSDSchriftliche1View from './pages/DSDSchriftliche1View';
-import DSDSchriftliche2View from './pages/DSDSchriftliche2View';
-import DSDSchriftliche3View from './pages/DSDSchriftliche3View';
-import DSDSchriftliche4View from './pages/DSDSchriftliche4View';
-import DSDTestsList from './pages/DSDTestsList';
-import GermanPodcastView from './pages/GermanPodcastView';
-import GermanPodcastAllView from './pages/GermanPodcastAllView';
-import EnglishPodcastAllView from './pages/EnglishPodcastAllView';
-import EnglishPodcastView from './pages/EnglishPodcastView';
-import About from './pages/About';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Profile from './pages/Profile';
-import ProfileEdit from './pages/ProfileEdit';
-import AdminUsers from './pages/AdminUsers';
-import AdminUserEdit from './pages/AdminUserEdit';
-import WeeklyProgram from './pages/WeeklyProgram';
-import MyChildren from './pages/MyChildren';
-import AdminWeeklyPrograms from './pages/AdminWeeklyPrograms';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Lessons from "./pages/Lessons";
+import LessonView from "./pages/LessonView";
+import DSDModellsatz1View from "./pages/DSDModellsatz1View";
+import DSDModellsatz2View from "./pages/DSDModellsatz2View";
+import DSDModellsatz3View from "./pages/DSDModellsatz3View";
+import DSDModellsatz4View from "./pages/DSDModellsatz4View";
+import DSDModellsatz5View from "./pages/DSDModellsatz5View";
+import DSDModellsatz6View from "./pages/DSDModellsatz6View";
+import DSDModellsatz7View from "./pages/DSDModellsatz7View";
+import DSDModellsatz8View from "./pages/DSDModellsatz8View";
+import DSDHorverstehen1View from "./pages/DSDHorverstehen1View";
+import DSDHorverstehen2View from "./pages/DSDHorverstehen2View";
+import DSDHorverstehen3View from "./pages/DSDHorverstehen3View";
+import DSDHorverstehen4View from "./pages/DSDHorverstehen4View";
+import DSDHorverstehen5View from "./pages/DSDHorverstehen5View";
+import DSDHorverstehen6View from "./pages/DSDHorverstehen6View";
+import DSDHorverstehen7View from "./pages/DSDHorverstehen7View";
+import DSDHorverstehen8View from "./pages/DSDHorverstehen8View";
+import DSDSchriftliche1View from "./pages/DSDSchriftliche1View";
+import DSDSchriftliche2View from "./pages/DSDSchriftliche2View";
+import DSDSchriftliche3View from "./pages/DSDSchriftliche3View";
+import DSDSchriftliche4View from "./pages/DSDSchriftliche4View";
+import DSDTestsList from "./pages/DSDTestsList";
+import GermanPodcastView from "./pages/GermanPodcastView";
+import GermanPodcastAllView from "./pages/GermanPodcastAllView";
+import EnglishPodcastAllView from "./pages/EnglishPodcastAllView";
+import EnglishPodcastView from "./pages/EnglishPodcastView";
+import EnglishCourseSelection from "./pages/EnglishCourseSelection";
+import EnglishLessons from "./pages/EnglishLessons";
+import EnglishLessonView from "./pages/EnglishLessonView";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+import ProfileEdit from "./pages/ProfileEdit";
+import AdminUsers from "./pages/AdminUsers";
+import AdminUserEdit from "./pages/AdminUserEdit";
+import WeeklyProgram from "./pages/WeeklyProgram";
+import MyChildren from "./pages/MyChildren";
+import AdminWeeklyPrograms from "./pages/AdminWeeklyPrograms";
 
 const App: React.FC = () => {
   return (
@@ -55,38 +63,129 @@ const App: React.FC = () => {
           <Route path="/my-children" element={<MyChildren />} />
           <Route path="/weekly-program" element={<WeeklyProgram />} />
           <Route path="/admin/users" element={<AdminUsers />} />
-          <Route path="/admin/weekly-programs" element={<AdminWeeklyPrograms />} />
+          <Route
+            path="/admin/weekly-programs"
+            element={<AdminWeeklyPrograms />}
+          />
           <Route path="/admin/users/edit/:userId" element={<AdminUserEdit />} />
           <Route path="/lessons/:courseId" element={<Lessons />} />
-          <Route path="/lessons/1/section/podcast" element={<Navigate to="/german/podcasts/all" replace />} />
-          <Route path="/lessons/:courseId/section/:sectionName" element={<Lessons />} />
+          <Route
+            path="/lessons/1/section/podcast"
+            element={<Navigate to="/german/podcasts/all" replace />}
+          />
+          <Route
+            path="/lessons/:courseId/section/:sectionName"
+            element={<Lessons />}
+          />
           <Route path="/lessons/:courseId/:lessonId" element={<LessonView />} />
           <Route path="/german/dsd-tests" element={<DSDTestsList />} />
           <Route path="/german/podcast" element={<GermanPodcastView />} />
-          <Route path="/german/podcast/:episodeId" element={<GermanPodcastView />} />
-          <Route path="/german/podcasts/all" element={<GermanPodcastAllView />} />
-          <Route path="/english/podcasts/all" element={<EnglishPodcastAllView />} />
+          <Route
+            path="/german/podcast/:episodeId"
+            element={<GermanPodcastView />}
+          />
+          <Route
+            path="/german/podcasts/all"
+            element={<GermanPodcastAllView />}
+          />
+          <Route path="/english" element={<EnglishCourseSelection />} />
+          <Route
+            path="/english/podcasts"
+            element={<Navigate to="/english/podcasts/all" replace />}
+          />
+          <Route
+            path="/english/lessons"
+            element={<EnglishLessons />}
+          />
+          <Route
+            path="/english/lessons/:lessonId"
+            element={<EnglishLessonView />}
+          />
+          <Route
+            path="/english/podcasts/all"
+            element={<EnglishPodcastAllView />}
+          />
           <Route path="/english/podcast" element={<EnglishPodcastView />} />
-          <Route path="/german/dsd-modellsatz-1" element={<DSDModellsatz1View />} />
-          <Route path="/german/dsd-modellsatz-2" element={<DSDHorverstehen1View />} />
-          <Route path="/german/dsd-modellsatz-3" element={<DSDModellsatz2View />} />
-          <Route path="/german/dsd-modellsatz-4" element={<DSDModellsatz3View />} />
-          <Route path="/german/dsd-modellsatz-5" element={<DSDModellsatz4View />} />
-          <Route path="/german/dsd-modellsatz-6" element={<DSDModellsatz5View />} />
-          <Route path="/german/dsd-modellsatz-7" element={<DSDModellsatz6View />} />
-          <Route path="/german/dsd-modellsatz-8" element={<DSDModellsatz7View />} />
-          <Route path="/german/dsd-modellsatz-9" element={<DSDModellsatz8View />} />
-          <Route path="/german/dsd-horverstehen-2" element={<DSDHorverstehen2View />} />
-          <Route path="/german/dsd-horverstehen-3" element={<DSDHorverstehen3View />} />
-          <Route path="/german/dsd-horverstehen-4" element={<DSDHorverstehen4View />} />
-          <Route path="/german/dsd-horverstehen-5" element={<DSDHorverstehen5View />} />
-          <Route path="/german/dsd-horverstehen-6" element={<DSDHorverstehen6View />} />
-          <Route path="/german/dsd-horverstehen-7" element={<DSDHorverstehen7View />} />
-          <Route path="/german/dsd-horverstehen-8" element={<DSDHorverstehen8View />} />
-          <Route path="/german/dsd-schriftliche-1" element={<DSDSchriftliche1View />} />
-          <Route path="/german/dsd-schriftliche-2" element={<DSDSchriftliche2View />} />
-          <Route path="/german/dsd-schriftliche-3" element={<DSDSchriftliche3View />} />
-          <Route path="/german/dsd-schriftliche-4" element={<DSDSchriftliche4View />} />
+          <Route
+            path="/german/dsd-modellsatz-1"
+            element={<DSDModellsatz1View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-2"
+            element={<DSDModellsatz2View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-3"
+            element={<DSDModellsatz3View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-4"
+            element={<DSDModellsatz4View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-5"
+            element={<DSDModellsatz5View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-6"
+            element={<DSDModellsatz6View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-7"
+            element={<DSDModellsatz7View />}
+          />
+          <Route
+            path="/german/dsd-modellsatz-8"
+            element={<DSDModellsatz8View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-1"
+            element={<DSDHorverstehen1View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-2"
+            element={<DSDHorverstehen2View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-3"
+            element={<DSDHorverstehen3View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-4"
+            element={<DSDHorverstehen4View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-5"
+            element={<DSDHorverstehen5View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-6"
+            element={<DSDHorverstehen6View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-7"
+            element={<DSDHorverstehen7View />}
+          />
+          <Route
+            path="/german/dsd-horverstehen-8"
+            element={<DSDHorverstehen8View />}
+          />
+          <Route
+            path="/german/dsd-schriftliche-1"
+            element={<DSDSchriftliche1View />}
+          />
+          <Route
+            path="/german/dsd-schriftliche-2"
+            element={<DSDSchriftliche2View />}
+          />
+          <Route
+            path="/german/dsd-schriftliche-3"
+            element={<DSDSchriftliche3View />}
+          />
+          <Route
+            path="/german/dsd-schriftliche-4"
+            element={<DSDSchriftliche4View />}
+          />
         </Routes>
       </div>
     </Router>

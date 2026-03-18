@@ -7,7 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import ProgressFeedback from "../components/ProgressFeedback";
 import { getUserProgress, setUserProgress } from "../utils/userProgressApi";
-import dsdData from "../data/dsd-modellsatz-9.json";
+import dsdData from "../data/dsd-modellsatz-8.json";
 
 const STORAGE_KEY = "schulhub-dsd-modellsatz-8-v1";
 

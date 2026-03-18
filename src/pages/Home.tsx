@@ -36,8 +36,12 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
             <MdLanguage className="text-white text-6xl" />
           </div>
           <div className="text-left">
-            <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">Deutsch</h3>
-            <p className="text-xl text-slate-800 dark:text-gray-300">Sprechen Sie Deutsch?</p>
+            <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">
+              Deutsch
+            </h3>
+            <p className="text-xl text-slate-800 dark:text-gray-300">
+              Sprechen Sie Deutsch?
+            </p>
           </div>
         </div>
       </div>
@@ -53,8 +57,12 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
             <FaMicroscope className="text-white text-6xl" />
           </div>
           <div className="text-left">
-            <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">Биология</h3>
-            <p className="text-xl text-slate-800 dark:text-gray-300">Изучаване на живота</p>
+            <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">
+              Биология
+            </h3>
+            <p className="text-xl text-slate-800 dark:text-gray-300">
+              Изучаване на живота
+            </p>
           </div>
         </div>
       </div>
@@ -70,8 +78,12 @@ const HeroIllustration: React.FC<{ subject: string }> = ({ subject }) => {
           <FaGlobeAmericas className="text-white text-6xl" />
         </div>
         <div className="text-left">
-          <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">География</h3>
-          <p className="text-xl text-slate-800 dark:text-gray-300">Откривайте света</p>
+          <h3 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">
+            География
+          </h3>
+          <p className="text-xl text-slate-800 dark:text-gray-300">
+            Откривайте света
+          </p>
         </div>
       </div>
     </div>
@@ -96,15 +108,28 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!token || user?.profile_type !== "student" || !user?.school || !user?.class) {
+    if (
+      !token ||
+      user?.profile_type !== "student" ||
+      !user?.school ||
+      !user?.class
+    ) {
       setHasWeeklyProgram(false);
       return;
     }
     let cancelled = false;
-    fetch(`${API_BASE}/api/me/weekly-program`, { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => { if (!cancelled) setHasWeeklyProgram(res.ok); })
-      .catch(() => { if (!cancelled) setHasWeeklyProgram(false); });
-    return () => { cancelled = true; };
+    fetch(`${API_BASE}/api/me/weekly-program`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!cancelled) setHasWeeklyProgram(res.ok);
+      })
+      .catch(() => {
+        if (!cancelled) setHasWeeklyProgram(false);
+      });
+    return () => {
+      cancelled = true;
+    };
   }, [token, user?.profile_type, user?.school, user?.class]);
 
   const getSubjectIcon = (id: number) => {
@@ -268,17 +293,17 @@ const Home: React.FC = () => {
               <div className="flex items-center justify-end mb-4">
                 <span className="text-slate-700 dark:text-gray-400 text-sm flex items-center gap-1">
                   <FaBook className="text-sm" />
-                  {/* No fixed lessons; treat as ongoing podcast */}
-                  0 {t.lessonsCount}
+                  {/* No fixed lessons; treat as ongoing podcast */}0{" "}
+                  {t.lessonsCount}
                 </span>
               </div>
 
               <h4 className="text-3xl font-bold text-slate-800 dark:text-white mb-4">
-                English
+                {t.englishCourseTitle}
               </h4>
 
               <p className="text-slate-800 dark:text-gray-400 mb-6 leading-relaxed">
-                Learn English with easy, everyday conversations from the Easy English podcast.
+                {t.englishCourseDesc}
               </p>
 
               <div className="flex items-center justify-between flex-wrap gap-3">
@@ -287,11 +312,11 @@ const Home: React.FC = () => {
                   {language === "bg"
                     ? "Всички степени"
                     : language === "de"
-                    ? "Alle Niveaus"
-                    : "All levels"}
+                      ? "Alle Niveaus"
+                      : "All levels"}
                 </span>
                 <div className="flex gap-2">
-                  <Link to="/english/podcasts/all">
+                  <Link to="/english">
                     <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
                       {t.seeMore}
                     </button>
@@ -325,7 +350,9 @@ const Home: React.FC = () => {
               {(user.parent_username != null || user.parent_gender != null) && (
                 <p
                   className={`mb-4 flex items-center gap-2 text-lg font-medium ${
-                    isLight ? "text-amber-800 dark:text-amber-200" : "text-amber-200"
+                    isLight
+                      ? "text-amber-800 dark:text-amber-200"
+                      : "text-amber-200"
                   }`}
                 >
                   {user.parent_gender === "female" ? (
@@ -333,7 +360,10 @@ const Home: React.FC = () => {
                   ) : user.parent_gender === "male" ? (
                     <FaUserTie className="shrink-0 text-2xl" aria-hidden />
                   ) : (
-                    <FaUser className="shrink-0 text-2xl opacity-90" aria-hidden />
+                    <FaUser
+                      className="shrink-0 text-2xl opacity-90"
+                      aria-hidden
+                    />
                   )}
                   <span>
                     {user.parent_gender === "female"
