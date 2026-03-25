@@ -434,6 +434,161 @@
     }
   ],
   "subtitleBg": "",
+  "mindmaps": [
+    {
+      "id": "1",
+      "title": "1 Grundtypen politischer Systeme",
+      "titleBg": "1 Основни типове политически системи",
+      "diagram": "Politische Systeme -> Demokratie / Totalitarismus",
+      "tree": {
+        "id": "1-root",
+        "label": "Grundtypen politischer Systeme",
+        "labelBg": "Основни типове политически системи",
+        "children": [
+          {
+            "id": "1-dem",
+            "label": "Demokratie",
+            "labelBg": "демокрация",
+            "children": [
+              { "id": "1-dem1", "label": "kollektive Entscheidungsfindung", "labelBg": "колективно вземане на решения" },
+              { "id": "1-dem2", "label": "ehrlicher Wettbewerb bei Leader-Wahl", "labelBg": "честна конкуренция при избор на лидер" },
+              { "id": "1-dem3", "label": "Volk = legitime Machtquelle", "labelBg": "народът = легитимен източник на власт" },
+              { "id": "1-dem4", "label": "Selbstverwaltung -> Gemeinwohl", "labelBg": "самоуправление -> общо благо" }
+            ]
+          },
+          {
+            "id": "1-tot",
+            "label": "Totalitarismus",
+            "labelBg": "тоталитаризъм",
+            "children": [
+              { "id": "1-t1", "label": "Regulierungs- und Kontrollbestreben", "labelBg": "стремеж към регулация и контрол" },
+              { "id": "1-t2", "label": "Kontrolle aller Lebensbereiche", "labelBg": "контрол върху всички сфери на живота" },
+              { "id": "1-t3", "label": "Einschränkung individueller Freiheit", "labelBg": "ограничаване на индивидуалната свобода" },
+              { "id": "1-t4", "label": "Beispiele: Nordkorea, Vietnam, Kuba", "labelBg": "примери: Северна Корея, Виетнам, Куба" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "title": "2 Wichtige Charakteristika des Staates und der Machtorgane",
+      "titleBg": "2 Важни характеристики на държавата и властовите органи",
+      "diagram": "Staat = Territorium + Bevölkerung + Staatsmacht",
+      "tree": {
+        "id": "2-root",
+        "label": "Staat und Machtorgane",
+        "labelBg": "Държава и властови органи",
+        "children": [
+          { "id": "2-def", "label": "Staat = Form politischer Organisation", "labelBg": "държава = форма на политическа организация" },
+          {
+            "id": "2-grund",
+            "label": "Grundelemente",
+            "labelBg": "основни елементи",
+            "children": [
+              { "id": "2-g1", "label": "souveränes Territorium (Staatsgebiet)", "labelBg": "суверенна територия (държавна територия)" },
+              { "id": "2-g2", "label": "Bevölkerung", "labelBg": "население" },
+              { "id": "2-g3", "label": "Staatsmacht", "labelBg": "държавна власт" }
+            ]
+          },
+          {
+            "id": "2-org",
+            "label": "Machtorgane",
+            "labelBg": "властови органи",
+            "children": [
+              { "id": "2-o1", "label": "Staatsoberhaupt (Präsident/Monarch)", "labelBg": "държавен глава (президент/монарх)" },
+              { "id": "2-o2", "label": "Regierung", "labelBg": "правителство" },
+              { "id": "2-o3", "label": "Parlament", "labelBg": "парламент" },
+              { "id": "2-o4", "label": "Justiz", "labelBg": "съдебна власт" }
+            ]
+          },
+          {
+            "id": "2-weit",
+            "label": "weitere Merkmale",
+            "labelBg": "допълнителни признаци",
+            "children": [
+              { "id": "2-w1", "label": "Staatssymbole", "labelBg": "държавни символи" },
+              { "id": "2-w2", "label": "Hauptstadt", "labelBg": "столица" },
+              { "id": "2-w3", "label": "Staatssprache", "labelBg": "държавен език" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "title": "3 Die Herausbildung der politischen Weltkarte",
+      "titleBg": "3 Формиране на политическата световна карта",
+      "diagram": "langwährender dynamischer Prozess",
+      "tree": {
+        "id": "3-root",
+        "label": "Herausbildung der politischen Weltkarte",
+        "labelBg": "Формиране на политическата световна карта",
+        "children": [
+          { "id": "3-dyn", "label": "langwährender, komplizierter, dynamischer Prozess", "labelBg": "дълъг, сложен и динамичен процес" },
+          { "id": "3-19-20", "label": "meiste Nationalstaaten: 19.–20. Jahrhundert", "labelBg": "повечето национални държави: XIX–XX век" },
+          { "id": "3-ww", "label": "größte Veränderungen: nach Erstem/Zweitem Weltkrieg", "labelBg": "най-големи промени: след Първата/Втората световна война" },
+          { "id": "3-kol", "label": "Zerfall koloniales System (50er/60er) -> neue Staaten in Afrika", "labelBg": "разпад на колониалната система (50-те/60-те) -> нови държави в Африка" },
+          { "id": "3-erit", "label": "Eritrea 1993; Südsudan 2011", "labelBg": "Еритрея 1993; Южен Судан 2011" },
+          { "id": "3-asia", "label": "Asien: Nord-/Südjemen vereint (1990); Hongkong/Macao an China (1997/1999)", "labelBg": "Азия: Северен/Южен Йемен обединени (1990); Хонконг/Макао към Китай (1997/1999)" },
+          { "id": "3-korea", "label": "Korea bleibt geteilt: Nord-/Südkorea", "labelBg": "Корея остава разделена: Северна/Южна Корея" }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "title": "4 Länder-Einteilung nach Merkmalen",
+      "titleBg": "4 Разделяне на държавите според признаци",
+      "diagram": "Einteilung: Lage / Regierung / Einrichtung / Entwicklung",
+      "tree": {
+        "id": "4-root",
+        "label": "Länder-Einteilung",
+        "labelBg": "Разделяне на държавите",
+        "children": [
+          {
+            "id": "4-geo",
+            "label": "nach geografischer Lage",
+            "labelBg": "според географското положение",
+            "children": [
+              { "id": "4-g1", "label": "Inselstaaten", "labelBg": "островни държави" },
+              { "id": "4-g2", "label": "Kontinentalstaaten", "labelBg": "континентални държави" },
+              { "id": "4-g3", "label": "naturgeografisch / wirtschaftsgeografisch / politisch-geografisch", "labelBg": "природогеографско / икономгеографско / политикогеографско положение" }
+            ]
+          },
+          {
+            "id": "4-reg",
+            "label": "nach Regierungssystem",
+            "labelBg": "според системата на управление",
+            "children": [
+              { "id": "4-r1", "label": "Republiken", "labelBg": "републики" },
+              { "id": "4-r2", "label": "Monarchien", "labelBg": "монархии" },
+              { "id": "4-r3", "label": "Republik: parlamentarisch / präsidial", "labelBg": "република: парламентарна / президентска" },
+              { "id": "4-r4", "label": "Monarchie: absolut / parlamentarisch / konstitutionell", "labelBg": "монархия: абсолютна / парламентарна / конституционна" }
+            ]
+          },
+          {
+            "id": "4-state",
+            "label": "nach staatlicher Einrichtung",
+            "labelBg": "според държавното устройство",
+            "children": [
+              { "id": "4-s1", "label": "Einheitsstaat: zentralistische Staatsgewalt", "labelBg": "унитарна държава: централизирана власт" },
+              { "id": "4-s2", "label": "Bundesstaat: Teil-/Gliedstaaten mit Selbstständigkeit", "labelBg": "федерална държава: части/членки със самостоятелност" }
+            ]
+          },
+          {
+            "id": "4-eco",
+            "label": "nach wirtschaftlicher Entwicklungsstufe",
+            "labelBg": "според икономическото равнище",
+            "children": [
+              { "id": "4-e1", "label": "hoch entwickelt", "labelBg": "високоразвити" },
+              { "id": "4-e2", "label": "mittel entwickelt", "labelBg": "средноразвити" },
+              { "id": "4-e3", "label": "schwach entwickelt (Entwicklungsländer)", "labelBg": "слаборазвити (развиващи се)" }
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "content": "<strong>1 Grundtypen politischer Systeme</strong>\\n\\nMan unterscheidet zwei Grundtypen politischer Systeme: das demokratische und das totalitäre Regierungssystem.\\n\\nDie Demokratie ist ein politisches Regime, dem die Methode der kollektiven Entscheidungsfindung mit einer ebenbürtigen Einwirkung der Teilnehmer auf den Verfahrensabschluss zugrunde liegt. Die wichtigsten Merkmale der Demokratie sind: Leader-Wahl im ehrlichen Wettbewerb; das Volk als einzige legitime Machtquelle; Selbstverwaltung der Gesellschaft im gemeinsamen Interesse am Gemeinwohl.\\n\\nDer Totalitarismus ist ein politisches Regime, das sich durch Regulierungs- und Kontrollbestreben aller Lebensbereiche (des politischen, sozialen und intellektuellen Lebens) auszeichnet und auf die Einschränkung und Kontrolle der individuellen Freiheit abzielt. Beispiele für totalitäre Staaten der Gegenwart sind Nordkorea, Vietnam, Kuba u.a.\\n\\n<strong>2 Wichtige Charakteristika des Staates und der Machtorgane</strong>\\n\\nDer Staat ist eine Form der politischen Organisation der Gesellschaft. Er organisiert die politische Machtausübung auf einem bestimmten Territorium zwecks Verwirklichung der gesellschaftlichen Interessen. Grundelemente des Staates sind das souveräne Territorium (Staatsgebiet), die Bevölkerung, die Staatsmacht (Staatsoberhaupt: Präsident oder Monarch, Regierung, Parlament, Justiz), Staatssymbole (Staatswappen, Staatsfahne, Staatssiegel, Nationalhymne, Hauptstadt), Staatssprache (offizielle Sprache) u.a.\\n\\n<strong>3 Die Herausbildung der politischen Weltkarte</strong>\\n\\nDie Herausbildung der politischen Weltkarte ist ein langwährender, komplizierter und dynamischer Prozess. Die meisten Nationalstaaten entstanden im 19. und 20. Jahrhundert; die größten Veränderungen wurden jedoch nach dem Ersten und nach dem Zweiten Weltkrieg verzeichnet. Der Zerfall des kolonialen Systems in den fünfziger und sechziger Jahren des 20. Jahrhunderts führte zur Entstehung vieler neuer Staaten, vor allem in Afrika; nach 1990 entstanden noch zwei neue Staaten: Eritrea (1993, nach der Ablösung von Äthiopien) und Südsudan (nach Erlangung der Unabhängigkeit von Sudan im Jahr 2011). In Asien vereinigten sich Nord- und Südjemen (1990), China bekam Hongkong und Makao zurück (1997, 1999). Der koreanische Staat blieb in Nord- und Südkorea gespalten.\\n\\n<strong>4 Länder-Einteilung nach Merkmalen</strong>\\n\\nNach der geografischen Lage teilt man die Staaten in Insel- und Kontinentalstaaten ein. Hinsichtlich der geografischen Lage unterscheidet man wiederum zwischen naturgeografischer Lage (Lage des Staates gegenüber ausgedehnten Ebenen, Gebirgssystemen, schiffbaren Flüssen usw.), wirtschaftsgeografischer Lage (Lage des Staates gegenüber wichtigen Straßen und Märkten usw.) und politisch-geografischer Lage (Widerspiegelung der Platzierung eines Staates auf der politischen Karte, seiner Beziehungen zu anderen Ländern, zu internationalen Verbänden usw.).\\n\\nNach dem Regierungssystem unterscheidet man zwischen Republiken und Monarchien. In der parlamentarischen Republik hat das Parlament die wichtigste Funktion in der Staatsverwaltung inne. Im präsidialen Regierungssystem (Präsidialsystem) hat der Präsident ausgedehnte Machtbefugnisse; meistens ist er sowohl Staatsoberhaupt als auch Regierungschef.\\n\\nDie Monarchien unterteilt man in absolute, parlamentarische und konstitutionelle. In der absoluten Monarchie hat der Monarch die alleinige Staatsgewalt. In der parlamentarischen Monarchie ist seine Macht stark eingeschränkt, weil das vom Volk gewählte Parlament als Kontrollorgan funktioniert. In der konstitutionellen Monarchie ist die Macht des Monarchen durch die Verfassung beschränkt.\\n\\nNach der staatlichen Einrichtung unterteilt man die Staaten in Einheitsstaaten und Bundesstaaten (föderale Staaten). Im Einheitsstaat wird die Staatsgewalt zentralistisch ausgeübt, die Verwaltungseinheiten sind dem Zentrum untergeordnet. Die Bundesstaaten konstituieren sich aus mehreren Teil- oder Gliedstaaten, welche über eine gewisse Selbstständigkeit verfügen (eigenes Parlament, eigene Regierung usw.).\\n\\nNach der wirtschaftlichen Entwicklungsstufe unterscheidet man hoch entwickelte (in der Weltwirtschaft führende), mittel entwickelte und schwach entwickelte Staaten (Entwicklungsländer).",
   "sentences": [
     {

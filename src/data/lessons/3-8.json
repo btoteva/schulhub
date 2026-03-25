@@ -4,6 +4,280 @@
   "title": "23. ZAHL, VERTEILUNG UND WANDERUNGSBEWEGUNGEN DER WELTBEVÖLKERUNG",
   "titleBg": "23. БРОЙ, РАЗПРЕДЕЛЕНИЕ И МИГРАЦИОННИ ДВИЖЕНИЯ НА СВЕТОВНАТА НАСЕЛЕНИЕ",
   "subtitle": "",
+  "mindmaps": [
+    {
+      "id": "1",
+      "title": "1 Die Zahl der Weltbevölkerung",
+      "titleBg": "1 Брой на световното население",
+      "diagram": "Weltbevölkerung\n  früher: langsam (Antike - Anfang 19. Jh.)\n    Ursachen: Umwelt, Naturkatastrophen, Hungersnöte, Kriege, Krankheiten\n  ca. 1830: ~1 Mrd.\n  2. Hälfte 20. Jh.: rapider Zuwachs\n    Ursachen: wirtschaftlicher Fortschritt, politische Entwicklung\n  Tempo: Afrika schnell, Europa langsam\n  2017: 7,5 Mrd.",
+      "tree": {
+        "id": "1-root",
+        "label": "Die Zahl der Weltbevölkerung",
+        "labelBg": "Брой на световното население",
+        "imageKind": "default",
+        "children": [
+          {
+            "id": "1-frueh",
+            "label": "früher: langsames Wachstum",
+            "labelBg": "по-рано: бавен растеж",
+            "children": [
+              {
+                "id": "1-zeit",
+                "label": "Antike bis Anfang 19. Jh.",
+                "labelBg": "от Античността до началото на XIX в."
+              },
+              {
+                "id": "1-urs",
+                "label": "starke Abhängigkeit von Umwelt",
+                "labelBg": "силна зависимост от околната среда",
+                "children": [
+                  { "id": "1-nat", "label": "Naturkatastrophen", "labelBg": "природни бедствия" },
+                  { "id": "1-hun", "label": "Hungersnöte", "labelBg": "глад" },
+                  { "id": "1-kr", "label": "Kriege", "labelBg": "войни" },
+                  { "id": "1-krk", "label": "Krankheiten", "labelBg": "болести" }
+                ]
+              }
+            ]
+          },
+          { "id": "1-1830", "label": "ca. 1830: ~1 Milliarde", "labelBg": "около 1830: ~1 млрд." },
+          {
+            "id": "1-20",
+            "label": "2. Hälfte 20. Jh.: rapider Bevölkerungszuwachs",
+            "labelBg": "втората половина на XX в.: бърз растеж",
+            "children": [
+              { "id": "1-w", "label": "wirtschaftlicher Fortschritt", "labelBg": "икономически прогрес" },
+              { "id": "1-p", "label": "politische Entwicklung", "labelBg": "политическо развитие" }
+            ]
+          },
+          {
+            "id": "1-temp",
+            "label": "Tempo: Afrika schnell, Europa langsam",
+            "labelBg": "темп: Африка расте най-бързо, Европа – най-бавно"
+          },
+          { "id": "1-2017", "label": "2017: 7,5 Milliarden Menschen", "labelBg": "2017: 7,5 милиарда души" }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "title": "2 Die Verteilung der Weltbevölkerung",
+      "titleBg": "2 Разпределение на световното население",
+      "diagram": "Verteilung\n  70% auf 7% der Erdoberfläche\n  80% bis 500 m Höhe, vor allem Küsten\n  mittlere Dichte: ~50 Menschen/km²\n  höchste Dichte: klein. Territorium (Monaco)\n  niedrigste Dichte: Wüsten, Hochgebirge, kalte Klimagürtel (Mongolei, Island)",
+      "tree": {
+        "id": "2-root",
+        "label": "Die Verteilung der Weltbevölkerung",
+        "labelBg": "Разпределение на световното население",
+        "imageKind": "default",
+        "children": [
+          { "id": "2-70", "label": "Etwa 70% leben auf 7% der Fläche", "labelBg": "Около 70% живеят на 7% от площта" },
+          {
+            "id": "2-80",
+            "label": "Etwa 80% bis 500 m Höhe (v. a. Küsten)",
+            "labelBg": "Около 80% до 500 м надм. вис. (главно крайбрежия)"
+          },
+          { "id": "2-dichte", "label": "mittlere Bevölkerungsdichte: ~50 / km²", "labelBg": "средна гъстота: ~50 / км²" },
+          {
+            "id": "2-max",
+            "label": "am dichtesten: Staaten mit geringem Territorium",
+            "labelBg": "най-гъсто: държави с малка територия",
+            "children": [{ "id": "2-mon", "label": "Monaco: 19 692 / km²", "labelBg": "Монако: 19 692 / км²" }]
+          },
+          {
+            "id": "2-min",
+            "label": "am niedrigsten: Wüsten, Hochgebirge, kalte Klimagürtel",
+            "labelBg": "най-ниско: пустини, планини, студени климатични пояси",
+            "children": [
+              { "id": "2-mong", "label": "Mongolei: 1,7 / km²", "labelBg": "Монголия: 1,7 / км²" },
+              { "id": "2-isl", "label": "Island: 3 / km²", "labelBg": "Исландия: 3 / км²" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "title": "3 Wanderungsbewegungen der Weltbevölkerung",
+      "titleBg": "3 Миграционни движения на световното население",
+      "diagram": "Bewegungen\n  natürlich: Geburtenrate - Sterberate\n  mechanisch (räumlich): Migration (Immigration/Emigration)\n  Bevölkerungszuwachs = natürlich + mechanisch",
+      "tree": {
+        "id": "3-root",
+        "label": "Wanderungsbewegungen",
+        "labelBg": "Миграционни движения",
+        "imageKind": "default",
+        "children": [
+          {
+            "id": "3-basis",
+            "label": "Veränderungen: natürliche + mechanische Bewegung",
+            "labelBg": "промени: естествено + механично движение"
+          },
+          {
+            "id": "3-nat",
+            "label": "Natürliche Bewegung",
+            "labelBg": "естествено движение",
+            "children": [
+              {
+                "id": "3-birth",
+                "label": "Geburtenrate (‰): lebendgeborene Kinder / 1000",
+                "labelBg": "раждаемост (‰): живородени деца / 1000",
+                "imageKind": "age"
+              },
+              {
+                "id": "3-birth-fakt",
+                "label": "abhängig von: Altersstruktur, Religion, soziale & wirtschaftliche Verhältnisse",
+                "labelBg": "зависи от: възрастова структура, религия, социални/икономически условия"
+              },
+              {
+                "id": "3-birth-high",
+                "label": "hoch: Entwicklungsländer (z.B. Tschad 46‰)",
+                "labelBg": "високо: развиващи се (напр. Чад 46‰)",
+                "imageKind": "age"
+              },
+              {
+                "id": "3-birth-low",
+                "label": "niedrig: Europa (DE 8,6‰; BG 8,7‰), Asien (Japan 7,7‰)",
+                "labelBg": "ниско: Европа (Германия 8,6‰; България 8,7‰), Азия (Япония 7,7‰)",
+                "imageKind": "age"
+              },
+              {
+                "id": "3-death",
+                "label": "Sterberate (‰): Todesfälle pro 1000; Faktoren: Lebensqualität, Alterung, Medizin, Armut",
+                "labelBg": "смъртност (‰): починали на 1000; фактори: качество на живот, възраст, медицина, бедност",
+                "imageKind": "age"
+              },
+              {
+                "id": "3-death-high",
+                "label": "höchste Sterberate: geringe Lebensqualität/Epidemien (Lesotho, Tschad) + alternde Bevölkerung (Ukraine, Litauen)",
+                "labelBg": "най-висока смъртност: ниско качество/епидемии (Лесото, Чад) + застаряващо население (Украйна, Литва)"
+              },
+              {
+                "id": "3-natural-growth",
+                "label": "Natürliches Bevölkerungswachstum = Geburtenrate - Sterberate (‰) (+/−)",
+                "labelBg": "естествен прираст = раждаемост - смъртност (‰) (+/−)"
+              },
+              {
+                "id": "3-natural-high",
+                "label": "höchstes Wachstum: Afrika (Niger 38‰), Asien (Indien 14‰), Lateinamerika (Guatemala 19‰)",
+                "labelBg": "най-висок прираст: Африка (Нигер 38‰), Азия (Индия 14‰), Латинска Америка (Гватемала 19‰)"
+              },
+              {
+                "id": "3-natural-low",
+                "label": "niedrig/negativ: Osteuropa (Bulgarien -6‰)",
+                "labelBg": "нисък/отрицателен: Източна Европа (България -6‰)"
+              }
+            ]
+          },
+          {
+            "id": "3-mech",
+            "label": "Mechanische (räumliche) Bewegung",
+            "labelBg": "механично (пространствено) движение",
+            "children": [
+              {
+                "id": "3-mig",
+                "label": "Migration = Immigration (Einwanderung) + Emigration (Auswanderung); inner/äußer je nach Grenze",
+                "labelBg": "миграция = имиграция (заселване) + емиграция (изселване); вътрешни/външни според граница"
+              },
+              {
+                "id": "3-mig-urs",
+                "label": "Ursachen: wirtschaftlich, kriegspolitisch, religiös, ökologisch",
+                "labelBg": "причини: икономически, политически/войни, религиозни, екологични"
+              },
+              {
+                "id": "3-uno",
+                "label": "UNO 2016: über 200 Mio. Migranten",
+                "labelBg": "ООН 2016: над 200 млн. мигранти"
+              },
+              {
+                "id": "3-mech-add",
+                "label": "mechanischer Zuwachs = Immigration - Emigration (+/−)",
+                "labelBg": "механичен прираст = имиграция - емиграция (+/−)"
+              },
+              {
+                "id": "3-total",
+                "label": "tatsächlicher Zuwachs = natürlich + mechanisch",
+                "labelBg": "реален прираст = естествен + механичен"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "title": "4 Aktuelle demografische Probleme",
+      "titleBg": "4 Актуални демографски проблеми",
+      "diagram": "Boom\n  hoher Geburtenrate + niedrige Sterblichkeit\n  Regionen: Südasien, Naher Osten, Zentralafrika, Lateinamerika\nKrise\n  rapider Bevölkerungsrückgang\n  Folgen: menschenleer werden\n  Ursachen: niedrige Geburtenrate, Alterung, Emigration junger Leute\n  Beispiele: Litauen, Lettland, Ukraine, Bulgarien",
+      "tree": {
+        "id": "4-root",
+        "label": "Aktuelle demografische Probleme",
+        "labelBg": "Актуални демографски проблеми",
+        "imageKind": "default",
+        "children": [
+          {
+            "id": "4-boom",
+            "label": "Demografischer Boom",
+            "labelBg": "демографски бум",
+            "children": [
+              { "id": "4-boom-def", "label": "rapider Zuwachs: hohe Geburtenrate + niedrige Sterblichkeit", "labelBg": "бърз растеж: висока раждаемост + ниска смъртност" },
+              { "id": "4-boom-reg", "label": "vorkommen: Südasien, Naher Osten, Zentralafrika, Lateinamerika", "labelBg": "къде: Южна Азия, Близък изток, Централна Африка, Латинска Америка" }
+            ]
+          },
+          {
+            "id": "4-krise",
+            "label": "Demografische Krise",
+            "labelBg": "демографска криза",
+            "children": [
+              { "id": "4-def", "label": "rapider Bevölkerungsrückgang mit weitreichenden Folgen", "labelBg": "бърз спад с далечни последици" },
+              { "id": "4-fol", "label": "Orte/Regionen werden menschenleer", "labelBg": "селища/райони стават безлюдни" },
+              { "id": "4-lands", "label": "betroffen: Litauen, Lettland, Ukraine, Bulgarien u.a.", "labelBg": "засегнати: Литва, Латвия, Украйна, България и др." },
+              { "id": "4-urs", "label": "Ursachen: niedrige Geburtenrate + Alterung + Emigration junger Leute", "labelBg": "причини: ниска раждаемост + застаряване + емиграция на млади" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "title": "5 Mögliche Lösungen des demografischen Problems",
+      "titleBg": "5 Възможни решения на демографския проблем",
+      "diagram": "Demografische Politik\n  Ziel: Geburtenrate beeinflussen (Zunahme/Abnahme)\n  Fall 1: Geburtenrückgang (China etc.)\n    Familienplanung, Heiratsalter-Regeln\n  Fall 2: Förderung der Geburten (Frankreich, Ungarn etc.)\n    Kinderurlaub, Hilfen, Steuerbegünstigungen, Wohnungen",
+      "tree": {
+        "id": "5-root",
+        "label": "Mögliche Lösungen",
+        "labelBg": "Възможни решения",
+        "imageKind": "default",
+        "children": [
+          {
+            "id": "5-pol",
+            "label": "Demografische Politik",
+            "labelBg": "демографска политика",
+            "children": [
+              { "id": "5-pol-def", "label": "System aus Gesetzen + wirtschaftlichen + sozialen Maßnahmen", "labelBg": "система от закони + икономически + социални мерки" },
+              { "id": "5-pol-ziel", "label": "Staat beeinflusst Geburtenrate (gewünschte Richtung)", "labelBg": "държавата влияе на раждаемостта (желана посока)" }
+            ]
+          },
+          {
+            "id": "5-1",
+            "label": "Fokus: Geburtenrückgang",
+            "labelBg": "фокус: намаляване на раждаемостта",
+            "children": [
+              { "id": "5-1-l", "label": "Länder: China (1978–2016), Indien, Iran u.a.", "labelBg": "страни: Китай (1978–2016), Индия, Иран и др." },
+              { "id": "5-1-ma", "label": "Maßnahmen: Familienplanung propagieren; Gesetze zum Heiratsalter", "labelBg": "мерки: насърчаване на семейно планиране; закони за брачната възраст" },
+              { "id": "5-1-w", "label": "Wirkung: widersprüchlich", "labelBg": "ефект: противоречив" }
+            ]
+          },
+          {
+            "id": "5-2",
+            "label": "Fokus: Förderung der Geburten",
+            "labelBg": "фокус: насърчаване на раждаемостта",
+            "children": [
+              { "id": "5-2-l", "label": "Länder: Frankreich, Ungarn u.a.", "labelBg": "страни: Франция, Унгария и др." },
+              { "id": "5-2-ma", "label": "Hilfen: bezahlter Kinderurlaub, finanzielle Hilfen, Steuerbegünstigungen, Wohnungen usw.", "labelBg": "помощи: платен отпуск за деца, финансови помощи, данъчни облекчения, жилища и др." }
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "content": "<strong>1 Die Zahl der Weltbevölkerung</strong>\n\nHistorischen Analysen nach ist das langsame Bevölkerungswachstum im Zeitraum von der Antike bis zum Anfang des 19. Jh. auf die starke Abhängigkeit des Menschen von seiner Umwelt, von Naturkatastrophen, Hungersnöten, Kriegen, Krankheiten – zurückzuführen. Gegen 1830 zählte die Weltbevölkerung etwa eine Milliarde Menschen. Der wirtschaftliche Fortschritt und die politische Entwicklung führten in der zweiten Hälfte des 20. Jh. zu einem rapiden Bevölkerungswachstum. Am schnellsten wächst die Bevölkerung in Afrika, am langsamsten in Europa. Im Jahr 2017 betrug die Weltbevölkerung 7,5 Milliarden Menschen.\n\n<strong>2 Die Verteilung der Weltbevölkerung</strong>\n\nEtwa 70% der Weltbevölkerung leben auf 7% der Erdoberfläche. Etwa 80% davon besiedeln Orte bis zu 500 m Höhe über dem Meeresspiegel, vor allem in Küstengebieten. Die mittlere Bevölkerungsdichte beträgt etwa 50 Menschen pro Quadratkilometer. Am dichtesten besiedelt sind Staaten mit geringem Territorium (bspw. Monaco: 19 692 Menschen/Quadratkilometer). Die niedrigste Bevölkerungsdichte haben schwach bewirtschaftete Wüstenregionen, Hochgebirge und Gebiete in den kalten Klimagürteln (die Mongolei 1,7 Menschen/Quadratkilometer, Island 3 Menschen/Quadratkilometer).\n\n<strong>3 Wanderungsbewegungen der Weltbevölkerung</strong>\n\nDie Veränderungen der Bevölkerungszahl werden durch ihre natürliche und mechanische Bewegung bestimmt. Die natürliche Bevölkerungsbewegung stellt die Veränderung der Bevölkerungszahl als Ergebnis der natürlichen demografischen Prozesse (der Geburtenrate/Geburtenziffer/ und Sterberate/Sterbeziffer/) dar.\n\nDie Geburtenrate (Geburtenziffer) gibt die Anzahl der lebendgeborenen Kinder an, bezogen auf 1000 Einwohner, und wird in Promille (‰) ausgedrückt. Sie ist sowohl von der Altersstruktur der Bevölkerung, als auch von ihrer Religion und von den sozialen und wirtschaftlichen Verhältnissen abhängig. Die Entwicklungsländer, besonders in Afrika, zeichnen sich durch eine hohe Geburtenziffer aus (Tschad 46‰). Die niedrigste Geburtenrate haben manche Länder in Europa (wie z.B. Deutschland 8,6‰, Bulgarien 8,7‰) und manche asiatischen Länder (z.B. Japan 7,7‰).\n\nDie Sterberate (Sterbeziffer/Mortalitätsziffer) bezeichnet das Verhältnis der Sterbefälle pro 1000 Personen der Gesamtbevölkerung. Einflussgrößen für die Mortalität sind die Lebensqualität, die Altersstruktur der Bevölkerung, die Qualität der medizinischen Versorgung, die Armut u.a. Die höchste Sterberate weisen Länder mit niedriger Lebensqualität und Epidemien (Lesotho, Tschad u.a.), sowie Länder mit alternder Bevölkerung wie die Ukraine und Litauen auf.\n\nDas natürliche Bevölkerungswachstum stellt den Unterschied zwischen der Geburtenrate und der Sterberate in Promille (‰) dar. Das natürliche Bevölkerungswachstum kann positiv oder negativ sein. Das höchste Bevölkerungswachstum haben Entwicklungsländer in Afrika (z.B. Niger 38‰), Asien (z.B. Indien 14‰) und Lateinamerika (z.B. Guatemala 19‰). Einen niedrigen und somit negativen natürlichen Bevölkerungszuwachs weisen vor allem die osteuropäischen Länder auf (Bulgarien minus 6‰).\n\n<strong>Die mechanische (räumliche) Bevölkerungsbewegung</strong> hängt mit den Migrationen zusammen. Sie stellen die Gesamtheit aller Auswanderungs- und Einwanderungsbewegungen der Weltbevölkerung dar. In Abhängigkeit von der Überschreitung staatlicher Grenzen wird zwischen inneren und äußeren Migrationen unterschieden. Die äußere Migration wird in Immigration (Einwanderung) und Emigration (Auswanderung) unterteilt. Diese Migrationen sind wirtschaftlich, kriegspolitisch, religiös oder ökologisch bedingt. Nach Angaben der UNO betrug die Migrantenzahl im Jahr 2016 über 200 Millionen Menschen.\n\nDer mechanische Zuwachs stellt den Unterschied zwischen den Immigrationen und den Emigrationen in positiven oder negativen Werten dar. Die Summe des natürlichen und des mechanischen Bevölkerungszuwachses bestimmt den tatsächlichen Bevölkerungszuwachs, der ein genaues Bild über die Bevölkerungsentwicklung bzw. über die Veränderungen der Bevölkerungszahl in einem bestimmten Zeitraum liefert.\n\n<strong>4 Aktuelle demografische Probleme</strong>\n\nAls demografischer Boom bezeichnet man den rapiden Bevölkerungszuwachs infolge einer nachhaltig und langanhaltend hohen Geburtenrate und einer niedrigen Sterblichkeit. Ein demografischer Boom ist derzeit in Südasien, im Nahen Osten, in Zentralafrika und in Lateinamerika festzustellen.\n\nDie demografische Krise findet ihren Niederschlag im rapiden Bevölkerungsrückgang großen Ausmaßes mit weitreichenden Folgen. Als Ergebnis davon können ganze Orte und Regionen menschenleer werden. Viele Länder Osteuropas wie Litauen, Lettland, die Ukraine, Bulgarien u.a. sind von der demografischen Krise betroffen. Die wichtigsten Ursachen dafür sind die niedrige Geburtenrate, die Alterung der Bevölkerung und die Emigration der jungen Leute.\n\n<strong>5 Mögliche Lösungen des demografischen Problems</strong>\n\nDie demografische Politik stellt ein System aus Gesetzen, wirtschaftlichen und sozialen Maßnahmen dar, mit deren Hilfe der Staat die Geburtenrate in die gewünschte Entwicklungsrichtung (Zunahme oder Abnahme) beeinflusst.\n\nIn manchen Ländern fokussiert die demografische Politik einen Geburtenrückgang (in China zwischen 1978 und 2016, in Indien, im Iran usw.). Die Maßnahmen umfassen die Propagierung der Familienplanung, die Anwendung von Gesetzen, die das Heiratsalter regeln usw. Die Wirkung dieser Maßnahmen ist jedoch widersprüchlich.\n\nIn vielen europäischen Ländern (Frankreich, Ungarn u.a.) wird eine Politik zur Förderung der Geburten durchgeführt. Jungen Familien werden bezahlter Kinderurlaub, finanzielle Hilfen, Steuerbegünstigungen, Wohnungen usw. gewährt.",
   "sentences": [
     {
