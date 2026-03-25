@@ -3,6 +3,11 @@ import { createPortal } from "react-dom";
 import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import {
   FaArrowLeft,
+  FaVenusMars,
+  FaBirthdayCake,
+  FaCross,
+  FaGlobe,
+  FaBriefcase,
   FaPlay,
   FaPause,
   FaVolumeUp,
@@ -283,7 +288,13 @@ const LessonView: React.FC = () => {
   const { volume } = useAudioVolume();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<
-    "content" | "dictionary" | "flashcards" | "resources" | "exercises" | "test"
+    | "content"
+    | "dictionary"
+    | "flashcards"
+    | "mindmaps"
+    | "resources"
+    | "exercises"
+    | "test"
   >(
     lessonId === "2-izhodno" || lessonId === "2-izhodno-2"
       ? "exercises"
@@ -987,6 +998,20 @@ const LessonView: React.FC = () => {
               }`}
             >
               {t.resources}
+            </button>
+            <button
+              type="button"
+              disabled={isTestOnlyLesson}
+              onClick={() => !isTestOnlyLesson && setActiveTab("mindmaps")}
+              className={`px-6 py-3 font-semibold transition-all ${
+                isTestOnlyLesson ? "cursor-not-allowed" : ""
+              } ${
+                activeTab === "mindmaps"
+                  ? "text-green-600 dark:text-green-400 border-b-2 border-green-600 dark:border-green-400"
+                  : "text-slate-800 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-300"
+              }`}
+            >
+              {t.mindmaps}
             </button>
             <button
               type="button"
@@ -1907,6 +1932,97 @@ const LessonView: React.FC = () => {
                   </h3>
                   <p className="text-slate-500 dark:text-gray-500 italic">
                     {t.comingSoon}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Mindmaps Tab */}
+          {!isTestOnlyLesson && activeTab === "mindmaps" && (
+            <div className="space-y-8">
+              {(lessonData as LessonContent).mindmaps &&
+              (lessonData as LessonContent).mindmaps!.length > 0 ? (
+                (lessonData as LessonContent).mindmaps!.map((mm) => (
+                  <div
+                    key={mm.id}
+                    className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-gray-700"
+                  >
+                    <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-4">
+                      {language === "bg" && mm.titleBg ? mm.titleBg : mm.title}
+                    </h3>
+                    <div className="bg-white/70 dark:bg-gray-900/20 border border-slate-200 dark:border-gray-700 rounded-lg p-4">
+                      {mm.tree ? (
+                        (() => {
+                          const renderIcon = (
+                            kind?: string,
+                          ): React.ReactNode => {
+                            switch (kind) {
+                              case "gender":
+                                return <FaVenusMars className="w-5 h-5 text-emerald-600" />;
+                              case "age":
+                                return <FaBirthdayCake className="w-5 h-5 text-emerald-600" />;
+                              case "religion":
+                                return <FaCross className="w-5 h-5 text-emerald-600" />;
+                              case "language":
+                                return <FaGlobe className="w-5 h-5 text-emerald-600" />;
+                              case "work":
+                                return <FaBriefcase className="w-5 h-5 text-emerald-600" />;
+                              default:
+                                return <span className="w-5 h-5 inline-block" />;
+                            }
+                          };
+
+                          const renderNode = (node: any): React.ReactNode => {
+                            return (
+                              <div key={node.id} className="flex flex-col items-stretch gap-2">
+                                <div className="flex items-start gap-3 bg-slate-50 dark:bg-gray-800 border border-slate-200 dark:border-gray-700 rounded-lg p-3">
+                                  {renderIcon(node.imageKind)}
+                                  <div className="flex-1">
+                                    <div className="font-bold text-slate-900 dark:text-gray-100">
+                                      {node.label}
+                                    </div>
+                                    {node.labelBg ? (
+                                      <div className="text-sm text-slate-600 dark:text-gray-300 mt-1">
+                                        {node.labelBg}
+                                      </div>
+                                    ) : null}
+                                  </div>
+                                </div>
+                                {node.children && node.children.length > 0 && (
+                                  <div className="pl-4 border-l-2 border-slate-200 dark:border-gray-700 flex flex-col gap-3">
+                                    {node.children.map((child: any) => (
+                                      <div key={child.id} className="flex items-start gap-2">
+                                        <span className="text-slate-400 mt-2">→</span>
+                                        {renderNode(child)}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          };
+
+                          return renderNode(mm.tree);
+                        })()
+                      ) : (
+                        <div
+                          className="bg-white/70 dark:bg-gray-900/20 border border-slate-200 dark:border-gray-700 rounded-lg p-4"
+                          style={{ whiteSpace: "pre-wrap" }}
+                        >
+                          {language === "bg" ? mm.diagramBg || mm.diagram : mm.diagram}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-800 dark:to-gray-900 rounded-xl p-8 border border-slate-200 dark:border-gray-700 border-dashed">
+                  <h3 className="text-2xl font-bold text-slate-500 dark:text-gray-500 mb-2">
+                    {t.mindmaps}
+                  </h3>
+                  <p className="text-slate-500 dark:text-gray-500 italic">
+                    Няма мисловни карти за този урок.
                   </p>
                 </div>
               )}

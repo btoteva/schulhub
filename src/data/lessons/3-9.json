@@ -105,6 +105,330 @@
           "translation": "развиващи се страни",
           "example": "Entwicklungsländer haben eine schwache wirtschaftliche Entwicklungsstufe.",
           "example_translation": "Развиващите се страни имат по-ниско икономическо развитие."
+        },
+        {
+          "word": "das Regime",
+          "translation": "режим",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Methode",
+          "translation": "метод",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Entscheidungsfindung",
+          "translation": "вземане на решения",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Einwirkung",
+          "translation": "въздействие",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Verfahrensabschluss",
+          "translation": "приключване на процедурата",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Merkmale",
+          "translation": "характеристики",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Wahl",
+          "translation": "избор",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Wettbewerb",
+          "translation": "конкуренция",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Volk",
+          "translation": "народ",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Machtquelle",
+          "translation": "източник на власт",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Selbstverwaltung",
+          "translation": "самоуправление",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Gemeinwohl",
+          "translation": "общо благо",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Bestreben",
+          "translation": "стремеж",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Kontrolle",
+          "translation": "контрол",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Einschränkung",
+          "translation": "ограничаване",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Freiheit",
+          "translation": "свобода",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Lebensbereiche",
+          "translation": "сфери на живота",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Machtausübung",
+          "translation": "упражняване на властта",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Territorium",
+          "translation": "територия",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Verwirklichung",
+          "translation": "осъществяване",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Interessen",
+          "translation": "интереси",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Grundelement",
+          "translation": "основен елемент",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Staatsmacht",
+          "translation": "държавна власт",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Staatsoberhaupt",
+          "translation": "държавен глава",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Präsident",
+          "translation": "президент",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Monarch",
+          "translation": "монарх",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Regierung",
+          "translation": "правителство",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Staatssymbole",
+          "translation": "държавни символи",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Staatswappen",
+          "translation": "държавен герб",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Staatsfahne",
+          "translation": "държавно знаме",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Staatssiegel",
+          "translation": "държавен печат",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Nationalhymne",
+          "translation": "национален химн",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Hauptstadt",
+          "translation": "столица",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Staatssprache",
+          "translation": "държавен език",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Prozess",
+          "translation": "процес",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Nationalstaaten",
+          "translation": "национални държави",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Jahrhundert",
+          "translation": "век",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Veränderung",
+          "translation": "промяна",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Zerfall",
+          "translation": "разпад",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Entstehung",
+          "translation": "възникване",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Unabhängigkeit",
+          "translation": "независимост",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Ablösung",
+          "translation": "отделяне",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Erlangung",
+          "translation": "придобиване",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "Insel",
+          "translation": "остров",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "Kontinentalstaaten",
+          "translation": "континентални държави",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Regierungssystem",
+          "translation": "система на управление",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Verfassung",
+          "translation": "конституция",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Staatsgewalt",
+          "translation": "държавна власт",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Kontrollorgan",
+          "translation": "контролен орган",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Verwaltungseinheiten",
+          "translation": "административни единици",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Zentrum",
+          "translation": "център",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Selbstständigkeit",
+          "translation": "самостоятелност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Gliedstaat",
+          "translation": "членка (съставна държава)",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Entwicklungsstufe",
+          "translation": "равнище на развитие",
+          "example": "",
+          "example_translation": ""
         }
       ]
     }

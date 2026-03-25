@@ -60,6 +60,7 @@ interface Translations {
   lessonContent: string;
   dictionary: string;
   flashcards: string;
+  mindmaps: string;
   exercises: string;
   clearExerciseProgress: string;
   clearDsdProgress: string;
@@ -250,6 +251,7 @@ const translations: Record<Language, Translations> = {
     lessonContent: "Съдържание на урока",
     dictionary: "Речник",
     flashcards: "Флаш-карти",
+    mindmaps: "Мисловни карти",
     exercises: "Упражнения",
     clearExerciseProgress: "Изчисти напредъка за този урок",
     clearDsdProgress: "Изчисти напредъка",
@@ -443,6 +445,7 @@ const translations: Record<Language, Translations> = {
     lessonContent: "Lesson Content",
     dictionary: "Dictionary",
     flashcards: "Flashcards",
+    mindmaps: "Mind maps",
     exercises: "Exercises",
     clearExerciseProgress: "Clear progress for this lesson",
     clearDsdProgress: "Clear progress",
@@ -637,6 +640,7 @@ const translations: Record<Language, Translations> = {
     lessonContent: "Lektionsinhalt",
     dictionary: "Wörterbuch",
     flashcards: "Lernkarten",
+    mindmaps: "Mindmaps",
     exercises: "Übungen",
     clearExerciseProgress: "Fortschritt für diese Lektion zurücksetzen",
     clearDsdProgress: "Fortschritt zurücksetzen",

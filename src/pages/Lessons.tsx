@@ -306,6 +306,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "—",
               completed: false,
             },
+            {
+              id: 10,
+              number: "24",
+              title: "24. STRUKTUR DER WELTBEVÖLKERUNG",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],

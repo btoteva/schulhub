@@ -1,0 +1,1148 @@
+{
+  "id": "3-10",
+  "courseId": 3,
+  "title": "24. STRUKTUR DER WELTBEVÖLKERUNG",
+  "titleBg": "24. Структура на световното население",
+  "subtitle": "",
+  "dictionary": [
+    {
+      "id": "weltbevoelkerung-struktur-grundbegriffe",
+      "headingId": "weltbevoelkerung-struktur-grundbegriffe-heading",
+      "title": "Ключови понятия",
+      "words": [
+        {
+          "word": "die Geschlechtsstruktur",
+          "translation": "структура по пол",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Verhältnis",
+          "translation": "съотношение",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Frau",
+          "translation": "жена",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Mann",
+          "translation": "мъж",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Krieg",
+          "translation": "война",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Migration",
+          "translation": "миграция",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Lebenserwartung",
+          "translation": "продължителност на живота",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Bevölkerung",
+          "translation": "население",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Gesetzmäßigkeit",
+          "translation": "закономерност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Anzahl",
+          "translation": "брой",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Anteil",
+          "translation": "дял",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Junge",
+          "translation": "момче",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Mädchen",
+          "translation": "момиче",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Altersklasse",
+          "translation": "възрастова категория",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Frauenüberschuss",
+          "translation": "превес на жените",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Altersstruktur",
+          "translation": "възрастова структура",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Abhängigkeit",
+          "translation": "зависимост",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Erwerbsfähigkeit",
+          "translation": "трудоспособност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Altersgruppe",
+          "translation": "възрастова група",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Alter",
+          "translation": "възраст",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Unterschied",
+          "translation": "различие",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Land",
+          "translation": "държава",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Region",
+          "translation": "регион",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Person",
+          "translation": "човек",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Geschlechts- und Alterspyramide",
+          "translation": "полово-възрастова пирамида",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Darstellung",
+          "translation": "представяне",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Horizontale",
+          "translation": "хоризонтала",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Vertikale",
+          "translation": "вертикала",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Entwicklungland",
+          "translation": "развиваща се държава",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der demografische Boom",
+          "translation": "демографски бум",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die klassische Form",
+          "translation": "класическа форма",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Basis",
+          "translation": "основа",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Spitze",
+          "translation": "връх",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Glocken- oder Birnenform",
+          "translation": "форма на камбана или круша",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Geburtenrate",
+          "translation": "равнище на раждаемостта",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Zahl",
+          "translation": "брой",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die religiöse Struktur",
+          "translation": "религиозна структура",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Zugehörigkeit",
+          "translation": "принадлежност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Gemeinschaft",
+          "translation": "общност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Auswirkung",
+          "translation": "въздействие",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Religion",
+          "translation": "религия",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Christentum",
+          "translation": "християнство",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Islam",
+          "translation": "ислям",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Hinduismus",
+          "translation": "индуизъм",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Buddhismus",
+          "translation": "будизъм",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Familientradition",
+          "translation": "семейна традиция",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Religionszugehörigkeit",
+          "translation": "религиозна принадлежност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die frühe Heirat",
+          "translation": "ранни бракове",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Geburt",
+          "translation": "раждане",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Folge",
+          "translation": "последица",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Geburtenziffer",
+          "translation": "показател за раждаемост",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Einschränkungspolitik",
+          "translation": "политика за ограничаване на демографския растеж",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Sprachstruktur",
+          "translation": "структура на езиците",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Volk",
+          "translation": "народ",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Kontinent",
+          "translation": "континент",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "indoeuropäisch",
+          "translation": "индоевропейски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Sprachfamilie",
+          "translation": "езиково семейство",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Sprachgruppe",
+          "translation": "езикова група",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "slawisch",
+          "translation": "славянски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "germanisch",
+          "translation": "германски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "romanisch",
+          "translation": "романски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Russische",
+          "translation": "руски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Englische",
+          "translation": "английски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Spanische",
+          "translation": "испански",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Portugiesische",
+          "translation": "португалски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die chinesisch-tibetische",
+          "translation": "китайско-тибетски",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Entdeckung",
+          "translation": "откритие",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Eroberung",
+          "translation": "завладяване",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Neue Welt",
+          "translation": "Новият свят",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "Nordamerika",
+          "translation": "Северна Америка",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "Südamerika",
+          "translation": "Южна Америка",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "Australien",
+          "translation": "Австралия",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Beschäftigtenstruktur",
+          "translation": "структура на заетостта",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "Erwerbstätig",
+          "translation": "зает",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Wirtschaftszweig",
+          "translation": "икономически отрасъл",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Entwicklung",
+          "translation": "развитие",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Dienstleistungssektor",
+          "translation": "сектор на услугите",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Verkehr",
+          "translation": "транспорт",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Tourismus",
+          "translation": "туризъм",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Handel",
+          "translation": "търговия",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Bildung",
+          "translation": "образование",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Relativanteil",
+          "translation": "относителен дял",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Gewinnungstätigkeit",
+          "translation": "добивна дейност",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Landwirtschaft",
+          "translation": "земеделие",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "der Bodenschatz",
+          "translation": "полезно изкопаемо",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "das Kennzeichen",
+          "translation": "белег",
+          "example": "",
+          "example_translation": ""
+        },
+        {
+          "word": "die Rückständigkeit",
+          "translation": "изостаналост",
+          "example": "",
+          "example_translation": ""
+        }
+      ]
+    }
+  ],
+  "mindmaps": [
+    {
+      "id": "1",
+      "title": "1 Die Geschlechtsstruktur",
+      "titleBg": "1 Структура по пол",
+      "diagram": "Geschlechtsstruktur\n  = Verhältnis Frauen / Männer\n  beeinflusst durch:\n    Kriege\n    Migrationen\n    Lebenserwartung der Bevölkerung\n  Gesetzmäßigkeiten:\n    Anzahl neugeborene Jungen > Mädchen\n    100 Mädchen -> 104–106 Jungen\n    nach und nach: Verhältnis gleicht sich aus\n    ab 60–70:\n      Männer leben kürzer\n      Folge: Frauenüberschuss\n  Beispiel:\n    Ø 100 Frauen -> 101 Männer",
+      "diagramBg": "Структура по пол\n  = съотношение жени / мъже\n  влияе от:\n    войни\n    миграции\n    продължителност на живота\n  закономерности:\n    новородени момчета > момичета\n    100 момичета -> 104–106 момчета\n    постепенно: съотношението се изравнява\n    от 60–70:\n      мъжете живеят по-кратко\n      последица: превес на жените\n  пример:\n    средно 100 жени -> 101 мъж"
+      ,
+      "tree": {
+        "id": "1-root",
+        "label": "Geschlechtsstruktur",
+        "labelBg": "Структура по пол",
+        "imageKind": "gender",
+        "children": [
+          {
+            "id": "1-rel",
+            "label": "Verhältnis Frauen / Männer",
+            "labelBg": "съотношение жени / мъже"
+          },
+          {
+            "id": "1-einfl",
+            "label": "beeinflusst durch",
+            "labelBg": "влияе от",
+            "children": [
+              { "id": "1-krieg", "label": "Kriege", "labelBg": "войни" },
+              {
+                "id": "1-migr",
+                "label": "Migrationen",
+                "labelBg": "миграции"
+              },
+              {
+                "id": "1-le",
+                "label": "Lebenserwartung der Bevölkerung",
+                "labelBg": "продължителност на живота на населението"
+              }
+            ]
+          },
+          {
+            "id": "1-ges",
+            "label": "Gesetzmäßigkeiten",
+            "labelBg": "закономерности",
+            "children": [
+              {
+                "id": "1-anz",
+                "label": "Anzahl neugeborene Jungen > Mädchen",
+                "labelBg": "новородени момчета > момичета"
+              },
+              {
+                "id": "1-100",
+                "label": "100 Mädchen -> 104–106 Jungen",
+                "labelBg": "100 момичета -> 104–106 момчета"
+              },
+              {
+                "id": "1-gleich",
+                "label": "nach und nach: Verhältnis gleicht sich aus",
+                "labelBg": "постепенно: съотношението се изравнява"
+              },
+              {
+                "id": "1-60",
+                "label": "60–70+: Männer leben kürzer",
+                "labelBg": "60–70+: мъжете живеят по-кратко"
+              },
+              {
+                "id": "1-frauenplus",
+                "label": "Folge: Frauenüberschuss",
+                "labelBg": "последица: превес на жените"
+              }
+            ]
+          },
+          {
+            "id": "1-beisp",
+            "label": "Ø 100 Frauen -> 101 Männer",
+            "labelBg": "средно 100 жени -> 101 мъж"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "title": "2 Die Altersstruktur",
+      "titleBg": "2 Възрастова структура",
+      "diagram": "Altersstruktur\n  Unterteilung (Erwerbsfähigkeit):\n    noch nicht arbeitsfähig\n    arbeitsfähig\n    nicht mehr arbeitsfähig\n  Unterschiede je nach Ländern/Regionen\n  Entwicklungsländer:\n    Anteil „noch nicht erwerbsfähig“ > Anteil „nicht mehr erwerbsfähig“\n  Europa + USA/Kanada + Australien + Japan:\n    „noch nicht erwerbsfähig“ gering\n    „nicht mehr erwerbsfähig“ hoch\n  Geschlechts- & Alterspyramide\n    horizontal: Geschlechtsstruktur\n    vertikal: Altersstruktur\n  Pyramidenformen\n    Entwicklungsländer (demografischer Boom):\n      klassische Pyramide\n      Basis breit (junge Bevölkerung)\n      Spitze schmaler (geringere Lebenserwartung)\n    hochentwickelte Länder:\n      Glocken-/Birnenform\n      Basis klein (niedrige Geburtenraten)\n      Spitze höher (mehr Menschen > 64)",
+      "diagramBg": "Възрастова структура\n  Деление (трудоспособност):\n    още не трудоспособни\n    трудоспособни\n    вече не трудоспособни\n  Различия по държави/региони\n  Развиващи се държави:\n    дял „още нетрудоспособни“ > дял „вече нетрудоспособни“\n  Европа + САЩ/Канада + Австралия + Япония:\n    „още нетрудоспособни“ малък\n    „вече нетрудоспособни“ висок\n  Полово-възрастова пирамида\n    хоризонтално: полова структура\n    вертикално: възрастова структура\n  Формите на пирамидата\n    Развиващи се държави (демографски бум):\n      класическа пирамида\n      основа широка (млади хора)\n      към върха по-тясно (по-ниска продължителност на живота)\n    Високоразвити държави:\n      форма на камбана/круша\n      основа малка (ниска раждаемост)\n      връх по-висок (повече хора > 64)"
+      ,
+      "tree": {
+        "id": "2-root",
+        "label": "Altersstruktur",
+        "labelBg": "Възрастова структура",
+        "imageKind": "age",
+        "children": [
+          {
+            "id": "2-unterteilung",
+            "label": "Unterteilung (Erwerbsfähigkeit)",
+            "labelBg": "деление (трудоспособност)",
+            "children": [
+              { "id": "2-nicht", "label": "noch nicht arbeitsfähig", "labelBg": "още не трудоспособни" },
+              { "id": "2-arbeits", "label": "arbeitsfähig", "labelBg": "трудоспособни" },
+              { "id": "2-nichtmehr", "label": "nicht mehr arbeitsfähig", "labelBg": "вече не трудоспособни" }
+            ]
+          },
+          {
+            "id": "2-unterschiede",
+            "label": "Unterschiede Länder/Regionen",
+            "labelBg": "различия държави/региони",
+            "children": [
+              {
+                "id": "2-entwick",
+                "label": "Entwicklungsländer: noch nicht erwerbsfähig > nicht mehr",
+                "labelBg": "развиващи се държави: още нетрудоспособни > вече нетрудоспособни"
+              },
+              {
+                "id": "2-europa",
+                "label": "Europa/USA/Kanada/Australien/Japan: nicht mehr hoch",
+                "labelBg": "Европа/САЩ/Канада/Австралия/Япония: вече нетрудоспособни – висок"
+              }
+            ]
+          },
+          {
+            "id": "2-pyramide",
+            "label": "Geschlechts- & Alterspyramide",
+            "labelBg": "полово-възрастова пирамида",
+            "children": [
+              { "id": "2-horiz", "label": "horizontal: Geschlechtsstruktur", "labelBg": "хоризонтално: полова структура" },
+              { "id": "2-vert", "label": "vertikal: Altersstruktur", "labelBg": "вертикално: възрастова структура" }
+            ]
+          },
+          {
+            "id": "2-formen",
+            "label": "Pyramidenformen",
+            "labelBg": "форми на пирамидата",
+            "children": [
+              {
+                "id": "2-boom",
+                "label": "Entwicklungsländer (Boom): klassische Pyramide",
+                "labelBg": "развиващи се държави (бум): класическа пирамида"
+              },
+              {
+                "id": "2-hoch",
+                "label": "hochentwickelte: Glocken-/Birnenform",
+                "labelBg": "високоразвити: форма на камбана/круша"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "title": "3 Die religiöse Struktur",
+      "titleBg": "3 Религиозна структура",
+      "diagram": "Religiöse Struktur\n  = Zugehörigkeit zu religiöser Gemeinschaft\n  beeinflusst:\n    Geburtenraten\n    Migrationen\n  wichtigste Religionen:\n    Christentum\n    Islam\n    Hinduismus\n    Buddhismus\n  Einfluss auf Familie:\n    Familientraditionen\n    Länder mit Islam + Hinduismus:\n      frühe Heirat\n      Geburt vieler Kinder\n  Folgen:\n    hohe Geburtenziffern\n    scheiternde demografische Einschränkungspolitik",
+      "diagramBg": "Религиозна структура\n  = принадлежност към религиозна общност\n  влияе:\n    върху раждаемостта\n    върху миграциите\n  най-важни религии:\n    християнство\n    ислям\n    индуизъм\n    будизъм\n  влияние върху семейството:\n    семейни традиции\n    държави с ислям + индуизъм:\n      ранни бракове\n      раждане на много деца\n  последици:\n    високи показатели на раждаемостта\n    провалени политики за ограничаване на демографския растеж"
+      ,
+      "tree": {
+        "id": "3-root",
+        "label": "Religiöse Struktur",
+        "labelBg": "Религиозна структура",
+        "imageKind": "religion",
+        "children": [
+          {
+            "id": "3-zugehoer",
+            "label": "Zugehörigkeit",
+            "labelBg": "принадлежност",
+            "children": [
+              { "id": "3-gem", "label": "religiöse Gemeinschaft", "labelBg": "религиозна общност" }
+            ]
+          },
+          {
+            "id": "3-wirkung",
+            "label": "beeinflusst",
+            "labelBg": "влияе",
+            "children": [
+              { "id": "3-geb", "label": "Geburtenraten", "labelBg": "раждаемостта" },
+              { "id": "3-mig", "label": "Migrationen", "labelBg": "миграциите" }
+            ]
+          },
+          {
+            "id": "3-religionen",
+            "label": "wichtigste Religionen",
+            "labelBg": "най-важни религии",
+            "children": [
+              { "id": "3-chr", "label": "Christentum", "labelBg": "християнство" },
+              { "id": "3-isl", "label": "Islam", "labelBg": "ислям" },
+              { "id": "3-hin", "label": "Hinduismus", "labelBg": "индуизъм" },
+              { "id": "3-bud", "label": "Buddhismus", "labelBg": "будизъм" }
+            ]
+          },
+          {
+            "id": "3-familie",
+            "label": "Einfluss auf Familie",
+            "labelBg": "влияние върху семейството",
+            "children": [
+              {
+                "id": "3-trad",
+                "label": "Familientraditionen",
+                "labelBg": "семейни традиции"
+              },
+              {
+                "id": "3-islam-hindu",
+                "label": "Länder mit Islam + Hinduismus",
+                "labelBg": "държави с ислям + индуизъм",
+                "children": [
+                  { "id": "3-frueh", "label": "frühe Heirat", "labelBg": "ранни бракове" },
+                  { "id": "3-viele", "label": "Geburt vieler Kinder", "labelBg": "раждане на много деца" }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "3-folgen",
+            "label": "Folgen",
+            "labelBg": "последици",
+            "children": [
+              { "id": "3-hoch", "label": "hohe Geburtenziffern", "labelBg": "високи показатели на раждаемостта" },
+              {
+                "id": "3-politik",
+                "label": "scheiternde demografische Einschränkungspolitik",
+                "labelBg": "провалени политики за ограничаване на демографския растеж"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "title": "4 Die Sprachstruktur",
+      "titleBg": "4 Структура на езиците",
+      "diagram": "Sprachstruktur\n  Völker: indoeuropäische Sprachfamilie\n  größte Gruppen:\n    slawische\n    germanische\n    romanische\n  Beispiele:\n    slawisch -> Russisch (am meisten verbreitet)\n    germanisch -> Englisch\n    romanisch -> Spanisch\n  Asien:\n    größte Sprachfamilie: chinesisch-tibetisch\n  Nach Großen geogr. Entdeckungen + „Neue Welt“:\n    Übertragung europäischer Sprachen\n  Nord-/Südamerika:\n    Zentral- & Südamerika: Spanisch, Portugiesisch\n    Nordamerika & Australien: Englisch",
+      "diagramBg": "Структура на езиците\n  Народи: индоевропейско езиково семейство\n  най-големи групи:\n    славянски\n    германски\n    романски\n  примери:\n    славянски -> руски (най-разпространен)\n    германски -> английски\n    романски -> испански\n  Азия:\n    най-голямо езиково семейство: китайско-тибетско\n  След Великите географски открития + „Новия свят“:\n    пренасяне на европейски езици\n  Северна/Южна Америка:\n    Централна и Южна: испански, португалски\n    Северна Америка и Австралия: английски"
+      ,
+      "tree": {
+        "id": "4-root",
+        "label": "Sprachstruktur",
+        "labelBg": "Структура на езиците",
+        "imageKind": "language",
+        "children": [
+          {
+            "id": "4-indoeur",
+            "label": "indoeuropäische Sprachfamilie",
+            "labelBg": "индоевропейско езиково семейство",
+            "children": [
+              {
+                "id": "4-sl",
+                "label": "slawische -> Russisch",
+                "labelBg": "славянски -> руски"
+              },
+              {
+                "id": "4-ge",
+                "label": "germanische -> Englisch",
+                "labelBg": "германски -> английски"
+              },
+              {
+                "id": "4-ro",
+                "label": "romanische -> Spanisch",
+                "labelBg": "романски -> испански"
+              }
+            ]
+          },
+          {
+            "id": "4-asia",
+            "label": "größte Sprachfamilie in Asien",
+            "labelBg": "най-голямото езиково семейство в Азия",
+            "children": [
+              { "id": "4-ch", "label": "chinesisch-tibetisch", "labelBg": "китайско-тибетско" }
+            ]
+          },
+          {
+            "id": "4-neue",
+            "label": "Übertragung europäischer Sprachen",
+            "labelBg": "пренасяне на европейски езици",
+            "children": [
+              {
+                "id": "4-sued",
+                "label": "Zentral-/Südamerika: Spanisch + Portugiesisch",
+                "labelBg": "Централна и Южна Америка: испански + португалски"
+              },
+              {
+                "id": "4-nord",
+                "label": "Nordamerika + Australien: Englisch",
+                "labelBg": "Северна Америка и Австралия: английски"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "title": "5 Die Beschäftigtenstruktur",
+      "titleBg": "5 Структура на заетостта",
+      "diagram": "Beschäftigtenstruktur\n  = Erwerbstätige nach Wirtschaftszweigen\n  abhängig von wirtschaftlicher Entwicklung:\n    Land / Region\n  hochentwickelte Länder:\n    höherer Anteil im Dienstleistungssektor\n      Verkehr\n      Tourismus\n      Handel\n      Bildung usw.\n  Rückständigkeit = Zeichen:\n    hoher Anteil in Gewinnungstätigkeiten\n      Landwirtschaft\n      Gewinnung von Bodenschätzen usw.",
+      "diagramBg": "Структура на заетостта\n  = заети по отрасли\n  зависи от икономическото развитие:\n    държава / регион\n  във високоразвити държави:\n    по-висок дял в сектора на услугите\n      транспорт\n      туризъм\n      търговия\n      образование и др.\n  изостаналост = белег:\n    висок дял в добивните дейности\n      земеделие\n      добив на полезни изкопаеми и др."
+      ,
+      "tree": {
+        "id": "5-root",
+        "label": "Beschäftigtenstruktur",
+        "labelBg": "Структура на заетостта",
+        "imageKind": "work",
+        "children": [
+          {
+            "id": "5-nach",
+            "label": "Verhältnis nach Wirtschaftszweigen",
+            "labelBg": "съотношение по отрасли"
+          },
+          {
+            "id": "5-abh",
+            "label": "abhängig von wirtschaftlicher Entwicklung",
+            "labelBg": "зависи от икономическото развитие"
+          },
+          {
+            "id": "5-dienst",
+            "label": "hochentwickelte Länder: Dienstleistungssektor",
+            "labelBg": "високоразвити държави: сектор на услугите",
+            "children": [
+              { "id": "5-ver", "label": "Verkehr", "labelBg": "транспорт" },
+              { "id": "5-tour", "label": "Tourismus", "labelBg": "туризъм" },
+              { "id": "5-han", "label": "Handel", "labelBg": "търговия" },
+              { "id": "5-bil", "label": "Bildung usw.", "labelBg": "образование и др." }
+            ]
+          },
+          {
+            "id": "5-rueck",
+            "label": "Rückständigkeit: Gewinnungstätigkeiten",
+            "labelBg": "изостаналост: добивни дейности",
+            "children": [
+              { "id": "5-lan", "label": "Landwirtschaft", "labelBg": "земеделие" },
+              { "id": "5-boden", "label": "Gewinnung von Bodenschätzen", "labelBg": "добив на полезни изкопаеми" }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "content": "<strong>1 Die Geschlechtsstruktur</strong>\n\nDie Geschlechtsstruktur stellt das Verhältnis zwischen Frauen und Männern dar. Sie wird stark von Kriegen, Migrationen und der Lebenserwartung der Bevölkerung beeinflusst. Charakteristisch für diese Struktur sind folgende Gesetzmäßigkeiten: Die Anzahl (der Anteil) der neugeborenen Jungen ist etwas höher als die Anzahl der Mädchen; auf 100 Mädchen werden 104-106 Jungen geboren. Allmählich gleicht sich dieses Verhältnis aus und in den Altersklassen über 60 - 70 Jahren herrscht infolge der geringeren Lebenserwartung der Männer ein starker Frauenüberschuss. Durchschnittlich fallen auf 100 Frauen 101 Männer.\n\n<strong>2 Die Altersstruktur</strong>\n\nIn Abhängigkeit von der Erwerbsfähigkeit unterteilt man die Bevölkerung in drei Altersgruppen: noch nicht arbeitsfähige, arbeitsfähige und nicht mehr arbeitsfähige Bevölkerung.\n\nDie Altersstruktur der Bevölkerung in den einzelnen Ländern und Regionen weist Unterschiede auf. In den meisten afrikanischen, asiatischen und lateinamerikanischen Ländern übersteigt der Anteil der Personen im noch nicht erwerbsfähigen Alter den Anteil der nicht mehr erwerbsfähigen Männer und Frauen. In den meisten europäischen Ländern, in den USA und in Kanada, im Australischen Bund und in Japan ist der Anteil der Personen im noch nicht erwerbsfähigen Alter gering und dieser der nicht mehr Erwerbsfähigen - hoch.\n\nDie Geschlechts- und Alterspyramide ist eine grafische Darstellung der Geschlechts- und Altersstruktur der Bevölkerung in einem bestimmten Jahr. Auf der Horizontalen wird die Geschlechtsstruktur und auf der Vertikalen die Altersstruktur angezeigt.\n\nFür die Entwicklungsländer mit einem demografischen Boom ist die klassische Form der Pyramide charakteristisch. Die Basis ist breit, denn die junge Bevölkerung überwiegt. In Richtung zur Spitze wird die Pyramide aufgrund der geringeren Lebenserwartung in diesen Ländern schmaler. Für die wirtschaftlich hochentwickelten Länder weist die Pyramide eine Glocken- oder Birnenform auf: geringe Basis infolge niedriger Geburtenraten und eine höher werdende Spitze aufgrund der steigenden Zahl der Bevölkerung über 64 Jahren.\n\n<strong>3 Die religiöse Struktur</strong>\n\n<strong>Die religiöse Struktur</strong>\n\nDie religiöse Struktur widerspiegelt die Zugehörigkeit der Bevölkerung zu einer bestimmten religiösen Gemeinschaft. Sie hat Auswirkungen auf die Geburtenraten und Migrationen. Die einflussreichsten Religionen sind das Christentum, der Islam, der Hinduismus und der Buddhismus. Die Religion übt einen großen Einfluss auf die Familientraditionen aus. In Ländern, in denen sich die Bevölkerung zum Islam und zum Hinduismus bekennt, befördert die Religionszugehörigkeit die frühe Heirat und die Geburt von vielen Kindern. Die Folgen sind hohe Geburtenziffern und scheiternde demografische Einschränkungspolitik.\n\n<strong>4 Die Sprachstruktur</strong>\n\nZahlreiche Völker auf allen Kontinenten sind Sprachen der indoeuropäischen Sprachfamilie kundig. Die größten Gruppen darin sind die slawische, die germanische und die romanische Sprachgruppe. Von den slawischen Sprachen ist das Russische am meisten verbreitet; von den germanischen -das Englische und von den romanischen - das Spanische. Die größte Sprachfamilie in Asien ist die chinesisch-tibetische. Nach den Großen geografischen Entdeckungen und der Eroberung der Neuen Welt wurden einige europäische Sprachen nach Nord- und Südamerika übertragen. In Zentral-und Südamerika sind das Spanische und das Portugiesische, in Nordamerika und in Australien ist das Englische verbreitet.\n\n<strong>5 Die Beschäftigtenstruktur</strong>\n\nDie Beschäftigtenstruktur widerspiegelt das Verhältnis zwischen der Zahl der Erwerbstätigen in den verschiedenen Wirtschaftszweigen. Sie hängt von der wirtschaftlichen Entwicklung des jeweiligen Landes oder der Region ab. In den hochentwickelten Ländern ist ein höherer Anteil der Beschäftigten im Dienstleistungssektor (im Verkehr, Tourismus, Handel, in der Bildung usw.) festzustellen. Der hohe Relativanteil der Beschäftigten in den Gewinnungstätigkeiten (Landwirtschaft, Gewinnung von Bodenschätzen usw.) ist ein Kennzeichen wirtschaftlicher Rückständigkeit.",
+  "sentences": [
+    {
+      "text": "<strong>1 Die Geschlechtsstruktur</strong>",
+      "translation": "<strong>1 Структура по пола</strong>"
+    },
+    {
+      "text": "Die Geschlechtsstruktur stellt das Verhältnis zwischen Frauen und Männern dar.",
+      "translation": "Структурата по пола показва съотношението между жените и мъжете."
+    },
+    {
+      "text": "Sie wird stark von Kriegen, Migrationen und der Lebenserwartung der Bevölkerung beeinflusst.",
+      "translation": "Тя се влияе значително от войни, миграции и продължителността на живота на населението."
+    },
+    {
+      "text": "Charakteristisch für diese Struktur sind folgende Gesetzmäßigkeiten:",
+      "translation": "Характерни за тази структура са следните закономерности:"
+    },
+    {
+      "text": "Die Anzahl (der Anteil) der neugeborenen Jungen ist etwas höher als die Anzahl der Mädchen;",
+      "translation": "Броят (делът) на новородените момчета е малко по-голям от броя на момичетата;"
+    },
+    {
+      "text": "auf 100 Mädchen werden 104-106 Jungen geboren.",
+      "translation": "Срещу 100 момичета се раждат 104–106 момчета."
+    },
+    {
+      "text": "Allmählich gleicht sich dieses Verhältnis aus und in den Altersklassen über 60 - 70 Jahren herrscht infolge der geringeren Lebenserwartung der Männer ein starker Frauenüberschuss.",
+      "translation": "Постепенно това съотношение се изравнява и във възрастовите групи над 60–70 години вследствие на по-ниската продължителност на живота на мъжете се наблюдава силен превес на жените."
+    },
+    {
+      "text": "Durchschnittlich fallen auf 100 Frauen 101 Männer.",
+      "translation": "Средно на 100 жени се падат 101 мъже."
+    },
+    {
+      "text": "<strong>2 Die Altersstruktur</strong>",
+      "translation": "<strong>2 Възрастова структура</strong>"
+    },
+    {
+      "text": "In Abhängigkeit von der Erwerbsfähigkeit unterteilt man die Bevölkerung in drei Altersgruppen: noch nicht arbeitsfähige, arbeitsfähige und nicht mehr arbeitsfähige Bevölkerung.",
+      "translation": "В зависимост от трудоспособността населението се разделя на три възрастови групи: лица, които все още не са трудоспособни, трудоспособните лица и лицата, които вече не са трудоспособни."
+    },
+    {
+      "text": "Die Altersstruktur der Bevölkerung in den einzelnen Ländern und Regionen weist Unterschiede auf.",
+      "translation": "Възрастовата структура на населението в отделните държави и региони се различава."
+    },
+    {
+      "text": "In den meisten afrikanischen, asiatischen und lateinamerikanischen Ländern übersteigt der Anteil der Personen im noch nicht erwerbsfähigen Alter den Anteil der nicht mehr erwerbsfähigen Männer und Frauen.",
+      "translation": "В повечето африкански, азиатски и латиноамерикански страни делът на хората в още нетрудоспособна възраст е по-голям от делът на мъжете и жените, които вече не са трудоспособни."
+    },
+    {
+      "text": "In den meisten europäischen Ländern, in den USA und in Kanada, im Australischen Bund und in Japan ist der Anteil der Personen im noch nicht erwerbsfähigen Alter gering und dieser der nicht mehr Erwerbsfähigen - hoch.",
+      "translation": "В повечето европейски държави, в САЩ и Канада, в Австралийския съюз и в Япония делът на хората в още нетрудоспособна възраст е малък, а делът на тези, които вече не са трудоспособни, е висок."
+    },
+    {
+      "text": "Die Geschlechts- und Alterspyramide ist eine grafische Darstellung der Geschlechts- und Altersstruktur der Bevölkerung in einem bestimmten Jahr.",
+      "translation": "Полово-възрастовата пирамида е графично представяне на половата и възрастовата структура на населението в дадена година."
+    },
+    {
+      "text": "Auf der Horizontalen wird die Geschlechtsstruktur und auf der Vertikalen die Altersstruktur angezeigt.",
+      "translation": "По хоризонталата се показва половата структура, а по вертикалата – възрастовата структура."
+    },
+    {
+      "text": "Für die Entwicklungsländer mit einem demografischen Boom ist die klassische Form der Pyramide charakteristisch.",
+      "translation": "За развиващите се страни с демографски бум е характерна класическата форма на пирамидата."
+    },
+    {
+      "text": "Die Basis ist breit, denn die junge Bevölkerung überwiegt.",
+      "translation": "Основата е широка, защото младото население преобладава."
+    },
+    {
+      "text": "In Richtung zur Spitze wird die Pyramide aufgrund der geringeren Lebenserwartung in diesen Ländern schmaler.",
+      "translation": "Към върха пирамидата става по-тясна поради по-ниската продължителност на живота в тези страни."
+    },
+    {
+      "text": "Für die wirtschaftlich hochentwickelten Länder weist die Pyramide eine Glocken- oder Birnenform auf: geringe Basis infolge niedriger Geburtenraten und eine höher werdende Spitze aufgrund der steigenden Zahl der Bevölkerung über 64 Jahren.",
+      "translation": "За икономически силно развитите държави пирамидата има форма на камбана или на круша: малка основа вследствие на ниска раждаемост и нарастващ към горната част връх вследствие на увеличаващия се брой на населението над 64 години."
+    },
+    {
+      "text": "<strong>3 Die religiöse Struktur</strong>",
+      "translation": "<strong>3 Религиозна структура</strong>"
+    },
+    {
+      "text": "<strong>Die religiöse Struktur</strong>",
+      "translation": "<strong>Религиозна структура</strong>"
+    },
+    {
+      "text": "Die religiöse Struktur widerspiegelt die Zugehörigkeit der Bevölkerung zu einer bestimmten religiösen Gemeinschaft.",
+      "translation": "Религиозната структура отразява принадлежността на населението към определена религиозна общност."
+    },
+    {
+      "text": "Sie hat Auswirkungen auf die Geburtenraten und Migrationen.",
+      "translation": "Тя оказва влияние върху раждаемостта и миграциите."
+    },
+    {
+      "text": "Die einflussreichsten Religionen sind das Christentum, der Islam, der Hinduismus und der Buddhismus.",
+      "translation": "Най-влиятелните религии са християнството, ислямът, индуизмът и будизмът."
+    },
+    {
+      "text": "Die Religion übt einen großen Einfluss auf die Familientraditionen aus.",
+      "translation": "Религията оказва голямо влияние върху семейните традиции."
+    },
+    {
+      "text": "In Ländern, in denen sich die Bevölkerung zum Islam und zum Hinduismus bekennt, befördert die Religionszugehörigkeit die frühe Heirat und die Geburt von vielen Kindern.",
+      "translation": "В държави, в които населението изповядва исляма и индуизма, религиозната принадлежност насърчава ранните бракове и раждането на много деца."
+    },
+    {
+      "text": "Die Folgen sind hohe Geburtenziffern und scheiternde demografische Einschränkungspolitik.",
+      "translation": "Последиците са високи показатели на раждаемостта и провалени политики за ограничаване на демографския растеж."
+    },
+    {
+      "text": "<strong>4 Die Sprachstruktur</strong>",
+      "translation": "<strong>4 Структура на езиците</strong>"
+    },
+    {
+      "text": "Zahlreiche Völker auf allen Kontinenten sind Sprachen der indoeuropäischen Sprachfamilie kundig.",
+      "translation": "Много народи на всички континенти владеят езици от индоевропейското езиково семейство."
+    },
+    {
+      "text": "Die größten Gruppen darin sind die slawische, die germanische und die romanische Sprachgruppe.",
+      "translation": "Най-големите групи в него са славянската, германската и романската езикова група."
+    },
+    {
+      "text": "Von den slawischen Sprachen ist das Russische am meisten verbreitet; von den germanischen -das Englische und von den romanischen - das Spanische.",
+      "translation": "От славянските езици най-разпространен е руският; от германските – английският, а от романските – испанският."
+    },
+    {
+      "text": "Die größte Sprachfamilie in Asien ist die chinesisch-tibetische.",
+      "translation": "Най-голямото езиково семейство в Азия е китайско-тибетското."
+    },
+    {
+      "text": "Nach den Großen geografischen Entdeckungen und der Eroberung der Neuen Welt wurden einige europäische Sprachen nach Nord- und Südamerika übertragen.",
+      "translation": "След Великите географски открития и завладяването на Новия свят някои европейски езици бяха пренесени в Северна и Южна Америка."
+    },
+    {
+      "text": "In Zentral-und Südamerika sind das Spanische und das Portugiesische, in Nordamerika und in Australien ist das Englische verbreitet.",
+      "translation": "В Централна и Южна Америка това са испанският и португалският, а в Северна Америка и Австралия е разпространен английският."
+    },
+    {
+      "text": "<strong>5 Die Beschäftigtenstruktur</strong>",
+      "translation": "<strong>5 Структура на заетостта</strong>"
+    },
+    {
+      "text": "Die Beschäftigtenstruktur widerspiegelt das Verhältnis zwischen der Zahl der Erwerbstätigen in den verschiedenen Wirtschaftszweigen.",
+      "translation": "Структурата на заетостта отразява съотношението между броя на заетите в различните отрасли на икономиката."
+    },
+    {
+      "text": "Sie hängt von der wirtschaftlichen Entwicklung des jeweiligen Landes oder der Region ab.",
+      "translation": "Тя зависи от икономическото развитие на съответната държава или регион."
+    },
+    {
+      "text": "In den hochentwickelten Ländern ist ein höherer Anteil der Beschäftigten im Dienstleistungssektor (im Verkehr, Tourismus, Handel, in der Bildung usw.) festzustellen.",
+      "translation": "В силно развитите страни се установява по-висок дял на заетите в сектора на услугите (в транспорта, туризма, търговията, в образованието и т.н.)."
+    },
+    {
+      "text": "Der hohe Relativanteil der Beschäftigten in den Gewinnungstätigkeiten (Landwirtschaft, Gewinnung von Bodenschätzen usw.) ist ein Kennzeichen wirtschaftlicher Rückständigkeit.",
+      "translation": "Високият относителен дял на заетите в добивните дейности (земеделие, добив на полезни изкопаеми и т.н.) е белег за икономическа изостаналост."
+    }
+  ],
+  "exercises": [
+    {
+      "id": 1,
+      "title": "Fragen und Aufgaben 1: Geschlechts- und Alterspyramiden",
+      "titleBg": "Въпрос и задача 1: Полово-възрастови пирамиди",
+      "type": "question",
+      "taskText": "Analysieren Sie die Geschlechts- und Alterspyramiden 1 und 2.\nBestimmen Sie, welche der Pyramiden einem Entwicklungs- bzw. einem hochentwickelten Land entspricht.\nBegründen Sie Ihre Antwort.",
+      "taskTextBg": "Анализирайте половo-възрастовите пирамиди 1 и 2.\nОпределете коя от пирамидите съответства на развиваща се и коя на високоразвита държава.\nОбосновете отговора си.",
+      "answer": "Pyramide 1 entspricht einem Entwicklungland, weil die Basis breit ist (viele junge Menschen) und die Pyramide nach oben deutlich schmaler wird. Das weist auf eine hohe Geburtenrate und eine geringere Lebenserwartung hin. Pyramide 2 entspricht einem hochentwickelten Land, weil die Basis relativ schmal ist (niedrigere Geburtenraten) und die Pyramide insgesamt eher glocken-/birnenförmig wirkt. Das zeigt einen höheren Anteil älterer Menschen.",
+      "answerBg": "Пирамида 1 съответства на развиваща се държава, защото основата е широка (много млади хора) и пирамидата се стеснява осезаемо към върха. Това показва висока раждаемост и по-ниска продължителност на живота. Пирамида 2 съответства на високоразвита държава, защото основата е сравнително по-тясна (по-ниска раждаемост) и пирамидата като цяло изглежда по-скоро камбановидна/крушовидна. Това е признак за по-висок дял на възрастните хора."
+    },
+    {
+      "id": 2,
+      "title": "Fragen und Aufgaben 2: Religionen",
+      "titleBg": "Въпрос и задача 2: Религии",
+      "type": "matching",
+      "leftLabel": "Länder (Ziffern)",
+      "rightLabel": "Religionen (Buchstaben)",
+      "leftItems": [
+        {
+          "id": "1",
+          "text": "USA",
+          "textBg": "САЩ"
+        },
+        {
+          "id": "2",
+          "text": "Brasilien",
+          "textBg": "Бразилия"
+        },
+        {
+          "id": "3",
+          "text": "Großbritannien",
+          "textBg": "Великобритания"
+        },
+        {
+          "id": "4",
+          "text": "Spanien",
+          "textBg": "Испания"
+        },
+        {
+          "id": "5",
+          "text": "Griechenland",
+          "textBg": "Гърция"
+        },
+        {
+          "id": "6",
+          "text": "Russland",
+          "textBg": "Русия"
+        },
+        {
+          "id": "7",
+          "text": "Iran",
+          "textBg": "Иран"
+        },
+        {
+          "id": "8",
+          "text": "China",
+          "textBg": "Китай"
+        },
+        {
+          "id": "9",
+          "text": "Indonesien",
+          "textBg": "Индонезия"
+        },
+        {
+          "id": "10",
+          "text": "Indien",
+          "textBg": "Индия"
+        }
+      ],
+      "rightItems": [
+        {
+          "id": "A",
+          "text": "Katholizismus",
+          "textBg": "Католицизъм"
+        },
+        {
+          "id": "B",
+          "text": "Protestantismus",
+          "textBg": "Протестантизъм"
+        },
+        {
+          "id": "C",
+          "text": "Orthodoxe Kirche",
+          "textBg": "Православна църква"
+        },
+        {
+          "id": "D",
+          "text": "Hinduismus",
+          "textBg": "Индуизъм"
+        },
+        {
+          "id": "E",
+          "text": "Konfuzianismus",
+          "textBg": "Конфуцианство"
+        },
+        {
+          "id": "F",
+          "text": "Islam",
+          "textBg": "Ислям"
+        }
+      ],
+      "correctPairs": [
+        { "leftId": "1", "rightIds": ["B"] },
+        { "leftId": "2", "rightIds": ["A"] },
+        { "leftId": "3", "rightIds": ["B"] },
+        { "leftId": "4", "rightIds": ["A"] },
+        { "leftId": "5", "rightIds": ["C"] },
+        { "leftId": "6", "rightIds": ["C"] },
+        { "leftId": "7", "rightIds": ["F"] },
+        { "leftId": "8", "rightIds": ["E"] },
+        { "leftId": "9", "rightIds": ["F"] },
+        { "leftId": "10", "rightIds": ["D"] }
+      ]
+    }
+  ]
+}
+
