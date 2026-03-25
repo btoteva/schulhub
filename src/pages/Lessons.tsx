@@ -242,6 +242,7 @@ const lessonsData: { [key: number]: Band[] } = {
           lessons: [
             {
               id: 1,
+              number: "14",
               title:
                 "14 LITHOSPHÄRE. ZUSAMMENSETZUNG DER ERDKRUSTE. TEKTONIK DER PLATTEN",
               duration: "18 мин",
@@ -249,42 +250,57 @@ const lessonsData: { [key: number]: Band[] } = {
             },
             {
               id: 2,
+              number: "15",
               title: "15. ENDOGENE RELIEFBILDENDE PROZESSE",
               duration: "18 мин",
               completed: false,
             },
             {
               id: 3,
+              number: "16",
               title: "16. EXOGENE RELIEFBILDENDE PROZESSE",
               duration: "18 мин",
               completed: false,
             },
             {
-              id: 4,
-              title: "19 DAS NATURRESSOURCEN-POTENTIAL DER ERDE - 1",
-              duration: "— мин",
-              completed: false,
-            },
-            {
-              id: 5,
-              title: "20. DAS NATURRESSOURCEN-POTENTIAL DER ERDE-2",
-              duration: "— мин",
-              completed: false,
-            },
-            {
               id: 6,
+              number: "17",
               title: "17. DIE PEDOSPHÄRE. DIE BIOSPHÄRE",
               duration: "— мин",
               completed: false,
             },
             {
               id: 7,
+              number: "18",
               title: "18. NATURKOMPONENTEN UND NATURKOMPLEXE. NATURZONEN",
               duration: "— мин",
               completed: false,
             },
             {
+              id: 4,
+              number: "19",
+              title: "19 DAS NATURRESSOURCEN-POTENTIAL DER ERDE - 1",
+              duration: "— мин",
+              completed: false,
+            },
+            {
+              id: 5,
+              number: "20",
+              title: "20. DAS NATURRESSOURCEN-POTENTIAL DER ERDE-2",
+              duration: "— мин",
+              completed: false,
+            },
+            {
+              id: 9,
+              number: "22",
+              title:
+                "22. POLITISCHE ORGANISATION DER GESELLSCHAFT. POLITISCHE WELTKARTE",
+              duration: "— мин",
+              completed: false,
+            },
+            {
               id: 8,
+              number: "23",
               title:
                 "23. ZAHL, VERTEILUNG UND WANDERUNGSBEWEGUNGEN DER WELTBEVÖLKERUNG",
               duration: "—",
