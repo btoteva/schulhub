@@ -1,0 +1,498 @@
+{
+  "id": "3-11",
+  "courseId": 3,
+  "title": "25. SIEDLUNGEN. URBANISIERUNG",
+  "titleBg": "25. СЕЛИЩА. УРБАНИЗАЦИЯ",
+  "subtitle": "",
+  "subtitleBg": "",
+  "dictionary": [
+    {
+      "id": "siedlungen-urbanisierung-grundbegriffe",
+      "headingId": "siedlungen-urbanisierung-grundbegriffe-heading",
+      "title": "Ключови понятия",
+      "words": [
+        { "word": "die Siedlung", "translation": "селище", "example": "", "example_translation": "" },
+        { "word": "die territoriale Organisation", "translation": "териториална организация", "example": "", "example_translation": "" },
+        { "word": "die Bevölkerung", "translation": "население", "example": "", "example_translation": "" },
+        { "word": "der Ort", "translation": "място", "example": "", "example_translation": "" },
+        { "word": "das Wohnen", "translation": "живеене", "example": "", "example_translation": "" },
+        { "word": "das Arbeiten", "translation": "работа", "example": "", "example_translation": "" },
+        { "word": "die Entstehung", "translation": "възникване", "example": "", "example_translation": "" },
+        { "word": "der Faktor", "translation": "фактор", "example": "", "example_translation": "" },
+        { "word": "die geografische Lage", "translation": "географско положение", "example": "", "example_translation": "" },
+        { "word": "die Naturbedingungen", "translation": "природни условия", "example": "", "example_translation": "" },
+        { "word": "das Klima", "translation": "климат", "example": "", "example_translation": "" },
+        { "word": "der Boden", "translation": "почва", "example": "", "example_translation": "" },
+        { "word": "das Vorhandensein", "translation": "наличие", "example": "", "example_translation": "" },
+        { "word": "das Wasser", "translation": "вода", "example": "", "example_translation": "" },
+        { "word": "die Verhältnisse", "translation": "условия", "example": "", "example_translation": "" },
+        { "word": "der Kreuzweg", "translation": "кръстопът", "example": "", "example_translation": "" },
+        { "word": "der Hafen", "translation": "пристанище", "example": "", "example_translation": "" },
+        { "word": "der Bahnhof", "translation": "гара", "example": "", "example_translation": "" },
+        { "word": "der Industriebetrieb", "translation": "промишлено предприятие", "example": "", "example_translation": "" },
+        { "word": "die Einteilung", "translation": "разделяне", "example": "", "example_translation": "" },
+        { "word": "die Größe", "translation": "размер", "example": "", "example_translation": "" },
+        { "word": "die Funktion", "translation": "функция", "example": "", "example_translation": "" },
+        { "word": "das Dorf", "translation": "село", "example": "", "example_translation": "" },
+        { "word": "die Stadt", "translation": "град", "example": "", "example_translation": "" },
+        { "word": "die Weltbevölkerung", "translation": "световно население", "example": "", "example_translation": "" },
+        { "word": "die Landwirtschaft", "translation": "земеделие", "example": "", "example_translation": "" },
+        { "word": "die Eröffnung", "translation": "откриване", "example": "", "example_translation": "" },
+        { "word": "der Betrieb", "translation": "предприятие", "example": "", "example_translation": "" },
+        { "word": "die Pendelfahrt", "translation": "ежедневно пътуване", "example": "", "example_translation": "" },
+        { "word": "der Rückgang", "translation": "спад", "example": "", "example_translation": "" },
+        { "word": "die Beschäftigtenzahl", "translation": "брой заети", "example": "", "example_translation": "" },
+        { "word": "die Konzentration", "translation": "концентрация", "example": "", "example_translation": "" },
+        { "word": "die Stadtbevölkerung", "translation": "градско население", "example": "", "example_translation": "" },
+        { "word": "die Industrie", "translation": "промишленост", "example": "", "example_translation": "" },
+        { "word": "der Dienstleistungssektor", "translation": "сектор на услугите", "example": "", "example_translation": "" },
+        { "word": "die Bevölkerungszahl", "translation": "брой население", "example": "", "example_translation": "" },
+        { "word": "die Hauptstadt", "translation": "столица", "example": "", "example_translation": "" },
+        { "word": "der Wirtschaftssektor", "translation": "икономически сектор", "example": "", "example_translation": "" },
+        { "word": "die Verwaltung", "translation": "администрация", "example": "", "example_translation": "" },
+        { "word": "der Handel", "translation": "търговия", "example": "", "example_translation": "" },
+        { "word": "der Transport", "translation": "транспорт", "example": "", "example_translation": "" },
+        { "word": "das Industriezentrum", "translation": "индустриален център", "example": "", "example_translation": "" },
+        { "word": "das Verwaltungszentrum", "translation": "административен център", "example": "", "example_translation": "" },
+        { "word": "das Bildungszentrum", "translation": "образователен център", "example": "", "example_translation": "" },
+        { "word": "das Kulturzentrum", "translation": "културен център", "example": "", "example_translation": "" },
+        { "word": "der Tourismus", "translation": "туризъм", "example": "", "example_translation": "" },
+        { "word": "die Universitätsstadt", "translation": "университетски град", "example": "", "example_translation": "" },
+        { "word": "das Wesen", "translation": "същност", "example": "", "example_translation": "" },
+        { "word": "die Besonderheit", "translation": "особеност", "example": "", "example_translation": "" },
+        { "word": "die Grundform", "translation": "основна форма", "example": "", "example_translation": "" },
+        { "word": "die Urbanisierung", "translation": "урбанизация", "example": "", "example_translation": "" },
+        { "word": "die Verstädterung", "translation": "градообразуване", "example": "", "example_translation": "" },
+        { "word": "der Prozess", "translation": "процес", "example": "", "example_translation": "" },
+        { "word": "die Stadtbedeutung", "translation": "значение на града", "example": "", "example_translation": "" },
+        { "word": "die Zunahme", "translation": "увеличение", "example": "", "example_translation": "" },
+        { "word": "die Lebensweise", "translation": "начин на живот", "example": "", "example_translation": "" },
+        { "word": "das Ballungsgebiet", "translation": "градска агломерация", "example": "", "example_translation": "" },
+        { "word": "die Agglomeration", "translation": "агломерация", "example": "", "example_translation": "" },
+        { "word": "die Megalopole", "translation": "мегалополис", "example": "", "example_translation": "" },
+        { "word": "die Megastadt", "translation": "мегаград", "example": "", "example_translation": "" },
+        { "word": "die Suburbanisierung", "translation": "субурбанизация", "example": "", "example_translation": "" },
+        { "word": "die Vereinigung", "translation": "обединяване", "example": "", "example_translation": "" },
+        { "word": "das Gesamtterritorium", "translation": "обща територия", "example": "", "example_translation": "" },
+        { "word": "die Wechselbeziehung", "translation": "взаимовръзка", "example": "", "example_translation": "" },
+        { "word": "die Einwohner", "translation": "жители", "example": "", "example_translation": "" },
+        { "word": "das Zusammenwachsen", "translation": "срастване", "example": "", "example_translation": "" },
+        { "word": "die Siedlungsform", "translation": "селищна форма", "example": "", "example_translation": "" },
+        { "word": "die Binnenmigration", "translation": "вътрешна миграция", "example": "", "example_translation": "" },
+        { "word": "die Ansiedlung", "translation": "заселване", "example": "", "example_translation": "" },
+        { "word": "die Umgebung", "translation": "околност", "example": "", "example_translation": "" },
+        { "word": "der Raum", "translation": "пространство", "example": "", "example_translation": "" },
+        { "word": "die Sauberkeit", "translation": "чистота", "example": "", "example_translation": "" },
+        { "word": "die Folge", "translation": "последица", "example": "", "example_translation": "" },
+        { "word": "das Wachstum", "translation": "растеж", "example": "", "example_translation": "" },
+        { "word": "das Problem", "translation": "проблем", "example": "", "example_translation": "" },
+        { "word": "der Bedarf", "translation": "потребност", "example": "", "example_translation": "" },
+        { "word": "der Arbeitsplatz", "translation": "работно място", "example": "", "example_translation": "" },
+        { "word": "die Neubauwohnung", "translation": "ново жилище", "example": "", "example_translation": "" },
+        { "word": "die soziale Infrastruktur", "translation": "социална инфраструктура", "example": "", "example_translation": "" },
+        { "word": "das Verkehrsnetz", "translation": "транспортна мрежа", "example": "", "example_translation": "" },
+        { "word": "der Geräuschpegel", "translation": "ниво на шум", "example": "", "example_translation": "" },
+        { "word": "die Luftverschmutzung", "translation": "замърсяване на въздуха", "example": "", "example_translation": "" },
+        { "word": "die Gebirgsstadt", "translation": "планински град", "example": "", "example_translation": "" },
+        { "word": "die Küstenstadt", "translation": "крайбрежен град", "example": "", "example_translation": "" },
+        { "word": "die Flussstadt", "translation": "град на река", "example": "", "example_translation": "" },
+        { "word": "die Ebene", "translation": "равнина", "example": "", "example_translation": "" }
+      ]
+    }
+  ],
+  "mindmaps": [
+    {
+      "id": "1",
+      "title": "1 Entwicklung der Siedlungen",
+      "titleBg": "1 Развитие на селищата",
+      "diagram": "Siedlungen: Entstehung, Einteilung, Dorf vs. Stadt",
+      "tree": {
+        "id": "1-root",
+        "label": "Entwicklung der Siedlungen",
+        "labelBg": "Развитие на селищата",
+        "imageKind": "default",
+        "children": [
+          { "id": "1-def", "label": "Siedlung = territoriale Organisation der Bevölkerung", "labelBg": "селище = териториална организация на населението" },
+          { "id": "1-zweck", "label": "Wohnen + Arbeiten", "labelBg": "живеене + работа" },
+          {
+            "id": "1-fakt",
+            "label": "Entstehungsfaktoren",
+            "labelBg": "фактори за възникване",
+            "children": [
+              { "id": "1-f1", "label": "geografische Lage", "labelBg": "географско положение" },
+              { "id": "1-f2", "label": "Naturbedingungen (Klima, Böden, Wasser)", "labelBg": "природни условия (климат, почви, вода)" },
+              { "id": "1-f3", "label": "soziale/wirtschaftliche Verhältnisse (Kreuzwege, Häfen, Bahnhöfe, Industrie)", "labelBg": "социални/икономически условия (кръстопътища, пристанища, гари, индустрия)" }
+            ]
+          },
+          {
+            "id": "1-ein",
+            "label": "Einteilung",
+            "labelBg": "разделяне",
+            "children": [
+              { "id": "1-e1", "label": "nach Größe/Funktion: Dörfer und Städte", "labelBg": "по размер/функция: села и градове" },
+              { "id": "1-e2", "label": "weitere Kriterien: geografische Lage + Bevölkerungszahl", "labelBg": "други критерии: географско положение + брой население" }
+            ]
+          },
+          {
+            "id": "1-dorf-stadt",
+            "label": "Dorf vs. Stadt",
+            "labelBg": "село срещу град",
+            "children": [
+              { "id": "1-d1", "label": "historisch: Mehrheit in Dörfern", "labelBg": "исторически: мнозинството в селата" },
+              { "id": "1-d2", "label": "heute: >20 Mio. Dörfer, mehr als Städte", "labelBg": "днес: >20 млн. села, повече от градовете" },
+              { "id": "1-d3", "label": "Dorf: vor allem Landwirtschaft", "labelBg": "село: основно земеделие" },
+              { "id": "1-d4", "label": "Pendeln + nichtlandwirtschaftliche Betriebe -> Rückgang in Landwirtschaft", "labelBg": "пътуване + неземеделски предприятия -> спад на заетите в земеделието" },
+              { "id": "1-s1", "label": "Stadt: territoriale Konzentration", "labelBg": "град: териториална концентрация" },
+              { "id": "1-s2", "label": "Stadtbevölkerung: Industrie + Dienstleistungen", "labelBg": "градско население: индустрия + услуги" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "title": "2 Funktionen der Städte",
+      "titleBg": "2 Функции на градовете",
+      "diagram": "Funktionen: multifunktional / wirtschaftlich / nichtwirtschaftlich",
+      "tree": {
+        "id": "2-root",
+        "label": "Funktionen der Städte",
+        "labelBg": "Функции на градовете",
+        "imageKind": "work",
+        "children": [
+          {
+            "id": "2-multi",
+            "label": "Multifunktionale Städte",
+            "labelBg": "многофункционални градове",
+            "children": [
+              { "id": "2-m1", "label": "meiste Hauptstädte (Paris, London, Berlin)", "labelBg": "повечето столици (Париж, Лондон, Берлин)" },
+              { "id": "2-m2", "label": "alle Sektoren: Verwaltung, Handel, Transport, Industrie", "labelBg": "всички сектори: администрация, търговия, транспорт, индустрия" }
+            ]
+          },
+          {
+            "id": "2-wirt",
+            "label": "überwiegend wirtschaftliche Funktionen",
+            "labelBg": "преобладаващи икономически функции",
+            "children": [
+              { "id": "2-w1", "label": "variierende Einwohnerzahl", "labelBg": "различен брой жители" },
+              { "id": "2-w2", "label": "große Industriezentren (Dortmund, Manchester, Seattle)", "labelBg": "големи индустриални центрове (Дортмунд, Манчестър, Сиатъл)" }
+            ]
+          },
+          {
+            "id": "2-nicht",
+            "label": "überwiegend nichtwirtschaftliche Funktionen",
+            "labelBg": "преобладаващи неикономически функции",
+            "children": [
+              { "id": "2-n1", "label": "Verwaltung (Washington, Canberra)", "labelBg": "администрация (Вашингтон, Канбера)" },
+              { "id": "2-n2", "label": "Tourismus (Venedig, Versailles, Toledo)", "labelBg": "туризъм (Венеция, Версай, Толедо)" },
+              { "id": "2-n3", "label": "Bildung (Oxford, Cambridge)", "labelBg": "образование (Оксфорд, Кеймбридж)" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "title": "3 Wesen, Besonderheiten und Grundformen der Urbanisierung",
+      "titleBg": "3 Същност, особености и основни форми на урбанизацията",
+      "diagram": "Urbanisierung: mehr Bedeutung der Städte, mehr Stadtbevölkerung, städtische Lebensweise",
+      "tree": {
+        "id": "3-root",
+        "label": "Urbanisierung",
+        "labelBg": "Урбанизация",
+        "imageKind": "default",
+        "children": [
+          { "id": "3-def", "label": "Prozess: Stadtbedeutung steigt, Stadtbevölkerung wächst, städtische Lebensweise verbreitet sich", "labelBg": "процес: нараства значението на градовете, расте градското население, разпространява се градският начин на живот" },
+          {
+            "id": "3-formen",
+            "label": "Grundformen / Erscheinungen",
+            "labelBg": "основни форми / прояви",
+            "children": [
+              { "id": "3-f1", "label": "Ballungsgebiete", "labelBg": "градски концентрации" },
+              { "id": "3-f2", "label": "Agglomerationen", "labelBg": "агломерации" },
+              { "id": "3-f3", "label": "Megalopolen (Megastädte)", "labelBg": "мегалополиси (мегаградове)" },
+              { "id": "3-f4", "label": "Suburbanisierung", "labelBg": "субурбанизация" }
+            ]
+          },
+          {
+            "id": "3-aggl",
+            "label": "Agglomeration",
+            "labelBg": "агломерация",
+            "children": [
+              { "id": "3-a1", "label": "Vereinigung unterschiedlich großer Siedlungen", "labelBg": "обединяване на селища с различна големина" },
+              { "id": "3-a2", "label": "enge Industrie-/Transportbeziehungen", "labelBg": "тесни индустриални/транспортни връзки" },
+              { "id": "3-a3", "label": "größte: Tokio (38 Mio.)", "labelBg": "най-голяма: Токио (38 млн.)" }
+            ]
+          },
+          {
+            "id": "3-mega",
+            "label": "Megalopole",
+            "labelBg": "мегалополис",
+            "children": [
+              { "id": "3-m1", "label": "Vereinigung benachbarter Agglomerationen", "labelBg": "обединяване на съседни агломерации" },
+              { "id": "3-m2", "label": "größte Siedlungsform weltweit", "labelBg": "най-голяма селищна форма в света" },
+              { "id": "3-m3", "label": "Beispiele: Tokaido, Boswash, ChiPitts, SanSan", "labelBg": "примери: Токайдо, Босуош, ЧиПитс, СанСан" }
+            ]
+          },
+          {
+            "id": "3-sub",
+            "label": "Suburbanisierung",
+            "labelBg": "субурбанизация",
+            "children": [
+              { "id": "3-s1", "label": "Binnenmigration aus Zentren in Umgebung", "labelBg": "вътрешна миграция от центъра към периферията" },
+              { "id": "3-s2", "label": "Motive: mehr Raum, ökologische Sauberkeit", "labelBg": "мотиви: повече пространство, по-чиста среда" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "title": "4 Folgen der Urbanisierung",
+      "titleBg": "4 Последици от урбанизацията",
+      "diagram": "Folgen: wirtschaftlich, sozial, ökologisch",
+      "tree": {
+        "id": "4-root",
+        "label": "Folgen der Urbanisierung",
+        "labelBg": "Последици от урбанизацията",
+        "imageKind": "default",
+        "children": [
+          { "id": "4-f0", "label": "territoriales Wachstum der Städte -> Probleme", "labelBg": "териториален растеж на градовете -> проблеми" },
+          {
+            "id": "4-econ",
+            "label": "wirtschaftliche/soziale Folgen",
+            "labelBg": "икономически/социални последици",
+            "children": [
+              { "id": "4-e1", "label": "höherer Bedarf an Arbeitsplätzen", "labelBg": "по-висока нужда от работни места" },
+              { "id": "4-e2", "label": "Bedarf an Neubauwohnungen", "labelBg": "нужда от нови жилища" },
+              { "id": "4-e3", "label": "Bedarf an sozialer Infrastruktur", "labelBg": "нужда от социална инфраструктура" }
+            ]
+          },
+          {
+            "id": "4-eco",
+            "label": "ökologische Folgen",
+            "labelBg": "екологични последици",
+            "children": [
+              { "id": "4-o1", "label": "verdichtetes Verkehrsnetz", "labelBg": "сгъстена транспортна мрежа" },
+              { "id": "4-o2", "label": "Anstieg des Geräuschpegels", "labelBg": "повишаване на нивото на шума" },
+              { "id": "4-o3", "label": "Luftverschmutzung", "labelBg": "замърсяване на въздуха" }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "content": "<strong>1. Entwicklung der Siedlungen</strong>\n\nDie Siedlung stellt eine Form der territorialen Organisation der Bevölkerung dar. Siedlungen sind Orte, an denen die Menschen zum Zwecke des Wohnens und Arbeitens zusammenleben. Relevant für die Entstehung der Siedlungen sind folgende Faktoren: die geografische Lage, die Naturbedingungen (warmes Klima, fruchtbare Böden, Vorhandensein von Wasser), die sozialen und wirtschaftlichen Verhältnisse (wichtige Kreuzwege, Häfen, Bahnhöfe, Industriebetriebe usw.).\n\n<strong>Einteilung der Siedlungen.</strong> Nach ihrer Größe und Funktionen werden die Siedlungen in Dörfer und Städte eingeteilt.\n\nIm Laufe von Jahrtausenden lebte der Großteil der Weltbevölkerung in Dörfern. Auch heutzutage ist die Zahl der Dörfer (über 20 Millionen) deutlich höher als diese der Städte. Die meisten Menschen in den Dörfern beschäftigen sich mit Landwirtschaft. Die Eröffnung von nicht landwirtschaftlichen Betrieben und die Zunahme der täglichen Pendelfahrten in die Stadt führen jedoch zum Rückgang der Beschäftigtenzahl in der Landwirtschaft.\n\nDie Städte stellen eine Form der territorialen Konzentration der Bevölkerung dar. Die Stadtbevölkerung ist hauptsächlich in der Industrie oder im Dienstleistungssektor beschäftigt.\n\nDie Siedlungen lassen sich des Weiteren nach ihrer geografischen Lage und nach der Bevölkerungszahl einteilen.\n\n<strong>2 Funktionen der Städte</strong>\n\nNach den Funktionen unterscheidet man:\n\nMultifunktionale Städte: Das sind die meisten Hauptstädte wie Paris, London, Berlin u.a. In solchen Städten entwickeln sich alle Wirtschaftssektoren: Verwaltung, Handel, Transport, Industrie usw.\n\nStädte mit überwiegend wirtschaftlichen Funktionen: Sie weisen variierende Einwohnerzahl auf und die meisten davon sind große Industriezentren wie z.B. Dortmund (Deutschland), Manchester (Großbritannien), Seattle (USA) usw.\n\nStädte mit überwiegend nichtwirtschaftlichen Funktionen: Sie sind Verwaltungs-, Bildungs- oder Kulturzentren. Städte mit Verwaltungsfunktionen sind z.B. Washington in den USA, Canberra im Australischen Bund u.a. Städte mit überwiegendem Tourismus sind z.B. Venedig in Italien, Versailles in Frankreich, Toledo in Spanien u.a. Überwiegende Bildungsfunktionen haben Universitätsstädte wie Oxford und Cambridge in Großbritannien.\n\n<strong>3 Wesen, Besonderheiten und Grundformen der Urbanisierung</strong>\n\n<strong>Mit Urbanisierung</strong> (Verstädterung) wird ein Prozess bezeichnet, der zum Anstieg der Stadtbedeutung, zur Zunahme der Stadtbevölkerung und zur Verbreitung der städtischen Lebensweise führt. Die heutige Urbanisierung verursacht die Herausbildung von großen städtischen Ballungsgebieten, Agglomerationen und Megalopolen (Megastädten), sowie den Prozess der Suburbanisierung.\n\nAgglomerationen entstehen infolge der Vereinigung unterschiedlich großer Siedlungen zu einem Gesamtterritorium auf der Grundlage enger Industrie-, Transport- und anderer Wechselbeziehungen. Die größte Agglomeration ist Tokio mit 38 Mio. Einwohnern.\n\nBei der Vereinigung und dem Zusammenwachsen von Nachbaragglomerationen kommt es zur Herausbildung von Megalopolen. Das ist die weltweit größte Siedlungsform. Die größten Megalopolen sind Tokaido in Japan, Boswash, ChiPitts und SanSan in den USA.\n\nIn den entwickelten Ländern beobachtet man auch den Prozess der Suburbanisierung: Binnenmigration der Bevölkerung aus den zentralen Teilen der Städte und Ansiedlung in der Umgebung (für mehr Raum und ökologische Sauberkeit).\n\n<strong>4 Folgen der Urbanisierung</strong>\n\nDas territoriale Wachstum der Städte führt zu wirtschaftlichen, sozialen und ökologischen Problemen. Das Wachstum der Stadtbevölkerung erhöht den Bedarf an Arbeitsplätzen, Neubauwohnungen und sozialer Infrastruktur. Das verdichtete Verkehrsnetz führt zum Anstieg des Geräuschpegels, zur Luftverschmutzung u.ä.",
+  "sentences": [
+    {
+      "text": "<strong>1. Entwicklung der Siedlungen</strong>",
+      "translation": "<strong>1. Развитие на селищата</strong>"
+    },
+    {
+      "text": "Die Siedlung stellt eine Form der territorialen Organisation der Bevölkerung dar.",
+      "translation": "Селището представлява форма на териториална организация на населението."
+    },
+    {
+      "text": "Siedlungen sind Orte, an denen die Menschen zum Zwecke des Wohnens und Arbeitens zusammenleben.",
+      "translation": "Селищата са места, където хората живеят заедно с цел обитаване и работа."
+    },
+    {
+      "text": "Relevant für die Entstehung der Siedlungen sind folgende Faktoren: die geografische Lage, die Naturbedingungen (warmes Klima, fruchtbare Böden, Vorhandensein von Wasser), die sozialen und wirtschaftlichen Verhältnisse (wichtige Kreuzwege, Häfen, Bahnhöfe, Industriebetriebe usw.).",
+      "translation": "За възникването на селищата са важни следните фактори: географското положение, природните условия (топъл климат, плодородни почви, наличие на вода), социалните и икономическите условия (важни кръстопътища, пристанища, гари, промишлени предприятия и др.)."
+    },
+    {
+      "text": "<strong>Einteilung der Siedlungen.</strong>",
+      "translation": "<strong>Разделяне на селищата.</strong>"
+    },
+    {
+      "text": "Nach ihrer Größe und Funktionen werden die Siedlungen in Dörfer und Städte eingeteilt.",
+      "translation": "Според своя размер и функции селищата се разделят на села и градове."
+    },
+    {
+      "text": "Im Laufe von Jahrtausenden lebte der Großteil der Weltbevölkerung in Dörfern.",
+      "translation": "В продължение на хилядолетия по-голямата част от световното население е живяла в села."
+    },
+    {
+      "text": "Auch heutzutage ist die Zahl der Dörfer (über 20 Millionen) deutlich höher als diese der Städte.",
+      "translation": "И днес броят на селата (над 20 милиона) е значително по-голям от този на градовете."
+    },
+    {
+      "text": "Die meisten Menschen in den Dörfern beschäftigen sich mit Landwirtschaft.",
+      "translation": "Повечето хора в селата се занимават със земеделие."
+    },
+    {
+      "text": "Die Eröffnung von nicht landwirtschaftlichen Betrieben und die Zunahme der täglichen Pendelfahrten in die Stadt führen jedoch zum Rückgang der Beschäftigtenzahl in der Landwirtschaft.",
+      "translation": "Откриването на неземеделски предприятия и увеличаването на ежедневните пътувания до града обаче водят до намаляване на заетите в земеделието."
+    },
+    {
+      "text": "Die Städte stellen eine Form der territorialen Konzentration der Bevölkerung dar.",
+      "translation": "Градовете представляват форма на териториална концентрация на населението."
+    },
+    {
+      "text": "Die Stadtbevölkerung ist hauptsächlich in der Industrie oder im Dienstleistungssektor beschäftigt.",
+      "translation": "Градското население е заето главно в промишлеността или в сектора на услугите."
+    },
+    {
+      "text": "Die Siedlungen lassen sich des Weiteren nach ihrer geografischen Lage und nach der Bevölkerungszahl einteilen.",
+      "translation": "Селищата могат допълнително да се разделят според географското им положение и според броя на населението."
+    },
+    {
+      "text": "<strong>2 Funktionen der Städte</strong>",
+      "translation": "<strong>2 Функции на градовете</strong>"
+    },
+    {
+      "text": "Nach den Funktionen unterscheidet man:",
+      "translation": "Според функциите се различават:"
+    },
+    {
+      "text": "Multifunktionale Städte: Das sind die meisten Hauptstädte wie Paris, London, Berlin u.a.",
+      "translation": "Многофункционални градове: това са повечето столици като Париж, Лондон, Берлин и др."
+    },
+    {
+      "text": "In solchen Städten entwickeln sich alle Wirtschaftssektoren: Verwaltung, Handel, Transport, Industrie usw.",
+      "translation": "В такива градове се развиват всички икономически сектори: администрация, търговия, транспорт, промишленост и др."
+    },
+    {
+      "text": "Städte mit überwiegend wirtschaftlichen Funktionen: Sie weisen variierende Einwohnerzahl auf und die meisten davon sind große Industriezentren wie z.B. Dortmund (Deutschland), Manchester (Großbritannien), Seattle (USA) usw.",
+      "translation": "Градове с преобладаващи икономически функции: те имат различен брой жители и повечето от тях са големи индустриални центрове като Дортмунд (Германия), Манчестър (Великобритания), Сиатъл (САЩ) и др."
+    },
+    {
+      "text": "Städte mit überwiegend nichtwirtschaftlichen Funktionen: Sie sind Verwaltungs-, Bildungs- oder Kulturzentren.",
+      "translation": "Градове с преобладаващи неикономически функции: те са административни, образователни или културни центрове."
+    },
+    {
+      "text": "Städte mit Verwaltungsfunktionen sind z.B. Washington in den USA, Canberra im Australischen Bund u.a.",
+      "translation": "Градове с административни функции са например Вашингтон в САЩ, Канбера в Австралийския съюз и др."
+    },
+    {
+      "text": "Städte mit überwiegendem Tourismus sind z.B. Venedig in Italien, Versailles in Frankreich, Toledo in Spanien u.a.",
+      "translation": "Градове с преобладаващ туризъм са например Венеция в Италия, Версай във Франция, Толедо в Испания и др."
+    },
+    {
+      "text": "Überwiegende Bildungsfunktionen haben Universitätsstädte wie Oxford und Cambridge in Großbritannien.",
+      "translation": "Преобладаващи образователни функции имат университетски градове като Оксфорд и Кеймбридж във Великобритания."
+    },
+    {
+      "text": "<strong>3 Wesen, Besonderheiten und Grundformen der Urbanisierung</strong>",
+      "translation": "<strong>3 Същност, особености и основни форми на урбанизацията</strong>"
+    },
+    {
+      "text": "<strong>Mit Urbanisierung</strong> (Verstädterung) wird ein Prozess bezeichnet, der zum Anstieg der Stadtbedeutung, zur Zunahme der Stadtbevölkerung und zur Verbreitung der städtischen Lebensweise führt.",
+      "translation": "<strong>Под урбанизация</strong> (оградяване) се разбира процес, който води до повишаване значението на градовете, нарастване на градското население и разпространение на градския начин на живот."
+    },
+    {
+      "text": "Die heutige Urbanisierung verursacht die Herausbildung von großen städtischen Ballungsgebieten, Agglomerationen und Megalopolen (Megastädten), sowie den Prozess der Suburbanisierung.",
+      "translation": "Съвременната урбанизация предизвиква формирането на големи градски концентрации, агломерации и мегалополиси (мегаградове), както и процеса на субурбанизация."
+    },
+    {
+      "text": "Agglomerationen entstehen infolge der Vereinigung unterschiedlich großer Siedlungen zu einem Gesamtterritorium auf der Grundlage enger Industrie-, Transport- und anderer Wechselbeziehungen.",
+      "translation": "Агломерациите възникват в резултат от обединяването на селища с различна големина в обща територия на основата на тесни промишлени, транспортни и други взаимовръзки."
+    },
+    {
+      "text": "Die größte Agglomeration ist Tokio mit 38 Mio. Einwohnern.",
+      "translation": "Най-голямата агломерация е Токио с 38 млн. жители."
+    },
+    {
+      "text": "Bei der Vereinigung und dem Zusammenwachsen von Nachbaragglomerationen kommt es zur Herausbildung von Megalopolen.",
+      "translation": "При обединяване и срастване на съседни агломерации се формират мегалополиси."
+    },
+    {
+      "text": "Das ist die weltweit größte Siedlungsform.",
+      "translation": "Това е най-голямата селищна форма в света."
+    },
+    {
+      "text": "Die größten Megalopolen sind Tokaido in Japan, Boswash, ChiPitts und SanSan in den USA.",
+      "translation": "Най-големите мегалополиси са Токайдо в Япония, Босуош, ЧиПитс и СанСан в САЩ."
+    },
+    {
+      "text": "In den entwickelten Ländern beobachtet man auch den Prozess der Suburbanisierung: Binnenmigration der Bevölkerung aus den zentralen Teilen der Städte und Ansiedlung in der Umgebung (für mehr Raum und ökologische Sauberkeit).",
+      "translation": "В развитите страни се наблюдава и процесът на субурбанизация: вътрешна миграция на населението от централните части на градовете и заселване в периферията (за повече пространство и по-чиста околна среда)."
+    },
+    {
+      "text": "<strong>4 Folgen der Urbanisierung</strong>",
+      "translation": "<strong>4 Последици от урбанизацията</strong>"
+    },
+    {
+      "text": "Das territoriale Wachstum der Städte führt zu wirtschaftlichen, sozialen und ökologischen Problemen.",
+      "translation": "Териториалният растеж на градовете води до икономически, социални и екологични проблеми."
+    },
+    {
+      "text": "Das Wachstum der Stadtbevölkerung erhöht den Bedarf an Arbeitsplätzen, Neubauwohnungen und sozialer Infrastruktur.",
+      "translation": "Ръстът на градското население увеличава нуждата от работни места, нови жилища и социална инфраструктура."
+    },
+    {
+      "text": "Das verdichtete Verkehrsnetz führt zum Anstieg des Geräuschpegels, zur Luftverschmutzung u.ä. (Abb. 1)",
+      "translation": "Сгъстената транспортна мрежа води до повишаване на нивото на шума, замърсяване на въздуха и др. (Фиг. 1)"
+    }
+  ],
+  "images": {
+    "Abb. 1": [
+      "https://i.imgur.com/ZH1UtSM.png"
+    ]
+  },
+  "exercises": [
+    {
+      "id": 1,
+      "title": "1. Ergänzen Sie die Tabelle: Einteilung der Städte nach der geografischen Lage.",
+      "titleBg": "1. Попълнете таблицата: разделяне на градовете според географското положение.",
+      "type": "dropdown",
+      "dropdownItems": [
+        {
+          "id": "gebirge",
+          "label": "Gebirgsstädte",
+          "labelBg": "Планински градове",
+          "options": [
+            { "id": "innsbruck", "text": "Innsbruck", "textBg": "Инсбрук" },
+            { "id": "hamburg", "text": "Hamburg", "textBg": "Хамбург" },
+            { "id": "venedig", "text": "Venedig", "textBg": "Венеция" }
+          ],
+          "correctId": "innsbruck"
+        },
+        {
+          "id": "ebene",
+          "label": "Städte in der Ebene",
+          "labelBg": "Градове в равнината",
+          "options": [
+            { "id": "berlin", "text": "Berlin", "textBg": "Берлин" },
+            { "id": "lausanne", "text": "Lausanne", "textBg": "Лозана" },
+            { "id": "quito", "text": "Quito", "textBg": "Кито" }
+          ],
+          "correctId": "berlin"
+        },
+        {
+          "id": "kueste",
+          "label": "Küstenstädte",
+          "labelBg": "Крайбрежни градове",
+          "options": [
+            { "id": "hamburg", "text": "Hamburg", "textBg": "Хамбург" },
+            { "id": "muenchen", "text": "München", "textBg": "Мюнхен" },
+            { "id": "prag", "text": "Prag", "textBg": "Прага" }
+          ],
+          "correctId": "hamburg"
+        },
+        {
+          "id": "fluss",
+          "label": "Flussstädte",
+          "labelBg": "Речни градове",
+          "options": [
+            { "id": "budapest", "text": "Budapest", "textBg": "Будапеща" },
+            { "id": "brisbane", "text": "Brisbane", "textBg": "Бризбейн" },
+            { "id": "athen", "text": "Athen", "textBg": "Атина" }
+          ],
+          "correctId": "budapest"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. Schreiben Sie die Namen der auf der Karte markierten Megalopolen (1-5) und Agglomerationen (6-10).",
+      "titleBg": "2. Запишете имената на отбелязаните на картата мегалополиси (1-5) и агломерации (6-10).",
+      "type": "question",
+      "taskText": "Megalopolen (1-5) und Agglomerationen (6-10):\n\n1. __________\n2. __________\n3. __________\n4. __________\n5. __________\n6. __________\n7. __________\n8. __________\n9. __________\n10. __________",
+      "taskTextBg": "Мегалополиси (1-5) и агломерации (6-10):\n\n1. __________\n2. __________\n3. __________\n4. __________\n5. __________\n6. __________\n7. __________\n8. __________\n9. __________\n10. __________",
+      "answer": "Beispiel-Lösung:\n1) Boswash\n2) ChiPitts\n3) SanSan\n4) Tokaido\n5) Nordwesteuropäische Megalopolis (London–Benelux–Rhein-Ruhr)\n6) Los Angeles\n7) New York\n8) London\n9) Paris\n10) São Paulo",
+      "answerBg": "Примерно решение:\n1) Босуош\n2) ЧиПитс\n3) СанСан\n4) Токайдо\n5) Северозападноевропейски мегалополис (Лондон–Бенелюкс–Рейн-Рур)\n6) Лос Анджелис\n7) Ню Йорк\n8) Лондон\n9) Париж\n10) Сао Пауло"
+    }
+  ]
+}
+

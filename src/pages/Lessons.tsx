@@ -313,6 +313,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "— мин",
               completed: false,
             },
+            {
+              id: 11,
+              number: "25",
+              title: "25. SIEDLUNGEN. URBANISIERUNG",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],
