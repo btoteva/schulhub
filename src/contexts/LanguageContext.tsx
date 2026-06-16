@@ -165,6 +165,12 @@ interface Translations {
   englishCourseDesc: string;
   englishLessonsDesc: string;
   englishPodcastsDesc: string;
+  fotoPodcast: string;
+  fotoPodcastDesc: string;
+  fotoTutorials: string;
+  fotoTutorialsDesc: string;
+  streetPhotography: string;
+  streetPhotographyDesc: string;
 
   // Course levels/grades
   grade8: string;
@@ -382,6 +388,15 @@ const translations: Record<Language, Translations> = {
     englishCourseDesc: "Учете английски език с интерактивни уроци и подкасти.",
     englishLessonsDesc: "Super Easy English",
     englishPodcastsDesc: "Аудио записи за слушане и упражняване на слуха.",
+    fotoPodcast: "Фото подкаст",
+    fotoPodcastDesc:
+      "Подкаст за фотография на немски – подходящ за ниво B1.",
+    fotoTutorials: "Фото туториали",
+    fotoTutorialsDesc:
+      "Видео уроци по фотография от KROLOP & GERST – на немски, бавно и ясно.",
+    streetPhotography: "Улична фотография",
+    streetPhotographyDesc:
+      "Подбрани видеа за улична фотография от немски YouTube канали – ниво B1.",
 
     // Course levels/grades
     grade8: "8 клас",
@@ -577,6 +592,15 @@ const translations: Record<Language, Translations> = {
     englishLessonsDesc: "Super Easy English",
     englishPodcastsDesc:
       "Audio recordings for listening and practicing hearing.",
+    fotoPodcast: "Photo Podcast",
+    fotoPodcastDesc:
+      "German photography podcast – great for B1-level listening practice.",
+    fotoTutorials: "Photo Tutorials",
+    fotoTutorialsDesc:
+      "Video tutorials by KROLOP & GERST – German, calm and clear.",
+    streetPhotography: "Street Photography",
+    streetPhotographyDesc:
+      "Curated street-photography videos from German YouTube channels – B1 friendly.",
 
     // Course levels/grades
     grade8: "Grade 8",
@@ -773,6 +797,15 @@ const translations: Record<Language, Translations> = {
     englishLessonsDesc: "Super Easy English",
     englishPodcastsDesc:
       "Audioaufnahmen zum Zuhören und Üben des Hörverstehens.",
+    fotoPodcast: "Foto-Podcast",
+    fotoPodcastDesc:
+      "Fotografie-Podcast auf Deutsch – ideal für Lernende auf Niveau B1.",
+    fotoTutorials: "Foto-Tutorials",
+    fotoTutorialsDesc:
+      "Videotutorials von KROLOP & GERST – ruhig und verständlich auf Deutsch.",
+    streetPhotography: "Straßenfotografie",
+    streetPhotographyDesc:
+      "Kuratierte Straßenfotografie-Videos von deutschen YouTube-Kanälen – ideal für Niveau B1.",
 
     // Course levels/grades
     grade8: "Klasse 8",

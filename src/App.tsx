@@ -32,6 +32,12 @@ import DSDSchriftliche4View from "./pages/DSDSchriftliche4View";
 import DSDTestsList from "./pages/DSDTestsList";
 import GermanPodcastView from "./pages/GermanPodcastView";
 import GermanPodcastAllView from "./pages/GermanPodcastAllView";
+import GermanFotoPodcastView from "./pages/GermanFotoPodcastView";
+import GermanFotoPodcastAllView from "./pages/GermanFotoPodcastAllView";
+import GermanFotoTutorialsView from "./pages/GermanFotoTutorialsView";
+import GermanFotoTutorialView from "./pages/GermanFotoTutorialView";
+import GermanStreetPhotographyView from "./pages/GermanStreetPhotographyView";
+import GermanStreetPhotographyVideoView from "./pages/GermanStreetPhotographyVideoView";
 import EnglishPodcastAllView from "./pages/EnglishPodcastAllView";
 import EnglishPodcastView from "./pages/EnglishPodcastView";
 import EnglishCourseSelection from "./pages/EnglishCourseSelection";
@@ -88,6 +94,30 @@ const App: React.FC = () => {
           <Route
             path="/german/podcasts/all"
             element={<GermanPodcastAllView />}
+          />
+          <Route
+            path="/german/foto-podcast/all"
+            element={<GermanFotoPodcastAllView />}
+          />
+          <Route
+            path="/german/foto-podcast/:episodeId"
+            element={<GermanFotoPodcastView />}
+          />
+          <Route
+            path="/german/foto-tutorials"
+            element={<GermanFotoTutorialsView />}
+          />
+          <Route
+            path="/german/foto-tutorial/:videoId"
+            element={<GermanFotoTutorialView />}
+          />
+          <Route
+            path="/german/street-photography"
+            element={<GermanStreetPhotographyView />}
+          />
+          <Route
+            path="/german/street-photography/:videoId"
+            element={<GermanStreetPhotographyVideoView />}
           />
           <Route path="/english" element={<EnglishCourseSelection />} />
           <Route

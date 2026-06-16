@@ -1,0 +1,246 @@
+{
+  "channel": {
+    "id": "krolop-gerst",
+    "name": "KROLOP & GERST",
+    "handle": "@krolopgerst",
+    "channelUrl": "https://www.youtube.com/@krolopgerst",
+    "websiteUrl": "https://krolop-gerst.com/",
+    "description": "Alles rund um Fotografie, Lichtsetzung und Technik. Martin Krolop erklärt didaktisch und ruhig – ideal zum Deutschlernen auf B1-Niveau.",
+    "imageUrl": "https://yt3.googleusercontent.com/ytc/AIdro_kQE1Q7M9X3hjQO5dD6Lmu9zKhxHkR1kFyHcD9R=s176-c-k-c0x00ffffff-no-rj"
+  },
+  "groups": [
+    {
+      "id": "quicktipps",
+      "titles": {
+        "bg": "Бързи съвети (Quicktipps)",
+        "de": "Quicktipps – kurze Inspirationen",
+        "en": "Quick tips – short inspirations"
+      }
+    },
+    {
+      "id": "licht-setup",
+      "titles": {
+        "bg": "Светлина и студийни сетъпи",
+        "de": "Licht & Studio-Setups",
+        "en": "Light & studio setups"
+      }
+    },
+    {
+      "id": "outdoor-available-light",
+      "titles": {
+        "bg": "Навън и естествена светлина",
+        "de": "Outdoor & Available Light",
+        "en": "Outdoor & available light"
+      }
+    },
+    {
+      "id": "portrait",
+      "titles": {
+        "bg": "Портретни уроци",
+        "de": "Porträt-Tutorials",
+        "en": "Portrait tutorials"
+      }
+    },
+    {
+      "id": "reisefotografie",
+      "titles": {
+        "bg": "Пътешествена фотография и репортаж",
+        "de": "Reisefotografie & Reportage",
+        "en": "Travel photography & reportage"
+      }
+    },
+    {
+      "id": "kameratechnik",
+      "titles": {
+        "bg": "Камерна техника и история",
+        "de": "Kameratechnik & Geschichte",
+        "en": "Camera technology & history"
+      }
+    },
+    {
+      "id": "crashkurs",
+      "titles": {
+        "bg": "Голям курс по фотография",
+        "de": "Großer Crashkurs Fotografie",
+        "en": "Full crash course in photography"
+      }
+    }
+  ],
+  "videos": [
+    {
+      "id": "ZllGyFLJ_Wk",
+      "group": "quicktipps",
+      "title": "#LICHTSETZER Quicktipp: Softes, natürliches Licht!",
+      "duration": "1:41",
+      "playlist_index": 1
+    },
+    {
+      "id": "vHOAuJzmxmQ",
+      "group": "quicktipps",
+      "title": "Licht sehen lernen – Bessere Fotos ohne Equipment!",
+      "duration": "2:04",
+      "playlist_index": 2
+    },
+    {
+      "id": "r4SYBkQNSdE",
+      "group": "quicktipps",
+      "title": "#LICHTSETZER Quicktipp: Portraits am Garagentor!",
+      "duration": "2:12",
+      "playlist_index": 3
+    },
+    {
+      "id": "496MNq2o4kA",
+      "group": "quicktipps",
+      "title": "One Light – super kontrastreiches Licht (Quicktip)",
+      "duration": "4:00",
+      "playlist_index": 4
+    },
+    {
+      "id": "GI68OiXIYTg",
+      "group": "licht-setup",
+      "title": "Der Stativ-Trick für die Studiofotografie!",
+      "duration": "5:18",
+      "playlist_index": 5
+    },
+    {
+      "id": "EhL-HfQtHlM",
+      "group": "licht-setup",
+      "title": "Fotografieren mit LED-Licht und Softbox",
+      "duration": "5:44",
+      "playlist_index": 6
+    },
+    {
+      "id": "Cm891uoNlyQ",
+      "group": "licht-setup",
+      "title": "Moody One-Light-Setup",
+      "duration": "5:57",
+      "playlist_index": 7
+    },
+    {
+      "id": "SYJMCLzNqpQ",
+      "group": "licht-setup",
+      "title": "Fotografieren mit LED-Stage-Blindern",
+      "duration": "8:15",
+      "playlist_index": 8
+    },
+    {
+      "id": "HJNUL2B768w",
+      "group": "licht-setup",
+      "title": "Neue Küche, neues Licht!",
+      "duration": "12:29",
+      "playlist_index": 9
+    },
+    {
+      "id": "od7dqXiW9Gs",
+      "group": "outdoor-available-light",
+      "title": "Available Light: Der größte Aufheller der Welt – eine Wand?",
+      "duration": "4:24",
+      "playlist_index": 10
+    },
+    {
+      "id": "F96bobJEFlc",
+      "group": "outdoor-available-light",
+      "title": "Holzhackerin – Portrait-Shooting Available Light (Outdoor)",
+      "duration": "4:39",
+      "playlist_index": 11
+    },
+    {
+      "id": "PR3RqbwwbVc",
+      "group": "outdoor-available-light",
+      "title": "Sundown Available Light Wedding – On Location",
+      "duration": "5:53",
+      "playlist_index": 12
+    },
+    {
+      "id": "1RXBZugdxGc",
+      "group": "outdoor-available-light",
+      "title": "Lichteffekte fotografieren – Sample aus Available Light",
+      "duration": "9:29",
+      "playlist_index": 13
+    },
+    {
+      "id": "oPtSeWo_XoU",
+      "group": "portrait",
+      "title": "Step by Step zum OOC-Portrait mit Canon R50 + 50mm f/1.8",
+      "duration": "7:14",
+      "playlist_index": 14
+    },
+    {
+      "id": "xXZcvbQ82Kg",
+      "group": "portrait",
+      "title": "Bewusstes Sehen – FOLGE 02 – Crashkurs Portrait",
+      "duration": "25:44",
+      "playlist_index": 15
+    },
+    {
+      "id": "LsaNH95bhF8",
+      "group": "portrait",
+      "title": "Der Fokus – FOLGE 04(2) – Crashkurs Portrait",
+      "duration": "34:17",
+      "playlist_index": 16
+    },
+    {
+      "id": "8QDqVbKo37A",
+      "group": "reisefotografie",
+      "title": "Destination Schottland kommt bald – Teaser",
+      "duration": "3:27",
+      "playlist_index": 17
+    },
+    {
+      "id": "WeL0at8O-GQ",
+      "group": "reisefotografie",
+      "title": "Destination Schottland beginnt – Trailer",
+      "duration": "6:12",
+      "playlist_index": 18
+    },
+    {
+      "id": "8zQsFTZTGLY",
+      "group": "reisefotografie",
+      "title": "GPS-Tracker für Fotoreisen – Destination Tech-Talk",
+      "duration": "9:39",
+      "playlist_index": 19
+    },
+    {
+      "id": "RSe4QceiqJU",
+      "group": "reisefotografie",
+      "title": "Destination Kanada: Selbst planen oder planen lassen?",
+      "duration": "12:41",
+      "playlist_index": 20
+    },
+    {
+      "id": "cluBln-3lik",
+      "group": "kameratechnik",
+      "title": "100 Jahre Kameratechnik – 01 – Ausblick",
+      "duration": "15:21",
+      "playlist_index": 21
+    },
+    {
+      "id": "ytio8qq4U7k",
+      "group": "kameratechnik",
+      "title": "Hasselblad 907X & CFV 100C – Die unsinnig-schönste Kamera",
+      "duration": "22:36",
+      "playlist_index": 22
+    },
+    {
+      "id": "xZVzdJ75iNY",
+      "group": "kameratechnik",
+      "title": "100 Jahre Kameratechnik – 02 – 5 Kameras aus 100 Jahren (Teil 1)",
+      "duration": "25:30",
+      "playlist_index": 23
+    },
+    {
+      "id": "RZ2ctMF5d6c",
+      "group": "kameratechnik",
+      "title": "100 Jahre Kameratechnik – 02 – 5 Kameras aus 100 Jahren (Teil 2)",
+      "duration": "27:54",
+      "playlist_index": 24
+    },
+    {
+      "id": "7QWHKFcjP_0",
+      "group": "crashkurs",
+      "title": "Crashkurs Fotografie – Fotografieren lernen mit Krolop&Gerst",
+      "duration": "1:45:19",
+      "playlist_index": 25
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 /**
- * Fetches and parses the Easy German podcast RSS feed.
- * GET request to the feed URL; returns channel info and list of episodes.
+ * Generic podcast RSS feed parser.
+ *
+ * Default behaviour preserves the Easy German feed (used historically), but
+ * the parser can be pointed at any podcast RSS via `fetchPodcastFeedFromUrl`.
  */
 
 import type { GermanPodcastItem } from "../data/german-podcasts";
@@ -12,15 +14,45 @@ export interface PodcastChannelInfo {
   imageUrl: string;
 }
 
-const EASY_GERMAN_FEED_URL = "https://proxyfeed.svmaudio.com/feeds/easygerman/feed.xml";
+export interface PodcastFeedResult {
+  channel: PodcastChannelInfo;
+  items: GermanPodcastItem[];
+}
 
+export interface FetchPodcastFeedOptions {
+  /** Subtitle to attach to each item. Defaults to the channel title. */
+  subtitle?: string;
+  /** Default channel title to fall back to when not present in the feed. */
+  defaultChannelTitle?: string;
+}
+
+const EASY_GERMAN_FEED_URL =
+  "https://proxyfeed.svmaudio.com/feeds/easygerman/feed.xml";
+
+/**
+ * Parses an `<itunes:duration>` value into a human-readable string.
+ * Handles three formats: total seconds (e.g. "595"), MM:SS, or HH:MM:SS.
+ */
 function parseDuration(itunesDuration: string | null): string {
   if (!itunesDuration || !itunesDuration.trim()) return "";
   const s = itunesDuration.trim();
   const parts = s.split(":").map((p) => parseInt(p, 10));
   if (parts.some((n) => isNaN(n))) return s;
-  if (parts.length === 1) return `${parts[0]} min`;
-  if (parts.length === 2) return `${parts[0]}:${String(parts[1]).padStart(2, "0")} min`;
+  if (parts.length === 1) {
+    const totalSeconds = parts[0];
+    if (totalSeconds < 60) return `${totalSeconds} s`;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    if (minutes >= 60) {
+      const h = Math.floor(minutes / 60);
+      const m = minutes % 60;
+      return `${h} h ${m} min`;
+    }
+    if (seconds === 0) return `${minutes} min`;
+    return `${minutes}:${String(seconds).padStart(2, "0")} min`;
+  }
+  if (parts.length === 2)
+    return `${parts[0]}:${String(parts[1]).padStart(2, "0")} min`;
   const [h, m, sec] = parts;
   if (h > 0) return `${h} h ${m} min`;
   return `${m}:${String(sec).padStart(2, "0")} min`;
@@ -29,7 +61,12 @@ function parseDuration(itunesDuration: string | null): string {
 function getText(el: Element | null): string {
   if (!el) return "";
   const first = el.childNodes[0];
-  return (first && first.nodeType === Node.TEXT_NODE ? first.textContent : el.textContent)?.trim() ?? "";
+  return (
+    (first && first.nodeType === Node.TEXT_NODE
+      ? first.textContent
+      : el.textContent
+    )?.trim() ?? ""
+  );
 }
 
 function getEnclosureUrl(item: Element): string {
@@ -71,8 +108,13 @@ function getDescription(item: Element): string {
 }
 
 /** Find any Spotify URL in the item (link, guid, or any attribute/text). */
-function getSpotifyUrl(item: Element, guid: string, linkFromFirst: string): string {
-  const spotifyRegex = /https?:\/\/[^\s"']*open\.spotify\.com\/episode\/[^\s"')]+/i;
+function getSpotifyUrl(
+  item: Element,
+  guid: string,
+  linkFromFirst: string,
+): string {
+  const spotifyRegex =
+    /https?:\/\/[^\s"']*open\.spotify\.com\/episode\/[^\s"')]+/i;
   const match = (s: string) => {
     const m = s.match(spotifyRegex);
     return m ? m[0] : "";
@@ -86,14 +128,18 @@ function getSpotifyUrl(item: Element, guid: string, linkFromFirst: string): stri
     const href = getText(linkEls[j]) || linkEls[j].getAttribute("href") || "";
     if (href.includes("spotify.com")) return href.trim();
   }
-  if (linkFromFirst && linkFromFirst.includes("spotify.com")) return linkFromFirst;
+  if (linkFromFirst && linkFromFirst.includes("spotify.com"))
+    return linkFromFirst;
   const all = item.innerHTML || "";
   const fromHtml = match(all);
   if (fromHtml) return fromHtml;
   return "";
 }
 
-function getChannelInfo(channel: Element): PodcastChannelInfo {
+function getChannelInfo(
+  channel: Element,
+  defaultTitle: string,
+): PodcastChannelInfo {
   const titleEl = channel.getElementsByTagName("title")[0];
   const linkEl = channel.getElementsByTagName("link")[0];
   const descEl = channel.getElementsByTagName("description")[0];
@@ -113,23 +159,22 @@ function getChannelInfo(channel: Element): PodcastChannelInfo {
   }
 
   return {
-    title: titleEl ? getText(titleEl) : "Easy German Podcast",
-    link: linkEl ? getText(linkEl) : "https://www.easygerman.fm",
+    title: titleEl ? getText(titleEl) || defaultTitle : defaultTitle,
+    link: linkEl ? getText(linkEl) : "",
     description: description || "",
     imageUrl: imageUrl || "",
   };
 }
 
-export interface PodcastFeedResult {
-  channel: PodcastChannelInfo;
-  items: GermanPodcastItem[];
-}
-
 /**
- * Fetches the RSS feed via GET and parses channel + items.
+ * Fetches the given podcast RSS URL, parses channel info and episode items.
+ * The `subtitle` option is attached to each episode (used in the UI).
  */
-export async function fetchPodcastFeed(): Promise<PodcastFeedResult> {
-  const res = await fetch(EASY_GERMAN_FEED_URL, {
+export async function fetchPodcastFeedFromUrl(
+  feedUrl: string,
+  options: FetchPodcastFeedOptions = {},
+): Promise<PodcastFeedResult> {
+  const res = await fetch(feedUrl, {
     method: "GET",
     headers: { Accept: "application/xml, text/xml, */*" },
   });
@@ -146,10 +191,13 @@ export async function fetchPodcastFeed(): Promise<PodcastFeedResult> {
     throw new Error("Invalid feed: no channel");
   }
 
-  const channel = getChannelInfo(channelEl);
+  const channel = getChannelInfo(
+    channelEl,
+    options.defaultChannelTitle ?? "Podcast",
+  );
   const items = channelEl.getElementsByTagName("item");
   const result: GermanPodcastItem[] = [];
-  const subtitle = "Easy German";
+  const subtitle = options.subtitle ?? channel.title;
 
   for (let i = 0; i < items.length; i++) {
     const item = items[i] as Element;
@@ -169,12 +217,17 @@ export async function fetchPodcastFeed(): Promise<PodcastFeedResult> {
     let link: string | undefined;
     let firstLink = "";
     for (let j = 0; j < linkEls.length; j++) {
-      const href = (getText(linkEls[j]) || linkEls[j].getAttribute("href") || "").trim();
+      const href = (
+        getText(linkEls[j]) ||
+        linkEls[j].getAttribute("href") ||
+        ""
+      ).trim();
       if (!href) continue;
       if (firstLink === "") firstLink = href;
       if (!href.includes("spotify.com") && link === undefined) link = href;
     }
-    if (link === undefined && firstLink && !firstLink.includes("spotify.com")) link = firstLink;
+    if (link === undefined && firstLink && !firstLink.includes("spotify.com"))
+      link = firstLink;
 
     const spotifyUrl = getSpotifyUrl(item, guid, firstLink);
 
@@ -198,4 +251,14 @@ export async function fetchPodcastFeed(): Promise<PodcastFeedResult> {
   }
 
   return { channel, items: result };
+}
+
+/**
+ * Backwards-compatible Easy German fetcher.
+ */
+export async function fetchPodcastFeed(): Promise<PodcastFeedResult> {
+  return fetchPodcastFeedFromUrl(EASY_GERMAN_FEED_URL, {
+    subtitle: "Easy German",
+    defaultChannelTitle: "Easy German Podcast",
+  });
 }

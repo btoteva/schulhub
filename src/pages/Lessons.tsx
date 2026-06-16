@@ -12,6 +12,9 @@ import {
   FaThLarge,
   FaHeadphones,
   FaClipboardList,
+  FaCamera,
+  FaYoutube,
+  FaStreetView,
 } from "react-icons/fa";
 import { MdLanguage, MdScience, MdPublic } from "react-icons/md";
 import coursesData from "../data/courses.json";
@@ -525,7 +528,7 @@ const Lessons: React.FC = () => {
                 ? "Bereich wählen"
                 : "Select section"}
           </h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             <Link
               to="/lessons/1/section/lessons"
               className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
@@ -618,6 +621,93 @@ const Lessons: React.FC = () => {
                 <div className="mt-4 flex items-center gap-2">
                   <span
                     className={`text-sm font-semibold ${isLight ? "text-amber-600" : "text-amber-400"}`}
+                  >
+                    {t.seeMore}
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              to="/german/foto-podcast/all"
+              className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-rose-600 opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative p-6">
+                <div className="mb-4">
+                  <FaCamera className="text-5xl text-orange-500 dark:text-orange-400" />
+                </div>
+                <h4
+                  className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                >
+                  {t.fotoPodcast}
+                </h4>
+                <p
+                  className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}
+                >
+                  {t.fotoPodcastDesc}
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span
+                    className={`text-sm font-semibold ${isLight ? "text-orange-600" : "text-orange-400"}`}
+                  >
+                    {t.seeMore}
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              to="/german/foto-tutorials"
+              className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-red-600 opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative p-6">
+                <div className="mb-4">
+                  <FaYoutube className="text-5xl text-red-500 dark:text-red-400" />
+                </div>
+                <h4
+                  className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                >
+                  {t.fotoTutorials}
+                </h4>
+                <p
+                  className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}
+                >
+                  {t.fotoTutorialsDesc}
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span
+                    className={`text-sm font-semibold ${isLight ? "text-red-600" : "text-red-400"}`}
+                  >
+                    {t.seeMore}
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              to="/german/street-photography"
+              className="group relative block text-left rounded-2xl shadow-xl transition-all duration-300 overflow-hidden border transform hover:scale-[1.02] bg-gradient-to-b from-white to-slate-100 dark:from-gray-800 dark:to-gray-900 border-slate-200 dark:border-gray-700 hover:shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-violet-600 opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative p-6">
+                <div className="mb-4">
+                  <FaStreetView className="text-5xl text-indigo-500 dark:text-indigo-400" />
+                </div>
+                <h4
+                  className={`text-xl font-bold mb-2 ${isLight ? "text-slate-800" : "text-white"}`}
+                >
+                  {t.streetPhotography}
+                </h4>
+                <p
+                  className={`text-sm ${isLight ? "text-slate-600" : "text-gray-400"}`}
+                >
+                  {t.streetPhotographyDesc}
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span
+                    className={`text-sm font-semibold ${isLight ? "text-indigo-600" : "text-indigo-400"}`}
                   >
                     {t.seeMore}
                   </span>

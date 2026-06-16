@@ -1,0 +1,138 @@
+{
+  "section": {
+    "title": {
+      "bg": "Улична фотография",
+      "de": "Straßenfotografie",
+      "en": "Street photography"
+    },
+    "description": {
+      "bg": "Подбрани видеа на немски от различни канали – ясно говорене, подходящо за ниво B1.",
+      "de": "Kuratierte Videos auf Deutsch von verschiedenen Kanälen – klare Sprache, ideal für Niveau B1.",
+      "en": "A curated list of German-language videos from several channels – clearly spoken, ideal for B1 learners."
+    }
+  },
+  "channels": [
+    {
+      "id": "jayshooter",
+      "name": "Jayshooter",
+      "fullName": "Jochen Müller",
+      "channelUrl": "https://www.youtube.com/@Jayshooter_photo",
+      "websiteUrl": "https://www.jayshooter.de/",
+      "description": {
+        "bg": "Йохен Мюлер от Дюселдорф – улична фотография с Fujifilm, спокоен дидактичен стил.",
+        "de": "Jochen Müller aus Düsseldorf – Streetfotografie mit Fujifilm, ruhiger und didaktischer Stil.",
+        "en": "Jochen Müller from Düsseldorf – street photography with Fujifilm, calm didactic style."
+      }
+    },
+    {
+      "id": "samuel-lintaro",
+      "name": "Samuel Lintaro DE",
+      "fullName": "Samuel Lintaro Hopf",
+      "channelUrl": "https://www.youtube.com/@samuelgermanlife",
+      "description": {
+        "bg": "Германският канал на Samuel Streetlife – уроци и размисли за уличната фотография.",
+        "de": "Der deutsche Kanal von Samuel Streetlife – Lektionen und Gedanken zur Straßenfotografie.",
+        "en": "The German-language channel of Samuel Streetlife – lessons and reflections on street photography."
+      }
+    },
+    {
+      "id": "timo-nausch",
+      "name": "Timo Nausch",
+      "channelUrl": "https://www.youtube.com/@TimoNausch",
+      "description": {
+        "bg": "Кратки и практични съвети за начинаещи в уличната фотография.",
+        "de": "Kurze, praktische Tipps für Einsteiger in die Straßenfotografie.",
+        "en": "Short, practical tips for beginners in street photography."
+      }
+    },
+    {
+      "id": "blitzeria",
+      "name": "blitzeria – Draußen Fotografieren",
+      "channelUrl": "https://www.youtube.com/@blitzeria-eu",
+      "description": {
+        "bg": "Немски канал, посветен на фотография „навън“ – улица, природа, пътувания.",
+        "de": "Deutscher Kanal rund um Fotografie draußen – Straße, Natur, Reisen.",
+        "en": "German-language channel focused on outdoor photography – street, nature, travel."
+      }
+    }
+  ],
+  "videos": [
+    {
+      "id": "HQtRQ9AguR4",
+      "channel": "jayshooter",
+      "title": "Street Photography hochleveln: So lernst du mit Fotoserien besser zu fotografieren!",
+      "duration": "6:01",
+      "playlist_index": 1
+    },
+    {
+      "id": "uh1bENt71GA",
+      "channel": "blitzeria",
+      "title": "12 Streetfotografie-Tipps für Anfänger (und Fortgeschrittene)",
+      "duration": "6:38",
+      "playlist_index": 2
+    },
+    {
+      "id": "k6Kli63FzUM",
+      "channel": "jayshooter",
+      "title": "Streetfotografie mit weniger Angst – So überwindest du deine Scheu",
+      "duration": "7:26",
+      "playlist_index": 3
+    },
+    {
+      "id": "9kwSo2NqK58",
+      "channel": "timo-nausch",
+      "title": "8 Streetfotografie-Tipps für Anfänger & Fortgeschrittene",
+      "duration": "8:04",
+      "playlist_index": 4
+    },
+    {
+      "id": "XbYKWAz1lno",
+      "channel": "jayshooter",
+      "title": "Streetfotografie London – Eine Galerie",
+      "duration": "8:36",
+      "playlist_index": 5
+    },
+    {
+      "id": "kaJNIbAndAQ",
+      "channel": "jayshooter",
+      "title": "Streetfotografie: Ohne Scheitern kein Fortschritt – warum auch schlechte Bilder wichtig sind",
+      "duration": "8:46",
+      "playlist_index": 6
+    },
+    {
+      "id": "yQTL61p4KnM",
+      "channel": "jayshooter",
+      "title": "Zone-Focussing im Fujifilm-X-System und mit manuellen Objektiven",
+      "duration": "8:47",
+      "playlist_index": 7
+    },
+    {
+      "id": "5l1SLezoGps",
+      "channel": "jayshooter",
+      "title": "Streetfotografie-News – Ausgabe 18 – Januar 2026",
+      "duration": "10:05",
+      "playlist_index": 8
+    },
+    {
+      "id": "CU5ZcYCIv40",
+      "channel": "jayshooter",
+      "title": "Motive für die Streetfotografie – Teil 1: Eine Stadt erlaufen und Locations finden",
+      "duration": "11:34",
+      "playlist_index": 9
+    },
+    {
+      "id": "g5y-ZHfZ-H4",
+      "channel": "jayshooter",
+      "title": "Motive für die Streetfotografie – Teil 3: Licht, Licht und nochmal Licht",
+      "duration": "12:17",
+      "playlist_index": 10
+    },
+    {
+      "id": "ulmEFBmCqLk",
+      "channel": "samuel-lintaro",
+      "title": "5 Lektionen, die ich in 10 Jahren Street-Fotografie gelernt habe",
+      "duration": "18:57",
+      "playlist_index": 11
+    }
+  ]
+}
