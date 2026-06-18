@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -32,6 +33,24 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public',
+          to: '.',
+          globOptions: {
+            ignore: [
+              '**/index.html',
+              '**/README.txt',
+              '**/.DS_Store',
+              '**/.gitkeep',
+              '**/source-logo.png'
+            ]
+          },
+          noErrorOnMissing: true
+        }
+      ]
     }),
     new webpack.DefinePlugin({
       'process.env.DEV_API_ORIGIN': JSON.stringify(process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : '')

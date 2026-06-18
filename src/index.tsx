@@ -30,3 +30,18 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
+
+// Register PWA service worker in production builds only.
+// In development the dev-server (HMR) is incompatible with caching and the SW
+// would mask file changes.
+if (
+  "serviceWorker" in navigator &&
+  process.env.NODE_ENV === "production" &&
+  window.location.protocol === "https:"
+) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .catch((err) => console.warn("SW registration failed:", err));
+  });
+}
