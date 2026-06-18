@@ -6,6 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Header from "./components/Header";
+import InstallPrompt from "./components/InstallPrompt";
 import Home from "./pages/Home";
 import Lessons from "./pages/Lessons";
 import LessonView from "./pages/LessonView";
@@ -60,6 +61,7 @@ const App: React.FC = () => {
     <Router>
       <div className="App min-h-screen bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
         <Header />
+        <InstallPrompt />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
