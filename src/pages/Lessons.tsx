@@ -323,6 +323,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "— мин",
               completed: false,
             },
+            {
+              id: 12,
+              number: "29",
+              title: "29 SEKUNDÄRER SEKTOR DER WIRTSCHAFT",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],

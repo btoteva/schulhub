@@ -1,0 +1,228 @@
+{
+  "id": "3-12",
+  "courseId": 3,
+  "title": "29 SEKUNDÄRER SEKTOR DER WIRTSCHAFT",
+  "titleBg": "29 ВТОРИЧЕН СЕКТОР НА ИКОНОМИКАТА",
+  "subtitle": "",
+  "subtitleBg": "",
+  "dictionary": [
+    {
+      "id": "sekundaerer-sektor-grundbegriffe",
+      "headingId": "sekundaerer-sektor-grundbegriffe-heading",
+      "title": "Ключови понятия",
+      "words": [
+        { "word": "der sekundäre Sektor", "translation": "вторичен сектор", "example": "", "example_translation": "" },
+        { "word": "der Industriezweig", "translation": "отрасъл на промишлеността", "example": "", "example_translation": "" },
+        { "word": "das Bauwesen", "translation": "строителство", "example": "", "example_translation": "" },
+        { "word": "die landwirtschaftliche Produktion", "translation": "селскостопанска продукция", "example": "", "example_translation": "" },
+        { "word": "der primäre Sektor", "translation": "първичен сектор", "example": "", "example_translation": "" },
+        { "word": "die Bodenschätze", "translation": "полезни изкопаеми", "example": "", "example_translation": "" },
+        { "word": "das Holz", "translation": "дървесина", "example": "", "example_translation": "" },
+        { "word": "verarbeiten", "translation": "преработвам", "example": "", "example_translation": "" },
+        { "word": "das Enderzeugnis", "translation": "краен продукт", "example": "", "example_translation": "" },
+        { "word": "die Schwerindustrie", "translation": "тежка промишленост", "example": "", "example_translation": "" },
+        { "word": "die Leichtindustrie", "translation": "лека промишленост", "example": "", "example_translation": "" },
+        { "word": "die Produktionsmittel", "translation": "средства за производство", "example": "", "example_translation": "" },
+        { "word": "das Konsumgut", "translation": "потребителска стока", "example": "", "example_translation": "" },
+        { "word": "der Baustoff", "translation": "строителен материал", "example": "", "example_translation": "" },
+        { "word": "die Nahrung", "translation": "храна", "example": "", "example_translation": "" },
+        { "word": "die Kleidung", "translation": "облекло", "example": "", "example_translation": "" },
+        { "word": "die Schuhe", "translation": "обувки", "example": "", "example_translation": "" },
+        { "word": "die Entstehung", "translation": "възникване", "example": "", "example_translation": "" },
+        { "word": "klassisch", "translation": "класически", "example": "", "example_translation": "" },
+        { "word": "der Kohlebergbau", "translation": "въгледобив", "example": "", "example_translation": "" },
+        { "word": "die Hüttenindustrie", "translation": "металургия", "example": "", "example_translation": "" },
+        { "word": "die Metallurgie", "translation": "металургия", "example": "", "example_translation": "" },
+        { "word": "der Schiffbau", "translation": "корабостроене", "example": "", "example_translation": "" },
+        { "word": "die Textilindustrie", "translation": "текстилна промишленост", "example": "", "example_translation": "" },
+        { "word": "der Maschinenbau", "translation": "машиностроене", "example": "", "example_translation": "" },
+        { "word": "die chemische Industrie", "translation": "химическа промишленост", "example": "", "example_translation": "" },
+        { "word": "die Mechanisierung", "translation": "механизация", "example": "", "example_translation": "" },
+        { "word": "die Produktion", "translation": "производство", "example": "", "example_translation": "" },
+        { "word": "die Beschäftigten", "translation": "заети", "example": "", "example_translation": "" },
+        { "word": "die Arbeitsproduktivität", "translation": "производителност на труда", "example": "", "example_translation": "" },
+        { "word": "die erwerbsfähige Bevölkerung", "translation": "трудоспособно население", "example": "", "example_translation": "" },
+        { "word": "das Bruttoinlandsprodukt", "translation": "брутен вътрешен продукт", "example": "", "example_translation": "" },
+        { "word": "der Welthandel", "translation": "световна търговия", "example": "", "example_translation": "" },
+        { "word": "der Energieverbrauch", "translation": "потребление на енергия", "example": "", "example_translation": "" },
+        { "word": "der Rohstoff", "translation": "суровина", "example": "", "example_translation": "" },
+        { "word": "der Rohstoffverbrauch", "translation": "потребление на суровини", "example": "", "example_translation": "" },
+        { "word": "die Kapitalanlage", "translation": "капиталовложение", "example": "", "example_translation": "" },
+        { "word": "die technische Infrastruktur", "translation": "техническа инфраструктура", "example": "", "example_translation": "" },
+        { "word": "der Subzweig", "translation": "подотрасъл", "example": "", "example_translation": "" },
+        { "word": "die Arbeitskraft", "translation": "работна сила", "example": "", "example_translation": "" },
+        { "word": "qualifiziert", "translation": "квалифициран", "example": "", "example_translation": "" },
+        { "word": "der Arbeitsaufwand", "translation": "трудоемкост", "example": "", "example_translation": "" },
+        { "word": "die Innovation", "translation": "иновация", "example": "", "example_translation": "" },
+        { "word": "ökologische Probleme", "translation": "екологични проблеми", "example": "", "example_translation": "" },
+        { "word": "der Faktor", "translation": "фактор", "example": "", "example_translation": "" },
+        { "word": "die territoriale Verteilung", "translation": "териториално разпределение", "example": "", "example_translation": "" },
+        { "word": "die geografische Lage", "translation": "географско положение", "example": "", "example_translation": "" },
+        { "word": "die natürlichen Faktoren", "translation": "природни фактори", "example": "", "example_translation": "" },
+        { "word": "sozialökonomisch", "translation": "социално-икономически", "example": "", "example_translation": "" },
+        { "word": "wissenschaftlich-technisch", "translation": "научно-технически", "example": "", "example_translation": "" },
+        { "word": "ökologisch", "translation": "екологичен", "example": "", "example_translation": "" },
+        { "word": "die Branchenstruktur", "translation": "отраслова структура", "example": "", "example_translation": "" },
+        { "word": "das metallurgische Kombinat", "translation": "металургичен комбинат", "example": "", "example_translation": "" },
+        { "word": "der Standort", "translation": "местоположение", "example": "", "example_translation": "" },
+        { "word": "die Erzbergbauregion", "translation": "рудодобивен район", "example": "", "example_translation": "" },
+        { "word": "der Hafen", "translation": "пристанище", "example": "", "example_translation": "" },
+        { "word": "importiert", "translation": "вносен", "example": "", "example_translation": "" },
+        { "word": "die Arbeitsressourcen", "translation": "трудови ресурси", "example": "", "example_translation": "" },
+        { "word": "der Markt", "translation": "пазар", "example": "", "example_translation": "" },
+        { "word": "die Ware", "translation": "стока", "example": "", "example_translation": "" },
+        { "word": "verbrauchen", "translation": "потребявам", "example": "", "example_translation": "" },
+        { "word": "hochqualifiziert", "translation": "висококвалифициран", "example": "", "example_translation": "" },
+        { "word": "die Niederlassung", "translation": "разполагане, установяване", "example": "", "example_translation": "" },
+        { "word": "hochtechnologisch", "translation": "високотехнологичен", "example": "", "example_translation": "" },
+        { "word": "der Import", "translation": "внос", "example": "", "example_translation": "" },
+        { "word": "der Export", "translation": "износ", "example": "", "example_translation": "" },
+        { "word": "die Errungenschaft", "translation": "постижение", "example": "", "example_translation": "" },
+        { "word": "der Werkstoff", "translation": "материал, суровина за производство", "example": "", "example_translation": "" },
+        { "word": "der Kunststoff", "translation": "пластмаса", "example": "", "example_translation": "" },
+        { "word": "der Kautschuk", "translation": "каучук", "example": "", "example_translation": "" },
+        { "word": "synthetisch", "translation": "синтетичен", "example": "", "example_translation": "" },
+        { "word": "die Faser", "translation": "влакно", "example": "", "example_translation": "" },
+        { "word": "die Elektronik", "translation": "електроника", "example": "", "example_translation": "" },
+        { "word": "die Biotechnologie", "translation": "биотехнология", "example": "", "example_translation": "" },
+        { "word": "der Technopark", "translation": "технопарк", "example": "", "example_translation": "" },
+        { "word": "die Automatisierung", "translation": "автоматизация", "example": "", "example_translation": "" },
+        { "word": "die Robotisierung", "translation": "роботизация", "example": "", "example_translation": "" },
+        { "word": "hocheffektiv", "translation": "високоефективен", "example": "", "example_translation": "" },
+        { "word": "die Qualität", "translation": "качество", "example": "", "example_translation": "" },
+        { "word": "die Produktionsmenge", "translation": "обем на производство", "example": "", "example_translation": "" },
+        { "word": "erleichtern", "translation": "облекчавам", "example": "", "example_translation": "" },
+        { "word": "die Standortwahl", "translation": "избор на местоположение", "example": "", "example_translation": "" },
+        { "word": "die Umwelt", "translation": "околна среда", "example": "", "example_translation": "" },
+        { "word": "belasten", "translation": "натоварвам, замърсявам", "example": "", "example_translation": "" }
+      ]
+    }
+  ],
+  "content": "<strong>1 Wesen, Struktur und Bedeutung des sekundären Sektors</strong>\n\nZum sekundären Sektor gehören die Industriezweige und das Bauwesen. Im sekundären Sektor werden die landwirtschaftliche Produktion und die im primären Sektor gewonnenen Bodenschätze und Holz verarbeitet. Nach der Art der Enderzeugnisse unterteilt man die Industriezweige in zwei Gruppen: Schwerindustrie und Leichtindustrie. Die Schwerindustrie stellt Produktionsmittel her (Metalle, Maschinen, chemische Produkte, Baustoffe u.a.) und die Leichtindustrie produziert Konsumgüter (Nahrung, Kleidung, Schuhe usw.).\n\nIn Abhängigkeit von ihrer Entstehung unterscheidet man alte (klassische), neue und neueste Industriezweige. Zu den alten Industriezweigen gehören der Kohlebergbau, die Hüttenindustrie (Metallurgie), der Schiffbau und die Textilindustrie. Neu sind manche Zweige des Maschinenbaus und der chemischen Industrie. Die neusten Industriezweige entwickeln sich rasch.\n\nIn der Industrie vollzieht sich ein Prozess der Mechanisierung der Produktion, der die Arbeit der Beschäftigten qualitativ verändert und die Arbeitsproduktivität schnell erhöht. Der sekundäre Sektor bietet Arbeit für den Großteil der erwerbsfähigen Bevölkerung und formiert den größten Anteil am Bruttoinlandsprodukt der wirtschaftlich hoch entwickelten Länder. Die industrielle Produktion nimmt einen bedeutenden Anteil an dem Welthandel ein.\n\n<strong>2 Charakteristika des sekundären Sektors</strong>\n\nDie Wirtschaftszweige des sekundären Sektors zeichnen sich durch einen hohen Energie- und Rohstoffverbrauch aus. Für den Aufbau und die Entwicklung der meisten Industriebetriebe sind Kapitalanlagen und eine mächtige technische Infrastruktur notwendig. Die meisten Zweige und Subzweige bedürfen für ihre Produktion qualifizierter Arbeitskräfte, d.h. sie zeichnen sich durch einen hohen Arbeitsaufwand aus. Wichtig für die Entwicklung des sekundären Sektors ist die Anwendung wissenschaftlicher und technischer Innovationen. Manche Wirtschaftszweige verursachen ökologische Probleme.\n\n<strong>3 Faktoren für die Entwicklung und die territoriale Verteilung der Wirtschaftszweige des sekundären Sektors</strong>\n\nVon besonderer Bedeutung sind die geografische Lage, die natürlichen, sozialökonomischen, wissenschaftlich-technischen und ökologischen Faktoren.\n\n<strong>Die geografische Lage</strong> und die natürlichen Faktoren beeinflussen die Branchen- und die territoriale Struktur des Sektors. So haben z.B. metallurgische Kombinate ihren Standort entweder in den Erzbergbauregionen (Russland, Indien) oder in der Nähe der Häfen, an denen die importierten Rohstoffe ankommen (Japan, Republik Korea).\n\n<strong>Die sozialökonomischen Faktoren.</strong> Am stärksten ist die Einwirkung der Arbeitsressourcen und der Märkte. Die Bevölkerung produziert und verbraucht Waren. Das Vorhandensein von hochqualifizierten Arbeitskräften ist ein wichtiger Faktor für die Niederlassung von hochtechnologischen Produktionen; für nicht qualifizierte Arbeitskräfte werden Betriebe gebaut, die einen hohen Arbeitsaufwand erfordern. Die Märkte regulieren die Menge und die Qualität der hergestellten Waren und bestimmen die Standorte des Imports und des Exports.\n\n<strong>Die wissenschaftlich-technischen Faktoren</strong> bedingen Veränderungen in der Struktur und der territorialen Organisation in vielen Zweigen des sekundären Sektors. Die wissenschaftlichen Errungenschaften sind eine wichtige Voraussetzung für die Entwicklung neuer Werkstoffe und Materialien (Kunststoffe, synthetischer Kautschuk, synthetische Fasern), für die Etablierung neuer Zweige (Elektronik, Biotechnologien), für den Aufbau von Technoparks als eine neue Form der territorialen Organisation der Wirtschaft. Die Anwendung von hocheffektiven Technologien, die Automatisierung und Robotisierung vieler Produktionen verbessern die Qualität, erhöhen die Produktionsmengen und erleichtern nicht zuletzt die Arbeit der Beschäftigten.\n\n<strong>Der ökologische Faktor</strong> beeinflusst die Standortwahl für manche Wirtschaftszweige, die die Umwelt belasten.",
+  "sentences": [
+    {
+      "text": "<strong>1 Wesen, Struktur und Bedeutung des sekundären Sektors</strong>",
+      "translation": "<strong>1 Същност, структура и значение на вторичния сектор</strong>"
+    },
+    {
+      "text": "Zum sekundären Sektor gehören die Industriezweige und das Bauwesen.",
+      "translation": "Към вторичния сектор спадат отраслите на промишлеността и строителството."
+    },
+    {
+      "text": "Im sekundären Sektor werden die landwirtschaftliche Produktion und die im primären Sektor gewonnenen Bodenschätze und Holz verarbeitet.",
+      "translation": "Във вторичния сектор се преработват селскостопанската продукция и добитите в първичния сектор полезни изкопаеми и дървесина."
+    },
+    {
+      "text": "Nach der Art der Enderzeugnisse unterteilt man die Industriezweige in zwei Gruppen: Schwerindustrie und Leichtindustrie.",
+      "translation": "Според вида на крайните продукти отраслите на промишлеността се разделят на две групи: тежка промишленост и лека промишленост."
+    },
+    {
+      "text": "Die Schwerindustrie stellt Produktionsmittel her (Metalle, Maschinen, chemische Produkte, Baustoffe u.a.) und die Leichtindustrie produziert Konsumgüter (Nahrung, Kleidung, Schuhe usw.).",
+      "translation": "Тежката промишленост произвежда средства за производство (метали, машини, химически продукти, строителни материали и др.), а леката промишленост произвежда потребителски стоки (храни, облекло, обувки и др.)."
+    },
+    {
+      "text": "In Abhängigkeit von ihrer Entstehung unterscheidet man alte (klassische), neue und neueste Industriezweige.",
+      "translation": "В зависимост от своето възникване се различават стари (класически), нови и най-нови отрасли на промишлеността."
+    },
+    {
+      "text": "Zu den alten Industriezweigen gehören der Kohlebergbau, die Hüttenindustrie (Metallurgie), der Schiffbau und die Textilindustrie.",
+      "translation": "Към старите отрасли спадат въгледобивът, металургията, корабостроенето и текстилната промишленост."
+    },
+    {
+      "text": "Neu sind manche Zweige des Maschinenbaus und der chemischen Industrie.",
+      "translation": "Нови са някои отрасли на машиностроенето и на химическата промишленост."
+    },
+    {
+      "text": "Die neusten Industriezweige entwickeln sich rasch.",
+      "translation": "Най-новите отрасли се развиват бързо."
+    },
+    {
+      "text": "In der Industrie vollzieht sich ein Prozess der Mechanisierung der Produktion, der die Arbeit der Beschäftigten qualitativ verändert und die Arbeitsproduktivität schnell erhöht.",
+      "translation": "В промишлеността протича процес на механизация на производството, който качествено променя труда на заетите и бързо повишава производителността на труда."
+    },
+    {
+      "text": "Der sekundäre Sektor bietet Arbeit für den Großteil der erwerbsfähigen Bevölkerung und formiert den größten Anteil am Bruttoinlandsprodukt der wirtschaftlich hoch entwickelten Länder.",
+      "translation": "Вторичният сектор осигурява работа на голяма част от трудоспособното население и формира най-големия дял в брутния вътрешен продукт на икономически високоразвитите страни."
+    },
+    {
+      "text": "Die industrielle Produktion nimmt einen bedeutenden Anteil an dem Welthandel ein.",
+      "translation": "Промишленото производство заема значителен дял в световната търговия."
+    },
+    {
+      "text": "<strong>2 Charakteristika des sekundären Sektors</strong>",
+      "translation": "<strong>2 Характеристики на вторичния сектор</strong>"
+    },
+    {
+      "text": "Die Wirtschaftszweige des sekundären Sektors zeichnen sich durch einen hohen Energie- und Rohstoffverbrauch aus.",
+      "translation": "Отраслите на вторичния сектор се отличават с високо потребление на енергия и суровини."
+    },
+    {
+      "text": "Für den Aufbau und die Entwicklung der meisten Industriebetriebe sind Kapitalanlagen und eine mächtige technische Infrastruktur notwendig.",
+      "translation": "За изграждането и развитието на повечето промишлени предприятия са необходими капиталовложения и мощна техническа инфраструктура."
+    },
+    {
+      "text": "Die meisten Zweige und Subzweige bedürfen für ihre Produktion qualifizierter Arbeitskräfte, d.h. sie zeichnen sich durch einen hohen Arbeitsaufwand aus.",
+      "translation": "Повечето отрасли и подотрасли изискват за своето производство квалифицирана работна сила, т.е. те се характеризират с висока трудоемкост."
+    },
+    {
+      "text": "Wichtig für die Entwicklung des sekundären Sektors ist die Anwendung wissenschaftlicher und technischer Innovationen.",
+      "translation": "Важно за развитието на вторичния сектор е прилагането на научни и технически иновации."
+    },
+    {
+      "text": "Manche Wirtschaftszweige verursachen ökologische Probleme.",
+      "translation": "Някои отрасли пораждат екологични проблеми."
+    },
+    {
+      "text": "<strong>3 Faktoren für die Entwicklung und die territoriale Verteilung der Wirtschaftszweige des sekundären Sektors</strong>",
+      "translation": "<strong>3 Фактори за развитието и териториалното разпределение на отраслите от вторичния сектор</strong>"
+    },
+    {
+      "text": "Von besonderer Bedeutung sind die geografische Lage, die natürlichen, sozialökonomischen, wissenschaftlich-technischen und ökologischen Faktoren.",
+      "translation": "От особено значение са географското положение, природните, социално-икономическите, научно-техническите и екологичните фактори."
+    },
+    {
+      "text": "<strong>Die geografische Lage</strong> und die natürlichen Faktoren beeinflussen die Branchen- und die territoriale Struktur des Sektors.",
+      "translation": "<strong>Географското положение</strong> и природните фактори влияят върху отрасловата и териториалната структура на сектора."
+    },
+    {
+      "text": "So haben z.B. metallurgische Kombinate ihren Standort entweder in den Erzbergbauregionen (Russland, Indien) oder in der Nähe der Häfen, an denen die importierten Rohstoffe ankommen (Japan, Republik Korea).",
+      "translation": "Така например металургичните комбинати са разположени или в рудодобивните райони (Русия, Индия), или в близост до пристанищата, на които пристигат вносните суровини (Япония, Република Корея)."
+    },
+    {
+      "text": "<strong>Die sozialökonomischen Faktoren.</strong>",
+      "translation": "<strong>Социално-икономическите фактори.</strong>"
+    },
+    {
+      "text": "Am stärksten ist die Einwirkung der Arbeitsressourcen und der Märkte.",
+      "translation": "Най-силно е въздействието на трудовите ресурси и пазарите."
+    },
+    {
+      "text": "Die Bevölkerung produziert und verbraucht Waren.",
+      "translation": "Населението произвежда и потребява стоки."
+    },
+    {
+      "text": "Das Vorhandensein von hochqualifizierten Arbeitskräften ist ein wichtiger Faktor für die Niederlassung von hochtechnologischen Produktionen; für nicht qualifizierte Arbeitskräfte werden Betriebe gebaut, die einen hohen Arbeitsaufwand erfordern.",
+      "translation": "Наличието на висококвалифицирана работна сила е важен фактор за разполагането на високотехнологични производства; при неквалифицираната работна сила се изграждат предприятия, които изискват висока трудоемкост."
+    },
+    {
+      "text": "Die Märkte regulieren die Menge und die Qualität der hergestellten Waren und bestimmen die Standorte des Imports und des Exports.",
+      "translation": "Пазарите регулират количеството и качеството на произведените стоки и определят местата на вноса и износа."
+    },
+    {
+      "text": "<strong>Die wissenschaftlich-technischen Faktoren</strong> bedingen Veränderungen in der Struktur und der territorialen Organisation in vielen Zweigen des sekundären Sektors.",
+      "translation": "<strong>Научно-техническите фактори</strong> обуславят промените в структурата и териториалната организация на много отрасли от вторичния сектор."
+    },
+    {
+      "text": "Die wissenschaftlichen Errungenschaften sind eine wichtige Voraussetzung für die Entwicklung neuer Werkstoffe und Materialien (Kunststoffe, synthetischer Kautschuk, synthetische Fasern), für die Etablierung neuer Zweige (Elektronik, Biotechnologien), für den Aufbau von Technoparks als eine neue Form der territorialen Organisation der Wirtschaft.",
+      "translation": "Научните постижения са важна предпоставка за разработването на нови суровини и материали (пластмаси, синтетичен каучук, синтетични влакна), за утвърждаването на нови отрасли (електроника, биотехнологии), за изграждането на технопаркове като нова форма на териториална организация на стопанството."
+    },
+    {
+      "text": "Die Anwendung von hocheffektiven Technologien, die Automatisierung und Robotisierung vieler Produktionen verbessern die Qualität, erhöhen die Produktionsmengen und erleichtern nicht zuletzt die Arbeit der Beschäftigten.",
+      "translation": "Прилагането на високоефективни технологии, автоматизацията и роботизацията на много производства подобряват качеството, увеличават обемите на производство и не на последно място — облекчават труда на заетите."
+    },
+    {
+      "text": "<strong>Der ökologische Faktor</strong> beeinflusst die Standortwahl für manche Wirtschaftszweige, die die Umwelt belasten.",
+      "translation": "<strong>Екологичният фактор</strong> влияе върху избора на местоположение за някои отрасли, които натоварват околната среда."
+    }
+  ]
+}
