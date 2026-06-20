@@ -1,0 +1,224 @@
+{
+  "id": "3-14",
+  "courseId": 3,
+  "title": "30 ENERGIEWIRTSCHAFT",
+  "titleBg": "30. ЕНЕРГЕТИКА",
+  "subtitle": "",
+  "subtitleBg": "",
+  "dictionary": [
+    {
+      "id": "energiewirtschaft-grundbegriffe",
+      "headingId": "energiewirtschaft-grundbegriffe-heading",
+      "title": "Ключови понятия",
+      "words": [
+        { "word": "die Energiewirtschaft", "translation": "енергетика", "example": "", "example_translation": "" },
+        { "word": "der Energierohstoff", "translation": "енергиен суровина", "example": "", "example_translation": "" },
+        { "word": "die Elektroenergie", "translation": "електроенергия", "example": "", "example_translation": "" },
+        { "word": "die Energiequelle", "translation": "енергиен източник", "example": "", "example_translation": "" },
+        { "word": "erschöpflich", "translation": "изчерпаем", "example": "", "example_translation": "" },
+        { "word": "unerschöpflich", "translation": "неизчерпаем", "example": "", "example_translation": "" },
+        { "word": "der Energieträger", "translation": "енергиен носител", "example": "", "example_translation": "" },
+        { "word": "das Stromnetz", "translation": "електропреносна мрежа", "example": "", "example_translation": "" },
+        { "word": "die Energieübertragung", "translation": "пренос на енергия", "example": "", "example_translation": "" },
+        { "word": "der Energieverlust", "translation": "енергийна загуба", "example": "", "example_translation": "" },
+        { "word": "die Energieproduktion", "translation": "енергопроизводство", "example": "", "example_translation": "" },
+        { "word": "die Energieressource", "translation": "енергиен ресурс", "example": "", "example_translation": "" },
+        { "word": "die Energieeffizienz", "translation": "енергийна ефективност", "example": "", "example_translation": "" },
+        { "word": "der Energieverbrauch", "translation": "потребление на енергия", "example": "", "example_translation": "" },
+        { "word": "das Wärmekraftwerk", "translation": "топлоелектроцентрала", "example": "", "example_translation": "" },
+        { "word": "das Wasserkraftwerk", "translation": "хидроелектроцентрала", "example": "", "example_translation": "" },
+        { "word": "das Kernkraftwerk", "translation": "атомна електроцентрала", "example": "", "example_translation": "" },
+        { "word": "die Kernenergie", "translation": "ядрена енергия", "example": "", "example_translation": "" },
+        { "word": "der Kernreaktor", "translation": "ядрен реактор", "example": "", "example_translation": "" },
+        { "word": "das Uran", "translation": "уран", "example": "", "example_translation": "" },
+        { "word": "die Wasserkraft", "translation": "водна енергия", "example": "", "example_translation": "" },
+        { "word": "die hydroenergetische Ressource", "translation": "хидроенергиен ресурс", "example": "", "example_translation": "" },
+        { "word": "erneuerbar", "translation": "възобновяем", "example": "", "example_translation": "" },
+        { "word": "die Sonnenenergie", "translation": "слънчева енергия", "example": "", "example_translation": "" },
+        { "word": "die Windenergie", "translation": "ветрова енергия", "example": "", "example_translation": "" },
+        { "word": "die geothermale Energie", "translation": "геотермална енергия", "example": "", "example_translation": "" },
+        { "word": "die Gezeitenenergie", "translation": "енергия от приливите и отливите", "example": "", "example_translation": "" },
+        { "word": "die alternative Energiequelle", "translation": "алтернативен енергиен източник", "example": "", "example_translation": "" },
+        { "word": "die Kohle", "translation": "въглища", "example": "", "example_translation": "" },
+        { "word": "das Erdgas", "translation": "природен газ", "example": "", "example_translation": "" },
+        { "word": "der Masut", "translation": "мазут", "example": "", "example_translation": "" },
+        { "word": "der Brennstoff", "translation": "гориво", "example": "", "example_translation": "" },
+        { "word": "der Stausee", "translation": "язовир", "example": "", "example_translation": "" },
+        { "word": "die Rohrleitung", "translation": "тръбопровод", "example": "", "example_translation": "" },
+        { "word": "die Infrastruktur", "translation": "инфраструктура", "example": "", "example_translation": "" },
+        { "word": "die Kapitalanlage", "translation": "капиталовложение", "example": "", "example_translation": "" },
+        { "word": "die territoriale Verteilung", "translation": "териториално разпределение", "example": "", "example_translation": "" },
+        { "word": "die Umweltverschmutzung", "translation": "замърсяване на околната среда", "example": "", "example_translation": "" },
+        { "word": "umweltfreundlich", "translation": "екологичен, щадящ околната среда", "example": "", "example_translation": "" },
+        { "word": "der Bergbau", "translation": "добивна промишленост", "example": "", "example_translation": "" },
+        { "word": "die Wärmeenergie", "translation": "топлинна енергия", "example": "", "example_translation": "" },
+        { "word": "der primäre Sektor", "translation": "първичен сектор", "example": "", "example_translation": "" },
+        { "word": "der sekundäre Sektor", "translation": "вторичен сектор", "example": "", "example_translation": "" },
+        { "word": "der tertiäre Sektor", "translation": "третичен сектор", "example": "", "example_translation": "" }
+      ]
+    }
+  ],
+  "content": "<strong>1 Wesen, Bedeutung und Merkmale der Energiewirtschaft</strong>\n\nDie Energiewirtschaft umfasst die Gewinnung von Energierohstoffen, die Produktion, die Übertragung und den Verbrauch von Elektroenergie. Sie ist von erstrangiger Bedeutung für die Wirtschaft, denn sie liefert die Energie für die Industrie und die Bevölkerung. Die Energiewirtschaft ist ein grundlegender Faktor für den wissenschaftlich-technischen Fortschritt. Sie beschäftigt eine große Zahl von Arbeitnehmern und ist Teil des internationalen Handels. Die Energieproduktion ist ein wichtiger Indikator für die Wirtschaftslage eines Landes.\n\nEnergie ist ein spezifisches Produkt. Es ist unmöglich, große Mengen von Energie zu speichern. Aus diesem Grund fällt der Zeitpunkt der Produktion mit dem Zeitpunkt des Verbrauchs zusammen. Die Energieübertragung erfolgt durch das Stromnetz, wobei große Energieverluste entstehen. Energie gewinnt man aus unterschiedlichen Energiequellen: erschöpflichen und unerschöpflichen. Die Energiewirtschaft vereint Tätigkeiten aus den drei Sektoren: Bergbau (primärer Sektor), Produktion von Elektro- und Wärmeenergie (sekundärer Sektor), Übertragung, Verbrauch und Handel mit Energieträgern (tertiärer Sektor).\n\n<strong>2 Bedingungen und Faktoren für die Entwicklung und die Standorte der Energiewirtschaft</strong>\n\nDie Entwicklung der Energiewirtschaft hängt von verschiedenen Faktoren ab: natürlichen, sozialökonomischen, wissenschaftlich-technischen, ökologischen. Sie beeinflussen ihre territoriale Verteilung.\n\nZu den natürlichen Faktoren gehören die Möglichkeiten zu Energieressourcen und ihrer Gewinnung und Nutzung. Die wichtigsten sozialökonomischen Faktoren sind die Nachfrage am Elektroenergiemarkt, die Entwicklung und territoriale Verteilung der Industrie, die Lokalisierung der Bevölkerung, die Kapitalanlagen zur Entwicklung und Modernisierung der Energiegewinnung, der Zustand der Infrastruktur (Rohrleitungen, Stromnetz usw.) u.a. Wissenschaftlich-technische Faktoren sind die Erschließung neuer Rohstoffvorkommen und Energiequellen und die Energieeffizienz.\n\nDie Energiewirtschaft ist einer der größten Umweltverschmutzer. Zwecks Verbesserung der ökologischen Situation wird in vielen Ländern die Struktur des Energieverbrauchs verändert – so z.B. nutzen Wärmekraftwerke für die Energiegewinnung statt Kohle Erdgas.\n\n<strong>5 Energieproduktion</strong>\n\nNach der Energiequelle unterscheidet man drei Arten von Kraftwerken: Wärmekraftwerke, Wasserkraftwerke, Kernkraftwerke.\n\nDie Wärmekraftwerke haben den größten Anteil an der Energieproduktion. Zur Energiegewinnung werden in diesen Kraftwerken Kohle, Masut, Erdgas u.a. als Rohstoffe verwendet. Die größten Wärmekraftwerke befinden sich in Kohleabbaugebieten: das Ruhrgebiet in Deutschland, Donbass in der Ukraine, die Appalachen in den USA u.a. Manche Wärmekraftwerke befinden sich nahe großer Seehäfen.\n\nDer Aufbau eines Wasserkraftwerks hängt von den hydroenergetischen Ressourcen ab. Die Benutzung der Wasserkraft ist billig und umweltfreundlich. Wasserkraftwerke verwenden eine erneuerbare Energiequelle, doch die Errichtung des Kraftwerks ist teuer. Gewöhnlich werden Wasserkraftwerke an den oberen Flussläufen oder in der Nähe von großen Stauseen errichtet. Die Wasserkraftwerke in Norwegen, Schweden, Österreich, Kanada, Brasilien und Venezuela haben einen großen Relativanteil an der Energieproduktion. Die größten Wasserkraftkomplexe der Welt sind die „Drei-Schluchten-Talsperre\" am Fluss Jangtse in China (22500 MW), Itaipu an der Grenze zwischen Brasilien und Paraguay und „Raul Leoni\" am Fluss Guri in Venezuela.\n\nEtwa 40 Länder, darunter auch Bulgarien, entwickeln die Stromproduktion aus Kernenergie. Weil es Probleme mit der Sicherheit gibt, haben manche Länder die Energieproduktion in Kernkraftwerken aufgegeben. Der Brennstoff für die Kraftwerke ist Uran. Die Kernkraftwerke werden in Regionen mit hohem Energieverbrauch errichtet sowie in der Nähe von Wasserquellen, die genügend Wasser für die Kühlung der Kernreaktoren liefern. Die Kernkraftwerke in Frankreich haben den größten Anteil an der Energieproduktion des Landes.\n\nEinen verhältnismäßig kleinen, doch immer anwachsenden Anteil an der Energieproduktion haben die Kraftwerke, die alternative Energiequellen nutzen: Sonnen- und Windenergie, geothermale Energie, die Energie der Gezeiten. Die Elektroenergie, die sie herstellen, ist teurer als die anderen Energiearten.\n\nDie größten Energiehersteller der Welt sind China, die USA und Indien.",
+  "sentences": [
+    {
+      "text": "<strong>1 Wesen, Bedeutung und Merkmale der Energiewirtschaft</strong>",
+      "translation": "<strong>1 Същност, значение и характеристики на енергетиката</strong>"
+    },
+    {
+      "text": "Die Energiewirtschaft umfasst die Gewinnung von Energierohstoffen, die Produktion, die Übertragung und den Verbrauch von Elektroenergie.",
+      "translation": "Енергетиката обхваща добиването на енергийни суровини, производството, преноса и потреблението на електроенергия."
+    },
+    {
+      "text": "Sie ist von erstrangiger Bedeutung für die Wirtschaft, denn sie liefert die Energie für die Industrie und die Bevölkerung.",
+      "translation": "Тя е от първостепенно значение за икономиката, защото осигурява енергия за промишлеността и населението."
+    },
+    {
+      "text": "Die Energiewirtschaft ist ein grundlegender Faktor für den wissenschaftlich-technischen Fortschritt.",
+      "translation": "Енергетиката е основен фактор за научно-техническия прогрес."
+    },
+    {
+      "text": "Sie beschäftigt eine große Zahl von Arbeitnehmern und ist Teil des internationalen Handels.",
+      "translation": "Тя наема голям брой работници и е част от международната търговия."
+    },
+    {
+      "text": "Die Energieproduktion ist ein wichtiger Indikator für die Wirtschaftslage eines Landes.",
+      "translation": "Енергопроизводството е важен индикатор за икономическото състояние на една държава."
+    },
+    {
+      "text": "Energie ist ein spezifisches Produkt.",
+      "translation": "Енергията е специфичен продукт."
+    },
+    {
+      "text": "Es ist unmöglich, große Mengen von Energie zu speichern.",
+      "translation": "Невъзможно е да се съхраняват големи количества енергия."
+    },
+    {
+      "text": "Aus diesem Grund fällt der Zeitpunkt der Produktion mit dem Zeitpunkt des Verbrauchs zusammen.",
+      "translation": "Поради това моментът на производство съвпада с момента на потребление."
+    },
+    {
+      "text": "Die Energieübertragung erfolgt durch das Stromnetz, wobei große Energieverluste entstehen.",
+      "translation": "Преносът на енергия се осъществява чрез електропреносната мрежа, при което възникват големи енергийни загуби."
+    },
+    {
+      "text": "Energie gewinnt man aus unterschiedlichen Energiequellen: erschöpflichen und unerschöpflichen.",
+      "translation": "Енергия се добива от различни енергийни източници: изчерпаеми и неизчерпаеми."
+    },
+    {
+      "text": "Die Energiewirtschaft vereint Tätigkeiten aus den drei Sektoren: Bergbau (primärer Sektor), Produktion von Elektro- und Wärmeenergie (sekundärer Sektor), Übertragung, Verbrauch und Handel mit Energieträgern (tertiärer Sektor).",
+      "translation": "Енергетиката обединява дейности от трите сектора: добивна промишленост (първичен сектор), производство на електро- и топлинна енергия (вторичен сектор), пренос, потребление и търговия с енергийни носители (третичен сектор)."
+    },
+    {
+      "text": "<strong>2 Bedingungen und Faktoren für die Entwicklung und die Standorte der Energiewirtschaft</strong>",
+      "translation": "<strong>2 Условия и фактори за развитието и местоположението на енергетиката</strong>"
+    },
+    {
+      "text": "Die Entwicklung der Energiewirtschaft hängt von verschiedenen Faktoren ab: natürlichen, sozialökonomischen, wissenschaftlich-technischen, ökologischen.",
+      "translation": "Развитието на енергетиката зависи от различни фактори: природни, социално-икономически, научно-технически, екологични."
+    },
+    {
+      "text": "Sie beeinflussen ihre territoriale Verteilung.",
+      "translation": "Те влияят на нейното териториално разпределение."
+    },
+    {
+      "text": "Zu den natürlichen Faktoren gehören die Möglichkeiten zu Energieressourcen und ihrer Gewinnung und Nutzung.",
+      "translation": "Към природните фактори спадат възможностите за енергийни ресурси и тяхното добиване и използване."
+    },
+    {
+      "text": "Die wichtigsten sozialökonomischen Faktoren sind die Nachfrage am Elektroenergiemarkt, die Entwicklung und territoriale Verteilung der Industrie, die Lokalisierung der Bevölkerung, die Kapitalanlagen zur Entwicklung und Modernisierung der Energiegewinnung, der Zustand der Infrastruktur (Rohrleitungen, Stromnetz usw.) u.a.",
+      "translation": "Най-важните социално-икономически фактори са търсенето на пазара на електроенергия, развитието и териториалното разпределение на промишлеността, разположението на населението, капиталовложенията за развитие и модернизация на енергодобива, състоянието на инфраструктурата (тръбопроводи, електропреносна мрежа и др.)."
+    },
+    {
+      "text": "Wissenschaftlich-technische Faktoren sind die Erschließung neuer Rohstoffvorkommen und Energiequellen und die Energieeffizienz.",
+      "translation": "Научно-техническите фактори са усвояването на нови суровинни залежи и енергийни източници и енергийната ефективност."
+    },
+    {
+      "text": "Die Energiewirtschaft ist einer der größten Umweltverschmutzer.",
+      "translation": "Енергетиката е един от най-големите замърсители на околната среда."
+    },
+    {
+      "text": "Zwecks Verbesserung der ökologischen Situation wird in vielen Ländern die Struktur des Energieverbrauchs verändert – so z.B. nutzen Wärmekraftwerke für die Energiegewinnung statt Kohle Erdgas.",
+      "translation": "С цел подобряване на екологичната обстановка в много страни се променя структурата на енергопотреблението – например топлоелектроцентралите използват за производство на енергия природен газ вместо въглища."
+    },
+    {
+      "text": "<strong>5 Energieproduktion</strong>",
+      "translation": "<strong>5 Енергопроизводство</strong>"
+    },
+    {
+      "text": "Nach der Energiequelle unterscheidet man drei Arten von Kraftwerken: Wärmekraftwerke, Wasserkraftwerke, Kernkraftwerke.",
+      "translation": "Според енергийния източник се различават три вида електроцентрали: топлоелектроцентрали, хидроелектроцентрали и атомни електроцентрали."
+    },
+    {
+      "text": "Die Wärmekraftwerke haben den größten Anteil an der Energieproduktion.",
+      "translation": "Топлоелектроцентралите имат най-голям дял в енергопроизводството."
+    },
+    {
+      "text": "Zur Energiegewinnung werden in diesen Kraftwerken Kohle, Masut, Erdgas u.a. als Rohstoffe verwendet.",
+      "translation": "За производство на енергия в тези централи се използват въглища, мазут, природен газ и др. като суровини."
+    },
+    {
+      "text": "Die größten Wärmekraftwerke befinden sich in Kohleabbaugebieten: das Ruhrgebiet in Deutschland, Donbass in der Ukraine, die Appalachen in den USA u.a.",
+      "translation": "Най-големите топлоелектроцентрали се намират във въгледобивни райони: Рурската област в Германия, Донбас в Украйна, Апалачите в САЩ и др."
+    },
+    {
+      "text": "Manche Wärmekraftwerke befinden sich nahe großer Seehäfen.",
+      "translation": "Някои топлоелектроцентрали се намират в близост до големи морски пристанища."
+    },
+    {
+      "text": "Der Aufbau eines Wasserkraftwerks hängt von den hydroenergetischen Ressourcen ab.",
+      "translation": "Изграждането на хидроелектроцентрала зависи от хидроенергийните ресурси."
+    },
+    {
+      "text": "Die Benutzung der Wasserkraft ist billig und umweltfreundlich.",
+      "translation": "Използването на водна енергия е евтино и щадящо околната среда."
+    },
+    {
+      "text": "Wasserkraftwerke verwenden eine erneuerbare Energiequelle, doch die Errichtung des Kraftwerks ist teuer.",
+      "translation": "Хидроелектроцентралите използват възобновяем енергиен източник, но изграждането на централата е скъпо."
+    },
+    {
+      "text": "Gewöhnlich werden Wasserkraftwerke an den oberen Flussläufen oder in der Nähe von großen Stauseen errichtet.",
+      "translation": "Обикновено хидроелектроцентралите се изграждат в горните течения на реките или в близост до големи язовири."
+    },
+    {
+      "text": "Die Wasserkraftwerke in Norwegen, Schweden, Österreich, Kanada, Brasilien und Venezuela haben einen großen Relativanteil an der Energieproduktion.",
+      "translation": "Хидроелектроцентралите в Норвегия, Швеция, Австрия, Канада, Бразилия и Венецуела имат голям относителен дял в енергопроизводството."
+    },
+    {
+      "text": "Die größten Wasserkraftkomplexe der Welt sind die „Drei-Schluchten-Talsperre\" am Fluss Jangtse in China (22500 MW), Itaipu an der Grenze zwischen Brasilien und Paraguay und „Raul Leoni\" am Fluss Guri in Venezuela.",
+      "translation": "Най-големите хидроенергийни комплекси в света са язовирът „Три каньона\" на река Яндзъ в Китай (22 500 MW), Итайпу на границата между Бразилия и Парагвай и „Раул Леони\" на река Гури във Венецуела."
+    },
+    {
+      "text": "Etwa 40 Länder, darunter auch Bulgarien, entwickeln die Stromproduktion aus Kernenergie.",
+      "translation": "Около 40 страни, сред които и България, развиват производството на електроенергия от ядрена енергия."
+    },
+    {
+      "text": "Weil es Probleme mit der Sicherheit gibt, haben manche Länder die Energieproduktion in Kernkraftwerken aufgegeben.",
+      "translation": "Поради проблеми със сигурността някои страни са прекратили производството на енергия в атомни електроцентрали."
+    },
+    {
+      "text": "Der Brennstoff für die Kraftwerke ist Uran.",
+      "translation": "Горивото за атомните електроцентрали е уран."
+    },
+    {
+      "text": "Die Kernkraftwerke werden in Regionen mit hohem Energieverbrauch errichtet sowie in der Nähe von Wasserquellen, die genügend Wasser für die Kühlung der Kernreaktoren liefern.",
+      "translation": "Атомните електроцентрали се изграждат в региони с високо енергопотребление, както и в близост до водоизточници, които осигуряват достатъчно вода за охлаждане на ядрените реактори."
+    },
+    {
+      "text": "Die Kernkraftwerke in Frankreich haben den größten Anteil an der Energieproduktion des Landes.",
+      "translation": "Атомните електроцентрали във Франция имат най-голям дял в енергопроизводството на страната."
+    },
+    {
+      "text": "Einen verhältnismäßig kleinen, doch immer anwachsenden Anteil an der Energieproduktion haben die Kraftwerke, die alternative Energiequellen nutzen: Sonnen- und Windenergie, geothermale Energie, die Energie der Gezeiten.",
+      "translation": "Относително малък, но постоянно нарастващ дял в енергопроизводството имат електроцентралите, които използват алтернативни енергийни източници: слънчева и вятърна енергия, геотермална енергия, енергия от приливите и отливите."
+    },
+    {
+      "text": "Die Elektroenergie, die sie herstellen, ist teurer als die anderen Energiearten.",
+      "translation": "Електроенергията, която произвеждат, е по-скъпа от другите видове енергия."
+    },
+    {
+      "text": "Die größten Energiehersteller der Welt sind China, die USA und Indien.",
+      "translation": "Най-големите производители на енергия в света са Китай, САЩ и Индия."
+    }
+  ]
+}

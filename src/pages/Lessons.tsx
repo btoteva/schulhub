@@ -337,6 +337,13 @@ const lessonsData: { [key: number]: Band[] } = {
               duration: "— мин",
               completed: false,
             },
+            {
+              id: 14,
+              number: "30",
+              title: "30 ENERGIEWIRTSCHAFT",
+              duration: "— мин",
+              completed: false,
+            },
           ],
         },
       ],
