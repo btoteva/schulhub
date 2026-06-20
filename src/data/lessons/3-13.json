@@ -1,0 +1,277 @@
+{
+  "id": "3-13",
+  "courseId": 3,
+  "title": "28 PFLANZENBAU UND VIEHZUCHT",
+  "titleBg": "28. РАСТЕНИЕВЪДСТВО И ЖИВОТНОВЪДСТВО",
+  "subtitle": "",
+  "subtitleBg": "",
+  "dictionary": [
+    {
+      "id": "pflanzenbau-viehzucht-grundbegriffe",
+      "headingId": "pflanzenbau-viehzucht-grundbegriffe-heading",
+      "title": "Ключови понятия",
+      "words": [
+        { "word": "der Pflanzenbau", "translation": "растениевъдство", "example": "", "example_translation": "" },
+        { "word": "der Ackerbau", "translation": "земеделие, полско стопанство", "example": "", "example_translation": "" },
+        { "word": "die Pflanzenzucht", "translation": "растениевъдство, отглеждане на растения", "example": "", "example_translation": "" },
+        { "word": "die Landwirtschaft", "translation": "земеделие, селско стопанство", "example": "", "example_translation": "" },
+        { "word": "die landwirtschaftliche Kultur", "translation": "селскостопанска култура", "example": "", "example_translation": "" },
+        { "word": "die Viehzucht", "translation": "животновъдство", "example": "", "example_translation": "" },
+        { "word": "die Getreidekultur", "translation": "зърнена култура", "example": "", "example_translation": "" },
+        { "word": "die technische Kultur", "translation": "техническа култура", "example": "", "example_translation": "" },
+        { "word": "der Weizen", "translation": "пшеница", "example": "", "example_translation": "" },
+        { "word": "der Reis", "translation": "ориз", "example": "", "example_translation": "" },
+        { "word": "der Mais", "translation": "царевица", "example": "", "example_translation": "" },
+        { "word": "die Schwarzerde", "translation": "чернозем", "example": "", "example_translation": "" },
+        { "word": "die Futterkultur", "translation": "фуражна култура", "example": "", "example_translation": "" },
+        { "word": "die Faserpflanze", "translation": "фибърно растение", "example": "", "example_translation": "" },
+        { "word": "die Ölpflanze", "translation": "маслодайно растение", "example": "", "example_translation": "" },
+        { "word": "die Zuckerpflanze", "translation": "захарно растение", "example": "", "example_translation": "" },
+        { "word": "die Genussmittelkultur", "translation": "стимулантна култура", "example": "", "example_translation": "" },
+        { "word": "die Baumwolle", "translation": "памук", "example": "", "example_translation": "" },
+        { "word": "der Flachs", "translation": "лен", "example": "", "example_translation": "" },
+        { "word": "die Sonnenblume", "translation": "слънчоглед", "example": "", "example_translation": "" },
+        { "word": "die Erdnuss", "translation": "фъстък", "example": "", "example_translation": "" },
+        { "word": "der Olivenbaum", "translation": "маслиново дърво", "example": "", "example_translation": "" },
+        { "word": "das Zuckerrohr", "translation": "захарна тръстика", "example": "", "example_translation": "" },
+        { "word": "die Zuckerrübe", "translation": "захарно цвекло", "example": "", "example_translation": "" },
+        { "word": "der Kaffee", "translation": "кафе", "example": "", "example_translation": "" },
+        { "word": "der Kakao", "translation": "какао", "example": "", "example_translation": "" },
+        { "word": "der Tee", "translation": "чай", "example": "", "example_translation": "" },
+        { "word": "die Dauerkultur", "translation": "многогодишна култура", "example": "", "example_translation": "" },
+        { "word": "der Weinbau", "translation": "лозарство", "example": "", "example_translation": "" },
+        { "word": "der Obstanbau", "translation": "овощарство", "example": "", "example_translation": "" },
+        { "word": "der Gemüseanbau", "translation": "зеленчукопроизводство", "example": "", "example_translation": "" },
+        { "word": "das Haustier", "translation": "домашно животно", "example": "", "example_translation": "" },
+        { "word": "die Rinderzucht", "translation": "говедовъдство", "example": "", "example_translation": "" },
+        { "word": "die Schafzucht", "translation": "овцевъдство", "example": "", "example_translation": "" },
+        { "word": "die Schweinezucht", "translation": "свиневъдство", "example": "", "example_translation": "" },
+        { "word": "die Geflügelhaltung", "translation": "птицевъдство", "example": "", "example_translation": "" },
+        { "word": "die Seidenraupenzucht", "translation": "копринопроизводство", "example": "", "example_translation": "" },
+        { "word": "die Weidefläche", "translation": "пасище", "example": "", "example_translation": "" },
+        { "word": "die Fruchtbarkeit", "translation": "плодородие", "example": "", "example_translation": "" },
+        { "word": "der Arbeitsaufwand", "translation": "трудоемкост", "example": "", "example_translation": "" },
+        { "word": "die bearbeitete Fläche", "translation": "обработваема площ", "example": "", "example_translation": "" },
+        { "word": "der Ertrag", "translation": "добив, добивност", "example": "", "example_translation": "" },
+        { "word": "saisonal", "translation": "сезонен", "example": "", "example_translation": "" },
+        { "word": "die Nahrungsmittelindustrie", "translation": "хранителна промишленост", "example": "", "example_translation": "" },
+        { "word": "die Textilindustrie", "translation": "текстилна промишленост", "example": "", "example_translation": "" }
+      ]
+    }
+  ],
+  "content": "<strong>1 Pflanzenbau</strong>\n\n<strong>Der Pflanzenbau</strong> (Ackerbau, Pflanzenzucht) ist der führende Zweig in der Landwirtschaft. Der Pflanzenbau umfasst den Anbau von landwirtschaftlichen Kulturen als Nahrung für die Bevölkerung, als Futter für die Viehzucht und als Rohstoffe für die Nahrungsmittelindustrie, die Textilindustrie u.a. Der Pflanzenbau erzeugt den Großteil der landwirtschaftlichen Produktion. Im Pflanzenbau sind viele Arbeitskräfte beschäftigt. Die Produktion hat einen großen Anteil auch am Handel.\n\nDie Charakteristika des Pflanzenbaus sind: allgemeine Verbreitung, saisonaler Charakter der Produktion, starke Abhängigkeit von den klimatischen Bedingungen, von der Fruchtbarkeit des Bodens und von den biologischen Prozessen.\n\nDie Entwicklung des Pflanzenbaus wird von natürlichen, sozial-ökonomischen, wissenschaftlich-technischen und ökologischen Faktoren beeinflusst. Die komplizierte Struktur des Pflanzenbaus umfasst den Anbau von Getreide und technischen Kulturen, die Obst- und Gemüseproduktion.\n\n<strong>Die Getreidekulturen</strong> nehmen weltweit etwa die Hälfte der bearbeiteten Flächen ein und sind die wichtigsten Kulturen in der Pflanzenzucht. Den größten Anteil davon haben der Weizen, der Reis und der Mais. Der Weizen ist die am meisten verbreitete Getreidekultur. Die Schwarzerden im gemäßigten Klimagürtel sichern die höchsten Weizenerträge. Weltweit führende Weizenhersteller sind China, Indien und die USA. Der Reis ist eine wärme- und feuchteliebende Pflanze, die hauptsächlich in Ost-, Süd- und Südostasien angebaut wird. Führende Reishersteller sind China, Indien und Indonesien. Unter den Futterkulturen hat der Mais die größte Bedeutung. Der wichtigste Maisproduzent sind die USA.\n\n<strong>Die technischen Kulturen</strong> werden hauptsächlich als Rohstoffe für die Leicht- und Nahrungsmittelindustrie verwendet. Abhängig vom Anwendungszweck werden sie in Faserpflanzen, Ölpflanzen, Zuckerpflanzen und Genussmittelkulturen eingeteilt. Ihr Anteil an den bearbeiteten Flächen ist kleiner als dieser der Getreidekulturen. Der Arbeitsaufwand für die Produktion von technischen Kulturen ist hoch, aber mit ihrer Produktion werden auch hohe Gewinne erwirtschaftet.\n\nFaserpflanzen dienen zur Herstellung von natürlichen Fasern. Die wichtigsten Kulturen sind die Baumwolle (China, die USA, Indien) und der Flachs. Ölpflanzen sind die Sonnenblume, die Erdnüsse und die Olivenbäume. Sonnenblumen baut man in den gemäßigten Klimazonen an. Weltweit führende Produzenten dieser Ölpflanze sind die Ukraine, Russland, China, Frankreich, Rumänien und Argentinien. Der Olivenbaum ist ein immergrüner subtropischer Baum, aus dessen Früchten Olivenöl gewonnen wird. Große Olivenölhersteller sind Spanien, Italien, Griechenland, die Türkei u.a. Die wichtigsten zuckerhaltigen Kulturen sind das Zuckerrohr (Brasilien, Indien, China) und die Zuckerrübe (Frankreich, Deutschland, die USA). Zu den Genussmittelkulturen gehören der Kaffee (Brasilien, Kolumbien), der Kakao (Republik Côte d'Ivoire) und der Tee (China, Indien, Sri Lanka).\n\n<strong>Dauerkulturen</strong> sind mehrjährige Pflanzen, die weit verbreitet sind. Zum Anbau von Dauerkulturen gehören der Weinbau und der Obstanbau.\n\n<strong>Der Gemüseanbau</strong> ist weltweit verbreitet.\n\n<strong>2 Viehzucht</strong>\n\n<strong>Die Viehzucht</strong> ist der zweite Hauptzweig der Landwirtschaft. Sie umfasst Branchen, in denen verschiedene Arten und Rassen von Haustieren gezüchtet werden, um Nahrung für die Menschen und Rohstoffe für die Industrie zu liefern. Die stark entwickelten Länder haben gewöhnlich auch eine gut entwickelte Viehzucht.\n\nIm Unterschied zum Pflanzenbau ist die Viehzucht nicht so direkt und nicht so stark von den Umweltbedingungen abhängig und auch nicht saisonbedingt. Die Viehzucht bietet günstige Voraussetzungen für die rationelle Verwendung des unfruchtbaren Landes durch Schaffung von Weideflächen.\n\nEin führender Zweig in der Viehzucht ist <strong>die Rinderzucht</strong>. Sie sichert ein Drittel des Fleisches und den Großteil der Milch. Die meisten Rinder werden in Brasilien und Indien gezüchtet. Auch China, die USA, Argentinien, Deutschland u.a. haben eine gut entwickelte Rinderzucht.\n\n<strong>Die Schafzucht</strong> versorgt die Bevölkerung mit Milch und Fleisch zum frischen Verzehr und die verarbeitende Industrie mit Pelzen, Wolle, Milch und Fleisch. Die meisten Schafe werden in China, dem Australischen Bund und in Neuseeland gezüchtet.\n\n<strong>Die Schweinezucht</strong> sichert weltweit den Großteil des Fleisches. Schweine werden vor allem in Getreide produzierenden Regionen gezüchtet. Der größte Schweinefleischproduzent ist China.\n\n<strong>Die Geflügelhaltung</strong> versorgt die Nahrungsmittelindustrie mit Fleisch und Eiern. Große Geflügelhaltungsbetriebe findet man in Getreide produzierenden Regionen und in urbanisierten Gebieten.\n\nDie Seidenraupenzucht liefert natürliche Seidenfasern für die Textilindustrie. Sie ist für China, Indien und Japan typisch.",
+  "sentences": [
+    {
+      "text": "<strong>1 Pflanzenbau</strong>",
+      "translation": "<strong>1 Растениевъдство</strong>"
+    },
+    {
+      "text": "<strong>Der Pflanzenbau</strong> (Ackerbau, Pflanzenzucht) ist der führende Zweig in der Landwirtschaft.",
+      "translation": "<strong>Растениевъдството</strong> (земеделието, отглеждането на растения) е водещият отрасъл в селското стопанство."
+    },
+    {
+      "text": "Der Pflanzenbau umfasst den Anbau von landwirtschaftlichen Kulturen als Nahrung für die Bevölkerung, als Futter für die Viehzucht und als Rohstoffe für die Nahrungsmittelindustrie, die Textilindustrie u.a.",
+      "translation": "Растениевъдството обхваща отглеждането на селскостопански култури като храна за населението, като фураж за животновъдството и като суровини за хранителната, текстилната и други промишлености."
+    },
+    {
+      "text": "Der Pflanzenbau erzeugt den Großteil der landwirtschaftlichen Produktion.",
+      "translation": "Растениевъдството произвежда по-голямата част от селскостопанската продукция."
+    },
+    {
+      "text": "Im Pflanzenbau sind viele Arbeitskräfte beschäftigt.",
+      "translation": "В растениевъдството са заети много работници."
+    },
+    {
+      "text": "Die Produktion hat einen großen Anteil auch am Handel.",
+      "translation": "Производството има голям дял и в търговията."
+    },
+    {
+      "text": "Die Charakteristika des Pflanzenbaus sind: allgemeine Verbreitung, saisonaler Charakter der Produktion, starke Abhängigkeit von den klimatischen Bedingungen, von der Fruchtbarkeit des Bodens und von den biologischen Prozessen.",
+      "translation": "Характеристиките на растениевъдството са: общо разпространение, сезонен характер на производството, силна зависимост от климатичните условия, от плодородието на почвата и от биологичните процеси."
+    },
+    {
+      "text": "Die Entwicklung des Pflanzenbaus wird von natürlichen, sozial-ökonomischen, wissenschaftlich-technischen und ökologischen Faktoren beeinflusst.",
+      "translation": "Развитието на растениевъдството се влияе от природни, социално-икономически, научно-технически и екологични фактори."
+    },
+    {
+      "text": "Die komplizierte Struktur des Pflanzenbaus umfasst den Anbau von Getreide und technischen Kulturen, die Obst- und Gemüseproduktion.",
+      "translation": "Сложната структура на растениевъдството включва отглеждането на зърнени и технически култури, производството на плодове и зеленчуци."
+    },
+    {
+      "text": "<strong>Die Getreidekulturen</strong> nehmen weltweit etwa die Hälfte der bearbeiteten Flächen ein und sind die wichtigsten Kulturen in der Pflanzenzucht.",
+      "translation": "<strong>Зърнените култури</strong> заемат по света около половината от обработваемите площи и са най-важните култури в растениевъдството."
+    },
+    {
+      "text": "Den größten Anteil davon haben der Weizen, der Reis und der Mais.",
+      "translation": "Най-голям дял от тях имат пшеницата, оризът и царевицата."
+    },
+    {
+      "text": "Der Weizen ist die am meisten verbreitete Getreidekultur.",
+      "translation": "Пшеницата е най-разпространената зърнена култура."
+    },
+    {
+      "text": "Die Schwarzerden im gemäßigten Klimagürtel sichern die höchsten Weizenerträge.",
+      "translation": "Черноземите в умерения климатичен пояс осигуряват най-високите добиви на пшеница."
+    },
+    {
+      "text": "Weltweit führende Weizenhersteller sind China, Indien und die USA.",
+      "translation": "Световни лидери в производството на пшеница са Китай, Индия и САЩ."
+    },
+    {
+      "text": "Der Reis ist eine wärme- und feuchteliebende Pflanze, die hauptsächlich in Ost-, Süd- und Südostasien angebaut wird.",
+      "translation": "Оризът е топло- и влаголюбива култура, която се отглежда главно в Източна, Южна и Югоизточна Азия."
+    },
+    {
+      "text": "Führende Reishersteller sind China, Indien und Indonesien.",
+      "translation": "Водещи производители на ориз са Китай, Индия и Индонезия."
+    },
+    {
+      "text": "Unter den Futterkulturen hat der Mais die größte Bedeutung.",
+      "translation": "Сред фуражните култури царевицата има най-голямо значение."
+    },
+    {
+      "text": "Der wichtigste Maisproduzent sind die USA.",
+      "translation": "Най-важният производител на царевица са САЩ."
+    },
+    {
+      "text": "<strong>Die technischen Kulturen</strong> werden hauptsächlich als Rohstoffe für die Leicht- und Nahrungsmittelindustrie verwendet.",
+      "translation": "<strong>Техническите култури</strong> се използват главно като суровини за леката и хранителната промишленост."
+    },
+    {
+      "text": "Abhängig vom Anwendungszweck werden sie in Faserpflanzen, Ölpflanzen, Zuckerpflanzen und Genussmittelkulturen eingeteilt.",
+      "translation": "В зависимост от предназначението те се разделят на фибърни, маслодайни, захарни и стимулантни култури."
+    },
+    {
+      "text": "Ihr Anteil an den bearbeiteten Flächen ist kleiner als dieser der Getreidekulturen.",
+      "translation": "Техният дял от обработваемите площи е по-малък от този на зърнените култури."
+    },
+    {
+      "text": "Der Arbeitsaufwand für die Produktion von technischen Kulturen ist hoch, aber mit ihrer Produktion werden auch hohe Gewinne erwirtschaftet.",
+      "translation": "Трудоемкостта при производството на технически култури е висока, но с тяхното производство се печелят и големи печалби."
+    },
+    {
+      "text": "Faserpflanzen dienen zur Herstellung von natürlichen Fasern.",
+      "translation": "Фибърните растения служат за производство на естествени влакна."
+    },
+    {
+      "text": "Die wichtigsten Kulturen sind die Baumwolle (China, die USA, Indien) und der Flachs.",
+      "translation": "Най-важните култури са памукът (Китай, САЩ, Индия) и ленът."
+    },
+    {
+      "text": "Ölpflanzen sind die Sonnenblume, die Erdnüsse und die Olivenbäume.",
+      "translation": "Маслодайните растения са слънчогледът, фъстъците и маслиновите дървета."
+    },
+    {
+      "text": "Sonnenblumen baut man in den gemäßigten Klimazonen an.",
+      "translation": "Слънчогледът се отглежда в умерените климатични зони."
+    },
+    {
+      "text": "Weltweit führende Produzenten dieser Ölpflanze sind die Ukraine, Russland, China, Frankreich, Rumänien und Argentinien.",
+      "translation": "Световни лидери в производството на това маслодайно растение са Украйна, Русия, Китай, Франция, Румъния и Аржентина."
+    },
+    {
+      "text": "Der Olivenbaum ist ein immergrüner subtropischer Baum, aus dessen Früchten Olivenöl gewonnen wird.",
+      "translation": "Маслиновото дърво е вечнозелено субтропично дърво, от плодовете на което се добива зехтин."
+    },
+    {
+      "text": "Große Olivenölhersteller sind Spanien, Italien, Griechenland, die Türkei u.a.",
+      "translation": "Големи производители на зехтин са Испания, Италия, Гърция, Турция и др."
+    },
+    {
+      "text": "Die wichtigsten zuckerhaltigen Kulturen sind das Zuckerrohr (Brasilien, Indien, China) und die Zuckerrübe (Frankreich, Deutschland, die USA).",
+      "translation": "Най-важните захарни култури са захарната тръстика (Бразилия, Индия, Китай) и захарното цвекло (Франция, Германия, САЩ)."
+    },
+    {
+      "text": "Zu den Genussmittelkulturen gehören der Kaffee (Brasilien, Kolumbien), der Kakao (Republik Côte d'Ivoire) und der Tee (China, Indien, Sri Lanka).",
+      "translation": "Към стимулантните култури принадлежат кафето (Бразилия, Колумбия), какаото (Република Кот д'Ивоар) и чаят (Китай, Индия, Шри Ланка)."
+    },
+    {
+      "text": "<strong>Dauerkulturen</strong> sind mehrjährige Pflanzen, die weit verbreitet sind.",
+      "translation": "<strong>Многогодишните култури</strong> са многогодишни растения, които са широко разпространени."
+    },
+    {
+      "text": "Zum Anbau von Dauerkulturen gehören der Weinbau und der Obstanbau.",
+      "translation": "Към отглеждането на многогодишни култури принадлежат лозарството и овощарството."
+    },
+    {
+      "text": "<strong>Der Gemüseanbau</strong> ist weltweit verbreitet.",
+      "translation": "<strong>Зеленчукопроизводството</strong> е разпространено по целия свят."
+    },
+    {
+      "text": "<strong>2 Viehzucht</strong>",
+      "translation": "<strong>2 Животновъдство</strong>"
+    },
+    {
+      "text": "<strong>Die Viehzucht</strong> ist der zweite Hauptzweig der Landwirtschaft.",
+      "translation": "<strong>Животновъдството</strong> е вторият основен отрасъл на селското стопанство."
+    },
+    {
+      "text": "Sie umfasst Branchen, in denen verschiedene Arten und Rassen von Haustieren gezüchtet werden, um Nahrung für die Menschen und Rohstoffe für die Industrie zu liefern.",
+      "translation": "То обхваща отрасли, в които се отглеждат различни видове и породи домашни животни, за да се осигурява храна за хората и суровини за промишлеността."
+    },
+    {
+      "text": "Die stark entwickelten Länder haben gewöhnlich auch eine gut entwickelte Viehzucht.",
+      "translation": "Силно развитите страни обикновено имат и добре развито животновъдство."
+    },
+    {
+      "text": "Im Unterschied zum Pflanzenbau ist die Viehzucht nicht so direkt und nicht so stark von den Umweltbedingungen abhängig und auch nicht saisonbedingt.",
+      "translation": "За разлика от растениевъдството, животновъдството не зависи толкова пряко и толкова силно от условията на околната среда и не е сезонно обусловено."
+    },
+    {
+      "text": "Die Viehzucht bietet günstige Voraussetzungen für die rationelle Verwendung des unfruchtbaren Landes durch Schaffung von Weideflächen.",
+      "translation": "Животновъдството предоставя благоприятни условия за рационалното използване на неплодородните земи чрез създаване на пасища."
+    },
+    {
+      "text": "Ein führender Zweig in der Viehzucht ist <strong>die Rinderzucht</strong>.",
+      "translation": "Водещ отрасъл в животновъдството е <strong>говедовъдството</strong>."
+    },
+    {
+      "text": "Sie sichert ein Drittel des Fleisches und den Großteil der Milch.",
+      "translation": "То осигурява една трета от месото и по-голямата част от млякото."
+    },
+    {
+      "text": "Die meisten Rinder werden in Brasilien und Indien gezüchtet.",
+      "translation": "Най-много говеда се отглеждат в Бразилия и Индия."
+    },
+    {
+      "text": "Auch China, die USA, Argentinien, Deutschland u.a. haben eine gut entwickelte Rinderzucht.",
+      "translation": "Също Китай, САЩ, Аржентина, Германия и др. имат добре развито говедовъдство."
+    },
+    {
+      "text": "<strong>Die Schafzucht</strong> versorgt die Bevölkerung mit Milch und Fleisch zum frischen Verzehr und die verarbeitende Industrie mit Pelzen, Wolle, Milch und Fleisch.",
+      "translation": "<strong>Овцевъдството</strong> снабдява населението с мляко и месо за прясна консумация, а преработващата промишленост – с кожи, вълна, мляко и месо."
+    },
+    {
+      "text": "Die meisten Schafe werden in China, dem Australischen Bund und in Neuseeland gezüchtet.",
+      "translation": "Най-много овце се отглеждат в Китай, Австралийския съюз и Нова Зеландия."
+    },
+    {
+      "text": "<strong>Die Schweinezucht</strong> sichert weltweit den Großteil des Fleisches.",
+      "translation": "<strong>Свиневъдството</strong> осигурява по света по-голямата част от месото."
+    },
+    {
+      "text": "Schweine werden vor allem in Getreide produzierenden Regionen gezüchtet.",
+      "translation": "Свинете се отглеждат предимно в региони, произвеждащи зърно."
+    },
+    {
+      "text": "Der größte Schweinefleischproduzent ist China.",
+      "translation": "Най-големият производител на свинско месо е Китай."
+    },
+    {
+      "text": "<strong>Die Geflügelhaltung</strong> versorgt die Nahrungsmittelindustrie mit Fleisch und Eiern.",
+      "translation": "<strong>Птицевъдството</strong> снабдява хранителната промишленост с месо и яйца."
+    },
+    {
+      "text": "Große Geflügelhaltungsbetriebe findet man in Getreide produzierenden Regionen und in urbanisierten Gebieten.",
+      "translation": "Големи птицевъдни стопанства се срещат в зърнопроизводящи региони и в урбанизирани райони."
+    },
+    {
+      "text": "Die Seidenraupenzucht liefert natürliche Seidenfasern für die Textilindustrie.",
+      "translation": "Копринопроизводството доставя естествени копринени влакна за текстилната промишленост."
+    },
+    {
+      "text": "Sie ist für China, Indien und Japan typisch.",
+      "translation": "То е типично за Китай, Индия и Япония."
+    }
+  ]
+}

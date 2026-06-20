@@ -324,6 +324,13 @@ const lessonsData: { [key: number]: Band[] } = {
               completed: false,
             },
             {
+              id: 13,
+              number: "28",
+              title: "28 PFLANZENBAU UND VIEHZUCHT",
+              duration: "— мин",
+              completed: false,
+            },
+            {
               id: 12,
               number: "29",
               title: "29 SEKUNDÄRER SEKTOR DER WIRTSCHAFT",
