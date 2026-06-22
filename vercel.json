@@ -3,6 +3,14 @@
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
+    { "source": "/api/messages/threads", "destination": "/api/messaging?route=threads" },
+    { "source": "/api/messages/contacts", "destination": "/api/messaging?route=contacts" },
+    { "source": "/api/messages/read", "destination": "/api/messaging?route=read" },
+    { "source": "/api/messages/unread-count", "destination": "/api/messaging?route=unread-count" },
+    { "source": "/api/messages", "destination": "/api/messaging" },
+    { "source": "/api/push/public-key", "destination": "/api/messaging?route=push-public-key" },
+    { "source": "/api/push/subscribe", "destination": "/api/messaging?route=push-subscribe" },
+    { "source": "/api/me/weekly-program", "destination": "/api/me?resource=weekly-program" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
