@@ -4,7 +4,7 @@
  * Bump CACHE_VERSION when you want to invalidate previously cached files.
  */
 
-const CACHE_VERSION = "schulhub-v1";
+const CACHE_VERSION = "schulhub-v2";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -99,4 +99,58 @@ self.addEventListener("fetch", (event) => {
       }),
     );
   }
+});
+
+// Push notifications for messages
+self.addEventListener("push", (event) => {
+  if (!event.data) return;
+  let payload = {};
+  try {
+    payload = event.data.json();
+  } catch {
+    try {
+      payload = { title: "SchulHub", body: event.data.text() };
+    } catch {
+      payload = { title: "SchulHub", body: "" };
+    }
+  }
+  const title = payload.title || "SchulHub";
+  const options = {
+    body: payload.body || "",
+    icon: "/icons/icon-192.png",
+    badge: "/icons/icon-192.png",
+    tag: payload.tag || "schulhub-message",
+    renotify: true,
+    data: { url: payload.url || "/messages" },
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const targetUrl = (event.notification.data && event.notification.data.url) || "/messages";
+  event.waitUntil(
+    self.clients
+      .matchAll({ type: "window", includeUncontrolled: true })
+      .then((clientList) => {
+        for (const client of clientList) {
+          try {
+            const u = new URL(client.url);
+            if (u.origin === self.location.origin) {
+              client.focus();
+              if ("navigate" in client) {
+                return client.navigate(targetUrl);
+              }
+              return client.postMessage({ type: "navigate", url: targetUrl });
+            }
+          } catch {
+            // ignore parse errors
+          }
+        }
+        if (self.clients.openWindow) {
+          return self.clients.openWindow(targetUrl);
+        }
+        return undefined;
+      }),
+  );
 });

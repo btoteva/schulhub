@@ -61,7 +61,7 @@ module.exports = {
       directory: path.join(__dirname, 'public')
     },
     compress: true,
-    port: 3000,
+    port: parseInt(process.env.PORT, 10) || 3002,
     hot: true,
     open: true,
     historyApiFallback: true,

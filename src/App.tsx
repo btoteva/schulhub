@@ -55,6 +55,8 @@ import AdminUserEdit from "./pages/AdminUserEdit";
 import WeeklyProgram from "./pages/WeeklyProgram";
 import MyChildren from "./pages/MyChildren";
 import AdminWeeklyPrograms from "./pages/AdminWeeklyPrograms";
+import Messages from "./pages/Messages";
+import MessageThread from "./pages/MessageThread";
 
 const App: React.FC = () => {
   return (
@@ -71,6 +73,8 @@ const App: React.FC = () => {
           <Route path="/profile/edit" element={<ProfileEdit />} />
           <Route path="/my-children" element={<MyChildren />} />
           <Route path="/weekly-program" element={<WeeklyProgram />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/messages/:partner" element={<MessageThread />} />
           <Route path="/admin/users" element={<AdminUsers />} />
           <Route
             path="/admin/weekly-programs"

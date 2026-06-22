@@ -197,6 +197,35 @@ interface Translations {
   parentIsHere: string;
   studentUsernameInPlatform: string;
   personalSection: string;
+
+  // Messages
+  messages: string;
+  messagesEmpty: string;
+  messagesEmptyHint: string;
+  messagesNewMessage: string;
+  messagesSelectRecipient: string;
+  messagesSelectContact: string;
+  messagesNoContacts: string;
+  messagesNoContactsHint: string;
+  messagesTypeYourMessage: string;
+  messagesSend: string;
+  messagesSending: string;
+  messagesSendFailed: string;
+  messagesLoading: string;
+  messagesYou: string;
+  messagesNoMessagesYet: string;
+  messagesBackToList: string;
+  messagesUnreadCount: string;
+  messagesNewMessageBadge: string;
+  messagesPermissionDenied: string;
+  messagesEnablePush: string;
+  messagesPushEnabled: string;
+  messagesPushDisable: string;
+  messagesPushNotSupported: string;
+  messagesContactRole: string;
+  messagesContactRoleTeacher: string;
+  messagesContactRoleParent: string;
+  messagesContactRoleStudent: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -368,6 +397,35 @@ const translations: Record<Language, Translations> = {
     personalSection: "Лична секция",
     studentUsernameInPlatform:
       "Потребителско име или email в платформата (за свързване с профила на детето)",
+
+    // Messages
+    messages: "Съобщения",
+    messagesEmpty: "Нямаш разговори",
+    messagesEmptyHint: "Натисни „Ново съобщение“, за да започнеш разговор.",
+    messagesNewMessage: "Ново съобщение",
+    messagesSelectRecipient: "Избери получател",
+    messagesSelectContact: "Избери контакт",
+    messagesNoContacts: "Нямаш позволени контакти",
+    messagesNoContactsHint: "Ще можеш да пишеш на учителите си или на свързаните родители/деца.",
+    messagesTypeYourMessage: "Напиши съобщение…",
+    messagesSend: "Изпрати",
+    messagesSending: "Изпращане…",
+    messagesSendFailed: "Неуспешно изпращане",
+    messagesLoading: "Зареждане…",
+    messagesYou: "Ти",
+    messagesNoMessagesYet: "Все още няма съобщения. Напиши първото!",
+    messagesBackToList: "Назад към разговорите",
+    messagesUnreadCount: "непрочетени",
+    messagesNewMessageBadge: "Ново",
+    messagesPermissionDenied: "Нямаш право да пишеш на този потребител.",
+    messagesEnablePush: "Включи известия",
+    messagesPushEnabled: "Известията са включени",
+    messagesPushDisable: "Изключи известия",
+    messagesPushNotSupported: "Браузърът ти не поддържа push известия.",
+    messagesContactRole: "Роля",
+    messagesContactRoleTeacher: "Учител",
+    messagesContactRoleParent: "Родител",
+    messagesContactRoleStudent: "Ученик",
 
     // Hero descriptions
     biologyDesc: "Изучаване на живота",
@@ -572,6 +630,35 @@ const translations: Record<Language, Translations> = {
     studentUsernameInPlatform:
       "Username or email (to link with the child's account)",
 
+    // Messages
+    messages: "Messages",
+    messagesEmpty: "No conversations yet",
+    messagesEmptyHint: "Tap “New message” to start a conversation.",
+    messagesNewMessage: "New message",
+    messagesSelectRecipient: "Select recipient",
+    messagesSelectContact: "Select contact",
+    messagesNoContacts: "No allowed contacts",
+    messagesNoContactsHint: "You'll be able to message your teachers or linked parents/children.",
+    messagesTypeYourMessage: "Type a message…",
+    messagesSend: "Send",
+    messagesSending: "Sending…",
+    messagesSendFailed: "Failed to send",
+    messagesLoading: "Loading…",
+    messagesYou: "You",
+    messagesNoMessagesYet: "No messages yet. Send the first one!",
+    messagesBackToList: "Back to conversations",
+    messagesUnreadCount: "unread",
+    messagesNewMessageBadge: "New",
+    messagesPermissionDenied: "You can't message this user.",
+    messagesEnablePush: "Enable notifications",
+    messagesPushEnabled: "Notifications enabled",
+    messagesPushDisable: "Disable notifications",
+    messagesPushNotSupported: "Your browser does not support push notifications.",
+    messagesContactRole: "Role",
+    messagesContactRoleTeacher: "Teacher",
+    messagesContactRoleParent: "Parent",
+    messagesContactRoleStudent: "Student",
+
     // Hero descriptions
     biologyDesc: "Study of life",
     geographyDesc: "Discover the world",
@@ -775,6 +862,35 @@ const translations: Record<Language, Translations> = {
     personalSection: "Persönlicher Bereich",
     studentUsernameInPlatform:
       "Benutzername oder E-Mail (um mit dem Konto des Kindes zu verknüpfen)",
+
+    // Messages
+    messages: "Nachrichten",
+    messagesEmpty: "Noch keine Gespräche",
+    messagesEmptyHint: "Tippe auf „Neue Nachricht“, um ein Gespräch zu starten.",
+    messagesNewMessage: "Neue Nachricht",
+    messagesSelectRecipient: "Empfänger wählen",
+    messagesSelectContact: "Kontakt wählen",
+    messagesNoContacts: "Keine erlaubten Kontakte",
+    messagesNoContactsHint: "Du kannst deinen Lehrern oder verknüpften Eltern/Kindern schreiben.",
+    messagesTypeYourMessage: "Nachricht schreiben…",
+    messagesSend: "Senden",
+    messagesSending: "Wird gesendet…",
+    messagesSendFailed: "Senden fehlgeschlagen",
+    messagesLoading: "Lädt…",
+    messagesYou: "Du",
+    messagesNoMessagesYet: "Noch keine Nachrichten. Schreib die erste!",
+    messagesBackToList: "Zurück zur Liste",
+    messagesUnreadCount: "ungelesen",
+    messagesNewMessageBadge: "Neu",
+    messagesPermissionDenied: "Du darfst diesem Nutzer nicht schreiben.",
+    messagesEnablePush: "Benachrichtigungen aktivieren",
+    messagesPushEnabled: "Benachrichtigungen aktiv",
+    messagesPushDisable: "Benachrichtigungen deaktivieren",
+    messagesPushNotSupported: "Dein Browser unterstützt keine Push-Benachrichtigungen.",
+    messagesContactRole: "Rolle",
+    messagesContactRoleTeacher: "Lehrer/in",
+    messagesContactRoleParent: "Eltern",
+    messagesContactRoleStudent: "Schüler/in",
 
     // Hero descriptions
     biologyDesc: "Das Studium des Lebens",

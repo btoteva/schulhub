@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FaBook, FaGlobe, FaSun, FaMoon, FaUser, FaUserEdit, FaUsers, FaSignOutAlt, FaCalendarAlt, FaCrown, FaUserCog, FaVolumeUp } from "react-icons/fa";
 import FontSettings from "./FontSettings";
+import MessagesBellIcon from "./MessagesBellIcon";
 import { useLanguage, Language } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
@@ -244,6 +245,7 @@ const Header: React.FC = () => {
             </a>
 
             <div className="border-l border-slate-300 dark:border-gray-700 pl-4 flex items-center gap-2">
+              <MessagesBellIcon />
               <div className="relative" ref={volumeRef}>
                 <button
                   type="button"
@@ -300,6 +302,7 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center gap-1 md:hidden">
+            <MessagesBellIcon size="sm" />
             <div className="relative" ref={volumeRefMobile}>
               <button
                 type="button"
