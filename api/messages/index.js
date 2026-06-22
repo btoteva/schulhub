@@ -1,12 +1,12 @@
-const { verifyToken } = require("./_auth");
-const { getSql } = require("./_users");
+const { verifyToken } = require("../_auth");
+const { getSql } = require("../_users");
 const {
   ensureMessagesTable,
   canMessage,
   listMessagesBetween,
   insertMessage,
   markThreadRead,
-} = require("./_messages");
+} = require("../_messages");
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -75,9 +75,8 @@ module.exports = async function handler(req, res) {
     const msg = await insertMessage(sql, me, perm.recipient.username, text);
     if (!msg) return res.status(400).json({ error: "Empty body" });
 
-    // Phase 2 hook: fire-and-forget push notification (will be added later)
     try {
-      const pushNotify = require("./_push-notify");
+      const pushNotify = require("../_push-notify");
       if (typeof pushNotify === "function") {
         pushNotify(sql, perm.recipient.username, {
           title: me,
@@ -86,7 +85,7 @@ module.exports = async function handler(req, res) {
         }).catch(() => undefined);
       }
     } catch {
-      // _push-notify not yet implemented; skip silently
+      // _push-notify not configured; skip silently
     }
 
     return res.status(201).json({
