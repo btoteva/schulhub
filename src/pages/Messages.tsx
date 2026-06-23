@@ -23,6 +23,8 @@ import {
 } from "../services/messagesApi";
 import PushToggle from "../components/PushToggle";
 
+const THREADS_POLL_MS = 20_000;
+
 function formatRelativeTime(iso: string, language: string): string {
   const date = new Date(iso);
   const diffMs = Date.now() - date.getTime();
@@ -94,27 +96,56 @@ const Messages: React.FC = () => {
     }
   }, [token, navigate]);
 
+  const loadThreads = useCallback(
+    async (showLoading = false) => {
+      if (!token || offline) return;
+      if (showLoading) setLoadingThreads(true);
+      try {
+        const res = await fetchThreads(token);
+        setThreads(res.threads || []);
+        setError(null);
+      } catch (e) {
+        if (showLoading) setError((e as Error).message);
+      } finally {
+        if (showLoading) setLoadingThreads(false);
+      }
+    },
+    [token, offline],
+  );
+
+  useEffect(() => {
+    if (!token || offline) return;
+    loadThreads(true);
+  }, [token, offline, loadThreads]);
+
   useEffect(() => {
     if (!token || offline) return;
     let cancelled = false;
-    setLoadingThreads(true);
-    fetchThreads(token)
-      .then((res) => {
-        if (cancelled) return;
-        setThreads(res.threads || []);
-        setError(null);
-      })
-      .catch((e) => {
-        if (cancelled) return;
-        setError((e as Error).message);
-      })
-      .finally(() => {
-        if (!cancelled) setLoadingThreads(false);
-      });
+    let timer: number | null = null;
+
+    const schedule = () => {
+      if (timer != null) window.clearTimeout(timer);
+      const interval = document.hidden ? THREADS_POLL_MS * 4 : THREADS_POLL_MS;
+      timer = window.setTimeout(async () => {
+        if (!cancelled && !document.hidden) await loadThreads(false);
+        if (!cancelled) schedule();
+      }, interval);
+    };
+
+    schedule();
+
+    const onVisibility = () => {
+      if (!document.hidden) loadThreads(false);
+      schedule();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
       cancelled = true;
+      document.removeEventListener("visibilitychange", onVisibility);
+      if (timer != null) window.clearTimeout(timer);
     };
-  }, [token, offline]);
+  }, [token, offline, loadThreads]);
 
   useEffect(() => {
     if (!token || contacts !== null) return;
