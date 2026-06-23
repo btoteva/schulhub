@@ -57,6 +57,7 @@ import MyChildren from "./pages/MyChildren";
 import AdminWeeklyPrograms from "./pages/AdminWeeklyPrograms";
 import Messages from "./pages/Messages";
 import MessageThread from "./pages/MessageThread";
+import MessageSpace from "./pages/MessageSpace";
 
 const App: React.FC = () => {
   return (
@@ -74,6 +75,7 @@ const App: React.FC = () => {
           <Route path="/my-children" element={<MyChildren />} />
           <Route path="/weekly-program" element={<WeeklyProgram />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/messages/space/:spaceId" element={<MessageSpace />} />
           <Route path="/messages/:partner" element={<MessageThread />} />
           <Route path="/admin/users" element={<AdminUsers />} />
           <Route

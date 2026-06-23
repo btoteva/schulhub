@@ -14,6 +14,7 @@ import {
   isSuperAdmin,
 } from "./auth.js";
 import { ensureUsersTable, ensureUserChildrenTable, findUserById, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, updateUserGender, deleteUser, listUserChildren, listUserChildrenWithGender, addUserChild, getUserChild, updateUserChild, deleteUserChild, getParentInfoForStudent } from "./users-db.js";
+import { mountMessagingRoutes } from "./messaging-local.js";
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -907,6 +908,8 @@ app.post("/api/progress", async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
+mountMessagingRoutes(app);
 
 const PORT = process.env.PORT || 3001;
 

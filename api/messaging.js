@@ -3,8 +3,17 @@ const { getSql, ensureUsersTable, ensureUserChildrenTable, findUserByUsername, g
 const {
   ensureMessagesTable,
   ensurePushSubscriptionsTable,
+  ensureSpacesTables,
   canMessage,
   listAllowedContacts,
+  searchAllowedContacts,
+  createSpace,
+  getSpaceForMember,
+  listSpaceMembers,
+  listSpaceMessages,
+  insertSpaceMessage,
+  markSpaceRead,
+  listSpaceMemberUsernames,
   listThreads,
   listMessagesBetween,
   insertMessage,
@@ -90,13 +99,16 @@ module.exports = async function handler(req, res) {
       await ensureMessagesTable(sql);
       const [threads, unread] = await Promise.all([listThreads(sql, me), countUnread(sql, me)]);
       return res.status(200).json({
-        threads: threads.map((t) => ({
-          partner: t.partner,
-          last_message: t.last_message,
-          last_at: t.last_at,
-          last_from_me: !!t.last_from_me,
-          unread_count: t.unread_count || 0,
-        })),
+      threads: threads.map((t) => ({
+        type: t.type || "direct",
+        partner: t.partner,
+        space_id: t.space_id,
+        space_name: t.space_name,
+        last_message: t.last_message,
+        last_at: t.last_at,
+        last_from_me: !!t.last_from_me,
+        unread_count: t.unread_count || 0,
+      })),
         total_unread: unread || 0,
       });
     } catch (e) {
@@ -118,6 +130,7 @@ module.exports = async function handler(req, res) {
         contacts: contacts.map((c) => ({
           username: c.username,
           display_name: c.display_name || c.username,
+          email: c.email ?? null,
           role: c.role,
           profile_type: c.profile_type ?? null,
           school: c.school ?? null,
@@ -162,6 +175,205 @@ module.exports = async function handler(req, res) {
       await ensureMessagesTable(sql);
       const n = await countUnread(sql, me);
       return res.status(200).json({ unread: n });
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+
+  if (route === "spaces-search") {
+    if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
+    const payload = verifyToken(req);
+    if (!payload) return res.status(401).json({ error: "Unauthorized" });
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    const me = String(payload.sub || "").trim();
+    const q = String((req.query && req.query.q) || "").trim();
+    try {
+      const results = await searchAllowedContacts(sql, me, q);
+      return res.status(200).json({
+        contacts: results.map((c) => ({
+          username: c.username,
+          display_name: c.display_name || c.username,
+          email: c.email ?? null,
+          profile_type: c.profile_type ?? null,
+        })),
+      });
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+
+  if (route === "spaces-create") {
+    setCors(res, "POST, OPTIONS");
+    if (req.method === "OPTIONS") return res.status(200).end();
+    if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+    const payload = verifyToken(req);
+    if (!payload) return res.status(401).json({ error: "Unauthorized" });
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    const me = String(payload.sub || "").trim();
+    const body = typeof req.body === "object" && req.body ? req.body : {};
+    const name = String(body.name || "").trim();
+    const members = Array.isArray(body.members) ? body.members : [];
+    try {
+      await ensureSpacesTables(sql);
+      const result = await createSpace(sql, me, name, members);
+      if (result.error) {
+        const status = result.error === "not-allowed" ? 403 : 400;
+        return res.status(status).json({ error: result.error, username: result.username });
+      }
+      return res.status(201).json({
+        space: {
+          id: String(result.space.id),
+          name: result.space.name,
+          created_by: result.space.created_by,
+          created_at: result.space.created_at,
+          member_count: result.member_count,
+        },
+      });
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+
+  if (route === "space-detail") {
+    if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
+    const payload = verifyToken(req);
+    if (!payload) return res.status(401).json({ error: "Unauthorized" });
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    const me = String(payload.sub || "").trim();
+    const spaceId = parseInt(String((req.query && req.query.spaceId) || ""), 10);
+    if (!Number.isInteger(spaceId) || spaceId < 1) {
+      return res.status(400).json({ error: "spaceId required" });
+    }
+    try {
+      await ensureSpacesTables(sql);
+      const space = await getSpaceForMember(sql, spaceId, me);
+      if (!space) return res.status(404).json({ error: "Space not found" });
+      const members = await listSpaceMembers(sql, spaceId);
+      return res.status(200).json({
+        space: {
+          id: String(space.id),
+          name: space.name,
+          created_by: space.created_by,
+          created_at: space.created_at,
+        },
+        members: members.map((m) => ({
+          username: m.username,
+          display_name: m.display_name || m.username,
+          email: m.email ?? null,
+        })),
+      });
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+
+  if (route === "space-messages") {
+    if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
+    const payload = verifyToken(req);
+    if (!payload) return res.status(401).json({ error: "Unauthorized" });
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    const me = String(payload.sub || "").trim();
+    const spaceId = parseInt(String((req.query && req.query.spaceId) || ""), 10);
+    if (!Number.isInteger(spaceId) || spaceId < 1) {
+      return res.status(400).json({ error: "spaceId required" });
+    }
+    try {
+      await ensureSpacesTables(sql);
+      const space = await getSpaceForMember(sql, spaceId, me);
+      if (!space) return res.status(403).json({ error: "Not allowed" });
+      const rows = await listSpaceMessages(sql, spaceId, req.query?.limit);
+      await markSpaceRead(sql, spaceId, me);
+      return res.status(200).json({
+        space_id: String(spaceId),
+        space_name: space.name,
+        messages: rows.map((r) => ({
+          id: String(r.id),
+          from: r.sender_username,
+          body: r.body,
+          created_at: r.created_at,
+          mine: r.sender_username === me,
+        })),
+      });
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+
+  if (route === "space-send") {
+    setCors(res, "POST, OPTIONS");
+    if (req.method === "OPTIONS") return res.status(200).end();
+    if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+    const payload = verifyToken(req);
+    if (!payload) return res.status(401).json({ error: "Unauthorized" });
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    const me = String(payload.sub || "").trim();
+    const body = typeof req.body === "object" && req.body ? req.body : {};
+    const spaceId = parseInt(String(body.space_id || ""), 10);
+    const text = String(body.body || "").trim();
+    if (!Number.isInteger(spaceId) || spaceId < 1) {
+      return res.status(400).json({ error: "space_id required" });
+    }
+    if (!text) return res.status(400).json({ error: "body required" });
+    try {
+      await ensureSpacesTables(sql);
+      const space = await getSpaceForMember(sql, spaceId, me);
+      if (!space) return res.status(403).json({ error: "Not allowed" });
+      const msg = await insertSpaceMessage(sql, spaceId, me, text);
+      if (!msg) return res.status(400).json({ error: "Empty body" });
+      try {
+        const pushNotify = require("./_push-notify");
+        const recipients = await listSpaceMemberUsernames(sql, spaceId, me);
+        if (typeof pushNotify === "function") {
+          for (const recipient of recipients) {
+            pushNotify(sql, recipient, {
+              title: space.name,
+              body: `${me}: ${text.slice(0, 120)}`,
+              url: `/messages/space/${spaceId}`,
+            }).catch(() => undefined);
+          }
+        }
+      } catch {
+        /* push optional */
+      }
+      return res.status(201).json({
+        message: {
+          id: String(msg.id),
+          from: msg.sender_username,
+          body: msg.body,
+          created_at: msg.created_at,
+          mine: true,
+        },
+      });
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
+  }
+
+  if (route === "space-read") {
+    setCors(res, "POST, OPTIONS");
+    if (req.method === "OPTIONS") return res.status(200).end();
+    if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+    const payload = verifyToken(req);
+    if (!payload) return res.status(401).json({ error: "Unauthorized" });
+    const sql = getSql();
+    if (!sql) return res.status(500).json({ error: "Database not configured" });
+    const me = String(payload.sub || "").trim();
+    const body = typeof req.body === "object" && req.body ? req.body : {};
+    const spaceId = parseInt(String(body.space_id || ""), 10);
+    if (!Number.isInteger(spaceId) || spaceId < 1) {
+      return res.status(400).json({ error: "space_id required" });
+    }
+    try {
+      await ensureSpacesTables(sql);
+      const space = await getSpaceForMember(sql, spaceId, me);
+      if (!space) return res.status(403).json({ error: "Not allowed" });
+      await markSpaceRead(sql, spaceId, me);
+      return res.status(200).json({ ok: true });
     } catch (e) {
       return res.status(500).json({ error: e.message });
     }

@@ -49,6 +49,50 @@ async function ensurePushSubscriptionsTable(sql) {
   `;
 }
 
+async function ensureSpacesTables(sql) {
+  await sql`
+    CREATE TABLE IF NOT EXISTS schulhub_spaces (
+      id BIGSERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      created_by TEXT NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS schulhub_space_members (
+      space_id BIGINT NOT NULL REFERENCES schulhub_spaces(id) ON DELETE CASCADE,
+      username TEXT NOT NULL,
+      joined_at TIMESTAMPTZ DEFAULT NOW(),
+      PRIMARY KEY (space_id, username)
+    )
+  `;
+  await sql`
+    CREATE INDEX IF NOT EXISTS schulhub_space_members_user_idx
+      ON schulhub_space_members (username)
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS schulhub_space_messages (
+      id BIGSERIAL PRIMARY KEY,
+      space_id BIGINT NOT NULL REFERENCES schulhub_spaces(id) ON DELETE CASCADE,
+      sender_username TEXT NOT NULL,
+      body TEXT NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    )
+  `;
+  await sql`
+    CREATE INDEX IF NOT EXISTS schulhub_space_messages_space_idx
+      ON schulhub_space_messages (space_id, created_at ASC)
+  `;
+  await sql`
+    CREATE TABLE IF NOT EXISTS schulhub_space_read_cursors (
+      space_id BIGINT NOT NULL REFERENCES schulhub_spaces(id) ON DELETE CASCADE,
+      username TEXT NOT NULL,
+      last_read_at TIMESTAMPTZ DEFAULT NOW(),
+      PRIMARY KEY (space_id, username)
+    )
+  `;
+}
+
 function isTeacherRole(role) {
   return role === "admin" || role === "superadmin";
 }
@@ -98,7 +142,7 @@ async function canMessage(sql, senderUsername, recipientUsername) {
 /**
  * List the users the given username is allowed to message.
  * - For teachers: all non-self users
- * - For non-teachers: all teachers + own linked children/parent
+ * - For non-teachers: family links + users you can still message (incl. existing threads)
  * Returns an array of { username, role, profile_type, school, class_name, gender, display_name }.
  */
 async function listAllowedContacts(sql, username) {
@@ -107,33 +151,19 @@ async function listAllowedContacts(sql, username) {
 
   if (isTeacherRole(me.role)) {
     const rows = await sql`
-      SELECT id, username, role, profile_type, school, class_name, gender
+      SELECT id, username, email, role, profile_type, school, class_name, gender
       FROM schulhub_users
       WHERE username <> ${me.username}
-      ORDER BY
-        CASE WHEN role IN ('admin','superadmin') THEN 0 ELSE 1 END,
-        username
+      ORDER BY username
     `;
     return rows.map((r) => ({ ...r, display_name: r.username }));
   }
 
   const contacts = [];
   const seen = new Set();
-  const teachers = await sql`
-    SELECT id, username, role, profile_type, school, class_name, gender
-    FROM schulhub_users
-    WHERE role IN ('admin','superadmin')
-    ORDER BY username
-  `;
-  for (const t of teachers) {
-    if (!seen.has(t.username)) {
-      seen.add(t.username);
-      contacts.push({ ...t, display_name: t.username });
-    }
-  }
 
   const familyLinks = await sql`
-    SELECT u.id, u.username, u.role, u.profile_type, u.school, u.class_name, u.gender, c.child_name
+    SELECT u.id, u.username, u.email, u.role, u.profile_type, u.school, u.class_name, u.gender, c.child_name
     FROM schulhub_user_children c
     JOIN schulhub_users u ON (
       (c.parent_username = ${me.username} AND u.username = c.student_username) OR
@@ -147,6 +177,7 @@ async function listAllowedContacts(sql, username) {
       contacts.push({
         id: f.id,
         username: f.username,
+        email: f.email,
         role: f.role,
         profile_type: f.profile_type,
         school: f.school,
@@ -157,7 +188,210 @@ async function listAllowedContacts(sql, username) {
     }
   }
 
+  const partnerRows = await sql`
+    SELECT DISTINCT
+      CASE WHEN sender_username = ${me.username} THEN recipient_username ELSE sender_username END AS partner
+    FROM schulhub_messages
+    WHERE sender_username = ${me.username} OR recipient_username = ${me.username}
+  `;
+  for (const row of partnerRows) {
+    const partner = (row.partner || "").trim();
+    if (!partner || seen.has(partner)) continue;
+    const perm = await canMessage(sql, me.username, partner);
+    if (!perm.allowed) continue;
+    const other = perm.sender.username === me.username ? perm.recipient : perm.sender;
+    seen.add(partner);
+    contacts.push({
+      id: other.id,
+      username: other.username,
+      email: other.email,
+      role: other.role,
+      profile_type: other.profile_type,
+      school: other.school,
+      class_name: other.class_name,
+      gender: other.gender,
+      display_name: other.username,
+    });
+  }
+
   return contacts;
+}
+
+/** Search allowed contacts by email, username or display name (for space invites). */
+async function searchAllowedContacts(sql, username, query) {
+  const q = (query || "").trim().toLowerCase();
+  const all = await listAllowedContacts(sql, username);
+  if (!q) return all.slice(0, 20);
+  return all
+    .filter((c) => {
+      const email = (c.email || "").toLowerCase();
+      const uname = (c.username || "").toLowerCase();
+      const name = (c.display_name || "").toLowerCase();
+      return email.includes(q) || uname.includes(q) || name.includes(q);
+    })
+    .slice(0, 20);
+}
+
+async function isSpaceMember(sql, spaceId, username) {
+  const rows = await sql`
+    SELECT 1 FROM schulhub_space_members
+    WHERE space_id = ${spaceId} AND username = ${username}
+    LIMIT 1
+  `;
+  return rows.length > 0;
+}
+
+async function getSpaceForMember(sql, spaceId, username) {
+  const rows = await sql`
+    SELECT s.id, s.name, s.created_by, s.created_at
+    FROM schulhub_spaces s
+    JOIN schulhub_space_members m ON m.space_id = s.id AND m.username = ${username}
+    WHERE s.id = ${spaceId}
+    LIMIT 1
+  `;
+  return rows[0] || null;
+}
+
+async function listSpaceMembers(sql, spaceId) {
+  const rows = await sql`
+    SELECT u.username, u.email, u.profile_type, u.gender,
+           COALESCE(c.child_name, u.username) AS display_name
+    FROM schulhub_space_members m
+    JOIN schulhub_users u ON u.username = m.username
+    LEFT JOIN schulhub_user_children c ON c.student_username = u.username
+    WHERE m.space_id = ${spaceId}
+    ORDER BY m.joined_at ASC
+  `;
+  return rows;
+}
+
+async function createSpace(sql, creatorUsername, name, memberUsernames) {
+  const spaceName = (name || "").trim();
+  if (!spaceName) return { error: "name required" };
+  const allowed = await listAllowedContacts(sql, creatorUsername);
+  const allowedSet = new Set(allowed.map((c) => c.username));
+  const members = new Set([creatorUsername]);
+  for (const u of memberUsernames || []) {
+    const trimmed = String(u || "").trim();
+    if (!trimmed || trimmed === creatorUsername) continue;
+    if (!allowedSet.has(trimmed)) {
+      return { error: "not-allowed", username: trimmed };
+    }
+    members.add(trimmed);
+  }
+  if (members.size < 2) {
+    return { error: "members required" };
+  }
+  const spaceRows = await sql`
+    INSERT INTO schulhub_spaces (name, created_by)
+    VALUES (${spaceName}, ${creatorUsername})
+    RETURNING id, name, created_by, created_at
+  `;
+  const space = spaceRows[0];
+  for (const username of members) {
+    await sql`
+      INSERT INTO schulhub_space_members (space_id, username)
+      VALUES (${space.id}, ${username})
+    `;
+    await sql`
+      INSERT INTO schulhub_space_read_cursors (space_id, username, last_read_at)
+      VALUES (${space.id}, ${username}, NOW())
+      ON CONFLICT (space_id, username) DO NOTHING
+    `;
+  }
+  return { space, member_count: members.size };
+}
+
+async function listSpaceThreads(sql, username) {
+  const rows = await sql`
+    WITH latest AS (
+      SELECT DISTINCT ON (m.space_id)
+        m.space_id,
+        m.body AS last_message,
+        m.created_at AS last_at,
+        m.sender_username AS last_sender
+      FROM schulhub_space_messages m
+      JOIN schulhub_space_members mem ON mem.space_id = m.space_id AND mem.username = ${username}
+      ORDER BY m.space_id, m.created_at DESC
+    ),
+    unread AS (
+      SELECT m.space_id, COUNT(*)::int AS unread_count
+      FROM schulhub_space_messages m
+      JOIN schulhub_space_members mem ON mem.space_id = m.space_id AND mem.username = ${username}
+      LEFT JOIN schulhub_space_read_cursors c
+        ON c.space_id = m.space_id AND c.username = ${username}
+      WHERE m.sender_username <> ${username}
+        AND m.created_at > COALESCE(c.last_read_at, '1970-01-01'::timestamptz)
+      GROUP BY m.space_id
+    )
+    SELECT
+      s.id AS space_id,
+      s.name AS space_name,
+      s.created_at,
+      l.last_message,
+      l.last_at,
+      (l.last_sender = ${username}) AS last_from_me,
+      COALESCE(u.unread_count, 0) AS unread_count
+    FROM schulhub_spaces s
+    JOIN schulhub_space_members mem ON mem.space_id = s.id AND mem.username = ${username}
+    LEFT JOIN latest l ON l.space_id = s.id
+    LEFT JOIN unread u ON u.space_id = s.id
+    ORDER BY COALESCE(l.last_at, s.created_at) DESC
+    LIMIT 200
+  `;
+  return rows;
+}
+
+async function listSpaceMessages(sql, spaceId, limit = 200) {
+  const rows = await sql`
+    SELECT id, space_id, sender_username, body, created_at
+    FROM schulhub_space_messages
+    WHERE space_id = ${spaceId}
+    ORDER BY created_at ASC
+    LIMIT ${Math.min(Math.max(parseInt(limit, 10) || 200, 1), 500)}
+  `;
+  return rows;
+}
+
+async function insertSpaceMessage(sql, spaceId, senderUsername, body) {
+  const trimmed = (body || "").trim();
+  if (!trimmed) return null;
+  const truncated = trimmed.length > MAX_BODY_LENGTH ? trimmed.slice(0, MAX_BODY_LENGTH) : trimmed;
+  const rows = await sql`
+    INSERT INTO schulhub_space_messages (space_id, sender_username, body)
+    VALUES (${spaceId}, ${senderUsername}, ${truncated})
+    RETURNING id, space_id, sender_username, body, created_at
+  `;
+  return rows[0] || null;
+}
+
+async function markSpaceRead(sql, spaceId, username) {
+  await sql`
+    INSERT INTO schulhub_space_read_cursors (space_id, username, last_read_at)
+    VALUES (${spaceId}, ${username}, NOW())
+    ON CONFLICT (space_id, username) DO UPDATE SET last_read_at = NOW()
+  `;
+}
+
+async function countSpaceUnread(sql, username) {
+  const rows = await sql`
+    SELECT COUNT(*)::int AS n
+    FROM schulhub_space_messages m
+    JOIN schulhub_space_members mem ON mem.space_id = m.space_id AND mem.username = ${username}
+    LEFT JOIN schulhub_space_read_cursors c
+      ON c.space_id = m.space_id AND c.username = ${username}
+    WHERE m.sender_username <> ${username}
+      AND m.created_at > COALESCE(c.last_read_at, '1970-01-01'::timestamptz)
+  `;
+  return rows[0]?.n ?? 0;
+}
+
+async function listSpaceMemberUsernames(sql, spaceId, excludeUsername) {
+  const rows = await sql`
+    SELECT username FROM schulhub_space_members
+    WHERE space_id = ${spaceId} AND username <> ${excludeUsername}
+  `;
+  return rows.map((r) => r.username);
 }
 
 /**
@@ -165,42 +399,69 @@ async function listAllowedContacts(sql, username) {
  * Returns an array of { partner, last_message, last_at, unread_count, last_from_me }.
  */
 async function listThreads(sql, username) {
-  const rows = await sql`
-    WITH ordered AS (
+  await ensureSpacesTables(sql);
+  const [directRows, spaceRows] = await Promise.all([
+    sql`
+      WITH ordered AS (
+        SELECT
+          id,
+          sender_username,
+          recipient_username,
+          body,
+          created_at,
+          read_at,
+          CASE WHEN sender_username = ${username} THEN recipient_username ELSE sender_username END AS partner,
+          ROW_NUMBER() OVER (
+            PARTITION BY CASE WHEN sender_username = ${username} THEN recipient_username ELSE sender_username END
+            ORDER BY created_at DESC
+          ) AS rn
+        FROM schulhub_messages
+        WHERE sender_username = ${username} OR recipient_username = ${username}
+      ),
+      unread AS (
+        SELECT sender_username AS partner, COUNT(*)::int AS unread_count
+        FROM schulhub_messages
+        WHERE recipient_username = ${username} AND read_at IS NULL
+        GROUP BY sender_username
+      )
       SELECT
-        id,
-        sender_username,
-        recipient_username,
-        body,
-        created_at,
-        read_at,
-        CASE WHEN sender_username = ${username} THEN recipient_username ELSE sender_username END AS partner,
-        ROW_NUMBER() OVER (
-          PARTITION BY CASE WHEN sender_username = ${username} THEN recipient_username ELSE sender_username END
-          ORDER BY created_at DESC
-        ) AS rn
-      FROM schulhub_messages
-      WHERE sender_username = ${username} OR recipient_username = ${username}
-    ),
-    unread AS (
-      SELECT sender_username AS partner, COUNT(*)::int AS unread_count
-      FROM schulhub_messages
-      WHERE recipient_username = ${username} AND read_at IS NULL
-      GROUP BY sender_username
-    )
-    SELECT
-      o.partner,
-      o.body AS last_message,
-      o.created_at AS last_at,
-      (o.sender_username = ${username}) AS last_from_me,
-      COALESCE(u.unread_count, 0) AS unread_count
-    FROM ordered o
-    LEFT JOIN unread u ON u.partner = o.partner
-    WHERE o.rn = 1
-    ORDER BY o.created_at DESC
-    LIMIT 200
-  `;
-  return rows;
+        o.partner,
+        o.body AS last_message,
+        o.created_at AS last_at,
+        (o.sender_username = ${username}) AS last_from_me,
+        COALESCE(u.unread_count, 0) AS unread_count
+      FROM ordered o
+      LEFT JOIN unread u ON u.partner = o.partner
+      WHERE o.rn = 1
+    `,
+    listSpaceThreads(sql, username),
+  ]);
+
+  const direct = directRows.map((r) => ({
+    type: "direct",
+    partner: r.partner,
+    space_id: null,
+    space_name: null,
+    last_message: r.last_message,
+    last_at: r.last_at,
+    last_from_me: !!r.last_from_me,
+    unread_count: r.unread_count || 0,
+  }));
+
+  const spaces = spaceRows.map((r) => ({
+    type: "space",
+    partner: null,
+    space_id: String(r.space_id),
+    space_name: r.space_name,
+    last_message: r.last_message || "",
+    last_at: r.last_at || r.created_at,
+    last_from_me: !!r.last_from_me,
+    unread_count: r.unread_count || 0,
+  }));
+
+  return [...direct, ...spaces]
+    .sort((a, b) => new Date(b.last_at).getTime() - new Date(a.last_at).getTime())
+    .slice(0, 200);
 }
 
 async function listMessagesBetween(sql, userA, userB, limit = 200) {
@@ -240,21 +501,35 @@ async function markThreadRead(sql, ownerUsername, partnerUsername) {
 }
 
 async function countUnread(sql, username) {
-  const rows = await sql`
-    SELECT COUNT(*)::int AS n
-    FROM schulhub_messages
-    WHERE recipient_username = ${username} AND read_at IS NULL
-  `;
-  return rows[0]?.n ?? 0;
+  await ensureSpacesTables(sql);
+  const [directRows, spaceN] = await Promise.all([
+    sql`
+      SELECT COUNT(*)::int AS n
+      FROM schulhub_messages
+      WHERE recipient_username = ${username} AND read_at IS NULL
+    `,
+    countSpaceUnread(sql, username),
+  ]);
+  return (directRows[0]?.n ?? 0) + (spaceN || 0);
 }
 
 module.exports = {
   MAX_BODY_LENGTH,
   ensureMessagesTable,
   ensurePushSubscriptionsTable,
+  ensureSpacesTables,
   isTeacherRole,
   canMessage,
   listAllowedContacts,
+  searchAllowedContacts,
+  createSpace,
+  getSpaceForMember,
+  listSpaceMembers,
+  isSpaceMember,
+  listSpaceMessages,
+  insertSpaceMessage,
+  markSpaceRead,
+  listSpaceMemberUsernames,
   listThreads,
   listMessagesBetween,
   insertMessage,

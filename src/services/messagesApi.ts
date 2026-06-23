@@ -11,7 +11,10 @@ export interface MessageItem {
 }
 
 export interface Thread {
-  partner: string;
+  type?: "direct" | "space";
+  partner: string | null;
+  space_id: string | null;
+  space_name: string | null;
   last_message: string;
   last_at: string;
   last_from_me: boolean;
@@ -21,11 +24,34 @@ export interface Thread {
 export interface Contact {
   username: string;
   display_name: string;
+  email?: string | null;
   role: string;
   profile_type: string | null;
   school: string | null;
   class: string | null;
   gender: string | null;
+}
+
+export interface SpaceInfo {
+  id: string;
+  name: string;
+  created_by: string;
+  created_at: string;
+  member_count?: number;
+}
+
+export interface SpaceMember {
+  username: string;
+  display_name: string;
+  email?: string | null;
+}
+
+export interface SpaceMessageItem {
+  id: string;
+  from: string;
+  body: string;
+  created_at: string;
+  mine: boolean;
 }
 
 interface ApiError extends Error {
@@ -101,5 +127,55 @@ export async function markThreadRead(
   return request("/api/messages/read", token, {
     method: "POST",
     body: JSON.stringify({ partner }),
+  });
+}
+
+export async function searchSpaceContacts(
+  token: string,
+  q: string,
+): Promise<{ contacts: Contact[] }> {
+  const query = encodeURIComponent(q.trim());
+  return request(`/api/messages/spaces/search?q=${query}`, token);
+}
+
+export async function createSpace(
+  token: string,
+  name: string,
+  members: string[],
+): Promise<{ space: SpaceInfo }> {
+  return request("/api/messages/spaces/create", token, {
+    method: "POST",
+    body: JSON.stringify({ name, members }),
+  });
+}
+
+export async function fetchSpaceDetail(
+  token: string,
+  spaceId: string,
+): Promise<{ space: SpaceInfo; members: SpaceMember[] }> {
+  return request(
+    `/api/messages/spaces/detail?spaceId=${encodeURIComponent(spaceId)}`,
+    token,
+  );
+}
+
+export async function fetchSpaceMessages(
+  token: string,
+  spaceId: string,
+): Promise<{ space_id: string; space_name: string; messages: SpaceMessageItem[] }> {
+  return request(
+    `/api/messages/spaces/messages?spaceId=${encodeURIComponent(spaceId)}`,
+    token,
+  );
+}
+
+export async function sendSpaceMessage(
+  token: string,
+  spaceId: string,
+  body: string,
+): Promise<{ message: SpaceMessageItem }> {
+  return request("/api/messages/spaces/send", token, {
+    method: "POST",
+    body: JSON.stringify({ space_id: spaceId, body }),
   });
 }

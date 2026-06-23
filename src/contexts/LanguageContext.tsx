@@ -226,6 +226,19 @@ interface Translations {
   messagesContactRoleTeacher: string;
   messagesContactRoleParent: string;
   messagesContactRoleStudent: string;
+  messagesNewSpace: string;
+  messagesSpaceName: string;
+  messagesSpaceNamePlaceholder: string;
+  messagesAddByEmail: string;
+  messagesAddMember: string;
+  messagesCreateSpace: string;
+  messagesCreatingSpace: string;
+  messagesSpaceMembers: string;
+  messagesSpaceMembersRequired: string;
+  messagesSpaceCreated: string;
+  messagesSpaceType: string;
+  messagesRemoveMember: string;
+  messagesNoSearchResults: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -426,6 +439,19 @@ const translations: Record<Language, Translations> = {
     messagesContactRoleTeacher: "Учител",
     messagesContactRoleParent: "Родител",
     messagesContactRoleStudent: "Ученик",
+    messagesNewSpace: "Нова стая",
+    messagesSpaceName: "Име на стаята",
+    messagesSpaceNamePlaceholder: "Напр. Семейна група",
+    messagesAddByEmail: "Добави по email или име",
+    messagesAddMember: "Добави",
+    messagesCreateSpace: "Създай стая",
+    messagesCreatingSpace: "Създаване…",
+    messagesSpaceMembers: "Участници",
+    messagesSpaceMembersRequired: "Добави поне един участник от списъка.",
+    messagesSpaceCreated: "Стаята е създадена",
+    messagesSpaceType: "Стая",
+    messagesRemoveMember: "Премахни",
+    messagesNoSearchResults: "Няма намерени контакти",
 
     // Hero descriptions
     biologyDesc: "Изучаване на живота",
@@ -658,6 +684,19 @@ const translations: Record<Language, Translations> = {
     messagesContactRoleTeacher: "Teacher",
     messagesContactRoleParent: "Parent",
     messagesContactRoleStudent: "Student",
+    messagesNewSpace: "New space",
+    messagesSpaceName: "Space name",
+    messagesSpaceNamePlaceholder: "e.g. Family group",
+    messagesAddByEmail: "Add by email or username",
+    messagesAddMember: "Add",
+    messagesCreateSpace: "Create space",
+    messagesCreatingSpace: "Creating…",
+    messagesSpaceMembers: "Members",
+    messagesSpaceMembersRequired: "Add at least one member from the list.",
+    messagesSpaceCreated: "Space created",
+    messagesSpaceType: "Space",
+    messagesRemoveMember: "Remove",
+    messagesNoSearchResults: "No contacts found",
 
     // Hero descriptions
     biologyDesc: "Study of life",
@@ -891,6 +930,19 @@ const translations: Record<Language, Translations> = {
     messagesContactRoleTeacher: "Lehrer/in",
     messagesContactRoleParent: "Eltern",
     messagesContactRoleStudent: "Schüler/in",
+    messagesNewSpace: "Neuer Raum",
+    messagesSpaceName: "Name des Raums",
+    messagesSpaceNamePlaceholder: "z. B. Familiengruppe",
+    messagesAddByEmail: "Per E-Mail oder Benutzername hinzufügen",
+    messagesAddMember: "Hinzufügen",
+    messagesCreateSpace: "Raum erstellen",
+    messagesCreatingSpace: "Wird erstellt…",
+    messagesSpaceMembers: "Mitglieder",
+    messagesSpaceMembersRequired: "Mindestens ein Mitglied aus der Liste hinzufügen.",
+    messagesSpaceCreated: "Raum erstellt",
+    messagesSpaceType: "Raum",
+    messagesRemoveMember: "Entfernen",
+    messagesNoSearchResults: "Keine Kontakte gefunden",
 
     // Hero descriptions
     biologyDesc: "Das Studium des Lebens",

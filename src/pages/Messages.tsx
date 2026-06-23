@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   FaArrowLeft,
@@ -10,12 +10,14 @@ import {
   FaUserGraduate,
   FaUserTie,
   FaUserFriends,
+  FaUsers,
 } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import {
   fetchContacts,
   fetchThreads,
+  createSpace,
   Contact,
   Thread,
 } from "../services/messagesApi";
@@ -78,6 +80,12 @@ const Messages: React.FC = () => {
   const [loadingThreads, setLoadingThreads] = useState(true);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [pickerQuery, setPickerQuery] = useState("");
+  const [spaceOpen, setSpaceOpen] = useState(false);
+  const [spaceName, setSpaceName] = useState("");
+  const [spaceSearch, setSpaceSearch] = useState("");
+  const [selectedMembers, setSelectedMembers] = useState<Contact[]>([]);
+  const [creatingSpace, setCreatingSpace] = useState(false);
+  const [spaceError, setSpaceError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -109,7 +117,8 @@ const Messages: React.FC = () => {
   }, [token, offline]);
 
   useEffect(() => {
-    if (!pickerOpen || !token || contacts !== null) return;
+    if (!token || contacts !== null) return;
+    if (!pickerOpen && !spaceOpen) return;
     let cancelled = false;
     fetchContacts(token)
       .then((res) => {
@@ -121,23 +130,85 @@ const Messages: React.FC = () => {
     return () => {
       cancelled = true;
     };
-  }, [pickerOpen, token, contacts]);
+  }, [pickerOpen, spaceOpen, token, contacts]);
 
-  const filteredContacts = useMemo(() => {
-    const list = contacts || [];
-    const q = pickerQuery.trim().toLowerCase();
+  const filterContactsByQuery = useCallback((list: Contact[], query: string) => {
+    const q = query.trim().toLowerCase();
     if (!q) return list;
     return list.filter((c) => {
       const name = (c.display_name || "").toLowerCase();
       const uname = (c.username || "").toLowerCase();
-      return name.includes(q) || uname.includes(q);
+      const email = (c.email || "").toLowerCase();
+      return name.includes(q) || uname.includes(q) || email.includes(q);
     });
-  }, [contacts, pickerQuery]);
+  }, []);
+
+  const filteredContacts = useMemo(
+    () => filterContactsByQuery(contacts || [], pickerQuery),
+    [contacts, pickerQuery, filterContactsByQuery],
+  );
+
+  const spaceResultsFiltered = useMemo(() => {
+    const q = spaceSearch.trim();
+    if (!q) return [];
+    return filterContactsByQuery(contacts || [], q).filter(
+      (c) => !selectedMembers.some((m) => m.username === c.username),
+    );
+  }, [contacts, spaceSearch, selectedMembers, filterContactsByQuery]);
 
   const openContact = (username: string) => {
     setPickerOpen(false);
     navigate(`/messages/${encodeURIComponent(username)}`);
   };
+
+  const addSpaceMember = (c: Contact) => {
+    if (selectedMembers.some((m) => m.username === c.username)) return;
+    setSelectedMembers((prev) => [...prev, c]);
+    setSpaceSearch("");
+  };
+
+  const removeSpaceMember = (username: string) => {
+    setSelectedMembers((prev) => prev.filter((m) => m.username !== username));
+  };
+
+  const handleCreateSpace = async () => {
+    if (!token || creatingSpace) return;
+    const name = spaceName.trim();
+    if (!name) return;
+    if (selectedMembers.length < 1) {
+      setSpaceError(t.messagesSpaceMembersRequired);
+      return;
+    }
+    setCreatingSpace(true);
+    setSpaceError(null);
+    try {
+      const res = await createSpace(
+        token,
+        name,
+        selectedMembers.map((m) => m.username),
+      );
+      setSpaceOpen(false);
+      setSpaceName("");
+      setSelectedMembers([]);
+      setSpaceSearch("");
+      navigate(`/messages/space/${encodeURIComponent(res.space.id)}`);
+    } catch (e) {
+      setSpaceError((e as Error).message);
+    } finally {
+      setCreatingSpace(false);
+    }
+  };
+
+  const threadKey = (th: Thread) =>
+    th.type === "space" && th.space_id ? `space-${th.space_id}` : `direct-${th.partner}`;
+
+  const threadLink = (th: Thread) =>
+    th.type === "space" && th.space_id
+      ? `/messages/space/${encodeURIComponent(th.space_id)}`
+      : `/messages/${encodeURIComponent(th.partner || "")}`;
+
+  const threadTitle = (th: Thread) =>
+    th.type === "space" && th.space_name ? th.space_name : th.partner || "";
 
   if (!user) return null;
 
@@ -155,14 +226,24 @@ const Messages: React.FC = () => {
           <FaCommentDots className="text-blue-500" />
           {t.messages}
         </h1>
-        <button
-          type="button"
-          onClick={() => setPickerOpen(true)}
-          className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400 px-3 py-2 text-sm font-bold text-slate-900 shadow-md transition-transform hover:scale-105 active:scale-95"
-        >
-          <FaPlus />
-          <span className="hidden sm:inline">{t.messagesNewMessage}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setSpaceOpen(true)}
+            className="flex items-center gap-2 rounded-xl border border-emerald-400 bg-emerald-50 px-3 py-2 text-sm font-bold text-emerald-800 shadow-sm transition-transform hover:scale-105 active:scale-95 dark:border-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-200"
+          >
+            <FaUsers />
+            <span className="hidden sm:inline">{t.messagesNewSpace}</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setPickerOpen(true)}
+            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-yellow-400 via-green-400 to-blue-400 px-3 py-2 text-sm font-bold text-slate-900 shadow-md transition-transform hover:scale-105 active:scale-95"
+          >
+            <FaPlus />
+            <span className="hidden sm:inline">{t.messagesNewMessage}</span>
+          </button>
+        </div>
       </div>
 
       <div className="mb-3 flex justify-end">
@@ -182,22 +263,35 @@ const Messages: React.FC = () => {
       ) : threads && threads.length > 0 ? (
         <ul className="space-y-2">
           {threads.map((th) => (
-            <li key={th.partner}>
+            <li key={threadKey(th)}>
               <Link
-                to={`/messages/${encodeURIComponent(th.partner)}`}
+                to={threadLink(th)}
                 className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700/60"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-purple-500 text-base font-bold uppercase text-white">
-                  {th.partner.slice(0, 2)}
+                <div
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-base font-bold uppercase text-white ${
+                    th.type === "space"
+                      ? "bg-gradient-to-br from-emerald-400 to-teal-500"
+                      : "bg-gradient-to-br from-blue-400 to-purple-500"
+                  }`}
+                >
+                  {th.type === "space" ? (
+                    <FaUsers className="text-sm" />
+                  ) : (
+                    (th.partner || "").slice(0, 2)
+                  )}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-3">
                     <span className="truncate font-bold text-slate-900 dark:text-white">
-                      {th.partner}
+                      {threadTitle(th)}
                     </span>
                     <span className="shrink-0 text-xs text-slate-500 dark:text-slate-400">
                       {formatRelativeTime(th.last_at, language)}
                     </span>
+                  </div>
+                  <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+                    {th.type === "space" ? t.messagesSpaceType : t.messagesNewMessage}
                   </div>
                   <div className="mt-1 flex items-center justify-between gap-3">
                     <p className="line-clamp-1 truncate text-sm text-slate-600 dark:text-slate-300">
@@ -313,6 +407,131 @@ const Messages: React.FC = () => {
                   ))}
                 </ul>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {spaceOpen && (
+        <div
+          className="fixed inset-0 z-[500] flex items-end justify-center bg-black/60 p-4 sm:items-center"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex max-h-[85vh] w-full max-w-md flex-col rounded-2xl border border-slate-300 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 dark:border-slate-700">
+              <h2 className="text-base font-bold text-slate-900 dark:text-white">
+                {t.messagesNewSpace}
+              </h2>
+              <button
+                type="button"
+                onClick={() => {
+                  setSpaceOpen(false);
+                  setSpaceError(null);
+                }}
+                className="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white"
+                aria-label="Close"
+              >
+                <FaTimes />
+              </button>
+            </div>
+            <div className="space-y-3 overflow-y-auto px-4 py-3">
+              <div>
+                <label className="mb-1 block text-xs font-semibold text-slate-600 dark:text-slate-400">
+                  {t.messagesSpaceName}
+                </label>
+                <input
+                  type="text"
+                  value={spaceName}
+                  onChange={(e) => setSpaceName(e.target.value)}
+                  placeholder={t.messagesSpaceNamePlaceholder}
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-semibold text-slate-600 dark:text-slate-400">
+                  {t.messagesAddByEmail}
+                </label>
+                <div className="relative">
+                  <FaSearch className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                  <input
+                    type="text"
+                    value={spaceSearch}
+                    onChange={(e) => setSpaceSearch(e.target.value)}
+                    placeholder="email@example.com"
+                    className="w-full rounded-lg border border-slate-300 bg-white py-2 pl-10 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none dark:border-slate-600 dark:bg-slate-800 dark:text-white"
+                  />
+                </div>
+                {contacts === null && spaceSearch.trim() && (
+                  <p className="mt-1 text-xs text-slate-500">{t.messagesLoading}</p>
+                )}
+                {contacts !== null && spaceSearch.trim() && spaceResultsFiltered.length === 0 && (
+                  <p className="mt-1 text-xs text-slate-500">{t.messagesNoSearchResults}</p>
+                )}
+                {spaceResultsFiltered.length > 0 && (
+                  <ul className="mt-2 max-h-36 overflow-y-auto rounded-lg border border-slate-200 dark:border-slate-700">
+                    {spaceResultsFiltered.map((c) => (
+                        <li key={c.username}>
+                          <button
+                            type="button"
+                            onClick={() => addSpaceMember(c)}
+                            className="flex w-full items-center justify-between px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800"
+                          >
+                            <span>
+                              <span className="font-semibold text-slate-900 dark:text-white">
+                                {c.display_name}
+                              </span>
+                              {c.email && (
+                                <span className="ml-2 text-xs text-slate-500">{c.email}</span>
+                              )}
+                            </span>
+                            <span className="text-xs font-bold text-emerald-600">
+                              {t.messagesAddMember}
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </div>
+              {selectedMembers.length > 0 && (
+                <div>
+                  <p className="mb-2 text-xs font-semibold text-slate-600 dark:text-slate-400">
+                    {t.messagesSpaceMembers} ({selectedMembers.length})
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedMembers.map((m) => (
+                      <span
+                        key={m.username}
+                        className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200"
+                      >
+                        {m.display_name}
+                        <button
+                          type="button"
+                          onClick={() => removeSpaceMember(m.username)}
+                          className="ml-0.5 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-800"
+                          aria-label={t.messagesRemoveMember}
+                        >
+                          <FaTimes className="text-[10px]" />
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {spaceError && (
+                <p className="text-sm text-red-600 dark:text-red-400">{spaceError}</p>
+              )}
+            </div>
+            <div className="border-t border-slate-200 px-4 py-3 dark:border-slate-700">
+              <button
+                type="button"
+                onClick={handleCreateSpace}
+                disabled={creatingSpace || !spaceName.trim() || selectedMembers.length < 1}
+                className="w-full rounded-xl bg-gradient-to-r from-emerald-400 to-teal-500 py-2.5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {creatingSpace ? t.messagesCreatingSpace : t.messagesCreateSpace}
+              </button>
             </div>
           </div>
         </div>
