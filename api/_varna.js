@@ -16,9 +16,9 @@ module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
 
-  const resource = String(req.query.resource || "");
-  const id = req.query.id != null ? Number(req.query.id) : null;
-  const fresh = freshFlag(req.query.fresh);
+  const resource = String((req.query && (req.query.varna || req.query.resource)) || "");
+  const id = req.query && req.query.id != null ? Number(req.query.id) : null;
+  const fresh = freshFlag(req.query && req.query.fresh);
 
   try {
     if (resource === "stops") return res.json(await getStops(req.query.q || ""));
@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
     }
     return res.status(404).json({ error: "Unknown varna resource" });
   } catch (err) {
-    const status = err instanceof VarnaTrafficError ? 502 : 500;
+    const status = err instanceof VarnaTrafficError || err.name === "VarnaTrafficError" ? 502 : 500;
     return res.status(status).json({ error: err.message || "Varna traffic error" });
   }
 };
