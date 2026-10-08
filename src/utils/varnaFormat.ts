@@ -113,7 +113,7 @@ export function stopHeading(name: string, towards: string | undefined, towardsWo
   };
 }
 
-export function stopDistanceM(a?: VarnaStop | null, b?: VarnaStop | null): number {
+export function stopDistanceM(a?: { lat?: number | null; lon?: number | null } | null, b?: { lat?: number | null; lon?: number | null } | null): number {
   if (a?.lat == null || a?.lon == null || b?.lat == null || b?.lon == null) return 0;
   const dlat = (Number(a.lat) - Number(b.lat)) * 111320;
   const dlon =
@@ -121,6 +121,69 @@ export function stopDistanceM(a?: VarnaStop | null, b?: VarnaStop | null): numbe
     111320 *
     Math.cos((((Number(a.lat) + Number(b.lat)) / 2) * Math.PI) / 180);
   return Math.hypot(dlat, dlon);
+}
+
+export function parseDistanceMeters(value?: string | null): number | null {
+  const text = String(value || "").trim().replace(",", ".");
+  if (!text || text === "-") return null;
+  const match = text.match(/(\d+(?:\.\d+)?)\s*(км|km|м|m)?/i);
+  if (!match) return null;
+  const amount = Number(match[1]);
+  if (!Number.isFinite(amount)) return null;
+  const unit = (match[2] || "м").toLowerCase();
+  return unit.startsWith("к") || unit.startsWith("k") ? amount * 1000 : amount;
+}
+
+function projectRatio(a: VarnaStop, b: VarnaStop, lat: number, lon: number): number | null {
+  if (a.lat == null || a.lon == null || b.lat == null || b.lon == null) return null;
+  const cos = Math.cos((((Number(a.lat) + Number(b.lat)) / 2) * Math.PI) / 180);
+  const abx = (Number(b.lon) - Number(a.lon)) * cos;
+  const aby = Number(b.lat) - Number(a.lat);
+  const apx = (lon - Number(a.lon)) * cos;
+  const apy = lat - Number(a.lat);
+  const denom = abx * abx + aby * aby;
+  if (denom < 1e-12) return null;
+  return (apx * abx + apy * aby) / denom;
+}
+
+export function routeCursor(
+  stations: VarnaStop[],
+  vehicle: VarnaArrival | null
+): { hereIdx: number; nextIdx: number; progress: number } {
+  const none = { hereIdx: -1, nextIdx: -1, progress: 0 };
+  if (!vehicle || !stations.length) return none;
+  const hereIdx = stations.findIndex((stop) => Number(stop.id) === Number(vehicle.stop_id));
+  if (hereIdx < 0) return none;
+  let nextIdx =
+    vehicle.next_stop_id != null
+      ? stations.findIndex((stop) => Number(stop.id) === Number(vehicle.next_stop_id))
+      : -1;
+  if (nextIdx <= hereIdx && hereIdx < stations.length - 1) nextIdx = hereIdx + 1;
+  const from = stations[hereIdx];
+  const to = nextIdx > hereIdx ? stations[nextIdx] : null;
+  if (!to) return { hereIdx, nextIdx: -1, progress: 0 };
+
+  let progress: number | null = null;
+  if (vehicle.lat != null && vehicle.lon != null) {
+    const ratio = projectRatio(from, to, vehicle.lat, vehicle.lon);
+    if (ratio != null) {
+      const clamped = Math.min(1, Math.max(0, ratio));
+      const lat = Number(from.lat) + (Number(to.lat) - Number(from.lat)) * clamped;
+      const lon = Number(from.lon) + (Number(to.lon) - Number(from.lon)) * clamped;
+      const offRoad = stopDistanceM(from.lat == null ? null : { lat, lon }, { lat: vehicle.lat, lon: vehicle.lon });
+      if (offRoad < 220 && ratio > -0.2 && ratio < 1.35) progress = ratio;
+    }
+  }
+  if (progress == null) {
+    const left = parseDistanceMeters(vehicle.distance_left);
+    const span = stopDistanceM(from, to);
+    if (left != null && span > 40) progress = 1 - left / span;
+  }
+  return {
+    hereIdx,
+    nextIdx,
+    progress: Math.min(0.98, Math.max(0, progress ?? 0)),
+  };
 }
 
 export function parseClockMinutes(value?: string | null): number | null {

@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { FaBus, FaLocationArrow } from "react-icons/fa";
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { FaBus, FaChevronLeft, FaChevronRight, FaLocationArrow } from "react-icons/fa";
 import RouteSpine from "../components/RouteSpine";
 import { useLanguage } from "../contexts/LanguageContext";
 import {
@@ -23,7 +23,9 @@ import {
   formatEta,
   formatLiveDistance,
   formatVehicleWhen,
+  minutesUntilClock,
   parseClockMinutes,
+  routeCursor,
   scheduleTimesWithoutLive,
   groupLinesByTerminus,
   shortPlaceName,
@@ -79,6 +81,8 @@ const copy = {
     geoDenied: "Местоположението е отказано. Напиши името на спирката.",
     all: "всички",
     noneTowards: (name: string) => `Няма автобус към ${name}.`,
+    prevLine: "предишна линия",
+    nextLine: "следваща линия",
   },
   en: {
     city: "Varna",
@@ -122,6 +126,8 @@ const copy = {
     geoDenied: "Location is blocked. Type the stop name.",
     all: "all",
     noneTowards: (name: string) => `No bus toward ${name}.`,
+    prevLine: "previous line",
+    nextLine: "next line",
   },
   de: {
     city: "Warna",
@@ -165,6 +171,8 @@ const copy = {
     geoDenied: "Standort blockiert. Namen eintippen.",
     all: "alle",
     noneTowards: (name: string) => `Kein Bus nach ${name}.`,
+    prevLine: "vorherige Linie",
+    nextLine: "nächste Linie",
   },
 } as const;
 
@@ -191,6 +199,88 @@ function busKey(lineId: number | null | undefined, device: string) {
   return `${Number(lineId)}::${device || ""}`;
 }
 
+function etaSortMinutes(item: VarnaArrival): number | null {
+  const fromIn = parseClockMinutes(item.arrive_in);
+  if (fromIn != null) return fromIn;
+  return minutesUntilClock(item.arrive_time);
+}
+
+function compareEta(a: VarnaArrival, b: VarnaArrival): number {
+  const am = etaSortMinutes(a);
+  const bm = etaSortMinutes(b);
+  if (am == null && bm == null) return 0;
+  if (am == null) return 1;
+  if (bm == null) return -1;
+  return am - bm;
+}
+
+function liveItemKey(item: VarnaArrival): string {
+  return item.device ? busKey(item.line_id, item.device) : busKey(item.line_id, item.arrive_time || item.distance_left || "x");
+}
+
+function mergeLive(order: string[], items: VarnaArrival[]): VarnaArrival[] {
+  const keyed = new Map<string, VarnaArrival>();
+  items.forEach((item) => {
+    const key = liveItemKey(item);
+    if (!keyed.has(key)) keyed.set(key, item);
+  });
+  if (!order.length) return [...keyed.values()].sort(compareEta);
+  const next: VarnaArrival[] = [];
+  const seen = new Set<string>();
+  order.forEach((key) => {
+    const item = keyed.get(key);
+    if (!item) return;
+    next.push(item);
+    seen.add(key);
+  });
+  const fresh = [...keyed.entries()]
+    .filter(([key]) => !seen.has(key))
+    .map(([, item]) => item)
+    .sort(compareEta);
+  fresh.forEach((item) => {
+    const mins = etaSortMinutes(item);
+    let index = next.length;
+    if (mins != null) {
+      const found = next.findIndex((other) => {
+        const otherMins = etaSortMinutes(other);
+        return otherMins != null && otherMins > mins;
+      });
+      if (found >= 0) index = found;
+    }
+    next.splice(index, 0, item);
+  });
+  return next;
+}
+
+function stationBoardKey(payload: VarnaStationPayload): string {
+  const live = (payload.live || [])
+    .map((item) => [item.device, item.line_id, item.arrive_in, item.arrive_time, item.delay, item.distance_left].join("~"))
+    .join("|");
+  const schedule = (payload.schedule || []).map((row) => `${row.line_id}:${(row.times || []).join(",")}`).join("|");
+  return `${live}#${schedule}`;
+}
+
+function withStableStations(prev: VarnaLinePayload | undefined, next: VarnaLinePayload): VarnaLinePayload {
+  if (!prev) return next;
+  return {
+    ...next,
+    directions: (next.directions || []).map((dir) => {
+      const old = prev.directions.find((item) => item.direction === dir.direction);
+      if (!old) return dir;
+      let stations = dir.stations || [];
+      if (!stations.length && old.stations.length) stations = old.stations;
+      else if (
+        old.stations.length === stations.length &&
+        old.stations.every((stop, index) => stop.id === stations[index].id)
+      ) {
+        stations = old.stations;
+      }
+      const vehicles = (dir.vehicles || []).length ? dir.vehicles : old.vehicles;
+      return { ...dir, stations, vehicles };
+    }),
+  };
+}
+
 function clockLabel(iso?: string) {
   if (!iso) return "";
   const date = new Date(iso);
@@ -203,6 +293,230 @@ const LineBadge: React.FC<{ line: string }> = ({ line }) => (
     {line}
   </span>
 );
+
+const ArrivalButton = React.memo(
+  function ArrivalButton({
+    line,
+    eta,
+    sub,
+    delay,
+    tone,
+    schedule,
+    liveLabel,
+    scheduleLabel,
+    onToggle,
+  }: {
+    line: string;
+    eta: string;
+    sub: string;
+    delay: string;
+    tone: "late" | "early" | "";
+    schedule: boolean;
+    liveLabel: string;
+    scheduleLabel: string;
+    onToggle: () => void;
+  }) {
+    return (
+      <button
+        type="button"
+        onClick={onToggle}
+        className="grid w-full grid-cols-[2.75rem_minmax(0,1fr)_auto] items-center gap-3 px-1 py-3 text-left"
+      >
+        <LineBadge line={line} />
+        <span className="min-w-0">
+          <span className="block truncate text-lg font-semibold leading-tight tabular-nums text-slate-900 dark:text-white">
+            {eta}
+          </span>
+          <span className={`block truncate text-xs ${schedule ? "text-slate-400" : "text-teal-600 dark:text-teal-400"}`}>
+            {schedule ? scheduleLabel : liveLabel}
+            {sub ? ` · ${sub}` : ""}
+          </span>
+        </span>
+        {delay && (
+          <span className={`text-sm font-semibold tabular-nums ${tone === "late" ? "text-rose-500" : "text-emerald-600"}`}>
+            {delay}
+          </span>
+        )}
+      </button>
+    );
+  },
+  (prev, next) =>
+    prev.line === next.line &&
+    prev.eta === next.eta &&
+    prev.sub === next.sub &&
+    prev.delay === next.delay &&
+    prev.tone === next.tone &&
+    prev.schedule === next.schedule &&
+    prev.liveLabel === next.liveLabel &&
+    prev.scheduleLabel === next.scheduleLabel
+);
+
+const LineDial: React.FC<{
+  lines: { id: number; name: string }[];
+  activeId?: number;
+  prevLabel: string;
+  nextLabel: string;
+  onPick: (id: number) => void;
+}> = ({ lines, activeId, prevLabel, nextLabel, onPick }) => {
+  const viewportRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const drag = useRef<{ x: number; y: number; offset: number; locked: boolean } | null>(null);
+  const moved = useRef(false);
+  const [index, setIndex] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const offsetRef = useRef(0);
+
+  useEffect(() => {
+    const found = lines.findIndex((line) => line.id === activeId);
+    if (found >= 0) setIndex(found);
+    else setIndex((current) => Math.min(current, Math.max(0, lines.length - 1)));
+  }, [activeId, lines]);
+
+  const centerOn = (nextIndex: number) => {
+    const track = trackRef.current;
+    const viewport = viewportRef.current;
+    const chip = track?.querySelector<HTMLElement>(`[data-i="${nextIndex}"]`);
+    if (!track || !viewport || !chip) return;
+    const view = viewport.getBoundingClientRect();
+    const box = chip.getBoundingClientRect();
+    const delta = box.left + box.width / 2 - (view.left + view.width / 2);
+    if (Math.abs(delta) < 1) return;
+    const next = offsetRef.current - delta;
+    offsetRef.current = next;
+    track.style.transform = `translateX(${next}px)`;
+    setOffset(next);
+  };
+
+  useLayoutEffect(() => {
+    centerOn(index);
+    const track = trackRef.current;
+    if (!track || typeof ResizeObserver === "undefined") return undefined;
+    const observer = new ResizeObserver(() => centerOn(index));
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, [index, lines]);
+
+  const choose = (next: number) => {
+    const clamped = Math.max(0, Math.min(lines.length - 1, next));
+    setIndex(clamped);
+    const line = lines[clamped];
+    if (line && line.id !== activeId) onPick(line.id);
+    if (clamped === index) centerOn(clamped);
+  };
+
+  if (!lines.length) return null;
+
+  return (
+    <div className="relative mt-3">
+      <button
+        type="button"
+        aria-label={prevLabel}
+        disabled={index <= 0}
+        onClick={() => choose(index - 1)}
+        className="absolute left-0 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-25 dark:hover:bg-slate-900 dark:hover:text-white"
+      >
+        <FaChevronLeft className="text-xs" />
+      </button>
+      <div
+        ref={viewportRef}
+        className="mx-8 overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent)",
+          WebkitMaskImage: "linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent)",
+        }}
+        onPointerDown={(event) => {
+          if (event.button !== 0) return;
+          drag.current = { x: event.clientX, y: event.clientY, offset: offsetRef.current, locked: false };
+          moved.current = false;
+        }}
+        onPointerMove={(event) => {
+          const start = drag.current;
+          if (!start) return;
+          const dx = event.clientX - start.x;
+          const dy = event.clientY - start.y;
+          if (!start.locked) {
+            if (Math.abs(dx) < 6) return;
+            if (Math.abs(dy) > Math.abs(dx)) {
+              drag.current = null;
+              return;
+            }
+            start.locked = true;
+            event.currentTarget.setPointerCapture(event.pointerId);
+          }
+          moved.current = true;
+          const next = start.offset + dx;
+          offsetRef.current = next;
+          setOffset(next);
+        }}
+        onPointerUp={() => {
+          const start = drag.current;
+          drag.current = null;
+          if (!start?.locked) return;
+          const viewport = viewportRef.current;
+          const track = trackRef.current;
+          if (!viewport || !track) return;
+          const mid = viewport.getBoundingClientRect().left + viewport.clientWidth / 2;
+          let best = index;
+          let bestDist = Number.POSITIVE_INFINITY;
+          track.querySelectorAll<HTMLElement>("[data-i]").forEach((chip) => {
+            const box = chip.getBoundingClientRect();
+            const dist = Math.abs(box.left + box.width / 2 - mid);
+            if (dist < bestDist) {
+              bestDist = dist;
+              best = Number(chip.dataset.i);
+            }
+          });
+          choose(best);
+        }}
+        onPointerCancel={() => {
+          drag.current = null;
+          centerOn(index);
+        }}
+      >
+        <div
+          ref={trackRef}
+          className="flex w-max items-center gap-2 py-1"
+          style={{ transform: `translateX(${offset}px)` }}
+        >
+          {lines.map((line, item) => {
+            const active = item === index;
+            return (
+              <button
+                key={line.id}
+                type="button"
+                data-i={item}
+                tabIndex={active ? 0 : -1}
+                onClick={() => {
+                  if (moved.current) {
+                    moved.current = false;
+                    return;
+                  }
+                  choose(item);
+                }}
+                className={`h-9 shrink-0 rounded-full px-3 text-sm font-semibold tabular-nums ${
+                  active
+                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                    : "bg-slate-100 text-slate-500 dark:bg-slate-900 dark:text-slate-300"
+                }`}
+              >
+                {line.name}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      <button
+        type="button"
+        aria-label={nextLabel}
+        disabled={index >= lines.length - 1}
+        onClick={() => choose(index + 1)}
+        className="absolute right-0 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-25 dark:hover:bg-slate-900 dark:hover:text-white"
+      >
+        <FaChevronRight className="text-xs" />
+      </button>
+    </div>
+  );
+};
 
 const Buses: React.FC = () => {
   const { language } = useLanguage();
@@ -227,7 +541,14 @@ const Buses: React.FC = () => {
   const [locating, setLocating] = useState(false);
   const [destinations, setDestinations] = useState<StopDestination[]>([]);
   const [destLabel, setDestLabel] = useState<string | null>(null);
+  const [spineFocus, setSpineFocus] = useState(0);
+  const [posTick, setPosTick] = useState(0);
   const lineCache = useRef<Record<string, VarnaLinePayload>>({});
+  const refreshBusy = useRef(false);
+  const liveOrder = useRef<string[]>([]);
+  const liveOrderStop = useRef<number | null>(null);
+  const cursorSig = useRef("");
+  const toggleBusRef = useRef<(lineId: number | null, device: string) => void>(() => undefined);
   const searchTimer = useRef<number | null>(null);
   const requestId = useRef(0);
   const openBusRef = useRef<OpenBus | null>(null);
@@ -235,8 +556,9 @@ const Buses: React.FC = () => {
 
   const getLine = async (lineId: number, force = false) => {
     const key = String(lineId);
-    if (!force && lineCache.current[key]) return lineCache.current[key];
-    const payload = await fetchVarnaLine(lineId);
+    const prev = lineCache.current[key];
+    if (!force && prev) return prev;
+    const payload = withStableStations(prev, await fetchVarnaLine(lineId));
     lineCache.current[key] = payload;
     return payload;
   };
@@ -302,8 +624,10 @@ const Buses: React.FC = () => {
   }, []);
 
   const openStop = async (stopId: number, opts?: { fromHistory?: boolean; silent?: boolean }) => {
+    if (opts?.silent && refreshBusy.current) return;
     const token = ++requestId.current;
     const prev = station?.stop;
+    if (opts?.silent) refreshBusy.current = true;
     if (prev && prev.id !== stopId && !opts?.fromHistory) {
       setHistory((items) => [prev, ...items.filter((item) => item.id !== prev.id)].slice(0, 8));
     }
@@ -314,17 +638,29 @@ const Buses: React.FC = () => {
         setDestinations([]);
         setDestLabel(null);
       }
+      setMode("stop");
+      setNote("");
     }
-    setMode("stop");
-    setNote("");
     try {
+      const pendingLine = openBusRef.current
+        ? getLine(openBusRef.current.lineId, true).catch(() => null)
+        : null;
       const payload = await fetchVarnaStation(stopId);
-      if (token !== requestId.current && opts?.silent) return;
-      if (token !== requestId.current && !opts?.silent) return;
-      setStation(payload);
-      setLineState(null);
-      setStatus("");
+      if (pendingLine) await pendingLine;
+      if (token !== requestId.current) return;
+      setStation((current) => {
+        if (
+          opts?.silent &&
+          current &&
+          current.stop.id === payload.stop.id &&
+          stationBoardKey(current) === stationBoardKey(payload)
+        ) {
+          return current.updated_at === payload.updated_at ? current : { ...current, updated_at: payload.updated_at };
+        }
+        return payload;
+      });
       if (!opts?.silent) {
+        setLineState(null);
         setSuggestions([]);
         setQuery("");
         const remembered =
@@ -333,26 +669,23 @@ const Buses: React.FC = () => {
         const stored = { ...payload.stop, towards: remembered?.towards || payload.stop.towards };
         setRecent(writeRecent(stored));
       }
-      if (openBusRef.current) {
-        try {
-          await getLine(openBusRef.current.lineId, true);
-        } catch {
-          /* keep the last route */
-        }
-      }
+      setStatus("");
     } catch (err) {
       if (token === requestId.current) setStatus(err instanceof Error ? err.message : String(err));
     } finally {
-      if (token === requestId.current) setLoading(false);
+      if (opts?.silent) refreshBusy.current = false;
+      if (!opts?.silent && token === requestId.current) setLoading(false);
     }
   };
 
   const openLine = async (lineId: number, silent = false) => {
     const token = ++requestId.current;
-    if (!silent) setLoading(true);
-    setMode("line");
-    setStation(null);
-    setNote("");
+    if (!silent) {
+      setLoading(true);
+      setMode("line");
+      setStation(null);
+      setNote("");
+    }
     try {
       const payload = await getLine(lineId, true);
       if (token !== requestId.current) return;
@@ -367,9 +700,14 @@ const Buses: React.FC = () => {
     } catch (err) {
       if (token === requestId.current) setStatus(err instanceof Error ? err.message : String(err));
     } finally {
-      if (token === requestId.current) setLoading(false);
+      if (!silent && token === requestId.current) setLoading(false);
     }
   };
+
+  const openStopRef = useRef(openStop);
+  const openLineRef = useRef(openLine);
+  openStopRef.current = openStop;
+  openLineRef.current = openLine;
 
   useEffect(() => {
     const stopId = mode === "stop" ? station?.stop.id : null;
@@ -377,13 +715,40 @@ const Buses: React.FC = () => {
     if (stopId == null && lineId == null) return undefined;
     const timer = window.setInterval(() => {
       if (document.hidden) return;
-      if (stopId != null) openStop(stopId, { silent: true, fromHistory: true });
-      else if (lineId != null) openLine(lineId, true);
+      if (stopId != null) openStopRef.current(stopId, { silent: true, fromHistory: true });
+      else if (lineId != null) openLineRef.current(lineId, true);
     }, 12000);
     return () => window.clearInterval(timer);
-    // loaders close over the latest open bus via ref
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, station?.stop.id, lineState?.line_id]);
+
+  useEffect(() => {
+    if (!openBus) return undefined;
+    const lineId = openBus.lineId;
+    const device = openBus.device;
+    let cancelled = false;
+    cursorSig.current = "";
+    const pull = () => {
+      if (document.hidden || cancelled) return;
+      getLineRef.current(lineId, true)
+        .then((payload) => {
+          if (cancelled) return;
+          const located = locateBus(payload, null, device, null);
+          const cursor = routeCursor(located.dir?.stations || [], located.vehicle);
+          const sig = `${cursor.hereIdx}|${cursor.nextIdx}|${cursor.progress.toFixed(3)}|${located.vehicle?.lat ?? ""}|${located.vehicle?.lon ?? ""}`;
+          if (sig === cursorSig.current) return;
+          cursorSig.current = sig;
+          setPosTick((value) => value + 1);
+        })
+        .catch(() => undefined);
+    };
+    const first = window.setTimeout(pull, 1500);
+    const timer = window.setInterval(pull, 5000);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(first);
+      window.clearInterval(timer);
+    };
+  }, [openBus]);
 
   const runSearch = async (value: string) => {
     const needle = value.trim().toLocaleLowerCase("bg");
@@ -494,6 +859,7 @@ const Buses: React.FC = () => {
     try {
       await getLine(numericLine, true);
       setOpenBus({ lineId: numericLine, device });
+      setSpineFocus((value) => value + 1);
       setStatus("");
     } catch (err) {
       setStatus(err instanceof Error ? err.message : String(err));
@@ -501,16 +867,18 @@ const Buses: React.FC = () => {
       setLoading(false);
     }
   };
+  toggleBusRef.current = toggleBus;
 
   const live = useMemo(() => {
-    return [...(station?.live || [])].sort((a, b) => {
-      const am = parseClockMinutes(a.arrive_in);
-      const bm = parseClockMinutes(b.arrive_in);
-      if (am == null && bm == null) return 0;
-      if (am == null) return 1;
-      if (bm == null) return -1;
-      return am - bm;
-    });
+    const items = station?.live || [];
+    const stopId = station?.stop.id ?? null;
+    if (liveOrderStop.current !== stopId) {
+      liveOrder.current = [];
+      liveOrderStop.current = stopId;
+    }
+    const sorted = mergeLive(liveOrder.current, items);
+    liveOrder.current = sorted.map((item) => liveItemKey(item));
+    return sorted;
   }, [station]);
 
   const scheduleRows = useMemo(() => {
@@ -579,6 +947,7 @@ const Buses: React.FC = () => {
 
   const renderRoute = (lineId: number | null, device: string, stopId: number | null) => {
     if (!openBus || lineId == null || busKey(openBus.lineId, openBus.device) !== busKey(lineId, device)) return null;
+    void posTick;
     const payload = lineCache.current[String(lineId)];
     const located = locateBus(payload, null, device, stopId);
     if (!located.dir) return null;
@@ -593,6 +962,7 @@ const Buses: React.FC = () => {
           vehicle={located.vehicle}
           yourStopId={stopId}
           labels={spineLabels}
+          focusNonce={spineFocus}
           onPickStop={(id) => openStop(id)}
         />
       </div>
@@ -609,27 +979,17 @@ const Buses: React.FC = () => {
     const tone = delayTone(item.delay);
     return (
       <div key={busKey(lineId, device)} className={open ? "rounded-2xl bg-slate-50 dark:bg-slate-900/40" : ""}>
-        <button
-          type="button"
-          onClick={() => toggleBus(lineId, device)}
-          className="grid w-full grid-cols-[2.75rem_minmax(0,1fr)_auto] items-center gap-3 px-1 py-3 text-left"
-        >
-          <LineBadge line={schedule ? schedule.row.line : item.line} />
-          <span className="min-w-0">
-            <span className="block truncate text-lg font-semibold leading-tight tabular-nums text-slate-900 dark:text-white">
-              {eta}
-            </span>
-            <span className={`block truncate text-xs ${schedule ? "text-slate-400" : "text-teal-600 dark:text-teal-400"}`}>
-              {schedule ? t.schedule : t.live}
-              {sub ? ` · ${sub}` : ""}
-            </span>
-          </span>
-          {delay && (
-            <span className={`text-sm font-semibold tabular-nums ${tone === "late" ? "text-rose-500" : "text-emerald-600"}`}>
-              {delay}
-            </span>
-          )}
-        </button>
+        <ArrivalButton
+          line={schedule ? schedule.row.line : item.line}
+          eta={eta}
+          sub={sub}
+          delay={delay}
+          tone={schedule ? "" : tone}
+          schedule={!!schedule}
+          liveLabel={t.live}
+          scheduleLabel={t.schedule}
+          onToggle={() => toggleBusRef.current(lineId, device)}
+        />
         {renderRoute(lineId, device, station?.stop.id ?? null)}
       </div>
     );
@@ -710,25 +1070,13 @@ const Buses: React.FC = () => {
           </div>
 
           {mode === "line" && (
-            <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-              {filteredLines.map((line) => {
-                const active = lineState?.line_id === line.id;
-                return (
-                  <button
-                    key={line.id}
-                    type="button"
-                    onClick={() => openLine(line.id)}
-                    className={`h-9 shrink-0 rounded-full px-3 text-sm font-semibold tabular-nums ${
-                      active
-                        ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
-                        : "bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                    }`}
-                  >
-                    {line.name}
-                  </button>
-                );
-              })}
-            </div>
+            <LineDial
+              lines={filteredLines}
+              activeId={lineState?.line_id}
+              prevLabel={t.prevLine}
+              nextLabel={t.nextLine}
+              onPick={(id) => openLine(id)}
+            />
           )}
 
           {mode === "stop" && chosen && (
@@ -857,7 +1205,7 @@ const Buses: React.FC = () => {
             </div>
           )}
 
-          <div className="mt-2" aria-live="polite">
+          <div className="mt-2">
             {loading && !station && !lineState && (
               <div className="space-y-3 py-4">
                 <div className="h-12 animate-pulse rounded-2xl bg-slate-100 dark:bg-slate-900" />
@@ -918,6 +1266,7 @@ const Buses: React.FC = () => {
                             stations={currentDir.stations}
                             vehicle={item}
                             labels={spineLabels}
+                            focusNonce={spineFocus}
                             onPickStop={(id) => openStop(id)}
                           />
                         )}
