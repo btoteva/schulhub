@@ -25,11 +25,13 @@ import {
   formatVehicleWhen,
   parseClockMinutes,
   scheduleTimesWithoutLive,
+  groupLinesByTerminus,
   shortPlaceName,
   stopHeading,
   stopTitleForSearch,
   stopsUntil,
 } from "../utils/varnaFormat";
+import type { StopDestination } from "../utils/varnaFormat";
 
 const RECENT_KEY = "schulhub-varna-recent";
 const VARNA_CENTER = { lat: 43.2146, lon: 27.9148 };
@@ -75,6 +77,8 @@ const copy = {
     showBrief: "накратко",
     recent: "Скорошни",
     geoDenied: "Местоположението е отказано. Напиши името на спирката.",
+    all: "всички",
+    noneTowards: (name: string) => `Няма автобус към ${name}.`,
   },
   en: {
     city: "Varna",
@@ -116,6 +120,8 @@ const copy = {
     showBrief: "brief",
     recent: "Recent",
     geoDenied: "Location is blocked. Type the stop name.",
+    all: "all",
+    noneTowards: (name: string) => `No bus toward ${name}.`,
   },
   de: {
     city: "Warna",
@@ -157,6 +163,8 @@ const copy = {
     showBrief: "kurz",
     recent: "Zuletzt",
     geoDenied: "Standort blockiert. Namen eintippen.",
+    all: "alle",
+    noneTowards: (name: string) => `Kein Bus nach ${name}.`,
   },
 } as const;
 
@@ -217,6 +225,8 @@ const Buses: React.FC = () => {
   const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
   const [locating, setLocating] = useState(false);
+  const [destinations, setDestinations] = useState<StopDestination[]>([]);
+  const [destLabel, setDestLabel] = useState<string | null>(null);
   const lineCache = useRef<Record<string, VarnaLinePayload>>({});
   const searchTimer = useRef<number | null>(null);
   const requestId = useRef(0);
@@ -230,6 +240,50 @@ const Buses: React.FC = () => {
     lineCache.current[key] = payload;
     return payload;
   };
+  const getLineRef = useRef(getLine);
+  getLineRef.current = getLine;
+
+  const stationLineKey = useMemo(() => {
+    if (!station) return "";
+    const ids = new Set<number>();
+    (station.live || []).forEach((item) => {
+      if (item.line_id != null) ids.add(Number(item.line_id));
+    });
+    (station.schedule || []).forEach((row) => {
+      if (row.line_id != null) ids.add(Number(row.line_id));
+    });
+    return [...ids].sort((a, b) => a - b).join(",");
+  }, [station]);
+
+  useEffect(() => {
+    const stopId = station?.stop.id;
+    if (stopId == null || !stationLineKey) {
+      setDestinations([]);
+      return undefined;
+    }
+    const lineIds = stationLineKey.split(",").map(Number);
+    let cancelled = false;
+    Promise.all(
+      lineIds.map(async (lineId) => {
+        try {
+          return { lineId, payload: await getLineRef.current(lineId) };
+        } catch {
+          return null;
+        }
+      })
+    ).then((entries) => {
+      if (cancelled) return;
+      const groups = groupLinesByTerminus(
+        stopId,
+        entries.filter((entry): entry is { lineId: number; payload: VarnaLinePayload } => !!entry)
+      );
+      setDestinations(groups);
+      setDestLabel((current) => (current && groups.some((group) => group.label === current) ? current : null));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [station?.stop.id, stationLineKey]);
 
   useEffect(() => {
     let cancelled = false;
@@ -256,6 +310,10 @@ const Buses: React.FC = () => {
     if (!opts?.silent) {
       setLoading(true);
       setOpenBus(null);
+      if (!prev || prev.id !== stopId) {
+        setDestinations([]);
+        setDestLabel(null);
+      }
     }
     setMode("stop");
     setNote("");
@@ -468,6 +526,19 @@ const Buses: React.FC = () => {
       .filter((item) => item.times.length);
   }, [station, live]);
 
+  const allowedLines = useMemo(() => {
+    if (!destLabel) return null;
+    const group = destinations.find((item) => item.label === destLabel);
+    return group ? new Set(group.lineIds) : null;
+  }, [destLabel, destinations]);
+
+  const visibleLive = allowedLines
+    ? live.filter((item) => item.line_id != null && allowedLines.has(Number(item.line_id)))
+    : live;
+  const visibleSchedule = allowedLines
+    ? scheduleRows.filter((item) => item.row.line_id != null && allowedLines.has(Number(item.row.line_id)))
+    : scheduleRows;
+
   const currentDir = lineState?.directions.find((dir) => dir.direction === lineDir) || lineState?.directions[0];
 
   const filteredLines = useMemo(() => {
@@ -672,7 +743,44 @@ const Buses: React.FC = () => {
                 </button>
               )}
               <h2 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">{chosen.title}</h2>
-              {chosen.direction && <p className="text-sm font-medium text-teal-700 dark:text-teal-300">{chosen.direction}</p>}
+              {chosen.direction && destinations.length < 2 && (
+                <p className="text-sm font-medium text-teal-700 dark:text-teal-300">{chosen.direction}</p>
+              )}
+              {destinations.length > 1 && (
+                <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                  <button
+                    type="button"
+                    onClick={() => setDestLabel(null)}
+                    className={`h-8 shrink-0 rounded-full px-3 text-sm font-medium ${
+                      destLabel == null
+                        ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                        : "bg-slate-100 text-slate-600 dark:bg-slate-900 dark:text-slate-300"
+                    }`}
+                  >
+                    {t.all}
+                  </button>
+                  {destinations.map((dest) => {
+                    const active = dest.label === destLabel;
+                    return (
+                      <button
+                        key={dest.label}
+                        type="button"
+                        onClick={() => {
+                          setDestLabel(dest.label);
+                          if (openBus && !dest.lineIds.includes(openBus.lineId)) setOpenBus(null);
+                        }}
+                        className={`h-8 shrink-0 rounded-full px-3 text-sm font-medium ${
+                          active
+                            ? "bg-teal-700 text-white"
+                            : "bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-200"
+                        }`}
+                      >
+                        {dest.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
 
@@ -759,15 +867,17 @@ const Buses: React.FC = () => {
 
             {mode === "stop" && station && (
               <div>
-                {live.map((item) => renderArrival(item))}
-                {scheduleRows.length > 0 && (
+                {visibleLive.map((item) => renderArrival(item))}
+                {visibleSchedule.length > 0 && (
                   <div className="mt-2">
                     <p className="px-1 pt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-400">{t.schedule}</p>
-                    {scheduleRows.map((item) => renderArrival(item.row as unknown as VarnaArrival, item))}
+                    {visibleSchedule.map((item) => renderArrival(item.row as unknown as VarnaArrival, item))}
                   </div>
                 )}
-                {!live.length && !scheduleRows.length && !loading && (
-                  <p className="px-1 py-8 text-center text-sm text-slate-500">{t.none}</p>
+                {!visibleLive.length && !visibleSchedule.length && !loading && (
+                  <p className="px-1 py-8 text-center text-sm text-slate-500">
+                    {destLabel ? t.noneTowards(destLabel) : t.none}
+                  </p>
                 )}
               </div>
             )}

@@ -254,6 +254,25 @@ export function bestTerminusOnLine(payload: VarnaLinePayload | undefined, stopId
   return best;
 }
 
+export type StopDestination = { label: string; lineIds: number[] };
+
+export function groupLinesByTerminus(
+  stopId: number,
+  entries: { lineId: number; payload: VarnaLinePayload }[]
+): StopDestination[] {
+  const groups = new Map<string, number[]>();
+  entries.forEach(({ lineId, payload }) => {
+    const label = bestTerminusOnLine(payload, stopId).label;
+    if (!label) return;
+    const list = groups.get(label) || [];
+    if (!list.includes(lineId)) list.push(lineId);
+    groups.set(label, list);
+  });
+  return [...groups.entries()]
+    .map(([label, lineIds]) => ({ label, lineIds }))
+    .sort((a, b) => a.label.localeCompare(b.label, "bg"));
+}
+
 export function stopsUntil(dir: VarnaDirection | undefined, fromStopId: number | null | undefined, toStopId: number | null | undefined): number | null {
   if (fromStopId == null || toStopId == null) return null;
   const stations = dir?.stations || [];
