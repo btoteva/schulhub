@@ -17,6 +17,11 @@
     { "source": "/api/push/public-key", "destination": "/api/messaging?route=push-public-key" },
     { "source": "/api/push/subscribe", "destination": "/api/messaging?route=push-subscribe" },
     { "source": "/api/me/weekly-program", "destination": "/api/me?resource=weekly-program" },
+    { "source": "/api/varna/stops/nearest", "destination": "/api/varna?resource=nearest" },
+    { "source": "/api/varna/stops/:id", "destination": "/api/varna?resource=stop&id=:id" },
+    { "source": "/api/varna/stops", "destination": "/api/varna?resource=stops" },
+    { "source": "/api/varna/lines/:id", "destination": "/api/varna?resource=line&id=:id" },
+    { "source": "/api/varna/lines", "destination": "/api/varna?resource=lines" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }

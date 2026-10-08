@@ -14,7 +14,11 @@ import {
   isSuperAdmin,
 } from "./auth.js";
 import { ensureUsersTable, ensureUserChildrenTable, findUserById, findUserByUsername, findUserByEmail, findUserByUsernameOrEmail, createUser, listUsers, updateUserRole, updateUserPassword, updateUserEmail, updateUserSchoolClass, updateUserProfileType, updateUserGender, deleteUser, listUserChildren, listUserChildrenWithGender, addUserChild, getUserChild, updateUserChild, deleteUserChild, getParentInfoForStudent } from "./users-db.js";
+import { createRequire } from "module";
 import { mountMessagingRoutes } from "./messaging-local.js";
+
+const require = createRequire(import.meta.url);
+const varnaTraffic = require("../api/_varna-traffic.cjs");
 
 const app = express();
 app.use(cors({ origin: true }));
@@ -906,6 +910,65 @@ app.post("/api/progress", async (req, res) => {
     res.json({ ok: true });
   } catch (e) {
     res.status(500).json({ error: e.message });
+  }
+});
+
+function varnaError(res, err) {
+  const status = err && err.name === "VarnaTrafficError" ? 502 : 500;
+  res.status(status).json({ error: err.message || "Varna traffic error" });
+}
+
+app.get("/api/varna/stops/nearest", async (req, res) => {
+  const lat = Number(req.query.lat);
+  const lon = Number(req.query.lon);
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+    return res.status(400).json({ error: "lat and lon required" });
+  }
+  try {
+    res.json(await varnaTraffic.getNearestStops(lat, lon));
+  } catch (err) {
+    varnaError(res, err);
+  }
+});
+
+app.get("/api/varna/stops/:id", async (req, res) => {
+  const stopId = Number(req.params.id);
+  if (!Number.isFinite(stopId)) return res.status(400).json({ error: "stop id required" });
+  const fresh = req.query.fresh === "1" || req.query.fresh === "true";
+  try {
+    res.json(await varnaTraffic.getStation(stopId, fresh));
+  } catch (err) {
+    varnaError(res, err);
+  }
+});
+
+app.get("/api/varna/stops", async (req, res) => {
+  try {
+    res.json(await varnaTraffic.getStops(typeof req.query.q === "string" ? req.query.q : ""));
+  } catch (err) {
+    varnaError(res, err);
+  }
+});
+
+app.get("/api/varna/lines/:id", async (req, res) => {
+  const lineId = Number(req.params.id);
+  if (!Number.isFinite(lineId)) return res.status(400).json({ error: "line id required" });
+  const fresh = req.query.fresh === "1" || req.query.fresh === "true";
+  const direction = req.query.direction == null || req.query.direction === ""
+    ? null
+    : Number(req.query.direction);
+  try {
+    res.json(await varnaTraffic.getLineState(lineId, direction, fresh));
+  } catch (err) {
+    varnaError(res, err);
+  }
+});
+
+app.get("/api/varna/lines", async (req, res) => {
+  try {
+    res.json(await varnaTraffic.getLines());
+  } catch (err) {
+    varnaError(res, err);
   }
 });
 

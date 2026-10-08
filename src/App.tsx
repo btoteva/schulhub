@@ -58,6 +58,7 @@ import AdminWeeklyPrograms from "./pages/AdminWeeklyPrograms";
 import Messages from "./pages/Messages";
 import MessageThread from "./pages/MessageThread";
 import MessageSpace from "./pages/MessageSpace";
+import Buses from "./pages/Buses";
 
 const App: React.FC = () => {
   return (
@@ -68,6 +69,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/buses" element={<Buses />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />

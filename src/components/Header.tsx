@@ -142,6 +142,12 @@ const Header: React.FC = () => {
             >
               {t.aboutUs}
             </Link>
+            <Link
+              to="/buses"
+              className="text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 transition-all duration-300 font-semibold text-sm uppercase tracking-wider"
+            >
+              {language === "bg" ? "Автобуси" : language === "de" ? "Busse" : "Buses"}
+            </Link>
 
             {!offline && user ? (
               <div className="relative" ref={userMenuRef}>
@@ -402,6 +408,13 @@ const Header: React.FC = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               {t.aboutUs}
+            </Link>
+            <Link
+              to="/buses"
+              className="py-3 text-slate-700 dark:text-gray-300 hover:text-yellow-500 dark:hover:text-yellow-400 font-semibold"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {language === "bg" ? "Автобуси" : language === "de" ? "Busse" : "Buses"}
             </Link>
             {!offline && user ? (
               <>
